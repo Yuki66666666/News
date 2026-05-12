@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新創新聞日報 — 2026-05-12</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+    color: #fff;
+    padding: 28px 32px 24px;
+    border-bottom: 3px solid #e94560;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+  .header .sub { font-size: 13px; color: #a8b2d8; margin-top: 4px; }
+  .header .date-badge {
+    display: inline-block;
+    background: #e94560;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+  }
+  .toc {
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 12px 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .toc a {
+    font-size: 12px;
+    color: #0f3460;
+    text-decoration: none;
+    background: #eef2ff;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-weight: 500;
+  }
+  .toc a:hover { background: #0f3460; color: #fff; }
+  .content { max-width: 900px; margin: 0 auto; padding: 24px 24px 48px; }
+  .section {
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    overflow: hidden;
+  }
+  .section-header {
+    background: #0f3460;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-header .icon { font-size: 18px; }
+  .section-body { padding: 20px; }
+  .item {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  .item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .item-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f3460;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .item-title .en { color: #4a5568; font-weight: 600; }
+  .source-tag {
+    display: inline-block;
+    background: #eef2ff;
+    color: #4338ca;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .source-tag a { color: inherit; text-decoration: none; }
+  .source-tag a:hover { text-decoration: underline; }
+  .label {
+    font-weight: 700;
+    color: #0f3460;
+    font-size: 13px;
+  }
+  .facts { background: #f8faff; border-left: 3px solid #4338ca; padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; font-size: 13.5px; }
+  .context { font-size: 13.5px; color: #444; margin: 6px 0; }
+  .implications { background: #fff8f0; border-left: 3px solid #f97316; padding: 8px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; font-size: 13px; color: #7c3b00; }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 1px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    font-weight: 600;
+  }
+  .tag-seed { background: #dcfce7; color: #166534; }
+  .tag-seriesb { background: #dbeafe; color: #1e40af; }
+  .tag-ai { background: #fae8ff; color: #7e22ce; }
+  .tag-defense { background: #fee2e2; color: #991b1b; }
+  .tag-layoff { background: #fef9c3; color: #92400e; }
+  .tag-ipo { background: #ecfdf5; color: #065f46; }
+  .tag-acquisition { background: #fff1f2; color: #9f1239; }
+  .tag-europe { background: #eff6ff; color: #1d4ed8; }
+  .tag-china { background: #fef2f2; color: #b91c1c; }
+  .highlight-box {
+    background: linear-gradient(135deg, #eef2ff, #f8faff);
+    border: 1px solid #c7d2fe;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+  }
+  .highlight-box .num { font-size: 22px; font-weight: 800; color: #4338ca; }
+  .highlight-box .label2 { font-size: 12px; color: #6b7280; }
+  .stats-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+  .stat-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 12px 16px;
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+  }
+  .stat-card .val { font-size: 20px; font-weight: 800; color: #0f3460; }
+  .stat-card .lbl { font-size: 11px; color: #6b7280; margin-top: 2px; }
+  .top-story-badge {
+    display: inline-block;
+    background: #e94560;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 6px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .sources-footer {
+    background: #f1f5f9;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #64748b;
+  }
+  .sources-footer a { color: #4338ca; text-decoration: none; }
+  .sources-footer a:hover { text-decoration: underline; }
+  .sources-footer ul { padding-left: 18px; }
+  .sources-footer li { margin-bottom: 3px; }
+  .paywall-note { color: #dc2626; font-style: italic; }
+</style>
+</head>
+<body>
+<div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;padding:12px 16px 0;max-width:900px;margin:0 auto"><a href="../" style="color:#0066cc;text-decoration:none;">← 返回今日總覽</a></div>
+
+
+<div class="header">
+  <div class="date-badge">2026-05-12 · 星期二</div>
+  <h1>新創新聞日報 / Startup Daily Briefing</h1>
+  <div class="sub">募資・發表・收購・人事・裁員・上市・區域動態 | Funding · Launches · M&A · People · Layoffs · IPO · Regional</div>
+</div>
+
+<div class="toc">
+  <a href="#top-stories">頭條</a>
+  <a href="#funding">募資</a>
+  <a href="#launches">新公司發表</a>
+  <a href="#product">產品大事</a>
+  <a href="#ma">收購整併</a>
+  <a href="#people">人事</a>
+  <a href="#layoffs">裁員停業</a>
+  <a href="#ipo">上市進程</a>
+  <a href="#regional">區域焦點</a>
+  <a href="#reads">觀點好文</a>
+</div>
+
+<div class="content">
+
+  <!-- TOP STORIES -->
+  <div class="section" id="top-stories">
+    <div class="section-header"><span class="icon">🔥</span> 1. 頭條 / Top Stories</div>
+    <div class="section-body">
+
+      <div class="item">
+        <div class="item-title">
+          <span class="top-story-badge">頭條1</span>
+          Cerebras 本週四 NASDAQ 掛牌，AI 晶片 IPO 訂價上調至每股 $150–$160<br>
+          <span class="en">Cerebras AI Chip IPO Prices at $150–$160/share, Listing Thursday May 14 on NASDAQ as CBRS</span>
+        </div>
+        <div class="source-tag"><a href="https://www.cnbc.com/2026/05/10/cerebras-ipo-price-range.html" target="_blank">CNBC · 2026-05-10</a></div>
+        <div class="facts"><span class="label">核心事實 / Facts:</span> Cerebras Systems（CBRS）訂於 2026-05-13 夜間定價、5-14 於 NASDAQ 開始交易。最新訂價區間從原本 $115–$125 上調至 $150–$160/股，計劃發行 3,000 萬股 A 類股，募資約 $4.8B，全稀釋市值最高達 $48.8B。需求超額認購逾 20 倍。公司曾於 2026 年 2 月獲 Tiger Global 領投 $1B 私募，估值 $23.1B。
+        </div>
+        <div class="context"><span class="label">背景脈絡 / Context:</span> Cerebras 以「wafer-scale engine」架構正面挑戰 NVIDIA，主打 inference 速度。與 OpenAI 等大型 AI 公司有合作。原本受到外資審查擱置多時，最終於 2026 年初重啟上市計畫，並於 4 月更新 S-1。</div>
+        <div class="implications"><span class="label">影響觀察 / Implications:</span> 2026 年最大科技 IPO。若 Cerebras 首日表現強勁，將成為 AI 算力類新創掛牌的信心指標，可能催化 Databricks、CoreWeave 後續上市時程。需求 20x 超額，說明市場仍對 AI infrastructure 極度渴求。（分析）</div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          <span class="top-story-badge">頭條2</span>
+          中國 Moonshot AI（Kimi）完成 $2B 融資，估值達 $20B，成中國最大 LLM 單輪<br>
+          <span class="en">China's Moonshot AI (Kimi) Closes $2B Round at $20B Valuation — Largest Single LLM Raise in China</span>
+        </div>
+        <div class="source-tag"><a href="https://techcrunch.com/2026/05/07/chinas-moonshot-ai-raises-2b-at-20b-valuation-as-demand-for-open-source-ai-skyrockets/" target="_blank">TechCrunch · 2026-05-07</a></div>
+        <div class="facts"><span class="label">核心事實 / Facts:</span> 北京 Moonshot AI 完成約 $2B 融資，估值 $20B+，由美團旗下 Long-Z Investments 領投，清華控股、中國移動、CPE 源峰參投。年化營收（ARR）4 月已突破 $200M，過去 6 個月累計融資約 $3.9B。2025 年底估值僅 $4.3B，半年翻近 5 倍。</div>
+        <div class="context"><span class="label">背景脈絡 / Context:</span> Moonshot 旗下 Kimi 模型以長上下文、開源策略打差異化，付費訂閱與 API 商業化均快速增長。競品包括 ByteDance Doubao、Alibaba Qwen、DeepSeek 及 Zhipu Z.ai，同時與 OpenAI GPT、Google Gemini、Anthropic Claude 正面競爭。本輪為中國 LLM 賽道迄今最大單輪。</div>
+        <div class="implications"><span class="label">影響觀察 / Implications:</span> 中國 LLM 賽道燒錢速度比肩美國，且有國企資本（中國移動）撐腰，說明政府對自主可控 AI 的投資意志不減。$200M ARR 代表商業化已有真實基礎，不只是估值泡沫。競品融資壓力將上升。（分析）</div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          <span class="top-story-badge">頭條3</span>
+          AI 裁員潮加速：Cloudflare、Upwork、Coinbase 五月合計砍千餘人，均指向 AI 重組<br>
+          <span class="en">AI-Driven Layoffs Accelerate: Cloudflare (-20%), Upwork (-24%), Coinbase (-14%) Cut Jobs in Early May</span>
+        </div>
+        <div class="source-tag"><a href="https://www.fastcompany.com/91538995/tech-layoffs-due-to-ai-this-week-cloudflare-paypal-coinbase-upwork" target="_blank">Fast Company · 2026-05</a></div>
+        <div class="facts"><span class="label">核心事實 / Facts:</span> 5 月前 10 天全美科技裁員近 38,000 人；Cloudflare 裁 1,100 人（20% 員工），Upwork 裁 145 人（24%），Coinbase 裁約 660 人（14%），PayPal 宣布裁 4,760 人。全年迄今已有 286 家科技公司裁員，共 128,270 人受影響。</div>
+        <div class="context"><span class="label">背景脈絡 / Context:</span> Cloudflare 內部 AI 使用量三個月內成長 600%，Upwork 則因 freelance 平台模式直接受 AI 替代衝擊。Coinbase 同期因 AWS 停機導致平台中斷，疊加 Q1 虧損，雙重壓力下削減人力。各公司皆將裁員定性為「AI 重組」而非景氣下滑。</div>
+        <div class="implications"><span class="label">影響觀察 / Implications:</span> 裁員被包裝為「效率升級」，但 Upwork 的案例最直白——其商業模式本身就是 AI 威脅標的。這波裁員訊號：AI 不只改變產品，已直接改變公司組織結構。工程師以外，客服、內容、中階管理層受衝擊最重。（分析）</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FUNDING -->
+  <div class="section" id="funding">
+    <div class="section-header"><span class="icon">💰</span> 2. 募資 / Funding Rounds</div>
+    <div class="section-body">
+
+      <div class="item">
+        <div class="item-title">
+          Moonshot AI（Kimi）完成 $2B 融資 / Moonshot AI Closes $2B at $20B Valuation
+          <span class="tag tag-ai">AI</span><span class="tag tag-china">中國</span>
+        </div>
+        <div class="source-tag"><a href="https://techcrunch.com/2026/05/07/chinas-moonshot-ai-raises-2b-at-20b-valuation-as-demand-for-open-source-ai-skyrockets/" target="_blank">TechCrunch · 2026-05-07</a></div>
+        <div class="facts"><span class="label">核心事實:</span> 金額 $2B，估值 $20B+，美團 Long-Z Investments 領投，ARR $200M+，累計融資近 $4B。</div>
+        <div class="context"><span class="label">背景脈絡:</span> 過去 6 個月估值從 $4.3B 躍升至 $20B，成長近 5 倍。本輪係中國 LLM 賽道史上最大單輪。</div>
+        <div class="implications"><span class="label">影響觀察:</span> 美元資金流入中國 AI 仍受限，但人民幣資本（國企+大廠系）補位完整。若 Kimi 模型持續開源，將持續壓縮整體 API 定價。（分析）</div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          Parallel Web Systems Series B $100M — 前 Twitter CEO Parag Agrawal AI 代理網路基礎設施<br>
+          <span class="en">Parallel Web Systems Raises $100M Series B at $2B Valuation for AI Agent Web Infrastructure</span>
+          <span class="tag tag-seriesb">Series B</span><span class="tag tag-ai">AI</span>
+        </div>
+        <div class="source-tag"><a href="https://techcrunch.com/2026/04/29/parallel-web-systems-hits-2b-valuation-five-months-after-its-last-big-raise/" target="_blank">TechCrunch · 2026-04-29</a></div>
+        <div class="facts"><span class="label">核心事實:</span> 金額 $100M，post-money 估值 $2B，Sequoia 領投，Kleiner Perkins、Index Ventures、Khosla、First Round 等跟投。累計融資 $230M。客戶包含 Clay、Harvey、Notion、Opendoor；開發者用戶逾 10 萬。</div>
+        <div class="context"><span class="label">背景脈絡:</span> 距 Series A（$100M @ $740M）僅 5 個月，估值暴漲 2.7 倍。Parag Agrawal 離開 Twitter（X）後的第一家新公司，主打 AI 代理所需的網路搜尋與研究 API，填補 LLM 輸出與即時網路資料之間的橋樑。</div>
+        <div class="implications"><span class="label">影響觀察:</span> AI agent infrastructure 是 2026 最熱主題，Parallel 的成長速度說明 agent 商業化已具真實付費需求。競品包括 Exa、Perplexity API、Tavily 等。（分析）</div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          Firestorm Labs Series B $82M — 可部署貨櫃式無人機工廠<br>
+          <span class="en">Firestorm Labs Raises $82M Series B for Containerized Field Drone Factories</span>
+          <span class="tag tag-seriesb">Series B</span><span class="tag tag-defense">Defense</span>
+        </div>
+        <div class="source-tag"><a href="https://techcrunch.com/2026/04/29/firestorm-labs-raises-82m-to-take-drone-factories-into-the-field/" target="_blank">TechCrunch · 2026-04-29</a></div>
+        <div class="facts"><span class="label">核心事實:</span> 金額 $82M，Washington Harbour Partners 領投，NEA、In-Q-Tel、Lockheed Martin、Booz Allen Ventures 等參投，累計融資 $153M。核心產品 xCell：一個 20 英尺貨櫃內置 HP Multi Jet Fusion 3D 印表機，可空運至前線基地。空軍合約上限 $100M，已承諾 $27M。</div>
+        <div class="context"><span class="label">背景脈絡:</span> Firestorm 原是無人機製造商，因客戶要求將生產線移至前線而樞紐為「工廠即產品」模式。CEO Dan Magy 為連續國防科技創業者；CTO Ian Muceus 持有 12 項以上 3D 列印專利。</div>
+        <div class="implications"><span class="label">影響觀察:</span> 戰場即時補給邏輯顛覆傳統「後方生產、前線補充」模式，貨櫃化工廠模型可快速複製至盟國。Lockheed Martin 參投代表傳統防工業正積極押注新創。（分析）</div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          Ebury 籌資約 £550M — Santander 擴大股份至 55%<br>
+          <span class="en">UK Fintech Ebury Raising ~£550M as Santander Increases Stake to 55%</span>
+          <span class="tag tag-europe">Europe</span>
+        </div>
+        <div class="source-tag">Crunchbase News / Bloomberg · 2026-05</div>
+        <div class="facts"><span class="label">核心事實:</span> 金額約 £550M（undisclosed post-money），Santander 為現有大股東並增持至 55%。Ebury 是英國跨境支付與 FX 新創，服務中小企業。</div>
+        <div class="context"><span class="label">背景脈絡:</span> Santander 2019 年即投資 Ebury，此輪大幅增持意味雙方整合將加深。歐洲 fintech 此時仍以整合為主調。</div>
+        <div class="implications"><span class="label">影響觀察:</span> 銀行系戰略入股新創後逐步加碼控股，是歐洲 fintech 常見退出路徑之一。獨立 IPO 可能性隨持股集中而降低。（分析）</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LAUNCHES -->
+  <div class="section" id="launches">
+    <div class="section-header"><span class="icon">🚀</span> 3. 新公司發表 / Launches & Stealth-Out</div>
+    <div class="section-body">
+
+      <div class="item">
+        <div class="item-title">
+          Product Hunt 本週熱門：FlowMarket、Claude Agents for Financial Services、MESA<br>
+          <span class="en">Product Hunt Trending This Week: FlowMarket, Claude Agents for Financial Services, MESA</span>
+        </div>
+        <div class="source-tag"><a href="https://www.producthunt.com/" target="_blank">Product Hunt · 2026-05</a></div>
+        <div class="facts"><span class="label">核心事實:</span> 本週 Product Hunt 熱門包含 FlowMarket（市場交易自動化）、Claude Agents for Financial Services（Anthropic 金融服務代理整合）、MESA（多步驟工作流代理平台）。May 2026 月榜亦出現 Kanwas、Monid 2.0、Superset 2.0、Huddle01 VMs 等。</div>
+        <div class="context"><span class="label">背景脈絡:</span> AI agent 工作流工具持續主導 PH 榜單，傳統 SaaS 工具若無 agent 整合難以破榜。金融服務是 2026 agent 應用最快滲透的垂直領域之一。</div>
+        <div class="implications"><span class="label">影響觀察:</span> Claude 直接在 PH 上架金融服務 agent，說明 Anthropic 商業化策略已從 API 延伸至垂直應用整合。將對獨立金融 AI 新創產生競爭壓力。（分析）</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PRODUCT -->
+  <div class="section" id="product">
+    <div class="section-header"><span class="icon">📦</span> 4. 產品大事 / Notable Product Launches</div>
+    <div class="section-body">
+
+      <div class="item">
+        <div class="item-title">
+          Parallel Web Systems：AI 代理專屬網路搜尋與研究 API 套件<br>
+          <span class="en">Parallel Web Systems: Search & Research API Suite Exclusively for AI Agents</span>
+          <span class="tag tag-ai">AI</span>
+        </div>
+        <div class="source-tag"><a href="https://siliconangle.com/2026/04/28/parag-agrawals-startup-raises-100m-build-parallel-web-ai-agents/" target="_blank">SiliconANGLE · 2026-04-28</a></div>
+        <div class="facts"><span class="label">核心事實:</span> Parallel 提供一套讓 AI agent 能即時搜尋、擷取及研究網路資料的 API 產品群，客戶涵蓋 Clay、Harvey、Notion、Opendoor 等。開發者用戶突破 10 萬。</div>
+        <div class="context"><span class="label">背景脈絡:</span> LLM 本身不具備即時網路存取，Parallel 填補這一空缺，類似 Exa、Tavily 但定位在更高階的研究場景。</div>
+        <div class="implications"><span class="label">影響觀察:</span> AI agent 基礎設施層的商業化已進入快速成熟期，開發者生態黏著度是護城河關鍵。（分析）</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- M&A -->
+  <div class="section" id="ma">
+    <div class="section-header"><span class="icon">🤝</span> 5. 收購與整併 / Acquisitions & Consolidation</div>
+    <div class="section-body">
+
+      <div class="item">
+        <div class="item-title">
+          Adyen 以 €750M 收購忠誠度平台 Talon.One — 首次重大收購<br>
+          <span class="en">Adyen Acquires Loyalty Platform Talon.One for €750M in Its First Major Acquisition</span>
+          <span class="tag tag-acquisition">Acquisition</span><span class="tag tag-europe">Europe</span>
+        </div>
+        <div class="source-tag"><a href="https://www.adyen.com/press-and-media/2i4hnm0pfcpvc7" target="_blank">Adyen 官方公告 · 2026-04-23</a></div>
+        <div class="facts"><span class="label">核心事實:</span> 交易金額 €750M，全現金。Talon.One 2015 年成立於柏林，服務 300+ 全球品牌商，預計 2026 年底 ARR 約 €60M，近年年增率 30–40%。聯創 Christoph Gerber、Sebastian Haas 將以部分收益認購 Adyen 新股。預計 2026 下半年完成。</div>
+        <div class="context"><span class="label">背景脈絡:</span> 這是 Adyen 成立以來首次重大收購，打破「有機成長」慣例。Talon.One 提供即時促銷、折扣、忠誠度決策引擎，補足 Adyen 在支付後端的商務智能缺口。</div>
+        <div class="implications"><span class="label">影響觀察:</span> 支付公司向上游「商務作業系統」擴張的趨勢明確，Talon.One 競品（如 Braze、Klaviyo）需警惕被 Adyen 的交易數據優勢壓縮。對歐洲 B2B SaaS 是重要退出案例，ARR 倍數約 12.5x，合理。（分析）</div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          Eli Lilly 以最高 $2.4B 收購 Orna Therapeutics — 進軍體內 CAR-T<br>
+          <span class="en">Eli Lilly Acquires Orna Therapeutics for up to $2.4B to Enter In Vivo CAR-T Arena</span>
+          <span class="tag tag-acquisition">Acquisition</span>
+        </div>
+        <div class="source-tag"><a href="https://investor.lilly.com/news-releases/news-release-details/lilly-acquire-orna-therapeutics-advance-cell-therapies" target="_blank">Eli Lilly 官方 · 2026-02-09</a></div>
+        <div class="facts"><span class="label">核心事實:</span> 交易總金額最高 $2.4B（含里程碑付款），Orna 2019 年成立，累計融資 $321M，投資人包括 Merck、Taiho Ventures、MPM BioImpact。核心技術：環狀 RNA（oRNA）+ 脂質奈米粒，讓患者自身產生 CAR-T 細胞治療自體免疫疾病。</div>
+        <div class="context"><span class="label">背景脈絡:</span> 傳統 CAR-T 需體外製造，昂貴且耗時；體內 CAR-T 若成功將大幅降低門檻。Lilly 此舉標誌其正式進入 RNA medicine 療法競賽。</div>
+        <div class="implications"><span class="label">影響觀察:</span> 生技創業的「7 年退出」樣板：2019 年成立→ 2026 年 $2.4B 退出。大藥廠持續以收購取代自研，RNA 技術平台新創估值受支撐。（分析）</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PEOPLE -->
+  <div class="section" id="people">
+    <div class="section-header"><span class="icon">👤</span> 6. 人事 / People Moves</div>
+    <div class="section-body">
+
+      <div class="item">
+        <div class="item-title">
+          Shield AI 任命 Gary Steele 為 CEO，Ryan Tseng 轉任 President<br>
+          <span class="en">Shield AI Names Gary Steele CEO; Co-Founder Ryan Tseng Moves to President Role</span>
+          <span class="tag tag-defense">Defense</span>
+        </div>
+        <div class="source-tag"><a href="https://shield.ai/shield-ai-appoints-gary-steele-as-ceo-ryan-tseng-named-president/" target="_blank">Shield AI 官方 · 2025-12</a></div>
+        <div class="facts"><span class="label">核心事實:</span> Gary Steele 前任 Cisco（執行副總）、Splunk CEO、Proofpoint 創辦 CEO。Shield AI 估值 $5.6B，開發 AI 飛行員（Hivemind）技術，服務美國及盟國軍方。Ryan Tseng 以聯合創辦人身份轉任 President，聚焦政策與 BD。</div>
+        <div class="context"><span class="label">背景脈絡:</span> Steele 在 Splunk 期間將營收年成長提升至 58%，擅長將高成長技術公司推向規模化乃至 IPO。Shield AI 被視為接近 IPO 的國防科技獨角獸。</div>
+        <div class="implications"><span class="label">影響觀察:</span> 引入外部「職業 CEO」通常是 IPO 前的標準動作，Shield AI 上市計劃時程或將明朗化。（分析）</div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          Ryan Breslow 重返 Bolt Financial CEO 職位<br>
+          <span class="en">Ryan Breslow Reinstated as CEO of Bolt Financial</span>
+        </div>
+        <div class="source-tag">Business Insider / TechCrunch · 2026</div>
+        <div class="facts"><span class="label">核心事實:</span> Bolt 共同創辦人 Ryan Breslow 重返 CEO 一職。Bolt 是一站式電商結帳新創，曾在 2021–22 年高峰估值達 $11B，後來歷經估值大幅縮水與內部紛爭。</div>
+        <div class="context"><span class="label">背景脈絡:</span> Breslow 於 2022 年首度離職，引發治理爭議；此次復位與公司重組計畫同步推進。Bolt 近年在 AI 結帳加速領域重新定位。</div>
+        <div class="implications"><span class="label">影響觀察:</span> 創辦人回鍋是高壓新創常見劇本，Bolt 能否成功轉型 AI-native 結帳平台，決定其下一輪估值走向。（分析）</div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          SnapLogic 任命 Brad Stewart 接任 CEO；創辦人 Gaurav Dhillon 退休<br>
+          <span class="en">SnapLogic Appoints Brad Stewart as CEO; Founder Gaurav Dhillon Retires</span>
+        </div>
+        <div class="source-tag">SnapLogic 官方 · 2026</div>
+        <div class="facts"><span class="label">核心事實:</span> Brad Stewart 出任 SnapLogic（代理整合平台）CEO，接替創辦人兼 CEO Gaurav Dhillon 退休。SnapLogic 主打 agentic integration，已轉型為 AI 驅動企業整合平台。</div>
+        <div class="context"><span class="label">背景脈絡:</span> SnapLogic 已成立超過 15 年，在企業中介軟體領域具一定市場份額，此次換帥反映公司進入成熟規模化階段。</div>
+        <div class="implications"><span class="label">影響觀察:</span> 企業整合平台在 AI agent 爆發期面臨重要機遇，新任 CEO 的策略取向將決定 SnapLogic 能否搭上 agent orchestration 趨勢。（分析）</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LAYOFFS -->
+  <div class="section" id="layoffs">
+    <div class="section-header"><span class="icon">⚠️</span> 7. 裁員與停業 / Layoffs & Shutdowns</div>
+    <div class="section-body">
+
+      <div class="stats-row">
+        <div class="stat-card"><div class="val">38,000+</div><div class="lbl">5 月前 10 天美國科技裁員人數</div></div>
+        <div class="stat-card"><div class="val">286</div><div class="lbl">2026 年迄今裁員科技公司數</div></div>
+        <div class="stat-card"><div class="val">128,270</div><div class="lbl">2026 年科技業受裁總人數</div></div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          Cloudflare 裁 1,100 人（20% 全球員工）<br>
+          <span class="en">Cloudflare Cuts 1,100+ Employees (~20% of Global Workforce)</span>
+          <span class="tag tag-layoff">Layoff</span>
+        </div>
+        <div class="source-tag"><a href="https://www.fastcompany.com/91538995/tech-layoffs-due-to-ai-this-week-cloudflare-paypal-coinbase-upwork" target="_blank">Fast Company · 2026-05</a></div>
+        <div class="facts"><span class="label">核心事實:</span> 裁員 1,100+ 人，約佔全球員工 20%。公司表示內部 AI 使用量三個月增長 600%，生產力提升已可抵消人力規模。</div>
+        <div class="implications"><span class="label">影響觀察:</span> Cloudflare 是基礎設施公司，其大幅裁員顯示即便「AI 受益股」也在用 AI 替代人力。600% AI 使用成長是結構性指標，非一時現象。（分析）</div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          Upwork 裁 145 人（24% 員工），freelance 平台商業模式受 AI 直接威脅<br>
+          <span class="en">Upwork Lays Off 145 (~24%), Freelance Platform Business Model Directly Threatened by AI</span>
+          <span class="tag tag-layoff">Layoff</span>
+        </div>
+        <div class="source-tag"><a href="https://layoffhedge.com/company/upwork" target="_blank">LayoffHedge · 2026-05-07</a></div>
+        <div class="facts"><span class="label">核心事實:</span> 裁員 145 人，約為 600 人員工的 24%，伴隨 Q1 財報發布，股價單日跌 19%。目標：「更精實的運營模式」以實現獲利。</div>
+        <div class="context"><span class="label">背景脈絡:</span> Upwork 平台媒合自由接案者，AI coding、AI 寫作、AI 設計工具的普及直接侵蝕其核心需求。公司正試圖轉型 AI-augmented freelance marketplace。</div>
+        <div class="implications"><span class="label">影響觀察:</span> 最誠實的 AI 衝擊訊號：一家「依賴人類勞動力媒合」的平台主動大幅裁員，說明管理層已認定 AI 替代趨勢不可逆。（分析）</div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          Coinbase 裁員 660 人（14%），定性為 AI 重組而非市場衰退<br>
+          <span class="en">Coinbase Cuts 660 (~14%), Frames as AI Restructuring Not Market Downturn</span>
+          <span class="tag tag-layoff">Layoff</span>
+        </div>
+        <div class="source-tag"><a href="https://www.coindesk.com/business/2026/05/08/coinbase-disruption-tied-to-aws-outage-draws-criticism-amid-staff-layoffs-and-q1-losses" target="_blank">CoinDesk · 2026-05-08</a></div>
+        <div class="facts"><span class="label">核心事實:</span> CEO Brian Armstrong 宣布裁員 660 人（14%），同期因 AWS 停機導致平台中斷，Q1 出現虧損。裁員定性為向「更小、AI 強化團隊」轉型。</div>
+        <div class="implications"><span class="label">影響觀察:</span> Coinbase 同時面臨 AWS 依賴風險與人力重組壓力，兩件事疊加對品牌傷害較大。加密交易所在基礎設施自主性上仍有明顯短板。（分析）</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- IPO -->
+  <div class="section" id="ipo">
+    <div class="section-header"><span class="icon">📈</span> 8. 上市進程 / IPO Pipeline</div>
+    <div class="section-body">
+
+      <div class="item">
+        <div class="item-title">
+          Cerebras Systems（CBRS）— 2026 最大科技 IPO，5 月 14 日 NASDAQ 掛牌<br>
+          <span class="en">Cerebras Systems (CBRS): 2026's Biggest Tech IPO, Lists NASDAQ May 14</span>
+          <span class="tag tag-ipo">IPO</span><span class="tag tag-ai">AI</span>
+        </div>
+        <div class="source-tag"><a href="https://www.techstackipo.com/ipo/cerebras" target="_blank">TechStackIPO</a> · <a href="https://www.cnbc.com/2026/05/10/cerebras-ipo-price-range.html" target="_blank">CNBC · 2026-05-10</a></div>
+        <div class="facts"><span class="label">核心事實:</span> 訂價區間 $150–$160/股（2 次上調），發行 3,000 萬股，預計募資 $4.8B，全稀釋市值最高 $48.8B，NASDAQ 代碼 CBRS。5-13 夜間定價，5-14 開始交易。超額認購 20 倍以上。</div>
+        <div class="context"><span class="label">背景脈絡:</span> Cerebras 最初 IPO 受 CFIUS 審查阻礙（因沙烏地阿拉伯大型股東），2025 年達成協議後重啟，2026 年 2 月完成 $1B 私募融資（Tiger Global 領投，估值 $23.1B），隨即啟動正式上市流程。</div>
+        <div class="implications"><span class="label">影響觀察:</span> 若首日交易順利，估值接近 $50B，將對 NVIDIA 競爭敘事形成重要驗證。20x 超額認購代表機構投資人對 AI 推論晶片需求的強烈信念。Databricks、SpaceX IPO 時程或將受此提振。（分析）</div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          SpaceX 已向 SEC 提交機密草稿招股書，最快 2026 年中 NASDAQ 掛牌<br>
+          <span class="en">SpaceX Files Confidential Draft S-1 with SEC; Possible Nasdaq Listing by Mid-2026</span>
+          <span class="tag tag-ipo">IPO</span>
+        </div>
+        <div class="source-tag"><a href="https://newspaceeconomy.ca/2026/04/23/spacex-s-1-filing-sets-stage-for-largest-ipo-in-history/" target="_blank">New Space Economy · 2026-04-23</a></div>
+        <div class="facts"><span class="label">核心事實:</span> 2026 年 4 月 1 日向 SEC 提交機密草稿招股書（confidential draft registration statement）。市場預期 6 月可能掛牌，預估估值 $1.5T，或成史上最大 IPO。</div>
+        <div class="context"><span class="label">背景脈絡:</span> SpaceX Starship 成功商業化、Starlink 訂閱用戶持續增長，為 IPO 提供強大基本面。Elon Musk 態度轉趨開放，政治風向亦較 2023 年友好。</div>
+        <div class="implications"><span class="label">影響觀察:</span> $1.5T 若屬實，將超越歷史上所有 IPO 記錄（含沙烏地 Aramco 2019 年 $25.6B 募資），對整體市場流動性影響深遠。（分析）</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- REGIONAL -->
+  <div class="section" id="regional">
+    <div class="section-header"><span class="icon">🌏</span> 9. 區域焦點 / Regional Spotlight</div>
+    <div class="section-body">
+
+      <div class="item">
+        <div class="item-title">
+          【中國】Moonshot AI $20B 估值成中國 LLM 賽道標竿；開源策略加速競品壓力<br>
+          <span class="en">[China] Moonshot AI's $20B Valuation Sets LLM Benchmark; Open-Source Strategy Pressures Rivals</span>
+          <span class="tag tag-china">中國</span><span class="tag tag-ai">AI</span>
+        </div>
+        <div class="source-tag"><a href="https://siliconangle.com/2026/05/07/open-source-ai-developer-moonshot-ai-raises-2b-20b-valuation/" target="_blank">SiliconANGLE · 2026-05-07</a></div>
+        <div class="facts"><span class="label">核心事實:</span> Kimi 模型已達 $200M+ ARR，在中國 LLM 市場快速搶佔份額。開源策略吸引企業用戶採用。與 ByteDance Doubao、Alibaba Qwen、DeepSeek 展開激烈競爭。</div>
+        <div class="implications"><span class="label">影響觀察:</span> 中國 LLM 市場已進入「百模大戰」後的寡頭整合階段，Moonshot 憑藉開源 + 高 ARR 取得先機，但資本消耗速度驚人，盈利路徑仍不明確。（分析）</div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          【歐洲】AI 帶動歐洲 Q1 2026 連續第二季募資成長；Earlybird €360M 深科技基金完成<br>
+          <span class="en">[Europe] AI Drives Europe's 2nd Straight Quarter of Funding Growth; Earlybird Closes €360M Deeptech Fund</span>
+          <span class="tag tag-europe">Europe</span>
+        </div>
+        <div class="source-tag"><a href="https://news.crunchbase.com/venture/funding-picked-up-ai-led-europe-q1-2026/" target="_blank">Crunchbase News · 2026</a></div>
+        <div class="facts"><span class="label">核心事實:</span> 歐洲 Q1 2026 新創募資在 AI 帶動下連續第二季成長，交易量雖下滑但金額上升。Earlybird 完成 €360M 深科技基金，聚焦 AI、晶片、工業軟體、能源。空間科技 2025 年在歐洲募資達 €1.4B。</div>
+        <div class="context"><span class="label">背景脈絡:</span> 歐洲 AI 新創估值與融資規模仍落後美國，但 Adyen-Talon.One 收購案與 Ebury 大額融資顯示金融科技整合持續進行。</div>
+        <div class="implications"><span class="label">影響觀察:</span> 歐洲的「成長期」融資仍依賴美國 VC 參與，本土基金規模尚不足以支撐 Series C/D 以上輪次。Earlybird €360M 基金是正面信號但整體缺口仍大。（分析）</div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          【生技/美國】5 月前 10 日生技新創 M&A：Eli Lilly 以最高 $2.4B 收購 Orna Therapeutics<br>
+          <span class="en">[Biotech/US] Eli Lilly Acquires Orna Therapeutics for up to $2.4B, Signaling In Vivo CAR-T Consolidation</span>
+        </div>
+        <div class="source-tag"><a href="https://news.crunchbase.com/health-wellness-biotech/startup-ma-ipo-delivering-exits/" target="_blank">Crunchbase News</a></div>
+        <div class="facts"><span class="label">核心事實:</span> 2026 年生技 M&A 依舊活躍，Orna 是最具代表性的退出案例之一（7 年、$321M 融資 → $2.4B 退出，回報倍數約 7.5x）。</div>
+        <div class="implications"><span class="label">影響觀察:</span> 生技 VC 的主要退出路徑仍以大藥廠收購為主，RNA 技術平台估值仍受大廠需求支撐，即便 mRNA 熱潮已過。（分析）</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- READS -->
+  <div class="section" id="reads">
+    <div class="section-header"><span class="icon">📚</span> 10. 觀點 / Reads</div>
+    <div class="section-body">
+
+      <div class="item">
+        <div class="item-title">
+          COMPUTE 成為新創市場過濾器 — 2026 年募資的隱藏門檻<br>
+          <span class="en">Compute as Market Filter — The Hidden Fundraising Threshold of 2026</span>
+        </div>
+        <div class="source-tag">WSJ / Bloomberg · 2026-05</div>
+        <div class="context">2026 年新創能否獲得 GPU 配額、與雲端供應商談到什麼合約、是否能自主控制推論成本，已成為投資人篩選的隱性標準。Alphabet Q1 淨利年增 81%（$62.6B），Google Cloud 是主要獲利引擎，顯示算力集中在少數巨頭。新創若無明確的算力取得策略，融資困難度將大幅上升。</div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          裁員即訊號：AI 替代進程的三個觀察維度<br>
+          <span class="en">Layoffs as Signal: Three Dimensions of AI Substitution in 2026</span>
+        </div>
+        <div class="source-tag"><a href="https://247wallst.com/investing/2026/05/07/tens-of-thousands-of-tech-workers-are-being-laid-off-in-2026-the-725-billion-that-replaced-them-is-going-to-four-companies/" target="_blank">24/7 Wall St. · 2026-05-07</a></div>
+        <div class="context">$725B AI 投資集中流向四大科技巨頭（Google、Microsoft、Amazon、Meta），而其雇員人數同期下滑。這揭示一個結構矛盾：AI 投資愈多，雇用人數愈少，傳統「tech jobs = tech investment growth」的等式正在瓦解。對新創而言，「用 10 人做 100 人的事」不再是夢話，而是投資人的基本預期。</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources-footer">
+    <strong>資料來源 / Sources</strong>
+    <ul>
+      <li><a href="https://techcrunch.com/" target="_blank">TechCrunch</a> — Moonshot AI, Parallel Web Systems, Firestorm Labs</li>
+      <li><a href="https://news.crunchbase.com/" target="_blank">Crunchbase News</a> — Europe Q1 funding, biotech M&A</li>
+      <li><a href="https://www.bloomberg.com/technology" target="_blank">Bloomberg</a> — Moonshot AI valuation <span class="paywall-note">[paywall]</span></li>
+      <li><a href="https://www.theinformation.com/" target="_blank">The Information</a> — Parallel Web Systems details <span class="paywall-note">[paywall]</span></li>
+      <li><a href="https://www.cnbc.com/" target="_blank">CNBC</a> — Cerebras IPO price range</li>
+      <li><a href="https://www.fastcompany.com/" target="_blank">Fast Company</a> — Layoffs roundup</li>
+      <li><a href="https://layoffhedge.com/" target="_blank">LayoffHedge</a> / <a href="https://layoffs.fyi/" target="_blank">Layoffs.fyi</a> — Upwork, Coinbase data</li>
+      <li><a href="https://www.adyen.com/" target="_blank">Adyen 官方</a> — Talon.One acquisition</li>
+      <li><a href="https://investor.lilly.com/" target="_blank">Eli Lilly IR</a> — Orna Therapeutics acquisition</li>
+      <li><a href="https://www.producthunt.com/" target="_blank">Product Hunt</a> — Launch trends</li>
+      <li><a href="https://www.newcomer.co/" target="_blank">Newcomer</a> — Parallel Web Systems exclusive <span class="paywall-note">[paywall]</span></li>
+      <li><a href="https://sifted.eu/" target="_blank">Sifted</a> — Europe startup data</li>
+      <li><a href="https://stockanalysis.com/ipos/" target="_blank">Stock Analysis IPO</a> — Cerebras / SpaceX pipeline</li>
+      <li><a href="https://finance.yahoo.com/" target="_blank">Yahoo Finance / Reuters</a> — Layoff acceleration reporting</li>
+    </ul>
+    <div style="margin-top:8px; color:#94a3b8; font-size:11px;">
+      ⚠️ 付費牆來源 (Paywalled): Bloomberg、The Information、Newcomer、WSJ — 部分細節以公開摘要補充。<br>
+      資料截止：2026-05-12 Asia/Taipei。分析段落標有「（分析）」以區別事實陳述。
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

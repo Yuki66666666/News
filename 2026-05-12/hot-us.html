@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美股熱門個股 — 2026-05-12</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.6;
+    padding: 0 0 40px 0;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    padding: 24px 28px 20px;
+  }
+  .header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.3px; }
+  .header .subtitle { font-size: 0.85rem; color: #a0b0c8; margin-top: 4px; }
+  .session-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    margin-top: 8px;
+  }
+  .container { padding: 20px 24px; max-width: 1100px; }
+  h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f3460;
+    margin: 28px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #0f3460;
+  }
+  .summary-table-wrap { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  }
+  thead tr { background: #0f3460; color: #fff; }
+  thead th { padding: 10px 12px; text-align: left; font-weight: 600; white-space: nowrap; }
+  tbody tr { border-bottom: 1px solid #eef0f4; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #f0f4ff; }
+  tbody td { padding: 10px 12px; vertical-align: middle; }
+  .ticker-sym { font-weight: 700; font-size: 0.95rem; color: #0f3460; }
+  .up { color: #00a651; font-weight: 700; }
+  .down { color: #d0021b; font-weight: 700; }
+  .buzz-stars { color: #f5a623; }
+  .ticker-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 1px solid #eef0f4;
+  }
+  .card-ticker {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #0f3460;
+    min-width: 70px;
+  }
+  .card-name { font-size: 0.9rem; color: #444; }
+  .card-badge {
+    margin-left: auto;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .badge-up { background: #e6f9ee; color: #00703a; }
+  .badge-down { background: #fde8ea; color: #a0001e; }
+  .card-body { padding: 16px 20px; }
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #0f3460;
+    margin: 14px 0 4px;
+    border-left: 3px solid #0f3460;
+    padding-left: 6px;
+  }
+  .section-label:first-child { margin-top: 0; }
+  .tape-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .tape-pill {
+    background: #f0f4ff;
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #333;
+  }
+  p { font-size: 0.87rem; color: #333; margin: 4px 0 8px; }
+  .bilingual-block { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 640px) { .bilingual-block { grid-template-columns: 1fr; } }
+  .zh { background: #f8faff; border-left: 3px solid #4a90d9; padding: 8px 10px; border-radius: 0 4px 4px 0; font-size: 0.86rem; }
+  .en { background: #f9f9f9; border-left: 3px solid #aac; padding: 8px 10px; border-radius: 0 4px 4px 0; font-size: 0.86rem; }
+  .options-box {
+    background: #fffbf0;
+    border: 1px solid #f5e6b0;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.83rem;
+    color: #444;
+  }
+  .buzz-box {
+    background: #f3f0ff;
+    border: 1px solid #ccc0ff;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.83rem;
+    color: #444;
+  }
+  .watch-box {
+    background: #f0fff8;
+    border: 1px solid #a0ddb8;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 0.83rem;
+    color: #444;
+  }
+  ul { margin: 4px 0 4px 18px; }
+  li { font-size: 0.84rem; margin-bottom: 2px; }
+  .watchlist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+  .wl-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    padding: 12px 14px;
+  }
+  .wl-ticker { font-weight: 700; color: #0f3460; font-size: 1rem; }
+  .wl-move { font-size: 0.8rem; font-weight: 600; margin: 2px 0; }
+  .wl-note { font-size: 0.78rem; color: #666; }
+  .backdrop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }
+  .bd-pill {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .bd-label { font-size: 0.72rem; color: #888; text-transform: uppercase; letter-spacing: 0.4px; }
+  .bd-val { font-size: 1.05rem; font-weight: 700; color: #0f3460; margin-top: 2px; }
+  .bd-chg { font-size: 0.78rem; margin-top: 1px; }
+  .halt-card {
+    background: #fff8f0;
+    border: 1px solid #f5c88a;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    color: #444;
+  }
+  .sources-section { margin-top: 30px; }
+  .sources-list { columns: 2; column-gap: 20px; }
+  @media (max-width: 640px) { .sources-list { columns: 1; } }
+  .sources-list a { font-size: 0.76rem; color: #4a90d9; text-decoration: none; display: block; margin-bottom: 4px; break-inside: avoid; }
+  .sources-list a:hover { text-decoration: underline; }
+  .disclaimer {
+    font-size: 0.75rem;
+    color: #999;
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+    padding-top: 12px;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+  .tag-earnings { background: #dbeafe; color: #1e40af; }
+  .tag-ai { background: #d1fae5; color: #065f46; }
+  .tag-energy { background: #fef9c3; color: #713f12; }
+  .tag-dilution { background: #fee2e2; color: #991b1b; }
+  .tag-space { background: #ede9fe; color: #5b21b6; }
+</style>
+</head>
+<body>
+<div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;padding:12px 16px 0;max-width:900px;margin:0 auto"><a href="../" style="color:#0066cc;text-decoration:none;">← 返回今日總覽</a></div>
+
+<div class="header">
+  <h1>🔥 美股熱門個股 Hot US Stocks of the Day</h1>
+  <div class="subtitle">Today's most-buzzed names — price action + volume + options + retail buzz + catalyst</div>
+  <div class="session-badge">交易日 Trading Session: 2026-05-12 (Mon close data) · 資料截止 As of: 2026-05-12 Asia Morning</div>
+</div>
+
+<div class="container">
+
+  <h2>🌐 大盤背景 Market Backdrop</h2>
+  <div class="backdrop-grid">
+    <div class="bd-pill"><div class="bd-label">S&amp;P 500 (SPX)</div><div class="bd-val">7,425</div><div class="bd-chg up">+0.35%</div></div>
+    <div class="bd-pill"><div class="bd-label">Nasdaq (NDX)</div><div class="bd-val">26,329</div><div class="bd-chg up">+0.31%</div></div>
+    <div class="bd-pill"><div class="bd-label">Dow Jones</div><div class="bd-val">49,724</div><div class="bd-chg up">+0.23%</div></div>
+    <div class="bd-pill"><div class="bd-label">VIX</div><div class="bd-val">17.19</div><div class="bd-chg" style="color:#888">溫和</div></div>
+    <div class="bd-pill"><div class="bd-label">市場氛圍</div><div class="bd-val" style="font-size:0.85rem">Risk-On</div><div class="bd-chg" style="color:#888">AI/Space 領漲</div></div>
+    <div class="bd-pill"><div class="bd-label">52W Highs</div><div class="bd-val">34 stocks</div><div class="bd-chg" style="color:#888">INTC AMD MU VRT...</div></div>
+  </div>
+  <p style="margin-top:10px; font-size:0.84rem; color:#555;">大盤溫和多頭，科技 / AI / 國防太空引領。VIX 17 附近顯示風險偏好穩定。個股分化明顯，AI 服務 / 太空 / 儲能爆量上攻，部分 SaaS 龍頭財報後崩跌。</p>
+
+  <h2>📊 熱門個股總覽 Summary Table</h2>
+  <div class="summary-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>公司</th>
+          <th>Close</th>
+          <th>漲跌 %</th>
+          <th>Vol</th>
+          <th>vs 30D</th>
+          <th>Options</th>
+          <th>Buzz</th>
+          <th>Catalyst</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="ticker-sym">INOD</span></td>
+          <td>Innodata</td>
+          <td>~$110.70</td>
+          <td><span class="up">+86%</span></td>
+          <td>爆量</td>
+          <td>&gt;10x</td>
+          <td>Calls 22x avg · IV↑</td>
+          <td><span class="buzz-stars">★★★★★</span></td>
+          <td>Q1 收入+54% YoY，EPS 爆表，指引上調40%+</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-sym">RKLB</span></td>
+          <td>Rocket Lab</td>
+          <td>~$117.35</td>
+          <td><span class="up">+34%</span> (5/8)</td>
+          <td>爆量</td>
+          <td>&gt;5x</td>
+          <td>Calls活躍 OI↑</td>
+          <td><span class="buzz-stars">★★★★★</span></td>
+          <td>Q1 收入+64% YoY，$2.2B backlog，國防合約</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-sym">FLNC</span></td>
+          <td>Fluence Energy</td>
+          <td>~$25.13</td>
+          <td><span class="up">+27%</span></td>
+          <td>爆量</td>
+          <td>&gt;8x</td>
+          <td>38,503 Calls (14x avg)</td>
+          <td><span class="buzz-stars">★★★★</span></td>
+          <td>Hyperscaler供電大單，$5.6B backlog</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-sym">NET</span></td>
+          <td>Cloudflare</td>
+          <td>—</td>
+          <td><span class="down">-24%</span></td>
+          <td>爆量</td>
+          <td>&gt;6x</td>
+          <td>Puts活躍 IV↑</td>
+          <td><span class="buzz-stars">★★★★</span></td>
+          <td>裁員1,100人(20%)，Q2指引低於預期</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-sym">HUBS</span></td>
+          <td>HubSpot</td>
+          <td>~$197</td>
+          <td><span class="down">-20%</span></td>
+          <td>爆量</td>
+          <td>&gt;5x</td>
+          <td>Puts大增 IV↑</td>
+          <td><span class="buzz-stars">★★★★</span></td>
+          <td>Q2指引弱，BofA降評至Underperform</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-sym">IREN</span></td>
+          <td>IREN Limited</td>
+          <td>~$55.15</td>
+          <td><span class="down">-10%</span></td>
+          <td>108M sh</td>
+          <td>+187%</td>
+          <td>待確認</td>
+          <td><span class="buzz-stars">★★★</span></td>
+          <td>$2B可轉債稀釋疑慮；前月因NVIDIA AI合約漲50%</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-sym">INTC</span></td>
+          <td>Intel</td>
+          <td>~$128.64</td>
+          <td><span class="up">年漲+190%</span></td>
+          <td>179M sh</td>
+          <td>~1x</td>
+          <td>Call/Put活躍</td>
+          <td><span class="buzz-stars">★★★</span></td>
+          <td>Apple代工傳聞，Q1 EPS大超預期</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>🔥 Hot 7 深度分析 Deep Dives</h2>
+
+  <!-- INOD -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <div class="card-ticker">$INOD</div>
+      <div class="card-name">Innodata Inc. <span class="tag tag-earnings">EARNINGS</span><span class="tag tag-ai">AI</span></div>
+      <div class="card-badge badge-up">+86% 🚀</div>
+    </div>
+    <div class="card-body">
+      <div class="section-label">Tape / 行情</div>
+      <div class="tape-row">
+        <div class="tape-pill">5/11 收盤 ~$110.70</div>
+        <div class="tape-pill">5/8 收盤 $84.89 (+86% 兩日)</div>
+        <div class="tape-pill">成交量估 &gt;10x 30D avg</div>
+        <div class="tape-pill">高點 $114.77 (5/11)</div>
+      </div>
+      <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+      <div class="bilingual-block">
+        <div class="zh">Innodata 5/8 盤後公布 Q1 2026 財報，季度收入 $9,010 萬（年增 54%），大幅超出 FactSet 共識 $7,650 萬。調整後 EBITDA 躍升 96% 至 $2,500 萬（毛利率 47%，EBITDA 利潤率 28%）。全年成長指引上調至 40%+，並揭示與某大型科技客戶新增合約預計貢獻 $5,100 萬以上。股價在 5/8 及 5/11 連續兩天跳空大漲，合計暴漲 86%。</div>
+        <div class="en">Innodata Q1 2026 revenue of $90.1M (+54% YoY) crushed the $76.5M FactSet consensus. Adjusted EBITDA surged 96% to ~$25M (28% margin, 47% gross margin). Full-year 2026 growth guidance raised to 40%+, driven by $51M+ new work from a major Big Tech client. The stock exploded 86% across two sessions on blowout earnings + raised guidance — a classic small-cap AI beat-and-raise setup.</div>
+      </div>
+      <div class="section-label">Options &amp; Flow / 選擇權</div>
+      <div class="options-box">
+        <b>Calls 22x 平均量</b>（Market Rebellion 5/11 數據）：約 16,353 口 calls，Put volume 約 1.5x 平均，多頭格局明顯。IV 顯著上升，Gamma squeeze 條件具備。Short interest 若仍高，可能疊加 short squeeze 動能（具體數字待 Fintel/Ortex 確認）。財報後部分交易者翻倉至更遠 expiry，目標 $120–$140。
+      </div>
+      <div class="section-label">Retail Buzz / 社群討論</div>
+      <div class="buzz-box">
+        Reddit r/wallstreetbets 及 r/stocks 大量討論，StockTwits 熱搜。X (Twitter) $INOD cashtag 24 小時爆增。主要敘事：「AI 數據服務的隱形冠軍」，傳為 OpenAI、Google 前沿模型訓練數據供應商。熱門問題：「這是下一個 PLTR 嗎？」
+      </div>
+      <div class="section-label">後續觀察 / What to Watch Next</div>
+      <div class="watch-box">
+        <ul>
+          <li>$100+ 能否守住；$85–90 是否有支撐</li>
+          <li>Big Tech 客戶（傳 Google 或 Meta）是否公開確認</li>
+          <li>Short interest（Fintel/Ortex）：若 SI% 高，squeeze 可能延續</li>
+          <li>Q2 能否維持 40%+ YoY 成長率</li>
+          <li>注意：小市值 AI 概念股急漲後常有 30–50% 回調</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- RKLB -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <div class="card-ticker">$RKLB</div>
+      <div class="card-name">Rocket Lab Corporation <span class="tag tag-space">SPACE</span><span class="tag tag-earnings">EARNINGS</span></div>
+      <div class="card-badge badge-up">+34% (5/8) +11% (5/11)</div>
+    </div>
+    <div class="card-body">
+      <div class="section-label">Tape / 行情</div>
+      <div class="tape-row">
+        <div class="tape-pill">5/7 收盤 $78.58</div>
+        <div class="tape-pill">5/8 收盤 $105.55 (+34%)</div>
+        <div class="tape-pill">5/11 收盤 $117.35 (+11%)</div>
+        <div class="tape-pill">成交量爆量 &gt;5x 30D</div>
+      </div>
+      <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+      <div class="bilingual-block">
+        <div class="zh">Rocket Lab Q1 2026 收入 $2.0035 億（年增 64%），超出共識 6%，創公司史上最高單季收入。Q2 指引 $2.325 億遠超市場預期 $2.076 億。公司 Backlog 達 $22 億，可見度高。新增重大合約：Anduril HASTE 高超音速測試、美國太空軍攔截彈選商（與 Raytheon），以及即將完成 Motiv Space Systems 收購。公司首度接近調整後 EBITDA 正值里程碑。</div>
+        <div class="en">Rocket Lab Q1 2026 revenue $200.35M (+64% YoY) beat consensus by 6% — a company record. Q2 guidance of $232.5M crushed the $207.6M estimate. Backlog exceeds $2.2B with strong defense visibility: Anduril HASTE contract, Space Force interceptor selection with Raytheon, and the planned Motiv Space Systems acquisition. The stock surged 34% on 5/8 and extended gains 11% on 5/11 on continued momentum.</div>
+      </div>
+      <div class="section-label">Options &amp; Flow / 選擇權</div>
+      <div class="options-box">
+        財報後 Calls 大幅增加，C/P ratio 明顯偏多（Fintel 數據）。以 5–6 月 expiry 為主，Smart money 多頭 flow 持續。IV 在財報前後均有顯著波動，財報後 IV crush，但多頭持倉仍在擴張。
+      </div>
+      <div class="section-label">Retail Buzz / 社群討論</div>
+      <div class="buzz-box">
+        RKLB 原屬 WSB 長期 watchlist（年漲逾 100%）。財報後登上 Reddit 熱頭版，StockTwits 持續高熱度。$RKLB cashtag 爆量討論，主敘事：「太空防禦雙催化」。部分帖子引用 "RKLB is not just a rocket company anymore"（節錄自 Motley Fool 分析）。
+      </div>
+      <div class="section-label">後續觀察 / What to Watch Next</div>
+      <div class="watch-box">
+        <ul>
+          <li>Neutron 中型火箭首飛時間線（2026 下半年）</li>
+          <li>Q2 能否達到 $232M 以上指引</li>
+          <li>Motiv Space 收購監管進度</li>
+          <li>$100–$110 是否為有效支撐</li>
+          <li>ASTS 等太空族群整體輪動</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLNC -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <div class="card-ticker">$FLNC</div>
+      <div class="card-name">Fluence Energy <span class="tag tag-energy">ENERGY STORAGE</span><span class="tag tag-ai">AI POWER</span></div>
+      <div class="card-badge badge-up">+27% (近日累積 +55%)</div>
+    </div>
+    <div class="card-body">
+      <div class="section-label">Tape / 行情</div>
+      <div class="tape-row">
+        <div class="tape-pill">近期收盤 ~$25.13</div>
+        <div class="tape-pill">多日累積 +55.7%</div>
+        <div class="tape-pill">Calls 38,503 口 (14x avg)</div>
+        <div class="tape-pill">YTD 訂單量翻倍至 $20億</div>
+      </div>
+      <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+      <div class="bilingual-block">
+        <div class="zh">Fluence Energy 公布 FY2026 Q2 財報（收入 $4.649 億），同時宣布與兩家超大型資料中心運營商（hyperscalers）簽署主供應協議，涵蓋 12GW 資料中心供電管線。Backlog 達到創紀錄 $56 億，年初至今訂單量翻倍至 $20 億。Roth/MKM 將評等由中立上調至買進，目標價翻倍至 $26。市場解讀：AI 資料中心推動儲能需求進入新量級，FLNC 是最純粹的「AI Power Storage」受益股。</div>
+        <div class="en">Fluence Energy announced master supply agreements with two major hyperscaler data center operators covering a 12 GW pipeline. Record $5.6B backlog, year-to-date order intake doubled to $2.0B. Roth/MKM upgraded to Buy with a $26 target (doubled from $13). The market is repricing FLNC as a direct AI infrastructure beneficiary — data centers require massive energy storage solutions, and FLNC is one of the purest plays.</div>
+      </div>
+      <div class="section-label">Options &amp; Flow / 選擇權</div>
+      <div class="options-box">
+        <b>38,503 口 Calls（14x 平均量）</b>：主要集中在 5/15 到期、行使價 $18–$26。部分資金已 rolling 至 6/18 expiry，目標 $25 及 $30 strikes。Puts 量約 7x 平均，顯示亦有避險盤。IV 顯著上升，期權市場隱含後續波動性仍高。
+      </div>
+      <div class="section-label">Retail Buzz / 社群討論</div>
+      <div class="buzz-box">
+        StockTwits 及 Reddit r/stocks、r/energy 熱議，敘事：「AI 資料中心用電需求 → 儲能爆發 → FLNC 最直接受益」。與 SMCI（AI 伺服器）類比，視為 AI 基礎設施鏈條的另一環。TipRanks 同期出現 "Why Fluence Energy's Hot Stock Rally May Cool" 反思文，顯示市場有理性討論。
+      </div>
+      <div class="section-label">後續觀察 / What to Watch Next</div>
+      <div class="watch-box">
+        <ul>
+          <li>Hyperscaler 首筆訂單（預計 Q3），能否如期落地</li>
+          <li>$20 能否成為新支撐（前高附近）</li>
+          <li>更多機構是否跟進上調評等</li>
+          <li>競品 Tesla Megapack、BYD 儲能動向</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- NET -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <div class="card-ticker">$NET</div>
+      <div class="card-name">Cloudflare, Inc. <span class="tag tag-earnings">EARNINGS</span></div>
+      <div class="card-badge badge-down">-24% 💥</div>
+    </div>
+    <div class="card-body">
+      <div class="section-label">Tape / 行情</div>
+      <div class="tape-row">
+        <div class="tape-pill">5/8 跌幅 -23.3%</div>
+        <div class="tape-pill">財報後暴跌</div>
+        <div class="tape-pill">成交量爆量 &gt;6x</div>
+        <div class="tape-pill">Puts 活躍</div>
+      </div>
+      <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+      <div class="bilingual-block">
+        <div class="zh">Cloudflare Q1 2026 財報表面亮眼（EPS $0.25 vs 預期 $0.23，收入 $6.40 億 vs 預期 $6.22 億，年增 34%），但同時宣布裁減全球約 20% 員工共 1,100 人，以「agentic AI-first 轉型」為名重組。Q2 指引略低於市場預期，加上 BofA 將評等從買進大降至優於大盤之下（目標價 $300 砍至 $180），觸發大規模拋售。典型「beat-and-guide-lower 殺法」加上重大執行風險折價。</div>
+        <div class="en">Cloudflare beat Q1 on EPS and revenue, but simultaneously announced laying off 1,100 employees (~20% of workforce) framed as an "agentic AI-first" model shift. Q2 guidance fell short of consensus. BofA downgraded from Buy to Underperform, cutting target from $300 to $180. Classic "beat-and-slash": strong top-line beat but soft guidance + major restructuring execution risk = -24% selloff. A warning sign for overvalued SaaS names transitioning to AI.</div>
+      </div>
+      <div class="section-label">Options &amp; Flow / 選擇權</div>
+      <div class="options-box">
+        財報後 Puts 大量增加，IV 急升。C/P ratio 由多翻空。部分交易者在財報前已建立 protective puts，財報後獲利了結。$130–$160 Put OI 有異常累積（待確認具體資料）。
+      </div>
+      <div class="section-label">炒作脈絡 / Narrative Context</div>
+      <p>Cloudflare 曾是「AI 基礎設施」概念股之一（Workers AI、AI Gateway），但裁員消息改變了市場敘事：從「AI 受益者」變成「被 AI 取代工作、執行轉型存在風險」。類似 2022–2023 年 SaaS 股多次 beat-and-guide-lower 的重演，在估值偏貴環境下特別嚴厲。</p>
+      <div class="section-label">後續觀察 / What to Watch Next</div>
+      <div class="watch-box">
+        <ul>
+          <li>$130–$150 是否有支撐（重要技術面區間）</li>
+          <li>裁員後員工士氣 / 客戶保留率動向</li>
+          <li>Q2 實際收入能否超越弱指引</li>
+          <li>其他 SaaS 是否出現同類裁員潮</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- HUBS -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <div class="card-ticker">$HUBS</div>
+      <div class="card-name">HubSpot, Inc. <span class="tag tag-earnings">EARNINGS</span></div>
+      <div class="card-badge badge-down">-20% 💥</div>
+    </div>
+    <div class="card-body">
+      <div class="section-label">Tape / 行情</div>
+      <div class="tape-row">
+        <div class="tape-pill">前收 $247.43 → 約 $197.34 (5/8)</div>
+        <div class="tape-pill">跌幅 -20.1%</div>
+        <div class="tape-pill">成交量爆量 &gt;5x</div>
+        <div class="tape-pill">BofA 降評</div>
+      </div>
+      <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+      <div class="bilingual-block">
+        <div class="zh">HubSpot Q1 2026 收入 $8.81 億（年增 23.4%），EPS $2.73（年增 52.8%），均優於預期，但 Q2 指引僅 $8.97–8.98 億（年增 18%），低於市場預期 $9.02 億。公司正調整 AI 代理定價模式，帶來執行不確定性。BofA 大刀砍評等（買進→優於大盤之下）並砍目標價至 $180，引爆賣壓。</div>
+        <div class="en">HubSpot Q1 beat on EPS and revenue, but Q2 guidance of $897–898M (18% YoY) missed the $902M estimate. The key concern is HubSpot's changing go-to-market strategy for agentic AI products — shifting pricing/packaging introduces execution risk. BofA downgraded from Buy to Underperform and slashed target from $300 to $180, triggering a -20% selloff despite the earnings beat.</div>
+      </div>
+      <div class="section-label">Options &amp; Flow / 選擇權</div>
+      <div class="options-box">
+        Puts 大量增加，IV 急升。財報後出現大型 Put block（待確認），顯示機構進行避險或做空。C/P ratio 由多翻空。財報前 protective puts 持有者財報後獲利了結。
+      </div>
+      <div class="section-label">後續觀察 / What to Watch Next</div>
+      <div class="watch-box">
+        <ul>
+          <li>$185–$200 是否為新的支撐區</li>
+          <li>AI 代理定價模式轉型能否在 Q3 看到初步效果</li>
+          <li>Salesforce、Zendesk 競品是否出現同類指引下修</li>
+          <li>Microsoft Copilot for Sales 替代威脅是否加深</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- IREN -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <div class="card-ticker">$IREN</div>
+      <div class="card-name">IREN Limited（原 Iris Energy）<span class="tag tag-dilution">DILUTION</span></div>
+      <div class="card-badge badge-down">-10% (5/11)，前月 +50%</div>
+    </div>
+    <div class="card-body">
+      <div class="section-label">Tape / 行情</div>
+      <div class="tape-row">
+        <div class="tape-pill">5/11 收盤 $55.15 (-9.89%)</div>
+        <div class="tape-pill">成交量 108.4M sh (+187% vs 30D avg)</div>
+        <div class="tape-pill">前月累積漲幅 &gt;50%</div>
+      </div>
+      <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+      <div class="bilingual-block">
+        <div class="zh">IREN 宣布 $20 億可轉債發行，觸發稀釋疑慮，股價 5/11 急跌 10%，但成交量達 108M 股（30D avg 的 2.87 倍），散戶大量進出。此前，IREN 因與 NVIDIA 的 AI 基礎設施雲端服務合約，一個月內大漲逾 50%，吸引大量追買資金。本次可轉債發行是典型「高位融資稀釋打壓」格局。</div>
+        <div class="en">IREN's $2 billion convertible notes offering triggered dilution fears, causing a -10% drop on May 11 with volume at 108.4M shares (187% above 30-day avg). The selloff follows IREN surging over 50% in the prior month on an AI infrastructure cloud services contract with Nvidia. Classic high-price dilutive financing pressure on a momentum AI/crypto mining stock.</div>
+      </div>
+      <div class="section-label">後續觀察 / What to Watch Next</div>
+      <div class="watch-box">
+        <ul>
+          <li>可轉債定價條款（行使價、到期日、稀釋幅度）</li>
+          <li>$50 支撐能否守住</li>
+          <li>NVIDIA 合約後續訂單動態</li>
+          <li>Bitcoin / AI 算力雙主題能否繼續吸引資金</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTC -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <div class="card-ticker">$INTC</div>
+      <div class="card-name">Intel Corporation <span class="tag tag-ai">AI FOUNDRY</span></div>
+      <div class="card-badge badge-up">年漲 +190%，52W 高位</div>
+    </div>
+    <div class="card-body">
+      <div class="section-label">Tape / 行情</div>
+      <div class="tape-row">
+        <div class="tape-pill">近期 ~$128.64</div>
+        <div class="tape-pill">成交量 179M sh (vs avg 170M)</div>
+        <div class="tape-pill">52W 高位附近</div>
+        <div class="tape-pill">年初至今 +190%</div>
+      </div>
+      <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+      <div class="bilingual-block">
+        <div class="zh">Intel 2026 年累計暴漲逾 190%，主要催化劑：（1）傳出 Apple 晶片代工合約；（2）Q1 2026 EPS $0.29 大幅超出市場預期 $0.01（年增 123%）；（3）非 GAAP 毛利率 41% 超越財測 650 基點；（4）Foundry 業務傳出數十億美元級新客戶談判。Trump 政府宣稱聯邦在 Intel 投資「已賺回 $300 億」更增添政治背書。</div>
+        <div class="en">Intel is up 190%+ YTD on: (1) reports of an Apple chip manufacturing deal; (2) Q1 EPS of $0.29 crushed the $0.01 consensus (+123% YoY); (3) non-GAAP gross margins of 41% beat guidance by 650bps; (4) Foundry business reportedly near deals worth billions annually. The White House's claim of $30B returned on federal Intel investment adds political tailwind to the bullish narrative.</div>
+      </div>
+      <div class="section-label">後續觀察 / What to Watch Next</div>
+      <div class="watch-box">
+        <ul>
+          <li>Apple 代工合約若正式確認，可能觸發再漲</li>
+          <li>$120 是否為短期支撐（漲幅已大，回調風險存在）</li>
+          <li>Panther Lake 新處理器市場接受度</li>
+          <li>TSMC、Samsung Foundry 在美製造政策競爭動向</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Watch List -->
+  <h2>👀 次熱觀察 Watch List</h2>
+  <div class="watchlist-grid">
+    <div class="wl-card">
+      <div class="wl-ticker">$CAI</div>
+      <div class="wl-move down">-18.6%</div>
+      <div class="wl-note">Caris Life Sciences IPO 後回調，精準腫瘤學，JPMorgan 降目標價；ChromoSeq 新市場核准是潛在反轉觸媒</div>
+    </div>
+    <div class="wl-card">
+      <div class="wl-ticker">$NOK</div>
+      <div class="wl-move up">年漲 +162%</div>
+      <div class="wl-note">Nokia 5G+AI 網路基礎設施，與 Lockheed Martin 無線合作，仍維持高成交量</div>
+    </div>
+    <div class="wl-card">
+      <div class="wl-ticker">$ASTS</div>
+      <div class="wl-move up">WSB 長期看多</div>
+      <div class="wl-note">AST SpaceMobile 直連衛星通訊，太空族群熱潮延伸標的，與 RKLB 同屬 WSB 2026 watchlist</div>
+    </div>
+    <div class="wl-card">
+      <div class="wl-ticker">$AMD</div>
+      <div class="wl-move up">52W 高位附近</div>
+      <div class="wl-note">AI GPU 需求，INSTINCT MI350 出貨，大盤 risk-on 時有望跟漲</div>
+    </div>
+    <div class="wl-card">
+      <div class="wl-ticker">$MU</div>
+      <div class="wl-move up">52W 高位</div>
+      <div class="wl-note">HBM 記憶體供 AI 加速器，與 NVIDIA 深度合作，財報即將揭曉</div>
+    </div>
+  </div>
+
+  <!-- Halts -->
+  <h2>⚠️ 異常事件 Halts &amp; Weirdness</h2>
+  <div class="halt-card">
+    <b>IREN $20 億可轉債稀釋衝擊（5/11）</b>：非 LULD 停牌，但成交量異常為 30D 均量 2.87 倍，散戶恐慌性賣出。<br><br>
+    <b>Cloudflare 大規模重組（5/8）</b>：裁員 20%（約 1,100 人），引發 -24% 崩跌，為近期 SaaS 股中最大單日跌幅之一。<br><br>
+    <b>備注</b>：本報告所查詢期間（5/12 台北時間早晨），未發現 Nasdaq / NYSE 正式 LULD 停牌事件或 SEC 交易暫停令。
+  </div>
+
+  <!-- Sources -->
+  <div class="sources-section">
+    <h2>📎 數據來源 Sources Consulted</h2>
+    <div class="sources-list">
+      <a href="https://finance.yahoo.com/markets/stocks/gainers/" target="_blank">Yahoo Finance Gainers</a>
+      <a href="https://finance.yahoo.com/markets/stocks/losers/" target="_blank">Yahoo Finance Losers</a>
+      <a href="https://finance.yahoo.com/markets/stocks/most-active/" target="_blank">Yahoo Finance Most Active</a>
+      <a href="https://stockstotrade.com/news/innodata-inc-inod-news-2026_05_11-2/" target="_blank">StocksToTrade — INOD Q1 2026 Blowout</a>
+      <a href="https://www.timothysykes.com/news/innodata-inc-inod-news-2026_05_11-2/" target="_blank">TimothySykes — Innodata AI Surge</a>
+      <a href="https://247wallst.com/investing/2026/05/08/rocket-lab-stock-is-up-30-today-is-it-outperforming-other-space-stocks-like-intuitive-machines-and-planet-labs/" target="_blank">247 Wall St — RKLB +30%</a>
+      <a href="https://stockstotrade.com/news/rocket-lab-corporation-rklb-news-2026_05_08-3/" target="_blank">StocksToTrade — RKLB Defense &amp; Guidance</a>
+      <a href="https://finance.yahoo.com/markets/stocks/articles/rocket-lab-stock-30-today-193913611.html" target="_blank">Yahoo Finance — RKLB +30% Analysis</a>
+      <a href="https://www.cnbc.com/2026/05/07/cloudflare-net-q1-2026-stock-earnings-layoffs.html" target="_blank">CNBC — Cloudflare sinks 24% on layoffs</a>
+      <a href="https://seekingalpha.com/news/4588934-cloudflare-plunges-after-q2-revenue-guidance-falls-just-shy-of-expectations" target="_blank">Seeking Alpha — NET plunges on guidance</a>
+      <a href="https://www.thestreet.com/employment/cloudflare-stock-plummets-23-amid-ai-driven-layoffs" target="_blank">TheStreet — NET -23%</a>
+      <a href="https://www.fool.com/investing/2026/05/08/why-hubspot-plunged-today/" target="_blank">Motley Fool — HUBS plunged</a>
+      <a href="https://www.thestreet.com/investing/stocks/bank-of-america-downgrades-hubspot-stock-after-earnings" target="_blank">TheStreet — BofA downgrades HUBS</a>
+      <a href="https://simplywall.st/stocks/us/capital-goods/nasdaq-flnc/fluence-energy/news/fluence-energy-flnc-is-up-557-after-record-backlog-and-hyper" target="_blank">SimplyWallSt — FLNC +55.7%</a>
+      <a href="https://www.chartmill.com/news/FLNC/Chartmill-47441-Fluence-Energy-NASDAQFLNC-Surges-20-on-Record-Backlog-and-Hyperscaler-Wins-Despite-Revenue-Miss" target="_blank">ChartMill — FLNC Hyperscaler Wins</a>
+      <a href="https://www.fool.com/coverage/stock-market-today/2026/05/11/stock-market-today-may-11-iren-falls-after-2-billion-convertible-notes-offering-pressures-shares/" target="_blank">Motley Fool — IREN $2B convertible notes</a>
+      <a href="https://finance.yahoo.com/markets/stocks/articles/intel-stock-190-2026-trump-131501491.html" target="_blank">Yahoo Finance — Intel +190% in 2026</a>
+      <a href="https://www.cnbc.com/2026/05/10/stock-market-today-live-updates.html" target="_blank">CNBC — Stock Market May 11</a>
+      <a href="https://marketrebellion.com/news/daily-iv-report/mid-session-iv-report-may-11-2026/" target="_blank">Market Rebellion — IV Report May 11</a>
+      <a href="https://www.barchart.com/options/unusual-activity" target="_blank">Barchart Unusual Options Activity</a>
+      <a href="https://unusualwhales.com/stock/RKLB/overview" target="_blank">Unusual Whales — RKLB</a>
+      <a href="https://fintel.io/sopt/us/rklb" target="_blank">Fintel — RKLB Options Sentiment</a>
+      <a href="https://apewisdom.io/" target="_blank">ApeWisdom — WSB Mentions</a>
+      <a href="https://www.quiverquant.com/wallstreetbets/" target="_blank">Quiver Quant — WSB Tracker</a>
+      <a href="https://stocktwits.com/sentiment/most-active" target="_blank">StockTwits Most Active</a>
+    </div>
+    <p class="disclaimer">
+      本報告僅供資訊參考，不構成投資建議。所有數字來自公開資料，部分為截稿前最新可得數據，實際收盤數字請以各交易所官方資料為準。This report is for informational purposes only and does not constitute investment advice. Numbers sourced from public data; verify with official exchange data.
+    </p>
+  </div>
+</div>
+</body>
+</html>

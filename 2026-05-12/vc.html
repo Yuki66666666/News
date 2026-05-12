@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>創投新聞日報 — 2026-05-12</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 0 0 40px 0;
+  }
+  header {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+    color: #fff;
+    padding: 28px 32px 20px;
+    border-bottom: 3px solid #e94560;
+  }
+  header .meta {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #a0b4d0;
+    margin-bottom: 6px;
+  }
+  header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+  header h1 span { color: #e94560; }
+  header .subtitle {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #a0b4d0;
+  }
+
+  .toc {
+    background: #fff;
+    border-bottom: 1px solid #e8ecf0;
+    padding: 10px 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 12px;
+  }
+  .toc a {
+    color: #0f3460;
+    text-decoration: none;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: #eef2f8;
+    transition: background 0.15s;
+  }
+  .toc a:hover { background: #d0daf0; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 24px 24px 0; }
+
+  .section {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .section-header {
+    background: linear-gradient(90deg, #0f3460 0%, #1a3a5c 100%);
+    color: #fff;
+    padding: 12px 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .section-header .zh { font-size: 15px; font-weight: 700; }
+  .section-header .en { font-size: 11px; color: #a0c4e8; text-transform: uppercase; letter-spacing: 1px; }
+
+  .item {
+    padding: 18px 20px;
+    border-bottom: 1px solid #f0f3f7;
+  }
+  .item:last-child { border-bottom: none; }
+
+  .item h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f3460;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .item h3 .en-title {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #444;
+    margin-top: 2px;
+  }
+
+  .source-line {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 10px;
+  }
+  .source-line a { color: #2060a0; text-decoration: none; }
+  .source-line a:hover { text-decoration: underline; }
+
+  .label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-radius: 4px;
+    padding: 2px 7px;
+    margin-bottom: 5px;
+  }
+  .label-fact  { background: #def7ec; color: #065f46; }
+  .label-ctx   { background: #e0e7ff; color: #3730a3; }
+  .label-impl  { background: #fef3c7; color: #92400e; }
+
+  .block { margin-bottom: 10px; }
+  .block p { font-size: 13px; color: #333; line-height: 1.65; }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 10px;
+    padding: 1px 8px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .tag-crypto  { background: #fde68a; color: #78350f; }
+  .tag-mena    { background: #d1fae5; color: #065f46; }
+  .tag-retail  { background: #ede9fe; color: #4c1d95; }
+  .tag-ai      { background: #bfdbfe; color: #1e3a8a; }
+  .tag-secondary { background: #fee2e2; color: #7f1d1d; }
+  .tag-defense { background: #f3f4f6; color: #374151; }
+
+  .top-story-badge {
+    display: inline-block;
+    background: #e94560;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 8px 0;
+  }
+  .stat-box {
+    background: #f0f4ff;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    color: #1a1a2e;
+    border-left: 3px solid #0f3460;
+  }
+  .stat-box strong { display: block; font-size: 16px; color: #0f3460; }
+
+  .reads-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 1px solid #f0f3f7;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.12s;
+  }
+  .reads-link:hover { background: #f8f9ff; }
+  .reads-link:last-child { border-bottom: none; }
+  .reads-icon { font-size: 22px; flex-shrink: 0; }
+  .reads-body .reads-title { font-size: 13px; font-weight: 700; color: #0f3460; line-height: 1.4; }
+  .reads-body .reads-sub   { font-size: 11px; color: #666; margin-top: 2px; }
+
+  footer {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 10px;
+    font-size: 11px;
+    color: #999;
+    line-height: 1.6;
+  }
+  footer a { color: #999; }
+  .divider { border: none; border-top: 1px solid #e8ecf0; margin: 6px 0; }
+</style>
+</head>
+<body>
+<div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;padding:12px 16px 0;max-width:900px;margin:0 auto"><a href="../" style="color:#0066cc;text-decoration:none;">← 返回今日總覽</a></div>
+
+
+<header>
+  <div class="meta">創投新聞日報 · Venture Capital Daily · Asia/Taipei</div>
+  <h1>創投新聞日報 <span>—</span> 2026-05-12</h1>
+  <div class="subtitle">投資人視角 (GP/LP) · 基金動態 · 退場 · 人事 · 策略 · 中英並陳</div>
+</header>
+
+<nav class="toc">
+  <a href="#top-stories">頭條</a>
+  <a href="#fund-lp">新基金 &amp; LP</a>
+  <a href="#mega-rounds">大型 Round</a>
+  <a href="#exits">退場 / DPI</a>
+  <a href="#gp-moves">GP 人事</a>
+  <a href="#strategy">策略 &amp; 生態</a>
+  <a href="#regional">區域動向</a>
+  <a href="#reads">觀點精選</a>
+</nav>
+
+<main>
+
+<!-- ===== 1. TOP STORIES ===== -->
+<section class="section" id="top-stories">
+  <div class="section-header">
+    <span class="zh">頭條 / Top Stories</span>
+    <span class="en">2–3 events shaping the VC ecosystem today</span>
+  </div>
+
+  <!-- Story 1: a16z Crypto Fund 5 -->
+  <div class="item">
+    <div class="top-story-badge">頭條 #1</div>
+    <span class="tag tag-crypto">Crypto VC</span>
+    <h3>
+      a16z Crypto 以 22 億美元完成第五號基金，規模縮小但策略聚焦
+      <span class="en-title">a16z Crypto Raises $2.2B Fund Five — Smaller Size, Sharper Focus</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://techcrunch.com/2026/05/05/as-crypto-cools-a16zcrypto-raises-a-2-2b-fund/" target="_blank">TechCrunch</a> ·
+      <a href="https://fortune.com/2026/05/05/a16z-crypto-andreessen-horowitz-fifth-fund-2-2-billion/" target="_blank">Fortune</a> ·
+      <a href="https://www.theblock.co/post/400012/a16z-crypto-raises-2-2-billion-fifth-fund-promotes-cto-general-partner" target="_blank">The Block</a> · 2026-05-05
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-box"><strong>$2.2B</strong>Fund V 規模</div>
+      <div class="stat-box"><strong>$9.8B</strong>歷次 Crypto 基金累計</div>
+      <div class="stat-box"><strong>4 GPs</strong>投資決策委員會人數</div>
+    </div>
+
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>Andreessen Horowitz 的加密貨幣部門 a16z Crypto 於 5 月 5 日宣布完成 22 億美元第五號基金 (Fund V) 募集，並同步將首席技術官 Eddy Lazzarin 晉升為普通合夥人 (GP)，使 GP 投資團隊增至四人。基金規模顯著小於 2022 年的 Fund IV（45 億美元，迄今最大單筆加密 VC 基金），截至本次完成後累計募資規模達 98 億美元。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-ctx">背景脈絡 / Context</span>
+      <p>a16z 自 2018 年推出首支加密基金，每輪規模呈倍增態勢，但 Fund IV 的 45 億美元對應的是 2021–22 年牛市高峰。此後加密市場回落，部分投資組合估值壓力加大。本次主動將規模「下調」至 22 億美元，並明確表示「較短的募資週期讓我們能跟上瞬息萬變的加密趨勢」——這是 GP 在宏觀不確定下對流動性偏好的務實選擇。Fund V 將 100% 專注加密，不拓展 AI 或機器人等相鄰領域。投資主題涵蓋穩定幣支付、鏈上金融服務、創作者變現工具及去中心化交易基礎設施。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）a16z 的縮量再出發，是否代表加密 VC 整體降溫的信號？頭部機構刻意控制規模，有助維持高倍數回報的可能性，但也給中型加密 VC（如 Multicoin、Paradigm）帶來更尖銳的競爭。Eddy Lazzarin 晉升 GP 是對技術型人才的激勵，也反映業界越來越需要具備工程背景的投資決策者。LP 側：此輪 LP 構成未公開，但 a16z 過往 LP 包括大型捐贈基金與主權財富，若知名 LP 縮減承諾，可能引發更廣泛的加密 LP 情緒觀察。</p>
+    </div>
+  </div>
+
+  <!-- Story 2: Robinhood Ventures Fund II -->
+  <div class="item">
+    <div class="top-story-badge">頭條 #2</div>
+    <span class="tag tag-retail">Retail VC</span>
+    <h3>
+      Robinhood 乘 AI 熱潮備戰第二支零售創投基金上市
+      <span class="en-title">Robinhood Preps Second Retail Venture IPO Amid AI Rally — RVII Filing Confidential</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://techcrunch.com/2026/05/11/riding-an-ai-rally-robinhood-preps-second-retail-venture-ipo/" target="_blank">TechCrunch</a> ·
+      <a href="https://techcrunch.com/2026/05/06/robinhoods-venture-fund-ipo-attracted-150000-retail-investors-ceo-says/" target="_blank">TechCrunch</a> · 2026-05-11
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-box"><strong>150,000+</strong>RVI 零售投資人數</div>
+      <div class="stat-box"><strong>10</strong>RVI 持股標的（Stripe、OpenAI 等）</div>
+      <div class="stat-box"><strong>RVII</strong>第二支基金機密申請中</div>
+    </div>
+
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>Robinhood Ventures Fund I（代號 RVI，NYSE 上市）首支基金吸引逾 15 萬名零售投資人。RVI 持有 Airwallex、Boom、Databricks、ElevenLabs、Mercor、OpenAI、Oura、Ramp、Revolut 及 Stripe 等 10 家晚期私人公司股份，提供每日流動性、無需合格投資人資格、零附帶利潤。Robinhood 已提交第二支基金（RVII）機密申請，將投資範圍從晚期擴展至成長期與早期，風險更高但潛在上檔亦更大。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-ctx">背景脈絡 / Context</span>
+      <p>Robinhood Ventures Fund I 於 2026 年 2 月以「民主化私市投資」為題高調推出，3 月 6 日上市首日即下跌 11%，引發市場對定價與流動性溢價的質疑。然而 AI 題材帶動部分持股（Databricks、OpenAI）情緒回升，Robinhood 趁勢佈局第二支基金。這是傳統「只有機構 LP 才能進入 VC」模式被打破的里程碑，監管架構上走的是公開上市交易基金路線，繞開傳統私募基金的合格投資人限制。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）RVII 若成功上市，代表「零售 LP 參與早期 VC」模式獲得市場驗證，可能引發更多傳統 VC 考慮類似結構（繼倫敦證交所推出首個受監管私股市場之後）。對 GP 而言，此模式提供新的籌資管道，但也意味著承受公開市場每日波動的壓力，這對傳統 10 年期封閉型基金 GP 文化是顯著衝擊。LP 分析師需關注：公開市場情緒是否會扭曲私市估值定錨。</p>
+    </div>
+  </div>
+
+  <!-- Story 3: WEF Report -->
+  <div class="item">
+    <div class="top-story-badge">頭條 #3</div>
+    <span class="tag tag-ai">AI 超集中</span>
+    <h3>
+      WEF 報告：Q1 2026 創投前五大輪次吃下全球 65% 資金，產業結構性壓力浮現
+      <span class="en-title">WEF Report: Top 5 VC Rounds Captured 65% of Global Q1 2026 Investment — Structural Shifts Ahead</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://www.weforum.org/stories/2026/05/venture-capital-innovation-investment-startups/" target="_blank">World Economic Forum</a> · 2026-05-12
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-box"><strong>$188B</strong>前五大輪次合計</div>
+      <div class="stat-box"><strong>65%</strong>佔 Q1 全球 VC 投資比</div>
+      <div class="stat-box"><strong>$3.5T</strong>全球 VC AUM</div>
+    </div>
+
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>WEF 與史丹佛 GSB Venture Capital Initiative 聯合發布報告指出，2026 年 Q1 前五大創投輪次（合計 1,880 億美元）佔當季全球 VC 投資總額的 65%；全球 VC 管理資產規模達 3.5 兆美元，過去二十年已支持逾 25 萬家企業。報告同時警告：資本循環放緩、規模化企業地理分布不均，以及 AI 快速重塑 VC 經濟學，是當前三大結構性壓力。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-ctx">背景脈絡 / Context</span>
+      <p>Q1 2026 創紀錄的 3,473 億美元退場規模（含最大五筆）展示 VC 生態的高度兩極化：若扣除前五大交易，市場指標即下跌 86.6%。這一「肥尾效應」反映 Power Law 動態在 AI 週期被進一步放大——少數超大型押注（如 OpenAI $122B 輪、xAI $20B 輪）吸走大量 LP 承諾，使中小型 GP 募資難度倍增。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）WEF 報告提出五大策略優先項，包括改善流動性機制、強化全球化佈局等。對 LP 配置決策的影響：若資金持續向超大型 AI 基金集中，中型捐贈基金（$1B–$5B AUM）是否還有足夠籌碼維持有意義的 VC 配置？報告隱含的壓力是：傳統「廣撒種子」的 VC 模式正在被「少數精銳 + 大輪」所取代。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. FUND FORMATION & LP ===== -->
+<section class="section" id="fund-lp">
+  <div class="section-header">
+    <span class="zh">新基金與 LP / Fund Formation &amp; LP Activity</span>
+    <span class="en">closes · commitments · allocation moves</span>
+  </div>
+
+  <!-- Khwarizmi -->
+  <div class="item">
+    <span class="tag tag-mena">MENA · GCC</span>
+    <h3>
+      Khwarizmi Ventures 完成 Fund II 首關 7,000 萬美元以上，目標 1.2 億美元
+      <span class="en-title">Khwarizmi Ventures Fund II First Close $70M+ (Target $120M) — Seed/Series A GCC Focus</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://www.wamda.com/2026/05/khwarizmi-ventures-launches-fund-ii-70m-close-gcc-startups" target="_blank">Wamda</a> ·
+      <a href="https://entarabi.com/en/2026/05/khwarizmi-ventures-announces-first-close-of-fund-ii-to-back-the-next-generation-of-gcc-founders/" target="_blank">entARABI</a> · 2026-05-06
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-box"><strong>$70M+</strong>首關規模 (SAR 270M)</div>
+      <div class="stat-box"><strong>$120M</strong>目標規模</div>
+      <div class="stat-box"><strong>$1M–$5M</strong>首投票面</div>
+    </div>
+
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>沙烏地阿拉伯 Khwarizmi Ventures（管理合夥人 Abdulaziz AlTurki 主導）宣布 Fund II 首關完成，規模 7,000 萬美元以上（約 2.7 億沙幣），最終目標 1.2 億美元。Fund II 不設特定行業限制，續以 Fintech、消費科技、AI 應用為重點，投資規模 100 萬至 500 萬美元種子至 A 輪，並保留跟投能力。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-ctx">背景脈絡 / Context</span>
+      <p>Khwarizmi 的 Fund I（2021 年，7,000 萬美元）已於基金成立首五年內完成五筆退場並開始分配資金，在 GCC 早期市場屬相對少見的 DPI 表現。Fund I 被投組合包含 Calo（飲食訂閱）、Tamara（BNPL）等沙特知名新創。Fund II 的首關規模與 Fund I 相當，反映 LP 在 Saudi Vision 2030 政策支撐下對 GCC 科技生態的持續信心，但全球募資環境趨緊使 final close 時間仍有不確定性。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）MENA/GCC 創投生態持續升溫，政府主權基金（PIF、Mubadala）提供的 LP 支持是本地 VC 的重要底氣。Khwarizmi 若能如期完成最終關帳，將進一步鞏固利雅德做為 GCC 創投中心的地位，對區域內計畫進入的台灣或亞洲 GP 而言，也是跨境 co-invest 機會的觀察窗口。</p>
+    </div>
+  </div>
+
+  <!-- LP Trends -->
+  <div class="item">
+    <span class="tag tag-ai">LP 配置</span>
+    <h3>
+      LP 續持 VC 配置不動，捐贈基金加速直接共同投資以降低費用
+      <span class="en-title">LP Perspectives 2026: Endowments Hold VC Allocations Steady, Build Co-Investment Capabilities</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://www.venturecapitaljournal.com/perspectives-2026-lps-stay-the-course-on-vc/" target="_blank">Venture Capital Journal</a> ·
+      <a href="https://altss.com/blog/endowments-foundations-as-lps-2026" target="_blank">AltSS</a> · 2026
+    </div>
+
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>根據 VC Journal「LP Perspectives 2026」調查，多數 LP 無意削減 VC 配置，即使近期持倉整體未達基準。頂尖捐贈基金典型的 VC 配置比例為 10–15%，整體另類資產比例達 50–60%。2026 年趨勢：捐贈基金辦公室正積極建立直接投資與共同投資能力，目的是以更低的有效費用（規避 Management Fee + Carry）部署更多資金。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-ctx">背景脈絡 / Context</span>
+      <p>美國捐贈基金與基金會估計佔 VC 募資的 15–20%，是最關鍵的 LP 群體。然而高利率環境壓縮替代資產吸引力，加上 VC 基金存續期拉長（持有期擴張），使部分 LP 開始重新評估費用結構。共同投資加速不僅是費用考量，也是對「超額收益來自深度關係」的信仰——有能力做共投的 LP，往往也能更早進入最佳基金候補名單。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）對 GP 而言，提供共投機會已成為差異化吸引力；但若共投規模過大，可能影響基金本身的配置邏輯。主權財富基金方面，PIF 與 Mubadala 的直接 VC 投資規模持續擴大（全球 SWF 2025 年底資產突破 15 兆美元），進一步強化其與 GP 的直接談判籌碼。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. MEGA ROUNDS ===== -->
+<section class="section" id="mega-rounds">
+  <div class="section-header">
+    <span class="zh">大型 Round 與領投者 / Mega Rounds &amp; Lead Investors</span>
+    <span class="en">focus on which fund led · >$100M rounds with VC lead disclosed</span>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-ai">AI Infrastructure</span>
+    <h3>
+      Q1 2026 美國 VC 投資額季增逾兩倍，mega deals 主導；Avoca $125M+、Omni $120M Series C
+      <span class="en-title">US VC Funding Value Surges 200%+ in Q1 2026 as Mega-Deals Dominate; Avoca $125M+, Omni $120M at $1.5B</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://www.globaldata.com/media/business-fundamentals/us-vc-funding-value-surges-over-200-in-q1-2026-as-capital-concentrates-in-mega-deals-reveals-globaldata/" target="_blank">GlobalData</a> ·
+      <a href="https://vcnewsdaily.com/" target="_blank">VC News Daily</a> · 2026-05
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-box"><strong>+200%</strong>美國 Q1 VC 投資額年增</div>
+      <div class="stat-box"><strong>$1.5B</strong>Omni Series C 估值</div>
+      <div class="stat-box"><strong>$125M+</strong>Avoca 累計（Seed→B）</div>
+    </div>
+
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>GlobalData 數據顯示 2026 年 Q1 美國 VC 投資金額年增逾 200%，但交易件數僅增 5%，顯示資本向大型輪次高度集中。近期完成的重大輪次包含：Avoca（累計 Seed、Series A、B 逾 1.25 億美元）；Omni（Series C 1.2 億美元，估值 15 億美元）；Orkes（Series B 6,000 萬美元，由 AVP 領投）。最大型輪次：xAI Series E 200 億美元（年初），OpenAI 1,220 億美元（史上最大私募輪，SoftBank $300 億、Amazon $500 億共同領投）。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-ctx">背景脈絡 / Context</span>
+      <p>本季延續「Power Law 極端化」趨勢：扣除前五大交易，其餘市場數據急劇下滑。對 GP 而言，能否搶到 AI 基礎設施或前沿模型公司的配額，幾乎決定了整支基金的 TVPI 走向。中小型 GP 轉向更深的行業垂直（如 AI + 醫療、AI + 法律），試圖在非競拍環境下建立差異化 deal flow。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）mega round 集中化使被擠出的基金被迫下沉種子期競爭，進一步壓縮種子期估值空間。對 LP 而言，如何在「超大型基金獲配」與「維持組合多元化」之間取得平衡，是 2026 年配置難題。</p>
+    </div>
+  </div>
+
+  <!-- Defense -->
+  <div class="item">
+    <span class="tag tag-defense">Defense Tech</span>
+    <h3>
+      137 Ventures 宣布兩支成長基金共逾 7 億美元；Air Street Capital Fund III 完成 2.32 億美元
+      <span class="en-title">137 Ventures Closes $700M+ Defense Growth Funds; Air Street Capital Fund III $232M (AI + Defense Tech)</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://valueaddvc.com/vc-fundraises-2026" target="_blank">Value Add VC</a> · 2026
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-box"><strong>$700M+</strong>137 Ventures 兩支基金合計</div>
+      <div class="stat-box"><strong>$232M</strong>Air Street Capital Fund III</div>
+    </div>
+
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>137 Ventures 於 2026 年 4 月宣布兩支聚焦國防科技的成長基金，合計規模逾 7 億美元。Air Street Capital 的 Fund III 於 2026 年 3 月完成，規模 2.32 億美元，專注 AI 優先企業（前沿 AI、基礎設施、自主系統、國防科技、TechBio）。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-ctx">背景脈絡 / Context</span>
+      <p>國防科技（DefenseTech）在 2025–26 年成為創投熱門賽道，地緣政治張力與政府採購加速推動。Air Street Capital 是英國頂尖 AI 專門基金，Fund III 是對 Frontier AI 商業化的進一步押注。137 Ventures 長期專注私人技術公司的流動性解決方案，此次大規模成長基金顯示市場對後期私市投資的強烈需求。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）DefenseTech 與 AI 的交叉賽道正在形成獨立 GP 生態（Anduril、Palantir 效應）。這類基金的 LP 構成通常包含退休基金、主權財富與對政府合約感興趣的戰略 LP，與傳統科技 VC 的 LP 池有顯著差異，值得台灣 LP 社群關注。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. EXITS / DPI ===== -->
+<section class="section" id="exits">
+  <div class="section-header">
+    <span class="zh">退場 / Exits &amp; DPI Events</span>
+    <span class="en">IPOs · M&A · secondaries · distributions</span>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-secondary">Secondary</span>
+    <h3>
+      2025 年次級市場規模達 1,063 億美元，2026 年有望突破 2,000 億；Lightspeed 擬 10 億美元資產移轉至 Continuation Fund
+      <span class="en-title">VC Secondaries Hit $106B in 2025; Lightspeed Plans $1B Continuation Vehicle; Secondaries Now "Plan A"</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://news.crunchbase.com/liquidity/secondary-market-continuation-funds-eapen-goudey-sidley/" target="_blank">Crunchbase News</a> ·
+      <a href="https://pitchbook.com/news/reports/q1-2026-us-vc-secondary-market-watch" target="_blank">PitchBook Q1 2026 VC Secondary Market Watch</a>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-box"><strong>$106B</strong>2025 年次級市場成交</div>
+      <div class="stat-box"><strong>~1/3</strong>佔美國 VC 退場價值</div>
+      <div class="stat-box"><strong>$1B</strong>Lightspeed 擬移轉資產規模</div>
+    </div>
+
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>2025 年次級市場成交額達 1,063 億美元（約為美國 VC 退場價值三分之一，十年前佔比僅 3%）。PitchBook Q1 2026 報告顯示次市繼續增長，GP 主導型次市（GP-led secondaries / continuation fund）快速崛起。Lightspeed Venture Partners 被報導計畫將價值約 10 億美元的被投標的移至 continuation vehicle，實現部分 LP 流動性。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-ctx">背景脈絡 / Context</span>
+      <p>IPO 窗口雖好轉（2026 Q1 創史上最高退場季），但優質資產估值高企，許多 GP 選擇通過 continuation fund 延長持有期，以等待更佳上市時機並向現有 LP 提供部分流動性。2024 年美國第五巡迴法院推翻 SEC 強制要求 GP-led 流程提供獨立公平意見書的規定，讓此工具的合規成本降低，加速普及。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）Continuation fund 日趨成為主流 GP 工具，而非非常規選項。對 LP 而言，如何評估「是否參與」Continuation fund（roll over vs. 取得流動性）需要更精細的投資組合分析能力。2026 年的「DPI 回報」問題在歐洲尤為突出，部分歐洲 LP 抱怨持有期延長為結構性問題，並期待次市作為主要解決方案。</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>
+      Q1 2026 全球退場價值創單季紀錄 3,473 億美元，但高度集中於前五大交易
+      <span class="en-title">Q1 2026 Exit Value Hits Record $347B Globally — But 86.6% Tied to Top 5 Deals</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://www.foley.com/insights/publications/2026/04/q1-2026-a-record-quarter-a-compressed-market-and-a-window-that-wont-stay-open/" target="_blank">Foley &amp; Lardner Q1 2026 Report</a> · 2026-04
+    </div>
+
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>2026 年 Q1 全球創投支持企業退場價值達 3,473 億美元，創歷史單季新高。若扣除前五大交易，該數字下降 86.6%，顯示退場市場與投資市場均呈極端 Power Law 分布。M&A 價值已超越歷史高峰，部分由科技巨頭（AI 戰略收購）驅動。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）頭部退場數據美化了整體 DPI 環境。中型 GP 旗下的 B/C 輪組合，若未能「入選」科技巨頭收購名單，仍面臨出清壓力。對台灣 LP（退休基金、壽險）而言，評估受託 VC GP 的真實 DPI 能力，必須穿透「整體市場創紀錄」的表象，看個別基金的持倉結構。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. GP MOVES ===== -->
+<section class="section" id="gp-moves">
+  <div class="section-header">
+    <span class="zh">GP 人事 / GP Moves</span>
+    <span class="en">partner promotions · departures · new firm launches</span>
+  </div>
+
+  <div class="item">
+    <h3>
+      a16z Crypto CTO Eddy Lazzarin 晉升普通合夥人
+      <span class="en-title">a16z Crypto Promotes CTO Eddy Lazzarin to General Partner</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://www.theblock.co/post/400012/a16z-crypto-raises-2-2-billion-fifth-fund-promotes-cto-general-partner" target="_blank">The Block</a> · 2026-05-05
+    </div>
+
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>a16z Crypto Fund V 同步宣告，將首席技術官 (CTO) Eddy Lazzarin 晉升為普通合夥人 (GP)，使投資決策 GP 團隊擴增至四人。Lazzarin 此前以技術顧問角色深度參與被投組合。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）技術型人才晉升 GP 的趨勢在 AI/Crypto 特化基金中加速，這類 GP 能更快速評估技術可行性並贏得創辦人信任，成為差異化競爭點。對其他加密 VC 而言，此人事亦是一個信號：在技術快速演進的賽道，純財務背景 GP 的競爭優勢正在縮小。</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>
+      創投 2026 年度明星：VCJ Rising Stars 40 Under 40 名單出爐
+      <span class="en-title">VC Journal Releases 2026 Rising Stars 40 Under 40 List</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://www.venturecapitaljournal.com/meet-venture-capitals-2026-rising-stars/" target="_blank">Venture Capital Journal</a> · 2026
+    </div>
+
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>Venture Capital Journal 發布「2026 Rising Stars」40 Under 40 名單，收錄在基金管理、創辦人支持與交易來源等面向有突出表現的年輕 GP。The Information 同期發布「Next General Partners 2026」追蹤名單，綜合成功投資案、董事會席位與 deal sourcing 能力評選。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）此類名單反映業界對「下一代 GP 接班梯隊」的關注；LP 社群通常將此作為配置新興 GP 基金的參考之一，尤其是搶先投資「第一支基金」的 LP 策略（emerging manager program）。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. STRATEGY & ECOSYSTEM ===== -->
+<section class="section" id="strategy">
+  <div class="section-header">
+    <span class="zh">策略與生態 / Strategy &amp; Ecosystem Shifts</span>
+    <span class="en">focus areas · fund structure innovation · regulatory</span>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-ai">AI 策略</span>
+    <h3>
+      AI 吃下全球 VC 53% 資金；但「防禦性護城河」已成新篩選標準，薄殼 AI 應用遭冷待
+      <span class="en-title">AI Captured 53% of Global VC in H1 2026; "Defensibility" — Proprietary Data &amp; Deep Workflow — Now the Filter</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://blog.mean.ceo/venture-capital-news-may-2026/" target="_blank">VC News May 2026</a> ·
+      <a href="https://www.sky9capital.com/blog/blog-ai-focused-investors-vc-firms-2026/" target="_blank">Sky9 Capital</a> · 2026-05
+    </div>
+
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>2026 上半年 AI 新創吸收全球 VC 53% 資金。然而投資人的審查標準已從「是否有 AI」演進為「AI 護城河是否足夠深」：專有數據、新型架構、深度工作流整合，成為區分「值得投」與「薄殼包裝」的關鍵維度。SVB 2026 年 H1 市場報告亦指出，市場對 AI 投資有更高的差異化要求。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-ctx">背景脈絡 / Context</span>
+      <p>2023–24 年「任何事情加上 AI 都能拿到投資」的盛況趨於冷靜。頭部 GP（a16z、Lightspeed 等）開始在公開場合談論「AI-native vs. AI-wrapper」的選擇邏輯；Sequoia 的「AI 應用層泡沫」備忘錄影響仍持續。此環境對尋找 Series A 的 AI 新創而言，意味著敘事要求顯著提高。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）「防禦性 AI」篩選標準正在向下傳導至種子期：即便在早期，也需說清楚護城河假設。對 GP 而言，能快速辨識護城河真偽的技術人才（如 a16z Lazzarin 式的工程師 GP）競爭優勢將更顯著。</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-retail">結構創新</span>
+    <h3>
+      零售 VC 基金結構創新：NYSE 掛牌基金、倫交所私股市場，VC 流動性民主化加速
+      <span class="en-title">VC Structure Innovation Accelerates: NYSE-listed Funds, LSE Private Stock Market — Democratizing Venture Liquidity</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://techcrunch.com/2026/05/11/riding-an-ai-rally-robinhood-preps-second-retail-venture-ipo/" target="_blank">TechCrunch</a> ·
+      <a href="https://community.ipem-market.com/ipem-global-2026-preview-vc-discipline-tested-ai-secondaries/" target="_blank">IPEM Global 2026 Preview</a> · 2026-05
+    </div>
+
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>2026 年重大結構創新：(1) Robinhood Ventures Fund I（RVI）及即將推出的 RVII，以 NYSE 掛牌交易基金形式讓非合格投資人參與私市 VC；(2) 倫敦證交所推出首個受監管私股市場（PISCES）；(3) OpenAI 最新一輪融資納入零售投資人參與機制；(4) 美國 INVEST Act 眾院通過（已由兩黨支持），有助改善資本形成環境。</p>
+    </div>
+
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）「VC 流動性民主化」浪潮正在改寫 LP 結構。若零售 LP 比例上升，基金管理公司在訊息揭露、波動溝通與估值透明度上的壓力將顯著增加。傳統機構 LP 則需重新思考：在相同資產上，是否要與零售投資人競爭配額？</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. REGIONAL ===== -->
+<section class="section" id="regional">
+  <div class="section-header">
+    <span class="zh">區域動向 / Regional</span>
+    <span class="en">US · Europe · China · Japan · Korea · SEA · India · Israel · MENA</span>
+  </div>
+
+  <div class="item">
+    <h3>🇺🇸 美國 / US</h3>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>美國 VC Q1 2026 投資額創紀錄，高度集中於 AI 基礎設施超大輪（OpenAI $122B、xAI $20B）。Robinhood 準備第二支 NYSE 掛牌 VC 基金（RVII），籌碼偏向早期/成長期。INVEST Act 眾院通過，改善中小型 GP 的資本形成法規環境。a16z AUM 突破 900 億美元（1 月 150 億美元新基金完成後）。</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>🇬🇧🇪🇺 歐洲 / Europe</h3>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>歐洲 Deep Tech 吸引約三分之一 VC 資金（2024 年數據，2026 年延續）。倫交所推出 PISCES 私股市場，為歐洲晚期私市提供新的流動性機制。歐洲 VC DPI 問題趨於結構性：持有期拉長，次市成為首要流動性工具。Air Street Capital（英國，AI + DefenseTech）Fund III 2.32 億美元已完成。CEE（中東歐）地區：不足五成 VC 預期 2026 年投資環境改善。</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>🇮🇳 印度 / India</h3>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>5 月第二週（5/4–5/8）印度新創融資：Skyroot Aerospace 獲 6,000 萬美元（Sherpalo、GIC、BlackRock 等參與），越過獨角獸估值，為印度私人太空科技重要信號；BigEndian Semiconductors 獲 IAN Alpha Fund 領投的 600 萬美元深科技輪。印度正崛起為全球機器人、太空科技、AI 基礎設施中心，政府政策支持力度持續。</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>🌏 東南亞 / Southeast Asia</h3>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>新加坡在 2025 上半年攬獲東南亞新創融資 92%、Fintech 融資 88%（作為區域基地效應顯著）。資金從消費型電商移向 AI、氣候科技與專業 Fintech。亞洲 VC 基金經理中 69% 以 AI 為首要投資優先，東南亞亦不例外。e27 / DealStreetAsia 持續追蹤區域動態。</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>🇸🇦🇦🇪 MENA</h3>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>Khwarizmi Ventures Fund II 首關完成（詳見新基金章節）。沙烏地 Vision 2030 政策支持下，PIF 等主權基金持續作為 LP 支持本地 VC 生態。中亞 VC 規模達 3.2 億美元（據 Euronews 4 月報導，新興市場）。全球 SWF 資產 2025 年底突破 15 兆美元，PIF、Mubadala 直接 VC 投資持續擴大。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. READS ===== -->
+<section class="section" id="reads">
+  <div class="section-header">
+    <span class="zh">觀點精選 / Reads</span>
+    <span class="en">essays · thought leadership · must-reads</span>
+  </div>
+
+  <a class="reads-link" href="https://www.weforum.org/publications/the-future-of-venture-capital-unlocking-liquidity-and-growth/" target="_blank">
+    <div class="reads-icon">📄</div>
+    <div class="reads-body">
+      <div class="reads-title">WEF《The Future of Venture Capital》— 流動性、增長與結構改革</div>
+      <div class="reads-sub">與史丹佛 GSB 合作發布，提出 VC 生態系統面臨的五大結構壓力與改革優先項。面對 AI 重塑 VC 經濟學、資本循環放緩、地理不均等挑戰，此報告是 2026 年理解 VC 行業走向的重要框架文件。</div>
+    </div>
+  </a>
+
+  <a class="reads-link" href="https://www.wellington.com/en/insights/venture-capital-outlook" target="_blank">
+    <div class="reads-icon">📊</div>
+    <div class="reads-body">
+      <div class="reads-title">Wellington Management — Venture Capital Outlook 2026: 5 Key Trends</div>
+      <div class="reads-sub">來自 Wellington（世界最大獨立資管之一）的 VC 市場展望，涵蓋 AI 集中化、DPI 回報、次市崛起、IPO 窗口、新興 GP 生態五大趨勢，適合 LP 做配置決策參考。哈佛法學院 Corp Gov 亦同步轉載。</div>
+    </div>
+  </a>
+</section>
+
+</main>
+
+<footer>
+  <hr class="divider">
+  <p><strong>資料來源 / Sources：</strong>
+    <a href="https://techcrunch.com/category/venture/" target="_blank">TechCrunch Venture</a> ·
+    <a href="https://fortune.com/section/term-sheet/" target="_blank">Fortune Term Sheet</a> ·
+    <a href="https://www.theblock.co" target="_blank">The Block</a> ·
+    <a href="https://www.wamda.com" target="_blank">Wamda</a> ·
+    <a href="https://entarabi.com" target="_blank">entARABI</a> ·
+    <a href="https://news.crunchbase.com" target="_blank">Crunchbase News</a> ·
+    <a href="https://pitchbook.com/news" target="_blank">PitchBook</a> ·
+    <a href="https://www.globaldata.com" target="_blank">GlobalData</a> ·
+    <a href="https://www.venturecapitaljournal.com" target="_blank">VC Journal</a> ·
+    <a href="https://www.weforum.org" target="_blank">WEF</a> ·
+    <a href="https://www.wellington.com" target="_blank">Wellington Management</a> ·
+    <a href="https://www.foley.com" target="_blank">Foley &amp; Lardner</a> ·
+    <a href="https://community.ipem-market.com" target="_blank">IPEM Global</a> ·
+    <a href="https://www.newskart.com" target="_blank">Newskart India</a>
+  </p>
+  <p style="margin-top:6px; color:#bbb;">⚠️ 本報告為資訊整理，非投資建議。分析意見標注「分析」字樣，事實來自公開來源。部分數據截至報導日，如有出入請以原始來源為準。Paywalled sources (The Information, Bloomberg, WSJ full articles) 無法完整存取，已盡量使用公開版本。</p>
+  <p style="margin-top:4px; color:#ccc;">Generated: 2026-05-12 · Asia/Taipei · daily-vc-news skill</p>
+</footer>
+
+</body>
+</html>
