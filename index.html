@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日完整簡報 — 2026-05-12</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: #f5f5f7;
+    color: #1d1d1f;
+    padding: 24px 16px 48px;
+    line-height: 1.5;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin-bottom: 4px;
+  }
+  .header .date-line {
+    font-size: 14px;
+    color: #6e6e73;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card-icon {
+    font-size: 22px;
+    line-height: 1;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1d1d1f;
+  }
+  .card-subtitle {
+    font-size: 12px;
+    color: #6e6e73;
+    font-weight: 400;
+  }
+  .card-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .card-bullets li {
+    font-size: 13px;
+    color: #3a3a3c;
+    padding-left: 12px;
+    position: relative;
+    line-height: 1.45;
+  }
+  .card-bullets li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: #8e8e93;
+    font-weight: 700;
+  }
+  .card-link {
+    margin-top: 4px;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    color: #0066cc;
+    text-decoration: none;
+    padding: 6px 12px;
+    background: #f0f6ff;
+    border-radius: 8px;
+    align-self: flex-start;
+    transition: background 0.15s;
+  }
+  .card-link:hover { background: #ddeeff; }
+  .footer {
+    text-align: center;
+    margin-top: 36px;
+    font-size: 12px;
+    color: #8e8e93;
+  }
+  .footer .tag-ok { color: #30a64a; font-weight: 600; }
+  .section-label {
+    max-width: 1100px;
+    margin: 0 auto 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #8e8e93;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .group-gap { margin-top: 24px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>今日完整簡報</h1>
+  <div class="date-line">2026 年 5 月 12 日（二）｜Asia/Taipei · 10:05 CST &nbsp;·&nbsp; 11/11 完成</div>
+</div>
+
+<!-- 科技 -->
+<div class="section-label">科技 / Technology</div>
+<div class="grid">
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">🤖</span>
+      <div>
+        <div class="card-title">AI 產業新聞</div>
+        <div class="card-subtitle">AI Industry News</div>
+      </div>
+    </div>
+    <ul class="card-bullets">
+      <li>Anthropic 向 SpaceX 租用 Colossus 1 全部算力（220,000 GPU），xAI 宣告解散為獨立公司 / Anthropic rents SpaceX's Colossus 1; xAI dissolves as standalone</li>
+      <li>OpenAI 成立 40 億美元「Deployment Company」，收購 Tomoro 加速企業落地 / OpenAI launches $4B Deployment Co., acquires Tomoro</li>
+      <li>Claude Mythos 發現數千零日漏洞，Project Glasswing 促使白宮首度接受 AI 預部署評估 / Claude Mythos finds thousands of zero-days; White House reverses AI oversight stance</li>
+    </ul>
+    <a class="card-link" href="artifact://ai-news-2026-05-12">開啟完整 artifact →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">💾</span>
+      <div>
+        <div class="card-title">半導體產業新聞</div>
+        <div class="card-subtitle">Semiconductor News</div>
+      </div>
+    </div>
+    <ul class="card-bullets">
+      <li>SK Hynix 測試 Intel EMIB 封裝取代 TSMC CoWoS，Intel 年漲幅逾 225% / SK Hynix tests Intel EMIB 2.5D; Intel surges 225% YTD</li>
+      <li>AMD 2nm 訂單傳轉投三星 SF2（EPYC Venice），TSMC N2 兩廠 2026 全年已滿 / AMD shifts 2nm to Samsung; TSMC N2 sold out through 2028</li>
+      <li>HBM 市場：SK Hynix 62%、Micron 超越三星至 21%，Vera Rubin HBM4 訂單競爭升溫 / HBM share: SK Hynix 62%, Micron 21%, Samsung 17%</li>
+    </ul>
+    <a class="card-link" href="artifact://semiconductor-news-2026-05-12">開啟完整 artifact →</a>
+  </div>
+
+</div>
+
+<!-- 金融市場 -->
+<div class="section-label group-gap">金融市場 / Markets</div>
+<div class="grid">
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">🇺🇸</span>
+      <div>
+        <div class="card-title">美股市場新聞</div>
+        <div class="card-subtitle">US Stocks News</div>
+      </div>
+    </div>
+    <ul class="card-bullets">
+      <li>美伊停火破裂、WTI 逼近 $98，S&amp;P 500 仍刷新高 7,412 / US-Iran ceasefire collapses; WTI near $98; S&P 500 record 7,412</li>
+      <li>Alphabet 年漲 160%，JPMorgan 列科技頭號精選 / Alphabet +160% YoY; JPMorgan names top tech pick</li>
+      <li>Moderna +7.5%（漢他病毒）；Dollar General -5.8%（弱指引）/ Moderna spikes 7.5% on hantavirus; Dollar General -5.8%</li>
+    </ul>
+    <a class="card-link" href="artifact://us-stocks-news-2026-05-12">開啟完整 artifact →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">🇹🇼</span>
+      <div>
+        <div class="card-title">台股市場新聞</div>
+        <div class="card-subtitle">Taiwan Stocks News</div>
+      </div>
+    </div>
+    <ul class="card-bullets">
+      <li>台積電跌 2.4% 至 NT$2,235，TAIEX 衝上 42,021 歷史高後轉跌，終收 41,790（+0.45%）/ TSMC -2.4%; TAIEX hit record 42,021 then reversed</li>
+      <li>美中關稅停火 5/12 生效，美對中降至 30%，台灣 15% 優惠不受衝擊 / US-China trade truce effective; Taiwan's 15% rate intact</li>
+      <li>記憶體族群（南亞科、華邦電）漲停，外資連續賣超逾 200 億元 / Memory stocks hit limit-up; foreign selling &gt;NT$20B</li>
+    </ul>
+    <a class="card-link" href="artifact://tw-stocks-2026-05-12">開啟完整 artifact →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">🔥</span>
+      <div>
+        <div class="card-title">台股熱門個股</div>
+        <div class="card-subtitle">Hot Taiwan Stocks</div>
+      </div>
+    </div>
+    <ul class="card-bullets">
+      <li>聯發科（2454）仍是全場焦點：AI ASIC 目標上修 2 倍，波段漲幅 +147% / MediaTek #1 buzz; AI ASIC target doubled; +147% from April lows</li>
+      <li>記憶體族群（南亞科、旺宏、華邦電）：投信砸逾 127 億元建倉 / Memory trio: trust funds pour NT$12.7B over 2 sessions</li>
+      <li>台股盤中衝 42,157 新高後急殺逾 300 點，英特爾搶蘋果訂單傳聞是壓盤導火線 / TAIEX hit 42,157 intraday high then reversed 300+ pts on Intel-Apple rumor</li>
+    </ul>
+    <a class="card-link" href="artifact://hot-tw-stocks-20260512">開啟完整 artifact →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">⚡</span>
+      <div>
+        <div class="card-title">美股熱門個股</div>
+        <div class="card-subtitle">Hot US Stocks</div>
+      </div>
+    </div>
+    <ul class="card-bullets">
+      <li>INOD Innodata +86%：Q1 AI 服務收入 +54%，Calls 成交量 22x 均量 / INOD +86% on blowout Q1 AI revenue; calls 22x avg volume</li>
+      <li>RKLB Rocket Lab +34%：Q1 +64% YoY，$2.2B backlog，Anduril 國防合約 / RKLB +34% on Q1 record; Anduril + Space Force wins</li>
+      <li>NET Cloudflare -24%、HUBS HubSpot -20%：beat 但指引弱 + 裁員 1,100 人 / NET -24%, HUBS -20% on guidance misses and Cloudflare layoffs</li>
+    </ul>
+    <a class="card-link" href="artifact://hot-us-stocks-2026-05-12">開啟完整 artifact →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">📊</span>
+      <div>
+        <div class="card-title">總體經濟新聞</div>
+        <div class="card-subtitle">Macro Economics News</div>
+      </div>
+    </div>
+    <ul class="card-bullets">
+      <li>美國 4 月 CPI 今日發布，共識 YoY +3.7%（前值 +3.3%），若如期走高將強化 Fed 鷹派立場 / US April CPI: consensus +3.7% YoY; could cement hawkish Fed stance</li>
+      <li>日銀維持 0.75%，日本外匯干預累計逾 600 億美元，USDJPY 160 為關鍵防線 / BOJ holds 0.75%; Japan FX interventions surpass $60B; USDJPY 160 is key</li>
+      <li>ASEAN+3 撒馬爾罕會議：中東衝擊放大區域下行風險，IDR、PHP 受壓 / ASEAN+3 Samarkand meeting flags elevated downside risks from Middle East</li>
+    </ul>
+    <a class="card-link" href="artifact://daily-macro-news-2026-05-12">開啟完整 artifact →</a>
+  </div>
+
+</div>
+
+<!-- 創投 & 新創 -->
+<div class="section-label group-gap">創投與新創 / VC & Startups</div>
+<div class="grid">
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">💼</span>
+      <div>
+        <div class="card-title">創投新聞</div>
+        <div class="card-subtitle">VC News</div>
+      </div>
+    </div>
+    <ul class="card-bullets">
+      <li>a16z Crypto 完成 22 億美元第五號基金，主動縮規模聚焦鏈上金融 / a16z Crypto closes $2.2B Fund V; smaller size, sharper on-chain focus</li>
+      <li>Robinhood 籌備第二支 NYSE 掛牌零售 VC 基金（RVII），首支逾 15 萬投資人 / Robinhood preps RVII retail venture IPO on NYSE</li>
+      <li>WEF：Q1 前五大輪次吃下全球 65% 資金（$188B），次市規模達 $1,063 億 / WEF: Top 5 rounds captured 65% of Q1 global VC ($188B)</li>
+    </ul>
+    <a class="card-link" href="artifact://vc-news-2026-05-12">開啟完整 artifact →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">🚀</span>
+      <div>
+        <div class="card-title">新創公司新聞</div>
+        <div class="card-subtitle">Startup News</div>
+      </div>
+    </div>
+    <ul class="card-bullets">
+      <li>Cerebras IPO 本週四 NASDAQ 掛牌，訂價 $150–$160，市值最高 $48.8B，超額認購 20 倍 / Cerebras (CBRS) lists NASDAQ May 14; priced $150-160; 20x oversubscribed</li>
+      <li>Moonshot AI 完成 $2B 融資（估值 $20B），美團系領投，中國 LLM 史上最大單輪 / Moonshot AI raises $2B at $20B; largest-ever China LLM round</li>
+      <li>AI 裁員潮加速：Cloudflare -20%、Upwork -24%、Coinbase -14%，5 月前 10 天近 3.8 萬人 / AI-driven layoffs: ~38K US tech jobs cut in first 10 days of May</li>
+    </ul>
+    <a class="card-link" href="artifact://daily-startup-news-2026-05-12">開啟完整 artifact →</a>
+  </div>
+
+</div>
+
+<!-- 政治 & 好文 -->
+<div class="section-label group-gap">政治與閱讀 / Politics & Reads</div>
+<div class="grid">
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">🌏</span>
+      <div>
+        <div class="card-title">國際政治新聞</div>
+        <div class="card-subtitle">Politics News</div>
+      </div>
+    </div>
+    <ul class="card-bullets">
+      <li>特朗普拒絕伊朗停火提案，稱協議「奄奄一息」，核時程僵局深化 / Trump rejects Iran's ceasefire response; calls deal "on life support"</li>
+      <li>特朗普 5/14–15 國事訪問北京，貿易、台灣軍售、伊朗列入議程 / Trump-Xi Beijing summit days away; trade, Taiwan arms, Iran on agenda</li>
+      <li>北韓修憲廢除統一條款，正式將兩韓定位為獨立國家 / North Korea removes reunification goal from constitution; codifies two-state framework</li>
+    </ul>
+    <a class="card-link" href="artifact://daily-politics-news-2026-05-12">開啟完整 artifact →</a>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">📚</span>
+      <div>
+        <div class="card-title">今日好文推薦</div>
+        <div class="card-subtitle">Interesting Articles</div>
+      </div>
+    </div>
+    <ul class="card-bullets">
+      <li>把 AI 趕出教室，要付出什麼代價？— Jessica Winter, The New Yorker / "What Will It Take to Get A.I. Out of Schools?"</li>
+      <li>閃電怎麼形成的？答案越研究越有趣 — Charlie Wood, Quanta Magazine / "What Causes Lightning? The Answer Keeps Getting More Interesting"</li>
+      <li>把低語變成最有力量聲音的人：艾登堡百歲 — Danny Chau, The Ringer / "The Voice That Revealed a Planet"</li>
+    </ul>
+    <a class="card-link" href="artifact://daily-interesting-articles-2026-05-12">開啟完整 artifact →</a>
+  </div>
+
+</div>
+
+<div class="footer">
+  <span class="tag-ok">11/11 完成</span> &nbsp;·&nbsp; 生成時間：10:05 Asia/Taipei &nbsp;·&nbsp; 2026-05-12（二）<br>
+  <span style="margin-top:4px;display:block;">部分付費牆來源（WSJ、FT、The Information、Bloomberg 全文）未能取得，以公開摘要補充，已於各子 artifact 個別標注。</span>
+</div>
+
+</body>
+</html>
