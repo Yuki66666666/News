@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日完整簡報 — 2026-05-14</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+    background: #f5f5f5;
+    color: #1a1a1a;
+    padding: 24px 16px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  header {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  header h1 { font-size: 1.5rem; font-weight: 700; color: #111; }
+  header .meta { font-size: 0.82rem; color: #666; line-height: 1.7; text-align: right; }
+  .section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px 20px;
+    border: 1px solid #e0e0e0;
+    transition: box-shadow 0.15s;
+  }
+  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .card-icon { font-size: 1.4rem; line-height: 1; }
+  .card-title { font-size: 0.95rem; font-weight: 700; color: #111; }
+  .card-title-en { font-size: 0.72rem; color: #888; font-weight: 400; }
+  .card ul { list-style: none; padding: 0; }
+  .card ul li {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    padding: 5px 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+  }
+  .card ul li:last-child { border-bottom: none; }
+  .card ul li::before { content: "▸ "; color: #999; font-size: 0.75rem; }
+  .failed-card { border-color: #ffd0d0; background: #fff8f8; }
+  .failed-card .card-title { color: #c0392b; }
+  .failed-badge { font-size: 0.7rem; background: #ffe0e0; color: #c0392b; padding: 1px 6px; border-radius: 10px; font-weight: 600; }
+  footer {
+    margin-top: 28px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 20px;
+    border: 1px solid #e0e0e0;
+    font-size: 0.78rem;
+    color: #888;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .status-ok { color: #27ae60; font-weight: 600; }
+  .status-fail { color: #e74c3c; font-weight: 600; }
+  .note-box {
+    background: #fffbe6;
+    border: 1px solid #f0d000;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.79rem;
+    color: #7a6000;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 600px) {
+    header { flex-direction: column; align-items: flex-start; }
+    header .meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>今日完整簡報</h1>
+    <div style="font-size:0.9rem; color:#555; margin-top:4px;">Today's Full Briefing</div>
+  </div>
+  <div class="meta">
+    2026-05-14（週四）<br>
+    Generated 02:13 CST (Asia/Taipei)<br>
+    10/11 完成 · 1 failed
+  </div>
+</header>
+
+<div class="note-box">
+  ⚠️ 本次執行中 Cowork artifact MCP server 持續超時，各子 skill 已將 HTML 儲存至本機。AI 新聞子 agent 完全逾時未回傳內容。其餘 10 篇完整報告已寫入 outputs 資料夾，可自行開啟。
+</div>
+
+<div class="section-grid">
+
+  <!-- POLITICS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🌍</div>
+      <div>
+        <div class="card-title">政治新聞 <span class="card-title-en">/ Politics</span></div>
+      </div>
+    </div>
+    <ul>
+      <li>川普抵北京、川習峰會正式登場：貿易稀土、$140億台灣軍售、美伊三線角力 / Trump arrives Beijing for Xi summit</li>
+      <li>美伊停火「命懸一線」：霍爾木茲航運量僅剩戰前5% / U.S.-Iran ceasefire on life support — Hormuz at 5%</li>
+      <li>俄烏三日停火瓦解，基輔轉向歐洲；北韓修憲刪統一條文 / Ukraine ceasefire collapses; N. Korea formalizes two-state doctrine</li>
+    </ul>
+  </div>
+
+  <!-- MACRO -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📊</div>
+      <div>
+        <div class="card-title">總體經濟 <span class="card-title-en">/ Macro</span></div>
+      </div>
+    </div>
+    <ul>
+      <li>美國4月CPI年增3.8%，伊朗戰爭能源衝擊，逾三年新高；年底升息機率>33% / US Apr CPI +3.8% YoY — 3-year high; Fed hike odds above 33%</li>
+      <li>日銀罕見6–3維持0.75%，FY2026核心通膨上調至2.8%，6月升息機率77% / BOJ holds at 0.75%; June hike 77% priced</li>
+      <li>IMF下修2026全球成長至3.1%，通膨上修至4.4%；世銀預測能源漲+24% / IMF cuts global growth to 3.1%; World Bank projects +24% energy surge</li>
+    </ul>
+  </div>
+
+  <!-- SEMICONDUCTOR -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">💾</div>
+      <div>
+        <div class="card-title">半導體 <span class="card-title-en">/ Semiconductor</span></div>
+      </div>
+    </div>
+    <ul>
+      <li>應用材料Q2 FY2026財報盤後公布；分析師預期營收$76.5億 (+8.4% YoY) / Applied Materials Q2 earnings today after close</li>
+      <li>記憶體短缺15年最嚴峻：Q2 DRAM合約價+58–63%、NAND+70–75% / Worst memory shortage in 15 years — DRAM contracts +58–63% QoQ</li>
+      <li>NVIDIA Vera Rubin提前量產；AMD MI450獲Meta/OpenAI各6GW訂單 / Vera Rubin in production; AMD wins 6GW each from Meta &amp; OpenAI</li>
+    </ul>
+  </div>
+
+  <!-- US STOCKS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🇺🇸</div>
+      <div>
+        <div class="card-title">美股 <span class="card-title-en">/ US Stocks</span></div>
+      </div>
+    </div>
+    <ul>
+      <li>PPI爆表：4月+1.4% MoM (+6% YoY)，10Y殖利率升至4.49%；道瓊-154pts / April PPI +1.4% MoM; 10Y yield hit 4.49%</li>
+      <li>黃仁勳臨時加入川普訪華代表團 → NVDA +2.1% 至$225.40 / Jensen Huang joins Trump's China trip; NVDA +2.1%</li>
+      <li>Nebius Q1營收暴增684% YoY至$399M，宣布賓州AI工廠 → NBIS +17% ATH / Nebius Q1 +684% YoY; NBIS +17% to ATH</li>
+    </ul>
+  </div>
+
+  <!-- TW STOCKS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🇹🇼</div>
+      <div>
+        <div class="card-title">台股 <span class="card-title-en">/ TW Stocks</span></div>
+      </div>
+    </div>
+    <ul>
+      <li>台積電Q1配息升至NT$7元創歷史新高；核准Arizona增資最多$200億 / TSMC raises Q1 dividend to record NT$7; approves up to $20B Arizona increase</li>
+      <li>台股5/13重挫523點：美CPI高於預期+台指期結算，三大法人賣超480億 / TAIEX -523 pts May 13; three-major investors net-sell NT$48B</li>
+      <li>記憶體超級循環：外資砸95億掃南亞科；美光示警AI記憶體荒延至2028 / Memory super-cycle confirmed; Micron warns AI shortage to 2028</li>
+    </ul>
+  </div>
+
+  <!-- VC -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">💼</div>
+      <div>
+        <div class="card-title">創投 <span class="card-title-en">/ Venture Capital</span></div>
+      </div>
+    </div>
+    <ul>
+      <li>Founders Fund史上最大規模$60億Growth IV完成，Thiel等內部人出資$15億 / Founders Fund closes record $6B Growth IV</li>
+      <li>a16z Crypto Fund V $22億完成close，CTO Eddy Lazzarin晉升第四位GP / a16z Crypto closes $2.2B Fund V; CTO elevated to GP</li>
+      <li>Robinhood RVI掛牌兩個月翻倍至$43+；旋即籌備RVII第二支公開交易VC基金 / Robinhood RVI doubles post-IPO; files for RVII</li>
+    </ul>
+  </div>
+
+  <!-- STARTUPS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🚀</div>
+      <div>
+        <div class="card-title">新創 <span class="card-title-en">/ Startups</span></div>
+      </div>
+    </div>
+    <ul>
+      <li>Cerebras Systems(CBRS)今日Nasdaq掛牌，$48.8B估值，2026年最大AI晶片IPO / Cerebras lists on Nasdaq targeting $48.8B valuation</li>
+      <li>Kalshi估值翻倍至$22B，完成$10億Series F / Kalshi doubles to $22B, closes $1B Series F led by Coatue</li>
+      <li>AI裁員潮：PayPal(4,760)+Coinbase(700)+Freshworks(500)合計逾6,000人 / AI-driven layoffs: 6,000+ cut at PayPal, Coinbase, Freshworks</li>
+    </ul>
+  </div>
+
+  <!-- INTERESTING ARTICLES -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📚</div>
+      <div>
+        <div class="card-title">今日好文 <span class="card-title-en">/ Interesting Reads</span></div>
+      </div>
+    </div>
+    <ul>
+      <li>一位中世紀修道士比哈雷早700年認出哈雷彗星 / A medieval monk may have spotted Halley's Comet 700 years before Halley</li>
+      <li>Karpathy：Vibe Coding只是暖身，Agentic Engineering才是正題 / Karpathy: From Vibe Coding to Agentic Engineering (Sequoia AI Ascent)</li>
+      <li>獨裁者正在輸掉戰爭 / "Tyrants Are Losing Wars" — Noah Smith, Noahpinion 2026-05-11</li>
+    </ul>
+  </div>
+
+  <!-- HOT TW STOCKS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">🔥</div>
+      <div>
+        <div class="card-title">熱門台股 <span class="card-title-en">/ Hot TW Stocks</span></div>
+      </div>
+    </div>
+    <ul>
+      <li>國巨(2327)漲停+10%：Q1 EPS NT$3.90創新高(+22.7% YoY)，AI伺服器鉭電容需求爆發 / Yageo limit-up +10% on record EPS</li>
+      <li>世芯-KY(3661)+鴻勁(7769) AI ASIC千金股+9–10%：Morgan Stanley大幅調升世芯目標價 / Alchip +9-10%; MS raises target 50%+</li>
+      <li>旺宏(2337)外資爆買5萬張：3月淨利年增8倍，NOR Flash寡占格局+MSCI再平衡 / Macronix: net profit +8x YoY; MSCI rebalancing inflows</li>
+    </ul>
+  </div>
+
+  <!-- HOT US STOCKS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon">📈</div>
+      <div>
+        <div class="card-title">熱門美股 <span class="card-title-en">/ Hot US Stocks</span></div>
+      </div>
+    </div>
+    <ul>
+      <li>$VNET +30%：中國AI資料中心VNET宣布策略投資者入股38.1% / VNET +30% on PJ Millennium strategic 38.1% stake placement</li>
+      <li>$WOLF +25% / $NBIS +17%：Wolfspeed獲分析師重估+減債$6億；Nebius Q1 +684% YoY / Wolfspeed upgraded; Nebius crushes Q1</li>
+      <li>GME/EBAY：Ryan Cohen出價$56B收購eBay遭拒，WSB討論量暴增1044% / GameStop's $56B eBay bid rejected; WSB mentions +1044%</li>
+    </ul>
+  </div>
+
+  <!-- AI NEWS - FAILED -->
+  <div class="card failed-card">
+    <div class="card-header">
+      <div class="card-icon">🤖</div>
+      <div>
+        <div class="card-title">AI 新聞 <span class="card-title-en">/ AI News</span></div>
+        <span class="failed-badge">FAILED</span>
+      </div>
+    </div>
+    <ul>
+      <li style="color:#c0392b;">子 agent 完全逾時 — 未回傳任何內容 / Subagent API timeout — no content retrieved</li>
+      <li style="color:#c0392b;">建議手動執行「整理今日 AI 新聞」以補回此版塊 / Suggest running daily-ai-news skill manually</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <span class="status-ok">✓ 10/11 完成</span> &nbsp;|&nbsp;
+    <span class="status-fail">✗ 1/11 失敗</span> (AI 新聞逾時) &nbsp;|&nbsp;
+    個別 artifact 因 Cowork MCP server 超時未能各自持久化，完整 HTML 已寫入 outputs 資料夾
+  </div>
+  <div>Generated 2026-05-14 02:13 CST · daily-full-briefing</div>
+</footer>
+
+</body>
+</html>

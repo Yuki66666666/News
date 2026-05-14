@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>熱門美股 — 2026-05-14</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    padding: 24px 16px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #0f172a;
+  }
+  .subtitle {
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .session-note {
+    background: #eff6ff;
+    border-left: 4px solid #3b82f6;
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #1e40af;
+  }
+  h2 {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 28px 0 12px;
+    color: #0f172a;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 6px;
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 20px 0 8px;
+    color: #0f172a;
+  }
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    font-size: 13px;
+    overflow-x: auto;
+    display: block;
+  }
+  .summary-table th {
+    background: #1e293b;
+    color: #f1f5f9;
+    padding: 8px 10px;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .summary-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap;
+  }
+  .summary-table tr:nth-child(even) { background: #f8fafc; }
+  .summary-table tr:hover { background: #eff6ff; }
+  .up { color: #16a34a; font-weight: 700; }
+  .down { color: #dc2626; font-weight: 700; }
+  .ticker { font-weight: 700; color: #1d4ed8; font-size: 14px; }
+  .buzz { color: #f59e0b; font-size: 15px; }
+
+  .stock-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .stock-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .stock-ticker-badge {
+    background: #1e293b;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  .stock-name { font-weight: 600; font-size: 15px; color: #0f172a; }
+  .stock-name-zh { color: #64748b; font-size: 13px; }
+  .tape {
+    background: #f1f5f9;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    margin-bottom: 10px;
+    color: #334155;
+  }
+  .section-label {
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    margin: 10px 0 4px;
+  }
+  .tag {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1e40af;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 4px;
+    margin-bottom: 2px;
+  }
+  .tag.red { background: #fee2e2; color: #991b1b; }
+  .tag.green { background: #dcfce7; color: #166534; }
+  .tag.orange { background: #fef3c7; color: #92400e; }
+  .tag.purple { background: #f3e8ff; color: #6d28d9; }
+
+  .watchlist-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+
+  .backdrop {
+    background: #fefce8;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    font-size: 13.5px;
+  }
+
+  .sources-footer {
+    margin-top: 28px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 16px;
+    font-size: 12px;
+    color: #64748b;
+  }
+  .sources-footer a { color: #3b82f6; text-decoration: none; }
+  .sources-footer a:hover { text-decoration: underline; }
+  .sources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 4px 16px;
+    margin-top: 8px;
+  }
+  .disclaimer {
+    margin-top: 16px;
+    font-size: 11.5px;
+    color: #94a3b8;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 10px;
+  }
+  p { margin-bottom: 8px; }
+
+  @media (max-width: 600px) {
+    body { padding: 12px 8px; }
+    .stock-header { flex-direction: column; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>🔥 熱門美股 — 2026-05-14 (週四)</h1>
+<div class="subtitle">交易日：2026-05-13（週三）RTH 盤後資料截至 2026-05-14 台北時間整理</div>
+
+<div class="session-note">
+  <strong>本期交易日說明：</strong>5月13日（週三）為最近一個完整美股交易日。PPI 通膨數據超預期，但市場多空交戰—大型 AI 股和防禦型醫療保健雙雙走強，Nasdaq 盤中振盪較大。
+</div>
+
+<!-- ──────────────── MARKET BACKDROP ──────────────── -->
+<h2>📊 大盤背景 / Market Backdrop</h2>
+<div class="backdrop">
+  <strong>5/13 收盤：</strong>
+  S&amp;P 500 ▼ ~0.1%（約 7,401）・Nasdaq ▼ ~0.7%（約 26,088）・Dow ▲ +0.1%（49,761）・VIX ≈ 17.8・
+  <br>
+  <strong>Catalyst：</strong>4月 PPI（生產者物價）月增 +1.4%，遠超市場預期 +0.5%，通膨壓力再度升溫。NVIDIA CEO 黃仁勳隨美國總統前往中國訪問，帶動 NVDA 漲 2.1% 至 $225.40。
+  <br>
+  <strong>板塊：</strong>醫療保健（UNH 帶動）、材料（銅價創新高 + 資料中心建設）、AI 基礎設施、SiC 半導體領漲；通訊、消費類股偏弱。
+</div>
+
+<!-- ──────────────── SUMMARY TABLE ──────────────── -->
+<h2>🏆 今日熱門股一覽 / Top Hot Names</h2>
+<table class="summary-table">
+  <thead>
+    <tr>
+      <th>Ticker</th>
+      <th>公司</th>
+      <th>收盤估價</th>
+      <th>% 漲跌</th>
+      <th>Vol (M)</th>
+      <th>成交量 vs 30D</th>
+      <th>Options / Short</th>
+      <th>熱度 Buzz</th>
+      <th>Catalyst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="ticker">VNET</td>
+      <td>VNET Group</td>
+      <td>~$11.74</td>
+      <td class="up">+30.1%</td>
+      <td>待確認</td>
+      <td>大幅爆量↑</td>
+      <td>IV 急升，Call 偏多</td>
+      <td class="buzz">★★★★★</td>
+      <td>策略投資者入股 38.1%</td>
+    </tr>
+    <tr>
+      <td class="ticker">WOLF</td>
+      <td>Wolfspeed</td>
+      <td>~$51.05</td>
+      <td class="up">+24–26%</td>
+      <td>待確認</td>
+      <td>爆量，52週高</td>
+      <td>SI 27%，短倉回補</td>
+      <td class="buzz">★★★★★</td>
+      <td>Citrini 分析師報告 + 減債 $6億</td>
+    </tr>
+    <tr>
+      <td class="ticker">NBIS</td>
+      <td>Nebius Group</td>
+      <td>~$209</td>
+      <td class="up">+16–18%</td>
+      <td>待確認</td>
+      <td>爆量，ATH</td>
+      <td>Call 大量買盤</td>
+      <td class="buzz">★★★★★</td>
+      <td>Q1 營收 +684% YoY，EBITDA 轉正</td>
+    </tr>
+    <tr>
+      <td class="ticker">AAOI</td>
+      <td>Applied Optoelectronics</td>
+      <td>~$226</td>
+      <td class="up">+20–22%</td>
+      <td>待確認</td>
+      <td>持續爆量</td>
+      <td>IV 升，Call 偏</td>
+      <td class="buzz">★★★★</td>
+      <td>AI DC 光纖需求強勁，YTD +488%</td>
+    </tr>
+    <tr>
+      <td class="ticker">TSEM</td>
+      <td>Tower Semiconductor</td>
+      <td>待確認</td>
+      <td class="up">+15.9%</td>
+      <td>待確認</td>
+      <td>爆量↑</td>
+      <td>待確認</td>
+      <td class="buzz">★★★★</td>
+      <td>Q1 營收 +15%，Q2 歷史新高指引 $455M</td>
+    </tr>
+    <tr>
+      <td class="ticker">OUST</td>
+      <td>Ouster Inc.</td>
+      <td>~$31.56</td>
+      <td class="up">+16–25%</td>
+      <td>待確認</td>
+      <td>爆量↑</td>
+      <td>待確認</td>
+      <td class="buzz">★★★</td>
+      <td>Q1 營收 +49% YoY，合約拿單強勁</td>
+    </tr>
+    <tr>
+      <td class="ticker">EBAY / GME</td>
+      <td>eBay / GameStop</td>
+      <td>EBAY ~$113</td>
+      <td class="up">EBAY +小漲</td>
+      <td>正常</td>
+      <td>正常</td>
+      <td>eBay put 增加</td>
+      <td class="buzz">★★★★</td>
+      <td>GME 出價 $56B 遭拒，WSB 熱議</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ──────────────── DEEP DIVES ──────────────── -->
+<h2>📋 個股深度分析 / Per-Ticker Deep Dives</h2>
+
+<!-- VNET -->
+<div class="stock-card">
+  <div class="stock-header">
+    <div class="stock-ticker-badge">$VNET</div>
+    <div>
+      <div class="stock-name">VNET Group, Inc.</div>
+      <div class="stock-name-zh">萬國數據（中國 AI 資料中心運營商）</div>
+    </div>
+    <div class="up" style="font-size:18px; font-weight:700;">+30.1%</div>
+  </div>
+  <div class="tape">
+    <strong>Tape：</strong> 盤中高點 ~$11.74・前收約 $9.02・成交量爆量（估 vs 30D avg 3x+）・52週高附近
+  </div>
+  <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+  <p><strong>中文：</strong>VNET 宣布策略性私募投資，PJ Millennium I &amp; II 基金將以每ADS $8.69（每A類股 $1.4486）收購最多 6.5億 A 類股，交易若全部完成將佔股 38.1%，預計 Q4 2026 完成。新戰略投資者的大額入場，代表外部對 VNET 在中國 AI 資料中心建設浪潮中的卡位充滿信心，帶動股價跳漲逾三成。</p>
+  <p><strong>English：</strong> VNET Group announced a significant strategic equity investment by PJ Millennium I &amp; II funds acquiring up to 650M Class-A shares at $1.4486 per share (~$8.69/ADS), potentially delivering a 38.1% stake to the new investors. Expected to close Q4 2026. The deal injects fresh capital and signals strong external conviction in VNET's AI-ready data center buildout in China, amid surging demand for liquid-cooling high-density AI compute infrastructure.</p>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>IV 在公告後急升；Call 偏多方向。因是香港/中概 ADR，美股期權流動性相對較薄，大宗爆量的情況下選擇權成本偏高。Short interest 資料待確認（中概 SI 常有借券成本問題）。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>中概 AI 基建股的突發消息迅速在 X (Twitter) 的 <strong>$VNET</strong> cashtag 上發酵，多為「中國版 EQIX 拿到大股東背書」的敘事。StockTwits 熱搜上升至今日前10。Reddit 上 r/wallstreetbets 僅少數討論，主要關注群體集中在 r/stocks / r/ChinaStocks。</p>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>VNET 2025 年已帶出「中國 AI 基建低估值」主題，此次私募相當於讓一個新大股東以溢價入股，短期釋放了正面信號。競比對象有 GDS Holdings (GDS)、21Vianet（VNET 子公司）等。此類策略入股交割前常有波動，需留意交易所批准風險。</p>
+
+  <div class="section-label">後續觀察 / What to Watch Next</div>
+  <p>（分析）交易所批准（涉及 VIE 結構）是主要不確定性；Q4 close 前股價可能呈現「買謠言賣事實」走法。觀察 GDS 是否有溢出輪動。</p>
+  <span class="tag">AI Data Center</span>
+  <span class="tag orange">中概股</span>
+  <span class="tag green">Strategy Investment</span>
+  <span class="tag">+30%</span>
+</div>
+
+<!-- WOLF -->
+<div class="stock-card">
+  <div class="stock-header">
+    <div class="stock-ticker-badge">$WOLF</div>
+    <div>
+      <div class="stock-name">Wolfspeed, Inc.</div>
+      <div class="stock-name-zh">碳化矽（SiC）半導體製造商</div>
+    </div>
+    <div class="up" style="font-size:18px; font-weight:700;">+24–26%</div>
+  </div>
+  <div class="tape">
+    <strong>Tape：</strong> 收盤/高點 ~$51.05・52週新高（10年多高）・7連漲・成交量大幅高於均量・盤前即飆升
+  </div>
+  <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+  <p><strong>中文：</strong>主題研究機構 Citrini 發表深度報告，指出 Wolfspeed 的估值應遠高於單純廠房重置成本，替補了市場對公司轉型的信心。同時公司在最近一季大幅削減約 6 億美元債務（總負債從 $23億 降至 $17億，降幅 26%），長達數季的去槓桿邏輯終於獲市場認可。加上 SiC 在電動車與能源市場的長期需求支撐，空頭回補成分明顯。</p>
+  <p><strong>English：</strong> Thematic research firm Citrini released a bullish deep-dive recommending WOLF, arguing the stock deserves a valuation beyond replacement value of its fab assets. Combined with a $600M debt reduction (from ~$2.3B to ~$1.7B, a 26% deleveraging), the market responded with conviction. The 7-session win streak suggests both institutional and retail momentum building, with high short interest (27%) adding a short-squeeze dimension.</p>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>短倉佔流通比例高達 <strong>27.13%</strong>，在報告出來後空單回補加速。Call 期權 OI 顯著增加，IV 急升（實際數字待確認 Barchart unusual activity）。最近一週有出現 ITM call block buy 的跡象（Barchart 資料）。Days-to-cover 較長，使空頭承壓明顯。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>StockTwits 上 $WOLF 今日進入最活躍前5，多頭敘事集中在「SiC 版的 NVIDIA 雛形」。X cashtag 流量爆增，提及 Citrini 報告的轉推數量大。Reddit r/wallstreetbets 可見貼文討論「WOLF squeeze setup」，但以 r/investing / r/options 的基本面討論更多。</p>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>WOLF 在 2024–2025 年因 EV 需求放緩、產能利用率低、債務壓力而長期跌宕，一度被視為 SiC 失敗案例。2026 年轉機出現：減債成效顯著、防禦性需求（雷達 IC）帶出新用例、Citrini 報告帶來外部催化。類比情境：Wolfspeed 若重複 2021 年 GaN 公司被 AI/5G 重新估值的路徑，爆量突破 10 年高可能成為技術面確認訊號。</p>
+
+  <div class="section-label">後續觀察 / What to Watch Next</div>
+  <p>（分析）關注 $50–55 整數壓力位；若空頭繼續回補且 Citrini 報告帶動其他機構跟進，有望延續漲勢。風險：WOLF 尚未獲利、主要競爭對手（onsemi、Infineon）仍強勢競爭。下一個硬數據催化劑為下季財報（待確認日期）。</p>
+  <span class="tag">SiC Semiconductor</span>
+  <span class="tag red">High Short Interest</span>
+  <span class="tag purple">Short Squeeze</span>
+  <span class="tag green">Citrini Upgrade</span>
+  <span class="tag">+25% / 52W High</span>
+</div>
+
+<!-- NBIS -->
+<div class="stock-card">
+  <div class="stock-header">
+    <div class="stock-ticker-badge">$NBIS</div>
+    <div>
+      <div class="stock-name">Nebius Group</div>
+      <div class="stock-name-zh">AI 基礎設施平台（前 Yandex NV，荷蘭上市）</div>
+    </div>
+    <div class="up" style="font-size:18px; font-weight:700;">+16–18%</div>
+  </div>
+  <div class="tape">
+    <strong>Tape：</strong> 收盤 ~$209（盤前已漲 16.69% 至 $209）・歷史新高 (ATH)・分析師共識 Strong Buy・12 位分析師均價目標原本約 $163–170
+  </div>
+  <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+  <p><strong>中文：</strong>Nebius Q1 2026 業績暴升：營收 $3.99億，年增 684%（是的，684%），超出分析師預期 $3.75億；EPS -$0.23 vs 預期 -$0.78（大幅超標）；調整後 EBITDA 從去年同期虧損 $5,370萬 轉為獲利 $1.295億。更重要的是，公司宣布將在賓夕法尼亞州建設新 AI 工廠（PA AI Factory），強化對美國本土 AI 算力市場的佈局野心。</p>
+  <p><strong>English：</strong> Nebius reported Q1 2026 revenue of $399M (+684% YoY), crushing analyst estimates of $375M. EPS loss narrowed to -$0.23 vs. expected -$0.78. Adjusted EBITDA flipped positive to +$129.5M from -$53.7M a year ago, demonstrating significant margin leverage as the company scales its AI compute/cloud infrastructure. A new Pennsylvania AI factory announcement adds a U.S. domestic compute angle, appealing to data sovereignty themes.</p>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>ATH 突破 + 大幅財報超預期，Call OI 顯著累積，IV 盤前大幅上升。機構調升目標價預計帶動進一步的 gamma 擠壓。Wolfe Research 提示執行風險：2026 全年指引 $30–34億（vs 2025 $5.3億），需要所有事項順利運作。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>Reddit AltIndex 資料顯示 Nebius 在今日最熱門 Reddit 提及股之列；Micron (MU)、TSLA、NBIS 並列今日三大 Reddit 熱炒股。X cashtag $NBIS 出現大量「AI infra未持有的後悔」貼文，與 Coreweave (CRWV) 並列 AI compute 雙雄討論。</p>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>Nebius 是 Yandex 分拆後的 AI 算力純play，業務包括 GPU 雲端、數據標記（Toloka）和 Eigen AI。公司本質是 AMD/NVIDIA GPU 集群租賃的大型玩家，業績爆炸性成長來自 AI 訓練和推理需求急速擴張。與 CoreWeave 類似但估值偏低（分析，非建議）。</p>
+
+  <div class="section-label">後續觀察 / What to Watch Next</div>
+  <p>（分析）觀察 PA 工廠建設時間表；下季能否維持 EBITDA 正值是關鍵；GPU 算力市場競爭加劇（AWS、Azure、CoreWeave）是主要風險。12個月內高點與低點分化預計較大。</p>
+  <span class="tag">AI Infrastructure</span>
+  <span class="tag green">Earnings Beat +684%</span>
+  <span class="tag">EBITDA Flip</span>
+  <span class="tag">ATH</span>
+</div>
+
+<!-- AAOI -->
+<div class="stock-card">
+  <div class="stock-header">
+    <div class="stock-ticker-badge">$AAOI</div>
+    <div>
+      <div class="stock-name">Applied Optoelectronics, Inc.</div>
+      <div class="stock-name-zh">光纖元件製造商（AI 資料中心高速互連）</div>
+    </div>
+    <div class="up" style="font-size:18px; font-weight:700;">+20–22%</div>
+  </div>
+  <div class="tape">
+    <strong>Tape：</strong> 收盤 ~$226・日內高達 $226・前週 +23% 後短暫回調再拉升・YTD +488%・股價達 2026 年新高
+  </div>
+  <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+  <p><strong>中文：</strong>AAOI 製造高速 AI 資料中心用光纖收發器（400G/800G/1.6T），直接受益於全球大型科技公司（Hyperscalers）瘋狂擴建 AI 算力基礎設施。公司近期公佈 Q1 2026 銷售額 $1.511億（年增 51%），並已拿到一筆 $2億 的 1.6T 產品大單，並預計 2026 全年銷售將突破 $11億（較去年翻倍）。今日漲勢為週一大漲 +23% 後的動能延續，加上光學板塊整體走強（Lumentum、Coherent 亦同步上漲）。</p>
+  <p><strong>English：</strong> AAOI is a pure-play optical transceiver maker for AI data center interconnects. Q1 2026 revenue reached $151.1M (+51% YoY), with a $200M order secured for 1.6T products. FY2026 revenue guidance exceeds $1.1B, roughly double last year. With AI compute spending still accelerating, AAOI is a levered play on the datacenter optics supply chain. Today's +20%+ follows Monday's +23%, likely driven by continued momentum and sector rotation into optics after a brief sector-wide selloff last week.</p>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>IV 高企（YTD +488% 的個股 options IV 本身偏高）；Call OI 持續累積；1.6T 訂單消息驅動機構加碼。注意：AAOI 市值相對小，大宗 options 交易可能放大波動。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>StockTwits $AAOI 今日極度熱門，討論重心為「$200M 大單」和「1.6T 光模組是下一代標準」。X 上 $AAOI 被多個光纖行業 KOL 轉貼，與 $LITE（Lumentum）並列光學板塊最熱話題。</p>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>光纖產業週期通常滯後於 GPU 建設週期 1–2 季，AAOI 此波是典型的「資料中心支出外溢」概念。風險：客戶集中度高，一旦 Hyperscaler 採購節奏放緩，訂單斷崖式下滑可能快速反映。同業競爭：Coherent、Lumentum、II-VI 等體量更大。</p>
+
+  <div class="section-label">後續觀察 / What to Watch Next</div>
+  <p>（分析）1.6T 出貨節奏是下一個確認信號；光學板塊若統一走強（Coherent / Lumentum 同步），則可持續；若單 AAOI 孤漲，需注意散戶追高風險。注意 YTD +488% 的估值拉伸。</p>
+  <span class="tag">Optical Components</span>
+  <span class="tag green">AI Data Center</span>
+  <span class="tag">1.6T Transceiver</span>
+  <span class="tag orange">YTD +488%</span>
+</div>
+
+<!-- TSEM -->
+<div class="stock-card">
+  <div class="stock-header">
+    <div class="stock-ticker-badge">$TSEM</div>
+    <div>
+      <div class="stock-name">Tower Semiconductor Ltd.</div>
+      <div class="stock-name-zh">特殊製程晶圓代工廠（以色列）</div>
+    </div>
+    <div class="up" style="font-size:18px; font-weight:700;">+15.9%</div>
+  </div>
+  <div class="tape">
+    <strong>Tape：</strong> 股價達10年新高区域・5/13 Q1 法說會後漲勢確立・盤前即強勢
+  </div>
+  <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+  <p><strong>中文：</strong>Tower Semiconductor Q1 2026 財報超預期：營收 $4.14億（年增 15%），毛利 $1.11億，淨利 $6,500萬（EPS $0.58）。更大亮點是 Q2 2026 指引：$4.55億（±5%），創公司歷史新高。矽光子（SiPho）客戶預付款 $2.9億 已入帳，代表 AI 光學互連的長期訂單鎖定。美國國防雷達（Axiro Ku/X-band beamforming IC）量產資格認定也帶來新的垂直應用。</p>
+  <p><strong>English：</strong> Tower Semi's Q1 2026 beat on all fronts: revenue $414M (+15% YoY), with a record Q2 guidance of $455M (±5%). The $290M silicon photonics prepayment from customers signals deep visibility into AI interconnect demand. Additionally, defense radar IC qualification adds a recurring, higher-margin vertical. S&amp;P raised credit outlook to positive on May 5. Stock hit decade highs on strong fundamentals, unlike speculative peers.</p>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>法說超預期後，TSEM 的 Call OI 上升（具體大宗 block 資料待確認）。由於 TSEM 在 NASDAQ/TASE 雙掛牌，期權市場流動性偏薄，大幅漲勢主要反映現貨買盤。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>StockTwits $TSEM 今日第一次進入最活躍前列，敘事為「隱形的AI晶片代工贏家」。X 上有多篇「別只看台積電，Tower Semiconductor 才是被忽視的 SiPho 代工龍頭」類型文章被大量轉發。</p>
+
+  <div class="section-label">後續觀察 / What to Watch Next</div>
+  <p>（分析）觀察 SiPho 量產出貨進度；美國國防採購預算是否擴大對 Axiro 雷達IC 的採購；下季若達到 $455M 指引，可能吸引更多機構覆蓋。風險：以色列地緣政治、制程較成熟（非先進製程）。</p>
+  <span class="tag">Foundry</span>
+  <span class="tag green">Earnings Beat</span>
+  <span class="tag">Silicon Photonics</span>
+  <span class="tag">Defense SiGe IC</span>
+  <span class="tag orange">Decade High</span>
+</div>
+
+<!-- GME / EBAY -->
+<div class="stock-card">
+  <div class="stock-header">
+    <div class="stock-ticker-badge">$GME / $EBAY</div>
+    <div>
+      <div class="stock-name">GameStop Corp. / eBay Inc.</div>
+      <div class="stock-name-zh">GameStop 收購 eBay 事件鏈</div>
+    </div>
+    <div class="up" style="font-size:18px;">GME ↓ EBAY 小漲</div>
+  </div>
+  <div class="tape">
+    <strong>Tape：</strong> EBAY 日內高 $113.73，收盤 ~$113（連續3天上漲）；GME 在 eBay 拒絕收購消息後下跌
+  </div>
+  <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+  <p><strong>中文：</strong>2026 年最戲劇性的 M&amp;A 情節持續延燒：GameStop CEO Ryan Cohen 祕密買入 eBay 5% 股份，然後以每股 $125（約 $56B 總估值，現金+股票各半）提出收購要約。5/12 eBay 正式拒絕，稱此出價「既不可信，也不吸引」。Cohen 在 X 上繼續嘲諷 eBay，稱其「需要節食（ozempic）」。Michael Burry 在公告後賣出 GME，引用「別把負債和創意搞混」。今日焦點：分析師 Felix Salmon 認為「收購是個噱頭，但 Cohen 不管怎樣都贏了」——因此形成 EBAY 維持底部支撐、GME 轉成 meme event 的奇特格局。</p>
+  <p><strong>English：</strong> The most theatrical M&amp;A of 2026: GameStop quietly accumulated a 5% eBay stake, then bid $56B ($125/sh, 50% cash + 50% GME stock). eBay rejected it on May 12 as "neither credible nor attractive." Cohen escalated on X, mocking eBay. Michael Burry exited GME, noting "never confuse debt for creativity." Today, eBay is in a 3-session up streak (Citi raised target to $127 for separate beat-plus-execution reasons). WSB Reddit mention count for $GME spiked 1044% per AltIndex.</p>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>EBAY: Put/Call 比稍高（市場認為 deal 已死，限制了上行）；Citi 升目標價 $127 提供底部。GME: 在公告期間 Calls 飆升後，拒絕消息出來 Call OI 瀉量，IV crush 明顯。Ryan Cohen X 帳號本身就是 retail sentiment 的 proxy。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>r/wallstreetbets 今日熱貼：「Ryan Cohen 到底是天才還是瘋子？」WSB $GME 提及量 +1044%（AltIndex 資料）。StockTwits $GME 爭論焦點是 "This is 2021 all over again" vs "this is peak stupidity"。$EBAY cashtag 關注度少見地超過 $GME。</p>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>GME 2021 meme 歷史使其任何大動作都帶有極高熱度。此次 eBay bid 更像是 Cohen 個人品牌操作，而非真正財務可行的收購。EBAY 本身的執行力改善（Live Video Commerce）是獨立基本面催化。兩股目前屬於「新聞事件熱炒」而非「真正的炒作基本面」。</p>
+
+  <div class="section-label">後續觀察 / What to Watch Next</div>
+  <p>（分析）觀察 Cohen 下一步行動：是否提高出價、撤回、或轉戰代理人投票。EBAY Q2 法說會指引是真正估值重設點。GME 的資產負債表（$10B 資產 $4B 負債 vs $56B 出價）是關鍵矛盾。</p>
+  <span class="tag purple">Meme Stock</span>
+  <span class="tag orange">M&amp;A Drama</span>
+  <span class="tag">Ryan Cohen</span>
+  <span class="tag red">eBay Rejection</span>
+  <span class="tag">WSB +1044%</span>
+</div>
+
+<!-- ──────────────── WATCHLIST ──────────────── -->
+<h2>👀 次熱觀察股 / Watchlist</h2>
+
+<div class="watchlist-card">
+  <strong>$NVDA（NVIDIA）</strong> <span class="up">+2.1%</span> — 黃仁勳隨川普訪中，AI 晶片出口限制放寬預期；收盤 $225.40。大盤疲弱下能獨漲，說明籌碼穩健。技術面剛突破 $220 壓力，觀察是否延伸。
+</div>
+
+<div class="watchlist-card">
+  <strong>$UNH（UnitedHealth Group）</strong> <span class="up">+3.1%</span> — Dow 主要貢獻者。Q1 EPS $7.23 vs 預期 $6.59（超出 9.7%）；全年指引上調至 >$18.25；醫療費用比率 83.9% 低於預期 85.5%。在 S&amp;P 下跌時逆市上漲，屬防禦型 outperformer。
+</div>
+
+<div class="watchlist-card">
+  <strong>$OUST（Ouster）</strong> <span class="up">+16–25%</span> — Q1 2026 營收 $48.6M（+49% YoY），SmartCity 和工業自動化拿單強勁；5/5 財報驅動的動能持續。AI 機器人/自動化週期受益股。
+</div>
+
+<div class="watchlist-card">
+  <strong>$ASTS（AST SpaceMobile）</strong> — 今日 WSB 長期持倉熱門，低軌衛星直連手機概念；本週無重大催化，但社群討論熱度維持高位，等待下一次發射消息。
+</div>
+
+<!-- ──────────────── HALTS ──────────────── -->
+<h2>⚠️ 異常事件 / Halts &amp; Weirdness</h2>
+<p>2026-05-13 無明確 SEC 停牌或 LULD 大規模異常事件被廣泛報導。<strong>注意：</strong>VNET 和 WOLF 在急漲過程中可能有短暫 LULD 限制性暫停（常見於 >20% 單日漲幅個股），但非監管原因。如有需要請查閱 <a href="https://www.nasdaqtrader.com/Trader.aspx?id=tradehalts" target="_blank">Nasdaq Halt List</a>。</p>
+
+<!-- ──────────────── SOURCES FOOTER ──────────────── -->
+<div class="sources-footer">
+  <strong>數據來源 / Sources Consulted</strong>
+  <div class="sources-grid">
+    <div><a href="https://finance.yahoo.com/markets/stocks/gainers/" target="_blank">Yahoo Finance — Top Gainers</a></div>
+    <div><a href="https://finance.yahoo.com/news/stock-market-news-may-13-090700682.html" target="_blank">Yahoo Finance — Market News 5/13</a></div>
+    <div><a href="https://www.thestreet.com/latest-news/stock-market-today-may-13-2026-updates" target="_blank">TheStreet — Market Today 5/13</a></div>
+    <div><a href="https://stocktwits.com/news-articles/markets/equity/why-is-wolf-stock-rising-premarket/cZXLSA5Re0s" target="_blank">StockTwits — Why WOLF surged 20%</a></div>
+    <div><a href="https://www.benzinga.com/trading-ideas/movers/26/05/52533667/why-is-wolfspeed-stock-skyrocketing-wednesday" target="_blank">Benzinga — Wolfspeed Surge</a></div>
+    <div><a href="https://finance.yahoo.com/markets/stocks/article/wolfspeed-stock-soars-24-after-citrini-research-highlights-the-chipmakers-potential-122455453.html" target="_blank">Yahoo Finance — WOLF Citrini Report</a></div>
+    <div><a href="https://www.tipranks.com/news/nebius-earnings-nbis-stock-soars-on-684-revenue-growth" target="_blank">TipRanks — NBIS 684% Revenue Growth</a></div>
+    <div><a href="https://finance.yahoo.com/news/nebius-q1-2026-earnings-beat-122602546.html" target="_blank">Yahoo Finance — Nebius Q1 Earnings</a></div>
+    <div><a href="https://www.ibtimes.com.au/vnet-group-shares-surge-strategic-investment-ai-infrastructure-1868745" target="_blank">IBTimes — VNET Strategic Investment</a></div>
+    <div><a href="https://www.stocktitan.net/news/VNET/vnet-announces-new-strategic-lybtpagxf380.html" target="_blank">StockTitan — VNET Strategic Investors</a></div>
+    <div><a href="https://www.fxleaders.com/news/2026/05/13/applied-optoelectronics-aaoi-stock-hits-190-in-2026-ai-data-center-demand-drives-massive-growth/" target="_blank">FX Leaders — AAOI AI DC Demand</a></div>
+    <div><a href="https://247wallst.com/investing/2026/05/13/optics-stock-rally-continues-applied-optoelectronics-surges-9-lumentum-and-coherent-rise-4/" target="_blank">247 Wall St — Optics Sector Rally</a></div>
+    <div><a href="https://www.stocktitan.net/news/TSEM/tower-semiconductor-reports-first-quarter-2026-financial-results-dra233zppadr.html" target="_blank">StockTitan — Tower Semi Q1 Results</a></div>
+    <div><a href="https://stocktwits.com/news-articles/markets/equity/TSEM-shares-at-decade-highs-on-results-billion-dollar-contracts/cZXLlLnRe0U" target="_blank">StockTwits — TSEM Decade High</a></div>
+    <div><a href="https://www.cnbc.com/2026/05/12/ebay-rejects-gamestops-takeover-ryan-cohen.html" target="_blank">CNBC — eBay Rejects GameStop Bid</a></div>
+    <div><a href="https://stocktwits.com/news-articles/markets/equity/gme-stock-ryan-cohen-slams-ebay-gamestop-bid-rejection/cZXLerfRe0a" target="_blank">StockTwits — GME Ryan Cohen Slams eBay</a></div>
+    <div><a href="https://247wallst.com/investing/2026/05/13/felix-salmon-says-gamestops-54-billion-ebay-bid-is-mostly-a-stunt/" target="_blank">247 Wall St — GME eBay Bid Analysis</a></div>
+    <div><a href="https://altindex.com/wallstreetbets" target="_blank">AltIndex — WSB Most Mentioned Stocks</a></div>
+    <div><a href="https://www.barchart.com/options/unusual-activity" target="_blank">Barchart — Unusual Options Activity</a></div>
+    <div><a href="https://fintel.io/ss/us/wolf" target="_blank">Fintel — WOLF Short Interest</a></div>
+    <div><a href="https://www.marketbeat.com/stocks/NYSE/WOLF/short-interest/" target="_blank">MarketBeat — WOLF Short Interest</a></div>
+    <div><a href="https://finance.yahoo.com/news/leading-lagging-sectors-may-13-131021923.html" target="_blank">Yahoo Finance — Sectors 5/13</a></div>
+    <div><a href="https://www.investing.com/news/company-news/why-is-unitedhealth-group-stock-rallying-today-93CH-4642349" target="_blank">Investing.com — UNH Rally</a></div>
+    <div><a href="https://www.quiverquant.com/wallstreetbets/" target="_blank">Quiver Quantitative — WSB Tracker</a></div>
+  </div>
+  <p style="margin-top:10px;"><strong>部分受限來源（需訂閱/付費）：</strong> Bloomberg、WSJ、Seeking Alpha premium、SpotGamma、Barchart premium options data、Fintel full short data。部分即時成交量數據標「待確認」，因截稿時免費端未能確認準確數字。</p>
+  <div class="disclaimer">
+    ⚠️ 本報告為資訊整理，不構成投資建議（買入/賣出/持有/任何期權策略）。所有數字均來自公開資料，部分為截稿前估計值，請以官方數據為準。投資有風險，請自行評估。<br>
+    <em>This report is for informational purposes only and does not constitute investment advice. All figures are from public sources and may be estimates. Investing involves risk.</em>
+  </div>
+</div>
+
+</body>
+</html>

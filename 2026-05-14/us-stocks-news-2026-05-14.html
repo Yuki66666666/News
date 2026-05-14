@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美股新聞日報 — 2026-05-14</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.65;
+    padding: 20px;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    padding: 24px 28px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+  }
+  .header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
+  .header .subtitle { font-size: 0.85rem; opacity: 0.75; }
+  .session-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.78rem;
+    margin-top: 8px;
+  }
+  /* Index table */
+  .index-table-wrap {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    overflow-x: auto;
+  }
+  .index-table-wrap h2 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 14px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: #f0f2f5; }
+  th { padding: 8px 12px; text-align: left; color: #555; font-weight: 600; }
+  td { padding: 8px 12px; border-bottom: 1px solid #f0f0f0; }
+  .pos { color: #16a34a; font-weight: 600; }
+  .neg { color: #dc2626; font-weight: 600; }
+  .neu { color: #888; }
+  /* Sections */
+  .section {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  }
+  .section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8ecf0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title .badge {
+    background: #0f3460;
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+  /* Story cards */
+  .story-card {
+    border-left: 3px solid #0f3460;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    background: #fafbfc;
+    border-radius: 0 8px 8px 0;
+  }
+  .story-card:last-child { margin-bottom: 0; }
+  .story-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+  }
+  .story-source {
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .story-source a { color: #0f3460; text-decoration: none; }
+  .story-source a:hover { text-decoration: underline; }
+  .story-meta { margin-bottom: 6px; }
+  .label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0f3460;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .story-text { font-size: 0.85rem; color: #333; margin-top: 3px; }
+  /* Movers grid */
+  .movers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 4px;
+  }
+  .mover-card {
+    border: 1px solid #e8ecf0;
+    border-radius: 8px;
+    padding: 12px 14px;
+    background: #fafbfc;
+  }
+  .mover-ticker { font-size: 1rem; font-weight: 700; color: #1a1a2e; }
+  .mover-name { font-size: 0.73rem; color: #888; margin-bottom: 4px; }
+  .mover-chg { font-size: 1rem; font-weight: 700; }
+  .mover-reason { font-size: 0.76rem; color: #555; margin-top: 4px; }
+  /* Analyst table */
+  .analyst-row { padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+  .analyst-row:last-child { border-bottom: none; }
+  .analyst-row .ticker-chip {
+    display: inline-block;
+    background: #e8edf5;
+    color: #1a1a2e;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    margin-right: 6px;
+  }
+  .upgrade { color: #16a34a; font-weight: 600; font-size: 0.82rem; }
+  .downgrade { color: #dc2626; font-weight: 600; font-size: 0.82rem; }
+  .initiate { color: #2563eb; font-weight: 600; font-size: 0.82rem; }
+  /* Footer */
+  .footer {
+    font-size: 0.75rem;
+    color: #aaa;
+    text-align: center;
+    padding: 16px;
+    margin-top: 8px;
+  }
+  .disclaimer {
+    background: #fff8e7;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    color: #92400e;
+    margin-bottom: 18px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🇺🇸 美股新聞日報 · US Stocks Daily Briefing</h1>
+  <div class="subtitle">整理日期 / Report Date: 2026-05-14 (Thu, Taipei) · 交易日 / Trading Session: Wednesday, May 13, 2026</div>
+  <div class="session-tag">RTH Close — NYSE/NASDAQ Regular Session</div>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本報告僅供資訊參考，不構成任何投資建議。數字以公開報導為準；部分數據為盤中高點或多方來源推估。<br>
+  This briefing is for informational purposes only and does not constitute investment advice. Figures are sourced from public reporting.
+</div>
+
+<!-- 1. Market Overview -->
+<div class="index-table-wrap">
+  <h2>📊 市場概況 / Market Overview — May 13, 2026 Close</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>指數 / Index</th>
+        <th>收盤 Close</th>
+        <th>漲跌 Chg</th>
+        <th>%</th>
+        <th>備注</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>S&amp;P 500</strong></td>
+        <td>7,458</td>
+        <td class="pos">+57</td>
+        <td class="pos">+0.77%</td>
+        <td>科技撐盤；多數個股下跌</td>
+      </tr>
+      <tr>
+        <td><strong>Nasdaq Comp</strong></td>
+        <td>—</td>
+        <td class="pos">+376 pts</td>
+        <td class="pos">+1.44%</td>
+        <td>AI/半導體領漲</td>
+      </tr>
+      <tr>
+        <td><strong>Dow Jones</strong></td>
+        <td>49,761</td>
+        <td class="neg">−154 pts</td>
+        <td class="neg">−0.3%</td>
+        <td>PPI 衝擊；利率敏感股承壓</td>
+      </tr>
+      <tr>
+        <td><strong>Russell 2000</strong></td>
+        <td>未取得收盤資料</td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><strong>VIX</strong></td>
+        <td>17.81</td>
+        <td class="pos">−0.18</td>
+        <td class="pos">−1.0%</td>
+        <td>前日 18.38（+6.9%）；略降</td>
+      </tr>
+      <tr>
+        <td><strong>US 10Y Yield</strong></td>
+        <td>4.49%</td>
+        <td class="neg">↑ 多月新高</td>
+        <td>—</td>
+        <td>PPI 爆表推升</td>
+      </tr>
+      <tr>
+        <td><strong>30Y Yield</strong></td>
+        <td>5.00%+</td>
+        <td class="neg">↑ 突破 5%</td>
+        <td>—</td>
+        <td>長債市場承壓</td>
+      </tr>
+      <tr>
+        <td><strong>DXY</strong></td>
+        <td>~98.30</td>
+        <td class="neu">小幅變動</td>
+        <td>—</td>
+        <td>美元維持強勢</td>
+      </tr>
+      <tr>
+        <td><strong>WTI Crude</strong></td>
+        <td>$101.15</td>
+        <td class="neg">−$1.03</td>
+        <td class="neg">−1.0%</td>
+        <td>仍高於 $100；中東局勢持續</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.75rem;color:#aaa;margin-top:10px;">來源：Yahoo Finance, CNBC, TheStreet, 24/7 Wall St., FX Empire</p>
+</div>
+
+<!-- 2. Top Stories -->
+<div class="section">
+  <div class="section-title">
+    📰 頭條 / Top Stories
+    <span class="badge">3 items</span>
+  </div>
+
+  <div class="story-card" style="border-left-color:#dc2626;">
+    <div class="story-title">🔥 PPI 大爆表：4月批發通膨年增 6%，創 2022 年來最大 / PPI Shock: April Wholesale Inflation Hits +6% YoY, Biggest Since 2022</div>
+    <div class="story-source">
+      <strong>來源:</strong> Yahoo Finance · 2026-05-13 ·
+      <a href="https://finance.yahoo.com/news/live/stock-market-today-dow-slides-sp-500-and-nasdaq-rise-as-ppi-inflation-data-comes-in-hot-223045547.html" target="_blank">Yahoo Finance Live</a> |
+      <a href="https://www.fxempire.com/forecasts/article/nasdaq-index-ai-momentum-keeps-stock-market-stable-despite-hot-ppi-1597610" target="_blank">FX Empire</a>
+    </div>
+    <div class="story-meta">
+      <span class="label">核心事實 / Facts</span>
+      <div class="story-text">
+        美國勞工部公布 4 月 PPI 月增 1.4%（預期 0.5%），為 2022 年 3 月以來最大單月漲幅；年增 6%，2022 年 12 月以來最高。10 年期公債殖利率衝上 4.49%（多月高點），30 年殖利率突破 5%。
+        <br><br>
+        April PPI jumped +1.4% MoM vs. +0.5% expected; YoY +6%, the hottest print since Dec 2022. The 10-year Treasury yield hit 4.49% (multi-month high), with the 30-year breaching 5%.
+      </div>
+    </div>
+    <div class="story-meta">
+      <span class="label">背景脈絡 / Context</span>
+      <div class="story-text">
+        市場原本押注聯準會下半年降息 1–2 碼，熱通膨數據使降息預期再度降溫。油價維持高檔（WTI $101）加上中東戰爭持續，供給側通膨壓力未見緩解。Jerome Powell 任期於 5 月 15 日屆滿，新主席人選不確定性亦增添市場焦慮。
+        <br><br>
+        Market had been pricing 1–2 Fed cuts in H2 2026. Hot PPI resets expectations. Elevated oil ($101) and ongoing Middle East conflict keep supply-side pressure alive. Powell's term ends May 15, adding Fed leadership uncertainty.
+      </div>
+    </div>
+    <div class="story-meta">
+      <span class="label">影響觀察 / Implications</span>
+      <div class="story-text">
+        利率敏感類股（REITs、小型股、公用事業）面臨短期逆風；AI/半導體板塊因「成長敘事」相對抗跌。若接下來 CPI 數據同樣火燙，年內降息窗口將明顯縮窄。
+        <br><br>
+        Rate-sensitive sectors (REITs, small caps, utilities) face headwinds. AI/semiconductor names holding up on growth narrative. If upcoming CPI corroborates, 2026 rate-cut window will shrink further.
+      </div>
+    </div>
+  </div>
+
+  <div class="story-card" style="border-left-color:#16a34a;">
+    <div class="story-title">🔮 黃仁勳臨時加入川普訪華代表團，NVDA 盤中漲 2.1% / Jensen Huang Last-Minute Addition to Trump's China Trip; NVDA +2.1%</div>
+    <div class="story-source">
+      <strong>來源:</strong> CNBC · Bloomberg · 2026-05-13 ·
+      <a href="https://www.cnbc.com/2026/05/13/nvidia-says-ceo-jensen-huang-is-joining-trumps-china-trip.html" target="_blank">CNBC</a> |
+      <a href="https://www.bloomberg.com/news/articles/2026-05-13/nvidia-s-huang-joins-trump-s-china-trip-as-last-minute-addition" target="_blank">Bloomberg</a>
+    </div>
+    <div class="story-meta">
+      <span class="label">核心事實 / Facts</span>
+      <div class="story-text">
+        川普電話邀請黃仁勳在 5 月 13 日飛往阿拉斯加、搭乘空軍一號訪中，與 Tim Cook（蘋果）、Elon Musk 等大咖同行。Nvidia 股價當日漲約 2.1% 至 $225.40。中國 AI 股同步拉升（彭博報導 H200 供應鬆綁押注）。
+        <br><br>
+        Trump personally called Huang to join Air Force One in Alaska. NVDA +2.1% to ~$225.40. Chinese AI stocks also rallied on bets that H200 GPU export restrictions may be eased or better defined.
+      </div>
+    </div>
+    <div class="story-meta">
+      <span class="label">背景脈絡 / Context</span>
+      <div class="story-text">
+        黃仁勳原未受邀，媒體報導引發關注後，川普主動加入他。Nvidia 對中國市場的 H20 出口限制仍是主要不確定因素；此訪問傳遞「管道開放」的信號，但還未有實質政策鬆綁。
+        <br><br>
+        Huang was initially excluded; media coverage prompted Trump's outreach. H20 export curbs remain a key overhang. The visit signals potential thaw but no concrete policy change yet.
+      </div>
+    </div>
+    <div class="story-meta">
+      <span class="label">影響觀察 / Implications</span>
+      <div class="story-text">
+        若此行促成對華 AI 晶片出口規則更明確（即便未完全鬆綁），Nvidia 及 AMD 均有上行空間。中概股 AI 板塊（阿里雲、百度）亦受益於市場情緒改善。
+        <br><br>
+        Clearer (even if not loosened) chip-export rules could unlock upside for NVDA &amp; AMD. China AI names (Alibaba Cloud, Baidu) benefit from improved sentiment.
+      </div>
+    </div>
+  </div>
+
+  <div class="story-card" style="border-left-color:#f59e0b;">
+    <div class="story-title">🏥 UnitedHealth 強彈：從 3 月低點已反彈 47%，JPMorgan 上調目標價 / UNH Rebounds 47% From March Lows; JPMorgan Raises PT to $420</div>
+    <div class="story-source">
+      <strong>來源:</strong> Investing.com · GuruFocus · 2026-05-13 ·
+      <a href="https://www.gurufocus.com/news/8852425/is-it-too-late-to-buy-unitedhealth-group-inc-unh-after-43-rally-gf-value-says-undervalued" target="_blank">GuruFocus</a>
+    </div>
+    <div class="story-meta">
+      <span class="label">核心事實 / Facts</span>
+      <div class="story-text">
+        UNH 收盤 $399.36（+3 月低點 $270.59 已漲 47%）。JPMorgan 上調目標價至 $420，Erste Group 升評至 Buy。Q1 2026 調整後 EPS $7.23（預期 $6.59，超標 9.7%）；營收 $111.7B（預期 $109.4B）。醫療受益率 83.9%（預期 85.5%，低於預期為利多）。
+        <br><br>
+        UNH closed at $399.36, up 47% from March lows at $270.59. JPMorgan PT raised to $420. Q1 adj. EPS $7.23 vs. $6.59 est.; revenue $111.7B vs. $109.4B est. Medical benefit ratio 83.9% vs. 85.5% est. (lower = better).
+      </div>
+    </div>
+    <div class="story-meta">
+      <span class="label">背景脈絡 / Context</span>
+      <div class="story-text">
+        Trump 政府敲定 2027 年 Medicare Advantage 支付費率大幅上調，遠超初始提案，為大型健保股帶來政策紅利。UNH 三月重挫後持續修復，成為 Dow Jones 當日最大貢獻者（+3%)。
+        <br><br>
+        Trump admin finalized a larger-than-expected 2027 Medicare Advantage rate increase, providing a policy tailwind. UNH was the Dow's top contributor (+3%) on May 13, partially offsetting the index-level PPI drag.
+      </div>
+    </div>
+    <div class="story-meta">
+      <span class="label">影響觀察 / Implications</span>
+      <div class="story-text">
+        健保板塊（Humana、Elevance、Centene）跟漲。若 Medicare Advantage 政策延續，大型健保股的盈利能見度將進一步提升。分析提醒：UNH 距 52 週高點仍有差距，估值仍需追蹤。
+        <br><br>
+        Sector spillover to Humana, Elevance, Centene. Medicare Advantage policy continuity could sustain the earnings-visibility re-rating. Note: UNH still below 52-week highs; valuation monitoring warranted.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. Earnings -->
+<div class="section">
+  <div class="section-title">
+    📋 財報 / Earnings of the Day
+    <span class="badge">4 items</span>
+  </div>
+
+  <div class="story-card" style="border-left-color:#16a34a;">
+    <div class="story-title">🚀 Nebius (NBIS) 爆發：Q1 營收 $399M，年增 684%，首度轉盈 / Nebius Q1 Revenue Surges 684% to $399M; Turns Profitable for First Time</div>
+    <div class="story-source">
+      <strong>來源:</strong> Yahoo Finance · Investing.com · 2026-05-13 ·
+      <a href="https://finance.yahoo.com/news/nebius-q1-2026-earnings-beat-122602546.html" target="_blank">Yahoo Finance</a> |
+      <a href="https://www.investing.com/news/transcripts/earnings-call-transcript-nebius-group-q1-2026-earnings-beat-expectations-93CH-4684818" target="_blank">Investing.com</a>
+    </div>
+    <div class="story-meta">
+      <span class="label">核心事實 / Facts</span>
+      <div class="story-text">
+        Q1 2026 Revenue: $399M（預期 ~$375–389M）。調整後 EBITDA 從 Q1 2025 虧損 $53.7M 大幅轉為盈利 $129.5M。毛利率大幅改善，每美元營收成本從 $0.49 降至 $0.26。NBIS 盤前漲超 14%，收盤漲約 17%，創歷史新高。另宣布在賓州興建 AI 工廠（取得 1.2 GW 電力與土地）。
+        <br><br>
+        Q1 rev. $399M beat; Adj. EBITDA swung from −$53.7M to +$129.5M YoY. COGS per revenue dollar fell from $0.49 to $0.26. NBIS surged ~17% to all-time high. Pennsylvania AI factory announced with up to 1.2 GW of power secured.
+      </div>
+    </div>
+    <div class="story-meta">
+      <span class="label">背景脈絡 / Context</span>
+      <div class="story-text">
+        Nebius 為前 Yandex 旗下獨立出的 AI 雲端基礎設施公司。已簽署合約積壓接近 $500 億：Meta $270 億、Microsoft $194 億（5 年期）、Nvidia 入股 $20 億。2026 全年指引：$30–34 億營收（2025 全年 $5.3 億）。
+        <br><br>
+        Nebius is a spin-off from Yandex, now an independent AI cloud infra company. Contract backlog approaching $50B: Meta ($27B), Microsoft ($19.4B, 5-yr), and NVIDIA $2B strategic investment. FY26 guidance: $3.0–3.4B (vs. $530M in FY25).
+      </div>
+    </div>
+    <div class="story-meta">
+      <span class="label">影響觀察 / Implications</span>
+      <div class="story-text">
+        成為 2026 年 AI 基礎設施最具代表性的高增長個股之一。可觀察 CoreWeave、Lambda Labs 等同類型 GPU 雲平台估值重估動向。
+      </div>
+    </div>
+  </div>
+
+  <div class="story-card" style="border-left-color:#dc2626;">
+    <div class="story-title">👟 Birkenstock (BIRK) 財報未達標：毛利壓縮、關稅與中東衝擊 / Birkenstock Q2 Miss: Margin Squeeze from Tariffs and Middle East War</div>
+    <div class="story-source">
+      <strong>來源:</strong> Investing.com · Seeking Alpha · 2026-05-13 ·
+      <a href="https://www.investing.com/news/earnings/birkenstock-shares-tumbles-on-earnings-miss-despite-revenue-growth-4683535" target="_blank">Investing.com</a> |
+      <a href="https://seekingalpha.com/news/4591957-bikrkenstock-shares-pinned-down-by-profit-miss-soft-fy26-guidance" target="_blank">Seeking Alpha</a>
+    </div>
+    <div class="story-meta">
+      <span class="label">核心事實 / Facts</span>
+      <div class="story-text">
+        Q2 FY26 營收 €618.3M（預期 €620.3M）；營業利益 €155.5M（預期 €168.1M，年減 11%）；調整後 EPS €0.50（預期 €0.59）。毛利率從 57.7% 跌至 53.9%（關稅、匯率、澳洲存貨影響）。BIRK 股價重挫約 10–13%。
+        <br><br>
+        Q2 FY26 rev. €618.3M (est. €620.3M); Op. profit €155.5M (est. €168.1M, −11% YoY); adj. EPS €0.50 (est. €0.59). Gross margin compressed from 57.7% to 53.9%. BIRK fell ~10–13%.
+      </div>
+    </div>
+    <div class="story-meta">
+      <span class="label">背景脈絡 / Context</span>
+      <div class="story-text">
+        中東戰爭直接造成 $600 萬營收損失（EMEA 地區交貨受阻 + 消費者信心疲軟）。美國關稅上調亦壓縮毛利。公司維持 FY26 全年指引（不變幣種基礎營收成長 13–15%），但投資人將這解讀為「保守」。
+        <br><br>
+        Middle East war caused $6M revenue impact (blocked deliveries + soft sentiment). US tariff hikes further squeezed margins. Company kept FY26 full-year guidance intact, but market viewed it as little comfort given margin trends.
+      </div>
+    </div>
+    <div class="story-meta">
+      <span class="label">影響觀察 / Implications</span>
+      <div class="story-text">
+        中高端消費品牌（Skechers、Steve Madden 等）面臨類似壓力。關稅及中東局勢為歐洲品牌新的系統性風險因子。
+      </div>
+    </div>
+  </div>
+
+  <div class="story-card" style="border-left-color:#dc2626;">
+    <div class="story-title">🛒 阿里巴巴 (BABA) Q4 FY26：雲端爆發 +40% 但 AI 投入侵蝕利潤，調整後 EPS 幾乎歸零 / Alibaba Q4 FY26: Cloud +40% But AI Spend Crushes EPS</div>
+    <div class="story-source">
+      <strong>來源:</strong> Benzinga · Yahoo Finance · 2026-05-13 ·
+      <a href="https://www.benzinga.com/markets/earnings/26/05/52518113/alibaba-cloud-growth-explodes-but-earnings-evaporate-in-costly-ai-push" target="_blank">Benzinga</a>
+    </div>
+    <div class="story-meta">
+      <span class="label">核心事實 / Facts</span>
+      <div class="story-text">
+        Q4 FY26 總營收 $352.8B 人民幣（年增 3%）；調整後 EPS（ADS）約 $0.09（預期 $1.12）；調整後淨利幾乎歸零（$1,200 萬）。雲智能集團外部客戶收入年增 40%，其中 AI 相關產品佔雲收入 30%。中國電商營收年增 6%。BABA 盤中一度跌後反轉，漲約 7%，投資人押注雲端長期價值。
+        <br><br>
+        Q4 FY26 revenue $35.28B USD (+3% YoY); adj. EPS (ADS) ~$0.09 (est. $1.12); adj. net income collapsed to $12M from heavy AI capex. Cloud external rev. +40% YoY; AI products = 30% of cloud rev. BABA recovered to +7% intraday, focus shifting to cloud growth.
+      </div>
+    </div>
+    <div class="story-meta">
+      <span class="label">背景脈絡 / Context</span>
+      <div class="story-text">
+        阿里大舉投入 AI 基礎建設（資料中心、自研晶片、百億推理投入），短期壓縮帳面獲利，市場以「投資期」視角接受本次業績。黃仁勳訪中消息同日加持情緒。
+      </div>
+    </div>
+    <div class="story-meta">
+      <span class="label">影響觀察 / Implications</span>
+      <div class="story-text">
+        可追蹤 Motley Fool 觀點：BABA 雲端強勁成長模式對 Amazon AWS 形成提醒——AI capex 週期是全球雲廠商的共同變數。
+        <br><br>
+        <a href="https://www.fool.com/investing/2026/05/13/why-alibabas-earnings-report-may-trouble-amazon/" target="_blank">Motley Fool analysis on Amazon implications</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. Individual Stock Movers -->
+<div class="section">
+  <div class="section-title">
+    📈 個股大事 / Single-Stock Movers
+    <span class="badge">5 items</span>
+  </div>
+  <div class="movers-grid">
+    <div class="mover-card">
+      <div class="mover-ticker">NVDA</div>
+      <div class="mover-name">Nvidia Corp</div>
+      <div class="mover-chg pos">+2.1% → $225.40</div>
+      <div class="mover-reason">黃仁勳加入川普訪中代表團；H200 出口限制鬆綁預期 / Jensen Huang joins Trump's China trip; H200 supply bets</div>
+    </div>
+    <div class="mover-card">
+      <div class="mover-ticker">NBIS</div>
+      <div class="mover-name">Nebius Group</div>
+      <div class="mover-chg pos">+17% (ATH)</div>
+      <div class="mover-reason">Q1 營收 $399M 年增 684%；EBITDA 首度轉正 / Q1 rev. +684% YoY; first EBITDA profit</div>
+    </div>
+    <div class="mover-card">
+      <div class="mover-ticker">BIRK</div>
+      <div class="mover-name">Birkenstock</div>
+      <div class="mover-chg neg">−10~13%</div>
+      <div class="mover-reason">Q2 EPS & 毛利雙雙未達預期；關稅 + 中東影響 / Q2 EPS & gross margin miss; tariffs + Middle East</div>
+    </div>
+    <div class="mover-card">
+      <div class="mover-ticker">APP</div>
+      <div class="mover-name">AppLovin</div>
+      <div class="mover-chg neg">−7.65%</div>
+      <div class="mover-reason">財報後「賣消息」；SEC 調查持續 + 投資人等待電商加速證據 / Post-earnings sell-the-news; SEC probe overhang</div>
+    </div>
+    <div class="mover-card">
+      <div class="mover-ticker">UNH</div>
+      <div class="mover-name">UnitedHealth</div>
+      <div class="mover-chg pos">+3.01% → $399</div>
+      <div class="mover-reason">JPMorgan PT ↑ $420；Medicare Advantage 費率上調政策紅利 / JPM PT raised; Medicare Advantage policy tailwind</div>
+    </div>
+    <div class="mover-card">
+      <div class="mover-ticker">BABA</div>
+      <div class="mover-name">Alibaba</div>
+      <div class="mover-chg pos">+7% (intraday)</div>
+      <div class="mover-reason">雲端 +40% 抵銷 EPS 打擊；黃仁勳訪中情緒加持 / Cloud +40% offsets EPS miss; China trip sentiment</div>
+    </div>
+    <div class="mover-card">
+      <div class="mover-ticker">ASML</div>
+      <div class="mover-name">ASML Holding</div>
+      <div class="mover-chg pos">+3.06%</div>
+      <div class="mover-reason">半導體設備跟漲；AI 資本支出週期強勁 / Semis equipment rally; AI capex cycle tailwind</div>
+    </div>
+    <div class="mover-card">
+      <div class="mover-ticker">ARM</div>
+      <div class="mover-name">Arm Holdings</div>
+      <div class="mover-chg pos">+4.13%</div>
+      <div class="mover-reason">AI/半導體板塊帶動；可能受益於中國市場出口預期改善 / AI/semi sector momentum; China access optimism</div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. M&A / IPO -->
+<div class="section">
+  <div class="section-title">
+    🤝 併購與 IPO / M&A and IPO
+  </div>
+  <div class="story-card" style="border-left-color:#888;">
+    <div class="story-title">本日無重大 M&A/IPO 新聞 / No Major M&A or IPO Activity Confirmed on May 13</div>
+    <div class="story-text" style="font-size:0.85rem;color:#555;">
+      搜尋結果未顯示 5 月 13 日有重大宣布。市場注意力集中於財報與宏觀數據。<br>
+      No significant M&A or IPO announcements confirmed for this session. Market focus was dominated by earnings and macro data.
+    </div>
+  </div>
+</div>
+
+<!-- 6. Analyst Calls -->
+<div class="section">
+  <div class="section-title">
+    🎯 券商評等 / Analyst Calls
+    <span class="badge">5 items</span>
+  </div>
+  <div class="analyst-row">
+    <span class="ticker-chip">UNH</span>
+    <span class="upgrade">↑ PT 上調 $420 (from $389)</span> — JPMorgan · Q1 EPS beat + Medicare Advantage 費率紅利
+  </div>
+  <div class="analyst-row">
+    <span class="ticker-chip">UNH</span>
+    <span class="upgrade">↑ 升評至 Buy (from Hold)</span> — Erste Group
+  </div>
+  <div class="analyst-row">
+    <span class="ticker-chip">AVEX</span>
+    <span class="initiate">▶ 啟動覆蓋 Buy，PT $34</span> — Goldman Sachs · Aevex Corp 新設評等
+  </div>
+  <div class="analyst-row">
+    <span class="ticker-chip">GTLB</span>
+    <span class="downgrade">↓ 降評至 Market Perform (from Outperform)</span> — Raymond James · GitLab
+  </div>
+  <div class="analyst-row">
+    <span class="ticker-chip">ZI</span>
+    <span class="downgrade">↓ 降評至 Hold (from Buy)，PT $5</span> — Canaccord · ZoomInfo，PT 大幅下修
+  </div>
+  <div class="analyst-row">
+    <span class="ticker-chip">LENZ</span>
+    <span class="downgrade">↓ 降評至 Neutral (from Overweight)</span> — Piper Sandler · LENZ Therapeutics
+  </div>
+  <div class="analyst-row">
+    <span class="ticker-chip">ARAY</span>
+    <span class="downgrade">↓ 降評至 Hold (from Buy)，PT $0.35 (from $3.05)</span> — Jefferies · Accuray，目標價大砍
+  </div>
+  <p style="font-size:0.75rem;color:#aaa;margin-top:12px;">來源：Briefing.com, Benzinga Analyst Ratings</p>
+</div>
+
+<!-- 7. Fed & Rates -->
+<div class="section">
+  <div class="section-title">
+    🏛️ Fed 與利率 / Fed & Rates
+    <span class="badge">Key</span>
+  </div>
+  <div class="story-card" style="border-left-color:#f59e0b;">
+    <div class="story-title">殖利率飆升 + Powell 任期 5/15 屆滿：不確定性疊加 / Yields Spike + Powell Mandate Ends May 15: Uncertainty Stacks Up</div>
+    <div class="story-source">
+      <strong>來源:</strong> Federal Reserve · FRED · StreetStats ·
+      <a href="https://www.federalreserve.gov/releases/h15/" target="_blank">Fed H.15</a>
+    </div>
+    <div class="story-meta">
+      <span class="label">核心事實 / Facts</span>
+      <div class="story-text">
+        美國 10 年期公債殖利率收盤 ~4.49%（多月新高）；30 年突破 5%。Fed 目前基準利率 3.50–3.75%（2025 年底已降息累計 175 bp）。Jerome Powell 主席任期 2026 年 5 月 15 日屆滿，接任人選仍未明確。CME FedWatch 顯示市場已大幅下調年內降息預期。
+        <br><br>
+        US 10Y closed ~4.49% (multi-month high); 30Y above 5%. Fed funds rate at 3.50–3.75%. Powell's term ends May 15 — successor unknown. CME FedWatch shows sharply reduced cut expectations following hot PPI.
+      </div>
+    </div>
+    <div class="story-meta">
+      <span class="label">背景脈絡 / Context</span>
+      <div class="story-text">
+        熱通膨數據（PPI +1.4% MoM）加上油價高檔（WTI >$100）和中東局勢，使「stagflation」討論再起。Fed 新主席人選若偏鷹，長債殖利率恐進一步上行。
+      </div>
+    </div>
+    <div class="story-meta">
+      <span class="label">影響觀察 / Implications</span>
+      <div class="story-text">
+        長債殖利率 >5% 壓制 REITs、公用事業、小型股。AI/大型科技股因現金流強健相對抗跌，但估值貼現率上升仍為長期逆風。新主席人選宣布時間點為近期最大觸媒之一。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 8. Flows & Positioning -->
+<div class="section">
+  <div class="section-title">
+    💰 資金流向 / Flows &amp; Positioning
+  </div>
+  <div class="story-card">
+    <div class="story-title">ETF 年度淨流入接近 $6,000 億；科技類 4 月單月吸金 $120 億 / YTD ETF Inflows Near $600B; Tech Category +$12B in April</div>
+    <div class="story-source">
+      <strong>來源:</strong> State Street SPDR Monthly Flash Flows · ETF.com ·
+      <a href="https://etfdb.com/news/2026/05/07/2026-sees-record-setting-etf-launches/" target="_blank">ETFdb</a>
+    </div>
+    <div class="story-meta">
+      <span class="label">核心事實 / Facts</span>
+      <div class="story-text">
+        2026 年截至 5 月初，ETF 淨流入接近 $6,000 億（有望創年度新高）。主動式 ETF 4 月單月吸金 $500 億，2026 全年有望達 $6,000 億。4 月科技類 ETF 吸金 $120 億，板塊當月漲 17%。2025 年新推 ETF 約 1,100 檔，其中 25% 為期權型收益 ETF；2026 年此趨勢延續。
+        <br><br>
+        YTD ETF inflows near $600B. Active ETFs had $50B in April; pacing for record $600B full-year. Tech ETFs +$12B in April (sector +17% that month). ~25% of new 2025/2026 ETF launches are options-income strategies.
+      </div>
+    </div>
+    <div class="story-meta">
+      <span class="label">影響觀察 / Implications</span>
+      <div class="story-text">
+        大量資金持續進入科技 ETF（QQQ、XLK、SMH），形成被動資金對 AI 個股的「強迫買入」效應。期權收益 ETF 大量發行使隱含波動率結構值得持續追蹤。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 9. Reads -->
+<div class="section">
+  <div class="section-title">
+    📚 觀點 / Reads Worth Bookmarking
+    <span class="badge">2 items</span>
+  </div>
+  <div class="story-card" style="border-left-color:#7c3aed;">
+    <div class="story-title">Nasdaq Index: AI Momentum Keeps Market Stable Despite Hot PPI / AI 動能如何在熱通膨下撐住大盤</div>
+    <div class="story-source">
+      <a href="https://www.fxempire.com/forecasts/article/nasdaq-index-ai-momentum-keeps-stock-market-stable-despite-hot-ppi-1597610" target="_blank">FX Empire · 2026-05-13</a>
+    </div>
+    <div class="story-text">
+      分析 AI 板塊如何在利率上行環境中充當「市場穩定器」，以及這種結構是否可持續。值得閱讀的宏觀與板塊交叉觀點。
+      <br>Examines how AI sector momentum is serving as a market stabilizer against rising rates, and whether this structural dynamic is durable.
+    </div>
+  </div>
+  <div class="story-card" style="border-left-color:#7c3aed;">
+    <div class="story-title">Why Alibaba's Earnings Report May Spell Trouble for Amazon / 阿里財報對 Amazon 的啟示</div>
+    <div class="story-source">
+      <a href="https://www.fool.com/investing/2026/05/13/why-alibabas-earnings-report-may-trouble-amazon/" target="_blank">Motley Fool · 2026-05-13</a>
+    </div>
+    <div class="story-text">
+      BABA 雲端 +40% + AI 投入壓縮利潤的模式，對 AWS 而言是警示——AI capex 週期是所有全球雲廠商正在面對的共同方程式。
+      <br>Alibaba's cloud growth + profit compression template may foreshadow what AWS faces in its own AI capex cycle. Cross-cloud-platform implications.
+    </div>
+  </div>
+</div>
+
+<!-- Footer / Sources -->
+<div class="section">
+  <div class="section-title">📎 數據來源 / Sources</div>
+  <div style="font-size:0.8rem;color:#555;line-height:2;">
+    <strong>指數 / 市場數據:</strong><br>
+    <a href="https://finance.yahoo.com/news/live/stock-market-today-dow-slides-sp-500-and-nasdaq-rise-as-ppi-inflation-data-comes-in-hot-223045547.html" target="_blank">Yahoo Finance Live — May 13 Market Wrap</a> |
+    <a href="https://www.cnbc.com/2026/05/12/stock-market-today-live-updates.html" target="_blank">CNBC — May 12 Live Updates</a> |
+    <a href="https://247wallst.com/investing/2026/05/13/stock-market-live-may-13-2026-sp-500-down-on-jump-in-inflation/" target="_blank">24/7 Wall St.</a> |
+    <a href="https://www.thestreet.com/latest-news/stock-market-today-may-13-2026-updates" target="_blank">TheStreet</a><br><br>
+    <strong>個股 / Earnings:</strong><br>
+    <a href="https://finance.yahoo.com/news/nebius-q1-2026-earnings-beat-122602546.html" target="_blank">Yahoo Finance — Nebius Q1</a> |
+    <a href="https://www.investing.com/news/earnings/birkenstock-shares-tumbles-on-earnings-miss-despite-revenue-growth-4683535" target="_blank">Investing.com — Birkenstock</a> |
+    <a href="https://www.benzinga.com/markets/earnings/26/05/52518113/alibaba-cloud-growth-explodes-but-earnings-evaporate-in-costly-ai-push" target="_blank">Benzinga — Alibaba</a> |
+    <a href="https://tickeron.com/blogs/why-is-applovin-corporation-app-stock-down-7-today-13396/" target="_blank">Tickeron — AppLovin</a><br><br>
+    <strong>Nvidia / 黃仁勳:</strong><br>
+    <a href="https://www.cnbc.com/2026/05/13/nvidia-says-ceo-jensen-huang-is-joining-trumps-china-trip.html" target="_blank">CNBC</a> |
+    <a href="https://www.bloomberg.com/news/articles/2026-05-13/nvidia-s-huang-joins-trump-s-china-trip-as-last-minute-addition" target="_blank">Bloomberg</a><br><br>
+    <strong>總經 / Fed:</strong><br>
+    <a href="https://www.fxempire.com/forecasts/article/nasdaq-index-ai-momentum-keeps-stock-market-stable-despite-hot-ppi-1597610" target="_blank">FX Empire — PPI Analysis</a> |
+    <a href="https://www.federalreserve.gov/releases/h15/" target="_blank">Federal Reserve H.15</a><br><br>
+    <strong>資金流向:</strong><br>
+    <a href="https://etfdb.com/news/2026/05/07/2026-sees-record-setting-etf-launches/" target="_blank">ETFdb — 2026 ETF Record Launches</a><br><br>
+    <strong>⚠️ 付費牆 / Paywalled:</strong> WSJ, Financial Times, Barron's, Bespoke — 無法取得全文。部分 Bloomberg 內容僅限標題。
+  </div>
+</div>
+
+<div class="footer">
+  美股新聞日報 · 2026-05-14 · 交易日 May 13, 2026 RTH Close · 資料截止 Taipei 2026-05-14 morning
+  <br>本報告由 AI 自動整理，僅供資訊參考，不構成投資建議。
+</div>
+
+</body>
+</html>

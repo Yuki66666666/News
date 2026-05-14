@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>政治新聞日報 — 2026-05-14</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.7;
+    padding: 0;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    color: #fff;
+    padding: 32px 40px 24px;
+    border-bottom: 3px solid #e94560;
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .header-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .header-subtitle {
+    font-size: 0.85rem;
+    color: #a0aec0;
+    margin-top: 4px;
+  }
+  .date-badge {
+    background: #e94560;
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .toc {
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 12px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-size: 0.8rem;
+  }
+  .toc a {
+    color: #4a5568;
+    text-decoration: none;
+    padding: 2px 0;
+    border-bottom: 1px dashed transparent;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .toc a:hover { color: #e94560; border-bottom-color: #e94560; }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+  .section {
+    margin-bottom: 48px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .section-icon {
+    font-size: 1.1rem;
+  }
+  .section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+  .section-title span {
+    color: #718096;
+    font-weight: 400;
+    margin-left: 6px;
+    font-size: 0.9rem;
+  }
+  .news-item {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    transition: box-shadow 0.15s;
+  }
+  .news-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  .item-headline {
+    font-size: 1.0rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .item-headline .en {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #4a5568;
+    margin-top: 3px;
+  }
+  .source-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+    font-size: 0.75rem;
+  }
+  .source-label {
+    background: #edf2f7;
+    color: #4a5568;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  .source-link {
+    color: #3182ce;
+    text-decoration: none;
+  }
+  .source-link:hover { text-decoration: underline; }
+  .para-block {
+    margin-bottom: 12px;
+  }
+  .para-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #718096;
+    margin-bottom: 4px;
+  }
+  .para-label.facts { color: #2b6cb0; }
+  .para-label.context { color: #276749; }
+  .para-label.implications { color: #744210; }
+  .para-body {
+    font-size: 0.88rem;
+    color: #2d3748;
+    line-height: 1.75;
+  }
+  .top-badge {
+    display: inline-block;
+    background: #e94560;
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+    vertical-align: middle;
+    letter-spacing: 0.05em;
+  }
+  .opinion-item {
+    background: #fffaf0;
+    border-left: 4px solid #d69e2e;
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+    margin-bottom: 16px;
+  }
+  .opinion-item .item-headline { color: #744210; }
+  .footer {
+    background: #1a1a2e;
+    color: #a0aec0;
+    padding: 24px 40px;
+    font-size: 0.75rem;
+    line-height: 1.8;
+  }
+  .footer-title {
+    color: #e2e8f0;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .footer-sources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+  }
+  .footer-sources a {
+    color: #90cdf4;
+    text-decoration: none;
+  }
+  .footer-sources a:hover { text-decoration: underline; }
+  .warning-note {
+    background: #fff5f5;
+    border: 1px solid #fed7d7;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 0.78rem;
+    color: #742a2a;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 600px) {
+    .header { padding: 20px 18px 16px; }
+    .toc { padding: 10px 18px; }
+    .container { padding: 20px 14px 40px; }
+    .news-item { padding: 16px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="header-title">🗞 政治新聞日報</div>
+      <div class="header-subtitle">國際與兩岸政治 · 中英並陳 · 深度背景</div>
+    </div>
+    <div class="date-badge">2026-05-14 · 週四</div>
+  </div>
+</div>
+
+<div class="toc">
+  <a href="#top-stories">🔴 頭條</a>
+  <a href="#usa">🇺🇸 美國</a>
+  <a href="#cross-strait">🇨🇳🇹🇼 中國與兩岸</a>
+  <a href="#europe">🇪🇺 歐洲</a>
+  <a href="#asia-pacific">🌏 亞太</a>
+  <a href="#middle-east">🕌 中東</a>
+  <a href="#opinion">📚 觀點</a>
+</div>
+
+<div class="container">
+
+  <div class="warning-note">
+    ⚠️ 本期部分消息截稿時間為美東 5/13 深夜。川習峰會首日談判結果預計 5/14 美東午間公布，屆時請參閱各一手新聞來源更新。
+  </div>
+
+  <!-- ==================== TOP STORIES ==================== -->
+  <div class="section" id="top-stories">
+    <div class="section-header">
+      <span class="section-icon">🔴</span>
+      <div class="section-title">頭條 <span>/ Top Stories</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-headline">
+        <span class="top-badge">頭條 #1</span>
+        川普抵北京，川習峰會正式登場：貿易、台灣、伊朗三線角力
+        <span class="en">Trump Arrives in Beijing for High-Stakes Two-Day Xi Summit on Trade, Taiwan, and Iran War</span>
+      </div>
+      <div class="source-bar">
+        <span class="source-label">Washington Post</span>
+        <a class="source-link" href="https://www.washingtonpost.com/politics/2026/05/13/trump-arrives-china-meet-with-xi-jinping-taiwan-trade-iran/" target="_blank">2026-05-13 →</a>
+        <span class="source-label">Al Jazeera</span>
+        <a class="source-link" href="https://www.aljazeera.com/economy/2026/5/13/trump-and-xi-to-meet-in-beijing-the-key-issues-shaping-the-china-summit" target="_blank">2026-05-13 →</a>
+        <span class="source-label">CNBC</span>
+        <a class="source-link" href="https://www.cnbc.com/2026/05/12/trump-xi-china-trade-iran-taiwan.html" target="_blank">2026-05-12 →</a>
+      </div>
+      <div class="para-block">
+        <div class="para-label facts">核心事實 / Facts</div>
+        <div class="para-body">川普於美東5月13日（北京時間5月14日）抵達北京，展開為期兩天的國是訪問，將於5月14–15日與習近平舉行峰會。此行為近十年來首位美國總統正式訪中。峰會由原定4月訪問因伊朗戰爭而延後。議程核心三軸為：貿易與稀土、台灣軍售（14億美元懸案）、伊朗核談及霍爾木茲海峽航運危機。Trump arrived in Beijing on May 13 (Beijing time May 14) for a two-day state visit — the first by a U.S. president in nearly a decade. Summit topics center on trade/rare earths, the stalled ~$14 billion Taiwan arms package, and the ongoing Iran ceasefire crisis in the Strait of Hormuz.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label context">背景脈絡 / Context</div>
+        <div class="para-body">兩國領導人上次峰會為2025年10月釜山，川普當時承諾2026年4月訪中，但伊朗戰爭（2026年2月28日美以聯合空襲啟動「史詩狂怒行動」）打亂原定行程，延至本週。此前雙方已就「美中貿易委員會」和「投資委員會」框架達成工作級共識，據分析最可能宣布的成果包括波音飛機、黃豆等大宗採購協議及科技出口管制的局部鬆綁。The two leaders last met at the Busan Summit in October 2025. Trump promised then to visit China in April 2026, but the U.S.-Israel military campaign against Iran ("Operation Epic Fury," launched Feb 28) forced postponement. Working-level talks had already sketched a "Board of Trade" and "Board of Investment" framework; expected deliverables include Chinese purchases of Boeing aircraft and soybeans, plus partial tech-export relief.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label implications">影響觀察 / Implications (分析)</div>
+        <div class="para-body">分析上，這場峰會注定是「管控競爭」而非「大和解」：川普帶著國內通膨壓力和期中選舉壓力上桌，急需可展示的成果；習近平則掌有稀土出口和中東外交槓桿。對台灣而言，軍售延宕至今仍未拍板，北京顯然期望以「凍結新軍售」換取更大政治讓步。CFR 分析指出，習近平可能爭取川普「反對台獨」措辭升格，甚至「支持和平統一」——若成真，將是台海政策的重大倒退。Analytically, the summit is about managing rivalry, not resolving it. Beijing holds leverage via rare earths and Iran-mediation capacity; Washington needs headline deals ahead of November midterms. The sharpest risk for Taiwan: Xi may press Trump to move from "does not support independence" to formally endorsing "peaceful reunification," a potentially historic shift in U.S. declaratory policy.</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-headline">
+        <span class="top-badge">頭條 #2</span>
+        伊朗停火搖搖欲墜：川普稱協議「命懸一線」，霍爾木茲航運量僅剩5%
+        <span class="en">Iran Ceasefire on "Massive Life Support" — Hormuz Shipping at 5% of Pre-War Levels, Trump Rejects Tehran's Counter-Proposal</span>
+      </div>
+      <div class="source-bar">
+        <span class="source-label">CNN Live</span>
+        <a class="source-link" href="https://www.cnn.com/2026/05/11/world/live-news/iran-war-proposal-trump" target="_blank">2026-05-11 →</a>
+        <span class="source-label">Al Jazeera</span>
+        <a class="source-link" href="https://www.aljazeera.com/news/liveblog/2026/5/10/iran-war-live-irgc-warns-us-against-attacks-on-ships-israel-bombs-lebanon" target="_blank">2026-05-10 →</a>
+        <span class="source-label">NPR</span>
+        <a class="source-link" href="https://www.npr.org/2026/05/08/g-s1-121061/iran-war-updates" target="_blank">2026-05-08 →</a>
+      </div>
+      <div class="para-block">
+        <div class="para-label facts">核心事實 / Facts</div>
+        <div class="para-body">川普5月11日表示美伊停火協議「命懸一線」（"massive life support"），原因是伊朗送回的談判方案被他形容為「無法接受」。霍爾木茲海峽目前通行船隻僅有戰前的約5%；美國海軍持續封鎖並攔截疑似駛往中國的伊朗油輪，雙方均在海峽附近發生炮擊。伊朗議會議長稱除承認伊方核權利外別無選擇，但談判陷入僵局。Trump said on May 11 the U.S.-Iran ceasefire is on "massive life support" after rejecting Tehran's latest counter-proposal as "unacceptable." The Strait of Hormuz remains effectively closed, with shipping at roughly 5% of pre-war levels. U.S. and Iranian naval forces have exchanged fire in the strait, each blaming the other for initiating.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label context">背景脈絡 / Context</div>
+        <div class="para-body">2026年伊朗戰爭由美以2月28日空襲揭幕（「史詩狂怒行動」），消滅最高領袖哈梅內伊並引發全區域報復。4月8日生效的停火協議規定伊朗重開海峽，但美方指控伊朗違反協議繼續封鎖；伊方指控美軍攻擊伊朗船隻。中國作為伊朗最大石油買家，因海峽封鎖損失巨大，因此在川習峰會上北京被視為潛在調停斡旋方。The war began February 28 with U.S.-Israeli strikes that killed Supreme Leader Khamenei. An April 8 ceasefire required Iran to reopen the strait, but both sides have repeatedly accused the other of violations. With China as Iran's largest crude buyer, Beijing's posture on Tehran is a central piece in the Beijing summit calculus.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label implications">影響觀察 / Implications (分析)</div>
+        <div class="para-body">分析上，霍爾木茲封鎖每延續一天，全球能源市場的尾部風險就升高一分。川習峰會上若北京能給出「說服伊朗重開海峽」的承諾，將構成中方最強大的談判籌碼。反之若峰會無成果，川普面臨的國內通膨壓力和汽油漲價將在11月中期選舉前進一步惡化。The Hormuz standoff is the single most acute economic flashpoint: a prolonged closure would push global oil prices sharply higher, compounding U.S. inflation ahead of midterms. If Beijing can credibly offer to pressure Tehran toward reopening, that becomes China's most valuable bargaining chip at the summit.</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-headline">
+        <span class="top-badge">頭條 #3</span>
+        俄烏停火協議再度破裂：雙方互控違反美方調停的三日停火
+        <span class="en">U.S.-Brokered Ukraine-Russia Three-Day Ceasefire Collapses Amid Mutual Accusations; Peace Talks at Impasse</span>
+      </div>
+      <div class="source-bar">
+        <span class="source-label">Al Jazeera</span>
+        <a class="source-link" href="https://www.aljazeera.com/news/2026/5/8/trump-announces-three-day-ceasefire-in-russia-ukraine-war" target="_blank">2026-05-08 →</a>
+        <span class="source-label">Defense News</span>
+        <a class="source-link" href="https://www.defensenews.com/news/pentagon-congress/2026/05/11/ukraine-and-russia-fight-on-despite-us-mediated-ceasefire/" target="_blank">2026-05-11 →</a>
+        <span class="source-label">PBS News</span>
+        <a class="source-link" href="https://www.pbs.org/newshour/world/russia-and-ukraine-trade-blame-for-continued-fighting-that-killed-at-least-2-as-u-s-brokered-ceasefire-nears-its-end" target="_blank">2026-05-11 →</a>
+      </div>
+      <div class="para-block">
+        <div class="para-label facts">核心事實 / Facts</div>
+        <div class="para-body">川普5月8日宣布美方調停的三天停火（5月9–11日），包含雙方各釋放1,000名戰俘。俄方聲稱在停火生效後記錄到烏克蘭23,802次違規；烏方同樣指控俄軍持續攻擊。停火名存實亡。烏克蘭外長西畢嘉表示基輔可能轉向歐洲尋求談判支持。Trump announced a U.S.-brokered three-day ceasefire (May 9–11) with a 1,000-prisoner exchange on each side. By day two, Russia claimed 23,802 Ukrainian ceasefire violations; Ukraine counter-accused Russia of continued attacks. The ceasefire collapsed in all but name. Ukrainian FM Sibiga signaled Kyiv may seek Europe's help in resuming talks with Moscow.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label context">背景脈絡 / Context</div>
+        <div class="para-body">俄羅斯於5月9日（勝利日）單方面宣布停火，烏克蘭亦宣布對應停火，兩份宣布被分析人士形容為「各說各話」。之前5月4日俄烏雙方已因停火條款分歧而分別宣布短暫停火但隨即相互指控。ISW 指出「未有執行機制的停火難以為繼」。Russia and Ukraine each declared overlapping but separately-framed ceasefires on May 4 and again on May 9. Analysts noted both declarations lacked verification mechanisms. The Institute for the Study of War warned that "ceasefires without explicit enforcement mechanisms are unlikely to hold."</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label implications">影響觀察 / Implications (分析)</div>
+        <div class="para-body">分析上，停火瓦解顯示川普外交斡旋在兩條戰線（俄烏、美伊）同步承壓。歐洲方面，部分歐盟官員開始討論是否需要直接與莫斯科接觸，而高級外交代表卡拉斯被視為「不可能的調停者」。若烏克蘭轉向歐洲主導的和談軌道，將削弱美方在這場戰爭中的主導地位，但也顯示出歐洲戰略自主的某種抬頭。The ceasefire's failure exposes the limits of U.S.-only brokerage. Ukraine's signal that it may turn to Europe for diplomatic backing marks a subtle but significant shift: it suggests Kyiv is hedging against Washington's reliability while simultaneously strengthening Europe's role as a security guarantor.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== USA ==================== -->
+  <div class="section" id="usa">
+    <div class="section-header">
+      <span class="section-icon">🇺🇸</span>
+      <div class="section-title">美國 <span>/ United States</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-headline">
+        參院銀行委員會今日審議《CLARITY 加密法案》：逾100項修正案排隊、共和黨需全員守住
+        <span class="en">Senate Banking Committee Markup of CLARITY Act Today — 100+ Amendments Filed, All 13 GOP Votes Needed to Advance</span>
+      </div>
+      <div class="source-bar">
+        <span class="source-label">CNBC</span>
+        <a class="source-link" href="https://www.cnbc.com/2026/05/08/congress-crypto-bill-vote-senate-banking-committee.html" target="_blank">2026-05-08 →</a>
+        <span class="source-label">CoinDesk</span>
+        <a class="source-link" href="https://www.coindesk.com/policy/2026/05/11/clarity-act-in-the-flesh-unveiled-by-u-s-senate-banking-committee-before-hearing" target="_blank">2026-05-11 →</a>
+      </div>
+      <div class="para-block">
+        <div class="para-label facts">核心事實 / Facts</div>
+        <div class="para-body">美東時間5月14日上午10:30，參議院銀行委員會於德克森大樓538室召開《數位資產市場明確性法案》（CLARITY Act，309頁）的 markup 會議，進行逐條修改與委員會投票。委員會組成為共13名共和黨人 vs. 11名民主黨人；民主黨人伊莉莎白·沃倫提出逾40項修正案，整體超過100項修案待審。The Senate Banking Committee convened its markup of the 309-page Digital Asset Market CLARITY Act at 10:30 AM ET on May 14. The panel is 13 Republicans to 11 Democrats; Sen. Elizabeth Warren filed 40+ amendments alone, part of over 100 total. All 13 Republican votes are needed for committee clearance.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label context">背景脈絡 / Context</div>
+        <div class="para-body">CLARITY 法案旨在建立加密資產的完整聯邦監管框架，將新代幣發行監管權授予 SEC、二級市場交易授予 CFTC。這是跨黨派立法，但民主黨內反對聲浪不小，勞工工會和銀行業遊說團體亦持異議。今天的委員會表決是法案進入參議院全院表決的前提。The CLARITY Act creates a comprehensive federal crypto regulatory framework: SEC jurisdiction over new token offerings, CFTC over secondary trading. It is bipartisan but faces labor-union, banking-lobby, and progressive opposition. Today's committee vote is a gate for full Senate floor consideration.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label implications">影響觀察 / Implications (分析)</div>
+        <div class="para-body">分析上，若法案今日順利過委員會，將是加密貨幣立法史上最重要的里程碑之一，預計帶動數位資產市場短期大幅波動。若因共和黨議員倒戈或修案程序拖延而擱置，將進一步加深市場監管不確定性。A committee passage today would be the most consequential U.S. crypto legislative milestone to date, likely moving markets. A failure or indefinite deferral would extend regulatory uncertainty heading into a midterm cycle where crypto PAC spending is at record levels.</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-headline">
+        2026 期中選舉：11名參議員宣布不尋求連任，北卡、俄亥俄成決定性戰場
+        <span class="en">2026 Midterms: 11 Senators Not Seeking Re-Election (Record High); North Carolina, Ohio Emerge as Pivotal Battlegrounds</span>
+      </div>
+      <div class="source-bar">
+        <span class="source-label">NPR</span>
+        <a class="source-link" href="https://www.npr.org/2026/05/02/nx-s1-5806271/2026-midterm-elections-control-senate-race" target="_blank">2026-05-02 →</a>
+        <span class="source-label">270toWin</span>
+        <a class="source-link" href="https://www.270towin.com/2026-senate-election/" target="_blank">2026-05-01 →</a>
+      </div>
+      <div class="para-block">
+        <div class="para-label facts">核心事實 / Facts</div>
+        <div class="para-body">截至目前，共11位參議員（4民主黨、7共和黨）宣布不尋求2026年連任，創單一選舉週期歷史紀錄。民主黨需淨增4席方能翻轉多數；共和黨只能容忍失去2席。俄亥俄民主黨初選5月5日由前參議員布朗勝出，將迎戰共和黨現任參議員赫斯特德。緬因州州長米爾斯因財務和民調不佳已於4月30日退出初選。Eleven senators have announced they won't seek re-election — a modern record. Democrats need a net gain of four seats for a majority. In Ohio, Sherrod Brown won the Democratic primary on May 5; he'll face Republican Sen. Jon Husted. In Maine, Democratic Gov. Janet Mills suspended her campaign on April 30.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label context">背景脈絡 / Context</div>
+        <div class="para-body">2024年選舉後共和黨以53–45控制參院。11位宣布退休的參議員製造出大量「開放席位」，傳統上對在野黨（本次為民主黨）更有利。北卡羅萊納是最可能換手的席位，共和黨候選人法特利（前共和黨全委會主席）對陣民主黨候選人庫珀（前州長）。Republicans hold a 53–45 Senate majority. Open seats historically favor the out-party. North Carolina is the top-rated toss-up: Republicans' Michael Whatley vs. Democrats' Roy Cooper, both viewed as strong recruitments by their parties.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label implications">影響觀察 / Implications (分析)</div>
+        <div class="para-body">分析上，期中選舉距今尚有六個月，但伊朗戰爭帶來的通膨壓力、霍爾木茲封鎖和川習峰會結果將在選前數月重塑選民情緒。若共和黨在峰會後宣布重大對中讓步（尤其是台灣軍售），可能在本黨鷹派選區引發內部反彈。The midterm landscape in six months will be shaped heavily by economic conditions tied to the Iran conflict and Hormuz blockade. Any perception that Trump gave Beijing too much on Taiwan could trigger a hawkish backlash within Republican primaries, particularly if China's leverage over rare earths and Iran negotiations becomes a political narrative.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CROSS-STRAIT ==================== -->
+  <div class="section" id="cross-strait">
+    <div class="section-header">
+      <span class="section-icon">🇨🇳🇹🇼</span>
+      <div class="section-title">中國與兩岸 <span>/ China &amp; Cross-Strait</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-headline">
+        台灣第十度被拒世衛大會門外：衛福部長率團赴日內瓦「場外外交」
+        <span class="en">Taiwan Blocked from WHA for 10th Consecutive Year; Health Minister Leads Geneva Delegation for Parallel Outreach</span>
+      </div>
+      <div class="source-bar">
+        <span class="source-label">Taipei Times</span>
+        <a class="source-link" href="https://www.taipeitimes.com/News/taiwan/archives/2026/05/13/2003857256" target="_blank">2026-05-13 →</a>
+        <span class="source-label">Breitbart/AP</span>
+        <a class="source-link" href="https://www.breitbart.com/asia/2026/05/13/china-blocks-taiwan-from-world-health-assembly-amid-hantavirus-concerns/" target="_blank">2026-05-13 →</a>
+      </div>
+      <div class="para-block">
+        <div class="para-label facts">核心事實 / Facts</div>
+        <div class="para-body">中國5月11日表示不允許台灣出席5月18–23日於日內瓦召開的世界衛生大會（WHA），這是自2017年以來連續第十年阻擋台灣與會。衛生福利部長率領代表團赴日內瓦，計畫進行場外雙邊會談和健康專家交流，以「缺席但不缺陣」的方式維持存在感。China said on May 11 it will not allow Taiwan to attend the World Health Assembly (WHA, May 18–23 in Geneva) — the 10th consecutive exclusion since 2017. Health Minister Shih is leading a delegation to Geneva for sideline bilateral meetings and expert consultations outside the formal WHA framework.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label context">背景脈絡 / Context</div>
+        <div class="para-body">台灣在2009–2016年以觀察員身分出席 WHA，在馬英九政府與北京的和解框架下實現。2017年蔡英文就任後、拒絕承認「九二共識」，北京隨即封殺台灣參與資格。中方官方說法是台灣受排除是因為「民進黨的分裂主義立場」。Taiwan attended WHA as an observer 2009–2016 under the Ma Ying-jeou cross-strait rapprochement. Beijing blocked participation beginning in 2017 after President Tsai refused to endorse the "1992 Consensus." China's official framing blames "the DPP's separatist stance."</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label implications">影響觀察 / Implications (分析)</div>
+        <div class="para-body">分析上，在今年漢他病毒疫情零星發生的背景下，台灣被排除在全球衛生協調機制之外具有實質公衛風險，同時也強化了賴清德政府的抗中論述。川習峰會若傳出對台讓步消息，衛生外交議題將成為更敏感的政治槓桿點。With scattered hantavirus cases this year, Taiwan's exclusion carries real public-health implications beyond symbolic politics. If the Beijing summit produces any perceived rollback of U.S. support for Taiwan, the WHA exclusion will amplify domestic pressure on President Lai to harden cross-strait rhetoric.</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-headline">
+        國民黨主席鄭麗文習近平會談：近十年來台灣在野黨領袖首次見習
+        <span class="en">KMT Chairwoman Cheng Li-wun Meets Xi Jinping in Beijing — First Such Encounter Between Xi and a Sitting Taiwan Opposition Leader in a Decade</span>
+      </div>
+      <div class="source-bar">
+        <span class="source-label">CNBC</span>
+        <a class="source-link" href="https://www.cnbc.com/2026/04/10/china-taiwan-reunification-cross-strait-relations-trump-visit-may-.html" target="_blank">2026-04-10 →</a>
+        <span class="source-label">SCMP</span>
+        <a class="source-link" href="https://www.scmp.com/news/china/politics/article/3353052/taiwans-cheng-li-wun-cross-strait-peace-meeting-xi-jinping-and-managing-ties-us" target="_blank">2026-04-10 →</a>
+      </div>
+      <div class="para-block">
+        <div class="para-label facts">核心事實 / Facts</div>
+        <div class="para-body">國民黨主席鄭麗文四月訪問北京，與習近平會面，為近十年來台灣現任在野黨領袖首度與習直接對話。鄭在第三屆兩岸中華文化峰會上表示兩岸關係「不是國與國的關係」，強調應以文化交流降低軍事衝突風險。KMT Chairwoman Cheng Li-wun visited Beijing and met Xi Jinping in April — the first encounter between Xi and a sitting Taiwan opposition leader in nearly ten years. At the Third Cross-Strait Chinese Culture Summit, Cheng stated cross-strait ties are "not state-to-state," emphasizing cultural exchange as a conflict-risk reducer.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label context">背景脈絡 / Context</div>
+        <div class="para-body">國民黨傳統上與北京關係較緩和，主張透過對話而非對抗管理兩岸關係。鄭麗文的訪問發生在川普訪中前夕，具有為北京提供「正面論述框架」的政治功能。與此同時，立法院長韓國瑜和台中市長盧秀燕5月7日討論國防預算，顯示藍營內部仍有軍購態度分歧。The KMT traditionally favors engagement with Beijing over confrontation. Cheng's visit — timed just weeks before Trump's Beijing summit — serves Beijing's interest in projecting cross-strait dialogue as viable. Separately, KMT insiders remain divided on defense spending, with Legislative Speaker Han and Taichung Mayor Lu discussing a $25B defense budget compromise.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label implications">影響觀察 / Implications (分析)</div>
+        <div class="para-body">分析上，國共交流平臺的重新活化是北京在川習峰會前刻意鋪陳的「兩岸穩定假象」。對賴清德政府而言，在野黨與北京的積極互動加大其國內政治壓力，卻也凸顯台灣內部對兩岸關係的路線分歧。Beijing is deliberately framing KMT engagement to signal to Trump that cross-strait dialogue is possible — thereby weakening arguments for robust U.S. arms sales to Taiwan. President Lai faces a dual pressure: Beijing's diplomatic maneuvering externally and KMT's softer cross-strait posture as domestic opposition.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== EUROPE ==================== -->
+  <div class="section" id="europe">
+    <div class="section-header">
+      <span class="section-icon">🇪🇺</span>
+      <div class="section-title">歐洲 <span>/ Europe</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-headline">
+        烏克蘭轉向歐洲尋求談判支持；歐盟制裁俄羅斯框架延長至5月28日
+        <span class="en">Ukraine Pivots to Europe for Peace-Talk Support; EU Extends Russia Sanctions Framework; Direct EU-Russia Talks "Becoming Unavoidable"</span>
+      </div>
+      <div class="source-bar">
+        <span class="source-label">Pravda EU</span>
+        <a class="source-link" href="https://eu.news-pravda.com/world/2026/05/12/195465.html" target="_blank">2026-05-12 →</a>
+        <span class="source-label">EU Council</span>
+        <a class="source-link" href="https://www.consilium.europa.eu/en/topics/russia-s-war-against-ukraine/" target="_blank">常設 →</a>
+      </div>
+      <div class="para-block">
+        <div class="para-label facts">核心事實 / Facts</div>
+        <div class="para-body">烏克蘭外長西畢嘉5月12日表示，烏克蘭可能需要歐洲承擔更積極的調停角色，以推動與俄羅斯的和平談判，稱此為「附加方向，而非替代方案」。歐盟理事會同期延長對俄羅斯人權侵害行為人的制裁框架，至2026年5月28日。俄羅斯副外長格魯什科反指歐盟「口頭講和平，實際延長戰爭」。Ukrainian FM Sibiga said on May 12 that Ukraine may need Europe to play a more active mediator role, calling it "an additional direction, not a substitute." The EU simultaneously extended its Russia human-rights sanctions framework through May 28. Russia's Deputy FM Grushko accused the EU of "prolonging the conflict."</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label context">背景脈絡 / Context</div>
+        <div class="para-body">美調停三日停火瓦解後，烏克蘭尋求多軌談判保險。歐洲內部對誰出任俄烏調停人存在分歧：普丁點名前德國總理施羅德，歐盟拋出外交政策高級代表卡拉斯，後者被觀察人士認為「莫斯科不可能接受」。馬克宏據報也在考慮法國主導的霍爾木茲護航行動，顯示歐洲試圖在中東議題上重返戰略棋盤。After the U.S.-brokered ceasefire collapsed, Ukraine is hedging by activating European diplomatic channels. Europe's internal debate over a Russia negotiator is unresolved: Putin named Schroeder, but the EU has put forward Kallas, whom observers say Moscow is unlikely to accept. Macron is reportedly considering a French-led Hormuz convoy operation, signaling Europe's broader strategic ambition.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label implications">影響觀察 / Implications (分析)</div>
+        <div class="para-body">分析上，這是「美國主導對歐洲參與」在歐洲安全問題上最直接的拉鋸。若歐洲能在川普主導的停火框架外建立獨立談判軌道，將強化歐盟的戰略自主地位，但也可能造成西方陣營內部訊息不一致，給莫斯科提供操作空間。The shift points to a genuine tension between U.S.-led and Europe-led diplomatic frameworks. If Europe establishes an independent negotiating track outside Trump's ceasefire architecture, it bolsters EU strategic autonomy — but also risks creating contradictory Western signals that Moscow could exploit.</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-headline">
+        法國總理萊科爾努政府倒台；德國梅爾茨低支持度下排除提前大選
+        <span class="en">French PM Lecornu Government Falls; Germany's Merz Rules Out Snap Elections Despite Low Approval Ratings</span>
+      </div>
+      <div class="source-bar">
+        <span class="source-label">Connexion France</span>
+        <a class="source-link" href="https://www.connexionfrance.com/news/politics-and-elections-in-france-in-2026-key-dates-votes-and-brexit-talks/760106" target="_blank">2026 →</a>
+        <span class="source-label">Washington Post</span>
+        <a class="source-link" href="https://www.washingtonpost.com/world/2026/01/28/two-speed-europe-germany-france/" target="_blank">2026-01 →</a>
+      </div>
+      <div class="para-block">
+        <div class="para-label facts">核心事實 / Facts</div>
+        <div class="para-body">法國總理萊科爾努政府在左右兩翼夾擊下倒台，法國再度進入政治不穩定期。德國方面，總理梅爾茨儘管支持率持續低迷，仍宣布排除提前大選與少數派政府兩個選項。戴姆勒卡車（德國製造業指標企業）在貿易緊張局勢下宣布大規模裁員，凸顯德國出口經濟面臨的壓力。French PM Lecornu's government fell under pressure from both left and right, deepening France's political instability. In Germany, Chancellor Merz ruled out early elections and a minority government despite persistently low approval; Daimler Truck announced thousands of job cuts amid trade tensions, highlighting Germany's export-economy vulnerability.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label context">背景脈絡 / Context</div>
+        <div class="para-body">法德兩國今年初聯手推動「兩速歐洲」概念以突破歐盟政策僵局，但兩國內政動盪削弱了這一議程的執行能力。德法在財政政策上仍有分歧，法國尋求更大的財政擴張空間，德國堅守財政紀律。France and Germany co-proposed a "two-speed Europe" in January to overcome EU policy inertia, but domestic turbulence in both capitals has undercut that agenda. France's political instability is particularly consequential given its nuclear deterrent and permanent UN Security Council seat.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label implications">影響觀察 / Implications (分析)</div>
+        <div class="para-body">分析上，法德雙引擎同步熄火是歐盟在最需要戰略統一的時刻（烏克蘭戰事、中東危機、美中峰會）面臨的最大政治風險。兩國內政的不穩定將使歐洲在本年度多個關鍵時刻難以發出清晰一致的外部聲音。Both France and Germany facing political weakness simultaneously is the EU's greatest structural liability at a moment when coherent European posture on Ukraine, Iran, and the U.S.-China summit would be most valuable. EU councils may be forced to work around, rather than through, their two largest member states.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ASIA-PACIFIC ==================== -->
+  <div class="section" id="asia-pacific">
+    <div class="section-header">
+      <span class="section-icon">🌏</span>
+      <div class="section-title">亞太 <span>/ Asia-Pacific</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-headline">
+        日韓在川普不確定性下加速靠攏：高木首相與李在明政府推進雙邊峰會
+        <span class="en">Japan and South Korea Accelerate Rapprochement Amid Trump Unpredictability; High-Level Summit Planned</span>
+      </div>
+      <div class="source-bar">
+        <span class="source-label">SCMP</span>
+        <a class="source-link" href="https://www.scmp.com/week-asia/politics/article/3352211/how-trump-inadvertently-bringing-japan-south-korea-together" target="_blank">2026-05 →</a>
+        <span class="source-label">The Diplomat</span>
+        <a class="source-link" href="https://thediplomat.com/2026/05/how-a-political-odd-couple-finally-brought-japan-and-south-korea-together/" target="_blank">2026-05 →</a>
+      </div>
+      <div class="para-block">
+        <div class="para-label facts">核心事實 / Facts</div>
+        <div class="para-body">日本高木首相與韓國李在明政府正推進雙邊高層峰會，分析人士指出川普政府的不可預測性是促成日韓關係正常化的主要外部驅動力。兩國均面臨對中國的共同擔憂和對美國安全承諾可靠性的疑慮。Japan's PM Takaichi and South Korea's President Lee administration are pressing toward a bilateral summit. Analysts cite Trump's unpredictability as the key external driver of Japan-Korea rapprochement, as both capitals share concerns about China and doubts about U.S. alliance reliability.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label context">背景脈絡 / Context</div>
+        <div class="para-body">日韓關係長期受歷史問題（慰安婦、徵用工）拖累。李在明此前因反對派遣韓國軍隊赴歐而與前政府路線有所不同，但在對中、對北韓政策上仍保持相當強硬。日本方面，高木政府據稱擁有戰後最大的國會多數，力推修改第九條擴大自衛隊能力。Japan-Korea ties have historically been strained by history issues (comfort women, wartime labor). Lee's administration differs from its predecessor on some alignments, but shares Japan's concern about China's military posture and North Korea's recent constitutional change dropping reunification references — effectively formalizing the two-state reality.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label implications">影響觀察 / Implications (分析)</div>
+        <div class="para-body">分析上，川普政府對亞洲盟友的不確定性正在客觀上推動一種「區域自主多邊」的非正式安排。日韓若能建立更穩固的雙邊安全框架，將使美國的亞太同盟體系具有更強的彈性——即使美國自身的可信度受到質疑。Trump's erratic alliance management is inadvertently driving the Japan-Korea alignment that U.S. strategists have long sought but failed to engineer through direct pressure. A more durable Japan-Korea security framework would strengthen the U.S.-led Indo-Pacific architecture even as Washington's own credibility is questioned.</div>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-headline">
+        北韓修憲刪除「統一」條文，正式確立兩韓分立立場
+        <span class="en">North Korea Removes "Reunification" from Constitution, Formalizing Kim Jong Un's Two-State Doctrine</span>
+      </div>
+      <div class="source-bar">
+        <span class="source-label">Japan Times</span>
+        <a class="source-link" href="https://www.japantimes.co.jp/news/2026/05/06/asia-pacific/politics/north-korea-revises-constitution-no-unification/" target="_blank">2026-05-06 →</a>
+      </div>
+      <div class="para-block">
+        <div class="para-label facts">核心事實 / Facts</div>
+        <div class="para-body">北韓在憲法修訂中刪除涉及「朝鮮半島統一」的條文，並重新定義領土邊界為「與南韓毗鄰」，確立金正恩自去年以來力推的「兩個獨立國家」原則。North Korea removed references to Korean Peninsula reunification from its constitution and redefined its territory as bordering South Korea — formalizing Kim Jong Un's doctrine of treating the two Koreas as permanently separate states rather than halves of one divided nation.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label context">背景脈絡 / Context</div>
+        <div class="para-body">金正恩2023年底即已公開宣示放棄統一目標，稱南韓為「敵對國家」。憲法修訂是這一政策宣示的法律制度化。平壤此舉發生在南韓政府換屆之後，被部分分析人士視為對李在明政府的刻意信號。Kim first publicly declared the abandonment of reunification goals in late 2023, calling South Korea a "hostile state." This constitutional revision institutionalizes that declaration. The timing, following South Korea's change in government, may signal a calculated message to President Lee's administration.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label implications">影響觀察 / Implications (分析)</div>
+        <div class="para-body">分析上，憲法修訂雖非軍事行動，但具有深遠的長期戰略意涵：它正式關閉了「統一談判」的政治敘事空間，意味著平壤今後的外交路線將全面轉向核威懾和對等國家關係，而非「同胞談判」框架。The constitutional change forecloses any political narrative of Korean reunification negotiations, signaling that Pyongyang's diplomatic posture will henceforth be premised entirely on mutual deterrence and sovereign state relations rather than "inter-Korean" fraternal framing. This has implications for how Seoul, Washington, and Tokyo calibrate engagement strategies.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MIDDLE EAST ==================== -->
+  <div class="section" id="middle-east">
+    <div class="section-header">
+      <span class="section-icon">🕌</span>
+      <div class="section-title">中東與其他 <span>/ Middle East &amp; Elsewhere</span></div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-headline">
+        以色列繼續空襲黎巴嫩，黎衛生部稱死亡人數升至2,795人；停火協議實際破裂
+        <span class="en">Israel Continues Lebanon Airstrikes Despite Ceasefire; Lebanon Health Ministry Reports 2,795 Dead; Hezbollah Exchanges Fire</span>
+      </div>
+      <div class="source-bar">
+        <span class="source-label">Al Jazeera Live</span>
+        <a class="source-link" href="https://www.aljazeera.com/news/liveblog/2026/5/9/iran-war-live-tehrans-reply-to-us-deal-expected-amid-clashes-in-hormuz" target="_blank">2026-05-09 →</a>
+        <span class="source-label">Britannica</span>
+        <a class="source-link" href="https://www.britannica.com/event/2026-Iran-war" target="_blank">參考 →</a>
+      </div>
+      <div class="para-block">
+        <div class="para-label facts">核心事實 / Facts</div>
+        <div class="para-body">以色列軍隊持續對黎巴嫩南部和貝魯特週邊進行空襲，黎巴嫩衛生部統計自3月2日以來的以軍空襲死亡人數已升至2,795人。儘管停火框架存在，以色列和真主黨雙方仍互控對方違反協議並繼續互換炮火。Israel continues airstrikes in Lebanon; Lebanon's Health Ministry reports 2,795 dead from Israeli strikes since March 2. Despite a nominal ceasefire framework, both Israel and Hezbollah have accused each other of violations and continue exchanging fire.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label context">背景脈絡 / Context</div>
+        <div class="para-body">黎巴嫩衝突是2026年伊朗戰爭的直接外溢效應。「史詩狂怒行動」開始後真主黨加大對以色列的火箭彈攻擊，以色列隨即升級對黎南部的空中打擊。整個中東地區（含黎巴嫩、伊朗、以色列和海灣國家）已有數千人死亡、數百萬人流離失所。Lebanon's conflict is a direct spillover from the 2026 Iran war. After "Operation Epic Fury" began, Hezbollah escalated rocket attacks on Israel, prompting Israeli aerial escalation in Lebanon. The broader regional death toll — across Lebanon, Iran, Israel, and Gulf states — is in the thousands, with millions displaced.</div>
+      </div>
+      <div class="para-block">
+        <div class="para-label implications">影響觀察 / Implications (分析)</div>
+        <div class="para-body">分析上，黎巴嫩局勢與美伊談判緊密連動——美伊若達成更穩固的停火或核協議，可望降低真主黨的伊朗支持並減少與以色列的對峙烈度。但若美伊談判持續僵局，黎巴嫩的人道危機將持續惡化，進一步考驗歐美的外交能量。Lebanon's situation is directly coupled to U.S.-Iran negotiations: a durable Iran deal would reduce Hezbollah's operational support from Tehran. Without it, Lebanon's humanitarian crisis will worsen and further strain whatever remaining ceasefire architecture exists across the region.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== OPINION ==================== -->
+  <div class="section" id="opinion">
+    <div class="section-header">
+      <span class="section-icon">📚</span>
+      <div class="section-title">觀點 <span>/ Opinion Worth Reading</span></div>
+    </div>
+
+    <div class="opinion-item">
+      <div class="item-headline">
+        CFR：「川習峰會，中方佔上風」— 北京掌握稀土、伊朗、台灣三張王牌
+        <span class="en">CFR Analysis: "At the Trump-Xi Summit, China Will Have the Upper Hand" — Beijing Holds Rare Earth, Iran, and Taiwan Leverage</span>
+      </div>
+      <div class="source-bar">
+        <span class="source-label">Council on Foreign Relations</span>
+        <a class="source-link" href="https://www.cfr.org/articles/at-the-trump-xi-summit-china-will-have-the-upper-hand" target="_blank">2026-05 →</a>
+      </div>
+      <div class="para-body">CFR 分析指出，習近平此次峰會握有三張關鍵牌：一、稀土出口管制可反向威脅美國國防與科技供應鏈；二、對伊朗的政治影響力是解決霍爾木茲危機的關鍵；三、台灣軍售延宕給北京施壓空間。反觀川普帶入峰會的主要籌碼是「美國市場准入」和「降低關稅威脅」，但在通膨壓力下，川普本人對快速達成貿易協議的需求更為迫切，削弱其談判地位。文章提醒：「中方早已習慣等待，而美方的政治時鐘正在加速。」This CFR essay argues Beijing holds three aces: rare-earth export controls that threaten U.S. defense supply chains, political leverage over Iran critical to reopening Hormuz, and Taiwan arms-sale uncertainty as diplomatic currency. By contrast, Trump's domestic political clock — inflation, midterms — is running faster than Xi's, reducing U.S. bargaining leverage. The piece cautions that "Beijing is used to waiting; Washington is not."</div>
+    </div>
+
+    <div class="opinion-item">
+      <div class="item-headline">
+        Chatham House：「川習峰會是管控競爭，而非解決競爭」— 結構性矛盾不會消失
+        <span class="en">Chatham House: "The Trump-Xi Summit Will Be About Managing U.S.-China Rivalry, Not Resolving It"</span>
+      </div>
+      <div class="source-bar">
+        <span class="source-label">Chatham House</span>
+        <a class="source-link" href="https://www.chathamhouse.org/2026/05/trump-xi-summit-will-be-about-managing-us-china-rivalry-not-resolving-it" target="_blank">2026-05 →</a>
+      </div>
+      <div class="para-body">查塔姆研究所的分析強調，任何從北京峰會發出的「重大突破」訊號都應謹慎看待：美中之間的科技脫鉤、台灣、軍事競爭等結構性矛盾不會在兩天峰會後消失。最可能的情境是「精心設計的有限協議」——表面熱絡、實質管控。作者提醒決策者與市場避免因峰會氣氛而過度樂觀，應聚焦協議的具體執行機制而非聲明本身。Chatham House warns against over-interpreting any "breakthrough" signals from Beijing: U.S.-China structural tensions over tech decoupling, Taiwan, and military competition are not resolved by summits. The most likely outcome is "carefully choreographed but limited agreements" that manage the rivalry rather than transform it. The piece urges policymakers and markets to focus on implementation mechanisms, not the joint communiqué's rhetoric.</div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  <div class="footer-title">來源列表 / Sources Used</div>
+  <div class="footer-sources">
+    <a href="https://www.washingtonpost.com/politics/2026/05/13/trump-arrives-china-meet-with-xi-jinping-taiwan-trade-iran/" target="_blank">Washington Post</a>
+    <a href="https://www.cnbc.com/2026/05/12/trump-xi-china-trade-iran-taiwan.html" target="_blank">CNBC</a>
+    <a href="https://www.aljazeera.com/economy/2026/5/13/trump-and-xi-to-meet-in-beijing-the-key-issues-shaping-the-china-summit" target="_blank">Al Jazeera</a>
+    <a href="https://foreignpolicy.com/2026/05/12/trump-xi-china-summit-visit-taiwan-trade-japan/" target="_blank">Foreign Policy</a>
+    <a href="https://www.cfr.org/articles/at-the-trump-xi-summit-china-will-have-the-upper-hand" target="_blank">Council on Foreign Relations</a>
+    <a href="https://www.chathamhouse.org/2026/05/trump-xi-summit-will-be-about-managing-us-china-rivalry-not-resolving-it" target="_blank">Chatham House</a>
+    <a href="https://www.csis.org/analysis/trump-xi-summit-beijing-managing-worlds-most-important-relationship" target="_blank">CSIS</a>
+    <a href="https://www.cnn.com/2026/05/11/world/live-news/iran-war-proposal-trump" target="_blank">CNN (Iran War Live)</a>
+    <a href="https://www.aljazeera.com/news/liveblog/2026/5/10/iran-war-live-irgc-warns-us-against-attacks-on-ships-israel-bombs-lebanon" target="_blank">Al Jazeera Iran War Blog</a>
+    <a href="https://www.npr.org/2026/05/09/nx-s1-5816478/trump-russia-ukraine-ceasefire" target="_blank">NPR (Ukraine Ceasefire)</a>
+    <a href="https://www.defensenews.com/news/pentagon-congress/2026/05/11/ukraine-and-russia-fight-on-despite-us-mediated-ceasefire/" target="_blank">Defense News</a>
+    <a href="https://eu.news-pravda.com/world/2026/05/12/195465.html" target="_blank">Pravda EU</a>
+    <a href="https://www.cnbc.com/2026/05/08/congress-crypto-bill-vote-senate-banking-committee.html" target="_blank">CNBC (CLARITY Act)</a>
+    <a href="https://www.coindesk.com/policy/2026/05/11/clarity-act-in-the-flesh-unveiled-by-u-s-senate-banking-committee-before-hearing" target="_blank">CoinDesk</a>
+    <a href="https://www.npr.org/2026/05/02/nx-s1-5806271/2026-midterm-elections-control-senate-race" target="_blank">NPR (Midterms)</a>
+    <a href="https://www.taipeitimes.com/News/taiwan/archives/2026/05/13/2003857256" target="_blank">Taipei Times (WHA)</a>
+    <a href="https://www.scmp.com/news/china/politics/article/3353052/taiwans-cheng-li-wun-cross-strait-peace-meeting-xi-jinping-and-managing-ties-us" target="_blank">South China Morning Post</a>
+    <a href="https://www.japantimes.co.jp/news/2026/05/06/asia-pacific/politics/north-korea-revises-constitution-no-unification/" target="_blank">Japan Times (DPRK)</a>
+    <a href="https://thediplomat.com/2026/05/how-a-political-odd-couple-finally-brought-japan-and-south-korea-together/" target="_blank">The Diplomat</a>
+    <a href="https://www.britannica.com/event/2026-Iran-war" target="_blank">Britannica (2026 Iran War)</a>
+  </div>
+  <div style="margin-top:12px; color:#718096;">
+    ⚠️ 停火後日均進展快速，本報告為截稿前資訊，請持續追蹤即時源頭。部分付費牆來源（NYT、FT、WSJ、The Economist）未能直接擷取內文，摘要來自公開預覽與分析彙整。
+    <br>生成時間 Generated: 2026-05-14 Asia/Taipei
+  </div>
+</div>
+
+</body>
+</html>

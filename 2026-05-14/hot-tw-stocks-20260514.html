@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>熱門台股 — 2026-05-14</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    background: #f9fafb;
+    color: #1a1a2e;
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+    color: #fff;
+    padding: 20px 24px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  header h1 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  header .subtitle { font-size: 12px; color: #a8b4c8; }
+  .badge {
+    display: inline-block;
+    background: rgba(255,200,50,0.2);
+    color: #ffe566;
+    border: 1px solid rgba(255,220,80,0.4);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 11px;
+    margin-top: 6px;
+  }
+  .section { margin-bottom: 24px; }
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f3460;
+    border-left: 4px solid #e94560;
+    padding-left: 10px;
+    margin-bottom: 12px;
+  }
+  /* Summary table */
+  .summary-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .summary-table th {
+    background: #0f3460;
+    color: #fff;
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .summary-table td { padding: 7px 10px; border-bottom: 1px solid #e2e8f0; }
+  .summary-table tr:hover td { background: #f0f4ff; }
+  .summary-table tr:nth-child(even) td { background: #f8faff; }
+  .up { color: #e94560; font-weight: 700; }
+  .down { color: #16a34a; font-weight: 700; }
+  .limit-up { color: #e94560; font-weight: 700; background: #fff1f1; border-radius: 4px; padding: 1px 6px; }
+  .stars { color: #f59e0b; font-size: 13px; }
+  /* Deep dive cards */
+  .card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .ticker-name { font-size: 16px; font-weight: 700; color: #0f3460; }
+  .ticker-badge {
+    background: #0f3460;
+    color: #fff;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .price-block { text-align: right; }
+  .price-block .price { font-size: 18px; font-weight: 700; color: #e94560; }
+  .price-block .chg { font-size: 12px; color: #e94560; }
+  .subsection {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f1f5f9;
+  }
+  .subsection-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #6b7280;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .subsection p { font-size: 13px; color: #374151; }
+  .tag {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 11px;
+    margin: 2px 2px;
+  }
+  .tag.red { background: #fee2e2; color: #b91c1c; }
+  .tag.green { background: #dcfce7; color: #166534; }
+  .tag.amber { background: #fef3c7; color: #92400e; }
+  .watch-card {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .caution-card {
+    background: #fff7f7;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .market-backdrop {
+    background: #f0f4ff;
+    border: 1px solid #c7d2fe;
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .market-backdrop p { font-size: 13px; color: #374151; line-height: 1.7; }
+  .disclaimer {
+    font-size: 11px;
+    color: #9ca3af;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 20px;
+  }
+  .sources { margin-top: 20px; }
+  .sources h3 { font-size: 13px; font-weight: 700; color: #374151; margin-bottom: 8px; }
+  .sources ul { list-style: none; }
+  .sources li { font-size: 11px; color: #6b7280; margin-bottom: 3px; }
+  .sources a { color: #4f46e5; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .data-note {
+    display: inline-block;
+    background: #fef9c3;
+    border: 1px solid #fde047;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 11px;
+    color: #854d0e;
+    margin-left: 8px;
+  }
+  table { overflow-x: auto; display: block; }
+  @media (max-width: 600px) {
+    body { padding: 12px; }
+    .card-header { flex-direction: column; align-items: flex-start; }
+    .price-block { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🔥 熱門台股焦點 Hot Taiwan Stocks</h1>
+  <div class="subtitle">交易日 Trading Day: 2026-05-14（週四 Thu） | TWSE 09:00–13:30 Asia/Taipei</div>
+  <div class="badge">⚠ 本報告為資訊整理，不構成投資建議 — For reference only, not investment advice</div>
+</header>
+
+<!-- ───────────────────────────────────────────
+     Section 1 — Summary table
+─────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-title">一、熱門焦點總覽 / Top Picks Summary</div>
+  <div style="overflow-x:auto">
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>股號</th>
+        <th>公司</th>
+        <th>當日表現</th>
+        <th>成交量</th>
+        <th>三大法人</th>
+        <th>熱度</th>
+        <th>主要 Catalyst</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>2327</strong></td>
+        <td>國巨*</td>
+        <td><span class="limit-up">漲停 +10%</span><br><small>約 440–450 元區間</small></td>
+        <td>待確認</td>
+        <td>投信連買 / 外資觀望</td>
+        <td><span class="stars">★★★★★</span></td>
+        <td>Q1 EPS 3.90元創高；AI 鉭質電容供需漲價；4月營收 1.4 兆元創歷史新高</td>
+      </tr>
+      <tr>
+        <td><strong>7769</strong></td>
+        <td>鴻勁</td>
+        <td><span class="up">+8%–10%</span><br><small>約 7,400–7,600 元</small></td>
+        <td>待確認</td>
+        <td>外資 / 投信同買</td>
+        <td><span class="stars">★★★★☆</span></td>
+        <td>半導體設備千金股；前一交易日強彈 +8.3%；AI CoWoS 設備需求強勁</td>
+      </tr>
+      <tr>
+        <td><strong>3661</strong></td>
+        <td>世芯-KY</td>
+        <td><span class="up">+9%–10%</span><br><small>約 4,780–5,250 元</small></td>
+        <td>待確認</td>
+        <td>外資買超</td>
+        <td><span class="stars">★★★★☆</span></td>
+        <td>AI ASIC 設計大廠；Google HyperScaler TPU/NPU 訂單持續放量</td>
+      </tr>
+      <tr>
+        <td><strong>2377</strong></td>
+        <td>微星</td>
+        <td><span class="limit-up">漲停 +10%</span><br><small>5/13 已亮燈（116.5 元）</small></td>
+        <td>待確認</td>
+        <td>投信買超</td>
+        <td><span class="stars">★★★★☆</span></td>
+        <td>Q1 EPS 4.04 元超預期；AI 伺服器主機板/GPU 服務器需求受惠</td>
+      </tr>
+      <tr>
+        <td><strong>2337</strong></td>
+        <td>旺宏</td>
+        <td><span class="up">強彈 / 近漲停</span><br><small>5/13 尾盤亮燈確認</small></td>
+        <td>外資搶買 5 萬張</td>
+        <td>外資大買 / 投信跟進</td>
+        <td><span class="stars">★★★★☆</span></td>
+        <td>3月淨利暴增 8 倍；NOR Flash 寡占地位成形；MSCI 調整成分股效應</td>
+      </tr>
+      <tr>
+        <td><strong>4977</strong></td>
+        <td>眾達-KY</td>
+        <td><span class="up">+5%–10%</span><br><small>約 265–280 元</small></td>
+        <td>待確認</td>
+        <td>外資買超</td>
+        <td><span class="stars">★★★☆☆</span></td>
+        <td>收購品固集團補齊 CPO 最後拼圖；矽光子 / 共封裝光學商轉題材</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:11px;color:#6b7280;margin-top:6px">⚠ 價格/量數據部分來自5/13-5/14早盤估算，「待確認」代表盤後數據尚未取得。</p>
+</div>
+
+<!-- ───────────────────────────────────────────
+     Section 2 — Deep Dives
+─────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-title">二、個股深度分析 / Deep Dives</div>
+
+  <!-- 1. 國巨 -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <span class="ticker-badge">2327</span>
+        <span class="ticker-name"> 國巨* (Yageo)</span>
+        <span class="tag red">被動元件龍頭</span>
+        <span class="tag amber">AI 鉭質電容</span>
+        <span class="tag red">漲停</span>
+      </div>
+      <div class="price-block">
+        <div class="price">~440–450 元 ↑10%</div>
+        <div class="chg">漲停鎖死（CMoney 即時確認）</div>
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">今日數據 / Today's Tape</div>
+      <p>漲停鎖死（+10%）；5 月以來股價累計漲幅已達 26%+；4 月合併營收 140.4 億元，月增 3%，年增 22%，歷史新高。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">為什麼今天熱 / Why It's Hot</div>
+      <p><strong>中文：</strong> 國巨法說會公布 Q1 EPS 3.90 元創歷史新高，年增 22.7%，毛利率升至 38.1%。AI 伺服器對鉭質電容（MLCC 高端品）需求持續加速，國巨在鉭質電容全球市占率逾三成，漲價紅利直接入袋。本土法人設定目標價進入 400 元以上區間，外資也陸續上修目標，引爆資金集中買進。</p>
+      <p style="margin-top:6px"><strong>English:</strong> Yageo Q1 EPS hit a record NT$3.90 (+22.7% YoY), with gross margin expanding to 38.1%. AI server tantalum capacitor demand is accelerating—Yageo commands 30%+ global market share in tantalum caps, a segment where supply tightness is now demand-driven rather than cost-driven. Domestic funds raised targets above NT$400; foreign brokers followed, triggering concentrated inflows that pushed the stock to limit-up.</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">籌碼觀察 / Flow Watch</div>
+      <p>投信連續買超；外資觀望但部分分點開始回補。被動元件族群 5/13–14 接力，帶動華新科、禾伸堂、金山電等同步走強。融資使用率偏低，籌碼相對乾淨。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">社群聲量 / Retail Buzz</div>
+      <p>PTT Stock 板有文章討論「被動元件是否成新題材主流」，CMoney 熱搜排行前三，討論國巨是否能站穩 400 元。多數討論認為「法人配合法說輪動」。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">炒作脈絡 / Narrative</div>
+      <p>AI 資料中心對高可靠性電容需求結構性成長；三星宣布退出低階 NOR/DRAM 競爭後，被動元件寡占格局也跟著成形。國巨從「傳統電子零件廠」轉型為「AI 基礎建設元件供應商」，成為外資重新定價的核心敘事。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">後續觀察 / What to Watch</div>
+      <p>（分析，非事實）① 量能是否隔日持續爆量；② 目標價 400 元能否成為新支撐；③ 族群是否帶動華新科（2492）、凱美（2375）等跟著攻頂；④ 注意隔日沖回壓力。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">來源 / Sources</div>
+      <p>
+        <a href="https://cmnews.com.tw/article/newsyoudeservetoknow-b3664a23-4a62-11f1-b842-3c96a3fd4038" target="_blank">CMoney 即時新聞 — 國巨今日漲停鎖死</a> ·
+        <a href="https://www.sinotrade.com.tw/richclub/hotstock/%E5%9C%8B%E5%B7%A8-2327-%E6%B3%95%E8%AA%AA-Q1%E5%AD%A3%E5%B9%B4%E5%A2%9E22-7--EPS%E9%81%943-90%E5%85%83%E5%89%B5%E9%AB%98-AI%E9%9C%80%E6%B1%82%E6%8C%81%E7%BA%8C%E6%88%90%E9%95%B7%E7%82%BA%E6%9C%80%E5%A4%A7%E5%8B%95%E8%83%BD-%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-69df583784125e0a7da823ce" target="_blank">豐雲學堂 — 法說摘要</a> ·
+        <a href="https://wantrich.chinatimes.com/news/20260416900323-420101" target="_blank">旺得富 — 目標價分析</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- 2. 世芯-KY -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <span class="ticker-badge">3661</span>
+        <span class="ticker-name"> 世芯-KY (Alchip)</span>
+        <span class="tag red">AI ASIC 設計</span>
+        <span class="tag amber">千金股</span>
+      </div>
+      <div class="price-block">
+        <div class="price">~4,780–5,250 元</div>
+        <div class="chg">+9%–10% / 近漲停</div>
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">今日數據 / Today's Tape</div>
+      <p>5/13 收 4,780 元（+530 元，+9.98%）；5/14 開盤延續強勢，外資目標價大幅上修引領籌碼面買盤。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">為什麼今天熱 / Why It's Hot</div>
+      <p><strong>中文：</strong> 世芯-KY 是全球頂尖的 ASIC 設計服務廠，為 Google、Microsoft、Meta 等 HPC/AI 晶片客戶提供全流程矽智財服務。AI 加速器訂單持續放量，外資摩根士丹利已將目標價上修逾 50%，加上 5 月台股整體 AI ASIC 族群輪漲，世芯連帶成為市場焦點。</p>
+      <p style="margin-top:6px"><strong>English:</strong> Alchip is the world's leading ASIC design-service house, serving Google, Microsoft, and Meta's HPC/AI custom silicon programs. Morgan Stanley raised the target price by 50%+. As the Taiwan AI ASIC rotation broadened, Alchip drew heavy institutional inflows.</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">籌碼觀察 / Flow Watch</div>
+      <p>外資連續買超；千金股流通量低，籌碼集中度高，容易出現單點大漲。與創意（3443）、鴻勁（7769）同屬半導體千金股族群，三者往往有聯動效果。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">炒作脈絡 / Narrative</div>
+      <p>台股 AI ASIC 概念股族群：世芯-KY、創意（3443）、智原（3035）。世芯進入 CoWoS 先進封裝量產應用後，製造門檻提高，護城河加深。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">後續觀察 / What to Watch</div>
+      <p>（分析）法說會是否有客戶新訂單揭露；與 Google TPU 訂單集中度是否過高；台積電先進製程產能配給對世芯出貨時程的影響。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">來源 / Sources</div>
+      <p>
+        <a href="https://tw.stock.yahoo.com/news/%E6%9C%9D%E7%9B%AE%E6%A8%99%E5%83%B9%E9%80%BC%E8%BF%91-asic%E5%A4%A7%E5%BB%A0-%E6%94%9C%E6%89%8B4%E6%AA%94ai%E8%82%A1%E5%90%8C%E9%A3%86%E6%BC%B2%E5%81%9C-%E5%81%A5%E7%AD%96%E9%87%8D%E6%91%94%E8%B7%8C%E5%81%9C-%E4%BF%A1%E9%A9%8A%E8%B7%8C%E9%80%BE3-023000053.html" target="_blank">Yahoo 財經 — ASIC 族群漲停</a> ·
+        <a href="https://www.ctee.com.tw/news/20260511700857-430201" target="_blank">工商時報 — 半導體千金股漲停</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- 3. 微星 -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <span class="ticker-badge">2377</span>
+        <span class="ticker-name"> 微星 (MSI)</span>
+        <span class="tag red">AI 伺服器主機板</span>
+        <span class="tag amber">財報驚豔</span>
+        <span class="tag red">漲停</span>
+      </div>
+      <div class="price-block">
+        <div class="price">~116.5 元</div>
+        <div class="chg">漲停 +10%（5/13 確認）</div>
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">今日數據 / Today's Tape</div>
+      <p>5/13 確認漲停，報 116.5 元（+10.5 元）；5/14 持續觀察是否維持強勢；成交量待確認。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">為什麼今天熱 / Why It's Hot</div>
+      <p><strong>中文：</strong> 微星 Q1 EPS 4.04 元超市場預期，主因 AI 伺服器主機板、GPU 伺服器需求爆發，加上 AI PC 換機潮初期啟動。財報驚喜觸發法人追單，5/13 漲停後市場討論是否為「多點開花」的象徵 — 意即題材不再只集中台積電、聯發科。</p>
+      <p style="margin-top:6px"><strong>English:</strong> MSI Q1 EPS of NT$4.04 beat consensus. Drivers: AI server motherboard/GPU server demand surge and early AI PC refresh cycle. Earnings surprise triggered institutional chasing; the stock's limit-up was cited as evidence of "broadening" away from the mega-caps.</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">籌碼觀察 / Flow Watch</div>
+      <p>投信買超明確；外資小幅跟進。電競、AI 伺服器兩大題材疊加，融資餘額增加中，需留意追高風險。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">後續觀察 / What to Watch</div>
+      <p>（分析）Q2 伺服器出貨能見度；競爭對手華碩、技嘉是否同步跟漲形成族群行情。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">來源 / Sources</div>
+      <p>
+        <a href="https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E7%9B%A4%E5%BE%8C-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%A8%8D%E6%81%AF-%E5%BC%B7%E5%8B%A2%E8%82%A1%E5%90%84%E6%93%81%E9%A1%8C%E6%9D%90%E5%A4%9A%E9%BB%9E%E9%96%8B%E8%8A%B1-%E6%BC%B264%E9%BB%9E%E5%86%8D%E5%89%B5%E6%94%B6%E7%9B%A4%E6%96%B0%E9%AB%98-064531069.html" target="_blank">Yahoo 財經 — 強勢股多點開花</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- 4. 旺宏 -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <span class="ticker-badge">2337</span>
+        <span class="ticker-name"> 旺宏 (Macronix)</span>
+        <span class="tag red">NOR Flash / 記憶體</span>
+        <span class="tag amber">外資爆買</span>
+      </div>
+      <div class="price-block">
+        <div class="price">待確認</div>
+        <div class="chg">5/13 尾盤漲停確認，5/14 開盤延續</div>
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">今日數據 / Today's Tape</div>
+      <p>5/13 尾盤拉至漲停作收，外資搶買 5 萬張創近期新高；3 月淨利暴增 8 倍，公告引爆買盤。5/14 延續強勢，量能待確認。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">為什麼今天熱 / Why It's Hot</div>
+      <p><strong>中文：</strong> 旺宏在 NOR Flash 市場佔有寡占地位（三星退出低階競爭後格局更集中）。3 月單月淨利創歷史新高，年增 8 倍。AI 車用、工業、物聯網等嵌入式記憶體需求旺盛，旺宏是最直接的受惠廠。同時納入 MSCI 台灣指數成分股調整，被動資金被迫承接。</p>
+      <p style="margin-top:6px"><strong>English:</strong> Macronix dominates NOR Flash, with Samsung's exit tightening supply further. March net profit surged 8x YoY. AI automotive/industrial/IoT embedded memory demand is booming. MSCI rebalancing forced passive fund inflows. Foreign institutions bought 50,000 lots in a single session.</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">籌碼觀察 / Flow Watch</div>
+      <p>外資買超力道為近年罕見；投信跟進；自營商小幅賣超。MSCI 成分股效應帶來強制買盤，籌碼面短期偏多。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">後續觀察 / What to Watch</div>
+      <p>（分析）MSCI 調整日完成後外資是否持續持有；Q2 NOR Flash 報價走勢；車用記憶體認證進度。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">來源 / Sources</div>
+      <p>
+        <a href="https://udn.com/news/story/7251/9472341" target="_blank">經濟日報 — 外資搶買 5 萬張</a> ·
+        <a href="https://www.businesstoday.com.tw/article/category/183008/post/202605110001/" target="_blank">今周刊 — 記憶體股選擇</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- 5. 眾達-KY -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <span class="ticker-badge">4977</span>
+        <span class="ticker-name"> 眾達-KY (Methode Taiwan)</span>
+        <span class="tag red">CPO / 矽光子</span>
+        <span class="tag amber">M&amp;A 題材</span>
+      </div>
+      <div class="price-block">
+        <div class="price">~265–280 元</div>
+        <div class="chg">+5%–10%</div>
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">今日數據 / Today's Tape</div>
+      <p>5/12 漲停確認（270.5 元），量放大至 2.2 萬張；5/14 接力走強，具體收盤待確認。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">為什麼今天熱 / Why It's Hot</div>
+      <p><strong>中文：</strong> 眾達-KY 宣布收購品固集團，補齊 CPO（共封裝光學）最後一塊精密機構件拼圖。矽光子 / CPO 被視為 AI 資料中心次世代互連架構的核心，台積電 COUPE 技術商轉加速了這條供應鏈的卡位爭奪。眾達是市場公認「CPO 最完整佈局」的台廠代表之一。</p>
+      <p style="margin-top:6px"><strong>English:</strong> Chant Sincere (眾達-KY) acquired Pinfix Group to complete its CPO optical interconnect supply chain. With TSMC's COUPE CPO technology entering commercial ramp-up, the optical module supply chain scramble accelerated. The M&A narrative plus AI optics structural demand drove the renewed breakout.</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">後續觀察 / What to Watch</div>
+      <p>（分析）CPO 量產商轉時程；收購品固整合風險；聯亞（3081）、IET-KY（4971）等同族群是否持續輪漲。</p>
+    </div>
+    <div class="subsection">
+      <div class="subsection-label">來源 / Sources</div>
+      <p>
+        <a href="https://www.moneyweekly.com.tw/ArticleData/Info/Article/225970" target="_blank">理財周刊 — 眾達-KY 收購品固漲停</a> ·
+        <a href="https://www.sinotrade.com.tw/richclub/industry/2026%E5%B9%B4CPO%E5%85%89%E9%80%9A%E8%A8%8A%E5%95%86%E8%BD%89%E5%85%83%E5%B9%B4-%E5%8F%B0%E7%A9%8D%E9%9B%BBCOUPE%E6%8A%80%E8%A1%93%E9%A0%98%E8%BB%8D-%E8%BC%9D%E9%81%94%E5%8D%9A%E9%80%9A%E5%90%8C%E6%AD%A5%E5%8D%A1%E4%BD%8D-%E5%8F%B0%E5%BB%A0%E4%BE%9B%E6%87%89%E9%8F%88%E5%85%A8%E8%A7%A3%E6%9E%90-%E7%94%A2%E6%A5%AD%E7%86%B1%E8%A9%B1-693905de70acc6429c330a23" target="_blank">豐雲學堂 — CPO 供應鏈全解析</a>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ───────────────────────────────────────────
+     Section 3 — Watch List
+─────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-title">三、次熱觀察 / Watch List</div>
+
+  <div class="watch-card">
+    <strong>3443 創意 (Global Unichip)</strong> <span class="tag red">AI ASIC 設計</span>
+    <p style="font-size:12px;margin-top:4px">5/13 收 5,330 元（+4.31%）。世芯族群連帶，CoWoS 先進封裝設計服務需求強。後續看法人是否持續買進。</p>
+  </div>
+  <div class="watch-card">
+    <strong>2344 華邦電 (Winbond)</strong> <span class="tag red">NAND / DRAM</span>
+    <p style="font-size:12px;margin-top:4px">5/13 因費半重挫而修正；但基本面 DRAM 漲價題材未變。待 DRAM 報價確認反彈後是否重回強勢。</p>
+  </div>
+  <div class="watch-card">
+    <strong>2303 聯電 (UMC)</strong> <span class="tag red">矽光子 / 成熟製程</span>
+    <p style="font-size:12px;margin-top:4px">5/12 曾漲停、近創 26 年新高（104.5 元）；矽光子 22/28nm 需求轉強。5/14 是否回穩觀察。</p>
+  </div>
+  <div class="watch-card">
+    <strong>6446 藥華藥 (PharmaEssentia)</strong> <span class="tag amber">生技新藥</span>
+    <p style="font-size:12px;margin-top:4px">5/13 漲 9.99%（+71 元）；BESREMi 美國銷售數據持續強勁，FDA 新適應症申請進度待關注。生技類股補漲潛力。</p>
+  </div>
+
+</div>
+
+<!-- ───────────────────────────────────────────
+     Section 4 — Caution
+─────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-title">四、異常注意 / Caution List</div>
+
+  <div class="caution-card">
+    <strong>⚠ 聯發科 2454 — 注意股 / Attention Stock</strong>
+    <p style="font-size:12px;margin-top:4px">證交所於 5/9 公布聯發科列為注意股（30 檔入列），若股價繼續快速上漲，恐面臨 20 分鐘分盤交易處置。5/13 收 3,495 元（大跌 205 元）。短期高波動、追高風險高。</p>
+  </div>
+  <div class="caution-card">
+    <strong>⚠ 高價股波動風險 — 鴻勁 7769、信驊 5274</strong>
+    <p style="font-size:12px;margin-top:4px">千金股在高位波動劇烈，鴻勁單日振幅可達 500–1,000 元，非一般散戶可承受的風險。信驊歷史天價 19,195 元後已大幅回落，注意高位追單風險。</p>
+  </div>
+  <div class="caution-card">
+    <strong>⚠ 健策 3653 — 跌停風險</strong>
+    <p style="font-size:12px;margin-top:4px">近期出現跌停（5/13 前後有搜尋結果提及），建議確認是否有基本面負面訊息，避免在無基本面支撐下反向追多。</p>
+  </div>
+
+</div>
+
+<!-- ───────────────────────────────────────────
+     Section 5 — Market Backdrop
+─────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-title">五、大盤背景 / Market Backdrop</div>
+  <div class="market-backdrop">
+    <p>
+      <strong>5/14 大盤脈絡：</strong>前一交易日（5/13）加權指數收 41,374.50 點，下跌 523.82 點（-1.25%），主因美股費城半導體指數大跌逾 3%（Qualcomm -11% 領跌）拖累。外資及陸資賣超 434.29 億元，投信逆勢買超 256.45 億元，三大法人整體賣超 480 億元。台幣匯率受美元走強壓力，短期偏貶。
+    </p>
+    <p style="margin-top:8px">
+      <strong>5/14 反彈條件：</strong>前週（5/5–9）加權指數大漲 2,677 點，5/12 創歷史新高 42,253 點，5/13 回檔係整理性質。若美股費半出現技術反彈（5/13 費半跌後有小幅回穩跡象），台股 5/14 可望企穩、強勢個股題材輪動繼續。主力焦點由半導體權值股轉向「中型題材股」（被動元件、AI ASIC、生技），是資金分散後的健康分化。
+    </p>
+    <p style="margin-top:8px">
+      <strong>Market Context (EN):</strong> May 13 saw TAIEX fall 523 pts (-1.25%) on PHLX SOX's 3%+ drop (Qualcomm -11%). Foreign net selling reached NT$43.4B. After making all-time highs at 42,253 on May 12, the pullback was technical. May 14 setup: if SOX stabilizes, the rotation from mega-cap semis (TSMC, MediaTek) into mid-tier themes (passive components, ASIC design, biotech) should continue — a healthy broadening of the bull market.
+    </p>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────────
+     Sources
+─────────────────────────────────────────── -->
+<div class="sources section">
+  <div class="section-title">參考來源 / Sources Consulted</div>
+  <ul>
+    <li><a href="https://cmnews.com.tw/article/newsyoudeservetoknow-b3664a23-4a62-11f1-b842-3c96a3fd4038" target="_blank">CMoney 投資網誌 — 國巨(2327)今日漲停鎖死（5/14 即時新聞）</a></li>
+    <li><a href="https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E7%9B%A4%E5%BE%8C-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%A8%8D%E6%81%AF-%E5%BC%B7%E5%8B%A2%E8%82%A1%E5%90%84%E6%93%81%E9%A1%8C%E6%9D%90%E5%A4%9A%E9%BB%9E%E9%96%8B%E8%8A%B1-%E6%BC%B264%E9%BB%9E%E5%86%8D%E5%89%B5%E6%94%B6%E7%9B%A4%E6%96%B0%E9%AB%98-064531069.html" target="_blank">Yahoo 財經 — 台股盤後：強勢股多點開花（5/13）</a></li>
+    <li><a href="https://udn.com/news/story/7251/9500300" target="_blank">經濟日報 — 三大法人賣超 480 億元（5/13）</a></li>
+    <li><a href="https://udn.com/news/story/7251/9472341" target="_blank">經濟日報 — 旺宏外資搶買 5 萬張（5/13）</a></li>
+    <li><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E5%9C%8B%E5%B7%A8-2327-%E6%B3%95%E8%AA%AA-Q1%E5%AD%A3%E5%B9%B4%E5%A2%9E22-7--EPS%E9%81%943-90%E5%85%83%E5%89%B5%E9%AB%98-AI%E9%9C%80%E6%B1%82%E6%8C%81%E7%BA%8C%E6%88%90%E9%95%B7%E7%82%BA%E6%9C%80%E5%A4%A7%E5%8B%95%E8%83%BD-%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-69df583784125e0a7da823ce" target="_blank">豐雲學堂 — 國巨 Q1 法說摘要</a></li>
+    <li><a href="https://finance.ettoday.net/news/3162479" target="_blank">ETtoday — 被動元件撐盤！6 檔漲停、國巨衝 400 元</a></li>
+    <li><a href="https://www.ctee.com.tw/news/20260511700857-430201" target="_blank">工商時報 — 半導體千金股漲停（鴻勁、創意、世芯-KY）</a></li>
+    <li><a href="https://www.moneyweekly.com.tw/ArticleData/Info/Article/225970" target="_blank">理財周刊 — 眾達-KY 收購品固矽光子</a></li>
+    <li><a href="https://news.cnyes.com/news/id/6454782" target="_blank">鉅亨網 — 台股漲 367 點收 42,253（5/12 盤後）</a></li>
+    <li><a href="https://news.cnyes.com/news/id/6456552" target="_blank">鉅亨網 — 台股跌 523 點失守 5 日線（5/13 盤後）</a></li>
+    <li><a href="https://www.businesstoday.com.tw/article/category/183008/post/202605110001/" target="_blank">今周刊 — 記憶體股怎麼選（5/11）</a></li>
+    <li>PTT Stock 板: <a href="https://www.ptt.cc/bbs/Stock/index.html" target="_blank">ptt.cc/bbs/Stock</a>（無法抓取全文，摘要引用）</li>
+    <li>Goodinfo: <a href="https://goodinfo.tw/tw/StockList.asp?MARKET_CAT=%E6%99%BA%E6%85%A7%E9%81%B8%E8%82%A1&INDUSTRY_CAT=%E6%BC%B2%E5%81%9C%E8%82%A1" target="_blank">漲停股一覽</a>（頁面取得逾時）</li>
+    <li>TWSE 三大法人: <a href="https://www.twse.com.tw/zh/trading/foreign/t86.html" target="_blank">twse.com.tw</a>（盤後數據待更新）</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>免責聲明：</strong>本報告為資訊整理用途，所有數據盡量引自公開來源，部分數字（如成交量）因即時數據限制標記「待確認」。<em>本報告不構成任何投資建議，個股操作請自行評估風險。</em>
+  <br>
+  <strong>Data Note:</strong> Some intraday figures (volume, exact close) marked "TBC" reflect data collection constraints at report generation time (13:30 Asia/Taipei May 14 2026). News sources confirm 國巨 limit-up and 5/13 multi-stock trends with high confidence.
+</div>
+
+</body>
+</html>
