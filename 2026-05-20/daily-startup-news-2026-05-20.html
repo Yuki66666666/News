@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新創新聞日報 — 2026-05-20</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.7;
+    padding: 24px 16px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+  header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+  }
+  header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.5px; }
+  header .date { font-size: 0.9rem; opacity: 0.75; margin-top: 4px; }
+  header .subtitle { font-size: 0.85rem; opacity: 0.6; margin-top: 6px; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .tag {
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  section { margin-bottom: 28px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .section-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .section-header h2 { font-size: 1.05rem; font-weight: 700; color: #0f3460; }
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: 0 4px 16px rgba(15,52,96,0.08); }
+  .card h3 { font-size: 0.97rem; font-weight: 700; color: #0f3460; margin-bottom: 8px; line-height: 1.4; }
+  .card .meta {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin-bottom: 10px;
+    display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+  }
+  .card .meta a { color: #0f3460; text-decoration: none; }
+  .card .meta a:hover { text-decoration: underline; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .badge-seed { background: #dbeafe; color: #1d4ed8; }
+  .badge-series-a { background: #d1fae5; color: #065f46; }
+  .badge-series-b { background: #fef3c7; color: #92400e; }
+  .badge-series-c { background: #ede9fe; color: #5b21b6; }
+  .badge-late { background: #fee2e2; color: #991b1b; }
+  .badge-ipo { background: #fce7f3; color: #9d174d; }
+  .badge-acq { background: #f0fdf4; color: #166534; }
+  .badge-layoff { background: #fff7ed; color: #9a3412; }
+  .badge-launch { background: #f0f9ff; color: #075985; }
+  .badge-pivot { background: #fdf4ff; color: #6b21a8; }
+  .label { font-weight: 700; color: #334155; font-size: 0.82rem; margin-top: 10px; margin-bottom: 3px; display: block; }
+  .card p { font-size: 0.875rem; color: #374151; }
+  .amount-pill {
+    background: #0f3460;
+    color: #fff;
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .top-story { border-left: 4px solid #0f3460; }
+  .warning-card { border-left: 4px solid #f59e0b; }
+  footer {
+    margin-top: 36px;
+    padding: 20px 24px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    font-size: 0.78rem;
+    color: #64748b;
+  }
+  footer h4 { font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 8px; }
+  footer ul { list-style: none; columns: 2; gap: 12px; }
+  footer ul li { margin-bottom: 4px; }
+  footer ul li a { color: #0f3460; text-decoration: none; }
+  footer ul li a:hover { text-decoration: underline; }
+  .divider { border: none; border-top: 1px solid #e2e8f0; margin: 6px 0 14px; }
+  .summary-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px; margin-bottom: 20px;
+  }
+  .summary-stat {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .summary-stat .num { font-size: 1.5rem; font-weight: 800; color: #0f3460; }
+  .summary-stat .lbl { font-size: 0.72rem; color: #64748b; margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <h1>新創新聞日報</h1>
+    <div class="date">2026 年 5 月 20 日（星期三）· Asia/Taipei</div>
+    <div class="subtitle">Funding rounds · Launches · Acquisitions · Pivots · IPO pipeline · Layoffs</div>
+    <div class="tag-row">
+      <span class="tag">募資 Funding</span>
+      <span class="tag">收購 M&A</span>
+      <span class="tag">裁員 Layoffs</span>
+      <span class="tag">IPO 上市</span>
+      <span class="tag">產品 Products</span>
+      <span class="tag">區域 Regional</span>
+    </div>
+  </header>
+
+  <!-- SUMMARY STATS -->
+  <div class="summary-grid">
+    <div class="summary-stat"><div class="num">$7.5B+</div><div class="lbl">本週重大募資金額</div></div>
+    <div class="summary-stat"><div class="num">3</div><div class="lbl">重大收購案</div></div>
+    <div class="summary-stat"><div class="num">3</div><div class="lbl">上市進程案件</div></div>
+    <div class="summary-stat"><div class="num">700+</div><div class="lbl">本週裁員人數（新創）</div></div>
+  </div>
+
+  <!-- SECTION 1: TOP STORIES -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon" style="background:#dbeafe;">⚡</div>
+      <h2>頭條 / Top Stories</h2>
+    </div>
+
+    <div class="card top-story">
+      <h3>Anthropic 收購 Stainless，重塑 AI SDK 基礎設施版圖<br>
+          <span style="font-weight:400;font-size:0.9em;">Anthropic Acquires Stainless for $300M+, Seizing the SDK Layer That OpenAI and Google Depend On</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-acq">Acquisition</span>
+        <span class="amount-pill">$300M+</span>
+        <span>TechCrunch · 2026-05-18</span>
+        <a href="https://techcrunch.com/2026/05/18/anthropic-has-acquired-the-dev-tools-startup-used-by-openai-google-and-cloudflare/" target="_blank">来源</a>
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>Anthropic 已完成對紐約開發者工具新創 Stainless 的收購，交易金額逾 $300M，部分以 Anthropic 股份支付。Stainless 成立於 2022 年，2024 年 12 月估值為 $150M，本次溢價逾 2 倍。該公司自動化生成與維護 API SDK，目前官方 SDK 覆蓋 OpenAI、Google、Meta、Cloudflare 等主要 AI 廠商。</p>
+      <span class="label">背景脈絡 / Context</span>
+      <p>Stainless 的核心產品是「從 API spec 自動生成 production-ready SDK」，是 AI 生態圈對外開放的最底層基礎。OpenAI 與 Google 目前都依賴 Stainless 維護其開發者面向的 SDK。Anthropic 在完成交易後，掌握了競爭對手每天觸及數百萬開發者的工具鏈。</p>
+      <span class="label">影響觀察 / Implications</span>
+      <p>這是一起具有戰略意義的「基礎設施收購」：Anthropic 取得可中斷競爭對手開發者管道的資產。OpenAI 與 Google 短期內需另覓替代方案或自建 SDK 工具鏈，可能拉高轉移成本。對 YC 系 devtools 新創而言，示範了 AI 巨頭對基礎層的強烈並購食欲。</p>
+    </div>
+
+    <div class="card top-story">
+      <h3>Anduril 完成 Series H $50 億融資，估值翻倍至 $610 億<br>
+          <span style="font-weight:400;font-size:0.9em;">Anduril Raises $5B Series H at $61B Valuation, Doubling Its Worth as Defense Tech Boom Continues</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-late">Late Stage</span>
+        <span class="amount-pill">$5B</span>
+        <span>CNBC · 2026-05-13</span>
+        <a href="https://www.cnbc.com/2026/05/13/anduril-valuation-defense-tech-funding-boom.html" target="_blank">來源</a>
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>Anduril Industries 完成 $50 億 Series H 融資，由 Thrive Capital 與 a16z 共同領投，post-money 估值達 $610 億，相較上一輪 $305 億翻倍。2025 年營收逾 $22 億（年增逾 100%），員工數亦接近翻倍。</p>
+      <span class="label">背景脈絡 / Context</span>
+      <p>Anduril 由 Oculus 共同創辦人 Palmer Luckey 創立，專注自主無人機、飛彈系統與 AI 指揮控制平台。DoD 同期宣布與 Anduril 等廠商合約，購買逾 10,000 枚低成本超音速飛彈，三年採購框架明確。IPO 預期在此輪後加速，Seattle 自主艦艇製造基地正在擴建。</p>
+      <span class="label">影響觀察 / Implications</span>
+      <p>Defense tech 成為 2026 年 VC 最大賽道之一，此輪確立 Anduril 為非上市公司中估值第三高的美國新創。同類公司（Shield AI、Skydio）估值天花板將隨之上移。</p>
+    </div>
+
+    <div class="card top-story">
+      <h3>Sierra AI 客服代理平台完成近 $10 億融資，ARR 破 $1.5 億<br>
+          <span style="font-weight:400;font-size:0.9em;">Sierra Raises $950M at $15B Valuation; Former Salesforce Co-CEO Bret Taylor's AI CX Platform Crosses $150M ARR</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-late">Late Stage</span>
+        <span class="amount-pill">$950M</span>
+        <span>TechCrunch · 2026-05-04</span>
+        <a href="https://techcrunch.com/2026/05/04/sierra-raises-950m-as-the-race-to-own-enterprise-ai-gets-serious/" target="_blank">來源</a>
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>Sierra（Bret Taylor、Clay Bavor 共同創辦）完成 $9.5 億融資，由 Tiger Global 與 GV 領投，post-money 估值 $150 億。2024 年 2 月上線、7 個季度達 ARR $1 億，目前 ARR 超過 $1.5 億，Fortune 50 客戶佔比逾 40%。</p>
+      <span class="label">背景脈絡 / Context</span>
+      <p>Sierra 定位「企業 AI 代理平台」，處理客戶服務互動（退貨、理賠、再融資）。Bret Taylor 曾擔任 Salesforce Co-CEO 及 OpenAI 董事會主席，帶入頂端企業關係。競品包括 Intercom AI、Zendesk AI 與 Salesforce Agentforce。</p>
+      <span class="label">影響觀察 / Implications</span>
+      <p>此輪確立 enterprise AI agent 賽道已進入大型融資階段；客服自動化新創估值錨點將隨之上移，也可能加速傳統客服軟體公司的收購腳步。</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: FUNDING ROUNDS -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon" style="background:#d1fae5;">💰</div>
+      <h2>募資 / Funding Rounds</h2>
+    </div>
+
+    <div class="card">
+      <h3>Mind Robotics 完成 $4 億融資，Rivian 衍生工業機器人公司估值達 $34 億<br>
+          <span style="font-weight:400;font-size:0.9em;">Mind Robotics Raises $400M Led by Kleiner Perkins; Rivian Spinout Values at $3.4B</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-late">Late Stage</span>
+        <span class="amount-pill">$400M</span>
+        <span>The Robot Report · 2026-05-13</span>
+        <a href="https://www.therobotreport.com/mind-robotics-raises-400m-scale-ai-powered-robots-in-manufacturing/" target="_blank">來源</a>
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>Mind Robotics 由 Rivian 拆分，專注 AI 驅動工廠自動化，此輪由 Kleiner Perkins 領投，新投資人包括 Meritech Capital、Redpoint；現有投資人 a16z、Bain Capital Ventures 跟投。成立不到六個月，總融資逾 $10 億，估值 $34 億。</p>
+      <span class="label">背景脈絡 / Context</span>
+      <p>Rivian 提供 live 量產環境作為模型訓練場域，是一般工業機器人新創難以複製的護城河。前一輪為 2026 年 3 月的 Series A $5 億，此輪為追加資本。競品包括 Figure AI、Physical Intelligence (Pi)。</p>
+      <span class="label">影響觀察 / Implications</span>
+      <p>實體 AI 賽道在機器人、自駕之後，工廠自動化成為 2026 年第三大融資主題，Kleiner 的背書具指標意義。</p>
+    </div>
+
+    <div class="card">
+      <h3>VoltaGrid 獲 Blackstone＋Halliburton $10 億戰略投資，服務數據中心電力需求<br>
+          <span style="font-weight:400;font-size:0.9em;">VoltaGrid Secures $1B from Blackstone &amp; Halliburton to Power AI Data Centers via Mobile Gas Microgrids</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-late">Strategic</span>
+        <span class="amount-pill">$1B</span>
+        <span>Bloomberg · 2026-05-11</span>
+        <a href="https://www.bloomberg.com/news/articles/2026-05-11/blackstone-halliburton-said-to-invest-1-billion-in-voltagrid" target="_blank">來源</a>
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>VoltaGrid 提供行動式天然氣微型電網，主要服務 AI 數據中心的電力缺口。本次投資為 $7.75 億一級股本 + $2.25 億二級股本，估值逾 $100 億。同步宣布收購電力設備製造商 Propell Energy Technology（金額未揭露）。公司訂單量至 2030 年達 7.5 GW。</p>
+      <span class="label">背景脈絡 / Context</span>
+      <p>美國 AI 數據中心用電量暴增，傳統電網升級遠不及需求。VoltaGrid 的 behind-the-meter 解法填補空白，Blackstone 的數據中心投資組合是天然協同。Halliburton 則提供天然氣供應鏈資源。</p>
+      <span class="label">影響觀察 / Implications</span>
+      <p>能源基礎設施新創因 AI 算力需求成為新的超大型融資受益者；Propell 收購垂直整合意圖明顯，未來可能推進 IPO。</p>
+    </div>
+
+    <div class="card">
+      <h3>Blitzy $2 億 Series A，企業自主軟體開發平台估值 $14 億<br>
+          <span style="font-weight:400;font-size:0.9em;">Blitzy Raises $200M at $1.4B Valuation for Enterprise Autonomous Software Development</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-series-a">Series A</span>
+        <span class="amount-pill">$200M</span>
+        <span>Crunchbase News · 2026-05-05</span>
+        <a href="https://news.crunchbase.com/ai/blitzy-funding-valuation-autonomous-software-development-vibe-coding-startups/" target="_blank">來源</a>
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>Blitzy（Boston，約 80 人）由 Northzone 領投，PSG、Battery Ventures、Jump Capital 跟投，估值 $14 億。平台定位「企業版 vibe coding」，處理從理解既有程式碼庫到生成 production 程式碼的全週期自動化，已有數十家 Global 2000 客戶，部分客戶回報工程效率提升 5 倍。</p>
+      <span class="label">背景脈絡 / Context</span>
+      <p>2026 年 AI 程式碼生成市場競爭白熱化，競品含 GitHub Copilot、Cursor、Cognition AI (Devin)。Blitzy 的差異化在鎖定大型企業遺留程式碼庫，而非個人開發者市場。</p>
+      <span class="label">影響觀察 / Implications</span>
+      <p>Series A 估值 $14 億顯示投資人願意給 AI devtools 企業端公司的溢價；但下一輪進入時主要考驗將是 net revenue retention 與企業合約擴張速度。</p>
+    </div>
+
+    <div class="card">
+      <h3>Oishii 草莓垂直農場完成 Series C 首次收款 $1.5 億<br>
+          <span style="font-weight:400;font-size:0.9em;">Oishii Closes First Tranche of $150M Series C Led by SPARX to Scale Indoor Strawberry Farms</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-series-c">Series C</span>
+        <span class="amount-pill">$150M</span>
+        <span>PR Newswire · 2026-05-13</span>
+        <a href="https://www.prnewswire.com/news-releases/oishii-announces-first-closing-of-150m-in-series-c-financing-as-it-scales-its-indoor-smart-farm-model-302770199.html" target="_blank">來源</a>
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>Oishii 由 SPARX Asset Management 領投，Nomura Real Estate、MISUMI Group、Mizuho Bank 跟投。成立於 2016 年，累計融資達 $3.7 億。2025 年收購採收機器人新創 Tortuga AgTech 後，自動化能力進一步提升。目前營運美國最大室內垂直草莓農場。</p>
+      <span class="label">背景脈絡 / Context</span>
+      <p>垂直農業在 2022-2023 年因 AeroFarms、AppHarvest 倒閉潮而聲譽受損；Oishii 以「高端精品策略」與機器人技術撐起毛利，是該賽道中少數盈利可見的案例。日本投資人組合顯示在日擴張計畫。</p>
+      <span class="label">影響觀察 / Implications</span>
+      <p>此輪顯示高端定位 + 自動化是垂直農業在資本寒冬後唯一可行路徑，將為其他同類新創提供定位參考。</p>
+    </div>
+
+    <div class="card">
+      <h3>Fazeshift Series A $1,700 萬，AI 代理自動化應收帳款流程<br>
+          <span style="font-weight:400;font-size:0.9em;">Fazeshift Raises $17M Series A Led by F-Prime Capital to Automate Accounts Receivable with AI Agents</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-series-a">Series A</span>
+        <span class="amount-pill">$17M</span>
+        <span>Crunchbase News · 2026-05-07</span>
+        <a href="https://news.crunchbase.com/fintech/fazeshift-accounts-receivable-ai-finance-ops-startup-funding/" target="_blank">來源</a>
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>F-Prime Capital 領投，Google Gradient Ventures、YC、Wayfinder Ventures 跟投，總融資達 $2,200 萬。共同創辦人 Caitlin Leksana（CEO，前 BCG）與 Timmy Galvin（CTO，MIT 海軍核潛艦軍官）於 2023 年創立。過去一年營收成長 12 倍，客戶包括 8 家獨角獸。宣稱可自動化逾 90% 的 AR 手動作業。</p>
+      <span class="label">影響觀察 / Implications</span>
+      <p>財務流程自動化是 AI agent 落地最快的企業場景之一，Fazeshift 的 12x 收入成長顯示市場對此工具的強烈需求；競品 Tesorio、Versapay 需密切注意。</p>
+    </div>
+  </section>
+
+  <!-- SECTION 3: ACQUISITIONS -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon" style="background:#f0fdf4;">🤝</div>
+      <h2>收購與整併 / Acquisitions &amp; Consolidation</h2>
+    </div>
+
+    <div class="card">
+      <h3>SAP 以逾 €10 億收購德國 AI 新創 Prior Labs，建立歐洲頂尖 AI 實驗室<br>
+          <span style="font-weight:400;font-size:0.9em;">SAP Acquires German AI Startup Prior Labs for €1B+ to Build Europe's Leading Frontier AI Lab</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-acq">Acquisition</span>
+        <span class="amount-pill">€1B+</span>
+        <span>TechCrunch · 2026-05-05</span>
+        <a href="https://techcrunch.com/2026/05/05/sap-bets-1-16b-on-18-month-old-german-ai-lab-and-says-yes-to-nemoclaw/" target="_blank">來源</a>
+        <a href="https://sifted.eu/articles/sap-acquire-german-ai-startup-prior-labs" target="_blank">Sifted</a>
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>Prior Labs 成立於 2024 年（Freiburg，德國），創辦人 Frank Hutter、Noah Hollmann、Sauraj Gambhir，唯一一輪融資為 2025 年 2 月的 €900 萬。SAP 承諾四年投入逾 €10 億，以獨立事業單位運營。Prior Labs 首創「Tabular Foundation Models」，TabPFN 模型系列開源下載逾 300 萬次。</p>
+      <span class="label">背景脈絡 / Context</span>
+      <p>SAP 的核心資產是全球企業結構化資料（ERP、財務、供應鏈），Prior Labs 的結構化資料 AI 模型與此高度互補。交易從首輪融資到收購僅 15 個月，創下歐洲新創最快 exit 紀錄之一。</p>
+      <span class="label">影響觀察 / Implications</span>
+      <p>歐洲 AI 研究型新創的「快速 exit」路徑正在成形；Prior Labs 的高溢價退出將吸引更多資本流向歐洲深科技 AI 實驗室，但也引發「歐洲 AI 人才是否會被美/德大公司吸走」的討論。</p>
+    </div>
+
+    <div class="card">
+      <h3>Recharge 以 $1.05 億收購 YC 校友訂閱支付平台 Skio<br>
+          <span style="font-weight:400;font-size:0.9em;">Recharge Acquires YC Alum Skio for $105M Cash to Consolidate Subscription Commerce</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-acq">Acquisition</span>
+        <span class="amount-pill">$105M</span>
+        <span>Crunchbase News · May 2026</span>
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>Recharge（訂閱管理平台，Shopify 生態系龍頭）以全現金 $1.05 億收購 Skio（YC W21），鞏固訂閱電商支付市場份額。Skio 聚焦 Shopify 品牌的訂閱流失率降低與結帳體驗優化。</p>
+      <span class="label">影響觀察 / Implications</span>
+      <p>Shopify 生態系的整併加速；Skio 的 YC 背書與 $105M 退出價格，對同類電商工具新創提供流動性信號。</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4: LAUNCHES -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon" style="background:#f0f9ff;">🚀</div>
+      <h2>新公司發表與產品大事 / Launches &amp; Notable Products</h2>
+    </div>
+
+    <div class="card">
+      <h3>Sarvam AI 發表 Kaze 智慧眼鏡，支援 10+ 印度語言<br>
+          <span style="font-weight:400;font-size:0.9em;">Sarvam AI Unveils Kaze Smart Glasses Running India-First Multilingual LLM at India AI Impact Summit</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-launch">Launch</span>
+        <span>India AI Impact Summit · 2026-05-17</span>
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>Sarvam AI（Bangalore）發表 Kaze，為搭載自家印度語言大模型的 AI 智慧眼鏡，支援超過 10 種印度語言，包括 Hindi、Bengali、Tamil 等。由 Kiran Mazumdar Shaw 等印度科技重量級人士背書。</p>
+      <span class="label">背景脈絡 / Context</span>
+      <p>Sarvam 的核心差異化是針對印度語言優化的 LLM，Meta AI Glasses 與 Ray-Ban Stories 目前對印度語系支援有限，形成窗口期。</p>
+      <span class="label">影響觀察 / Implications</span>
+      <p>AI 硬體進入本地化語言競爭階段；印度 14 億人口中逾 80% 主要使用非英語語言，是最被忽視的 AI 硬體市場之一。</p>
+    </div>
+
+    <div class="card">
+      <h3>Product Hunt 本週熱門：Spellar 3.0、OpenHuman、FlowMarket<br>
+          <span style="font-weight:400;font-size:0.9em;">Top Product Hunt Launches Week of May 20, 2026</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-launch">Product Hunt</span>
+        <span>Week 19, 2026</span>
+        <a href="https://www.producthunt.com/products" target="_blank">來源</a>
+      </div>
+      <p>本週 Product Hunt 最熱推出包括：<strong>Spellar 3.0</strong>（AI 驅動語音表達訓練）、<strong>OpenHuman</strong>（開源人形機器人平台）、<strong>FlowMarket</strong>（AI 工作流市場）。共計本週 W19 有 3,913 個產品上架（<a href="https://www.findsimilarstartups.com/en/blog/product-hunt-weekly-launch-analysis-2026-w19" target="_blank">詳見分析</a>）。</p>
+    </div>
+  </section>
+
+  <!-- SECTION 5: PEOPLE MOVES -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon" style="background:#fef3c7;">👤</div>
+      <h2>人事 / People Moves</h2>
+    </div>
+
+    <div class="card">
+      <h3>Anduril CEO Brian Schimpf 主導史上最大 defense tech 單輪融資，承諾「激進」製造擴張<br>
+          <span style="font-weight:400;font-size:0.9em;">Anduril CEO Brian Schimpf Pledges "Aggressive" Manufacturing Expansion After $5B Series H</span>
+      </h3>
+      <div class="meta">
+        <span>GeekWire · 2026-05-13</span>
+        <a href="https://www.geekwire.com/2026/anduril-lands-5b-as-defense-giant-builds-autonomous-warship-operation-in-seattle/" target="_blank">來源</a>
+      </div>
+      <p>Schimpf 公開表示將在 Seattle 建立自主艦艇作業基地，在製造、研發、基礎設施三條線同步「激進投資」。Anduril 員工數接近翻倍至數千人，仍持續大量招聘工程師與製造人才。</p>
+    </div>
+
+    <div class="card">
+      <h3>Bret Taylor（Sierra 共同創辦人）管理逾 $10 億資本，引領企業 AI 代理浪潮<br>
+          <span style="font-weight:400;font-size:0.9em;">Bret Taylor Helms Sierra Past $1B Capital Raised; Former Salesforce Co-CEO Reshaping Enterprise CX</span>
+      </h3>
+      <div class="meta">
+        <span>CNBC · 2026-05-04</span>
+        <a href="https://www.cnbc.com/2026/05/04/bret-taylor-sierra-fundraise-openai.html" target="_blank">來源</a>
+      </div>
+      <p>Bret Taylor 在擔任 OpenAI 董事會主席及 Salesforce Co-CEO 後，於 Sierra 累計募資逾 $10 億，成為 2026 年企業 AI 代理市場的最高知名度創辦人。</p>
+    </div>
+  </section>
+
+  <!-- SECTION 6: LAYOFFS -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon" style="background:#fff7ed;">⚠️</div>
+      <h2>裁員與停業 / Layoffs &amp; Shutdowns</h2>
+    </div>
+
+    <div class="card warning-card">
+      <h3>Innovaccer 第三輪裁員：340 人，以「AI 原生轉型」為由<br>
+          <span style="font-weight:400;font-size:0.9em;">Healthtech Unicorn Innovaccer Cuts 340 Jobs in Third Restructuring in Four Years, Cites AI-Native Shift</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-layoff">Layoffs</span>
+        <span>Inc42 · 2026-05-17</span>
+        <a href="https://inc42.com/buzz/exclusive-healthtech-unicorn-innovaccer-lays-off-340-employees-in-another-restructuring-round/" target="_blank">Inc42</a>
+        <a href="https://entrackr.com/news/innovaccer-lays-off-340-employees-amid-shift-to-ai-native-operations-11838352" target="_blank">Entrackr</a>
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>Innovaccer（印度健康科技獨角獸）裁員 340 人，涵蓋印度與美國辦公室，為過去四年第三次大規模裁員。CEO 將此定位為「AI 原生運營模式轉型」。前兩次裁員分別在 2022 年（約 100 人）與 2023 年初（15% 員工）。</p>
+      <span class="label">背景脈絡 / Context</span>
+      <p>Innovaccer 主打醫療數據整合平台，估值曾達逾 $10 億。連續三輪裁員顯示公司在醫療 AI 市場仍難以找到可持續商業模式。「AI 轉型」成為裁員理由的標準語，需謹慎分辨結構性問題與真實策略轉型。</p>
+    </div>
+
+    <div class="card warning-card">
+      <h3>PayPal 以 $15 億 AI 改造計畫為由，裁撤 4,760 名員工<br>
+          <span style="font-weight:400;font-size:0.9em;">PayPal Cuts 4,760 Jobs in $1.5B AI Overhaul Amid Slowing Digital Payments Growth</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-layoff">Layoffs</span>
+        <span>2026-05-09</span>
+      </div>
+      <p>PayPal 裁員以客服、合規、後端財務作業為主，推動 AI 自動化取代人力。數位支付成長放緩、競爭者（Apple Pay、Stripe）加壓及投資人降低成本要求，共同驅動決策。</p>
+    </div>
+
+    <div class="card warning-card">
+      <h3>2026 年 5 月前 10 天：近 3.8 萬名科技與企業員工遭裁員<br>
+          <span style="font-weight:400;font-size:0.9em;">~38,000 Jobs Cut Across Tech and Enterprise in First 10 Days of May 2026</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-layoff">Macro Layoffs</span>
+        <span>American Bazaar · 2026-05-10</span>
+        <a href="https://americanbazaaronline.com/2026/05/10/us-layoffs-in-first-10-days-of-may-2026-nearly-38000-jobs-cut-480502/" target="_blank">來源</a>
+      </div>
+      <p>2026 年至今已有 325 家科技公司宣布裁員，累計逾 138,947 人（平均每日約 1,000 人）。Spirit Airlines 全面停業是本月最大單一事件（14,000 人）。AI 驅動的自動化被認定是系統性裁員背後的結構性原因。</p>
+    </div>
+  </section>
+
+  <!-- SECTION 7: IPO PIPELINE -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon" style="background:#fce7f3;">📈</div>
+      <h2>上市進程 / IPO Pipeline</h2>
+    </div>
+
+    <div class="card">
+      <h3>Cerebras Systems 更新 S-1，擬以每股 $115–$125 掛牌 Nasdaq，目標募資逾 $33 億<br>
+          <span style="font-weight:400;font-size:0.9em;">Cerebras Files Amended S-1 at $115–$125/Share, Targeting $3.36B Raise on Nasdaq Under "CBRS"</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-ipo">IPO Filing</span>
+        <span>SEC EDGAR · 2026-05-04</span>
+        <a href="https://www.sec.gov/Archives/edgar/data/2021728/000162828026025762/exhibit43-sx1.htm" target="_blank">SEC</a>
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>Cerebras Systems（AI 晶片，WSE 架構）更新 S-1，擬以每股 $115–$125 出售 2,800 萬股 A 類股，上限募資 $35 億，中值約 $33.6 億。2025 年營收約 $5.1 億（年增逾 75%），與 OpenAI 有重大合約。Nasdaq 代號 CBRS。</p>
+      <span class="label">背景脈絡 / Context</span>
+      <p>Cerebras 長期以「挑戰 NVIDIA」為定位，WSE（晶圓級引擎）是世界最大 AI 晶片，但量產與客戶多元化仍是問題。OpenAI 合約集中度高，為 IPO 最大風險因子。</p>
+    </div>
+
+    <div class="card">
+      <h3>Lime（Neutron Holdings）申請 Nasdaq IPO，代號 LIME，去年虧損 $5,930 萬<br>
+          <span style="font-weight:400;font-size:0.9em;">Lime (Neutron Holdings) Files S-1 for Nasdaq IPO Under "LIME"; $886M 2025 Revenue, $59M Net Loss, Going Concern Warning</span>
+      </h3>
+      <div class="meta">
+        <span class="badge badge-ipo">IPO Filing</span>
+        <span>SEC EDGAR · 2026-05-07</span>
+        <a href="https://www.sec.gov/Archives/edgar/data/0001699963/000162828026032523/neutronholdingsinc-sx1.htm" target="_blank">SEC</a>
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>Lime 申請以 Neutron Holdings, Inc. 掛牌 Nasdaq，代號 LIME，Goldman Sachs 與 JPMorgan 擔任主承銷商，目標估值約 $20 億。2025 年營收 $8.87 億（年增 29%），淨損 $5,930 萬（年增擴大），流動負債達 $10 億，2026 年底前需償 $8.46 億，存在繼續經營疑慮（going concern）。</p>
+      <span class="label">背景脈絡 / Context</span>
+      <p>Lime 在 229 個城市 / 29 國提供共享電動滑板車與單車服務，是少數大規模盈利有望的微型移動業者。但龐大流動負債與去年擴大虧損是重大風險，$20 億估值是否可以實現高度存疑。</p>
+      <span class="label">影響觀察 / Implications</span>
+      <p>Lime 若成功上市，將是 2020 年代首個大型共享微型移動 IPO，驗證賽道商業模式；若上市受阻，將對 Tier 2 共享移動新創產生寒蟬效應。</p>
+    </div>
+  </section>
+
+  <!-- SECTION 8: REGIONAL -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon" style="background:#ede9fe;">🌏</div>
+      <h2>區域 / Regional Spotlight</h2>
+    </div>
+
+    <div class="card">
+      <h3>歐洲：SAP 收購 Prior Labs 強化德國 AI 生態系，15 個月創最快 exit 之一<br>
+          <span style="font-weight:400;font-size:0.9em;">Europe: SAP-Prior Labs Deal Marks One of Fastest Exits in European Deeptech History at 15 Months</span>
+      </h3>
+      <div class="meta">
+        <span>Sifted · 2026-05-05</span>
+        <a href="https://sifted.eu/articles/sap-acquire-german-ai-startup-prior-labs" target="_blank">來源</a>
+      </div>
+      <p>Prior Labs（Freiburg）成立 15 個月即被 SAP 以逾 €10 億收購，是歐洲深科技 AI 近年最大 exit。顯示歐洲 B2B AI 研究型新創估值重訂，但同時引發人才與技術留歐的隱憂。</p>
+    </div>
+
+    <div class="card">
+      <h3>印度：Innovaccer 三度裁員、Sarvam AI Kaze 眼鏡發表，印度新創市場冰火兩重天<br>
+          <span style="font-weight:400;font-size:0.9em;">India: Innovaccer's Third Layoff vs. Sarvam AI's Hardware Launch — Diverging Fortunes in Indian Startups</span>
+      </h3>
+      <div class="meta">
+        <span>Inc42 / India AI Summit · May 2026</span>
+      </div>
+      <p>健康科技獨角獸 Innovaccer 的第三輪裁員對比 Sarvam AI 進軍 AI 硬體，折射出印度新創兩極分化：有 AI 技術壁壘者估值上揚，傳統 SaaS 轉型者面臨重大壓力。</p>
+    </div>
+
+    <div class="card">
+      <h3>台灣：新創生態系持續擴張，TVCA 年會揭示本地 VC 佈局<br>
+          <span style="font-weight:400;font-size:0.9em;">Taiwan: TVCA Summit and Startup Island TAIWAN Signal Active Ecosystem; ProLogium, TXOne Networks as Key Funded Names</span>
+      </h3>
+      <div class="meta">
+        <span>Startup Island TAIWAN / FINDIT · May 2026</span>
+        <a href="https://startupisland.tw/zh" target="_blank">來源</a>
+      </div>
+      <p>台灣創投暨私募投資年會（TVCA）本月召開，ProLogium Technology（固態電池，累計融資逾 $5.375 億）與 TXOne Networks（OT 資安，$1.449 億）持續為代表性新創。Startup Island TAIWAN 的 NEXT BIG 計畫推送 13 家新創邁向國際市場。</p>
+    </div>
+  </section>
+
+  <!-- SECTION 9: READS -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon" style="background:#dbeafe;">📖</div>
+      <h2>觀點 / Reads Worth Bookmarking</h2>
+    </div>
+
+    <div class="card">
+      <h3>a16z：AI 時代「胖新創」勝出 — 速度壓倒精實<br>
+          <span style="font-weight:400;font-size:0.9em;">a16z Speedrun: "Fat Startups Win in the AI Era" — Ship Outcomes, Not Features</span>
+      </h3>
+      <div class="meta">
+        <a href="https://speedrun.substack.com/p/14-big-ideas-for-2026" target="_blank">a16z Speedrun · 14 Big Ideas 2026</a>
+      </div>
+      <p>a16z Speedrun 重提「胖 vs 精實新創」之爭：AI 時代，控制配送、全棧整合、激進執行的「胖新創」勝過節省資源的精實創業。<em>「胖新創交付成果，而不是功能。」</em>對正在規劃 2026-2027 年路線圖的創辦人而言，值得作為戰略框架重讀。</p>
+    </div>
+
+    <div class="card">
+      <h3>General Catalyst 發布 VC「rage bait」影片，引發與 a16z 公開交鋒<br>
+          <span style="font-weight:400;font-size:0.9em;">General Catalyst Posts VC Satire Video Calling Out a16z; A Rare Public Debate on VC Philosophy</span>
+      </h3>
+      <div class="meta">
+        <a href="https://techcrunch.com/2026/05/15/general-catalyst-posted-vc-rage-bait-and-it-worked-especially-on-a16z/" target="_blank">TechCrunch · 2026-05-15</a>
+      </div>
+      <p>General Catalyst 發布諷刺影片，間接對 a16z 的「媒體帝國 + 政治化」策略提出批評，引發創投圈難得一見的公開哲學論戰。對想了解當前 VC 生態內部分歧的創辦人，是觀察籌碼如何影響 GP 行為的難得材料。</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <h4>數據來源 / Sources Referenced</h4>
+    <ul>
+      <li><a href="https://techcrunch.com/" target="_blank">TechCrunch</a></li>
+      <li><a href="https://news.crunchbase.com/" target="_blank">Crunchbase News</a></li>
+      <li><a href="https://sifted.eu/" target="_blank">Sifted (Europe)</a></li>
+      <li><a href="https://inc42.com/" target="_blank">Inc42 (India)</a></li>
+      <li><a href="https://entrackr.com/" target="_blank">Entrackr (India)</a></li>
+      <li><a href="https://www.bloomberg.com/technology" target="_blank">Bloomberg Tech</a></li>
+      <li><a href="https://www.cnbc.com/" target="_blank">CNBC</a></li>
+      <li><a href="https://www.sec.gov/cgi-bin/browse-edgar" target="_blank">SEC EDGAR</a></li>
+      <li><a href="https://www.geekwire.com/" target="_blank">GeekWire</a></li>
+      <li><a href="https://www.therobotreport.com/" target="_blank">The Robot Report</a></li>
+      <li><a href="https://www.producthunt.com/" target="_blank">Product Hunt</a></li>
+      <li><a href="https://startupisland.tw/" target="_blank">Startup Island TAIWAN</a></li>
+      <li><a href="https://speedrun.substack.com/" target="_blank">a16z Speedrun</a></li>
+      <li><a href="https://www.theinformation.com/" target="_blank">The Information</a></li>
+    </ul>
+    <hr style="margin:12px 0; border-color:#e2e8f0;">
+    <p>部分來源（The Information、Bloomberg paywall 文章）僅可讀取標題與摘要；付費牆後之完整數據以其他來源交叉確認。</p>
+    <p style="margin-top:6px;color:#94a3b8;">生成時間：2026-05-20 · 資料範圍：過去 48–72 小時</p>
+  </footer>
+
+</div>
+</body>
+</html>

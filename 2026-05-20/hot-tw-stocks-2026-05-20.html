@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>熱門台股 — 2026-05-20</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.6;
+    padding: 24px 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  header {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+  }
+  header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
+  header .meta { font-size: 0.85rem; opacity: 0.75; }
+  .session-note {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+    color: #664d03;
+  }
+  .section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f3460;
+    margin: 24px 0 12px 0;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #e9ecef;
+  }
+  .summary-table-wrap { overflow-x: auto; margin-bottom: 24px; }
+  table { border-collapse: collapse; width: 100%; min-width: 640px; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+  th { background: #0f3460; color: white; padding: 10px 12px; text-align: left; font-size: 0.82rem; white-space: nowrap; }
+  td { padding: 10px 12px; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f8f9fa; }
+  .up { color: #dc3545; font-weight: 600; }
+  .dn { color: #28a745; font-weight: 600; }
+  .stars { color: #e8a838; }
+  .tag { display: inline-block; background: #e8f4fd; color: #0366d6; border-radius: 4px; padding: 2px 7px; font-size: 0.75rem; white-space: nowrap; margin: 1px; }
+  .tag.red { background: #fde8e8; color: #c0392b; }
+  .tag.orange { background: #fff3e8; color: #b35c00; }
+  .ticker-card { background: white; border-radius: 12px; padding: 22px 24px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-left: 5px solid #0f3460; }
+  .ticker-card.down { border-left-color: #28a745; }
+  .ticker-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; }
+  .ticker-name { font-size: 1.1rem; font-weight: 700; }
+  .ticker-code { color: #666; font-size: 0.85rem; margin-left: 6px; }
+  .ticker-price { text-align: right; font-size: 1.05rem; font-weight: 700; }
+  .section-h3 { font-size: 0.82rem; font-weight: 700; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin: 14px 0 5px 0; }
+  .section-content { font-size: 0.9rem; color: #333; }
+  .section-content p { margin-bottom: 6px; }
+  .data-row { background: #f8f9fa; border-radius: 6px; padding: 8px 12px; font-size: 0.85rem; margin-bottom: 8px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .data-item { display: flex; gap: 4px; }
+  .data-label { color: #666; }
+  .data-value { font-weight: 600; }
+  .watch-card { background: white; border-radius: 10px; padding: 14px 18px; margin-bottom: 10px; box-shadow: 0 1px 5px rgba(0,0,0,0.06); border-left: 4px solid #6c757d; font-size: 0.88rem; }
+  .caution-card { background: #fff8e1; border-radius: 10px; padding: 14px 18px; margin-bottom: 10px; box-shadow: 0 1px 5px rgba(0,0,0,0.06); border-left: 4px solid #ff9800; font-size: 0.88rem; }
+  .backdrop-card { background: white; border-radius: 12px; padding: 20px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); margin-bottom: 24px; font-size: 0.9rem; }
+  .backdrop-card p { margin-bottom: 10px; }
+  .disclaimer { font-size: 0.78rem; color: #999; background: #f8f9fa; border-radius: 8px; padding: 12px 16px; margin-top: 8px; text-align: center; }
+  .src { font-size: 0.75rem; color: #999; margin-top: 10px; }
+  .src a { color: #0366d6; text-decoration: none; }
+  .sources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 5px; margin-top: 8px; font-size: 0.78rem; }
+  .sources-grid a { color: #0366d6; text-decoration: none; }
+  .sources-grid a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>熱門台股焦點 — Hot Taiwan Stocks</h1>
+  <div class="meta">2026 年 05 月 20 日（週三）· TWSE 交易日 · 由 Claude 整理</div>
+</header>
+
+<div class="session-note">
+  <strong>資料說明：</strong>5/20 最終收盤數據編製時尚未完整揭露，部分數字以「待確認」標示。大盤背景以 5/19 完整交易日為基準。<br>
+  <strong>Key context：</strong>輝達（NVDA）5/20 盤後公布 Q1 FY27 財報（共識 788 億美元），帶動今日盤面「等財報、買 AI 供應鏈」格局。記憶體族群於 5/19 遭「完美風暴」血洗後，5/20 為關鍵反彈觀察日。
+</div>
+
+<div class="section-title">今日熱門焦點一覽 / Today's Hot Stock Summary</div>
+<div class="summary-table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>股號</th><th>公司</th><th>前收 / 近日走勢</th><th>主題</th><th>三大法人</th><th>熱度</th><th>主要 Catalyst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>2408</strong></td>
+      <td>南亞科</td>
+      <td><span class="dn">274.5 元 (-9.67%) 5/19</span><br><small>5/20 反彈觀察</small></td>
+      <td><span class="tag red">記憶體</span><span class="tag orange">DRAM</span></td>
+      <td>外資賣超（5/19）</td>
+      <td><span class="stars">★★★★★</span></td>
+      <td>三利空「完美風暴」；輝達財報催化反彈</td>
+    </tr>
+    <tr>
+      <td><strong>8299</strong></td>
+      <td>群聯</td>
+      <td><span class="dn">跌停 2,465 元 5/19</span></td>
+      <td><span class="tag red">記憶體</span><span class="tag">NAND 控制</span></td>
+      <td>待確認</td>
+      <td><span class="stars">★★★★★</span></td>
+      <td>希捷 CEO 言論跌停；Q1 財報亮眼、基本面未壞</td>
+    </tr>
+    <tr>
+      <td><strong>2344</strong></td>
+      <td>華邦電</td>
+      <td><span class="dn">跌停 117.5 元 5/19</span></td>
+      <td><span class="tag red">記憶體</span><span class="tag">NOR Flash</span></td>
+      <td>待確認</td>
+      <td><span class="stars">★★★★</span></td>
+      <td>完美風暴誤殺；NOR Flash 與 HDD 關聯低</td>
+    </tr>
+    <tr>
+      <td><strong>3081</strong></td>
+      <td>聯亞</td>
+      <td><span class="up">近月高點後拉回整理</span></td>
+      <td><span class="tag">光通訊</span><span class="tag">CPO</span><span class="tag">矽光子</span></td>
+      <td>外資持續追蹤</td>
+      <td><span class="stars">★★★★</span></td>
+      <td>輝達砸 400 億入股；CPO 商轉元年；毛利 48%</td>
+    </tr>
+    <tr>
+      <td><strong>3008</strong></td>
+      <td>大立光</td>
+      <td><span class="up">5/12 漲停 2,795 元</span></td>
+      <td><span class="tag">光通訊</span><span class="tag">CPO 切入</span></td>
+      <td>外資留意</td>
+      <td><span class="stars">★★★★</span></td>
+      <td>宣佈切入 CPO 共同封裝光學，題材驚喜噴漲</td>
+    </tr>
+    <tr>
+      <td><strong>2337</strong></td>
+      <td>旺宏</td>
+      <td><span class="dn">約 144 元 (-9%) 5/19</span></td>
+      <td><span class="tag red">記憶體</span><span class="tag">NOR Flash</span></td>
+      <td>投信連續買超</td>
+      <td><span class="stars">★★★</span></td>
+      <td>三利空拖累但基本面強，投信仍積極承接</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="section-title">個股深度解析 / Deep Dives</div>
+
+<div class="ticker-card down">
+  <div class="ticker-header">
+    <div><span class="ticker-name">南亞科 / Nanya Technology</span><span class="ticker-code">2408</span></div>
+    <div class="ticker-price dn">274.5 元 (-9.67%)<br><small style="color:#666;font-weight:400">5/19 收盤；5/20 待確認</small></div>
+  </div>
+  <div class="data-row">
+    <div class="data-item"><span class="data-label">5/19 收盤：</span><span class="data-value dn">274.5 元（-29.5 元）</span></div>
+    <div class="data-item"><span class="data-label">5/19 成交額：</span><span class="data-value">約 324 億元（爆量）</span></div>
+    <div class="data-item"><span class="data-label">Q1 毛利率：</span><span class="data-value">67.9%（歷史新高）</span></div>
+  </div>
+  <div class="section-h3">為什麼今天熱 / Why It's Hot</div>
+  <div class="section-content">
+    <p><strong>中文：</strong>5/19 三大利空齊發，市場稱「記憶體完美風暴」——① 三星前裝置解決方案主管姜啟賢示警，大陸廠商大舉擴充 DRAM 產能，記憶體價格最快 2027 下半年反轉；② AI 晶片新創 Cerebras 披露其架構不需 HBM，削弱高頻寬記憶體需求預期；③ 希捷（Seagate）CEO 在摩根大通會議中拒絕盲目擴產，引發儲存過剩疑慮。南亞科盤中跌幅逾 9%，爆出 324 億元成交額。5/20 市場等待輝達財報作為關鍵反彈催化劑。</p>
+    <p><strong>English：</strong>Three catalysts hit simultaneously on May 19 — Samsung's ex-DS chief warned DRAM prices could reverse in 2H27 due to Chinese capacity expansion; AI startup Cerebras revealed its architecture bypasses HBM; and Seagate's CEO refused aggressive capacity expansion, raising oversupply fears. Nanya plunged ~10% on NT$32B in volume. Today's market awaits NVIDIA's Q1 FY27 earnings (consensus $78.8B) as the key reversal catalyst.</p>
+  </div>
+  <div class="section-h3">籌碼觀察 / Flow Watch</div>
+  <div class="section-content">
+    <p>5/19 爆出約 324 億元成交額，顯示大量換手；外資當日明顯減碼。5/17 前外資曾爆買逾 9 萬張，短線籌碼鬆動。5/20 需觀察外資是否回補，主力分點是否有集中承接訊號。近期曾在處置股名單，需確認撮合狀態。</p>
+  </div>
+  <div class="section-h3">社群聲量 / Retail Buzz</div>
+  <div class="section-content">
+    <p>PTT Stock 板、今周刊「記憶體大跌還能買？」文章廣泛流傳。CMoney 熱搜南亞科高居前列。市場分歧：「三利空是短期恐慌過反應」vs「三星高層言論代表產業拐點」兩派爭論激烈。</p>
+  </div>
+  <div class="section-h3">後續觀察 / What to Watch Next</div>
+  <div class="section-content">
+    <p>① 5/20 量縮反彈 vs 量增續跌；② 輝達財報 HBM 需求指引措辭；③ 三星 DRAM 報價實際趨勢（而非個人言論）；④ MSCI 5/29 生效前外資被動回補。⚠️ 分析框架，非投資建議。</p>
+  </div>
+  <div class="src">來源：<a href="https://wantrich.chinatimes.com/news/20260519900321-420101" target="_blank">旺得富</a> · <a href="https://www.businesstoday.com.tw/article/category/183008/post/202605190024/" target="_blank">今周刊</a> · <a href="https://finance.ettoday.net/news/3168218" target="_blank">ETtoday</a> · <a href="https://www.chinatimes.com/realtimenews/20260519003844-260410" target="_blank">中時</a></div>
+</div>
+
+<div class="ticker-card down">
+  <div class="ticker-header">
+    <div><span class="ticker-name">群聯 / Phison Electronics</span><span class="ticker-code">8299</span></div>
+    <div class="ticker-price dn">跌停 2,465 元<br><small style="color:#666;font-weight:400">5/19；5/20 待確認</small></div>
+  </div>
+  <div class="data-row">
+    <div class="data-item"><span class="data-label">5/19 收盤：</span><span class="data-value dn">跌停（-10%）</span></div>
+    <div class="data-item"><span class="data-label">市場：</span><span class="data-value">上櫃（OTC）</span></div>
+    <div class="data-item"><span class="data-label">外資目標價：</span><span class="data-value">3,500 元（多家機構）</span></div>
+  </div>
+  <div class="section-h3">為什麼今天熱 / Why It's Hot</div>
+  <div class="section-content">
+    <p><strong>中文：</strong>群聯是 5/19 完美風暴的「第一顆骨牌」——盤前美股 Seagate 大跌帶動恐慌，群聯率先鎖跌停，連帶拖累南亞科、華邦電等。諷刺的是，群聯 Q1 2026 財報亮眼，NAND 供應鏈基本面未變，此次下殺有明顯誤殺成分。5/20 為輝達財報前最大反彈觀察日。</p>
+    <p><strong>English：</strong>Phison was the first domino — Seagate's stock drop triggered panic buying, Phison hit limit-down first, pulling the rest of memory complex. Ironically, Phison's Q1 2026 earnings were strong, and NAND demand fundamentals remain intact. The selloff shows clear characteristics of panic-driven overshooting. NVIDIA earnings tonight are the next binary event.</p>
+  </div>
+  <div class="section-h3">籌碼觀察 / Flow Watch</div>
+  <div class="section-content">
+    <p>跌停後大量賣壓出籠顯示短線多方籌碼鬆動，需觀察 5/20 是否出現反向搶反彈大單。融券放空餘額是否在 5/19 大增，是後續關鍵指標。</p>
+  </div>
+  <div class="section-h3">後續觀察 / What to Watch Next</div>
+  <div class="section-content">
+    <p>① 5/20 能否守住 2,500 元整數關；② 輝達財報中對 AI 儲存需求的指引；③ 外資是否進場承接跌停後低點。⚠️ 分析框架，非投資建議。</p>
+  </div>
+  <div class="src">來源：<a href="https://www.ctee.com.tw/news/20260519700823-430201" target="_blank">工商時報</a> · <a href="https://finance.ettoday.net/news/3168218" target="_blank">ETtoday</a> · <a href="https://www.businesstoday.com.tw/article/category/183008/post/202605190024/" target="_blank">今周刊</a></div>
+</div>
+
+<div class="ticker-card down">
+  <div class="ticker-header">
+    <div><span class="ticker-name">華邦電 / Winbond Electronics</span><span class="ticker-code">2344</span></div>
+    <div class="ticker-price dn">跌停 117.5 元<br><small style="color:#666;font-weight:400">5/19；5/20 待確認</small></div>
+  </div>
+  <div class="data-row">
+    <div class="data-item"><span class="data-label">5/19 成交量：</span><span class="data-value">約 117,342 張（巨量）</span></div>
+    <div class="data-item"><span class="data-label">主力產品：</span><span class="data-value">NOR Flash / 特殊 DRAM</span></div>
+  </div>
+  <div class="section-h3">為什麼今天熱 / Why It's Hot</div>
+  <div class="section-content">
+    <p><strong>中文：</strong>華邦電 5/19 跟隨族群集體跌停，成交逾 11 萬張爆量。主力產品為 NOR Flash（消費電子、汽車）與低功耗 DRAM，與希捷 HDD 直接關聯極低，市場視為「受池魚之殃」誤殺。5/20 為觀察能否率先修復的關鍵日。</p>
+    <p><strong>English：</strong>Winbond hit limit-down on May 19 as collateral damage — its NOR Flash and low-power DRAM products have minimal Seagate exposure, making this a classic guilt-by-association selloff. May 20 tests whether it recovers first.</p>
+  </div>
+  <div class="section-h3">後續觀察 / What to Watch Next</div>
+  <div class="section-content">
+    <p>① 確認是否仍在注意股/處置股名單；② 5/20 量縮反彈或量增續跌；③ 車用 NOR Flash 訂單狀況。⚠️ 分析框架，非投資建議。</p>
+  </div>
+  <div class="src">來源：<a href="https://newtalk.tw/news/view/2026-05-19/1036014" target="_blank">Newtalk</a> · <a href="https://www.chinatimes.com/realtimenews/20260519001752-260410" target="_blank">中時新聞網</a></div>
+</div>
+
+<div class="ticker-card">
+  <div class="ticker-header">
+    <div><span class="ticker-name">聯亞 / Uni-Asia Photonics</span><span class="ticker-code">3081</span></div>
+    <div class="ticker-price up">近月高點後拉回整理<br><small style="color:#666;font-weight:400">矽光子/CPO 族群龍頭</small></div>
+  </div>
+  <div class="data-row">
+    <div class="data-item"><span class="data-label">近期高點：</span><span class="data-value">約 900 元（漲停後拉回）</span></div>
+    <div class="data-item"><span class="data-label">毛利率：</span><span class="data-value">48%（2026 最新）</span></div>
+    <div class="data-item"><span class="data-label">高盛預估：</span><span class="data-value">CAGR 34%（2026-28）</span></div>
+  </div>
+  <div class="section-h3">為什麼今天熱 / Why It's Hot</div>
+  <div class="section-content">
+    <p><strong>中文：</strong>聯亞是 2026 年台股 CPO/矽光子概念股龍頭，受惠於輝達砸 400 億元深度介入光通訊供應鏈持續發酵。2026 被市場定位「CPO 商轉元年」，台積電 COUPE 技術平台領軍，聯亞 InP 磷化銦雷射為關鍵稀缺材料。5/20 輝達財報若亮眼且對光通訊基礎設施有正向指引，光通訊族群有機會再度領漲。</p>
+    <p><strong>English：</strong>Uni-Asia (3081) is Taiwan's CPO/silicon photonics flagship. NVIDIA's reported $4B stake in optical connectivity supply chain, combined with 2026 being "CPO commercialization year," keeps it structurally relevant. Today's NVIDIA earnings are the near-term catalyst — a strong print with positive datacenter optical commentary could reignite the entire photonics group.</p>
+  </div>
+  <div class="section-h3">籌碼觀察 / Flow Watch</div>
+  <div class="section-content">
+    <p>外資目標價已被多家機構上修，近月股價快速拉升後有短線獲利了結壓力。需觀察成交量是否有縮量整理跡象，主力籌碼集中度偏高，波動風險較大。</p>
+  </div>
+  <div class="section-h3">後續觀察 / What to Watch Next</div>
+  <div class="section-content">
+    <p>① 輝達財報中對 CPO 時程與供應鏈的具體指引；② 聯亞客戶認證里程碑更新；③ 矽光子族群是否形成集體漲停或個股分化；④ 台積電 COUPE 平台量產進度。⚠️ 分析框架，非投資建議。</p>
+  </div>
+  <div class="src">來源：<a href="https://money.udn.com/money/story/5607/9432384" target="_blank">經濟日報</a> · <a href="https://www.ctee.com.tw/news/20260408701506-430201" target="_blank">工商時報（CPO 純血股）</a> · <a href="https://news.cnyes.com/news/id/6438050" target="_blank">鉅亨</a></div>
+</div>
+
+<div class="ticker-card">
+  <div class="ticker-header">
+    <div><span class="ticker-name">大立光 / Largan Precision</span><span class="ticker-code">3008</span></div>
+    <div class="ticker-price up">5/12 漲停 2,795 元<br><small style="color:#666;font-weight:400">本週持續追蹤</small></div>
+  </div>
+  <div class="data-row">
+    <div class="data-item"><span class="data-label">5/12 事件：</span><span class="data-value up">CPO 切入消息漲停</span></div>
+    <div class="data-item"><span class="data-label">族群：</span><span class="data-value">精密光學 + CPO 新切入</span></div>
+  </div>
+  <div class="section-h3">為什麼今天熱 / Why It's Hot</div>
+  <div class="section-content">
+    <p><strong>中文：</strong>大立光傳統以手機鏡頭聞名，但 5/12 宣佈切入 CPO（共同封裝光學）引爆市場驚喜，股價單日奔漲停 2,795 元。AI 資料中心對高精度光學元件的龐大需求，被市場解讀為大立光精密光學製造能力的全新切入點。5/20 輝達財報前光通訊族群持續成為焦點。</p>
+    <p><strong>English：</strong>Largan — known for smartphone camera lenses — surprised the market on May 12 by announcing CPO entry, sending the stock to limit-up at NT$2,795. AI datacenter demand for precision optical components plays directly to Largan's manufacturing expertise. Remains a top-watched name ahead of tonight's NVIDIA earnings.</p>
+  </div>
+  <div class="section-h3">後續觀察 / What to Watch Next</div>
+  <div class="section-content">
+    <p>① 公司對 CPO 業務具體時程與客戶名單的披露；② 是否取得 NVIDIA / 台積電等大客戶認證；③ 光通訊族群整體強弱；④ 漲停後隔日沖籌碼是否完成。⚠️ 分析框架，非投資建議。</p>
+  </div>
+  <div class="src">來源：<a href="https://money.udn.com/money/story/5612/9497336" target="_blank">經濟日報（大立光盤中漲停）</a> · <a href="https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E7%9B%A4%E5%BE%8C-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%A8%8D%E6%81%AF" target="_blank">Yahoo 財經</a></div>
+</div>
+
+<div class="ticker-card down">
+  <div class="ticker-header">
+    <div><span class="ticker-name">旺宏 / Macronix International</span><span class="ticker-code">2337</span></div>
+    <div class="ticker-price dn">約 144 元 (-9%)<br><small style="color:#666;font-weight:400">5/19；5/20 反彈觀察</small></div>
+  </div>
+  <div class="data-row">
+    <div class="data-item"><span class="data-label">5/19 跌幅：</span><span class="data-value dn">約 -9%（未鎖停）</span></div>
+    <div class="data-item"><span class="data-label">主力產品：</span><span class="data-value">NOR Flash / 車用記憶體</span></div>
+    <div class="data-item"><span class="data-label">近況：</span><span class="data-value">4/27 漲停後維持強勢</span></div>
+  </div>
+  <div class="section-h3">為什麼今天熱 / Why It's Hot</div>
+  <div class="section-content">
+    <p><strong>中文：</strong>旺宏 5/19 下跌約 9%（未鎖停），為記憶體族群第二大跌幅股。主力 NOR Flash 與希捷事件直接關聯低，屬「受池魚之殃」。投信近期連續大幅掃貨（「至上：記憶體漲到 2026 年底」），5/20 需觀察投信是否繼續護盤，若連續買超不中斷則反彈力道有望強於族群平均。</p>
+    <p><strong>English：</strong>Macronix fell ~9% on May 19 as collateral damage. Its NOR Flash focus (automotive/industrial) has minimal Seagate exposure. Investment trusts have been major buyers. May 20 tests whether institutional support holds — if investment trust buying continues, the bounce could outperform peers.</p>
+  </div>
+  <div class="section-h3">後續觀察 / What to Watch Next</div>
+  <div class="section-content">
+    <p>① 投信 5/20 是否繼續買超（連買天數是否中斷）；② 車用 NOR Flash ASP 走勢；③ 輝達財報後整體記憶體情緒。⚠️ 分析框架，非投資建議。</p>
+  </div>
+  <div class="src">來源：<a href="https://newtalk.tw/news/view/2026-05-19/1036014" target="_blank">Newtalk</a> · <a href="https://finance.technews.tw/2026/04/27/two-factors-drove-a-surge-in-memory-stocks/" target="_blank">TechNews</a></div>
+</div>
+
+<div class="section-title">次熱觀察 / Watch List</div>
+<div class="watch-card"><strong>2345 智邦 / Accton</strong> — AI Switch 與網通族群代表，外資近期持續買超。5/20 留意是否隨輝達財報順風車再度走強，近日為多家投顧「5 月選股」重點標的。</div>
+<div class="watch-card"><strong>2303 聯電 / UMC</strong> — 5/19 逆勢上漲 +1.8% 至 115 元（成交量 271,700 張），顯示與記憶體族群明顯脫鉤，外資與投信雙買超。28nm 特殊製程受惠 AI 邊緣運算需求，2026 年外資目標價持續大幅上修。</div>
+<div class="watch-card"><strong>2330 台積電 / TSMC</strong> — MSCI 5/29 生效後台積電權重上升，預期外資被動型買盤流入。輝達 Rubin 架構量產直接受惠方，今日財報若超預期可能帶動盤前買盤。股價約 2,210 元附近。</div>
+
+<div class="section-title">異常注意 / Caution List</div>
+<div class="caution-card"><strong>處置股流動性風險：</strong>南亞科（2408）、華邦電（2344）、力積電（6770）近期曾在「注意股/處置股」名單中出現，可能受 20 分鐘或 60 分鐘撮合限制，流動性降低。請於交易前確認最新狀態。來源：<a href="https://www.twse.com.tw/zh/announcement/punish/twtazu.html" target="_blank">TWSE 處置股公告</a></div>
+<div class="caution-card"><strong>三星高層言論不確定性：</strong>三星前裝置解決方案主管的「2027H2 DRAM 反轉」言論為個人預測性質，非三星官方政策。投資人應區分「個人預警」與「產業結構改變」，避免過度恐慌外推。</div>
+<div class="caution-card"><strong>聯發科（2454）處置解除：</strong>聯發科自 5/7 起處置（5 分鐘撮合），今日（5/20）為第 10 個交易日、最後一天。明日（5/21）起恢復正常撮合，可能帶來流動性恢復後的價格波動，需留意。</div>
+
+<div class="section-title">大盤背景 / Market Backdrop</div>
+<div class="backdrop-card">
+  <p><strong>5/19（週二）收盤：</strong>台股加權指數收 <strong>40,175.56 點</strong>，下跌 <strong>716 點（-1.75%）</strong>，成交金額逾 <strong>1.08 兆元</strong>，為近兩週最大跌幅日。主因記憶體族群遭「三利空完美風暴」血洗，南亞科、群聯、華邦電、旺宏等集體崩跌。台積電、聯發科試圖撐盤仍難抵賣壓。外資當日大幅賣超，台幣約 29.85 元兌 1 美元走勢平穩。</p>
+  <p><strong>5/20（今日/週三）關鍵事件：</strong>輝達（NVDA）Q1 FY27 財報盤後公布，市場共識營收 788 億美元（高於輝達指引 780 億美元）。若超預期且 HBM / AI 儲存需求指引正向，台灣 AI 供應鏈（台積電、廣達、光通訊族群）與記憶體族群均有機會修復反彈。此外 <strong>MSCI 5/29 生效</strong>，台積電權重上升，外資被動型買盤週末前仍有動能。</p>
+  <p>本週另一大背景：台股 5 月至今在 40,000–42,500 點區間震盪，市場高度關注輝達財報能否重啟多頭信心，並觀察記憶體族群是否已完成籌碼沉澱進入下一波段。</p>
+</div>
+
+<div style="margin-top:20px;font-size:0.85rem;color:#0f3460;font-weight:700;padding-bottom:6px;border-bottom:2px solid #e9ecef;">資料來源 / Sources</div>
+<div class="sources-grid" style="margin-top:10px">
+  <div><a href="https://wantrich.chinatimes.com/news/20260519900321-420101" target="_blank">旺得富：記憶體超完美風暴</a></div>
+  <div><a href="https://www.businesstoday.com.tw/article/category/183008/post/202605190024/" target="_blank">今周刊：記憶體大跌能買嗎</a></div>
+  <div><a href="https://finance.ettoday.net/news/3168218" target="_blank">ETtoday：希捷CEO拖累記憶體股</a></div>
+  <div><a href="https://www.ctee.com.tw/news/20260519700823-430201" target="_blank">工商時報：希捷CEO一句話釀慘案</a></div>
+  <div><a href="https://www.chinatimes.com/realtimenews/20260519001752-260410" target="_blank">中時：記憶體又遭血洗</a></div>
+  <div><a href="https://newtalk.tw/news/view/2026-05-19/1036014" target="_blank">Newtalk：三星前總裁示警</a></div>
+  <div><a href="https://www.chinatimes.com/realtimenews/20260519003844-260410" target="_blank">中時：記憶體3大鬼故事</a></div>
+  <div><a href="https://money.udn.com/money/story/5607/9432384" target="_blank">經濟日報：CPO聯亞波若威</a></div>
+  <div><a href="https://money.udn.com/money/story/5612/9497336" target="_blank">經濟日報：大立光盤中漲停</a></div>
+  <div><a href="https://www.ctee.com.tw/news/20260408701506-430201" target="_blank">工商時報：CPO純血股7檔</a></div>
+  <div><a href="https://news.cnyes.com/news/id/6438050" target="_blank">鉅亨：聯亞龍頭回神</a></div>
+  <div><a href="https://technews.tw/2026/05/18/the-market-is-optimistic-that-nvidias-new-quarterly-earnings-report-will-remain-strong-this-wednesday/" target="_blank">TechNews：輝達財報市場預期</a></div>
+  <div><a href="https://tw.stock.yahoo.com/news/msci%E8%AA%BF%E6%95%B45%E6%9C%8829%E6%97%A5%E7%94%9F%E6%95%88" target="_blank">Yahoo 財經：MSCI調整5/29</a></div>
+  <div><a href="https://www.twse.com.tw/zh/announcement/punish/twtazu.html" target="_blank">TWSE 處置股公告</a></div>
+  <div><a href="https://tw.stock.yahoo.com/quote/%5ETWII" target="_blank">Yahoo 股市：加權指數</a></div>
+  <div><a href="https://www.ptt.cc/bbs/Stock/index.html" target="_blank">PTT Stock 板</a></div>
+  <div><a href="https://www.cmoney.tw/finance/popular-rank" target="_blank">CMoney 熱搜排行</a></div>
+  <div><a href="https://news.cnyes.com/news/cat/tw_stock" target="_blank">鉅亨網 台股新聞</a></div>
+  <div><a href="https://finance.technews.tw/2026/04/27/two-factors-drove-a-surge-in-memory-stocks/" target="_blank">TechNews：記憶體類股兩大因素</a></div>
+  <div><a href="https://www.sinotrade.com.tw/richclub/hotstock/" target="_blank">豐雲學堂：光通訊供應鏈解析</a></div>
+</div>
+
+<div class="disclaimer">
+  本報告為資訊整理，不構成投資建議。部分 5/20 當日數字以「待確認」標示，請自行查核最新行情。<br>
+  This report is for informational purposes only. Some May 20 figures are pending official post-market confirmation. Not investment advice.
+</div>
+
+</body>
+</html>

@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>熱門美股 — 2026-05-20</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    padding: 24px 28px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .header .subtitle { font-size: 13px; color: #a0c4ff; }
+  .session-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  .section {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .section h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f3460;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e8eaf0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    margin-bottom: 4px;
+  }
+  .summary-table th {
+    background: #f0f4ff;
+    color: #0f3460;
+    font-weight: 700;
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 2px solid #d0d8f0;
+  }
+  .summary-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top;
+  }
+  .summary-table tr:hover td { background: #f8f9ff; }
+  .ticker-badge {
+    font-weight: 700;
+    color: #0f3460;
+    font-family: monospace;
+    font-size: 13px;
+  }
+  .gain { color: #16a34a; font-weight: 700; }
+  .loss { color: #dc2626; font-weight: 700; }
+  .neutral { color: #6b7280; }
+  .buzz-stars { color: #f59e0b; font-size: 13px; }
+  .ticker-section {
+    border: 1px solid #e8eaf0;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .ticker-header {
+    background: linear-gradient(90deg, #f0f4ff, #fff);
+    padding: 12px 18px;
+    border-bottom: 1px solid #e8eaf0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .ticker-header .ticker-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0f3460;
+    font-family: monospace;
+  }
+  .ticker-header .company-name {
+    font-size: 14px;
+    color: #374151;
+    font-weight: 600;
+  }
+  .tape-bar {
+    background: #f8f9ff;
+    padding: 8px 18px;
+    font-size: 12.5px;
+    color: #374151;
+    border-bottom: 1px solid #e8eaf0;
+    font-family: monospace;
+  }
+  .ticker-body { padding: 14px 18px; }
+  .sub-section {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #e8eaf0;
+  }
+  .sub-section:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .sub-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6b7280;
+    margin-bottom: 5px;
+  }
+  .bilingual { display: flex; flex-direction: column; gap: 6px; }
+  .zh { color: #1a1a2e; line-height: 1.7; }
+  .en { color: #374151; font-size: 12.5px; line-height: 1.6; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 2px;
+  }
+  .tag-catalyst { background: #fef3c7; color: #92400e; }
+  .tag-volume { background: #dbeafe; color: #1d4ed8; }
+  .tag-options { background: #f3e8ff; color: #6d28d9; }
+  .tag-buzz { background: #dcfce7; color: #15803d; }
+  .tag-risk { background: #fee2e2; color: #dc2626; }
+  .tag-loser { background: #fde8e8; color: #b91c1c; }
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .market-card {
+    background: #f8f9ff;
+    border: 1px solid #e0e7ff;
+    border-radius: 6px;
+    padding: 10px 14px;
+    text-align: center;
+  }
+  .market-card .idx { font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; }
+  .market-card .val { font-size: 16px; font-weight: 800; margin: 3px 0; }
+  .market-card .chg { font-size: 12px; font-weight: 600; }
+  .watchlist-item {
+    background: #f8f9fa;
+    border-left: 3px solid #0f3460;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    border-radius: 0 6px 6px 0;
+  }
+  .watchlist-item .wl-ticker { font-weight: 800; font-family: monospace; color: #0f3460; font-size: 14px; }
+  .sources-section {
+    font-size: 11.5px;
+    color: #6b7280;
+  }
+  .sources-section a { color: #2563eb; text-decoration: none; }
+  .sources-section a:hover { text-decoration: underline; }
+  .sources-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .source-tag {
+    background: #f0f4ff;
+    border: 1px solid #c7d2fe;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+  }
+  .disclaimer {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 11.5px;
+    color: #78350f;
+    margin-bottom: 16px;
+  }
+  .halt-item {
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+  }
+  .halt-item .halt-ticker { font-weight: 800; color: #c2410c; font-family: monospace; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>熱門美股 Hot US Stocks of the Day</h1>
+  <div class="subtitle">今日美股焦點個股深度分析 · 成交量異常 + 期權 + 社群討論 + 催化劑</div>
+  <div class="session-badge">交易日：2026-05-19 (Monday) · 亞洲時間：2026-05-20</div>
+</div>
+
+<div class="disclaimer">
+  本報告僅供資訊參考，不構成投資建議。數字來源為公開媒體報導與市場資料，截至亞洲時間 2026-05-20 整理。
+  This report is for informational purposes only and does not constitute investment advice.
+</div>
+
+<!-- MARKET BACKDROP -->
+<div class="section">
+  <h2>📊 大盤背景 Market Backdrop · 2026-05-19 Close</h2>
+  <div class="market-grid">
+    <div class="market-card">
+      <div class="idx">S&P 500 (SPX)</div>
+      <div class="val loss">7,372</div>
+      <div class="chg loss">▼ 0.42%</div>
+    </div>
+    <div class="market-card">
+      <div class="idx">Nasdaq (NDX)</div>
+      <div class="val loss">~</div>
+      <div class="chg loss">▼ 0.62%</div>
+    </div>
+    <div class="market-card">
+      <div class="idx">Dow (DJI)</div>
+      <div class="val gain">49,686</div>
+      <div class="chg gain">▲ 0.32%</div>
+    </div>
+    <div class="market-card">
+      <div class="idx">Russell 2000</div>
+      <div class="val loss">~</div>
+      <div class="chg loss">▼ 1.59%</div>
+    </div>
+    <div class="market-card">
+      <div class="idx">VIX</div>
+      <div class="val neutral">17.82</div>
+      <div class="chg neutral">緊張偏高</div>
+    </div>
+  </div>
+  <div style="margin-top: 12px; font-size: 13px; color: #374151;">
+    <strong>背景摘要：</strong>整體市場呈現分歧走勢。Dow 在 3M、Salesforce、Chevron 帶動下上漲，但 Nasdaq 受半導體與 AI 個股賣壓拖累下跌。
+    記憶體晶片族群因 Seagate CEO 在 JPMorgan 科技大會發表悲觀言論而引發大規模拋售，帶動 Micron、SanDisk、Western Digital 跟跌。
+    油價重回 $108/桶、通膨數據偏熱、殖利率上揚，市場整體情緒偏謹慎。
+    <br><br>
+    <em>Market split: Dow rose on 3M/Salesforce/Chevron leadership while Nasdaq fell on memory chip selling. 
+    Seagate CEO's bearish capacity comments at JPMorgan TMC triggered sector-wide selloff. 
+    Oil above $108, hot inflation, rising yields weighed on risk sentiment.</em>
+  </div>
+</div>
+
+<!-- SUMMARY TABLE -->
+<div class="section">
+  <h2>🔥 今日熱門個股總覽 Summary Table</h2>
+  <div style="overflow-x: auto;">
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>Ticker</th>
+        <th>公司名稱</th>
+        <th>Close (approx)</th>
+        <th>% 漲跌</th>
+        <th>成交量</th>
+        <th>期權 Options</th>
+        <th>社群 Buzz</th>
+        <th>催化劑 Catalyst</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="ticker-badge">RAMP</span></td>
+        <td>LiveRamp Holdings</td>
+        <td>~$38.50</td>
+        <td><span class="gain">+27.3%</span></td>
+        <td>爆量 (M&A news)</td>
+        <td>IV 大升；併購套利</td>
+        <td><span class="buzz-stars">★★★★★</span></td>
+        <td>Publicis $2.5B 全現金收購 +30% 溢價</td>
+      </tr>
+      <tr>
+        <td><span class="ticker-badge">BRC</span></td>
+        <td>Brady Corporation</td>
+        <td>~+19%</td>
+        <td><span class="gain">+18.98%</span></td>
+        <td>大量</td>
+        <td>待確認</td>
+        <td><span class="buzz-stars">★★★★</span></td>
+        <td>Q3 EPS +23% 創紀錄；Honeywell $1.4B 併購</td>
+      </tr>
+      <tr>
+        <td><span class="ticker-badge">TE</span></td>
+        <td>T1 Energy Inc.</td>
+        <td>~$6.45</td>
+        <td><span class="gain">+23.5% (Mon) / pullback Tue</span></td>
+        <td>爆量</td>
+        <td>待確認</td>
+        <td><span class="buzz-stars">★★★★</span></td>
+        <td>Q1 虧損收窄；Situational Awareness 1000萬股揭倉</td>
+      </tr>
+      <tr>
+        <td><span class="ticker-badge">AVEX</span></td>
+        <td>AEVEX Corp.</td>
+        <td>~+15%</td>
+        <td><span class="gain">+14.92%</span></td>
+        <td>大量 (近期 IPO)</td>
+        <td>Goldman Buy 覆蓋</td>
+        <td><span class="buzz-stars">★★★</span></td>
+        <td>$18.5M 美空軍無人機合約；多家大行買入</td>
+      </tr>
+      <tr>
+        <td><span class="ticker-badge">GENI</span></td>
+        <td>Genius Sports Ltd.</td>
+        <td>~$5+</td>
+        <td><span class="gain">+22.2%</span></td>
+        <td>大量</td>
+        <td>待確認</td>
+        <td><span class="buzz-stars">★★★</span></td>
+        <td>Legend 收購後 EBITDA margin 目標提升至 28%</td>
+      </tr>
+      <tr>
+        <td><span class="ticker-badge">STX</span></td>
+        <td>Seagate Technology</td>
+        <td>~$740</td>
+        <td><span class="loss">▼6.87%</span></td>
+        <td>爆量 (賣壓)</td>
+        <td>待確認；IV 上升</td>
+        <td><span class="buzz-stars">★★★★★</span></td>
+        <td>CEO：建廠「費時太長」→ AI 供應擴張疑慮</td>
+      </tr>
+      <tr>
+        <td><span class="ticker-badge">MU</span></td>
+        <td>Micron Technology</td>
+        <td>~$681</td>
+        <td><span class="loss">▼5.95%</span></td>
+        <td>大量</td>
+        <td>待確認</td>
+        <td><span class="buzz-stars">★★★★</span></td>
+        <td>STX 拖累 + 通膨/中國需求疑慮連帶重挫</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- DEEP DIVES -->
+<div class="section">
+  <h2>🔍 熱門個股深度解析 Deep Dives</h2>
+
+  <!-- RAMP -->
+  <div class="ticker-section">
+    <div class="ticker-header">
+      <span class="ticker-name">$RAMP</span>
+      <span class="company-name">LiveRamp Holdings / LiveRamp 資料連結公司</span>
+      <span class="tag tag-catalyst">M&A 收購</span>
+      <span class="tag tag-volume">成交量爆量</span>
+      <span class="tag tag-buzz">社群熱議</span>
+    </div>
+    <div class="tape-bar">
+      Tape: Close ~$38.50 (+27.3%) · Acquisition price $38.50/sh · RTH · 52W 前 close ~$29.65
+    </div>
+    <div class="ticker-body">
+      <div class="sub-section">
+        <div class="sub-label">為什麼今天熱 / Why it's hot today</div>
+        <div class="bilingual">
+          <div class="zh">
+            LiveRamp 宣布被法國廣告巨頭 Publicis Groupe 以 <strong>$38.50/股全現金</strong>收購，總股權價值約 <strong>25.5 億美元</strong>（企業價值 21.7 億美元，含淨現金 3.79 億）。
+            收購溢價為 <strong>29.8%</strong>（相對於 5/15 收盤價），是 2026 年迄今廣告科技板塊最大宗交易。同日 Q4 FY2026 財報也顯示收入年增 9%、現金流創歷史新高 ($168M)，雙重利多疊加推升股價。
+            Seeking Alpha 分析指出「這對長期持有者是祝福」，因股票在過去兩年多數時間低於合理估值。
+          </div>
+          <div class="en">
+            LiveRamp announced an all-cash acquisition by Publicis Groupe at $38.50/share (total equity value ~$2.55B, enterprise value $2.17B net of $379M cash). The 29.8% premium to the May 15 close makes this the largest ad-tech deal of 2026 YTD. Simultaneously, Q4 FY2026 results showed 9% revenue growth with record operating cash flow of $168M — a double catalyst. Boards of both companies unanimously approved; deal to be financed via Publicis cash on hand.
+          </div>
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">Options &amp; Flow</div>
+        <div class="zh">
+          股價已幾乎等於收購價 $38.50，隱含波動率 (IV) 雖有上升但市場主要在做<strong>合併套利</strong>（merger arb）操作。Call side 在 $38.50 附近 strike 的 OI 快速累積；風險為交易終止或監管阻礙。目前市場定價反映高交易完成概率（>90%）。具體 OI 數字待確認。
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">Retail Buzz</div>
+        <div class="zh">
+          Reddit r/stocks 與 StockTwits 討論以「鎖定套利」為主，普遍認為以接近 $38.50 買入的空間已很小。X (Twitter) 財經圈廣泛轉發 Publicis 官方公告，廣告科技圈子討論此交易對 LiveRamp 數據基礎設施的戰略意義（AI agent 廣告生態）。
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">炒作脈絡 / Narrative Context</div>
+        <div class="zh">
+          Publicis 計劃利用 LiveRamp 的數據協作平台「加速 AI 代理廣告生態」，2026-2027 年收入目標上調至 +7~8% 增長。LiveRamp 長期以來被視為「有價值但等待催化劑」的標的。此交易解決了公司缺少獨立增長引擎的問題。
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">後續觀察 / What to watch next</div>
+        <div class="zh">
+          1. 監管審查進度（歐盟反壟斷）；2. 是否出現競購方（unlikely，但需觀察）；3. 交易預計完成時間線；4. RAMP 股價能否繼續溢價 $38.50（若出現則市場預期反競購）。這是一個<strong>純套利標的</strong>，不再是動能交易。
+        </div>
+      </div>
+      <div style="font-size: 11px; color: #9ca3af; margin-top: 8px;">
+        Sources: <a href="https://www.sec.gov/Archives/edgar/data/0000733269/000110465926062908/tm2614904d1_ex99-1.htm" target="_blank">SEC 8-K</a> · 
+        <a href="https://liveramp.com/news/publicis-to-acquire-liveramp-to-accelerate-data-co-creation-for-smarter-agents" target="_blank">LiveRamp官方</a> · 
+        <a href="https://seekingalpha.com/article/4906102-liveramp-acquisition-is-a-blessing-for-the-long-term-holders" target="_blank">Seeking Alpha</a> ·
+        <a href="https://www.stocktitan.net/news/RAMP/live-ramp-announces-fourth-quarter-and-fiscal-year-2026-y6wa7fx6w9d6.html" target="_blank">StockTitan</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRC -->
+  <div class="ticker-section">
+    <div class="ticker-header">
+      <span class="ticker-name">$BRC</span>
+      <span class="company-name">Brady Corporation / 布雷迪集團（工業標籤/自動化）</span>
+      <span class="tag tag-catalyst">財報 EPS 創紀錄</span>
+      <span class="tag tag-catalyst">M&A 大型收購</span>
+      <span class="tag tag-volume">成交量大增</span>
+    </div>
+    <div class="tape-bar">
+      Tape: +18.98% · RTH · Q3 FY2026 財報 (5/18 公告) · Close approx 較大幅上揚
+    </div>
+    <div class="ticker-body">
+      <div class="sub-section">
+        <div class="sub-label">為什麼今天熱 / Why it's hot today</div>
+        <div class="bilingual">
+          <div class="zh">
+            Brady 發布 <strong>Q3 FY2026 財報</strong>，創下歷史最高 Adjusted EPS <strong>$1.50</strong>（高於預期 $1.36，超出 10%），有機銷售成長 8.2%，其中數據中心電纜識別產品線（Wire ID）成長高達 <strong>19%</strong>。
+            同時，公司全年 EPS 指引上調至 <strong>$5.20–$5.30</strong>。在財報之外，4 月 20 日宣布的 <strong>Honeywell Productivity Solutions 業務 14 億美元收購案</strong>讓市場看到 Brady 在數據捕獲市場規模幾乎翻倍的潛力。雙重利多令市場反應熱烈。
+          </div>
+          <div class="en">
+            Brady Corp's Q3 FY2026 delivered record adjusted EPS of $1.50 (beat by $0.14 or ~10%), organic sales +8.2% driven by 19% growth in Wire ID products (data center demand). Full-year EPS guidance raised to $5.20–$5.30. This layered onto the April 20 announcement to acquire Honeywell's Productivity Solutions & Services unit for $1.4B at ~8x forward EBITDA, a deal that doubles Brady's data-capture market exposure with management guiding double-digit EPS accretion immediately.
+          </div>
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">Options &amp; Flow</div>
+        <div class="zh">具體期權 OI 數字待確認。鑒於 +19% 單日急漲，預計有顯著的 call 側異常成交與 IV 跳升，特別是短期到期 strike 附近。
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">Retail Buzz</div>
+        <div class="zh">
+          工業股類別中 Brady 吸引了相當注意力，尤其是數據中心主題投資者對 Wire ID 產品的興趣。TimothySykes 等媒體將此列為重點報導。StockTwits 相關討論以積極情緒為主。
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">後續觀察 / What to watch next</div>
+        <div class="zh">
+          1. Honeywell 交易的監管進展（預計 2026 H2 完成）；2. 數據中心 Wire ID 需求是否持續超預期；3. 股價急漲後的 gap fill 與獲利了結壓力；4. Honeywell 業務整合時間表與 synergy 實現進度。
+        </div>
+      </div>
+      <div style="font-size: 11px; color: #9ca3af; margin-top: 8px;">
+        Sources: <a href="https://www.sec.gov/Archives/edgar/data/0000746598/000074659826000019/exhibit991pressrelease0430.htm" target="_blank">SEC 8-K</a> · 
+        <a href="https://www.stocktitan.net/news/BRC/brady-corporation-reports-record-adjusted-eps-in-its-fiscal-2026-z5aoc30qft8d.html" target="_blank">StockTitan</a> · 
+        <a href="https://www.timothysykes.com/news/brady-corporation-brc-news-2026_05_18/" target="_blank">TimothySykes</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TE -->
+  <div class="ticker-section">
+    <div class="ticker-header">
+      <span class="ticker-name">$TE</span>
+      <span class="company-name">T1 Energy Inc. / T1 能源（美國太陽能製造）</span>
+      <span class="tag tag-catalyst">大型機構揭倉</span>
+      <span class="tag tag-volume">成交量爆量</span>
+      <span class="tag tag-buzz">動能輪動</span>
+    </div>
+    <div class="tape-bar">
+      Tape: Mon close ~$7.00 (+23.5%) · 盤後 ~$7.39 · Tue (5/19) 拉回至 ~$6.45 · 近期 IPO 小型股
+    </div>
+    <div class="ticker-body">
+      <div class="sub-section">
+        <div class="sub-label">為什麼今天熱 / Why it's hot today</div>
+        <div class="bilingual">
+          <div class="zh">
+            T1 Energy（太陽能晶片/電池製造商）在週一（5/18）因兩個催化劑同時發酵而暴漲 23%：
+            一、<strong>Q1 2026 業績</strong>：收入 $7.55 億，虧損明顯收窄，投資人解讀為轉虧為盈的前期信號；
+            二、<strong>機構揭倉</strong>：Situational Awareness LP 在 SEC 申報文件中揭露持有 <strong>1000 萬股</strong>，讓市場解讀為大型機構看好正進行中的 G2_Austin 太陽能廠進度（2.1GW 一期，Q4 2026 初始生產目標）。
+            週二（5/19）盤中出現明顯獲利了結拉回至 ~$6.45。
+          </div>
+          <div class="en">
+            T1 Energy surged 23% Monday (5/18) on two concurrent catalysts: (1) Q1 2026 results showing $755M revenue with a narrower loss, giving hope of approaching profitability; (2) Situational Awareness LP disclosed a 10 million-share stake in a regulatory filing, adding credibility to the company's U.S. solar manufacturing pivot (G2_Austin plant, 2.1 GW Phase 1, targeting initial cell production Q4 2026). Stock pulled back Tuesday to ~$6.45 as momentum faded intraday.
+          </div>
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">Options &amp; Flow / Short Interest</div>
+        <div class="zh">
+          小型股，期權流動性有限。機構持倉達到歷史高點。短利（short interest）數字待確認 — 但鑒於公司長期虧損，空方持倉可能顯著，存在軋空潛力。具體 SI% 待確認。
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">Retail Buzz</div>
+        <div class="zh">
+          r/wallstreetbets 與 r/stocks 均出現相關討論。動能交易者對「美國太陽能製造 + 政策受益」題材感興趣，但部分評論警告估值過高。StocksToTrade 等平台顯示週二有散戶在追高後被套。
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">後續觀察 / What to watch next</div>
+        <div class="zh">
+          1. G2_Austin 廠進度更新；2. 週二拉回是否找到支撐位；3. 是否有更多機構揭倉或拋售；4. 太陽能政策（IRA tax credits）新聞催化；5. 接近 $7 阻力位的突破或失敗。<strong>⚠️ 小型股、高波動，止損紀律重要。</strong>
+        </div>
+      </div>
+      <div style="font-size: 11px; color: #9ca3af; margin-top: 8px;">
+        Sources: <a href="https://www.fool.com/coverage/stock-market-today/2026/05/18/stock-market-today-may-18-t1-energy-surges-after-situational-awareness-discloses-10-million-share-stake/" target="_blank">Motley Fool</a> · 
+        <a href="https://www.timothysykes.com/news/t1-energy-inc-te-news-2026_05_18/" target="_blank">TimothySykes</a> · 
+        <a href="https://stockstotrade.com/news/t1-energy-inc-te-news-2026_05_19-2/" target="_blank">StocksToTrade</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- AVEX -->
+  <div class="ticker-section">
+    <div class="ticker-header">
+      <span class="ticker-name">$AVEX</span>
+      <span class="company-name">AEVEX Corp. / AEVEX（防衛無人機）</span>
+      <span class="tag tag-catalyst">政府合約</span>
+      <span class="tag tag-catalyst">分析師覆蓋</span>
+      <span class="tag tag-volume">近期 IPO 動能</span>
+    </div>
+    <div class="tape-bar">
+      Tape: +14.92% · 近期 IPO (raised $320M at $20/sh, 首日收 $35.80 · 市值 ~$3B) · Mon 繼續走強
+    </div>
+    <div class="ticker-body">
+      <div class="sub-section">
+        <div class="sub-label">為什麼今天熱 / Why it's hot today</div>
+        <div class="bilingual">
+          <div class="zh">
+            AEVEX Corp 是一家自主無人機（UAV）公司，近期 IPO 以 $20 定價，首日衝至 $35.80。週一（5/19 前後）觸媒包括：
+            一、<strong>美國空軍 $1850 萬合約</strong>：提供一次性攻擊（One Way Attack）無人機及工程支援服務；
+            二、<strong>Goldman Sachs 等四大行同時發起覆蓋</strong>（5/12）：GS 給予 Buy、目標價 $34，JP Morgan、Jefferies、BofA 均給出 Overweight/Buy；
+            三、投資人押注「烏克蘭戰後國內無人機支出三倍增長」敘事（預計五年內達 $10B）。
+          </div>
+          <div class="en">
+            AEVEX, a recently IPO'd autonomous drone company (raised $320M at $20, closed at $35.80 on debut), continued momentum Monday on: (1) an $18.5M U.S. Air Force contract for One Way Attack autonomous aircraft + engineering support; (2) initiation by Goldman Sachs (Buy/$34), JPMorgan, Jefferies, and Bank of America on May 12 — a rare multi-bank blitz initiation; (3) narrative around tripling of next-gen domestic drone spending to ~$10B over 5 years. Q1 earnings expected Wednesday.
+          </div>
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">Options &amp; Flow</div>
+        <div class="zh">
+          近期 IPO，期權市場剛開放，OI 仍在建立中。Goldman 覆蓋後大量投資人開始關注，IPO 後鎖定期結束時間點為日後重要觀察指標。週三（5/20）財報前市場預期高漲，IV 可能顯著偏高。
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">Retail Buzz</div>
+        <div class="zh">
+          無人機 / 防衛科技敘事在 Reddit r/investing 與 StockTwits 上頗受關注，尤其是「AI + 無人機」複合題材。部分投資人警告 IPO 後鎖定期屆滿壓力。Benzinga 標題：「What's Driving The Move?」顯示媒體已跟進。
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">後續觀察 / What to watch next</div>
+        <div class="zh">
+          1. <strong>週三 Q1 財報</strong>（關鍵！）；2. IPO 鎖定期到期日；3. 更多政府合約公告；4. 防衛預算法案進展；5. 競爭對手（Shield AI、AeroVironment）的動向對比。
+        </div>
+      </div>
+      <div style="font-size: 11px; color: #9ca3af; margin-top: 8px;">
+        Sources: <a href="https://www.benzinga.com/trading-ideas/movers/26/05/52644907/aevex-shares-climb-monday-whats-driving-the-move" target="_blank">Benzinga</a> · 
+        <a href="https://www.investing.com/news/analyst-ratings/goldman-sachs-initiates-aevex-stock-coverage-with-buy-rating-93CH-4679236" target="_blank">Investing.com</a> · 
+        <a href="https://www.thestreet.com/investing/stocks/goldman-sachs-makes-bold-call-on-aevex-stock-price" target="_blank">TheStreet</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GENI -->
+  <div class="ticker-section">
+    <div class="ticker-header">
+      <span class="ticker-name">$GENI</span>
+      <span class="company-name">Genius Sports Limited / 天才體育（體育博弈數據）</span>
+      <span class="tag tag-catalyst">財報後延遲反應</span>
+      <span class="tag tag-catalyst">EBITDA 目標上修</span>
+    </div>
+    <div class="tape-bar">
+      Tape: +22.17% (RTH) · Q1 2026 結果 (5/7 公告) · 股價前期被壓制後延遲追漲
+    </div>
+    <div class="ticker-body">
+      <div class="sub-section">
+        <div class="sub-label">為什麼今天熱 / Why it's hot today</div>
+        <div class="bilingual">
+          <div class="zh">
+            Genius Sports 在 Q1 2026 業績（5/7 公告）後持續走強：收入年增 <strong>31%</strong> 至 $1.879 億，博彩業務 +33%、媒體 +22%，完成 Legend 收購後將 2026 年全年 EBITDA margin 目標從 23% <strong>大幅上修至 28%</strong>（提前兩年達成長期目標），收入目標 $9.9億–$10.1億。
+            儘管 Q1 EPS 仍為虧損（-$0.21），但成長動能與 Legend 協同效益確認，驅動延遲反彈。週一股價延續漲勢，成為當日百分比漲幅前列。
+          </div>
+          <div class="en">
+            Genius Sports continued rallying from its May 7 Q1 results: 31% revenue growth to $187.9M, with betting +33% and media +22%. The Legend acquisition, just completed, pushed 2026 EBITDA margin guidance from 23% to 28% — pulling forward the long-term target by two years — with revenue guidance $990M–$1.01B. Despite still-negative EPS (-$0.21), the growth and margin re-rating narrative drove delayed buying. Monday extended the post-earnings rally to make GENI one of the day's largest % gainers.
+          </div>
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">Options &amp; Flow</div>
+        <div class="zh">
+          小型股（市值較小），期權 OI 規模有限。分析師普遍維持買入評級但下調了目標價（反映虧損擴大的短期風險）。主要動力仍是成長再評級。
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">Retail Buzz</div>
+        <div class="zh">
+          SimplyWallSt 等媒體標題：「How Investors Are Reacting To Genius Sports Raising 2026 Guidance」顯示廣泛討論。體育博弈板塊對此類「成長轉折」個股關注度較高。
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">後續觀察 / What to watch next</div>
+        <div class="zh">
+          1. Legend 整合後實際 EBITDA margin 走勢；2. 博弈市場監管風險（尤其美國州立博弈法規）；3. 是否能達成 $1B 收入門檻；4. 空方覆蓋比率（有虧損歷史，部分分析師保留意見）。
+        </div>
+      </div>
+      <div style="font-size: 11px; color: #9ca3af; margin-top: 8px;">
+        Sources: <a href="https://simplywall.st/stocks/us/consumer-services/nyse-geni/genius-sports/news/how-investors-are-reacting-to-genius-sports-geni-raising-202" target="_blank">Simply Wall St</a> · 
+        <a href="https://sigma.world/news/genius-sports-reports-31-revenue-growth-in-its-q1-2026-results/" target="_blank">SigmaPlay</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STX -->
+  <div class="ticker-section">
+    <div class="ticker-header">
+      <span class="ticker-name">$STX</span>
+      <span class="company-name">Seagate Technology / 希捷科技（HDD/AI 儲存）</span>
+      <span class="tag tag-loser">當日大跌</span>
+      <span class="tag tag-volume">成交量爆量 (賣壓)</span>
+      <span class="tag tag-buzz">半導體板塊拖累</span>
+    </div>
+    <div class="tape-bar">
+      Tape: Close ~$740.84 (▼6.87%) · 日內低 $711.34 · 高 $745.98 · 52W 高 $834 · Vol 266.9K (vs avg 4.44M — 但報導稱爆量賣壓)
+    </div>
+    <div class="ticker-body">
+      <div class="sub-section">
+        <div class="sub-label">為什麼今天熱 / Why it's hot today</div>
+        <div class="bilingual">
+          <div class="zh">
+            Seagate CEO Dave Mosley 在 <strong>JPMorgan 全球科技媒體通訊大會</strong>（5/18）發表驚人言論：當被問及是否計劃擴建新廠時，他表示建廠「費時太長」且可能導致供過於求。
+            這句話引發市場恐慌，因為投資人正在為 AI 驅動的儲存需求爆發押注 Seagate 的產能擴張故事。CEO 的表態等同於承認 Seagate 在 AI 超級週期中<strong>不會積極搶奪市占</strong>。股價暴跌 6.87%，連帶拖累 Micron (-5.95%)、SanDisk (-5.35%)、Western Digital (-4.84%)。
+          </div>
+          <div class="en">
+            CEO Dave Mosley's comments at JPMorgan's Global Technology, Media & Communications Conference (5/18) shocked investors: he said building new factories would "take too long" and risk overcapacity. This directly undermined the core bull thesis — that Seagate would aggressively expand to capture AI-driven storage demand. Stock fell 6.87% to ~$740 (off a 52W high of $834), marking its largest single-day decline in nearly 2 months. The contagion spread to MU (-5.95%), SNDK (-5.35%), WDC (-4.84%) as the entire memory storage sector was repriced.
+          </div>
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">Options &amp; Flow</div>
+        <div class="zh">
+          在大跌日，Put side 成交量顯著上升是可預期的。具體期權 OI 數字待確認。IV 整體偏高，對 Put 買方有利但溢價昂貴。短期 put 或許在大跌之前已有異常活動（需確認）。
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">Retail Buzz</div>
+        <div class="zh">
+          CNBC 標題「Seagate leads memory sell-off as CEO says it would 'take too long' to build new factories」廣泛傳播。Bloomberg 亦做重點報導。多個 Reddit 討論串出現「CEO 自打嘴巴」的批評，部分人認為這是買入機會。
+          Trefis 分析報告甚至下修目標至 $520（隱含更大下行空間），引發討論。
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">後續觀察 / What to watch next</div>
+        <div class="zh">
+          1. Seagate 能否在後續說明會或 Q&amp;A 澄清或修正 CEO 言論；2. 記憶體/儲存板塊是否持續走弱；3. 近期 52W 高 $834 → 目前 $740，是否形成更大回調；4. 競爭對手（WDC、MU）Q2 季報是否提供相反敘事；5. AI HDD 實際訂單數據是否支撐多方。
+        </div>
+      </div>
+      <div style="font-size: 11px; color: #9ca3af; margin-top: 8px;">
+        Sources: <a href="https://www.cnbc.com/2026/05/18/seagate-memory-chip-stocks-ai.html" target="_blank">CNBC</a> · 
+        <a href="https://www.bloomberg.com/news/articles/2026-05-18/seagate-slips-as-ceo-says-new-factories-would-take-too-long" target="_blank">Bloomberg</a> · 
+        <a href="https://invezz.com/news/2026/05/18/seagate-stock-slides-7-as-ai-demand-sparks-capacity-fears/" target="_blank">Invezz</a> ·
+        <a href="https://www.fxleaders.com/news/2026/05/19/seagate-stx-stock-falls-6-to-740-despite-record-834-high-ai-storage-demand-and-strong-q3-results-fuel-optimism/" target="_blank">FXLeaders</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MU -->
+  <div class="ticker-section">
+    <div class="ticker-header">
+      <span class="ticker-name">$MU</span>
+      <span class="company-name">Micron Technology / 美光科技（DRAM/NAND）</span>
+      <span class="tag tag-loser">連帶重挫</span>
+      <span class="tag tag-volume">大量</span>
+      <span class="tag tag-risk">多重逆風</span>
+    </div>
+    <div class="tape-bar">
+      Tape: Close $681.54 (▼5.95%) · 前52W 峰值更高 · 多重利空疊加
+    </div>
+    <div class="ticker-body">
+      <div class="sub-section">
+        <div class="sub-label">為什麼今天熱 / Why it's hot today</div>
+        <div class="bilingual">
+          <div class="zh">
+            Micron 並非因為自身消息而成為焦點，而是作為「記憶體族群集體拋售」的核心標的。主要利空疊加：
+            一、<strong>Seagate 拖累</strong>：STX CEO 言論引發記憶體/儲存板塊系統性賣壓；
+            二、<strong>Trump-Xi 峰會未達成晶片出口共識</strong>：報導指 Nvidia H200 對中銷售未如預期落地，間接衝擊 DRAM/HBM 受益股；
+            三、<strong>通膨數據偏熱</strong>：推升殖利率，壓制高本益比科技股評估。
+            從 52W 高點計算已有顯著回調，但多家分析師仍維持長期看多（目標價 $950–$1,100）。
+          </div>
+          <div class="en">
+            Micron fell 5.95% to $681.54 due to multiple concurrent headwinds: (1) Seagate-triggered sector-wide memory selloff; (2) reports that no AI chip sales to China materialized from the Trump-Xi summit (undermining the China re-export thesis for HBM/DRAM); (3) hot inflation data pushing yields higher and compressing growth stock multiples. Despite the selloff, analyst consensus remains bullish: Melius raised target to $1,100, DA Davidson to $1,000, BofA to $950.
+          </div>
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">Options &amp; Flow</div>
+        <div class="zh">
+          大跌日 Put 成交量可預期上升。MU 是流動性極高的期權標的，IV 在大跌日通常有明顯跳升。具體數字待確認。
+        </div>
+      </div>
+      <div class="sub-section">
+        <div class="sub-label">後續觀察 / What to watch next</div>
+        <div class="zh">
+          1. 中美晶片出口談判的後續進展；2. HBM3E/HBM4 需求訂單是否維持（來自 Nvidia/AMD）；3. Samsung 供應鏈擾動（韓國勞工問題）；4. Morgan Stanley「買入機會」論文的市場接受度。
+        </div>
+      </div>
+      <div style="font-size: 11px; color: #9ca3af; margin-top: 8px;">
+        Sources: <a href="https://www.fool.com/coverage/stock-market-today/2026/05/18/stock-market-today-may-18-micron-falls-as-memory-concerns-test-ai-rally/" target="_blank">Motley Fool</a> · 
+        <a href="https://www.benzinga.com/markets/tech/26/05/52500322/sandisk-micron-stocks-plummet-korea-ai-dividend-memory-boom" target="_blank">Benzinga</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WATCHLIST -->
+<div class="section">
+  <h2>👀 次熱觀察 Watchlist (未入主榜但值得追蹤)</h2>
+
+  <div class="watchlist-item">
+    <span class="wl-ticker">$NVDA</span> <span class="tag tag-volume">大量討論</span>
+    <div style="margin-top: 6px; font-size: 13px;">
+      <strong>Nvidia</strong> — 週一 Dow 中跌幅 -1.39%，Reddit 與 WSB 最多討論股之一。SPY mentions +56%、NVDA 仍為 WSB 第一大提及股。AI 晶片對中出口不確定性持續是短期壓制因素。VIX 17+ 環境下期權活動活躍。後續觀察：H200/B200 中國銷售能否鬆綁、COMPUTEX 2026 展示內容。
+    </div>
+  </div>
+
+  <div class="watchlist-item">
+    <span class="wl-ticker">$WDC / $SNDK</span> <span class="tag tag-loser">連帶重挫</span>
+    <div style="margin-top: 6px; font-size: 13px;">
+      <strong>Western Digital / SanDisk</strong> — WDC -4.84%、SNDK -5.35%，均受 Seagate 事件拖累。WDC 剛完成 SanDisk 分拆，雙股都面臨 AI 儲存需求預期重新定價。
+    </div>
+  </div>
+
+  <div class="watchlist-item">
+    <span class="wl-ticker">$AMST</span> <span class="tag tag-volume">超量爆漲</span>
+    <div style="margin-top: 6px; font-size: 13px;">
+      <strong>Amesite Inc.</strong> — 盤前預計 +199.6%，成交量比率 2,576x（極度爆量），原因為 NurseMagic AI 平台獲得最大企業部署合約。微型股，高度投機，不在主榜但技術上是當日最高%漲幅個股。流動性極差，注意滑點風險。
+    </div>
+  </div>
+
+  <div class="watchlist-item">
+    <span class="wl-ticker">$PLTR</span> <span class="tag tag-buzz">WSB 熱議</span>
+    <div style="margin-top: 6px; font-size: 13px;">
+      <strong>Palantir Technologies</strong> — WSB/StockTwits 長期熱議股，AI 政府合約題材持續受零售投資者關注。具體 5/19 動向待確認。
+    </div>
+  </div>
+</div>
+
+<!-- HALTS & WEIRDNESS -->
+<div class="section">
+  <h2>⚠️ 異常事件 Halts &amp; Weirdness</h2>
+
+  <div class="halt-item">
+    <span class="halt-ticker">$AMST (Amesite)</span>
+    <div style="margin-top: 5px; font-size: 13px;">
+      盤前 +199.6% 伴隨 2,576x 成交量比率。極度投機性微型股，可能觸發 LULD（限價上下限）停牌機制。投資人應確認是否發生正式交易停止。此類股票通常存在操縱風險，不在本報告主榜。
+    </div>
+  </div>
+
+  <div class="halt-item">
+    <span class="halt-ticker">$RMCO</span>
+    <div style="margin-top: 5px; font-size: 13px;">
+      盤前 -23.2%，高相對成交量，但無明顯新聞。此類「無催化劑大跌」值得關注是否有未公開的重大消息或SEC相關動作。
+    </div>
+  </div>
+</div>
+
+<!-- SOURCES -->
+<div class="section">
+  <h2>📎 資料來源 Sources</h2>
+  <div class="sources-section">
+    <p>以下為本報告引用之主要來源（部分資料來自搜尋結果摘要，具體頁面可能需要訂閱）：</p>
+    <div class="sources-grid">
+      <span class="source-tag"><a href="https://finance.yahoo.com/markets/stocks/gainers/" target="_blank">Yahoo Finance Gainers</a></span>
+      <span class="source-tag"><a href="https://finance.yahoo.com/markets/stocks/most-active/" target="_blank">Yahoo Most Active</a></span>
+      <span class="source-tag"><a href="https://www.cnbc.com/2026/05/18/seagate-memory-chip-stocks-ai.html" target="_blank">CNBC Seagate</a></span>
+      <span class="source-tag"><a href="https://www.bloomberg.com/news/articles/2026-05-18/seagate-slips-as-ceo-says-new-factories-would-take-too-long" target="_blank">Bloomberg STX</a></span>
+      <span class="source-tag"><a href="https://liveramp.com/news/publicis-to-acquire-liveramp-to-accelerate-data-co-creation-for-smarter-agents" target="_blank">LiveRamp官方</a></span>
+      <span class="source-tag"><a href="https://www.sec.gov/Archives/edgar/data/0000733269/000110465926062908/tm2614904d1_ex99-1.htm" target="_blank">SEC RAMP 8-K</a></span>
+      <span class="source-tag"><a href="https://www.stocktitan.net/news/BRC/brady-corporation-reports-record-adjusted-eps-in-its-fiscal-2026-z5aoc30qft8d.html" target="_blank">BRC StockTitan</a></span>
+      <span class="source-tag"><a href="https://www.fool.com/coverage/stock-market-today/2026/05/18/stock-market-today-may-18-t1-energy-surges-after-situational-awareness-discloses-10-million-share-stake/" target="_blank">Motley Fool TE</a></span>
+      <span class="source-tag"><a href="https://www.benzinga.com/trading-ideas/movers/26/05/52644907/aevex-shares-climb-monday-whats-driving-the-move" target="_blank">Benzinga AVEX</a></span>
+      <span class="source-tag"><a href="https://simplywall.st/stocks/us/consumer-services/nyse-geni/genius-sports/news/how-investors-are-reacting-to-genius-sports-geni-raising-202" target="_blank">SimplyWallSt GENI</a></span>
+      <span class="source-tag"><a href="https://247wallst.com/investing/2026/05/19/stock-market-live-may-19-2026-sp-500-spy-still-slipping-on-uncertainty/" target="_blank">247WallSt 市場綜覽</a></span>
+      <span class="source-tag"><a href="https://www.wallstreetzen.com/stock-screener/biggest-stock-losers-today" target="_blank">WallStreetZen Losers</a></span>
+      <span class="source-tag"><a href="https://www.quiverquant.com/wallstreetbets/" target="_blank">QuiverQuant WSB</a></span>
+      <span class="source-tag"><a href="https://apewisdom.io/" target="_blank">ApeWisdom WSB</a></span>
+      <span class="source-tag"><a href="https://stocktwits.com/rankings/most-active" target="_blank">StockTwits Most Active</a></span>
+      <span class="source-tag"><a href="https://invezz.com/news/2026/05/18/seagate-stock-slides-7-as-ai-demand-sparks-capacity-fears/" target="_blank">Invezz STX</a></span>
+    </div>
+    <p style="margin-top: 10px; color: #9ca3af;">
+      注意：Bloomberg、WSJ、Seeking Alpha 部分內容為付費牆（paywall）。本報告中相關內容來自免費摘要或第三方轉述，完整報導請直接訪問原始來源。
+      部分期權 OI、短利（short interest）具體數字無法從公開搜尋結果取得，標記為「待確認」。
+    </p>
+  </div>
+</div>
+
+<div style="text-align: center; color: #9ca3af; font-size: 11px; margin-top: 16px; padding-bottom: 10px;">
+  熱門美股日報 · 2026-05-20 · 交易日 2026-05-19 (US) · 由 Claude AI 整理，僅供資訊參考
+</div>
+
+</body>
+</html>
