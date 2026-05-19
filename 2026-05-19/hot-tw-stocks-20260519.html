@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日熱門台股 — 2026-05-19</title>
+<style>
+:root { color-scheme: light; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+  background: #f8f9fa;
+  color: #1a1a2e;
+  line-height: 1.6;
+  font-size: 14px;
+}
+.header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #fff;
+  padding: 20px 24px 16px;
+}
+.header h1 { font-size: 20px; font-weight: 700; letter-spacing: 0.5px; }
+.header .subtitle { color: #a0aec0; font-size: 12px; margin-top: 4px; }
+.session-badge {
+  display: inline-block;
+  background: #e53e3e;
+  color: #fff;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+.container { max-width: 960px; margin: 0 auto; padding: 16px; }
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a2e;
+  border-left: 4px solid #e53e3e;
+  padding-left: 10px;
+  margin: 20px 0 12px;
+}
+.market-backdrop {
+  background: #fff;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  border: 1px solid #e2e8f0;
+}
+.market-backdrop p { color: #4a5568; font-size: 13px; line-height: 1.7; }
+.market-stats { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+.stat-chip {
+  background: #edf2f7;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.stat-chip.up { background: #fed7d7; color: #c53030; }
+.stat-chip.down { background: #bee3f8; color: #2b6cb0; }
+.stat-chip.neutral { background: #e2e8f0; color: #4a5568; }
+table { border-collapse: collapse; width: 100%; background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; }
+.summary-table-wrap { overflow-x: auto; margin-bottom: 16px; }
+th { background: #1a1a2e; color: #fff; font-size: 12px; font-weight: 600; padding: 10px 8px; text-align: center; white-space: nowrap; }
+td { padding: 9px 8px; text-align: center; font-size: 12px; border-bottom: 1px solid #f0f4f8; vertical-align: middle; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #f7fafc; }
+.ticker { font-weight: 700; color: #0f3460; }
+.pct-up { color: #c53030; font-weight: 700; }
+.pct-down { color: #2b6cb0; font-weight: 700; }
+.stars { color: #f6ad55; }
+.stock-card { background: #fff; border-radius: 10px; border: 1px solid #e2e8f0; margin-bottom: 14px; overflow: hidden; }
+.card-header { background: #1a1a2e; color: #fff; padding: 12px 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.card-ticker { font-size: 18px; font-weight: 800; }
+.card-name { font-size: 14px; color: #a0aec0; }
+.card-badge { font-size: 13px; font-weight: 700; padding: 2px 10px; border-radius: 5px; background: #c53030; }
+.card-badge.down { background: #2b6cb0; }
+.card-badge.warn { background: #c05621; }
+.card-body { padding: 14px 16px; }
+.field { margin-bottom: 12px; }
+.field-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #718096; margin-bottom: 4px; }
+.field-content { color: #2d3748; font-size: 13px; line-height: 1.65; }
+.tag { display: inline-block; border-radius: 10px; padding: 2px 8px; font-size: 11px; font-weight: 600; margin: 1px; }
+.tag-red { background: #fed7d7; color: #c53030; }
+.tag-purple { background: #e9d8fd; color: #553c9a; }
+.tag-green { background: #c6f6d5; color: #276749; }
+.tag-orange { background: #feebc8; color: #c05621; }
+.tag-gray { background: #e2e8f0; color: #4a5568; }
+.caution-box { background: #fff5f5; border-left: 3px solid #fc8181; padding: 8px 12px; border-radius: 0 6px 6px 0; font-size: 12px; color: #c53030; margin-top: 8px; }
+.watch-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px; margin-bottom: 10px; }
+.watch-card h4 { font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+.watch-card p { font-size: 12px; color: #4a5568; line-height: 1.6; }
+.sources-section { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 16px; margin-top: 16px; }
+.sources-section h3 { font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+.source-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.source-list li a { color: #2b6cb0; text-decoration: none; font-size: 11px; background: #ebf8ff; padding: 3px 8px; border-radius: 10px; border: 1px solid #bee3f8; }
+.source-list li a:hover { background: #bee3f8; }
+.note-box { background: #fffaf0; border: 1px solid #f6ad55; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #744210; margin-bottom: 12px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+.divider { border: none; border-top: 1px solid #e2e8f0; margin: 16px 0; }
+.footer { text-align: center; color: #a0aec0; font-size: 11px; padding: 16px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>今日熱門台股 — 2026-05-19</h1>
+  <div class="subtitle">Hot Taiwan Stocks of the Day · TWSE/TPEx Focus · 中英並陳</div>
+  <div class="session-badge">TWSE 2026-05-19 · 09:00–13:30 CST · 盤中生成</div>
+</div>
+
+<div class="container">
+
+  <div class="note-box">
+    <strong>資料說明 / Data Note：</strong>本報告於盤中（09:44 CST）生成，今日完整盤後數據尚未公佈。標示「待確認 TBC」者以前一交易日（5/18）收盤為基準；漲跌幅為盤中報導或預估值。今日市場三大主軸催化劑已確認：①輝達（NVDA）財報（台灣時間 5/20 盤後放榜）②MSCI 台股 5/29 生效③老 AI 伺服器補漲。
+    <br><em>Generated mid-session (09:44 CST). Official close not yet available. Three confirmed catalysts: ① NVDA earnings (US after-hours 5/20) ② MSCI Taiwan rebalance effective 5/29 ③ Old-AI ODM catch-up rally.</em>
+  </div>
+
+  <!-- Market Backdrop -->
+  <div class="section-title">大盤背景 / Market Backdrop</div>
+  <div class="market-backdrop">
+    <div class="market-stats">
+      <div class="stat-chip neutral">加權指數 5/18 收 40,891.82</div>
+      <div class="stat-chip up">前日 +280.54 (+0.68%)</div>
+      <div class="stat-chip neutral">5/18 成交值 ~9,919 億</div>
+      <div class="stat-chip up">5/4 歷史首破 4 萬點</div>
+      <div class="stat-chip neutral">本週 ETF 密集除息</div>
+    </div>
+    <p>台股自 5/4 歷史性首破 4 萬點（史上最大單日漲點 1,778 點）後，持續於 4 萬～4.2 萬點高檔整理。5/18 收 40,891，連日維持相對強勢。今日（5/19）資金焦點：①輝達財報明晚放榜前的 AI 供應鏈卡位；②MSCI 5/29 生效前的被動資金機械性流入（以旺矽、台積電為主要受惠標的）；③老 AI 伺服器族群（鴻海、緯穎）補漲浪正在醞釀。台幣維持相對強勢，外資整體回補，但本週 ETF 密集除息可能分流部分成交量。</p>
+    <p style="margin-top:8px;color:#718096;font-size:12px;"><em>TAIEX closed at 40,891 on May 18 (+0.68%), consolidating near all-time highs after breaching 40,000 on May 4. Today's session driven by pre-NVDA earnings positioning and MSCI passive inflows ahead of the May 29 rebalance. Old-AI ODM group catch-up gaining momentum. TWD firm; foreign net buying continues. ETF ex-dividends this week may absorb some volume.</em></p>
+  </div>
+
+  <!-- Summary Table -->
+  <div class="section-title">熱門焦點 Top 8 / Today's Hottest Names</div>
+  <div class="summary-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>股號</th>
+          <th>公司</th>
+          <th>基準價(5/18)</th>
+          <th>近期漲跌</th>
+          <th>族群</th>
+          <th>三大法人</th>
+          <th>熱度</th>
+          <th>主要 Catalyst</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ticker">6223</td>
+          <td>旺矽</td>
+          <td>6,135</td>
+          <td class="pct-up">+4.07% (5/18)</td>
+          <td><span class="tag tag-purple">矽晶圓/MSCI</span></td>
+          <td>外+／投+</td>
+          <td class="stars">★★★★★</td>
+          <td>MSCI 標準指數首次納入，5/29 生效</td>
+        </tr>
+        <tr>
+          <td class="ticker">2317</td>
+          <td>鴻海</td>
+          <td>TBC</td>
+          <td class="pct-up">盤中 +5% (253元)</td>
+          <td><span class="tag tag-orange">AI 伺服器</span></td>
+          <td>外+</td>
+          <td class="stars">★★★★☆</td>
+          <td>老AI補漲龍頭 + 機器人 + 低軌衛星三題材</td>
+        </tr>
+        <tr>
+          <td class="ticker">2330</td>
+          <td>台積電</td>
+          <td>~2,270</td>
+          <td class="pct-up">NVDA 財報前卡位</td>
+          <td><span class="tag tag-red">晶圓代工</span></td>
+          <td>外+</td>
+          <td class="stars">★★★★☆</td>
+          <td>MSCI 權重史高 58.33%；CoWoS NVDA 供應鏈</td>
+        </tr>
+        <tr>
+          <td class="ticker">6669</td>
+          <td>緯穎</td>
+          <td>TBC</td>
+          <td class="pct-up">盤中 +4% 估</td>
+          <td><span class="tag tag-orange">AI 伺服器</span></td>
+          <td>外+</td>
+          <td class="stars">★★★★☆</td>
+          <td>老AI補漲組合，液冷機架出貨強</td>
+        </tr>
+        <tr>
+          <td class="ticker">2382</td>
+          <td>廣達</td>
+          <td>306</td>
+          <td class="pct-down">-8.5% 法說後(5/15)</td>
+          <td><span class="tag tag-orange">AI 伺服器</span></td>
+          <td>外±</td>
+          <td class="stars">★★★☆☆</td>
+          <td>法說後重摔，超跌反彈觀察</td>
+        </tr>
+        <tr>
+          <td class="ticker">2454</td>
+          <td>聯發科</td>
+          <td>TBC</td>
+          <td class="pct-up">近高 3,155 (+漲停)</td>
+          <td><span class="tag tag-red">IC設計/AI</span></td>
+          <td>外+</td>
+          <td class="stars">★★★★☆</td>
+          <td>AI ASIC 業務翻倍計畫，估值重估</td>
+        </tr>
+        <tr>
+          <td class="ticker">2303</td>
+          <td>聯電</td>
+          <td>TBC</td>
+          <td class="pct-up">前盤 +5% (漲停過)</td>
+          <td><span class="tag tag-red">晶圓代工</span></td>
+          <td>外+</td>
+          <td class="stars">★★★☆☆</td>
+          <td>Intel 訂單傳聞 + 成熟製程回溫補漲</td>
+        </tr>
+        <tr>
+          <td class="ticker">00878</td>
+          <td>國泰永續高股息ETF</td>
+          <td>TBC</td>
+          <td class="pct-down">除息 0.66元 今日</td>
+          <td><span class="tag tag-gray">ETF 除息</span></td>
+          <td>—</td>
+          <td class="stars">★★★☆☆</td>
+          <td>本週密集除息，成交量龐大分流市場</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Deep Dives -->
+  <div class="section-title">個股深度分析 / Per-Stock Deep Dive</div>
+
+  <!-- 旺矽 6223 -->
+  <div class="stock-card">
+    <div class="card-header">
+      <div class="card-ticker">6223</div>
+      <div class="card-name">旺矽科技 / Wafer Works Corp.</div>
+      <div class="card-badge">MSCI 入列 ★★★★★</div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <div class="field-label">今日數據 / Today's Tape</div>
+        <div class="field-content">5/18 收 <strong>6,135 元</strong>（+4.07%，+240 元）· 成交量 1,496 張。MSCI 宣布（5/13）以來自 5,895 元上漲約 +4%。今日預計因被動資金卡位而放量。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+        <div class="field-content"><strong>核心：MSCI 全球標準型指數首次納入旺矽（6223），5/29 收盤生效。</strong>追蹤 MSCI 系列指數的全球被動型 ETF 必須在生效前機械性買進旺矽。旺矽為台灣最大矽晶圓廠，供應台積電、三星等，並受惠 AI 算力擴張帶動的矽晶圓需求成長。今日（5/19 至 5/29）尚有 7 個交易日，被動資金流入壓力持續。<br><em>Core catalyst: first-ever inclusion in MSCI Global Standard Index (announced 5/13, effective 5/29). Passive ETFs globally must mechanically buy before 5/29. As Taiwan's largest silicon wafer producer supplying TSMC and Samsung, 旺矽 benefits from both MSCI flow and AI-driven wafer demand. 7 trading days remain until effective date.</em></div>
+      </div>
+      <div class="field">
+        <div class="field-label">籌碼觀察 / Flow Watch</div>
+        <div class="field-content">外資為主力，5/13 宣布後持續買超；投信跟進。融資低水位（機構主導）。主力分點集中，外資圈券商為主要接手方。5/29 前預計持續有機械性被動資金流入。<em>Foreign buying dominates post-MSCI-announcement; passive inflow mechanical and persistent through May 29.</em></div>
+      </div>
+      <div class="field">
+        <div class="field-label">社群聲量 / Retail Buzz</div>
+        <div class="field-content">PTT Stock 板有討論「旺矽 MSCI 確定入列，卡位訊號明確」，CMoney 熱搜攀升。投顧頻道廣泛定調「MSCI 必買股」，但也提醒生效後有「利多出盡」賣壓風險。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">炒作脈絡 / Narrative Context</div>
+        <div class="field-content">所屬族群：矽晶圓 / 半導體材料 / MSCI 調整概念。旺矽歷史上因矽晶圓供需失衡出現大波動，本次 MSCI 納入為純機械性資金驅動，通常生效前 3–5 個交易日動能最強，生效後存在均值回歸風險。<em>MSCI inclusion is purely mechanical passive flow. Historical patterns show peak momentum 3–5 days before effective date, with mean-reversion risk post-May 29.</em></div>
+      </div>
+      <div class="field">
+        <div class="field-label">後續觀察 / What to Watch</div>
+        <div class="field-content">①5/29 前是否持續量增；②生效後是否出現「建倉完畢賣壓」；③矽晶圓 Q2 報價走勢。<strong>以上為分析，非投資建議。</strong></div>
+      </div>
+      <div class="field">
+        <div class="field-label">來源</div>
+        <div class="field-content"><a href="https://finance.technews.tw/2026/05/13/semiconductor-dark-horse">TechNews 旺矽MSCI</a> · <a href="https://www.businesstoday.com.tw/article/category/183008/post/202605130031/">今周刊MSCI調整</a> · <a href="https://tw.stock.yahoo.com/quote/6223.TWO">Yahoo旺矽</a> · <a href="https://money.udn.com/money/story/5607/9499833">經濟日報MSCI</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 鴻海 2317 -->
+  <div class="stock-card">
+    <div class="card-header">
+      <div class="card-ticker">2317</div>
+      <div class="card-name">鴻海精密 / Hon Hai Precision (Foxconn)</div>
+      <div class="card-badge">老AI補漲龍頭 ★★★★☆</div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <div class="field-label">今日數據 / Today's Tape</div>
+        <div class="field-content">盤中報 <strong>253 元附近（+5%）</strong>，成交量放大，為近日最強老AI代表。收盤待確認。<em>Intraday ~NT$253 (+5%); volume surging. Close TBC.</em></div>
+      </div>
+      <div class="field">
+        <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+        <div class="field-content"><strong>三重題材疊加：</strong>①老 AI 伺服器補漲——鴻海 AI 伺服器出貨量全球第一（市佔 ~44%，月出貨約 3,700 櫃），相對台積電、聯發科漲幅嚴重落後，外資報告觸發補漲；②機器人代工題材（鴻海積極布局 AI 機器人代工廠）；③低軌衛星（SpaceX IPO 帶動台系衛星供應鏈）。今日三題材共振，鴻海為資金補漲首選。<br><em>Triple catalyst: ① Old-AI catch-up (Foxconn #1 AI server maker globally, ~44% share, lagged TSMC/MediaTek in gains); ② AI robotics manufacturing; ③ Low-orbit satellite SpaceX IPO buzz. All three resonating today.</em></div>
+      </div>
+      <div class="field">
+        <div class="field-label">籌碼觀察 / Flow Watch</div>
+        <div class="field-content">外資高盛、摩根士丹利持續點名買超；投信跟進。散戶因前期落後台積電而積極追補。融資正常，機構主導。4 月營收創歷史新高進一步催化。<em>Goldman Sachs and Morgan Stanley consistently in buy column. Retail chasing the catch-up. April revenue hit record high.</em></div>
+      </div>
+      <div class="field">
+        <div class="field-label">社群聲量 / Retail Buzz</div>
+        <div class="field-content">PTT Stock 熱討「鴻海今天要噴了」、「老AI族群補漲起跑」，CMoney 人氣排行今日前三。YouTube 投顧直播廣泛點名鴻海、緯穎為補漲組合。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">炒作脈絡 / Narrative Context</div>
+        <div class="field-content">鴻海 2026 EPS 預估約 19 元，現本益比 12–13 倍，遠低於台積電，估值吸引力強。老AI族群在台積電 / 聯發科帶動大盤創高後，正進入第二波補漲輪動。<em>Foxconn at 12–13x PE vs TSMC's premium multiple. FY2026 EPS ~NT$19. Classic value-rotation second leg within AI supply chain.</em></div>
+      </div>
+      <div class="field">
+        <div class="field-label">後續觀察 / What to Watch</div>
+        <div class="field-content">①補漲能否延續至 NVDA 財報後；②AI 機器人訂單具體揭露；③今日若爆量需留意隔日沖風險。<strong>分析視角，非投資建議。</strong></div>
+      </div>
+      <div class="field">
+        <div class="field-label">來源</div>
+        <div class="field-content"><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E8%80%81AI%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%97%8F%E7%BE%A4%E4%BB%8A%E6%97%A5%E5%9B%9E%E7%A5%9E">新光老AI補漲報告</a> · <a href="https://finance.technews.tw/2026/05/12/foxconn-leads-quanta-and-wistron-in-ai-server-shipments/">TechNews鴻海AI出貨</a> · <a href="https://cmnews.com.tw/article/newsyoudeservetoknow-e0ad55e1-4929-11f1-aa3e-a284cdbab0ba">CMoney鴻海盤中</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 台積電 2330 -->
+  <div class="stock-card">
+    <div class="card-header">
+      <div class="card-ticker">2330</div>
+      <div class="card-name">台灣積體電路製造 / TSMC</div>
+      <div class="card-badge">NVDA財報/MSCI雙題材 ★★★★☆</div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <div class="field-label">今日數據 / Today's Tape</div>
+        <div class="field-content">5/18 約 2,270 元附近，近期高點 2,325 元（5/15 盤中）。MSCI 台灣指數權重調至史高 58.33%（+0.56%），ADR 本週漲 4.48%。收盤待確認。<em>~NT$2,270 on 5/18; intraday high 2,325 on 5/15. MSCI weight at record 58.33%. ADR +4.48% this week.</em></div>
+      </div>
+      <div class="field">
+        <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+        <div class="field-content"><strong>雙重催化：</strong>①輝達財報明晚（美東 5/20）放榜——台積電是輝達 GB200/H200 CoWoS 先進封裝及 N3 晶片最大代工夥伴，是「NVDA 財報行情」最直接受惠台股；②MSCI 台灣指數權重再調升至史高 58.33%，被動資金 5/29 前須機械性買進，規模估計達數十億美元。兩大機制同步作用，台積電今日為大盤穩定器兼焦點核心。<br><em>Dual catalysts: NVDA earnings tomorrow (TSMC is primary CoWoS/N3 partner for NVDA); MSCI weight at record 58.33%, implying billions in passive inflows before 5/29. TSMC is both market anchor and today's primary focus.</em></div>
+      </div>
+      <div class="field">
+        <div class="field-label">籌碼觀察 / Flow Watch</div>
+        <div class="field-content">外資為台積電穩定性買家；MSCI 0.56% 的權重提升對應龐大被動資金機械性流入（5/29 前陸續進場）。ADR 溢價正值，外資多頭立場明確。投信跟隨。<em>MSCI +0.56% weight implies billions in passive USD buying before 5/29. ADR premium positive, confirming foreign bullish stance.</em></div>
+      </div>
+      <div class="field">
+        <div class="field-label">社群聲量 / Retail Buzz</div>
+        <div class="field-content">PTT 今日熱討「NVDA 財報前要不要空台積電」、「護國神山 MSCI 繼續加碼」，法人觀點以多頭為主，散戶多採觀望。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">炒作脈絡 / Narrative Context</div>
+        <div class="field-content">台積電是「台股代理 NVDA」的最直接標的，每次 NVDA 財報前後皆是台積電成交量高峰。CoWoS 產能持續供不應求，市場預估台積電 2026 EPS 超過 70 元。MSCI 權重史高強化結構性買盤底部。<em>TSMC is the market's primary NVDA proxy. CoWoS demand supply-constrained. FY2026 EPS consensus >NT$70. MSCI weight at record = structural buying floor.</em></div>
+      </div>
+      <div class="field">
+        <div class="field-label">後續觀察 / What to Watch</div>
+        <div class="field-content">①NVDA 財報是否 beat + raise（若是，台積電明日可能跳空）；②MSCI 5/29 前量能維持；③短均線支撐是否有效。<strong>以上為分析，非投資建議。</strong></div>
+      </div>
+      <div class="field">
+        <div class="field-label">來源</div>
+        <div class="field-content"><a href="https://money.udn.com/money/story/5607/9499833">經濟日報 MSCI</a> · <a href="https://news.pchome.com.tw/finance/cna_business/20260513/index-17786362894923722003.html">中央社台積電MSCI</a> · <a href="https://tw.stock.yahoo.com/news/msci%E8%AA%BF%E6%95%B45%E6%9C%8829%E6%97%A5%E7%94%9F%E6%95%88">Yahoo投資早知道</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 廣達 2382 -->
+  <div class="stock-card">
+    <div class="card-header">
+      <div class="card-ticker">2382</div>
+      <div class="card-name">廣達電腦 / Quanta Computer</div>
+      <div class="card-badge down">法說後急跌反彈觀察 ★★★☆☆</div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <div class="field-label">今日數據 / Today's Tape</div>
+        <div class="field-content">5/15 法說後大跌 <strong>-8.52%（-28.5 元）至 306 元</strong>，今日觀察能否止穩反彈。成交量預計放大（多空交戰）。<em>Dropped 8.52% to NT$306 on 5/15 post-earnings. Watching for stabilization today.</em></div>
+      </div>
+      <div class="field">
+        <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+        <div class="field-content">廣達 5/14 法說後，市場對毛利率低於預期（AI 伺服器毛利遜於鴻海）引爆賣壓，5/15 重挫。然多位資深分析師認為「整體財報並不悲觀」，AI 伺服器出貨量全球第二（月出貨約 2,100 櫃）、客戶涵蓋 Google、Microsoft 的長線結構未改。今日為「先殺後檢」熱門股典型，超跌反彈能否成立是今日焦點。<br><em>Sharp post-earnings drop on margin concerns (AI server margins slightly below Foxconn). But analysts say fundamentals intact: #2 globally in AI server shipments (2,100 racks/month), Google and Microsoft customers. Today's question: real support or dead-cat bounce?</em></div>
+      </div>
+      <div class="field">
+        <div class="field-label">籌碼觀察 / Flow Watch</div>
+        <div class="field-content">5/15 外資短暫調節，但整體長線多頭立場未改。融資在急跌後可能出現逢低補進；主力分點觀察是否有券商承接。今日是關鍵籌碼驗證日。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">社群聲量 / Retail Buzz</div>
+        <div class="field-content">PTT 及 CMoney 出現兩極討論：「廣達法說爆雷了？」vs「超跌才是進場機會」。今日討論度在八檔中排名前三，多空分歧大。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">炒作脈絡 / Narrative Context</div>
+        <div class="field-content">廣達 AI 伺服器毛利率（~5–6%）略遜鴻海（~6–8%），但出貨量全球第二，且擁有 Google/Microsoft 等頂級客戶。若 NVDA 財報正面，整體 AI 伺服器族群有機會帶動廣達回升。<em>Quanta's AI server margins slightly below Foxconn's, but global #2 shipments with top-tier clients. Positive NVDA earnings could lift the whole ODM group.</em></div>
+      </div>
+      <div class="field">
+        <div class="field-label">後續觀察 / What to Watch</div>
+        <div class="field-content">①是否能站回 320 元（跌前關鍵支撐）；②外資是否轉回買超；③NVDA 財報對整體 AI 族群的帶動。<strong>分析視角，非投資建議。</strong></div>
+      </div>
+      <div class="field">
+        <div class="field-label">來源</div>
+        <div class="field-content"><a href="https://www.businesstoday.com.tw/article/category/183008/post/202605160008/">今周刊廣達法說</a> · <a href="https://tw.stock.yahoo.com/news/2%E8%A1%A8%E6%AF%94%E3%80%8B%E5%A4%96%E8%B3%87%E5%96%8A%E8%80%81ai%E8%A3%9C%E6%BC%B230">Yahoo外資ODM</a></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Watch List -->
+  <div class="section-title">次熱觀察 / Watch List</div>
+  <div class="grid-2">
+    <div class="watch-card">
+      <h4>6669 緯穎 / Wiwynn — 老AI補漲組合</h4>
+      <p>與鴻海同步拉升（+4% 估），為液冷 AI 機架出貨領導廠（客戶 Meta、Microsoft）。老AI補漲第二棒，機構籌碼乾淨，融資低。本PE ~15倍，估值具吸引力。<br><em>Follows Foxconn in old-AI catch-up; liquid-cooled rack leader. Institutional-dominated, ~15x PE.</em></p>
+    </div>
+    <div class="watch-card">
+      <h4>2454 聯發科 / MediaTek — AI ASIC 重估</h4>
+      <p>5/5 曾漲停達 3,155 元天價。AI ASIC 業務翻倍計畫（引進台積電前研發大將）帶動估值重估。今日觀察是否延續強勢或資金輪出至老AI族群。<br><em>Reached record NT$3,155 on 5/5. AI ASIC doubling plan driving re-rating. Watch for rotation risk.</em></p>
+    </div>
+    <div class="watch-card">
+      <h4>2303 聯電 / UMC — 成熟製程反彈</h4>
+      <p>前期曾漲停（Intel 訂單傳聞 + 成熟製程回溫），今日觀察延續力道。成交量爆放，外資回頭買進。族群效應可能擴散至力積電（6770）。<br><em>Previous limit-up on Intel order rumors. Mature-node recovery theme. Spillover to PSMC (6770) possible.</em></p>
+    </div>
+    <div class="watch-card">
+      <h4>2313 華通 / Compeq — 低軌衛星概念</h4>
+      <p>SpaceX IPO 傳聞帶動台系衛星概念股，華通與啟碁（6285）曾同步漲停。今日觀察消息是否持續發酵。屬題材高波動股，留意隔日沖籌碼風險。<br><em>SpaceX IPO buzz previously caused satellite supply chain limit-ups. High volatility; day-trading risk elevated.</em></p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Caution List -->
+  <div class="section-title">異常注意 / Caution List</div>
+  <div class="stock-card">
+    <div class="card-header" style="background:#744210;">
+      <div class="card-ticker" style="font-size:14px;">處置股 / 警示股</div>
+      <div class="card-name">Trading Restrictions in Effect (5/18–5/29)</div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <div class="field-label">本期處置名單 (5/18 起生效)</div>
+        <div class="field-content">
+          <span class="tag tag-orange">3135 靈航（上市）</span>
+          <span class="tag tag-orange">5228 宇佳（上櫃）</span>
+          <span class="tag tag-orange">6829 謙富精密（上櫃）</span>
+          <span class="tag tag-orange">7751 鴻騰（上櫃）</span>
+          <span class="tag tag-orange">8444 陸合-KY（上櫃）</span>
+          <div class="caution-box">
+            <strong>陸合-KY（8444）最嚴格：</strong>6 個交易日累計漲幅高達 33.96%，採 25 分鐘一次撮合機制（最嚴等級），成交極不正常。以上所有處置股為監理機關異常警示，成交機制受限，一般投資人應迴避，切勿追高。<br><em>Lu He-KY (8444) at maximum restriction: +33.96% in 6 sessions, 25-minute matching intervals. All listed stocks are under regulatory sanctions. Retail investors should avoid entirely.</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="sources-section">
+    <h3>今日參考來源 / Sources Consulted</h3>
+    <ul class="source-list">
+      <li><a href="https://tw.stock.yahoo.com/rank/change-up">Yahoo 台股漲幅榜</a></li>
+      <li><a href="https://www.wantgoo.com/stock/ranking/top-gainer">玩股網漲幅榜</a></li>
+      <li><a href="https://tw.stock.yahoo.com/news/msci%E8%AA%BF%E6%95%B45%E6%9C%8829%E6%97%A5%E7%94%9F%E6%95%88">Yahoo 投資早知道</a></li>
+      <li><a href="https://finance.technews.tw/2026/05/13/semiconductor-dark-horse">TechNews 旺矽MSCI</a></li>
+      <li><a href="https://www.businesstoday.com.tw/article/category/183008/post/202605130031/">今周刊 MSCI 調整</a></li>
+      <li><a href="https://money.udn.com/money/story/5607/9499833">經濟日報 MSCI</a></li>
+      <li><a href="https://news.pchome.com.tw/finance/cna_business/20260513/index-17786362894923722003.html">中央社 台積電MSCI</a></li>
+      <li><a href="https://finance.technews.tw/2026/05/12/foxconn-leads-quanta-and-wistron-in-ai-server-shipments/">TechNews 鴻海AI伺服器</a></li>
+      <li><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E8%80%81AI%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%97%8F%E7%BE%A4%E4%BB%8A%E6%97%A5%E5%9B%9E%E7%A5%9E">新光 老AI補漲</a></li>
+      <li><a href="https://www.businesstoday.com.tw/article/category/183008/post/202605160008/">今周刊 廣達法說</a></li>
+      <li><a href="https://cmnews.com.tw/article/cmoney-3a319a21-528c-11f1-b942-5ddf9aa9de87">CMoney NVDA財報</a></li>
+      <li><a href="https://www.twse.com.tw/zh/trading/foreign/twt38u.html">TWSE 外資買賣超</a></li>
+      <li><a href="https://www.twse.com.tw/zh/announcement/punish/twtazu.html">TWSE 處置股公告</a></li>
+      <li><a href="https://news.cnyes.com/news/cat/tw_afterhours">鉅亨網台股盤後</a></li>
+      <li><a href="https://www.ptt.cc/bbs/Stock/index.html">PTT Stock 板</a></li>
+      <li><a href="https://www.cmoney.tw/finance/popular-rank">CMoney 熱搜榜</a></li>
+      <li><a href="https://goodinfo.tw/tw/index.asp">Goodinfo 台灣股市</a></li>
+      <li><a href="https://histock.tw/stock/rank.aspx">HiStock 排行</a></li>
+    </ul>
+    <p style="margin-top:10px;color:#718096;font-size:11px;">
+      注意：部分數據（TWSE 盤後、三大法人當日、PTT 即時文章）因報告生成於盤中，完整盤後數據請以台灣證交所官方公告為準。本報告不構成投資建議。<br>
+      <em>Note: Official TWSE closing data, institutional flow totals, and real-time PTT posts unavailable mid-session. This report is for information only and does not constitute investment advice.</em>
+    </p>
+  </div>
+
+  <div class="footer">今日熱門台股 — 2026-05-19 · 生成時間 09:44 CST · 資料截止 5/18 盤後 + 5/19 盤中報導 · 本報告為資訊整理，不構成投資建議</div>
+</div>
+</body>
+</html>

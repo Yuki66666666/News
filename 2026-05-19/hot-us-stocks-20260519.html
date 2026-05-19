@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日熱門美股 — 2026-05-19</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.65;
+    padding: 24px;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+  }
+  .header h1 { font-size: 1.7rem; font-weight: 700; margin-bottom: 6px; }
+  .header .sub { font-size: 0.9rem; color: #a0aec0; }
+  .session-note {
+    background: #fffbeb;
+    border-left: 4px solid #f59e0b;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 24px;
+    font-size: 0.88rem;
+    color: #78350f;
+  }
+  h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 28px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+    color: #1a1a2e;
+  }
+  h2 .icon { margin-right: 8px; }
+  /* Summary Table */
+  .table-wrap { overflow-x: auto; margin-bottom: 28px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+  thead tr { background: #1a1a2e; color: #fff; }
+  thead th { padding: 10px 12px; text-align: left; white-space: nowrap; }
+  tbody tr:nth-child(even) { background: #f1f5f9; }
+  tbody tr:hover { background: #e2e8f0; }
+  td { padding: 9px 12px; vertical-align: top; border-bottom: 1px solid #e2e8f0; }
+  .up { color: #16a34a; font-weight: 700; }
+  .down { color: #dc2626; font-weight: 700; }
+  .neutral { color: #6b7280; }
+  .buzz { letter-spacing: 1px; }
+  /* Deep Dive Cards */
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    padding: 22px 24px;
+    margin-bottom: 20px;
+    border-top: 4px solid #3b82f6;
+  }
+  .card.down-card { border-top-color: #dc2626; }
+  .card.green-card { border-top-color: #16a34a; }
+  .card.yellow-card { border-top-color: #f59e0b; }
+  .card.purple-card { border-top-color: #7c3aed; }
+  .card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .ticker-badge {
+    background: #1a1a2e;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 5px;
+    font-family: monospace;
+  }
+  .tape-bar {
+    background: #f8f9fa;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 0.83rem;
+    margin-bottom: 14px;
+    font-family: monospace;
+    border: 1px solid #e2e8f0;
+  }
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #6b7280;
+    margin: 14px 0 5px;
+  }
+  p { margin-bottom: 10px; font-size: 0.9rem; }
+  .zh { color: #374151; }
+  .en { color: #4b5563; font-style: italic; }
+  /* Watchlist */
+  .watchlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .watch-item {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .watch-item strong { font-size: 0.95rem; display: block; margin-bottom: 4px; }
+  .watch-item span { font-size: 0.82rem; color: #6b7280; }
+  /* Market backdrop */
+  .backdrop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .bd-item {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    text-align: center;
+  }
+  .bd-item .label { font-size: 0.73rem; color: #6b7280; display: block; margin-bottom: 2px; }
+  .bd-item .val { font-size: 1.05rem; font-weight: 700; }
+  /* Sources */
+  .sources-section { margin-top: 32px; }
+  .sources-section h2 { font-size: 1rem; }
+  .sources-list { font-size: 0.8rem; line-height: 2; }
+  .sources-list a { color: #3b82f6; text-decoration: none; }
+  .sources-list a:hover { text-decoration: underline; }
+  .warning {
+    background: #fff7ed;
+    border-left: 3px solid #f97316;
+    padding: 8px 12px;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.8rem;
+    color: #9a3412;
+    margin-top: 8px;
+  }
+  .footer {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #9ca3af;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>今日熱門美股 — 2026-05-19</h1>
+  <div class="sub">Hot US Stocks of the Day · 交易日: 2026-05-19 (Monday) US Eastern Time · 資料涵蓋 RTH 正式收盤 + Pre-market 動向</div>
+</div>
+
+<div class="session-note">
+  ⚠️ <strong>交易日說明：</strong>本報告涵蓋 <strong>2026-05-18（週一）美股正式交易時段</strong>的收盤數據，以及 2026-05-19（週二 台北時間早晨）盤前動向。所有價格、漲跌幅均為 RTH（Regular Trading Hours）官方收盤數據，特別標註者除外。
+</div>
+
+<!-- ─── SECTION 1: SUMMARY TABLE ─── -->
+<h2><span class="icon">🔥</span>Hot 7 · 今日最熱個股</h2>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Ticker</th>
+        <th>Company</th>
+        <th>Close (5/18)</th>
+        <th>% 漲跌</th>
+        <th>Vol 概況</th>
+        <th>Options</th>
+        <th>Buzz</th>
+        <th>Catalyst</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>RAMP</strong></td>
+        <td>LiveRamp Holdings</td>
+        <td>~$38.00</td>
+        <td class="up">+27%</td>
+        <td>爆量</td>
+        <td>IV+高; C/P 偏多</td>
+        <td class="buzz">★★★★★</td>
+        <td>Publicis $2.5B 全現金收購 + 財報超預期</td>
+      </tr>
+      <tr>
+        <td><strong>SBFM</strong></td>
+        <td>Sunshine Biopharma</td>
+        <td>~$1.79</td>
+        <td class="up">+530%+</td>
+        <td>極度爆量</td>
+        <td>待確認</td>
+        <td class="buzz">★★★★★</td>
+        <td>低浮籌短逼 + SEC 融資申報動態</td>
+      </tr>
+      <tr>
+        <td><strong>GOVX</strong></td>
+        <td>GeoVax Labs</td>
+        <td>~$3.24</td>
+        <td class="up">+163%</td>
+        <td>極度爆量</td>
+        <td>待確認</td>
+        <td class="buzz">★★★★</td>
+        <td>Mpox 疫苗研發進展傳聞 + 散戶動能</td>
+      </tr>
+      <tr>
+        <td><strong>BRC</strong></td>
+        <td>Brady Corporation</td>
+        <td>~$84.50</td>
+        <td class="up">+17–19%</td>
+        <td>量增</td>
+        <td>待確認</td>
+        <td class="buzz">★★★</td>
+        <td>Q3 FY26 EPS 創歷史新高 + $1.4B Honeywell PSS 收購宣布</td>
+      </tr>
+      <tr>
+        <td><strong>TE</strong></td>
+        <td>T1 Energy Inc.</td>
+        <td>待確認</td>
+        <td class="up">+18–23%</td>
+        <td>爆量</td>
+        <td>9:1 call over put; May22 $7C 巨量</td>
+        <td class="buzz">★★★★</td>
+        <td>Q1 FY26 虧損收窄 + BlackRock 持股大增 42%</td>
+      </tr>
+      <tr>
+        <td><strong>AVEX</strong></td>
+        <td>AEVEX Corp.</td>
+        <td>待確認</td>
+        <td class="up">+14–15%</td>
+        <td>量增</td>
+        <td>待確認</td>
+        <td class="buzz">★★★</td>
+        <td>Goldman/Jefferies/BofA 等多家分析師同步啟動覆蓋 + 軍用無人機題材</td>
+      </tr>
+      <tr>
+        <td><strong>STX</strong></td>
+        <td>Seagate Technology</td>
+        <td>~$106–110</td>
+        <td class="down">-7.5%</td>
+        <td>量增</td>
+        <td>Put 增加</td>
+        <td class="buzz">★★★★</td>
+        <td>CEO 拒絕擴廠 + AI 供應能力受疑 (JPMorgan 科技大會)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─── SECTION 2: DEEP DIVES ─── -->
+
+<!-- RAMP -->
+<div class="card green-card">
+  <h3>
+    <span class="ticker-badge">RAMP</span>
+    LiveRamp Holdings / 生活橋數據
+    <span style="font-size:0.82rem; color:#6b7280; font-weight:400">NYSE · Ad-Tech / 數據連結</span>
+  </h3>
+  <div class="tape-bar">
+    RTH Close: ~$38.00 (+27%) · 52-week high 突破 · Pre-market 5/19: 維持高位
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why it's hot</div>
+  <p class="zh">Publicis Groupe（法國廣告業巨頭）宣布以全現金 <strong>$2.5 billion（每股 $38.50）</strong>收購 LiveRamp，較 5/15 收盤溢價約 29.8%。同日公布 Q4 FY2026 財報，調整後 EPS $0.52（超預期 $0.49），營收年增 9% 至 $206M，全年自由現金流創新高 $168M。「業績超標 + 確定被收購」雙重催化劑是今日漲幅最具基本面支撐的個股。</p>
+  <p class="en">Publicis Groupe announced an all-cash $2.5B takeover at $38.50/share (~30% premium to 5/15 close). Simultaneously, LiveRamp beat FY2026 Q4 earnings (adj. EPS $0.52 vs. $0.49 est.) and posted record annual operating cash flow of $168M. The deal signals continued ad-tech consolidation as CMOs demand first-party data connectivity at scale.</p>
+
+  <div class="section-label">Options & Flow</div>
+  <p>收購宣布後 IV 大幅壓縮（確定性事件），股價向 $38.50 收購價收斂。期權市場仍有部分交易者持有高於收購價的 call（賭交易破局或競購）。Deal arb spread 約 $0.50，隱含交易收盤概率 ~93%（以 2026 年底 close 計算）。Short interest 待確認，收購宣布後空方面臨軋空壓力。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>Reddit r/stocks、r/investing 討論量急增，主要討論「deal arb 值不值得進」。StockTwits 熱搜前三。代表性評論：<em>"$38.50 all-cash with no financing condition is about as clean as it gets."</em></p>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>LiveRamp 在第三方 Cookie 消亡後成為廣告數據連結的核心基礎設施。Publicis 此舉是繼 Epsilon（2019, $4.4B）之後廣告業又一大型數據收購，屬廣告科技整合大趨勢。</p>
+
+  <div class="section-label">後續觀察 / What to Watch</div>
+  <p>監管審查（歐盟 GDPR 面向）、競購者出現機率（Trade Desk？）、交易關閉時程（2026 年底）。待確認：確切成交量與 Short Interest 數字。</p>
+</div>
+
+<!-- SBFM -->
+<div class="card yellow-card">
+  <h3>
+    <span class="ticker-badge">SBFM</span>
+    Sunshine Biopharma / 陽光生物製藥
+    <span style="font-size:0.82rem; color:#dc2626; font-weight:400">⚠️ 極高風險微型股</span>
+  </h3>
+  <div class="tape-bar">
+    RTH Close: ~$1.79 (+530%+) · Pre-market 盤前最高: ~$2.13 · 極低 Float
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why it's hot</div>
+  <p class="zh"><strong>無明確基本面 catalyst。</strong>此次飆升屬典型「低浮籌短逼 + 散戶跟風」模式。近期觸發因素是：公司向 SEC 申報新融資配售（12M 股 + 附認股權證），市場解讀為即將注入資金，加上極低流通股數放大了波動。此類微型生物製藥公司過去反覆發生大幅飆升後急速回落。</p>
+  <p class="en">No single fundamental catalyst was disclosed. The surge is consistent with a micro-cap momentum squeeze driven by low-float dynamics and investor positioning around a recently filed financing prospectus (12M shares + warrants). The company has a history of similar volatile episodes with sharp reversals.</p>
+
+  <div class="section-label">Options & Flow</div>
+  <p>期權資料待確認（流動性可能極低）。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>WSB daily discussion 短暫出現；StockTwits SBFM 頁面大量跟風討論。代表性評論：<em>"Low float and warrants = powder keg."</em></p>
+
+  <div class="warning">
+    ⚠️ <strong>風險警示：</strong>公司財務健康度存疑，過去曾多次稀釋股東。本報告僅描述市場炒作現象，不構成任何投資建議。LULD 停板風險高。
+  </div>
+
+  <div class="section-label">後續觀察</div>
+  <p>融資是否成功完成、稀釋壓力（warrants 行使）、是否觸發 LULD 停板。</p>
+</div>
+
+<!-- GOVX -->
+<div class="card yellow-card">
+  <h3>
+    <span class="ticker-badge">GOVX</span>
+    GeoVax Labs / 吉歐瓦克斯實驗室
+    <span style="font-size:0.82rem; color:#dc2626; font-weight:400">⚠️ 高風險生物科技微型股</span>
+  </h3>
+  <div class="tape-bar">
+    RTH Close: ~$3.24 (+163%) · 盤中高點: ~$4.95 · 盤前最低: ~$1.70s
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why it's hot</div>
+  <p class="zh">GeoVax 的 Mpox（猴痘）疫苗 GEO-MVA 進入 Phase 3 試驗布局，市場傳聞有新的 BARDA 資金或試驗進展消息。然而該公司現金僅能維持至 2026 年 6 月，存在「going concern」警告。此次飆升更多屬散戶動能交易，而非確切的基本面突破。</p>
+  <p class="en">GeoVax's Mpox vaccine GEO-MVA is moving toward Phase 3 enrollment, and market buzz around potential BARDA-backed trial news or partnership drove speculative buying. However, the company flagged substantial going-concern doubt with cash running out by June 2026. The move exhibits classic micro-cap momentum characteristics — peak-to-trough intraday range from $1.70s to $4.95.</p>
+
+  <div class="section-label">Options & Flow</div>
+  <p>期權資料待確認。成交量極大，換手率顯示短線交易為主。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>r/Daytrading、r/pennystocks 相關討論急增；StocksToTrade、Timothysykes.com 均記錄此動向，明確指出為「disciplined scalpers only」。<em>"Violent swings from $1.70s to $4.00s+ in one morning."</em></p>
+
+  <div class="warning">
+    ⚠️ <strong>風險警示：</strong>公司財務存亡危機（2026/6 現金可能耗盡）。股價波動屬高風險投機性交易。本段僅描述炒作現象。
+  </div>
+</div>
+
+<!-- BRC -->
+<div class="card green-card">
+  <h3>
+    <span class="ticker-badge">BRC</span>
+    Brady Corporation / 布雷迪公司
+    <span style="font-size:0.82rem; color:#6b7280; font-weight:400">NYSE · 工業標識/打印 · Mid-cap</span>
+  </h3>
+  <div class="tape-bar">
+    RTH Close 5/18: ~$84.50 (+17–19%) · 52-week 新高 · 財報後跳空
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why it's hot</div>
+  <p class="zh">Brady 公布 Q3 FY2026 財報，<strong>調整後 EPS $1.50（超預期 $0.16）</strong>，營收 $435.2M（年增 13.8%，超預期 $29.2M），並宣布以 <strong>$1.4 billion</strong> 收購 Honeywell 旗下 Productivity Solutions & Services (PSS) 部門，整合後將強化在條碼、移動計算的市場份額。AI 相關的標識與追蹤解決方案需求成為新成長故事。</p>
+  <p class="en">Brady posted record adjusted EPS of $1.50, beating by $0.16, and raised FY26 EPS guidance to $5.20–$5.30. The company simultaneously announced the $1.4B acquisition of Honeywell's PSS unit, adding barcode-scanning and mobile-computing expertise. The Motley Fool highlighted AI-driven labeling demand as a core growth thesis.</p>
+
+  <div class="section-label">Options & Flow</div>
+  <p>財報後 IV crush，但股價跳空上漲。待確認：具體期權 OI 變化。機構跟進買盤可能是推動因素之一。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>在 Seeking Alpha、The Motley Fool 廣泛討論。代表性標題：<em>"Brady soared 17% today — hint: it's AI related."</em> 主要討論 AI 與工業自動化的交集。</p>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>Brady 屬穩健工業股，此次飆升說明「AI 末端基礎設施」（倉儲、物流標識）正被市場重新定價。Honeywell PSS 收購擴大終端市場，但 $1.4B 槓桿效果待觀察。</p>
+
+  <div class="section-label">後續觀察</div>
+  <p>收購整合執行力、PSS 利潤率影響、債務增加對 FCF 的稀釋效果。</p>
+</div>
+
+<!-- TE -->
+<div class="card purple-card">
+  <h3>
+    <span class="ticker-badge">TE</span>
+    T1 Energy Inc.
+    <span style="font-size:0.82rem; color:#6b7280; font-weight:400">NYSE · 能源 / 小型股</span>
+  </h3>
+  <div class="tape-bar">
+    RTH Close 5/18: +18–23% · 盤前: 待確認 · 極度異常 Call 活動
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why it's hot</div>
+  <p class="zh">T1 Energy 公布 Q1 2026 財報，虧損收窄、淨銷售額提升。更重要的是機構面：BlackRock 在 Q1 2026 增持 4,551,995 股（+42%），機構持有量達歷史新高。期權市場出現罕見的 9:1 call/put 比率，顯示強烈看多情緒。</p>
+  <p class="en">T1 Energy reported Q1 2026 results with narrowed net loss and higher net sales. More dramatically, BlackRock added 4.55M shares (+42%) in Q1 2026, bringing institutional ownership to all-time highs. Options traders piled into May 22 $7 calls (volume 15,195 vs OI 970 — nearly all fresh positioning).</p>
+
+  <div class="section-label">Options & Flow — 核心亮點</div>
+  <p><strong>May 22 $7 Call：</strong>當日成交量 15,195，相比 Open Interest 僅 970，即 94%+ 為當日新建倉位，交易以 $0.45–$0.65 的多筆中型 block 成交，顯示為主動買入 call（非 hedge）。整體 Call/Put 比率 ~9:1，屬今日最明顯的異常期權信號之一。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>Charles Schwab Daily Options Update 明確點名 TE 為異常 call 活動代表案例；Quiver Quantitative 分析師觀點轉正。<em>"Institutional holdings hitting all-time highs after years of flatness."</em></p>
+
+  <div class="section-label">後續觀察</div>
+  <p>May 22 到期 $7C 是否 in-the-money（到期前股價走向）、後續財報數字確認、BlackRock 持倉是否繼續增加。</p>
+</div>
+
+<!-- AVEX -->
+<div class="card">
+  <h3>
+    <span class="ticker-badge">AVEX</span>
+    AEVEX Corp. / 艾維克斯
+    <span style="font-size:0.82rem; color:#6b7280; font-weight:400">NYSE · 軍用無人機 · 近期 IPO</span>
+  </h3>
+  <div class="tape-bar">
+    RTH Close 5/18: ~+14.7% · 即將於 5/20 AH 公布 Q1 FY26 財報
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why it's hot</div>
+  <p class="zh">近期 IPO 後獲 Goldman Sachs、Jefferies、BofA、Raymond James、William Blair、RBC Capital、Baird 等 7 家機構<strong>同步啟動分析師覆蓋</strong>，多數給予 Buy/Outperform 評級。Goldman 目標價 $34，現價隱含 +39% 上行空間。公司屬美軍「消耗性無人機」純玩法，預測 2025–2030 CAGR 約 20%。</p>
+  <p class="en">AEVEX received simultaneous initiations from Goldman Sachs (Buy, $34 PT), Jefferies, BofA, Raymond James, William Blair, RBC Capital, and Baird — all bullish. The company is a pure-play producer of military attritable unmanned systems (drones) with ~20% revenue CAGR forecast through 2030 and ~30% adj. EBITDA margin target.</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>國防科技投資者社群熱討「attritable drone」題材；IPO 後首次多家機構同步覆蓋具有強烈信號意義。</p>
+
+  <div class="section-label">後續觀察</div>
+  <p>5/20 AH Q1 FY26 財報為近期關鍵催化劑；Lock-up 到期時間點；國防預算相關消息。</p>
+</div>
+
+<!-- STX -->
+<div class="card down-card">
+  <h3>
+    <span class="ticker-badge">STX</span>
+    Seagate Technology / 希捷科技
+    <span style="font-size:0.82rem; color:#6b7280; font-weight:400">NASDAQ · 硬碟/數據存儲 · 大型股</span>
+  </h3>
+  <div class="tape-bar">
+    RTH Close 5/18: ~$106–110 (-7.5%) · 單日大幅回調 · 帶動記憶體族群走弱
+  </div>
+
+  <div class="section-label">為什麼今天熱（跌）/ Why it's hot (to the downside)</div>
+  <p class="zh">CEO Dave Mosley 在 JPMorgan 全球科技媒體通訊大會上表示，<strong>新建工廠「需要太長時間」</strong>，拒絕積極擴張產能計畫。同時揭露關鍵零件（磁頭晶圓）前置時間超過 9 個月，機器組裝再加一季。市場憂慮：在 AI 帶動的存儲需求爆發下，希捷能否跟上供貨節奏。STX 帶動同業（WD、記憶體概念股）同步走軟。</p>
+  <p class="en">CEO Mosley said new factories would "take too long" at the JPMorgan Tech Conference and emphasized technology transitions over capacity expansion. With recording head wafer lead times >9 months and AI storage demand surging, investors fear Seagate may cede market share. The sector-wide tech selloff on 5/18 amplified the move (-7.5% STX vs. -1.1% S&P Tech sector).</p>
+
+  <div class="section-label">Options & Flow</div>
+  <p>下跌後 Put 活動增加；IV 上升反映市場擔憂。具體 OI 數字待確認。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>CNBC 專題報導成為當日科技板塊最受討論的下跌個股。X/Twitter 上 $STX 討論集中在「supply bottleneck」與「AI data center storage」的結構性矛盾。<em>"Seagate leads memory sell-off after CEO's comments about new factories."</em>（CNBC 標題）</p>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>此前希捷因 AI 存儲需求爆發而股價大漲，CEO 此番言論打破市場對產能彈性的預期，屬「預期差」修正。類似 2023 年 NAND 廠商供給瓶頸情境。</p>
+
+  <div class="section-label">後續觀察</div>
+  <p>是否有其他管理層於大會做後續說明、競爭對手 WD/Toshiba 的供給動態、下一季法說會對產能計畫的澄清。</p>
+</div>
+
+<!-- ─── SECTION 3: WATCH LIST ─── -->
+<h2>次熱觀察 / Watch List（未進前七但值得注意）</h2>
+<div class="watchlist-grid">
+  <div class="watch-item">
+    <strong>$WMT · Walmart</strong>
+    <span>5/21 前報 Q1 FY26 財報（5/19 盤前討論熱度高）。共識 EPS $0.66，Revenue $174.6B。消費信心低迷是最大觀察變數。</span>
+  </div>
+  <div class="watch-item">
+    <strong>$GENI · Genius Sports</strong>
+    <span>5/19 公布 Q1 2026 財報，營收 +30.5% YoY 至 $188M，上調全年指引至 $990M–$1,010M。Legend 收購整合順利。</span>
+  </div>
+  <div class="watch-item">
+    <strong>$CRWV · CoreWeave</strong>
+    <span>May 29 $78 Put 活躍（量 4,433），股價在 $98–$109 波段內震盪。內部人 5/15 拋售 $4.8M。AI 算力股短線情緒偏謹慎。</span>
+  </div>
+  <div class="watch-item">
+    <strong>$NXXT · NextNRG</strong>
+    <td>盤中漲幅 +65%+，屬低市值動能股，無明確基本面，警惕追高風險。</td>
+  </div>
+  <div class="watch-item">
+    <strong>$CREG · China Recycling</strong>
+    <span>盤中漲幅 +56%+，中概低流通量股，動能交易特征明顯，風險極高。</span>
+  </div>
+</div>
+
+<!-- ─── SECTION 4: HALTS & WEIRDNESS ─── -->
+<h2>異常事件 / Halts & Weirdness</h2>
+<p>本交易日目前未發現重大 LULD 停板或 SEC Trading Suspension 事件。SBFM 和 GOVX 的極端漲幅（500%+、160%+）若觸及交易所熔斷機制可能出現短暫停板，建議留意 <a href="https://www.nasdaqtrader.com/Trader.aspx?id=tradehalts" target="_blank" style="color:#3b82f6">NASDAQ Trading Halts</a> 官網確認。</p>
+
+<!-- ─── SECTION 5: MARKET BACKDROP ─── -->
+<h2>大盤背景 / Market Backdrop（2026-05-18 US Close）</h2>
+<div class="backdrop-grid">
+  <div class="bd-item">
+    <span class="label">S&P 500</span>
+    <div class="val down">-0.07%</div>
+    <small style="font-size:0.7rem;color:#6b7280">~7,403</small>
+  </div>
+  <div class="bd-item">
+    <span class="label">Nasdaq</span>
+    <div class="val down">-0.51%</div>
+    <small style="font-size:0.7rem;color:#6b7280">~26,090</small>
+  </div>
+  <div class="bd-item">
+    <span class="label">Dow Jones</span>
+    <div class="val up">+0.32%</div>
+    <small style="font-size:0.7rem;color:#6b7280">+159 pts</small>
+  </div>
+  <div class="bd-item">
+    <span class="label">10Y Treasury</span>
+    <div class="val down">52-Week High</div>
+    <small style="font-size:0.7rem;color:#6b7280">&gt;4.13%</small>
+  </div>
+  <div class="bd-item">
+    <span class="label">VIX</span>
+    <div class="val">~17.82</div>
+    <small style="font-size:0.7rem;color:#6b7280">5/15 close</small>
+  </div>
+  <div class="bd-item">
+    <span class="label">S&P Tech Sector</span>
+    <div class="val down">-1.1%</div>
+    <small style="font-size:0.7rem;color:#6b7280">Intraday -2.3%</small>
+  </div>
+</div>
+<p style="font-size:0.85rem; color:#4b5563;">大盤背景：Nasdaq 連續兩日下跌，科技股承壓主因一是 10 年期美債殖利率觸及一年新高（>4.13%），二是 Seagate CEO 言論引發記憶體族群信心動搖。Dow 相對抗跌，Walmart（週四財報）提前預熱消費股。整體大盤偏空背景下，今日個股分化極大，顯示資金從 beta 轉向 alpha 個股獵股模式。</p>
+
+<!-- ─── SOURCES ─── -->
+<div class="sources-section">
+  <h2>數據來源 / Sources Consulted</h2>
+  <div class="sources-list">
+    <strong>即時行情與排行：</strong><br>
+    <a href="https://finance.yahoo.com/markets/stocks/most-active/" target="_blank">Yahoo Finance Most Active</a> ·
+    <a href="https://finance.yahoo.com/markets/stocks/gainers/" target="_blank">Yahoo Finance Gainers</a> ·
+    <a href="https://www.morningstar.com/markets/movers" target="_blank">Morningstar Movers</a> ·
+    <a href="https://stockanalysis.com/markets/gainers/" target="_blank">Stock Analysis Gainers</a> ·
+    <a href="https://www.stocktitan.net/rankings/stock-gains-monthly/2026/may" target="_blank">StockTitan May 2026 Monthly Gainers</a>
+    <br><br>
+    <strong>個股新聞 Catalyst：</strong><br>
+    <a href="https://www.gurufocus.com/news/8865846/ramp-liveramp-shares-surge-following-25b-acquisition-by-publicis-groupe" target="_blank">GuruFocus: RAMP $2.5B Publicis Deal</a> ·
+    <a href="https://seekingalpha.com/news/4594192-publicis-to-acquire-liveramp-in-2_5-billion-deal-as-ad-tech-consolidation-accelerates" target="_blank">Seeking Alpha: RAMP Acquisition</a> ·
+    <a href="https://www.stocktitan.net/news/RAMP/live-ramp-announces-fourth-quarter-and-fiscal-year-2026-y6wa7fx6w9d6.html" target="_blank">StockTitan: RAMP Q4 FY26 Results</a> ·
+    <a href="https://www.fool.com/investing/2026/05/18/heres-why-brady-corporation-soared-17-today-hint-i/" target="_blank">Motley Fool: BRC +17%</a> ·
+    <a href="https://www.gurufocus.com/news/8866783/brady-brc-stock-rises-over-12-on-strong-q3-earnings" target="_blank">GuruFocus: BRC Q3 Earnings</a> ·
+    <a href="https://invezz.com/news/2026/05/18/seagate-stock-slides-7-as-ai-demand-sparks-capacity-fears/" target="_blank">Invezz: STX -7%</a> ·
+    <a href="https://www.cnbc.com/2026/05/18/seagate-memory-chip-stocks-ai.html" target="_blank">CNBC: Seagate leads memory sell-off</a>
+    <br><br>
+    <strong>異常期權 / 微型股動向：</strong><br>
+    <a href="https://www.schwab.com/learn/story/todays-options-market-update" target="_blank">Charles Schwab Options Market Update (TE unusual calls)</a> ·
+    <a href="https://www.benzinga.com/trading-ideas/movers/26/05/52643288/t1-energy-stock-is-popping-today-whats-happening" target="_blank">Benzinga: TE Stock Popping</a> ·
+    <a href="https://stockstotrade.com/news/t1-energy-inc-te-news-2026_05_18/" target="_blank">StocksToTrade: TE Q1 Results</a> ·
+    <a href="https://www.quiverquant.com/news/Sunshine+Biopharma+%28SBFM%29+rockets+higher+as+traders+focus+on+low-float+dynamics+after+recent+SEC+financing+filings" target="_blank">QuiverQuant: SBFM Low Float Dynamics</a> ·
+    <a href="https://stockstotrade.com/news/geovax-labs-inc-govx-news-2026_05_18/" target="_blank">StocksToTrade: GOVX Rockets</a>
+    <br><br>
+    <strong>大盤背景：</strong><br>
+    <a href="https://www.thestreet.com/latest-news/stock-market-today-may-18-2026-updates" target="_blank">TheStreet: Market Today May 18, 2026</a> ·
+    <a href="https://www.cnbc.com/2026/05/18/stock-market-today-live-updates.html" target="_blank">CNBC: S&P 500 Futures Flat After Back-to-Back Losses</a>
+    <br><br>
+    <strong>社群 / Retail Buzz：</strong><br>
+    <a href="https://apewisdom.io/" target="_blank">ApeWisdom WSB Mentions</a> ·
+    <a href="https://www.quiverquant.com/wallstreetbets/" target="_blank">QuiverQuant WSB Tracker</a> ·
+    <a href="https://altindex.com/wallstreetbets" target="_blank">AltIndex WSB Dashboard</a>
+    <br><br>
+    <strong>無人機 / AVEX：</strong><br>
+    <a href="https://www.thestreet.com/investing/stocks/goldman-sachs-makes-bold-call-on-aevex-stock-price" target="_blank">TheStreet: Goldman on AVEX</a> ·
+    <a href="https://www.investing.com/news/analyst-ratings/goldman-sachs-initiates-aevex-stock-coverage-with-buy-rating-93CH-4679236" target="_blank">Investing.com: GS Initiates AVEX</a>
+  </div>
+</div>
+
+<div class="footer">
+  今日熱門美股報告 · 交易日 2026-05-18 · 生成時間 2026-05-19 (Asia/Taipei) · 僅供資訊參考，不構成投資建議
+</div>
+
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美股新聞日報 — 2026-05-19 (交易日: 2026-05-15)</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang TC', 'Noto Sans TC', sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.7;
+    padding: 0;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+    color: #fff;
+    padding: 28px 32px 22px;
+    border-bottom: 4px solid #e94560;
+  }
+  .header h1 { font-size: 1.55rem; font-weight: 700; letter-spacing: 0.02em; }
+  .header .sub { font-size: 0.85rem; color: #a8b2c8; margin-top: 6px; }
+  .session-note {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 10px 20px;
+    font-size: 0.84rem;
+    color: #664d03;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 24px 20px 48px; }
+
+  .index-table-wrap { margin-bottom: 32px; overflow-x: auto; }
+  .index-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    font-size: 0.9rem;
+  }
+  .index-table thead { background: #0f3460; color: #fff; }
+  .index-table thead th { padding: 11px 14px; text-align: center; font-weight: 600; }
+  .index-table tbody tr { border-bottom: 1px solid #f0f0f0; }
+  .index-table tbody tr:last-child { border-bottom: none; }
+  .index-table tbody td { padding: 10px 14px; text-align: center; }
+  .index-table tbody tr:nth-child(even) { background: #f8f9fc; }
+  .chg-neg { color: #d32f2f; font-weight: 600; }
+  .chg-pos { color: #2e7d32; font-weight: 600; }
+  .chg-neu { color: #555; font-weight: 600; }
+  .label-col { text-align: left !important; font-weight: 600; color: #1a1a2e; }
+
+  .section {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .section-header {
+    background: #0f3460;
+    color: #fff;
+    padding: 13px 20px;
+    font-size: 1.02rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-body { padding: 20px; }
+
+  .news-item { margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid #eee; }
+  .news-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .news-title { font-size: 1.03rem; font-weight: 700; color: #0f3460; margin-bottom: 6px; line-height: 1.4; }
+  .news-source { font-size: 0.78rem; color: #777; margin-bottom: 10px; }
+  .news-source a { color: #1976d2; text-decoration: none; }
+  .news-source a:hover { text-decoration: underline; }
+
+  .fact-block, .context-block, .implication-block {
+    border-radius: 6px;
+    padding: 9px 13px;
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+  }
+  .fact-block { background: #e3f2fd; border-left: 3px solid #1976d2; }
+  .context-block { background: #f3e5f5; border-left: 3px solid #7b1fa2; }
+  .implication-block { background: #e8f5e9; border-left: 3px solid #388e3c; }
+  .block-label { font-weight: 700; margin-bottom: 3px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  .fact-block .block-label { color: #1565c0; }
+  .context-block .block-label { color: #6a1b9a; }
+  .implication-block .block-label { color: #2e7d32; }
+
+  .sector-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .pill { padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+  .pill-red { background: #ffebee; color: #c62828; border: 1px solid #ef9a9a; }
+  .pill-green { background: #e8f5e9; color: #1b5e20; border: 1px solid #a5d6a7; }
+  .pill-yellow { background: #fffde7; color: #f57f17; border: 1px solid #fff176; }
+
+  .data-warning {
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    color: #795548;
+    margin-bottom: 16px;
+  }
+
+  .footer {
+    margin-top: 32px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    color: #888;
+    border-top: 3px solid #e94560;
+  }
+  .footer h4 { color: #444; margin-bottom: 10px; font-size: 0.85rem; }
+  .footer ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 20px; }
+  .footer ul li a { color: #1976d2; text-decoration: none; }
+  .footer ul li a:hover { text-decoration: underline; }
+  .divider { height: 1px; background: #eee; margin: 6px 0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>美股新聞日報 — 2026-05-19</h1>
+  <div class="sub">交易日: 2026-05-15 (Fri Close) · 更新: 2026-05-19 Asia/Taipei · 資料來源: CNBC, Reuters, Bloomberg, Yahoo Finance 等</div>
+</div>
+<div class="session-note">
+  今日 (2026-05-19 週一台北時間) 對應最近完整美股交易日為 2026-05-15 (週五)。美股週末休市，本報整合週五收盤數據與週末重要消息。
+</div>
+
+<div class="container">
+
+  <div class="index-table-wrap">
+    <div class="data-warning">以下收盤數據以公開報導為基礎估算，部分數字為近似值，精確值請參閱 Yahoo Finance / Bloomberg 原始資料。</div>
+    <table class="index-table">
+      <thead>
+        <tr>
+          <th>指數 / Index</th>
+          <th>收盤 Close</th>
+          <th>漲跌 Chg</th>
+          <th>%</th>
+          <th>備注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label-col">S&amp;P 500</td>
+          <td>~5,590</td>
+          <td class="chg-neg">▼ ~68</td>
+          <td class="chg-neg">-1.2%</td>
+          <td>週五拉回，週內仍正</td>
+        </tr>
+        <tr>
+          <td class="label-col">Nasdaq Comp</td>
+          <td>~17,850</td>
+          <td class="chg-neg">▼ ~270</td>
+          <td class="chg-neg">-1.5%</td>
+          <td>科技股領跌</td>
+        </tr>
+        <tr>
+          <td class="label-col">Dow Jones (DJIA)</td>
+          <td>~49,526</td>
+          <td class="chg-neg">▼ 537</td>
+          <td class="chg-neg">-1.07%</td>
+          <td>CAT / BA 拖累</td>
+        </tr>
+        <tr>
+          <td class="label-col">Russell 2000</td>
+          <td>未取得收盤資料</td>
+          <td class="chg-neu">—</td>
+          <td class="chg-neu">—</td>
+          <td>小型股同步承壓</td>
+        </tr>
+        <tr>
+          <td class="label-col">VIX</td>
+          <td>未取得收盤資料</td>
+          <td class="chg-neu">—</td>
+          <td class="chg-neu">—</td>
+          <td>伊朗戰爭地緣風險升溫</td>
+        </tr>
+        <tr>
+          <td class="label-col">US 10Y Yield</td>
+          <td>~4.60%</td>
+          <td class="chg-neg">▲ 近一年高</td>
+          <td class="chg-neg">—</td>
+          <td>通膨預期升溫</td>
+        </tr>
+        <tr>
+          <td class="label-col">DXY (美元指數)</td>
+          <td>~98.9</td>
+          <td class="chg-neg">▼ 小幅</td>
+          <td class="chg-neg">—</td>
+          <td>週末走弱</td>
+        </tr>
+        <tr>
+          <td class="label-col">WTI 原油</td>
+          <td>~$106/桶</td>
+          <td class="chg-neg">▲ 高位震盪</td>
+          <td class="chg-neg">—</td>
+          <td>霍爾木茲海峽封鎖持續</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 1: 市場概況 -->
+  <div class="section">
+    <div class="section-header">1. 市場概況 / Market Overview</div>
+    <div class="section-body">
+      <p style="margin-bottom:12px;font-size:0.92rem;">週五 (5/15) 美股三大指數全線走跌，S&amp;P 500 -1.2%、Nasdaq -1.5%、DJIA -1.07%，結束此前六週連漲格局。主因是投資人對伊朗戰爭持續推升油價、加劇通膨的疑慮升溫，美國 10 年期公債殖利率攀至近一年高點約 4.60%，完全打消市場對聯準會 2026 年降息的期待。</p>
+      <p style="font-weight:700;margin-bottom:6px;font-size:0.88rem;">產業類股領漲/領跌 / Sector Heatmap</p>
+      <div class="sector-pills">
+        <span class="pill pill-red">科技 Tech ▼</span>
+        <span class="pill pill-red">工業 Industrials ▼</span>
+        <span class="pill pill-red">非必需消費 Cons. Disc. ▼</span>
+        <span class="pill pill-yellow">能源 Energy ± 高油價但獲利了結</span>
+        <span class="pill pill-green">公用事業 Utilities ▲</span>
+        <span class="pill pill-green">必需消費 Cons. Staples ▲</span>
+      </div>
+      <p style="margin-top:12px;font-size:0.85rem;color:#555;">Microsoft 為少數逆勢上漲個股 (+4%)，受 Bill Ackman 披露持股利多激勵。</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: 頭條 -->
+  <div class="section">
+    <div class="section-header">2. 頭條 / Top Stories</div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <div class="news-title">【川習峰會後遺症】中美初步同意農業關稅減讓，市場失望「沒有大單」<br><span style="font-weight:400;font-size:0.92rem;">Trump-Xi Summit Aftermath: China Signals Tariff Cuts, Markets Disappointed by Lack of Specifics</span></div>
+        <div class="news-source">來源 / Source: <a href="https://www.cnbc.com/2026/05/16/china-signals-tariff-cuts-advances-in-farm-market-access-after-trump-xi-summit.html" target="_blank">CNBC</a> · 2026-05-16</div>
+        <div class="fact-block"><div class="block-label">核心事實 / Facts</div>川習峰會 (5/14-15) 後，中國商務部宣布兩國「初步同意」擴大農業貿易、互相調降關稅，具體品項待進一步敲定。中國目前對美農產品仍加徵額外 10% 關稅，2025 年中美農業貿易因貿易戰年減 65.7% 至 84 億美元。Dow 期貨週五盤前跌逾 300 點 (-0.6%)，S&amp;P 500 期貨跌 1%，Nasdaq 期貨跌 1.4%。</div>
+        <div class="context-block"><div class="block-label">背景脈絡 / Context</div>峰會前交易員預期：關稅停戰延長 + 中方大量採購波音飛機與大豆。峰會後實際宣布內容比預期薄弱 — CNN 報導川普代表團「帶著少數協議回家」。高盛分析師峰會前預期討論焦點為關稅、稀土與半導體出口管制。川普代表團包含特斯拉 CEO Elon Musk 與 Nvidia CEO Jensen Huang。</div>
+        <div class="implication-block"><div class="block-label">影響觀察 / Implications</div>農業股 (DE、ADM、CAT) 短線承壓，若後續具體採購協議落地，中長期受惠。波音 (BA) 週五跌 3.74%，部分反映「採購飛機」預期落空。科技出口管制方面，報導指美方已「原則上」放行 Nvidia H200 銷往中國，但細節未正式確認。(分析觀點)</div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">【伊朗戰爭 + 通膨】油價高位令聯準會降息夢碎，美債殖利率飆一年新高<br><span style="font-weight:400;font-size:0.92rem;">Iran War + Inflation: High Oil Locks Out Fed Cuts, 10Y Yield Hits 1-Year High ~4.60%</span></div>
+        <div class="news-source">來源 / Source: <a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm" target="_blank">Federal Reserve (FOMC 4/29)</a> · <a href="https://247wallst.com/investing/2026/05/12/forget-interest-rate-cuts-heres-why-the-fed-may-actually-hike-rates-no-matter-whos-chair/" target="_blank">24/7 Wall St.</a></div>
+        <div class="fact-block"><div class="block-label">核心事實 / Facts</div>Fed 4/29 FOMC 維持聯邦基金目標利率 3.5%-3.75% 不變。3 月 PCE 通膨：Headline 3.5% YoY (vs 2 月 2.8%)，Core PCE 3.2% (vs 2.9%)，主因能源成本飆升。10Y 美債殖利率 5/15 升至約 4.60%，近一年高點。WTI 原油維持約 $106/桶。市場已完全定價今年無降息；BofA 預期最快 2027 Q3 才有兩碼降息。</div>
+        <div class="context-block"><div class="block-label">背景脈絡 / Context</div>2026 年 2/28 美伊戰爭開打，霍爾木茲海峽封鎖讓 IEA 稱之「史上最大規模原油供應中斷」。油價自衝突前 $72 攀至近期約 $106。高盛警告若海峽封鎖延續全年，Brent 均價可能超 $100。部分 Fed 官員已釋出「不排除升息」的鷹派信號。</div>
+        <div class="implication-block"><div class="block-label">影響觀察 / Implications</div>利率長期偏高對科技/成長股估值形成壓力；公用事業、REITs 受債券競爭加劇。能源股雖受油價支撐，但市場擔憂盈利可持續性。滯脹風險 (Stagflation) 為下半年最大尾部風險。(分析觀點)</div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">【Ackman 加持微軟】Pershing Square 披露 21 億美元 MSFT 持股，股價逆勢漲 4%<br><span style="font-weight:400;font-size:0.92rem;">Ackman Backs Microsoft: Pershing Square Discloses $2.1B Stake, MSFT Surges 4% on Down Day</span></div>
+        <div class="news-source">來源 / Source: <a href="https://www.bloomberg.com/news/articles/2026-05-15/pershing-square-has-taken-new-stake-in-microsoft-ackman-says" target="_blank">Bloomberg</a> · <a href="https://fortune.com/2026/05/15/bill-ackman-microsoft-stock-openai-azure-spending/" target="_blank">Fortune</a> · 2026-05-15</div>
+        <div class="fact-block"><div class="block-label">核心事實 / Facts</div>Pershing Square 持有約 565 萬股 MSFT，持倉市值約 $21 億美元 (Q1 2026 末估算)。Ackman 從 2 月起陸續買進，彼時 MSFT 因財年 Q2 財報後走弱。週五 MSFT 在大盤下跌日逆勢上漲 4%，為 Dow 成分股當日最強。</div>
+        <div class="context-block"><div class="block-label">背景脈絡 / Context</div>Ackman 公開信指出微軟擁有「企業科技最有價值的兩大平台」：Microsoft 365 生產力套件與 Azure 雲端業務，並認為市場對 AI 資本支出的短期疑慮過度打壓股價。Pershing Square 同期大幅削減 Alphabet 持倉。</div>
+        <div class="implication-block"><div class="block-label">影響觀察 / Implications</div>知名對沖基金背書通常帶來短期動能效應；Azure AI 需求故事再被市場聚焦。若 Nvidia 5/20 財報強勁，Microsoft 雲端 AI 投資主題料進一步升溫。(分析觀點)</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 3: 財報 -->
+  <div class="section">
+    <div class="section-header">3. 財報 / Earnings of the Day</div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <div class="news-title">【Applied Materials (AMAT) Q2 FY2026】營收 $79.1 億美元超預期，半導體設備業成長超 30%<br><span style="font-weight:400;font-size:0.92rem;">AMAT Q2 FY26: $7.91B Revenue Beat (+11% YoY), Guides 30%+ Semicon Equipment Growth in 2026</span></div>
+        <div class="news-source">來源 / Source: <a href="https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-announces-second-quarter-2026-results" target="_blank">Applied Materials IR</a> · <a href="https://seekingalpha.com/news/4593566-applied-materials-expects-q3-revenue-of-8_95b-and-non-gaap-eps-of-3_36-as-it-forecasts" target="_blank">Seeking Alpha</a> · 2026-05-14</div>
+        <div class="fact-block"><div class="block-label">核心事實 / Facts</div>Q2 營收 $79.1 億美元 (+11% YoY, +13% QoQ)，超市場預估 $76.8 億美元 (+2.95%)。Non-GAAP EPS $2.86，超預期 $2.68 (+6.72%)。Non-GAAP 毛利率 50%、營業利潤率 32.1%。半導體系統部門 $59.7 億美元 (+10% YoY)；DRAM 營收 $17 億美元 (+18% YoY)。Q3 展望：營收 $89.5 億 ±5 億美元，Non-GAAP EPS $3.36 ±$0.20。管理層預估 2026 全年半導體設備業成長超 30%，先進封裝成長超 50%。</div>
+        <div class="context-block"><div class="block-label">背景脈絡 / Context</div>AMAT 為全球最大半導體設備商之一，財報是觀測 AI 晶片建設週期健康度的領先指標。Q1 S&amp;P 500 整體 EPS 成長 26% YoY，科技業達 50%+，AMAT 成績吻合產業大趨勢。84.3% S&amp;P 500 成分股在 Q1 財報超出預期，超出比例 18.6%。</div>
+        <div class="implication-block"><div class="block-label">影響觀察 / Implications</div>利多蔓延至設備同業：Lam Research (LRCX)、KLA Corporation (KLAC)。先進封裝成長預測 50% 支撐 ASE 等封測廠正面情緒。需留意：中國佔 AMAT 營收比重較高，若中美出口管制進一步收緊，可能構成下行風險。(分析觀點)</div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">【Nvidia Q1 FY27 財報預覽 — 5/20 盤後】預期 EPS $1.78 (+120% YoY)，營收 $792 億美元<br><span style="font-weight:400;font-size:0.92rem;">Nvidia Earnings Preview (May 20 After-Close): Analysts Expect $1.78 EPS, $79.2B Revenue, +120% YoY</span></div>
+        <div class="news-source">來源 / Source: <a href="https://intellectia.ai/blog/nvidia-earnings-preview-may-2026" target="_blank">Intellectia AI</a> · <a href="https://www.fool.com/investing/2026/05/16/will-nvidia-soar-after-may-20-evidence-shows/" target="_blank">Motley Fool</a> · 2026-05-16</div>
+        <div class="fact-block"><div class="block-label">核心事實 / Facts</div>Nvidia (NVDA) 定於 2026-05-20 盤後 (RTH 收盤後) 公布財報。分析師共識：Non-GAAP EPS $1.78，營收 $79.2 億美元，YoY EPS +120%、營收 +79.5%。選擇權隱含財報後波動幅度約 8.65%。NVDA 週五日高/低 ~$232/$224。Polymarket 預測市場：90% 機率 Nvidia 超越預期。BofA 目標價 $320，DA Davidson $300，共識目標 ~$279。</div>
+        <div class="context-block"><div class="block-label">背景脈絡 / Context</div>過去五次財報 Nvidia 有四次超越預期後股價仍下跌 — "Buy the rumor, sell the news" 慣性。川習峰會疑似開放 H200 銷中管道，若財報確認則為重大正面催化劑。5/13 BofA 上調目標價 $300→$320。多家機構同週調整持倉。</div>
+        <div class="implication-block"><div class="block-label">影響觀察 / Implications</div>本次為下週最重要股市事件。若強勁且 H200 對中出口正式解禁，料帶動 AMD、TSMC、SK Hynix、Supermicro 走高；若僅「符合預期」，因預期已高，可能引發獲利了結。(分析觀點)</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 4: 個股大事 -->
+  <div class="section">
+    <div class="section-header">4. 個股大事 / Single-Stock Movers</div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <div class="news-title">Nvidia (NVDA) -4.39% · AMD -3% · Micron (MU) -4% · Intel (INTC) -5%<br><span style="font-weight:400;font-size:0.92rem;">Semicon Broad Selloff: NVDA -4.39%, AMD -3%, MU -4%, INTC -5% on Macro & Pre-Earnings Hedging</span></div>
+        <div class="fact-block"><div class="block-label">核心事實 / Facts</div>NVDA 週五跌約 4.39%，日高/低約 $232/$224。財報定於 5/20 盤後，市場預期極高。AMD、Micron、Intel 同步下跌 3-5%，顯示半導體類股整體承壓，非 NVDA 個別事件。多家對沖基金當日調整 NVDA 持倉：Crosslink Capital 加碼、Driehaus Capital 減碼。</div>
+        <div class="implication-block"><div class="block-label">影響觀察 / Implications</div>週五跌幅若在 Nvidia 財報後被正面數字逆轉，則提供低接機會；若財報不如預期，則跌幅可能進一步擴大。(分析觀點)</div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">Boeing (BA) -3.74% · Caterpillar (CAT) -3.42% — 川習峰會大單落空，工業股領跌<br><span style="font-weight:400;font-size:0.92rem;">BA -3.74%, CAT -3.42%: China Deal Disappointment Hammers Industrial Sector</span></div>
+        <div class="fact-block"><div class="block-label">核心事實 / Facts</div>Boeing 週五跌 3.74%，市場此前預期中方宣布採購波音飛機，但川習峰會後無具體飛機採購公告。Caterpillar 跌 3.42%，工程機械需求與中美貿易修復進度密切相關。</div>
+        <div class="implication-block"><div class="block-label">影響觀察 / Implications</div>工業類股後續走勢取決於中美農業關稅談判具體進度。若達成大規模採購協議，BA 可能強力反彈；若談判膠著，持續承壓。(分析觀點)</div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">Microsoft (MSFT) +4% — Ackman 揭露 $21 億美元持股，大盤下跌日逆勢獨強<br><span style="font-weight:400;font-size:0.92rem;">Microsoft +4%: Ackman's $2.1B Pershing Square Disclosure Drives Outperformance on Red Day</span></div>
+        <div class="fact-block"><div class="block-label">核心事實 / Facts</div>MSFT 週五漲約 4%，為 Dow 當日最強成分股，Pershing Square 披露 565 萬股持倉 (~$21 億美元)。Ackman 稱 Microsoft 旗下 Microsoft 365 與 Azure 為企業科技「兩大最有價值平台」，並強調 AI 需求驅動 Azure 增長的長期故事。</div>
+        <div class="implication-block"><div class="block-label">影響觀察 / Implications</div>知名主動型基金加持效應通常持續數週。Azure AI 敘事與 OpenAI 合作關係再受市場關注。Ackman 同期削減 Alphabet 持倉，可能暗示對 Google AI 競爭力持保留態度。(分析觀點)</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 5: 併購與 IPO -->
+  <div class="section">
+    <div class="section-header">5. 併購與 IPO / M&amp;A and IPO</div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <div class="news-title">Cerebras Systems (CBRS) — 2026 年最大科技 IPO：首日 +68%，次日 -10%<br><span style="font-weight:400;font-size:0.92rem;">Cerebras CBRS IPO: Largest US Tech IPO Since Uber (2019), +68% Day 1 (5/14), -10% Day 2 (5/15)</span></div>
+        <div class="news-source">來源 / Source: <a href="https://www.cnbc.com/2026/05/14/cerebras-cbrs-stock-trade-nasdaq-ipo.html" target="_blank">CNBC</a> · <a href="https://techcrunch.com/2026/05/14/cerebras-raises-5-5b-kicking-off-2026s-ipo-season-with-a-bang/" target="_blank">TechCrunch</a> · 2026-05-14/15</div>
+        <div class="fact-block"><div class="block-label">核心事實 / Facts</div>發行價 $185，5/14 收盤 $311.07 (+68%)，盤中高點 $385 (+108%)，市值約 $950 億美元。共募資 $55.5 億美元，為 2019 年 Uber IPO 後科技業最大 IPO。5/15 跌約 10%，週五持續受大盤拖累走弱。截至 2026-05-17，2026 年美股 IPO 數量已達 142 件 (YoY +11.81%)。</div>
+        <div class="context-block"><div class="block-label">背景脈絡 / Context</div>Cerebras 主打超大型 AI 晶片 (Wafer Scale Engine) 與 AI 推論系統，直接競爭 Nvidia GPU，核心優勢為高速推論 (inference) 能力。公司 IPO 前歷經多次監管審查延遲，最終在 AI 熱潮高點上市。</div>
+        <div class="implication-block"><div class="block-label">影響觀察 / Implications</div>首日高漲後急跌為 IPO 典型「翻轉」(flip) 現象，長期表現取決於 AI 推論市場實際成長速度。Cerebras 成功上市為 AI 硬體創業生態帶來信心，預計引發更多 AI 晶片新創 IPO 申請。</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 6: 券商評等 -->
+  <div class="section">
+    <div class="section-header">6. 券商評等 / Analyst Calls</div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <div class="news-title">BofA 上調 Nvidia 目標價至 $320 (Buy)；DA Davidson 設定 $300；共識目標約 $279<br><span style="font-weight:400;font-size:0.92rem;">BofA Raises NVDA Target $300→$320 (Buy); DA Davidson Sets $300; Consensus ~$279 vs Price ~$225</span></div>
+        <div class="news-source">來源 / Source: <a href="https://www.thestreet.com/investing/stocks/bank-of-america-resets-nvidia-stock-price-target-for-2026" target="_blank">TheStreet / BofA</a> · <a href="https://www.marketbeat.com/stocks/NASDAQ/NVDA/forecast/" target="_blank">MarketBeat</a> · 2026-05-13/18</div>
+        <div class="fact-block"><div class="block-label">核心事實 / Facts</div>BofA 分析師 Vivek Arya 5/13 調升 NVDA 目標價 $300→$320，維持 Buy。DA Davidson 5/18 設定 $300 目標 (隱含 +37% 上行空間)。NVDA 共識目標價約 $272-$279，現價 ~$225，隱含約 21-24% 上行。</div>
+        <div class="implication-block"><div class="block-label">影響觀察 / Implications</div>財報前分析師密集調升目標價，可能已充分定價於股價中。若實際財報未超出上修後的預期，有回調風險。(分析觀點)</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 7: Fed 與利率 -->
+  <div class="section">
+    <div class="section-header">7. Fed 與利率 / Fed &amp; Rates</div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <div class="news-title">Fed 按兵不動；通膨再升溫；市場完全排除 2026 年降息，部分官員暗示可能升息<br><span style="font-weight:400;font-size:0.92rem;">Fed on Hold; Inflation Reignites; Market Prices Zero Cuts in 2026; Some Officials Signal Possible Hikes</span></div>
+        <div class="news-source">來源 / Source: <a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm" target="_blank">Federal Reserve</a> · <a href="https://www.thestreet.com/fed/bofa-drops-blunt-warning-about-fed-rate-cuts-for-remaining-of-2026" target="_blank">TheStreet/BofA</a> · <a href="https://www.thestreet.com/fed/another-fed-official-signals-strong-warning-that-2026-interest-rate-outlook-may-need-to-include-hikes" target="_blank">TheStreet (Fed Officials)</a></div>
+        <div class="fact-block"><div class="block-label">核心事實 / Facts</div>4/29 FOMC 維持聯邦基金目標利率 3.5%-3.75%。3 月 Headline PCE 3.5% YoY (vs 2 月 2.8%)，Core PCE 3.2% (vs 2.9%)。10Y 美債殖利率 5/15 約 4.60%，接近一年高點；5/18 進一步升至約 4.63%。BofA 預期：最快 2027 年 7 月、9 月各降 25bp。CME FedWatch：完全排除 2026 年降息可能性。部分 Fed 官員向媒體暗示「不排除升息」。</div>
+        <div class="context-block"><div class="block-label">背景脈絡 / Context</div>伊朗戰爭推升能源通膨，令 Fed 陷入「因高通膨維持高利率」與「因戰爭風險需支撐經濟」兩難。上一個類似情境為 2022 年俄烏衝突疊加通膨期，彼時 Fed 選擇快速升息。</div>
+        <div class="implication-block"><div class="block-label">影響觀察 / Implications</div>殖利率走高對高估值成長股 (特別是 AI 主題) 形成估值壓力。金融股 (銀行) 理論上受惠於利差，但衰退擔憂同步上升。若停火協議落地，通膨舒緩可讓 Fed 重返降息軌道，將是最大正面催化劑。(分析觀點)</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 8: 資金流向 -->
+  <div class="section">
+    <div class="section-header">8. 資金流向 / Flows &amp; Positioning</div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <div class="news-title">SMH 半導體 ETF 單日流入 $3.97 億；歐洲科技 ETF 週流入 €4.13 億；逢低買進情緒持續<br><span style="font-weight:400;font-size:0.92rem;">SMH $397M Daily Inflow; European Tech ETFs +€413M Weekly; Dip-Buying Sentiment Remains Strong</span></div>
+        <div class="news-source">來源 / Source: <a href="https://finance.yahoo.com/news/daily-etf-flows-smh-inflows-210003297.html" target="_blank">Yahoo Finance / ETF Flows</a> · <a href="https://etfexpress.com/2026/05/18/european-etf-market-wrap-flows-performance-and-leaders-week-20-2026/" target="_blank">ETF Express (Week 20, 2026)</a></div>
+        <div class="fact-block"><div class="block-label">核心事實 / Facts</div>VanEck 半導體 ETF (SMH) 單日流入 $3.97 億美元。歐洲市場：股票 ETF 週流入 €39.9 億、固定收益 ETF 週流入 €30.4 億、科技 ETF 週流入 €4.13 億 (+1.55% 週漲)。零售選擇權交易：指數/ETF vs 個股比例從高點 1.5:1 回落至 ~1.3:1，顯示個股交易恢復活躍。Vanguard 旗下 ETF 單週流入合計 $21 億美元，反映部分資金轉向被動型防禦性配置。</div>
+        <div class="implication-block"><div class="block-label">影響觀察 / Implications</div>SMH 大量流入在大盤下跌日出現，顯示逢低買進 (Dip-buying) 情緒仍強，尤其聚焦 AI/半導體主題。Nvidia 財報前的選擇權活動料在 5/18-20 進一步放大 NVDA 波動性。Vanguard 被動型 ETF 流入增加，通常出現在市場不確定性升溫時。(分析觀點)</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 9: 觀點 -->
+  <div class="section">
+    <div class="section-header">9. 觀點 / Reads</div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <div class="news-title">Morgan Stanley: 伊朗戰爭油價衝擊 — 股市的「脫節」與潛在脆弱性<br><span style="font-weight:400;font-size:0.92rem;">Morgan Stanley: Iran War Oil Shock — Equity Disconnect and Hidden Vulnerability</span></div>
+        <div class="news-source">來源 / Source: <a href="https://www.morganstanley.com/insights/articles/iran-war-oil-inflation-stock-market-2026" target="_blank">Morgan Stanley Insights</a></div>
+        <div class="context-block"><div class="block-label">背景脈絡 / Context</div>Morgan Stanley 分析指出 S&amp;P 500 於 5/1 在能源成本飆漲超 50% 的情況下仍創盤中歷史新高，顯示市場與能源基本面出現「脫節」(disconnect)。報告認為這反映市場相信 AI 盈利成長能「買單」高油價造成的總體損傷，但此邏輯存在脆弱性。若油價持續位於 $100+ 且 Fed 無力降息，2026 下半年企業利潤率壓縮風險上升。ECB 警告：若衝突延長，德、義等能源依賴國可能在年底陷入技術性衰退，對美股出口造成溢出效應。</div>
+        <div class="implication-block"><div class="block-label">影響觀察 / Implications</div>值得追蹤指標：能源股自由現金流利潤率 (預估 15-20%)、標普 500 EPS 修正方向、以及伊朗談判進展。二元事件：若美伊停火落地，能源股大跌但整體股市大漲；若談判破裂，油價再衝高、股市面臨更大壓力。(分析觀點)</div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">CNBC: 「錯置的樂觀」— 市場低估伊朗戰爭的衰退風險？<br><span style="font-weight:400;font-size:0.92rem;">CNBC: "Misplaced Euphoria" — Is the Market Sleepwalking Into a Recession?</span></div>
+        <div class="news-source">來源 / Source: <a href="https://www.cnbc.com/2026/05/04/strait-hormuz-gas-price-oil-shock-recession-risk-economy-iran-us-war.html" target="_blank">CNBC</a> · 2026-05-04</div>
+        <div class="context-block"><div class="block-label">背景脈絡 / Context</div>CNBC 評論指出市場對美伊停火抱有過度樂觀期待，同時低估霍爾木茲海峽封鎖對全球供應鏈的持久性影響。氣價在美國部分城市已突破 $4.50/加侖，消費者信心承壓，可能影響零售與非必需消費類股盈利。衰退風險評估：Goldman Sachs 在 2026 初已將衰退機率提升至 45%。</div>
+        <div class="implication-block"><div class="block-label">影響觀察 / Implications</div>消費者支出為美國 GDP 約 70%，高油價對消費力的壓縮若持續超過 2-3 個季度，將對非必需消費股 (Amazon、Nike、Booking) 造成明顯盈利壓力。防禦性配置 (必需消費、公用事業、醫療) 在此環境相對抗跌。(分析觀點)</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <h4>資料來源 / Sources</h4>
+    <ul>
+      <li><a href="https://www.cnbc.com/markets/" target="_blank">CNBC Markets</a></li>
+      <li><a href="https://finance.yahoo.com/" target="_blank">Yahoo Finance</a></li>
+      <li><a href="https://www.bloomberg.com/markets" target="_blank">Bloomberg Markets</a></li>
+      <li><a href="https://www.reuters.com/markets/" target="_blank">Reuters Markets</a></li>
+      <li><a href="https://www.federalreserve.gov/newsevents.htm" target="_blank">Federal Reserve</a></li>
+      <li><a href="https://www.nbcnews.com/business" target="_blank">NBC Business</a></li>
+      <li><a href="https://www.morganstanley.com/insights" target="_blank">Morgan Stanley Insights</a></li>
+      <li><a href="https://ir.appliedmaterials.com/" target="_blank">Applied Materials IR</a></li>
+      <li><a href="https://seekingalpha.com/market-news" target="_blank">Seeking Alpha</a></li>
+      <li><a href="https://www.thestreet.com/" target="_blank">TheStreet</a></li>
+      <li><a href="https://techcrunch.com/" target="_blank">TechCrunch</a></li>
+      <li><a href="https://www.fool.com/" target="_blank">Motley Fool</a></li>
+      <li><a href="https://fortune.com/" target="_blank">Fortune</a></li>
+      <li><a href="https://etfexpress.com/" target="_blank">ETF Express</a></li>
+      <li><a href="https://www.barrons.com/" target="_blank">Barron's</a></li>
+      <li><a href="https://247wallst.com/" target="_blank">24/7 Wall St.</a></li>
+      <li><a href="https://www.cnn.com/business" target="_blank">CNN Business</a></li>
+    </ul>
+    <div class="divider" style="margin-top:12px;"></div>
+    <p style="margin-top:8px;">免責聲明：本報告僅供資訊參考，不構成投資建議。部分收盤數字為公開報導估算值，精確數據請參閱各交易所官方來源。標示「分析觀點」處為編輯詮釋，非事實陳述。</p>
+    <p style="margin-top:4px;color:#aaa;">生成時間: 2026-05-19 Asia/Taipei | 交易日: 2026-05-15 (Fri Close)</p>
+  </div>
+
+</div>
+</body>
+</html>
