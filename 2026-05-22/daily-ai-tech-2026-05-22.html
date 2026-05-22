@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 技術日報 — 2026-05-22</title>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #f8f9fa;
+      color: #1a1a2e;
+      line-height: 1.7;
+      padding: 24px 16px;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+
+    header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: #fff;
+      border-radius: 14px;
+      padding: 28px 32px 22px;
+      margin-bottom: 28px;
+    }
+    header .label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.6;
+      margin-bottom: 6px;
+    }
+    header h1 { font-size: 26px; font-weight: 700; margin-bottom: 4px; }
+    header .subtitle { font-size: 13px; opacity: 0.6; }
+
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1.5px solid;
+    }
+    .tag-model   { color: #6c3483; border-color: #6c3483; background: #f5eef8; }
+    .tag-research{ color: #1a5276; border-color: #1a5276; background: #eaf2ff; }
+    .tag-tools   { color: #0e6655; border-color: #0e6655; background: #e8f8f5; }
+    .tag-industry{ color: #7d6608; border-color: #7d6608; background: #fef9e7; }
+    .tag-oss     { color: #784212; border-color: #784212; background: #fdf2e9; }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 6px rgba(0,0,0,.07);
+      padding: 24px 28px;
+      margin-bottom: 18px;
+      border-left: 4px solid #ccc;
+    }
+    .card.model    { border-color: #8e44ad; }
+    .card.research { border-color: #2980b9; }
+    .card.tools    { border-color: #27ae60; }
+    .card.industry { border-color: #f39c12; }
+    .card.oss      { border-color: #d35400; }
+
+    .card-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+    .card-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .card-meta { flex: 1; }
+    .card-category {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 2px;
+    }
+    .card-title { font-size: 18px; font-weight: 700; color: #1a1a2e; line-height: 1.35; }
+    .card-title-zh { font-size: 14px; color: #444; font-weight: 500; margin-top: 2px; }
+
+    .card-body { font-size: 14px; color: #333; }
+    .card-body p { margin-bottom: 10px; }
+    .card-body p:last-child { margin-bottom: 0; }
+
+    .highlight {
+      background: #f0f4ff;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-top: 10px;
+      font-size: 13px;
+      color: #1a1a2e;
+    }
+    .highlight strong { color: #0f3460; }
+
+    .zh-block {
+      background: #fafafa;
+      border-left: 3px solid #ddd;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      margin-top: 12px;
+      font-size: 13.5px;
+      color: #444;
+    }
+
+    .sources {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #888;
+    }
+    .sources a { color: #2980b9; text-decoration: none; }
+    .sources a:hover { text-decoration: underline; }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin: 28px 0 12px;
+      padding-left: 4px;
+    }
+
+    footer {
+      margin-top: 36px;
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      padding-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="label">Daily AI Tech Report</div>
+    <h1>AI 技術日報</h1>
+    <div class="subtitle">2026-05-22 (Friday) &nbsp;·&nbsp; Asia/Taipei &nbsp;·&nbsp; Compiled by Claude</div>
+  </header>
+
+  <div class="tag-row">
+    <span class="tag tag-model">Model Release</span>
+    <span class="tag tag-research">Research</span>
+    <span class="tag tag-tools">Tools &amp; Products</span>
+    <span class="tag tag-industry">Industry</span>
+    <span class="tag tag-oss">Open Source</span>
+  </div>
+
+  <!-- ===== ITEM 1 ===== -->
+  <div class="section-title">Model Releases 模型發布</div>
+
+  <div class="card model">
+    <div class="card-header">
+      <div class="card-icon">🤖</div>
+      <div class="card-meta">
+        <div class="card-category">Model Release · Alibaba</div>
+        <div class="card-title">Qwen3.7-Max-Preview Tops Chinese LLM Rankings</div>
+        <div class="card-title-zh">Qwen3.7-Max-Preview 發布：中國模型首次衝上 LM Arena 文字與視覺雙榜前列</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Alibaba released <strong>Qwen3.7-Max-Preview</strong> and <strong>Qwen3.7-Plus-Preview</strong> on May 18–20, 2026, coinciding with the Alibaba Cloud Summit in Hangzhou. The Max variant is designed for deep reasoning, coding, and math; the Plus variant leans into multimodal and vision tasks.</p>
+      <p>Benchmark highlights: Qwen3.7-Max-Preview sits at <strong>LM Arena overall rank #13</strong> (Elo ~1,475), ranks <strong>#7 in Math</strong> and <strong>#4 in coding</strong> out of 117 evaluated models (avg score 92.2). Its context window stretches to <strong>1M tokens</strong>. Alibaba claims the model can sustain 35-hour autonomous agentic runs and chain 1,000+ tool calls per session — figures awaiting third-party verification.</p>
+      <div class="highlight">
+        <strong>Technical note:</strong> Weights have not yet been released publicly; preview API access is available via Alibaba Cloud. The MoE architecture activates a fraction of parameters per token, delivering competitive throughput at lower inference cost.
+      </div>
+      <div class="zh-block">
+        阿里巴巴於 5 月 18–20 日趁雲棲大會發布 Qwen3.7-Max-Preview。該模型在 LM Arena 上以 Elo ~1,475 排全球第 13，數學榜第 7、程式碼榜第 4（117 模型中），支援 100 萬 Token 上下文。Plus 版偏多模態視覺；Max 版主攻深度推理與數學。官方聲稱可連續執行 35 小時 agentic 任務，目前仍待第三方驗證。
+      </div>
+      <div class="sources">Sources: <a href="https://www.buildfastwithai.com/blogs/qwen3-7-max-preview-alibaba-2026">buildfastwithai</a> · <a href="https://artificialanalysis.ai/models/qwen3-7-max">artificialanalysis.ai</a> · <a href="https://benchlm.ai/models/qwen3-7-max">benchlm.ai</a></div>
+    </div>
+  </div>
+
+  <div class="card model">
+    <div class="card-header">
+      <div class="card-icon">🧠</div>
+      <div class="card-meta">
+        <div class="card-category">Model Release · Anthropic</div>
+        <div class="card-title">Claude Opus 4.7 Leads Agentic Coding Benchmarks</div>
+        <div class="card-title-zh">Claude Opus 4.7 登頂多項 Agentic 程式碼基準測試</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Anthropic's <strong>Claude Opus 4.7</strong>, released in April 2026, has now been confirmed as leading several agentic coding benchmarks. The model is being actively used by Anthropic's own pre-training researchers as an AI collaborator — a milestone cited by the company as validation that Claude itself is good enough to assist in its own future development.</p>
+      <div class="highlight">
+        <strong>Strategic significance:</strong> Anthropic explicitly states it is not competing on raw compute alone, but is instead using AI-assisted research — automating parts of AI development itself — as a core differentiator against OpenAI and Google.
+      </div>
+      <div class="zh-block">
+        Claude Opus 4.7 在 4 月正式發布後，如今已確認在多項 Agentic 程式碼基準奪冠。Anthropic 的預訓練研究團隊也將其作為 AI 協作夥伴，用 Claude 本身加速下一代模型的研究迭代——這是業界首個公開宣示「以 AI 自我加速研發」的頂尖實驗室案例。
+      </div>
+      <div class="sources">Sources: <a href="https://www.anthropic.com/news/claude-opus-4-7">Anthropic Blog</a> · <a href="https://www.thealgorithmicbridge.com/p/andrej-karpathy-joins-anthropic-what">The Algorithmic Bridge</a></div>
+    </div>
+  </div>
+
+  <!-- ===== ITEM 2 ===== -->
+  <div class="section-title">Industry &amp; People 產業動態</div>
+
+  <div class="card industry">
+    <div class="card-header">
+      <div class="card-icon">🔬</div>
+      <div class="card-meta">
+        <div class="card-category">Industry · Anthropic</div>
+        <div class="card-title">Andrej Karpathy Joins Anthropic Pre-Training Team</div>
+        <div class="card-title-zh">Andrej Karpathy 加入 Anthropic：主導 Claude 預訓練研究並建立 AI 自動化研發新團隊</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>On <strong>May 19, 2026</strong>, Andrej Karpathy — OpenAI co-founder and former Tesla AI director — announced he is joining <strong>Anthropic's pre-training team</strong>. He will form a new sub-team focused on using Claude itself to accelerate pre-training research, a form of recursive AI-assisted AI development.</p>
+      <p>Karpathy's hire follows a separate announcement that ex-Tesla AI lead (who also previously worked at OpenAI) joined Anthropic on May 20 to advance Claude education and pretraining research. The back-to-back hires signal an aggressive talent push ahead of the next major Claude training run.</p>
+      <div class="highlight">
+        <strong>Context:</strong> Anthropic's annualized run-rate revenue has now surpassed <strong>$30B</strong> (up from ~$9B at end of 2025). Over 1,000 enterprise customers each spend $1M+ annually — double the count from just two months ago.
+      </div>
+      <div class="zh-block">
+        Karpathy 於 5 月 19 日正式宣布加入 Anthropic 預訓練團隊。他將另立新小組，專門研究如何讓 Claude 自主加速下一代 Claude 的預訓練。緊接著 5 月 20 日，另一位前 OpenAI 及 Tesla AI 主管也加盟。Anthropic 年化收入已突破 300 億美元，千萬級客戶數在兩個月內翻倍。
+      </div>
+      <div class="sources">Sources: <a href="https://www.axios.com/2026/05/19/anthropic-openai-karpathy-andrej-claude">Axios</a> · <a href="https://techcrunch.com/2026/05/19/openai-co-founder-andrej-karpathy-joins-anthropics-pre-training-team/">TechCrunch</a> · <a href="https://thenewstack.io/andrej-karpathy-anthropic-pretraining/">The New Stack</a></div>
+    </div>
+  </div>
+
+  <!-- ===== ITEM 3 ===== -->
+  <div class="section-title">Research 研究突破</div>
+
+  <div class="card research">
+    <div class="card-header">
+      <div class="card-icon">📐</div>
+      <div class="card-meta">
+        <div class="card-category">Research · Google DeepMind</div>
+        <div class="card-title">DeepMind Publishes Cognitive Framework for Measuring AGI Progress</div>
+        <div class="card-title-zh">DeepMind 發布 AGI 進度認知分類框架，並開放 $20 萬 Kaggle 評估挑戰賽</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>Google DeepMind released <em>"Measuring Progress Toward AGI: A Cognitive Taxonomy"</em> (published May 17, 2026), a paper that provides a structured, cognitive-science-grounded framework for systematically evaluating how close current AI systems are to AGI across multiple cognitive dimensions.</p>
+      <p>Alongside the paper, DeepMind announced a <strong>Kaggle hackathon</strong> with a <strong>$200,000 prize pool</strong> inviting participants to design novel evaluations for key cognitive abilities identified in the taxonomy — effectively crowdsourcing benchmark design for frontier models.</p>
+      <div class="highlight">
+        <strong>Why it matters:</strong> The lack of rigorous, agreed-upon AGI measurement frameworks has been a persistent critique of AGI timelines discourse. This paper is one of the first from a frontier lab to propose a systematic cognitive scaffold rather than relying purely on task-specific benchmarks.
+      </div>
+      <div class="zh-block">
+        DeepMind 5 月 17 日發表《邁向 AGI 進度量測：認知分類框架》，以認知科學為基礎提出多維度評估體系，同步辦理 Kaggle 競賽（獎金 $20 萬美元），公開徵集新穎的 AGI 評估方法。這是頂尖實驗室首次以系統性認知分類學取代單一任務基準來衡量 AGI 距離。
+      </div>
+      <div class="sources">Sources: <a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/measuring-agi-cognitive-framework/">Google Blog</a></div>
+    </div>
+  </div>
+
+  <div class="card research">
+    <div class="card-header">
+      <div class="card-icon">⚡</div>
+      <div class="card-meta">
+        <div class="card-category">Research · Energy Efficiency</div>
+        <div class="card-title">Neurosymbolic Hybrid Cuts AI Energy Use 100× While Improving Accuracy</div>
+        <div class="card-title-zh">神經符號混合架構實現百倍能耗降低，準確率同步提升</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>A newly published study demonstrates a radically more efficient AI approach that combines <strong>neural networks with symbolic reasoning</strong>, slashing energy consumption by up to <strong>100×</strong> relative to pure deep learning baselines — while simultaneously improving accuracy on several benchmark tasks.</p>
+      <p>Separately, Google's <strong>TurboQuant</strong> algorithm (presented at ICLR 2026) reduces the memory overhead of the KV cache — one of the largest bottlenecks in long-context LLM inference — enabling longer effective context and lower serving cost at production scale.</p>
+      <div class="highlight">
+        <strong>Technical context:</strong> KV cache memory scales linearly with sequence length and batch size, making it the dominant memory cost in long-context inference. TurboQuant applies learned quantization to KV entries, compressing them without significant quality degradation.
+      </div>
+      <div class="zh-block">
+        一項新研究結合神經網路與符號推理，能耗較純深度學習降低最高 100 倍，準確率反而提升。Google 則在 ICLR 2026 展示 TurboQuant 演算法，對 KV Cache 施以學習型量化壓縮，大幅降低長文脈 LLM 推論的記憶體瓶頸，進一步壓低大規模部署成本。
+      </div>
+      <div class="sources">Sources: <a href="https://www.sciencedaily.com/releases/2026/04/260405003952.htm">ScienceDaily</a> · <a href="https://llm-stats.com/llm-updates">LLM Stats</a></div>
+    </div>
+  </div>
+
+  <!-- ===== ITEM 4 ===== -->
+  <div class="section-title">Tools &amp; Products 工具產品</div>
+
+  <div class="card tools">
+    <div class="card-header">
+      <div class="card-icon">🛠️</div>
+      <div class="card-meta">
+        <div class="card-category">Tools · Product Hunt · Agent Ops</div>
+        <div class="card-title">Agent DevOps Wave: Fabraix, Tracea, and Palma Lead This Week's AI Launches</div>
+        <div class="card-title-zh">AI Agent 維運工具浪潮：Fabraix 安全壓測、Tracea 自託管追蹤、Palma 企業治理三強登場</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>This week's Product Hunt AI launches cluster around <strong>agent operations and governance</strong>, reflecting a maturing ecosystem where reliability and auditability matter as much as raw capability:</p>
+      <ul style="margin: 8px 0 8px 20px; font-size: 14px; color: #333;">
+        <li><strong>Fabraix</strong> — stress-tests AI agents for jailbreaks, tool misuse, and reward-hacking; positions itself as a "red-teaming as a service" platform for production agents.</li>
+        <li><strong>Tracea</strong> — self-hosted tracing, alerting, and root-cause analysis for live agent runs; targets teams that cannot send telemetry to third-party clouds.</li>
+        <li><strong>Palma</strong> — enterprise governance layer for tool-using agents, providing approval workflows and full audit trails.</li>
+      </ul>
+      <div class="highlight">
+        <strong>Trend signal:</strong> The shift from "build an agent" to "operate an agent safely" mirrors how DevOps followed the initial cloud adoption wave. Agent observability is becoming a distinct product category.
+      </div>
+      <div class="zh-block">
+        本週 Product Hunt AI 新品集中在 Agent 維運領域：Fabraix 提供 Agent 紅隊壓測（越獄、工具濫用、獎勵作弊）；Tracea 是自架版 Agent 追蹤 / 告警 / 根因分析平台；Palma 則針對企業場景提供工具型 Agent 的審批流程與稽核紀錄。這波浪潮預示 Agent 可觀測性（observability）正成為獨立產品賽道。
+      </div>
+      <div class="sources">Sources: <a href="https://www.producthunt.com/categories/ai-agents">Product Hunt — AI Agents</a></div>
+    </div>
+  </div>
+
+  <!-- ===== ITEM 5 ===== -->
+  <div class="section-title">Open Source 開源動態</div>
+
+  <div class="card oss">
+    <div class="card-header">
+      <div class="card-icon">⭐</div>
+      <div class="card-meta">
+        <div class="card-category">Open Source · GitHub Trending</div>
+        <div class="card-title">AI Agent Skills Frameworks Dominate GitHub This Week</div>
+        <div class="card-title-zh">AI Agent Skills 框架本週橫掃 GitHub 趨勢榜，單週最高漲 1,618 顆星</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>GitHub's weekly trending charts are overwhelmingly dominated by AI agent frameworks this week (May 18–22, 2026). Key observations:</p>
+      <ul style="margin: 8px 0 8px 20px; font-size: 14px; color: #333;">
+        <li>Top repo of the week gained <strong>+1,618 stars in 7 days</strong> — the threshold to enter the top 20 is +415 stars, an unusually high bar.</li>
+        <li><strong>25%</strong> of top 20 repos are AI agent skills frameworks; another <strong>15%</strong> are Claude Code ecosystem tools.</li>
+        <li>Notable verticals: semantic code search, open-source ML engineer automation, multi-agent trading systems, automated video pipelines, and unified agent toolkits.</li>
+        <li><strong>OpenClaw</strong>: a personal AI assistant running entirely on-device, connecting LLMs to 50+ integrations (WhatsApp, Telegram, Slack, Discord, Signal, iMessage) as a local gateway.</li>
+      </ul>
+      <div class="highlight">
+        <strong>Observation:</strong> The combined top-20 repos gained nearly 14,600 stars in a single week — extraordinary developer velocity signaling that agent tooling is the hottest layer of the AI stack right now.
+      </div>
+      <div class="zh-block">
+        本週 GitHub Trending 前 20 名中，25% 是 AI Agent Skills 框架，另有 15% 屬 Claude Code 生態工具。頂榜倉庫單週漲 1,618 顆星，前 20 名合計近 14,600 顆，開發者活躍度創近期新高。亮點包括語義程式碼搜尋、自動化 ML 工程師、多 Agent 量化交易、影片自動化流水線，以及可本地運行並連接 50+ 整合的個人 AI 助理 OpenClaw。
+      </div>
+      <div class="sources">Sources: <a href="https://www.askglitch.com/blog/top-5-trending-ai-github-repos-may-2026">Professor Glitch</a> · <a href="https://github.com/trending">GitHub Trending</a> · <a href="https://ossinsight.io/trending/ai">OSSInsight</a></div>
+    </div>
+  </div>
+
+  <!-- ===== ITEM 6: OpenAI Codex ===== -->
+  <div class="section-title">Industry — OpenAI</div>
+
+  <div class="card industry">
+    <div class="card-header">
+      <div class="card-icon">💻</div>
+      <div class="card-meta">
+        <div class="card-category">Industry · OpenAI</div>
+        <div class="card-title">OpenAI Offers 2 Months Free Codex to New Business Customers</div>
+        <div class="card-title-zh">OpenAI 向新企業客戶提供兩個月 Codex 免費使用，搶攻 AI 程式碼市場</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>CEO Sam Altman announced on X that OpenAI is extending <strong>two months of free Codex access</strong> to new business customers. The move is seen as a direct response to Anthropic's aggressive growth with Claude Code and a bid to lock in enterprise engineering teams during an inflection point in the AI coding assistant market.</p>
+      <div class="highlight">
+        <strong>Market context:</strong> AI coding assistants (Cursor, Claude Code, GitHub Copilot, Codex) are the fastest-growing enterprise SaaS category of H1 2026. OpenAI's free-trial play is designed to create adoption momentum before customers standardize on a competitor's toolchain.
+      </div>
+      <div class="zh-block">
+        OpenAI CEO Sam Altman 在 X 上宣布向新企業用戶提供 2 個月免費 Codex。此舉被視為對 Anthropic Claude Code 快速擴張的直接回應，試圖在 AI 程式碼助理市場標準化之前搶下企業工程團隊的使用習慣。2026 上半年，AI 程式碼助理已成長最快的企業 SaaS 子類目。
+      </div>
+      <div class="sources">Sources: <a href="https://llm-stats.com/ai-news">LLM Stats AI News</a></div>
+    </div>
+  </div>
+
+  <footer>
+    AI 技術日報 · 2026-05-22 · Compiled by Claude (claude-sonnet-4-6) · Data sourced from Axios, TechCrunch, Google Blog, artificialanalysis.ai, benchlm.ai, ScienceDaily, Product Hunt, GitHub Trending, OSSInsight
+  </footer>
+
+</div>
+</body>
+</html>

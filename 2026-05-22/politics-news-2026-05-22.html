@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>政治新聞日報 — 2026-05-22</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.7;
+    padding: 0 0 60px 0;
+  }
+  header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    color: #fff;
+    padding: 32px 40px 24px;
+  }
+  header .label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 8px;
+  }
+  header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  header .subtitle {
+    font-size: 13px;
+    color: #94a3b8;
+  }
+  .nav-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 20px 40px 0;
+    background: #16213e;
+  }
+  .nav-pills a {
+    font-size: 12px;
+    color: #94a3b8;
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid #334155;
+    transition: all 0.2s;
+  }
+  .nav-pills a:hover {
+    background: #0f3460;
+    color: #e2e8f0;
+    border-color: #0f3460;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section {
+    margin-top: 40px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .section-icon {
+    font-size: 20px;
+  }
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f3460;
+  }
+  .section-title-en {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 400;
+    margin-left: 4px;
+  }
+  .story-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 18px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .story-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border-color: #cbd5e1;
+  }
+  .story-headline {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f3460;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .story-headline-en {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+  .source-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .source-tag {
+    font-size: 11px;
+    background: #f1f5f9;
+    color: #475569;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+  }
+  .source-date {
+    font-size: 11px;
+    color: #94a3b8;
+  }
+  .source-link a {
+    font-size: 11px;
+    color: #2563eb;
+    text-decoration: none;
+  }
+  .source-link a:hover { text-decoration: underline; }
+  .story-block {
+    margin-bottom: 12px;
+  }
+  .block-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 4px;
+  }
+  .block-facts .block-label { color: #0369a1; }
+  .block-context .block-label { color: #7c3aed; }
+  .block-implications .block-label { color: #b45309; }
+  .story-text {
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.75;
+  }
+  .top-story-card {
+    border-left: 4px solid #e11d48;
+  }
+  .top-story-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: #fef2f2;
+    color: #e11d48;
+    border: 1px solid #fecaca;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  footer {
+    margin-top: 60px;
+    padding: 24px 40px;
+    background: #f1f5f9;
+    border-top: 1px solid #e2e8f0;
+    font-size: 12px;
+    color: #94a3b8;
+    text-align: center;
+  }
+  footer a { color: #64748b; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .disclaimer {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #b0bec5;
+  }
+  @media (max-width: 600px) {
+    header { padding: 24px 20px 18px; }
+    .nav-pills { padding: 16px 20px 0; }
+    .container { padding: 0 16px; }
+    .story-card { padding: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="label">Daily Politics Briefing</div>
+  <h1>政治新聞日報</h1>
+  <div class="subtitle">2026年5月22日（星期五）・ Asia/Taipei ・ 國際政治全覽</div>
+</header>
+<div class="nav-pills">
+  <a href="#top-stories">頭條</a>
+  <a href="#us">美國</a>
+  <a href="#china-strait">中國與兩岸</a>
+  <a href="#europe">歐洲</a>
+  <a href="#asia">亞太</a>
+  <a href="#mideast">中東</a>
+  <a href="#latam">拉丁美洲</a>
+</div>
+
+<div class="container">
+
+  <!-- TOP STORIES -->
+  <div class="section" id="top-stories">
+    <div class="section-header">
+      <span class="section-icon">🌐</span>
+      <span class="section-title">頭條 <span class="section-title-en">/ Top Stories</span></span>
+    </div>
+
+    <!-- Story 1 -->
+    <div class="story-card top-story-card">
+      <div class="top-story-badge">頭條</div>
+      <div class="story-headline">習近平與普丁北京峰會：簽署逾40項協議，宣示「多極世界」願景</div>
+      <div class="story-headline-en">Xi–Putin Beijing Summit: 40+ Agreements Signed, Joint Declaration on "Multipolar World"</div>
+      <div class="source-line">
+        <span class="source-tag">Al Jazeera</span>
+        <span class="source-tag">NPR</span>
+        <span class="source-tag">Nikkei Asia</span>
+        <span class="source-date">2026-05-20</span>
+        <span class="source-link"><a href="https://www.aljazeera.com/news/2026/5/20/multipolar-world-what-xi-and-putin-announced-after-beijing-summit" target="_blank">→ Al Jazeera</a></span>
+      </div>
+      <div class="story-block block-facts">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="story-text">俄羅斯總統普丁於5月20日在北京與習近平舉行峰會，雙方在大會堂見面後共同簽署逾40項涵蓋貿易、科技與媒體交流的協議，並發表聯合聲明，聲稱致力建設「多極世界與新型國際關係」。習近平表示，兩國關係已達「歷史最高水平」；雙邊貿易去年接近2,400億美元，今年首四個月再成長20%。Russian President Putin visited Beijing on May 20, meeting Xi Jinping at the Great Hall of the People. Over 40 bilateral agreements were signed covering trade, technology, and media, alongside a joint declaration emphasizing a "multipolar world." Xi declared ties are at "the highest level in history," with bilateral trade near $240bn last year, up 20% in the first four months of 2026.</div>
+      </div>
+      <div class="story-block block-context">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="story-text">普丁此行緊接在美國總統川普訪問北京之後，時機高度敏感——中國被置於美俄之間的「平衡者」角色，北京無意為莫斯科選邊，但也持續提供政治上的重要背書。值得注意的是，此次峰會未能突破西伯利亞力量2號（Power of Siberia 2）天然氣管線的談判僵局，俄方視其為繞過歐洲能源依賴的關鍵出口，中方則對定價條件持保留態度。Moscow had hoped to clinch a breakthrough on the Power of Siberia 2 pipeline, but left without one. China faces pressure not to be seen openly supporting Russia's war in Ukraine as EU accession talks and trade relations with Europe remain vital.</div>
+      </div>
+      <div class="story-block block-implications">
+        <div class="block-label">影響觀察 / Implications（分析）</div>
+        <div class="story-text">分析：此峰會強化了中俄「無上限夥伴關係」的政治象徵意義，但管線協議未果顯示北京仍在戰略上保持彈性。在川普-習近平峰會後不到一週，習近平再接待普丁，傳遞出「北京同時管理兩條大國關係」的訊號，對台海局勢與烏克蘭停戰談判均有間接影響。莫斯科在台灣問題上重申「一中原則」，屬雙邊外交常態，但再次確認了俄方在台海議題上的政治立場。</div>
+      </div>
+    </div>
+
+    <!-- Story 2 -->
+    <div class="story-card top-story-card">
+      <div class="top-story-badge">頭條</div>
+      <div class="story-headline">伊朗核談判緊繃：川普稱停火「因巴基斯坦斡旋而無限期延長」，範斯警告軍事選項仍在桌上</div>
+      <div class="story-headline-en">Iran Nuclear Talks on Edge: Trump Says Ceasefire Extended Indefinitely; Vance Warns Military Option Remains</div>
+      <div class="source-line">
+        <span class="source-tag">Fox News</span>
+        <span class="source-tag">Voice of Emirates</span>
+        <span class="source-tag">Washington Times</span>
+        <span class="source-date">2026-05-19–22</span>
+        <span class="source-link"><a href="https://www.foxnews.com/politics/jd-vance-says-trump-locked-loaded-restart-military-campaign-iran-nuclear-talks-fail" target="_blank">→ Fox News</a></span>
+      </div>
+      <div class="story-block block-facts">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="story-text">川普表示，美伊停火已因巴基斯坦的請求而「無限期延長」，但同時給德黑蘭設定「兩三天」的談判期限，否則恢復軍事行動。副總統範斯稱美方「鎖定且備戰」（locked and loaded），但仍優先尋求外交解決，核心要求是伊朗永不得擁有核武。Trump said the Iran ceasefire has been extended indefinitely at Pakistan's request, but he gave Tehran "two or three days" to reach a deal or face renewed strikes. VP Vance said the US is "locked and loaded" but pursuing diplomacy, with the non-negotiable demand being that Iran never possess a nuclear weapon.</div>
+      </div>
+      <div class="story-block block-context">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="story-text">美以對伊朗的聯合軍事行動（代號「史詩狂怒」，Operation Epic Fury）於2月28日展開，並於5月5日宣告結束。停火後雙方進入外交談判，但伊朗內部政治分歧使談判立場不一致。範斯指出德黑蘭政治領導層內部存在明顯分歧，這反映在談判進程的搖擺上。巴基斯坦扮演中介調停角色。The US-Israel joint operation against Iran (Feb 28–May 5) ended in a ceasefire, followed by nuclear deal talks. Iran's internal political divisions are complicating the negotiation posture, with Pakistan serving as mediator.</div>
+      </div>
+      <div class="story-block block-implications">
+        <div class="block-label">影響觀察 / Implications（分析）</div>
+        <div class="story-text">分析：停戰若再度破裂，霍爾木茲海峽與紅海的航運中斷將對全球能源價格與供應鏈造成新一輪衝擊。範斯的強硬表態被分析人士解讀為對談判施壓的戰術性語言，但伊朗若被迫接受嚴苛條款，其國內政治穩定性也面臨風險。</div>
+      </div>
+    </div>
+
+    <!-- Story 3 -->
+    <div class="story-card top-story-card">
+      <div class="top-story-badge">頭條</div>
+      <div class="story-headline">習近平擬訪北韓：七年來首次，或早於6月成行</div>
+      <div class="story-headline-en">Xi Jinping Weighs North Korea Visit: First in Seven Years, Possibly Before June</div>
+      <div class="source-line">
+        <span class="source-tag">Bloomberg</span>
+        <span class="source-tag">Japan Times</span>
+        <span class="source-tag">Korea Times</span>
+        <span class="source-date">2026-05-21</span>
+        <span class="source-link"><a href="https://www.japantimes.co.jp/news/2026/05/21/asia-pacific/xi-jinping-visit-north-korea/" target="_blank">→ Japan Times</a></span>
+      </div>
+      <div class="story-block block-facts">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="story-text">韓國聯合通訊社（Yonhap）援引政府消息人士報導，習近平可能最快於本月底或6月初訪問北韓，將是其七年來首次朝鮮之行。中國安全與禮賓人員已先行赴平壤勘查，外交部長王毅上月也曾訪問平壤。South Korea's Yonhap news agency reported May 21 that Xi Jinping may visit North Korea as early as late May or early June — his first trip in seven years. Chinese security and protocol teams have reportedly visited Pyongyang in advance; Foreign Minister Wang Yi visited last month.</div>
+      </div>
+      <div class="story-block block-context">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="story-text">中朝今年適逢《中朝友好合作互助條約》簽署65週年。在川普-習近平峰會重塑朝鮮半島外交格局的背景下，北韓與美國的關係走向成為各方關注焦點。據報導，習近平此訪可能尋求在朝美之間扮演調停角色。China and North Korea mark the 65th anniversary of their bilateral friendship treaty this year. After the Trump-Xi summit, the question of Washington-Pyongyang relations is back in play. A possible Xi visit would place Beijing at the center of any diplomatic push involving North Korea and the United States.</div>
+      </div>
+      <div class="story-block block-implications">
+        <div class="block-label">影響觀察 / Implications（分析）</div>
+        <div class="story-text">分析：若成行，此訪將鞏固中朝關係並凸顯北京在朝鮮半島問題上的「門衛」角色，增強中國在未來朝美談判中的籌碼。對首爾與東京而言，須密切觀察北京是否藉此試圖主導半島無核化議程的節奏與框架。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- US -->
+  <div class="section" id="us">
+    <div class="section-header">
+      <span class="section-icon">🇺🇸</span>
+      <span class="section-title">美國 <span class="section-title-en">/ United States</span></span>
+    </div>
+
+    <div class="story-card">
+      <div class="story-headline">司法部設立18億美元「反武器化基金」：川普撤告換政府賠償，國會與法院醞釀阻擊</div>
+      <div class="story-headline-en">DOJ Creates $1.8B "Anti-Weaponization Fund" After Trump Drops IRS Lawsuit; Congress Eyes Legal Challenge</div>
+      <div class="source-line">
+        <span class="source-tag">CNBC</span>
+        <span class="source-tag">NBC News</span>
+        <span class="source-date">2026-05-18–20</span>
+        <span class="source-link"><a href="https://www.cnbc.com/2026/05/20/trump-lawfare-fund-congress-courts-irs.html" target="_blank">→ CNBC</a></span>
+      </div>
+      <div class="story-block block-facts">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="story-text">川普及其長子、次子與川普集團，於本週撤銷對國稅局（IRS）提出的100億美元訴訟，換取司法部設立一個17.76億美元的「反武器化基金」（Anti-Weaponization Fund），用以賠償聲稱遭政府針對的受害者。司法部表示，基金將從司法部「判決基金」中撥付，可發出正式道歉與金錢賠償。Trump and the Trump Organization dropped their $10 billion IRS lawsuit in exchange for the DOJ establishing a $1.776 billion "Anti-Weaponization Fund" to compensate people allegedly targeted by the government. Funds come from the DOJ's standing judgment appropriation.</div>
+      </div>
+      <div class="story-block block-context">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="story-text">民主黨人士批評這是一個「17億美元的政治酬庸基金」，擔心其中可能包括1月6日國會山莊事件的定罪者或被起訴者。代理司法部長Todd Blanche在參院聽証時，未排除暴徒獲賠的可能性。法律分析師認為，國會有最強理由在法院挑戰此一安排，因行政部門使用常設撥款項目支付總統個人訴訟和解金，涉及分權爭議。Democrats call the fund a "slush fund" that may benefit Jan. 6 defendants. Acting AG Blanche did not rule out payments to Jan. 6 rioters. Legal analysts say Congress has standing to challenge the fund in court, as the use of a perpetual appropriation to settle the president's personal lawsuit raises separation-of-powers issues.</div>
+      </div>
+      <div class="story-block block-implications">
+        <div class="block-label">影響觀察 / Implications（分析）</div>
+        <div class="story-text">分析：此案是川普政府對「法律武器化」敘事的最具體制度化落實，若最終付諸實施，將形成行政部門利用公款為總統本人爭議背書的先例。司法獨立性的外部觀感風險，也可能影響2026年期中選舉的選情框架。</div>
+      </div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-headline">川普政府主張無需國會授權興建250英尺大拱門</div>
+      <div class="story-headline-en">Trump Administration Claims It Can Build 250-Foot Arch Without Congressional Approval</div>
+      <div class="source-line">
+        <span class="source-tag">Washington Post</span>
+        <span class="source-date">2026-05-20</span>
+        <span class="source-link"><a href="https://www.washingtonpost.com/politics/2026/05/20/trump-officials-plan-build-arch-without-congressional-authorization/" target="_blank">→ Washington Post</a></span>
+      </div>
+      <div class="story-block block-facts">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="story-text">川普政府官員主張，可援引百年前國會授權的既有計畫，在無需新立法授權的情況下興建一座250英尺高的拱門地標。川普行政官員稱這是延續舊計畫而非新建，但律師及民主黨人士反駁此舉是刻意規避聯邦法律。Trump administration officials argue they can build a 250-foot arch monument by claiming it falls under a century-old congressional authorization, bypassing the need for new legislative approval. Lawyers and Democrats say the move is an attempt to circumvent federal law.</div>
+      </div>
+      <div class="story-block block-context">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="story-text">川普政府近期在多項基建與地標項目上持續探索行政授權的邊界，此舉是其中之一。美國憲法將聯邦公共工程支出的控制權交給國會，相關爭議反映行政與立法權力之間的持續緊張。This is part of a pattern of the Trump administration testing executive authority boundaries, particularly on public infrastructure projects. Control over federal public works spending is constitutionally lodged in Congress.</div>
+      </div>
+      <div class="story-block block-implications">
+        <div class="block-label">影響觀察 / Implications（分析）</div>
+        <div class="story-text">分析：此類案例累積將形成行政擴權的態勢，即便個別爭議看似瑣碎，在制度層面仍具有指標意義。預期民主黨會在法院提出挑戰，但勝敗將取決於法院如何解釋歷史授權的範圍。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHINA & CROSS-STRAIT -->
+  <div class="section" id="china-strait">
+    <div class="section-header">
+      <span class="section-icon">🇹🇼</span>
+      <span class="section-title">中國與兩岸 <span class="section-title-en">/ China & Cross-Strait</span></span>
+    </div>
+
+    <div class="story-card">
+      <div class="story-headline">賴清德就職二週年演說：強調主權自決，拒絕以「統一包裝和平」；北京批其「散佈分裂謬論」</div>
+      <div class="story-headline-en">Lai Ching-te's Second-Year Address: Affirms Sovereignty, Rejects "Unification Packaged as Peace"; Beijing Accuses Him of "Separatist Fallacies"</div>
+      <div class="source-line">
+        <span class="source-tag">Focus Taiwan (CNA)</span>
+        <span class="source-tag">Al Jazeera</span>
+        <span class="source-tag">Taipei Times</span>
+        <span class="source-date">2026-05-20</span>
+        <span class="source-link"><a href="https://focustaiwan.tw/politics/202605200009" target="_blank">→ Focus Taiwan</a></span>
+      </div>
+      <div class="story-block block-facts">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="story-text">5月20日，台灣總統賴清德發表就職兩週年演說，重申台灣是主權獨立國家，強調維護台海和平穩定、防止外力片面改變現狀是國家戰略目標。他表示台灣願在對等尊嚴原則下與北京進行健康有序交流，但明確拒絕以統一包裝和平的統戰策略。President Lai Ching-te's May 20 address reaffirmed Taiwan as a sovereign and independent nation, pledging to maintain peace across the Taiwan Strait and defend against unilateral status quo changes. He offered exchanges with Beijing on a basis of parity and dignity, but rejected any "united front" framing of unification as peace.</div>
+      </div>
+      <div class="story-block block-context">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="story-text">此演說發生在川普-習近平北京峰會後數日，川普曾警告台北不應正式宣布獨立。北京國台辦發言人朱鳳蓮指賴清德「鼓吹對抗」、「販賣分裂謬論」。在野國民黨則批評賴的演說為「兩國論」，加劇兩岸緊張。台灣總理卓榮泰此前亦指中方軍事行動是區域不穩定的主要根源。The speech came days after the Trump-Xi summit, where Trump reportedly cautioned Taipei against formal independence moves. Beijing's Taiwan Affairs Office accused Lai of "inciting confrontation." Taiwan's opposition KMT accused Lai of promoting a "two-state theory." Premier Cho Jung-tai earlier cited China's military actions as the main source of regional instability.</div>
+      </div>
+      <div class="story-block block-implications">
+        <div class="block-label">影響觀察 / Implications（分析）</div>
+        <div class="story-text">分析：賴清德的演說維持了「不挑釁、但不退讓」的路線，反映出在川習峰會壓力下，台北力圖守住主權論述基本盤。台美關係方面，雙方在「維持現狀」目標上仍保持一致，但「現狀」的詮釋空間正受到更大壓縮。未來半年內北京是否升高軍事壓力，是關鍵觀察指標。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EUROPE -->
+  <div class="section" id="europe">
+    <div class="section-header">
+      <span class="section-icon">🇪🇺</span>
+      <span class="section-title">歐洲 <span class="section-title-en">/ Europe</span></span>
+    </div>
+
+    <div class="story-card">
+      <div class="story-headline">匈牙利新總理馬賈爾與澤倫斯基擬6月峰會，匈烏關係啟動重置談判</div>
+      <div class="story-headline-en">Hungary's Magyar Eyes June Summit with Zelensky; Budapest–Kyiv Begin Reset Consultations</div>
+      <div class="source-line">
+        <span class="source-tag">Kyiv Independent</span>
+        <span class="source-tag">France 24</span>
+        <span class="source-tag">US News</span>
+        <span class="source-date">2026-05-20–21</span>
+        <span class="source-link"><a href="https://kyivindependent.com/magyar-wants-to-meet-zelensky-in-ukraine-discuss-hungarian-minority/" target="_blank">→ Kyiv Independent</a></span>
+      </div>
+      <div class="story-block block-facts">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="story-text">匈牙利總理馬賈爾（Péter Magyar）5月20日表示，若匈牙利少數民族權利談判取得進展，他可能在6月初與澤倫斯基在烏克蘭的貝列霍沃（Beregovo）會面。匈烏兩國外長已於5月21日啟動線上磋商。Magyar told reporters on May 20 that a June summit with Zelensky in Beregovo, Ukraine, is possible if minority rights talks advance. The foreign ministers of Hungary and Ukraine began online consultations on May 21.</div>
+      </div>
+      <div class="story-block block-context">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="story-text">馬賈爾在4月12日大選中擊敗執政長達15年的奧班（Viktor Orbán），結束了布達佩斯長期阻撓歐盟援烏與烏克蘭入盟進程的態勢。馬賈爾承諾重置匈烏關係，但前提是烏克蘭提供其境內約15萬名匈牙利族群使用母語的保障。馬賈爾也已在布魯塞爾與歐盟委員會主席馮德萊恩會面。Peter Magyar defeated Viktor Orbán in the April 12 election, ending Hungary's pattern of blocking EU aid to Ukraine and Ukraine's EU accession process. Magyar has promised a reset with Kyiv but conditions it on Ukraine protecting the language rights of roughly 150,000 ethnic Hungarians. He also met EU Commission President von der Leyen in Brussels.</div>
+      </div>
+      <div class="story-block block-implications">
+        <div class="block-label">影響觀察 / Implications（分析）</div>
+        <div class="story-text">分析：匈牙利立場的轉變移除了歐盟內部的重大阻力，有助加速烏克蘭入盟談判時程表。然而，少數民族語言權利問題並非易解，若談判卡頓，馬賈爾可能在國內面臨「出賣匈牙利族群」的政治指控。</div>
+      </div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-headline">普丁提名前德國總理施羅德為烏克蘭停戰調停人</div>
+      <div class="story-headline-en">Putin Proposes Ex-German Chancellor Schröder as Ukraine War Mediator</div>
+      <div class="source-line">
+        <span class="source-tag">Euronews</span>
+        <span class="source-date">2026-05-11</span>
+        <span class="source-link"><a href="https://www.euronews.com/my-europe/2026/05/11/europe-today-putin-says-war-in-ukraine-may-end-soon-as-eu-foreign-ministers-meet-in-brusse" target="_blank">→ Euronews</a></span>
+      </div>
+      <div class="story-block block-facts">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="story-text">普丁在5月中旬提議，由前德國總理格哈特·施羅德（Gerhard Schröder）擔任俄烏停火談判的調停人。施羅德與普丁私交甚篤，曾任俄羅斯能源公司北溪管線董事。Putin proposed former German Chancellor Gerhard Schröder as a mediator for Ukraine peace negotiations. Schröder is a close personal friend of Putin and has served as a board member of Russian energy pipeline projects.</div>
+      </div>
+      <div class="story-block block-context">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="story-text">施羅德因卸任後持續與克里姆林宮保持密切關係，在德國與歐盟政界的信譽已大幅受損。此提案被多數歐洲外交官視為莫斯科的戰術性試探，而非真誠的外交提案。Schröder's credibility in European capitals has been severely damaged by his continued closeness to Moscow after leaving office. Most European diplomats view the proposal as a tactical Russian move rather than a genuine diplomatic overture.</div>
+      </div>
+      <div class="story-block block-implications">
+        <div class="block-label">影響觀察 / Implications（分析）</div>
+        <div class="story-text">分析：此提案不太可能獲得基輔或布魯塞爾的接受，但其意義在於莫斯科試圖主動塑造調停人選框架。在多方調停角色（巴基斯坦調停伊美、土耳其過去調停俄烏）並行的大背景下，普丁試圖掌控談判主動權的意圖相當明顯。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ASIA-PACIFIC -->
+  <div class="section" id="asia">
+    <div class="section-header">
+      <span class="section-icon">🌏</span>
+      <span class="section-title">亞太 <span class="section-title-en">/ Asia-Pacific</span></span>
+    </div>
+
+    <div class="story-card">
+      <div class="story-headline">日韓元首第4度峰會：聚焦能源安全合作，LNG儲備協議應對伊朗衝突後遺症</div>
+      <div class="story-headline-en">Japan–South Korea 4th Summit in Six Months: Leaders Agree on LNG Stockpiling Amid Iran War Energy Fallout</div>
+      <div class="source-line">
+        <span class="source-tag">Japan Times</span>
+        <span class="source-tag">Washington Post</span>
+        <span class="source-date">2026-05-19</span>
+        <span class="source-link"><a href="https://www.japantimes.co.jp/news/2026/05/19/japan/politics/takaichi-lee-japan-south-korea-summit/" target="_blank">→ Japan Times</a></span>
+      </div>
+      <div class="story-block block-facts">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="story-text">日本首相高市早苗（Takaichi Sanae）與南韓總統李在明（Lee Jae-myung）5月19日在李的故鄉安東舉行第四次峰會，雙方同意擴大原油與LNG的儲備及供應合作，以因應伊朗戰事引發的能源供應不穩。Japanese PM Takaichi Sanae and South Korean President Lee Jae-myung held their fourth bilateral summit in six months in Andong on May 19. The leaders agreed to expand crude oil and LNG stockpiling cooperation in response to energy supply disruptions from the Iran conflict.</div>
+      </div>
+      <div class="story-block block-context">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="story-text">日韓關係長期受歷史問題制約，但在中美競爭加劇及地區安全威脅上升的背景下，兩國自2025年以來加速推進經濟安全、供應鏈與人工智慧領域的合作。伊朗戰事導致中東能源通道風險上升，進一步推動了此次會談的緊迫性。Japan-Korea ties have historically been fraught, but both countries have accelerated economic security cooperation since 2025 amid shared threats. The Iran conflict's disruption to Middle East energy corridors added urgency to the LNG discussions.</div>
+      </div>
+      <div class="story-block block-implications">
+        <div class="block-label">影響觀察 / Implications（分析）</div>
+        <div class="story-text">分析：高頻率的日韓峰會標誌著兩國在美國保護傘可靠性存疑的情況下，選擇以雙邊形式自主強化安全合作。在北韓問題上，首爾與東京對習近平訪朝計畫高度關切，此次能源合作也是提升雙邊應急韌性的重要一環。</div>
+      </div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-headline">北韓金正恩下令強化前線防禦，宣稱對抗「宿敵」</div>
+      <div class="story-headline-en">Kim Jong Un Orders Reinforcement of North Korea's Southern Frontline Against "Arch Enemy"</div>
+      <div class="source-line">
+        <span class="source-tag">Japan Times</span>
+        <span class="source-date">2026-05-18</span>
+        <span class="source-link"><a href="https://www.japantimes.co.jp/news/2026/05/18/asia-pacific/politics/north-korea-kim-front-line-defenses/" target="_blank">→ Japan Times</a></span>
+      </div>
+      <div class="story-block block-facts">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="story-text">北韓官方媒體報導，金正恩召集高層軍事官員，要求強化南部前線單位，將朝鮮半島南部邊境打造成「銅牆鐵壁」要塞。North Korean state media reported Kim Jong Un convened top military officials, ordering them to strengthen front-line units along the southern border and turn it into an "impregnable fortress" against what he called the "arch enemy."</div>
+      </div>
+      <div class="story-block block-context">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="story-text">平壤的強硬措辭與習近平擬訪北韓的時間點形成對照——北韓一方面強化國內強硬敘事，另一方面則等待可能改善其外交地位的中國訪問。此舉也可能是對南韓-美國聯合軍演的回應。The bellicose rhetoric comes as Xi Jinping is reportedly weighing a visit to Pyongyang, creating an interesting contrast: North Korea signals military hardline posture domestically while potentially opening a diplomatic door via China. The move may also be a response to recent South Korea-US military exercises.</div>
+      </div>
+      <div class="story-block block-implications">
+        <div class="block-label">影響觀察 / Implications（分析）</div>
+        <div class="story-text">分析：平壤的強硬表態可能是在習近平訪問前的談判前置動作，以確保在中朝峰會中保持談判籌碼。同時也向韓美傳遞訊號，北韓無意在無對等讓步的情況下「免費」改善關係。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MIDDLE EAST & LATAM -->
+  <div class="section" id="mideast">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">中東與其他 <span class="section-title-en">/ Middle East & Elsewhere</span></span>
+    </div>
+
+    <div class="story-card">
+      <div class="story-headline">以色列持續對黎巴嫩發動空襲，加沙援助船隊遭攔截</div>
+      <div class="story-headline-en">Israel Continues Lebanon Strikes Despite Ceasefire Extension; Aid Flotilla Intercepted Heading to Gaza</div>
+      <div class="source-line">
+        <span class="source-tag">Al Jazeera</span>
+        <span class="source-date">2026-05-20–22</span>
+        <span class="source-link"><a href="https://www.aljazeera.com/news/liveblog/2026/5/9/iran-war-live-tehrans-reply-to-us-deal-expected-amid-clashes-in-hormuz" target="_blank">→ Al Jazeera</a></span>
+      </div>
+      <div class="story-block block-facts">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="story-text">黎巴嫩衛生部報告，過去24小時內以色列空襲造成至少22人死亡，儘管45天停火協議剛延長。與此同時，以色列攔截最後一艘試圖突破加沙封鎖的人道援助船隻，影片顯示以色列士兵向至少兩艘船開槍。Lebanon's Health Ministry reports at least 22 killed in Israeli strikes in the past 24 hours despite a 45-day ceasefire extension. Israeli forces also intercepted the last boats of a humanitarian aid flotilla attempting to breach the Gaza blockade, with footage showing soldiers firing on at least two vessels.</div>
+      </div>
+      <div class="story-block block-context">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="story-text">伊朗戰事雖已進入停火談判階段，但其代理人力量（真主黨等）與以色列之間的衝突仍持續。加沙封鎖持續引發國際人道組織批評，援助船隻遭攔截事件進一步加劇了國際輿論壓力。The ceasefire covers the US-Iran dimension of the conflict, but fighting between Israel and Iranian-linked groups continues. The Gaza blockade interception adds to growing international pressure over humanitarian conditions.</div>
+      </div>
+      <div class="story-block block-implications">
+        <div class="block-label">影響觀察 / Implications（分析）</div>
+        <div class="story-text">分析：停火架構下仍持續的零星衝突，說明整體局勢的脆弱性。援助船攔截事件可能在歐洲引發更強烈的外交反彈，部分歐盟成員國已對以色列加沙政策採取更批判的立場。</div>
+      </div>
+    </div>
+
+    <div class="story-card" id="latam">
+      <div class="story-headline">玻利維亞首都遭封鎖圍困：工會與礦工罷工讓巴斯城陷入危機，帕斯總統執政不足六個月即面臨下台壓力</div>
+      <div class="story-headline-en">Bolivia's Capital Under Siege: Blockades by Unions and Miners Deepen Crisis for President Paz, Only Six Months in Office</div>
+      <div class="source-line">
+        <span class="source-tag">NPR</span>
+        <span class="source-tag">Washington Post</span>
+        <span class="source-date">2026-05-19–20</span>
+        <span class="source-link"><a href="https://www.npr.org/2026/05/20/nx-s1-5828203/bolivia-capital-protests-crisis" target="_blank">→ NPR</a></span>
+      </div>
+      <div class="story-block block-facts">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="story-text">玻利維亞工人中央（COB）、農民工會與礦工發起長達兩週的道路封鎖，使首都拉巴斯陷入物資短缺，醫院氧氣儲備枯竭，至少3人因救護車受阻而死亡。企業組織估計，每日經濟損失逾5,000萬美元，約5,000輛車輛滯留。Bolivia's main labor union (COB), peasant unions, and miners have mounted two weeks of road blockades, emptying La Paz markets and depleting hospital oxygen reserves. At least three people have died after emergency vehicles were blocked. Business groups estimate economic losses exceeding $50 million per day, with ~5,000 vehicles stranded.</div>
+      </div>
+      <div class="story-block block-context">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="story-text">帕斯（Rodrigo Paz）總統繼承了一個「破產國家」，面臨近20%的通膨率與燃料短缺，但批評者指其應對危機的速度過慢。其所屬的基督民主黨在立法機關內部迅速分裂，他與副總統之間的公開衝突更削弱了執政基礎。President Paz inherited a bankrupt state with nearly 20% inflation and fuel shortages. His Christian Democratic Party fractured quickly in the legislature, and he is in open conflict with his own vice president. The crisis is less than six months after he took office.</div>
+      </div>
+      <div class="story-block block-implications">
+        <div class="block-label">影響觀察 / Implications（分析）</div>
+        <div class="story-text">分析：玻利維亞的政治危機是拉丁美洲資源型國家治理困境的縮影——高通膨、能源補貼與政治聯盟脆弱性共同構成爆炸性組合。若帕斯政府無法盡快恢復社會秩序，政治存活能力將受嚴重威脅，2026年是關鍵的壓力測試年。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPINION -->
+  <div class="section" id="opinion">
+    <div class="section-header">
+      <span class="section-icon">💡</span>
+      <span class="section-title">觀點推薦 <span class="section-title-en">/ Opinion Worth Reading</span></span>
+    </div>
+
+    <div class="story-card">
+      <div class="story-headline">日韓關係重建的地緣政治條件（The Diplomat, 2026-05）</div>
+      <div class="story-headline-en">"The Geopolitical Circumstances of Japan–South Korea Rapprochement" — The Diplomat</div>
+      <div class="source-line">
+        <span class="source-tag">The Diplomat</span>
+        <span class="source-date">2026-05</span>
+        <span class="source-link"><a href="https://thediplomat.com/2026/05/the-geopolitical-circumstances-of-japan-south-korea-rapprochement/" target="_blank">→ The Diplomat</a></span>
+      </div>
+      <div class="story-text" style="margin-top:8px;">
+        本文深入分析日韓和解的地緣政治動因：中美競爭加劇、美國同盟保障的不確定性、以及伊朗戰後能源安全焦慮，共同推動了兩國克服歷史積怨、加速戰略靠攏。文章特別指出，高市-李峰會模式（每六個月至少一次、且地點選在各自家鄉）是制度化雙邊關係的重要嘗試。值得關注的是：這份關係的穩固性，仍有賴於雙方國內政治的持續支持。
+
+        This analysis examines how US-China rivalry, eroding confidence in US alliance guarantees, and Iran-driven energy anxiety have pushed Tokyo and Seoul to overcome historical grievances and institutionalize strategic cooperation at an unprecedented pace. The piece notes that the shuttle-diplomacy cadence — four summits in six months, held in each leader's hometown — is an attempt to root bilateral ties in political symbolism resistant to disruption.
+      </div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-headline">習近平訪朝計畫：北京爭奪朝鮮半島外交主導權（Modern Diplomacy, 2026-05-21）</div>
+      <div class="story-headline-en">"Xi Jinping's Possible North Korea Visit Signals China's Bid for Diplomatic Control" — Modern Diplomacy</div>
+      <div class="source-line">
+        <span class="source-tag">Modern Diplomacy</span>
+        <span class="source-date">2026-05-21</span>
+        <span class="source-link"><a href="https://moderndiplomacy.eu/2026/05/21/xi-jinpings-possible-north-korea-visit-signals-chinas-bid-for-diplomatic-control/" target="_blank">→ Modern Diplomacy</a></span>
+      </div>
+      <div class="story-text" style="margin-top:8px;">
+        習近平在接待川普、普丁之後，可能旋即訪問平壤，此一外交日曆的安排折射出北京試圖在大國競逐的格局中掌握朝鮮半島問題的議程設定權。文章分析習此行可能的三重目標：一、強化中朝戰略連結；二、在朝美關係正常化之前確立中國的不可缺席地位；三、向華盛頓傳遞「任何半島外交突破都需繞不開北京」的訊號。
+
+        Following visits from Trump and Putin, Xi's potential Pyongyang trip reflects Beijing's attempt to position itself as indispensable to any Korean Peninsula diplomatic breakthrough — before any Washington-Pyongyang rapprochement sidelines China's role.
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <div>
+    <strong>資料來源 / Sources:</strong>
+    <a href="https://www.aljazeera.com/" target="_blank">Al Jazeera</a> ·
+    <a href="https://www.reuters.com/" target="_blank">Reuters</a> ·
+    <a href="https://www.npr.org/" target="_blank">NPR</a> ·
+    <a href="https://www.cnbc.com/" target="_blank">CNBC</a> ·
+    <a href="https://www.nbcnews.com/" target="_blank">NBC News</a> ·
+    <a href="https://focustaiwan.tw/" target="_blank">Focus Taiwan / CNA</a> ·
+    <a href="https://www.taipeitimes.com/" target="_blank">Taipei Times</a> ·
+    <a href="https://www.japantimes.co.jp/" target="_blank">Japan Times</a> ·
+    <a href="https://kyivindependent.com/" target="_blank">Kyiv Independent</a> ·
+    <a href="https://www.foxnews.com/" target="_blank">Fox News</a> ·
+    <a href="https://thediplomat.com/" target="_blank">The Diplomat</a> ·
+    <a href="https://moderndiplomacy.eu/" target="_blank">Modern Diplomacy</a> ·
+    <a href="https://asia.nikkei.com/" target="_blank">Nikkei Asia</a> ·
+    <a href="https://www.washingtonpost.com/" target="_blank">Washington Post</a>
+  </div>
+  <div class="disclaimer">
+    部分付費牆媒體（NYT, FT, WSJ, The Economist）未能取得全文，內容以公開來源為準。<br>
+    本報告為資訊彙整，影響觀察段落屬分析性意見，不代表任何政治立場。<br>
+    生成時間：2026-05-22 · Asia/Taipei
+  </div>
+</footer>
+
+</body>
+</html>

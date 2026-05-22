@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>創投新聞日報 — 2026-05-22</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --card: #1a1d27;
+      --border: #2a2d3a;
+      --accent: #7c6ff7;
+      --accent2: #4fc3f7;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --tag-bg: #2a2d3a;
+      --green: #4ade80;
+      --yellow: #fbbf24;
+      --red: #f87171;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      padding: 24px 16px 60px;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+
+    /* Header */
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 18px;
+      margin-bottom: 28px;
+    }
+    .header-meta {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+    }
+    .header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+    }
+    .header-sub { color: var(--muted); font-size: 13px; }
+
+    /* Section title */
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--accent);
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+      margin: 36px 0 16px;
+    }
+
+    /* News card */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.45;
+    }
+    .card-title-en {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .source-line {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .source-line a { color: var(--accent2); text-decoration: none; }
+    .source-line a:hover { text-decoration: underline; }
+
+    .label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      margin-right: 4px;
+    }
+    .label-facts   { background: rgba(124,111,247,.2); color: #a89fff; }
+    .label-context { background: rgba(79,195,247,.15); color: #7dd3fc; }
+    .label-impl    { background: rgba(74,222,128,.15); color: #86efac; }
+
+    .block { margin-bottom: 10px; }
+    .block p { font-size: 14px; color: #cbd5e1; }
+
+    /* Tag chips */
+    .tags { margin-top: 10px; }
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 9px;
+      border-radius: 20px;
+      background: var(--tag-bg);
+      color: var(--muted);
+      margin-right: 5px;
+      margin-top: 4px;
+    }
+
+    /* Top story callout */
+    .top-story-card {
+      background: linear-gradient(135deg, rgba(124,111,247,.12), rgba(79,195,247,.08));
+      border: 1px solid rgba(124,111,247,.35);
+    }
+
+    /* Reads */
+    .reads-card {
+      background: rgba(251,191,36,.05);
+      border: 1px solid rgba(251,191,36,.2);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 48px;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .footer a { color: var(--accent2); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* Stat bar */
+    .stat-bar {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 16px;
+      flex: 1;
+      min-width: 120px;
+    }
+    .stat-label { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+    .stat-value { font-size: 20px; font-weight: 700; color: var(--green); }
+    .stat-sub { font-size: 11px; color: var(--muted); }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-meta">創投新聞日報 · VC Daily Briefing</div>
+    <h1>創投新聞日報 — 2026-05-22</h1>
+    <div class="header-sub">涵蓋 VC 募資、新基金成立、LP 動向、大型 round 領投者、退場事件、GP 策略動態 · Asia/Taipei</div>
+  </div>
+
+  <!-- Stat bar -->
+  <div class="stat-bar">
+    <div class="stat">
+      <div class="stat-label">Q1 2026 全球 VC 注入</div>
+      <div class="stat-value">$300B+</div>
+      <div class="stat-sub">史上最高單季</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">AI 佔比</div>
+      <div class="stat-value">81%</div>
+      <div class="stat-sub">資本高度集中 AI</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Mercury 估值</div>
+      <div class="stat-value">$5.2B</div>
+      <div class="stat-sub">TCV 領投 $200M</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Khwarizmi Fund II</div>
+      <div class="stat-value">$70M+</div>
+      <div class="stat-sub">GCC 首次 close</div>
+    </div>
+  </div>
+
+  <!-- Section 1: Top Stories -->
+  <div class="section-title">01 · 頭條 / Top Stories</div>
+
+  <div class="card top-story-card">
+    <div class="card-title">Q1 2026 全球 VC 注資 $300B+，史上最高季度，AI 吸走 81% 資金</div>
+    <div class="card-title-en">Q1 2026 Shatters VC Records at $300B+ — AI Absorbs 81% of Global Venture Dollars</div>
+    <div class="source-line">
+      來源 / Source: <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Crunchbase News</a>、
+      <a href="https://kpmg.com/xx/en/media/press-releases/2026/04/global-vc-investment-surges-to-record-330-9-billion-dollar-in-q1-26.html" target="_blank">KPMG Venture Pulse</a>
+      · 2026-04 / 2026-05
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>Crunchbase 數據：Q1 2026 全球 VC 投入約 $300B，KPMG 版本為 $330.9B（方法論差異）。季比成長逾 150%，年比亦大幅正成長，創歷史紀錄。AI 公司吸收約 $240B，占比 81%。OpenAI（$122B）、Anthropic（$30B）、xAI（$20B）、Waymo（$16B）四筆超級輪合計 $188B，佔全球 VC 近 65%。成交量卻跌至約 7,000 筆，為 2016 年以來最低，且較 2022 高峰減少 61%。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>上次出現如此極端的資本集中，是 2000 年網路泡沫頂峰。但本次不同之處在於：被投公司已有大量實際收入（OpenAI ARR 超過 $10B），且超大型輪的領投方以企業戰略投資人（SoftBank、Amazon）為主，傳統 VC 只扮演跟投角色。美國佔全球 VC 的 83%，較前一年 71% 進一步集中。</p>
+    </div>
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）資本極度向少數 mega-deal 集中，意味著中型 VC（fund size $200M–$600M）的 LP 在資金配置上面臨稀釋效應——大型 endowment 及 sovereign wealth fund 的 VC 配額被超大型輪鎖定，留給傳統 early-stage GP 的新錢減少。同時，deal volume 創新低意味著 Series A/B 競爭更激烈，估值仍被頭部 AI 公司拉高。</p>
+    </div>
+    <div class="tags">
+      <span class="tag">LP 配置</span><span class="tag">AI 集中</span><span class="tag">Mega Round</span><span class="tag">Q1 2026</span>
+    </div>
+  </div>
+
+  <div class="card top-story-card">
+    <div class="card-title">Robinhood 零售 VC 基金 RVI 上市後飆漲，已準備第二支基金 RVII</div>
+    <div class="card-title-en">Robinhood Ventures Fund I Doubles on NYSE Debut; RVII Filing Signals Push Into Early-Stage AI</div>
+    <div class="source-line">
+      來源 / Source: <a href="https://techcrunch.com/2026/05/11/riding-an-ai-rally-robinhood-preps-second-retail-venture-ipo/" target="_blank">TechCrunch</a>
+      · 2026-05-11
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>Robinhood Ventures Fund I（RVI）2026 年 3 月初在 NYSE 以 $21/股 IPO，截至 5 月 10 日收盤 $43.69，漲幅逾 100%。逾 15 萬名零售投資人參與。持股標的為 10 家晚期私人公司。Robinhood 已秘密申報 RVII，定位成長期至早期 AI 新創，風險更高但報酬潛力更大。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>「VC 民主化」長期是產業議題，Robinhood 將 VC 基金包裝成上市 CEF（closed-end fund）是結構性創新。RVI 的高溢價交易顯示零售投資人對私人科技公司的需求極旺，但也帶來 premium/discount 波動風險。SEC 已對此類產品保持監管關注。</p>
+    </div>
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）若 RVII 成功，可能帶動其他 VC 思考「公開市場化」策略，對傳統 LP 關係形成競爭——散戶資金池理論上能擴大 GP 的籌資來源，但也會引入更高的流動性期望與監管合規成本。</p>
+    </div>
+    <div class="tags">
+      <span class="tag">Robinhood</span><span class="tag">Retail VC</span><span class="tag">CEF</span><span class="tag">零售投資人</span>
+    </div>
+  </div>
+
+  <!-- Section 2: Fund Formation & LP -->
+  <div class="section-title">02 · 新基金與 LP / Fund Formation & LP Activity</div>
+
+  <div class="card">
+    <div class="card-title">A-Star 完成 $4.5 億 Fund III，主張「精選」對抗規模化</div>
+    <div class="card-title-en">A-Star Closes $450M Fund III — "Less Is More" as Counter to Mega-Fund Bulk Strategy</div>
+    <div class="source-line">
+      來源 / Source: <a href="https://www.bloomberg.com/news/articles/2026-05-12/vc-firm-takes-less-is-more-approach-with-new-450-million-fund" target="_blank">Bloomberg</a>
+      · 2026-05-12（paywall）
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>A-Star（由 Eventbrite 共同創辦人 Kevin Hartz 與前 Coatue 投資人 Bennett Siegel 共同主導）完成 Fund III，規模 $4.5 億，為該基金迄今最大。Fund III 聚焦 seed 與 pre-seed，投資組合採精選策略，避免廣撒網。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>A-Star 反向操作當前「mega-seed」趨勢——部分知名 seed 基金在 AI 熱潮下已開始跑類似 Series A 規模的 cheque。Hartz 明確批評「bulk buying」式的 seed 投資文化，主張深度支持少數公司。</p>
+    </div>
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）$450M 對 seed fund 而言屬偏大，如何在維持「精選」哲學的同時部署足夠資本是挑戰。LP 配置 early-stage 的壓力上升，精品基金的差異化敘事變得更重要。</p>
+    </div>
+    <div class="tags">
+      <span class="tag">A-Star</span><span class="tag">Seed Fund</span><span class="tag">Fund III</span><span class="tag">$450M</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">沙烏地 Khwarizmi Ventures Fund II 首次 close 達 $7,500 萬，SIC 成首位機構 LP</div>
+    <div class="card-title-en">Saudi Khwarizmi Ventures Closes Fund II First Close at $75M; SIC Makes Its Inaugural VC Bet</div>
+    <div class="source-line">
+      來源 / Source: <a href="https://www.wamda.com/2026/05/khwarizmi-ventures-launches-fund-ii-70m-close-gcc-startups" target="_blank">Wamda</a>、
+      <a href="https://entarabi.com/en/2026/05/sic-makes-strategic-investment-in-khwarizmi-ventures-fund-ii/" target="_blank">entARABI</a>
+      · 2026-05
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>沙烏地阿拉伯早期 VC Khwarizmi Ventures（2021 年成立）完成 Fund II 首次關帳，金額 SAR 270M（約 $70–75M）。目標規模 $100M–$120M，預計 H2 2026 最終關帳。投資策略：seed 至 Series A，ticket $1M–$5M，計畫投資 20–30 家 GCC 新創，聚焦 fintech、消費科技、AI。Saudi Industrial Cities Company（SIC，SIDF 子公司）宣布加入成為策略型 LP，為其首次直接 VC 投資。Fund I 已完成 5 筆退場。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>沙烏地 Vision 2030 帶動大量主權與準主權機構首度涉入 VC 配置。SIC 過去聚焦工業製造貸款，轉入 VC 生態代表 Saudi 機構投資人的配置策略正式多元化。GCC（海灣合作委員會）地區 VC 生態仍屬新興，Khwarizmi 的 30+ 被投組合涵蓋 Tamara、Eyewa、Calo 等代表性公司。</p>
+    </div>
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）SIC 的加入具示範效應——其他沙烏地工業基金可能跟進 VC 配置，為 GCC 地區 GP 帶來新型 LP 群體。這類主權性 LP 通常要求在地投資比例，可能影響基金的地域靈活性。</p>
+    </div>
+    <div class="tags">
+      <span class="tag">MENA</span><span class="tag">Saudi Arabia</span><span class="tag">GCC</span><span class="tag">LP 動向</span><span class="tag">新基金</span>
+    </div>
+  </div>
+
+  <!-- Section 3: Mega Rounds & Lead Investors -->
+  <div class="section-title">03 · 大型 round 與領投者 / Mega Rounds & Lead Investors</div>
+
+  <div class="card">
+    <div class="card-title">TCV 領投 Mercury $2 億 Series D，估值 $52 億，押注 AI 新創銀行化</div>
+    <div class="card-title-en">TCV Leads Mercury's $200M Series D at $5.2B — Betting on the "OS for AI-Era Startups"</div>
+    <div class="source-line">
+      來源 / Source: <a href="https://www.businesswire.com/news/home/20260520511817/en/Mercury-Raises-$200-Million-Series-D-at-$5.2B-Valuation" target="_blank">BusinessWire</a>、
+      <a href="https://www.cnbc.com/2026/05/20/fintech-mercury-valuation-fundraise-bank-charter.html" target="_blank">CNBC</a>
+      · 2026-05-20
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>Mercury 完成 $200M Series D，由 TCV 領投，Andreessen Horowitz、Coatue、CRV、Sapphire Ventures、Sequoia Capital、Spark Capital 跟投。估值 $5.2B，較 14 個月前上漲 49%。含一二手合計總籌資約 $700M。公司 ARR 達 $650M，連續四年獲利。Mercury 已獲 OCC 條件批准申請聯邦銀行執照，可望直接提供放貸、加入 Zelle 網絡。Q1 2026 新帳戶申請量年比成長 2.5 倍。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>Mercury 定位為 AI 新創的金融作業系統（operating system for startups）。AI 新創潮帶動大量新公司成立，Mercury 是直接受益者——其客戶群主要是 AI-native 公司。TCV 過去投資 Netflix、Spotify、Airbnb，選在 Mercury 拿到銀行執照批准前後跑此輪，時機精準。</p>
+    </div>
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）Mercury 聯邦銀行執照若正式核准，將是 B2B fintech 的重大里程碑——意味著 VC 支持的新創可以成為正規銀行，對 SVB 後留下的 startup banking 市場缺口有直接填補效果。Sequoia、a16z 同時在此輪跟投，顯示頭部 VC 對 fintech-infra 仍有強烈配置意圖。</p>
+    </div>
+    <div class="tags">
+      <span class="tag">Mercury</span><span class="tag">TCV</span><span class="tag">Fintech</span><span class="tag">Series D</span><span class="tag">$5.2B</span>
+    </div>
+  </div>
+
+  <!-- Section 4: Exits & DPI -->
+  <div class="section-title">04 · 退場 / Exits & DPI Events</div>
+
+  <div class="card">
+    <div class="card-title">2026 年 DPI 危機持續：LP 逼迫 GP 以「任何合理價格」退場，二手市場活躍</div>
+    <div class="card-title-en">DPI Crisis Persists in 2026 — LPs Press GPs for Any Exit; Secondaries Becoming Core Liquidity Tool</div>
+    <div class="source-line">
+      來源 / Source: <a href="https://markets.financialcontent.com/stocks/article/marketminute-2026-1-15-the-great-unlocking-private-equity-and-venture-capital-exits-surge-as-2026-begins" target="_blank">FinancialContent / MarketMinute</a>
+      · 2026-01-15
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>2018 vintage VC 基金 DPI 中位數僅 0.6x，處歷史低位。2025 年僅發生 66 筆 VC 支持 IPO（嚴格收入與估值門檻）。85% 的 VC 退場透過 M&A（含 acquihire）完成。VC 二手市場目前交易量僅約佔獨角獸市值的 2%，仍嚴重低滲透。Turbine Finance 已在 160+ 家 GP（AUM 合計 $500B）管線中，提供 LP 以持倉為抵押的流動性貸款（無需出售資產）。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>公司上市中位年齡從 2018 年的 10 年增至 2025 年的 13 年，退場期拉長讓 2018–2021 vintage 基金的 LP 已等待 5–8 年。LP 對 DPI 的要求在 2025 年中達到臨界點，促使 GP 必須接受更低的退場溢價。</p>
+    </div>
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）Turbine 模式若被廣泛採用，可能緩解 GP 被迫賤賣好資產的壓力，但同時也讓低 DPI 問題「延後解決」而非根本改善。IPO 窗口 2026 年續有改善預期，但速度仍趕不上 LP 的流動性需求增長。</p>
+    </div>
+    <div class="tags">
+      <span class="tag">DPI</span><span class="tag">Secondary</span><span class="tag">Turbine</span><span class="tag">LP 流動性</span><span class="tag">IPO</span>
+    </div>
+  </div>
+
+  <!-- Section 5: GP Moves -->
+  <div class="section-title">05 · GP 人事 / GP Moves</div>
+
+  <div class="card">
+    <div class="card-title">VC Journal 2026 Rising Stars 揭曉，中生代 GP 加速升遷</div>
+    <div class="card-title-en">Venture Capital Journal Releases 2026 Rising Stars List — Mid-Career GPs Gaining Ground</div>
+    <div class="source-line">
+      來源 / Source: <a href="https://www.venturecapitaljournal.com/venture-capitals-2026-rising-stars-a-g/" target="_blank">Venture Capital Journal</a>
+      · 2026-05
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>Venture Capital Journal 發布 2026 年度 Rising Stars 名單（A–G 及 M–P 分批公布），表彰 VC 生態中中生代投資人的升遷與基金貢獻。名單強調 AI 垂直領域投資人的比例顯著提升。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>在 AI 熱潮中，許多 VC 開始提拔具備技術背景（ex-founder、ex-engineer）的年輕投資人為合夥人，以改善 AI deal sourcing 能力與創辦人信任度。</p>
+    </div>
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）人才流動加速 VC 生態專業化。具 AI 原生背景的 GP 晉升，可能使傳統財務背景 GP 在 early-stage AI 投資中處於競爭劣勢。</p>
+    </div>
+    <div class="tags">
+      <span class="tag">GP 人事</span><span class="tag">Rising Stars</span><span class="tag">AI VC</span>
+    </div>
+  </div>
+
+  <!-- Section 6: Strategy & Ecosystem -->
+  <div class="section-title">06 · 策略與生態 / Strategy & Ecosystem Shifts</div>
+
+  <div class="card">
+    <div class="card-title">Mega VC 輪推動小型基金退守 seed，承擔更高風險</div>
+    <div class="card-title-en">Mega VC Rounds Push Smaller Funds Into Riskier Seed Investments — Competitive Landscape Reshuffles</div>
+    <div class="source-line">
+      來源 / Source: <a href="https://globalventuring.com/corporate/overview/mega-vc-funding-rounds-push-smaller-funds-into-riskier-seed-investments/" target="_blank">Global Venturing</a>
+      · 2026-05
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>隨著超大型輪（OpenAI、Anthropic 等）吸走主要 LP 配額，中型 VC 面臨無法有效跟投成長期的結構性困境。許多 fund size $200M–$500M 的 GP 轉向 seed/pre-seed，競搶更早期機會，使 seed 輪競爭白熱化、pre-seed 估值水漲船高。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>傳統 seed 基金（$50M–$100M）與中型成長基金（$500M–$1B）之間出現定位模糊地帶。A-Star 的「精選」策略是對此的一種回應，另一種回應是部分 GP 轉型為 multi-stage 以保留跟投權。</p>
+    </div>
+    <div class="block">
+      <span class="label label-impl">影響觀察 / Implications</span>
+      <p>（分析）新創創辦人在 seed 階段能拿到更多資金，但早期估值壓力加大。對 LP 而言，seed 配置的風險暴露增加；對 GP 而言，差異化策略（如 A-Star 的精選、或垂直領域 VC）將是吸引 LP 的關鍵。</p>
+    </div>
+    <div class="tags">
+      <span class="tag">Seed 市場</span><span class="tag">基金策略</span><span class="tag">競爭格局</span>
+    </div>
+  </div>
+
+  <!-- Section 7: Regional -->
+  <div class="section-title">07 · 區域動向 / Regional Highlights</div>
+
+  <div class="card">
+    <div class="card-title">美國：AI 獨霸，美國吸走全球 83% 資本 / MENA：沙烏地主權機構首度進場 VC</div>
+    <div class="card-title-en">US: 83% of Global VC Captured · MENA: Saudi Sovereign Institution Enters VC for First Time</div>
+    <div class="source-line">
+      來源 / Source: <a href="https://news.crunchbase.com/venture/capital-concentrated-ai-global-q1-2026/" target="_blank">Crunchbase</a>、
+      <a href="https://waya.media/sic-backs-khwarizmi-ventures-fund-ii-to-support-saudi-industrial-tech-startups/" target="_blank">WAYA Media</a>
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p><strong>美國：</strong>Q1 2026 美國企業籌得 $250B，全球佔比 83%，遠高於 2024 年前歷史均值。歐洲、亞洲相對失血。<br/>
+      <strong>MENA：</strong>沙烏地 SIC 首次 VC 投資落地（Khwarizmi Fund II），象徵 Saudi Vision 2030 資本配置進入新階段。GCC 生態仍早期，但機構 LP 參與度明顯提速。<br/>
+      <strong>東南亞 / 印度：</strong>延伸 AI 基礎設施投資，但本周無重大基金宣布。</p>
+    </div>
+    <div class="tags">
+      <span class="tag">美國</span><span class="tag">MENA</span><span class="tag">GCC</span><span class="tag">地緣 VC</span>
+    </div>
+  </div>
+
+  <!-- Section 8: Reads -->
+  <div class="section-title">08 · 觀點 / Reads</div>
+
+  <div class="card reads-card">
+    <div class="card-title">推薦閱讀：Q1 2026 AI 資金集中度報告 (PitchBook)</div>
+    <div class="card-title-en">Recommended Read: PitchBook Q1 2026 AI VC Trends — Three Deals = 67% of Capital</div>
+    <div class="source-line">
+      來源 / Source: <a href="https://pitchbook.com/news/articles/q1-2026-ai-funding-blows-past-2025-total-with-three-deals-accounting-for-67-of-capital" target="_blank">PitchBook</a>
+    </div>
+    <p style="font-size:14px; color:#cbd5e1;">PitchBook 分析顯示 Q1 2026 三筆 AI 交易（OpenAI、Anthropic、xAI）佔全球 AI VC 資金的 67%。報告深入討論此現象對 LP 配置策略、fund of funds 選擇、以及非 AI 新創融資難度的結構性影響。對正在規劃 fund allocation 的 LP 和 GP 均值得精讀。</p>
+    <div class="tags"><span class="tag">PitchBook</span><span class="tag">AI VC</span><span class="tag">必讀</span></div>
+  </div>
+
+  <div class="card reads-card">
+    <div class="card-title">推薦閱讀：Crunchbase — Q1 2026 資本向頭部集中的三張圖</div>
+    <div class="card-title-en">Recommended Read: Crunchbase — 3 Charts on VC Capital Concentration at the Top in 2026</div>
+    <div class="source-line">
+      來源 / Source: <a href="https://news.crunchbase.com/venture/capital-concentrated-ai-global-q1-2026/" target="_blank">Crunchbase News</a>
+    </div>
+    <p style="font-size:14px; color:#cbd5e1;">三張圖精準呈現 2026 年 VC 集中化：（1）AI 佔比達 81%；（2）美國獨吞 83% 全球 VC；（3）deal count 創 2016 年以來新低。簡潔但信息密度極高，適合作為向 LP 簡報的背景資料。</p>
+    <div class="tags"><span class="tag">Crunchbase</span><span class="tag">資本集中</span><span class="tag">數據視覺化</span></div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <strong>來源 / Sources</strong><br/>
+    <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/">Crunchbase — Q1 2026 Record VC</a> ·
+    <a href="https://kpmg.com/xx/en/media/press-releases/2026/04/global-vc-investment-surges-to-record-330-9-billion-dollar-in-q1-26.html">KPMG Venture Pulse Q1 2026</a> ·
+    <a href="https://news.crunchbase.com/venture/capital-concentrated-ai-global-q1-2026/">Crunchbase — Capital Concentrated</a> ·
+    <a href="https://techcrunch.com/2026/05/11/riding-an-ai-rally-robinhood-preps-second-retail-venture-ipo/">TechCrunch — Robinhood RVII</a> ·
+    <a href="https://www.bloomberg.com/news/articles/2026-05-12/vc-firm-takes-less-is-more-approach-with-new-450-million-fund">Bloomberg — A-Star $450M</a> ·
+    <a href="https://www.wamda.com/2026/05/khwarizmi-ventures-launches-fund-ii-70m-close-gcc-startups">Wamda — Khwarizmi Fund II</a> ·
+    <a href="https://entarabi.com/en/2026/05/sic-makes-strategic-investment-in-khwarizmi-ventures-fund-ii/">entARABI — SIC + Khwarizmi</a> ·
+    <a href="https://www.businesswire.com/news/home/20260520511817/en/Mercury-Raises-$200-Million-Series-D-at-$5.2B-Valuation">BusinessWire — Mercury Series D</a> ·
+    <a href="https://www.cnbc.com/2026/05/20/fintech-mercury-valuation-fundraise-bank-charter.html">CNBC — Mercury $5.2B</a> ·
+    <a href="https://news.crunchbase.com/venture/beyond-secondaries-turbine-unlock-liquidity-lps-hurst/">Crunchbase — Turbine LP Liquidity</a> ·
+    <a href="https://pitchbook.com/news/articles/q1-2026-ai-funding-blows-past-2025-total-with-three-deals-accounting-for-67-of-capital">PitchBook — Q1 2026 AI VC Trends</a> ·
+    <a href="https://globalventuring.com/corporate/overview/mega-vc-funding-rounds-push-smaller-funds-into-riskier-seed-investments/">Global Venturing — Mega Rounds vs Seed</a> ·
+    <a href="https://www.venturecapitaljournal.com/venture-capitals-2026-rising-stars-a-g/">VC Journal — Rising Stars</a><br/><br/>
+    <strong>未能穿牆來源 / Paywalled:</strong> Bloomberg ($450M A-Star fund details), The Information (VC vertical), WSJ Venture, FT Private Equity, PitchBook full reports<br/><br/>
+    生成時間 Generated: 2026-05-22 · 模型 Claude Sonnet 4.6 · 僅供資訊參考，非投資建議
+  </div>
+
+</div>
+</body>
+</html>

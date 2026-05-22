@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>半導體新聞日報 — 2026-05-22</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.7;
+    padding: 0 0 60px 0;
+  }
+  header {
+    background: linear-gradient(135deg, #0d1b2a 0%, #1b3a5c 60%, #16213e 100%);
+    color: #fff;
+    padding: 36px 40px 28px;
+    border-bottom: 3px solid #00b4d8;
+  }
+  header h1 { font-size: 1.65rem; font-weight: 700; letter-spacing: 0.02em; }
+  header .subtitle { font-size: 0.9rem; color: #90caf9; margin-top: 6px; }
+  header .date-badge {
+    display: inline-block;
+    background: #00b4d8;
+    color: #fff;
+    border-radius: 4px;
+    padding: 2px 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-top: 10px;
+    letter-spacing: 0.05em;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 32px 24px 0; }
+  .section {
+    margin-bottom: 36px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #e0e7ef;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .section-header {
+    background: #eaf3fb;
+    border-bottom: 2px solid #00b4d8;
+    padding: 12px 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-header .icon { font-size: 1.2rem; }
+  .section-header h2 { font-size: 1.05rem; font-weight: 700; color: #0d3b66; }
+  .section-header .en { font-size: 0.82rem; color: #5a7fa0; margin-left: 4px; font-weight: 400; }
+  .news-item { padding: 20px 22px; border-bottom: 1px solid #eef2f7; }
+  .news-item:last-child { border-bottom: none; }
+  .news-item h3 { font-size: 0.97rem; font-weight: 700; color: #0d3b66; margin-bottom: 6px; line-height: 1.4; }
+  .source-line {
+    font-size: 0.78rem;
+    color: #7a9ab5;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+  .source-line a { color: #0077b6; text-decoration: none; }
+  .source-line a:hover { text-decoration: underline; }
+  .source-line .tag {
+    background: #e8f4fd;
+    border-radius: 3px;
+    padding: 1px 7px;
+    font-size: 0.73rem;
+    color: #1b6ca8;
+    font-weight: 600;
+  }
+  .label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 3px;
+    padding: 1px 7px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .label-facts { background: #e3f8ee; color: #1b7a46; }
+  .label-context { background: #fff3cd; color: #7a5200; }
+  .label-implication { background: #fce8e8; color: #a31515; }
+  .para { margin-bottom: 8px; font-size: 0.88rem; color: #2d3748; }
+  .highlight { color: #0077b6; font-weight: 600; }
+  .top-stories-bar {
+    display: flex;
+    gap: 12px;
+    padding: 18px 22px;
+    flex-wrap: wrap;
+  }
+  .top-card {
+    flex: 1 1 240px;
+    background: linear-gradient(135deg, #eaf6ff 0%, #f0f9ff 100%);
+    border: 1px solid #b3d9f7;
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .top-card .num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #00b4d8;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .top-card .cn { font-size: 0.88rem; font-weight: 700; color: #0d3b66; }
+  .top-card .en-small { font-size: 0.76rem; color: #5a7fa0; margin-top: 2px; }
+  .sources-footer {
+    background: #f0f4f8;
+    border-top: 1px solid #d0dce8;
+    padding: 18px 22px;
+    font-size: 0.78rem;
+    color: #5a7fa0;
+  }
+  .sources-footer h4 { font-size: 0.82rem; font-weight: 700; color: #0d3b66; margin-bottom: 8px; }
+  .sources-footer ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .sources-footer li a { color: #0077b6; text-decoration: none; }
+  .sources-footer li a:hover { text-decoration: underline; }
+  .divider { height: 1px; background: #e8edf3; margin: 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🔬 半導體新聞日報 / Daily Semiconductor Briefing</h1>
+  <div class="subtitle">晶圓代工 · IC設計 · 記憶體 · 設備材料 · AI晶片 · 地緣政治</div>
+  <div class="date-badge">2026-05-22 · Friday · Asia/Taipei</div>
+</header>
+
+<div class="container">
+
+  <!-- TOP STORIES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🔥</span>
+      <h2>頭條 <span class="en">/ Top Stories</span></h2>
+    </div>
+    <div class="top-stories-bar">
+      <div class="top-card">
+        <div class="num">130K</div>
+        <div class="cn">TSMC CoWoS 產能目標</div>
+        <div class="en-small">Monthly wafer target by end-2026</div>
+      </div>
+      <div class="top-card">
+        <div class="num">23%</div>
+        <div class="cn">HBM 占 DRAM 晶圓比</div>
+        <div class="en-small">HBM share of DRAM wafer output 2026</div>
+      </div>
+      <div class="top-card">
+        <div class="num">MATCH</div>
+        <div class="cn">出口管制法案過委員會</div>
+        <div class="en-small">House Committee passes MATCH Act targeting DUV</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOUNDRY & PACKAGING -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🏭</span>
+      <h2>晶圓代工與封測 <span class="en">/ Foundry & Advanced Packaging</span></h2>
+    </div>
+
+    <div class="news-item">
+      <h3>TSMC CoWoS 年底衝 130,000 片/月；先進封裝占營收比重將突破 10%<br>
+        <span style="font-weight:400;font-size:0.9em;color:#5a7fa0">TSMC Targets 130K CoWoS Wafers/Month by Late 2026, AP Revenue Share to Cross 10%</span>
+      </h3>
+      <div class="source-line">
+        <span class="tag">TSMC / TrendForce / DigiTimes</span>
+        <span>·</span>
+        <a href="https://www.trendforce.com/news/2026/04/28/news-tsmc-cowos-wafer-asp-reportedly-nears-7nm-levels-advanced-packaging-poised-to-become-a-key-profit-driver/" target="_blank">TrendForce 2026-04-28</a>
+        <span>·</span>
+        <a href="https://www.digitimes.com/news/a20260514PD237/tsmc-cowos-soic-capacity-packaging.html" target="_blank">DigiTimes 2026-05-14</a>
+      </div>
+      <p class="para"><span class="label label-facts">核心事實 Facts</span>
+        TSMC 先進封裝產能目標：2026 年底達 <span class="highlight">130,000 CoWoS 片/月</span>（較 2024 年底近 4 倍）；CoWoS 晶圓 ASP 已接近 7nm 製程水準。先進封裝占 TSMC 總營收 2025 年約 8%，2026 年預計突破 <span class="highlight">10%</span>，全球新建 18 座晶圓廠與先進封裝廠正在建設中。
+      </p>
+      <p class="para"><span class="label label-context">背景脈絡 Context</span>
+        NVIDIA 已預訂 TSMC 大部分 CoWoS 產能至 2027 年，部分工序外包給 ASE、Amkor 分擔。CoWoS-L（substrate-based）與 CoWoS-S（silicon interposer）並行發展；14-reticle size CoWoS 計劃 2028 年推出，對應下一代超大型 AI GPU 封裝需求。
+      </p>
+      <p class="para"><span class="label label-implication">影響觀察 Implications</span>
+        [分析] 先進封裝毛利率目前仍低於 TSMC 整體平均，但規模擴大後將成為新利潤驅動點。ASE、Amkor 等封測廠短期受益於 TSMC 外包訂單，但長期面臨 TSMC 垂直整合壓力。CoWoS 產能仍是 Blackwell/GB300 出貨的關鍵瓶頸。
+      </p>
+    </div>
+
+    <div class="news-item">
+      <h3>Apple 與 Intel、Samsung 代工廠接觸；Samsung Foundry Q1 2026 稼動率回升至 80%<br>
+        <span style="font-weight:400;font-size:0.9em;color:#5a7fa0">Apple Eyes Intel & Samsung Foundry; Samsung Foundry Utilization Rebounds to 80% in Q1 2026</span>
+      </h3>
+      <div class="source-line">
+        <span class="tag">Samsung / Intel / TrendForce</span>
+        <span>·</span>
+        <a href="https://www.trendforce.com/news/2026/05/05/news-apple-reportedly-eyes-samsung-intel-u-s-foundry-for-core-chips-amid-tsmc-constraints-supply-diversification/" target="_blank">TrendForce 2026-05-05</a>
+        <span>·</span>
+        <a href="https://www.digitimes.com/news/a20260512VL203/samsung-intel-semiconductor-foundry-apple-chips.html" target="_blank">DigiTimes 2026-05-12</a>
+        <span>·</span>
+        <a href="https://semiwiki.com/forum/threads/more-clients-leads-to-80-utilization-at-samsung-foundry-in-1q2026.24627/" target="_blank">SemiWiki</a>
+      </div>
+      <p class="para"><span class="label label-facts">核心事實 Facts</span>
+        Apple 高層已赴 Samsung 德州廠參訪（廠區仍在建設中），並與 Intel Foundry 進行初步接觸，但目前雙方均未簽訂訂單，仍屬「preliminary stage」。Samsung Foundry Q1 2026 稼動率達 <span class="highlight">80%</span>，創一年新高。Intel 招募 Samsung Foundry 30 年資深主管 Shawn Han，主導新客戶拓展業務（5 月正式到任）。
+      </p>
+      <p class="para"><span class="label label-context">背景脈絡 Context</span>
+        Apple 對 TSMC 集中度過高的焦慮持續升溫，尤其 TSMC 美國廠 CoWoS 產能仍受限。Intel 18A 製程持續改良，但客戶對非 TSMC 工藝的品質疑慮尚未完全消除。Samsung Foundry 在 3nm/2nm 良率上仍落後 TSMC，80% 稼動率回升主要靠成熟製程客戶回流。
+      </p>
+      <p class="para"><span class="label label-implication">影響觀察 Implications</span>
+        [分析] Apple 即使最終不下單，談判本身已提升 Intel/Samsung 談判籌碼與市場信心。Samsung Foundry 若能拿下 Apple 部分訂單，將是扭轉虧損的關鍵時間點；對 TSMC 而言，客戶多元化需求是長期定價壓力來源。
+      </p>
+    </div>
+  </div>
+
+  <!-- IC DESIGN -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">💡</span>
+      <h2>IC 設計 <span class="en">/ Fabless & IDM</span></h2>
+    </div>
+
+    <div class="news-item">
+      <h3>OpenAI 選定 MediaTek 合作開發 AI 手機晶片；採用 TSMC N2P 製程<br>
+        <span style="font-weight:400;font-size:0.9em;color:#5a7fa0">OpenAI Reportedly Picks MediaTek for AI Smartphone Chip on TSMC N2P</span>
+      </h3>
+      <div class="source-line">
+        <span class="tag">MediaTek / OpenAI / Qualcomm</span>
+        <span>·</span>
+        <a href="https://www.business-standard.com/technology/tech-news/openai-reportedly-picks-mediatek-over-qualcomm-for-its-maiden-ai-smartphone-126050500730_1.html" target="_blank">Business Standard 2026-05-05</a>
+        <span>·</span>
+        <a href="https://decrypt.co/365726/openai-smartphone-chip-qualcomm-mediatek" target="_blank">Decrypt</a>
+      </div>
+      <p class="para"><span class="label label-facts">核心事實 Facts</span>
+        OpenAI 據報選擇 MediaTek 作為首款 AI 手機晶片合作夥伴，基礎為客製化 Dimensity 9600，採用 <span class="highlight">TSMC N2P 製程</span>，Luxshare 負責系統聯合設計，量產最快 <span class="highlight">2027 上半年</span>。MediaTek AI ASIC 業務 2026 年預估營收達 <span class="highlight">約 10 億美元</span>，2027 年有望達「數十億美元」。
+      </p>
+      <p class="para"><span class="label label-context">Context</span>
+        MediaTek 同時切入 Google TPU v7「Ironwood」I/O 模組設計，打破 Broadcom 幾乎獨占 Google TPU 協同設計的格局。Qualcomm 方面，CEO 表示正與「幾乎所有主要 AI 業者」合作開發機密裝置（含穿戴裝置與 AI 代理終端）。
+      </p>
+      <p class="para"><span class="label label-implication">影響觀察 Implications</span>
+        [分析] MediaTek 若成功切入 OpenAI 生態系，將大幅提升品牌溢價與 N2P 首批大客戶地位，對 TSMC N2P 良率爬坡具正面催化效果。Qualcomm 在手機 AP 市場的主導地位面臨 MediaTek 在 AI 終端側的直接挑戰。
+      </p>
+    </div>
+
+    <div class="news-item">
+      <h3>投資人開始分散 AI 晶片布局：MediaTek、Samsung 吸引資金流入<br>
+        <span style="font-weight:400;font-size:0.9em;color:#5a7fa0">Investors Diversify Beyond TSMC as AI Rally Spreads to MediaTek, Samsung</span>
+      </h3>
+      <div class="source-line">
+        <span class="tag">Bloomberg</span>
+        <span>·</span>
+        <a href="https://www.bloomberg.com/news/articles/2026-05-21/investors-look-beyond-tsmc-as-ai-boom-spreads-to-new-winners" target="_blank">Bloomberg 2026-05-21</a>
+      </div>
+      <p class="para"><span class="label label-facts">核心事實 Facts</span>
+        Bloomberg 報導顯示，隨著 AI 普及應用創造更廣泛的硬體需求，資金開始從 TSMC 流向 MediaTek、Samsung 等第二梯次 AI 受益者。TSMC 在扮演「最純粹 NVIDIA proxy」多年後，其在 AI 投資組合中的主導地位出現結構性轉變。
+      </p>
+      <p class="para"><span class="label label-context">Context</span>
+        AI 算力需求從「最先進晶片製造」擴散至推論終端、邊緣運算與記憶體子系統，使得 IC 設計、記憶體、封測廠等多個層次均出現新的投資機會。
+      </p>
+      <p class="para"><span class="label label-implication">影響觀察 Implications</span>
+        [分析] 此趨勢對 TSMC 估值形成相對壓力，但基本面仍強健。MediaTek 受惠於 AI 終端與 ASIC 雙引擎，估值重估空間值得關注。
+      </p>
+    </div>
+  </div>
+
+  <!-- MEMORY -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">💾</span>
+      <h2>記憶體 <span class="en">/ Memory — DRAM, HBM, NAND</span></h2>
+    </div>
+
+    <div class="news-item">
+      <h3>HBM 佔 DRAM 晶圓產能 23%；Samsung & SK Hynix 警告短缺恐延續至 2027+<br>
+        <span style="font-weight:400;font-size:0.9em;color:#5a7fa0">HBM Takes 23% of DRAM Wafers; Samsung & SK Hynix Warn Shortage May Extend to 2027+</span>
+      </h3>
+      <div class="source-line">
+        <span class="tag">Samsung / SK Hynix / Tom's Hardware / Goldman Sachs</span>
+        <span>·</span>
+        <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/samsung-and-sk-hynix-warn-ai-driven-memory-shortages-could-last-until-2027-and-beyond-as-hbm-demand-explodes-customers-already-reserving-supply-years-ahead-while-the-wider-dram-market-begins-to-tighten" target="_blank">Tom's Hardware</a>
+        <span>·</span>
+        <a href="https://tech-insider.org/memory-chip-shortage-2026-ai-consumer-electronics/" target="_blank">Tech-Insider</a>
+      </div>
+      <p class="para"><span class="label label-facts">核心事實 Facts</span>
+        2026 年 HBM 佔總 DRAM 晶圓產能 <span class="highlight">23%</span>（2025 年為 19%），HBM 需求年增 <span class="highlight">70%</span>。Goldman Sachs 將 2026 年 DRAM 供需缺口上調至 <span class="highlight">4.9%</span>，稱為「15 年來最嚴重短缺」。伺服器 DRAM 合約價 Q1 2026 較 Q4 2025 漲幅達 <span class="highlight">60–70%</span>；部分 DRAM 現貨價過去一年飆漲近 <span class="highlight">700%</span>。SK Hynix CFO 表示 2026 年 HBM 產能「已全數售罄」；Micron 亦確認 2025–2026 年 HBM 產能完全預訂。
+      </p>
+      <p class="para"><span class="label label-context">Context</span>
+        三大記憶體廠均大規模將標準 DRAM 產線轉為 HBM，造成 DDR5/LPDDR5 供給結構性收縮。Micron 廣島 HBM 新廠（96 億美元）預計 2026 年 5 月動工、2028 年量產。HBM4 量產良率已於 Q2 2026 穩步爬升，預計 2026 年下半年進入高良率量產。
+      </p>
+      <p class="para"><span class="label label-implication">影響觀察 Implications</span>
+        [分析] PC/手機端記憶體供給持續被 HBM 排擠，Lenovo、Dell、HP、Acer、ASUS 已警告客戶漲價 15–20%。SK Hynix 為最大受益者，Samsung HBM4 若順利量產可能使市佔從目前主導位置下滑至 50–60%。消費電子廠商面臨 BOM 成本壓力，影響 2026 下半年備貨決策。
+      </p>
+    </div>
+  </div>
+
+  <!-- EQUIPMENT & MATERIALS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">⚙️</span>
+      <h2>設備與材料 <span class="en">/ Equipment & Materials</span></h2>
+    </div>
+
+    <div class="news-item">
+      <h3>MATCH 法案過委員會：DUV 出口限制正式入法軌道，中國最後設備採購窗口收窄<br>
+        <span style="font-weight:400;font-size:0.9em;color:#5a7fa0">MATCH Act Clears House Committee: DUV Export Ban Advances, China's Equipment Window Narrows</span>
+      </h3>
+      <div class="source-line">
+        <span class="tag">US Congress / ASML / TechWire Asia</span>
+        <span>·</span>
+        <a href="https://techwireasia.com/2026/04/match-act-semiconductor-export-controls-congress-advances/" target="_blank">TechWire Asia (MATCH Act Clears Committee)</a>
+        <span>·</span>
+        <a href="https://www.digitimes.com/news/a20260408PD214/2026-semicon-china-equipment-applied-materials-asml.html" target="_blank">DigiTimes 2026-04-08</a>
+      </div>
+      <p class="para"><span class="label label-facts">核心事實 Facts</span>
+        美國眾議院外交委員會已通過「MATCH 法案」（Multilateral Alignment of Technology Controls on Hardware），國會稱此為「史上最大規模半導體出口管制立法 markup」。法案核心：禁止向中國出口半導體製造設備（含 ASML DUV 深紫外光刻機），並要求盟友在 150 天內與美國出口管制對齊，否則面臨美國司法管轄擴張。ASML 2026 年中國銷售佔比從 2025 年 33% 降至 <span class="highlight">約 19–20%</span>（Q1 2026 已降至 19%）。
+      </p>
+      <p class="para"><span class="label label-context">Context</span>
+        此前出口管制主要鎖定 EUV，中國廠商（SMIC、華虹等）仍可購買 DUV 設備維持 28nm 以上製程生產。MATCH 法案若通過，將封堵此漏洞。ASML 2024 年向中國出售約 70% DUV 系統，管制衝擊不可忽視。中國目前積極發展國產光刻機（上海微電子 SMEE），但仍與 ASML 技術差距顯著。
+      </p>
+      <p class="para"><span class="label label-implication">影響觀察 Implications</span>
+        [分析] ASML 短期面臨中國訂單急劇萎縮壓力；AMAT、LAM、KLA 在中國業務亦受波及。中國設備廠商（北方華創、中微公司等）國產替代需求加速。法案通過前，中國業者可能加速囤積 DUV 設備，形成短期訂單脈衝。台灣、荷蘭、日本設備聯盟協調機制將進一步強化。
+      </p>
+    </div>
+  </div>
+
+  <!-- AI ACCELERATORS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🚀</span>
+      <h2>AI 晶片 <span class="en">/ AI Accelerators & Roadmaps</span></h2>
+    </div>
+
+    <div class="news-item">
+      <h3>NVIDIA GB300 出貨量 2026 年年增 129%；Foxconn 拿下最大份額，TSMC CoWoS 為核心瓶頸<br>
+        <span style="font-weight:400;font-size:0.9em;color:#5a7fa0">NVIDIA GB300 Shipments to Surge 129% YoY in 2026; Foxconn Leads ODM, CoWoS Remains Key Bottleneck</span>
+      </h3>
+      <div class="source-line">
+        <span class="tag">NVIDIA / Foxconn / Corning</span>
+        <span>·</span>
+        <a href="https://www.traxtech.com/ai-in-supply-chain/nvidias-gb300-supply-chain-rush-signals-major-ai-infrastructure-shift" target="_blank">TraxTech</a>
+        <span>·</span>
+        <a href="https://wccftech.com/nvidia-blackwell-ultra-ai-servers-to-lead-the-ai-infrastructure-race-moving-into-2026/" target="_blank">WCCFTech</a>
+      </div>
+      <p class="para"><span class="label label-facts">核心事實 Facts</span>
+        NVIDIA Blackwell Ultra（GB300）2026 年出貨量年增 <span class="highlight">129%</span>，全年最多可達 <span class="highlight">60,000 機架</span>，Microsoft、Amazon、Meta 為最大採購方。Foxconn 獲最大 GB300 伺服器訂單份額（含 72 GPU 旗艦配置）。NVIDIA 與 Corning 宣布多年合作，Corning 在美國將光連接製造產能擴增 10 倍、光纖產能擴增逾 50%。TSMC 已預訂超過半數 CoWoS 產能供 NVIDIA 使用（2026–2027）。
+      </p>
+      <p class="para"><span class="label label-context">Context</span>
+        GB300 製造良率已穩定改善，移除最後大規模量產障礙。記憶體（HBM）、封裝（CoWoS）、電力供應仍是三大供應鏈瓶頸，共同維持 GPU 短缺格局。
+      </p>
+      <p class="para"><span class="label label-implication">影響觀察 Implications</span>
+        [分析] NVIDIA 供應鏈高度依賴 TSMC CoWoS，任何台海風險或封裝產能意外均直接衝擊 AI 基礎設施交付時程。Foxconn 受益明顯，但毛利率受 NVIDIA 強勢議價壓制。光連接元件（Corning、台灣 InnoLight 等）成為 AI 算力擴張中相對低調但高成長的受益者。
+      </p>
+    </div>
+  </div>
+
+  <!-- GEOPOLITICS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🌐</span>
+      <h2>地緣政治與政策 <span class="en">/ Geopolitics & Policy</span></h2>
+    </div>
+
+    <div class="news-item">
+      <h3>美中科技戰升級：MATCH 法案 + 中國本土設備反制雙線並進<br>
+        <span style="font-weight:400;font-size:0.9em;color:#5a7fa0">Tech War Escalates: MATCH Act Advances While China Builds Domestic Equipment Chain</span>
+      </h3>
+      <div class="source-line">
+        <span class="tag">US Congress / China / SCMP / NBCNews</span>
+        <span>·</span>
+        <a href="https://www.scmp.com/tech/article/3351199/tech-war-us-congress-rolls-out-largest-export-control-upgrade-against-china" target="_blank">SCMP</a>
+        <span>·</span>
+        <a href="https://www.nbcnews.com/tech/tech-news/senate-bill-ban-sale-key-ai-chipmaking-machines-china-rcna265186" target="_blank">NBC News</a>
+        <span>·</span>
+        <a href="https://www.cnas.org/publications/cnas-insights/cnas-insights-the-export-control-loophole-fueling-chinas-chip-production" target="_blank">CNAS</a>
+      </div>
+      <p class="para"><span class="label label-facts">核心事實 Facts</span>
+        MATCH 法案由 Chuck Schumer 及 John Moolenaar 領銜提出，已通過眾議院外交委員會，進入全院表決程序。法案主要鎖定：① ASML DUV 光刻機；② 半導體製造設備（中國無法自產的關鍵品項）；③ 維護與技術支援服務，且拒絕配合的盟友將面臨美國管轄擴張。部分條款（如全面禁止低溫蝕刻設備對華銷售）在表決前已被刪除，但 DUV 限制條款保留。
+      </p>
+      <p class="para"><span class="label label-context">Context</span>
+        美、荷、日三方協調機制（涵蓋 ASML、AMAT、LAM、KLA、Tokyo Electron）已運作數年，但現有機制存在「中間漏洞」——中國仍可購買 DUV 維持成熟製程擴產。中國 CNAS 研究指出，現行管制存在可利用的漏洞，促使美國立法加速。中國 2026 年對外揭示其晶片產業成長「無視出口管制」，顯示替代採購與在地化進展超乎預期。
+      </p>
+      <p class="para"><span class="label label-implication">影響觀察 Implications</span>
+        [分析] 若 MATCH 法案完整通過，將是 2022 年出口管制以來最重大升級，對 ASML、AMAT、KLA 中國業務衝擊直接且深遠。短期可能觸發中國晶圓廠加速囤貨，形成 2026 下半年設備訂單異常脈衝。台灣設備/材料廠商間接受惠於中國廠商向非美系替代品採購的轉移。
+      </p>
+    </div>
+  </div>
+
+  <!-- DEEP READS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">📚</span>
+      <h2>觀點與深度閱讀 <span class="en">/ Deep Reads</span></h2>
+    </div>
+    <div class="news-item">
+      <h3>HBM 正在「吃掉」你的 PC 記憶體 / HBM Is Eating Your RAM</h3>
+      <div class="source-line">
+        <span class="tag">Tom's Hardware</span>
+        <span>·</span>
+        <a href="https://www.tomshardware.com/pc-components/ram/hbm-is-eating-your-ram" target="_blank">Tom's Hardware</a>
+      </div>
+      <p class="para">深度分析 HBM 每 GB 耗用約 3 倍 DDR5 晶圓面積，HBM 需求爆發正結構性排擠消費級記憶體供給。結合 IDC 的全球記憶體短缺研究，提供從工藝、產能到終端定價的完整鏈條分析。</p>
+    </div>
+    <div class="news-item">
+      <h3>2026 AI 半導體展望：供應鏈、資本支出與製程競爭全解析 / 2026 AI & Semiconductor Outlook</h3>
+      <div class="source-line">
+        <span class="tag">Fabricated Knowledge (Doug O'Laughlin)</span>
+        <span>·</span>
+        <a href="https://www.fabricatedknowledge.com/p/2026-ai-and-semiconductor-outlook" target="_blank">Fabricated Knowledge</a>
+      </div>
+      <p class="para">SemiAnalysis 等級的深度分析，涵蓋 TSMC/三星/Intel 製程競爭、CoWoS/SoIC 先進封裝路線圖、HBM 超級循環成因與 AI 資本支出前景，為本期日報提供重要背景框架。</p>
+    </div>
+    <div class="news-item">
+      <h3>半導體地緣政治大解構：供應鏈去耦的隱形成本 / The Great Decoupling</h3>
+      <div class="source-line">
+        <span class="tag">Omdia / Informa Tech</span>
+        <span>·</span>
+        <a href="https://omdia.tech.informa.com/blogs/2025/sep/the-great-decoupling-how-geopolitics-is-reshaping-semiconductor-supply-chains" target="_blank">Omdia</a>
+      </div>
+      <p class="para">分析美中技術脫鉤對全球半導體供應鏈的結構重塑，探討各國「友岸外包」策略的實際效益與隱性成本，對政策制定者與投資人均有重要參考價值。</p>
+    </div>
+  </div>
+
+  <!-- SOURCES FOOTER -->
+  <div class="section">
+    <div class="sources-footer">
+      <h4>本期來源 / Sources</h4>
+      <ul>
+        <li><a href="https://www.trendforce.com/news/" target="_blank">TrendForce</a></li>
+        <li><a href="https://www.digitimes.com/" target="_blank">DigiTimes</a></li>
+        <li><a href="https://www.tomshardware.com/news" target="_blank">Tom's Hardware</a></li>
+        <li><a href="https://www.bloomberg.com/news/topics/semiconductors" target="_blank">Bloomberg Semiconductors</a></li>
+        <li><a href="https://semiwiki.com/" target="_blank">SemiWiki</a></li>
+        <li><a href="https://www.cnbc.com/" target="_blank">CNBC</a></li>
+        <li><a href="https://techwireasia.com/" target="_blank">TechWire Asia</a></li>
+        <li><a href="https://www.scmp.com/" target="_blank">South China Morning Post</a></li>
+        <li><a href="https://www.fabricatedknowledge.com/" target="_blank">Fabricated Knowledge</a></li>
+        <li><a href="https://omdia.tech.informa.com/" target="_blank">Omdia</a></li>
+        <li><a href="https://www.cnas.org/" target="_blank">CNAS</a></li>
+      </ul>
+      <div style="margin-top:10px;font-size:0.75rem;color:#8a9bb0;">
+        生成時間 Generated: 2026-05-22 · Asia/Taipei · 本報告為資訊彙整，不構成投資建議。部分分析標明「[分析]」以區別事實與推論。
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

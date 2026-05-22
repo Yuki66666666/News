@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新創新聞日報 — 2026-05-22</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: #f9f9f7;
+    color: #1a1a1a;
+    line-height: 1.7;
+    padding: 0 0 60px 0;
+  }
+  header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+    color: #fff;
+    padding: 32px 40px 28px;
+  }
+  header .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #7dd3fc;
+    margin-bottom: 8px;
+  }
+  header h1 {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  header .meta {
+    font-size: 13px;
+    color: #94a3b8;
+  }
+  .toc {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 14px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-size: 12px;
+  }
+  .toc a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .toc a:hover { text-decoration: underline; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  section { margin-top: 40px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e5e7eb;
+  }
+  .section-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .section-header .en {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 400;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.15s;
+  }
+  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+  .card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .source-line {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .source-line a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+  .source-line a:hover { text-decoration: underline; }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-right: 4px;
+  }
+  .tag-seriesd { background: #ede9fe; color: #5b21b6; }
+  .tag-seriesc { background: #dbeafe; color: #1e40af; }
+  .tag-ipo { background: #fef3c7; color: #92400e; }
+  .tag-layoff { background: #fee2e2; color: #991b1b; }
+  .tag-product { background: #f0fdf4; color: #166534; }
+  .tag-ma { background: #fdf4ff; color: #7e22ce; }
+  .field { margin-bottom: 10px; }
+  .field-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 3px;
+  }
+  .field-content {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.6;
+  }
+  .field-content strong { color: #0f172a; }
+  .highlight-box {
+    background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .highlight-box h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e40af;
+    margin-bottom: 6px;
+  }
+  .highlight-box p {
+    font-size: 14px;
+    color: #374151;
+  }
+  .highlight-purple {
+    background: linear-gradient(135deg, #fdf4ff 0%, #fef9c3 100%);
+    border-color: #e9d5ff;
+  }
+  .highlight-purple h3 { color: #6d28d9; }
+  .no-news {
+    background: #f9fafb;
+    border: 1px dashed #d1d5db;
+    border-radius: 10px;
+    padding: 18px 20px;
+    font-size: 14px;
+    color: #6b7280;
+    font-style: italic;
+  }
+  .reads-card {
+    background: #fff;
+    border-left: 4px solid #6366f1;
+    padding: 16px 20px;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 12px;
+  }
+  .reads-card h4 { font-size: 15px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+  .reads-card p { font-size: 13px; color: #4b5563; }
+  .reads-card a { color: #2563eb; text-decoration: none; }
+  footer {
+    margin-top: 60px;
+    padding: 20px 40px;
+    background: #f1f5f9;
+    border-top: 1px solid #e2e8f0;
+    font-size: 12px;
+    color: #6b7280;
+  }
+  footer a { color: #2563eb; text-decoration: none; }
+  .stat-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .stat-box {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 14px 18px;
+    min-width: 140px;
+    flex: 1;
+  }
+  .stat-box .num {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0f172a;
+  }
+  .stat-box .desc {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="label">新創新聞日報 / Daily Startup Briefing</div>
+  <h1>新創新聞日報 — 2026-05-22</h1>
+  <div class="meta">Friday, May 22, 2026 &nbsp;·&nbsp; Asia/Taipei &nbsp;·&nbsp; 涵蓋最近 48–72 小時重大新創事件</div>
+</header>
+
+<div class="toc">
+  <a href="#top-stories">頭條</a>
+  <a href="#funding">募資</a>
+  <a href="#launches">新公司發表</a>
+  <a href="#product">產品大事</a>
+  <a href="#acquisitions">收購與整併</a>
+  <a href="#people">人事</a>
+  <a href="#layoffs">裁員與停業</a>
+  <a href="#ipo">上市進程</a>
+  <a href="#regional">區域焦點</a>
+  <a href="#reads">觀點</a>
+</div>
+
+<div class="container">
+
+<!-- TOP STORIES -->
+<section id="top-stories">
+  <div class="section-header">
+    <div class="section-icon" style="background:#fef3c7;">🔥</div>
+    <div>
+      <h2>頭條 <span class="en">/ Top Stories</span></h2>
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="num">$1.7T</div>
+      <div class="desc">SpaceX 預估 IPO 估值</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">$900B+</div>
+      <div class="desc">Anthropic 目標融資估值</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">$200M</div>
+      <div class="desc">Mercury Series D 募資額</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">$300B</div>
+      <div class="desc">Q1 2026 全球創投總額</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h3>SpaceX 提交 S-1，史上最大 IPO 在即 / SpaceX Files S-1, Eyes Historic $1.7T Listing</h3>
+    <p>SpaceX 於 5/20 向 SEC 公開 S-1。2025 年營收 $18B+、淨虧 $4.9B，預計 6/12 在 Nasdaq 以 SPCX 上市，估值約 $1.7 兆，若成真將超越 Saudi Aramco（$29.4B, 2019）成為史上最大 IPO。</p>
+  </div>
+
+  <div class="highlight-box highlight-purple">
+    <h3>OpenAI 最快今日提交機密 IPO 文件，目標估值破兆 / OpenAI May File Confidential S-1 Today, Eyes $1T+ Valuation</h3>
+    <p>OpenAI 委任 Goldman Sachs、Morgan Stanley、JPMorgan 籌備 IPO，最快 5/22（今日）向 SEC 提交草案，目標 9–11 月掛牌，估值超過 $1T。Anthropic 同步在談 $30B/估值 $900B+ 的最後一輪私募，預計 10 月上市。兩家 AI Lab 同步衝向公開市場，是 2026 下半年最受矚目的資本事件。</p>
+  </div>
+</section>
+
+<!-- FUNDING -->
+<section id="funding">
+  <div class="section-header">
+    <div class="section-icon" style="background:#d1fae5;">💰</div>
+    <div>
+      <h2>募資 <span class="en">/ Funding Rounds</span></h2>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      <span class="tag tag-seriesd">Series D</span>
+      Mercury 以 $5.2B 估值完成 $200M D 輪，矢志成為 AI 新創首選銀行 / Mercury Closes $200M Series D at $5.2B Valuation
+    </h3>
+    <div class="source-line">
+      來源: <a href="https://news.crunchbase.com/venture/fintech-funding-digital-banking-startup-mercury-lands-200m/" target="_blank">Crunchbase News</a> ·
+      <a href="https://www.cnbc.com/2026/05/20/fintech-mercury-valuation-fundraise-bank-charter.html" target="_blank">CNBC</a> ·
+      <a href="https://www.businesswire.com/news/home/20260520511817/en/Mercury-Raises-$200-Million-Series-D-at-$5.2B-Valuation" target="_blank">BusinessWire</a> · 2026-05-20
+    </div>
+    <div class="field">
+      <div class="field-label">核心事實 / Facts</div>
+      <div class="field-content">
+        Mercury 完成 <strong>$200M Series D</strong>，估值 <strong>$5.2B</strong>（較 2025 年 3 月 C 輪 $3.5B 上漲 <strong>49%</strong>）。由 <strong>TCV</strong> 領投，a16z、Coatue、CRV、Sequoia Capital、Sapphire Ventures、Spark Capital 跟投。Q3 2025 年化營收 <strong>$650M</strong>，連續 4 年 GAAP 淨利轉正；客戶超過 <strong>30 萬家</strong>公司，包含 Supabase、ElevenLabs、Lovable、Linear。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">背景脈絡 / Context</div>
+      <div class="field-content">
+        Mercury 定位為「startup-first digital bank」。2026 年 4 月獲 OCC 核准聯邦銀行執照資格（申請後僅 5 個月），即將正式成為聯邦監管銀行，打通最難跨越的合規壁壘。Q1 2026 開戶申請較去年同期成長 <strong>2.5x</strong>，反映 AI 新創浪潮帶動金融服務需求爆增。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">影響觀察 / Implications</div>
+      <div class="field-content">
+        Mercury 拿下銀行執照後，產品護城河大幅提升（可直接提供 FDIC 保障存款、貸款），對 Brex、Ramp、Arc 構成直接競爭壓力。AI 新創高速增長帶動的 B2B fintech 需求是此輪的核心邏輯；預計同類競品融資難度將提高。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      <span class="tag tag-seriesc">Series C</span>
+      Socket 以 $1B 估值完成 $60M C 輪，AI coding 時代供應鏈安全成獨角獸 / Socket Raises $60M Series C at $1B Valuation
+    </h3>
+    <div class="source-line">
+      來源: <a href="https://siliconangle.com/2026/05/20/code-security-startup-socket-raises-60m-funding/" target="_blank">SiliconANGLE</a> ·
+      <a href="https://www.bloomberg.com/news/articles/2026-05-20/security-firm-thwarting-nation-state-hackers-valued-at-1-billion" target="_blank">Bloomberg</a> ·
+      <a href="https://socket.dev/blog/series-c" target="_blank">Socket 官方部落格</a> · 2026-05-20
+    </div>
+    <div class="field">
+      <div class="field-label">核心事實 / Facts</div>
+      <div class="field-content">
+        資安新創 Socket 完成 <strong>$60M Series C</strong>，估值達 <strong>$10 億（unicorn）</strong>，由 <strong>Thrive Capital</strong> 領投，a16z、Capital One Ventures 跟投。累計融資 <strong>$125M</strong>（Series A $20M/2023 → Series B $40M/2024 → Series C）。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">背景脈絡 / Context</div>
+      <div class="field-content">
+        AI coding 工具（Anthropic、OpenAI、Cursor）普及大幅加速開源套件使用，同步放大軟體供應鏈攻擊面。Socket 核心產品為開源代碼安全防火牆，協助企業阻擋惡意套件與國家級駭客植入後門。Bloomberg 以「阻擋國家級駭客」定位該公司，凸顯其客戶級別。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">影響觀察 / Implications</div>
+      <div class="field-content">
+        AI coding agent 普及 → 開源依賴爆增 → 供應鏈安全成結構性需求。Socket 晉升 unicorn 是該細分賽道的關鍵里程碑，可能觸發競品 Snyk、Mend、Chainguard 的防禦性融資或 M&A 動作。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      <span class="tag tag-seriesd">Pre-IPO Round</span>
+      Anthropic 洽談 $30B 私募，估值目標 $900B+ 擬超越 OpenAI / Anthropic in Talks for $30B at $900B+ Valuation
+    </h3>
+    <div class="source-line">
+      來源: <a href="https://www.bloomberg.com/news/articles/2026-05-12/anthropic-in-talks-to-raise-30-billion-at-900-billion-valuation" target="_blank">Bloomberg</a> ·
+      <a href="https://techcrunch.com/2026/04/30/anthropic-potential-900b-valuation-round-could-happen-within-two-weeks/" target="_blank">TechCrunch</a> · 2026-05-12 / Reportedly
+    </div>
+    <div class="field">
+      <div class="field-label">核心事實 / Facts</div>
+      <div class="field-content">
+        Anthropic（Claude 開發商）正洽談至少 <strong>$30B</strong> 的最後一輪私募，目標估值超過 <strong>$900B</strong>，高於 OpenAI $852B（2026/3）。ARR 跑率官方公告 $30B+，內部消息稱接近 <strong>$40B</strong>。預計 10 月 IPO。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">背景脈絡 / Context</div>
+      <div class="field-content">
+        此輪為上市前最後一輪，主要目的是補充 GPU 算力資本。若以 $900B+ 估值關閉，Anthropic 將超越 OpenAI 成為史上估值最高的私人 AI 公司。董事會預計在 5 月做出最終決定。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">影響觀察 / Implications</div>
+      <div class="field-content">
+        (分析) 兩家主力 AI Lab 同步 IPO 將壓縮市場對新興 AI 新創的關注度，但 IPO 熱潮也可能帶動整體科技板塊情緒提升。LP 資金回籠有助緩解 2025 年以來的私募市場流動性緊張。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAUNCHES -->
+<section id="launches">
+  <div class="section-header">
+    <div class="section-icon" style="background:#e0f2fe;">🚀</div>
+    <div>
+      <h2>新公司發表 <span class="en">/ Launches &amp; Stealth-Out</span></h2>
+    </div>
+  </div>
+  <div class="no-news">
+    本日（5/22）暫無重大 stealth-out 或全新公司發表的確認消息。Product Hunt 當日結果持續追蹤中。
+  </div>
+</section>
+
+<!-- PRODUCT -->
+<section id="product">
+  <div class="section-header">
+    <div class="section-icon" style="background:#f0fdf4;">⚡</div>
+    <div>
+      <h2>產品大事 <span class="en">/ Notable Product Launches</span></h2>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      <span class="tag tag-product">Product / Pivot</span>
+      Runway 超越影片生成，正在打造與 Google 競逐的「世界模型」底層 / Runway Pivots to World Models, Aims to Outflank Google
+    </h3>
+    <div class="source-line">
+      來源: <a href="https://techcrunch.com/2026/05/15/runway-started-by-helping-filmmakers-now-it-wants-to-beat-google-at-ai/" target="_blank">TechCrunch</a> · 2026-05-15
+    </div>
+    <div class="field">
+      <div class="field-label">核心事實 / Facts</div>
+      <div class="field-content">
+        AI 影片新創 Runway 目前估值 <strong>$5.3B</strong>，Q2 2026 新增 ARR <strong>$40M</strong>。2025 年 12 月推出首個 world model，2026 年將再發表新版本。累計融資 <strong>$860M</strong>，含 2026 年 2 月 $315M（AMD Ventures、Nvidia 參與）。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">背景脈絡 / Context</div>
+      <div class="field-content">
+        Runway 由三位 NYU Tisch 校友（兩位智利人、一位希臘人）創立。其戰略核心是：下一代 AI intelligence 不從文字長出來，而是從「理解物理世界運作」的影片世界模型長出來。此路線直接對決 Google Veo（影片）與 Google Genie（world model），以及資源更充沛的 Meta、OpenAI。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">影響觀察 / Implications</div>
+      <div class="field-content">
+        (分析) Runway 正試圖成為 AI 時代的「Unreal Engine」，提供模擬現實的底層引擎。若此賭注成功，護城河將遠超影片生成本身。但 Google 的算力優勢與 DeepMind 的研究深度是最大威脅；Runway 的優勢在於創作者生態與媒體業關係。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACQUISITIONS -->
+<section id="acquisitions">
+  <div class="section-header">
+    <div class="section-icon" style="background:#fdf4ff;">🤝</div>
+    <div>
+      <h2>收購與整併 <span class="en">/ Acquisitions &amp; Consolidation</span></h2>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      <span class="tag tag-ma">M&amp;A</span>
+      Eli Lilly 以最高 $2.4B 收購 Orna Therapeutics，押注體內免疫細胞工程 / Eli Lilly Buys Orna Therapeutics for Up to $2.4B
+    </h3>
+    <div class="source-line">
+      來源: <a href="https://news.crunchbase.com/health-wellness-biotech/startup-ma-ipo-delivering-exits/" target="_blank">Crunchbase News</a> · 2026 Q2
+    </div>
+    <div class="field">
+      <div class="field-label">核心事實 / Facts</div>
+      <div class="field-content">
+        製藥巨頭 Eli Lilly 同意支付最高 <strong>$2.4B</strong>（含里程碑付款），收購生技新創 <strong>Orna Therapeutics</strong>。Orna 專注以 circular RNA 技術在人體內直接工程改造免疫細胞（in vivo cell engineering），不需體外細胞操作。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">背景脈絡 / Context</div>
+      <div class="field-content">
+        傳統 CAR-T 療法需先取出患者細胞、體外改造後再回輸，成本極高且生產複雜。Orna 的路線若臨床驗證成功，可能顛覆細胞療法的商業模式。此交易反映大藥廠持續透過 M&A 補強創新管線的策略。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">影響觀察 / Implications</div>
+      <div class="field-content">
+        生技 M&A 作為 VC 退出途徑持續活躍，Crunchbase 指出 2026 年 biotech 的退出可靠性優於其他賽道。此案為 RNA 治療平台公司估值錨提供重要參考，預計帶動同類標的融資升溫。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PEOPLE -->
+<section id="people">
+  <div class="section-header">
+    <div class="section-icon" style="background:#fef9c3;">👤</div>
+    <div>
+      <h2>人事 <span class="en">/ People Moves</span></h2>
+    </div>
+  </div>
+  <div class="no-news">
+    本週期內暫無確認的重大 C-level 異動或創辦人離職消息。持續追蹤中。
+  </div>
+</section>
+
+<!-- LAYOFFS -->
+<section id="layoffs">
+  <div class="section-header">
+    <div class="section-icon" style="background:#fee2e2;">📉</div>
+    <div>
+      <h2>裁員與停業 <span class="en">/ Layoffs &amp; Shutdowns</span></h2>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      <span class="tag tag-layoff">裁員</span>
+      Kraken 裁員 150 人後 IPO 恐推遲至 2027，AI 成加密業裁員新說法 / Kraken Cuts 150 After AI Deployment, IPO Slips to 2027
+    </h3>
+    <div class="source-line">
+      來源: <a href="https://www.bloomberg.com/news/articles/2026-05-15/kraken-cuts-150-workers-after-deploying-ai-ipo-may-slip-to-2027" target="_blank">Bloomberg</a> · 2026-05-15
+    </div>
+    <div class="field">
+      <div class="field-label">核心事實 / Facts</div>
+      <div class="field-content">
+        加密交易所 Kraken 裁員約 <strong>150 人</strong>，理由為 AI 部署提升效率、部分職位被取代。同時宣布 IPO 時程可能延至 <strong>2027 年</strong>（原計劃 2026 年）。同期，加密數據平台 Dune Analytics 裁員 <strong>25%</strong>，同樣援引 AI 效率化。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">背景脈絡 / Context</div>
+      <div class="field-content">
+        2026 年加密業已有超過 5,000 人被裁，主要業者包含 Kraken、Coinbase（約 700 人）、Dune Analytics、Gemini、Crypto.com。「AI 自動化」已成加密業裁員的標準說辭，但分析師指出部分裁員也反映業務模型承壓。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">影響觀察 / Implications</div>
+      <div class="field-content">
+        Kraken IPO 延遲對已等待多年的早期投資人是壞訊號。若「AI 效率化」是真實原因，未來 headcount 將更精簡但利潤率改善；若是掩蓋業務困境，後續財報將揭露真相。值得持續追蹤。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      <span class="tag tag-layoff">全球趨勢</span>
+      2026 年全球科技裁員突破 14.2 萬人，日均逾千人 / 2026 Global Tech Layoffs Top 142,000, 1,000+ per Day
+    </h3>
+    <div class="source-line">
+      來源: <a href="https://layoffs.fyi/" target="_blank">Layoffs.fyi</a> ·
+      <a href="https://news.crunchbase.com/startups/tech-layoffs/" target="_blank">Crunchbase</a> · 持續更新
+    </div>
+    <div class="field">
+      <div class="field-label">核心事實 / Facts</div>
+      <div class="field-content">
+        截至 2026 年 5 月，全球科技業已有 <strong>331 家公司</strong>裁員，合計影響 <strong>142,303 人</strong>（日均 1,009 人）。5 月單月 30 家公司裁員共 20,600 人。主要原因：AI 自動化取代客服/內容/數據標記職能；VC 要求提升 burn rate 效率；IPO 前財務優化。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IPO -->
+<section id="ipo">
+  <div class="section-header">
+    <div class="section-icon" style="background:#fef3c7;">📈</div>
+    <div>
+      <h2>上市進程 <span class="en">/ IPO Pipeline</span></h2>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      <span class="tag tag-ipo">S-1 Filed</span>
+      SpaceX 公開 S-1：$18B 營收、$4.9B 虧損，目標 6/12 Nasdaq 掛牌 / SpaceX S-1 Public: $18B Revenue, June 12 Nasdaq Target
+    </h3>
+    <div class="source-line">
+      來源: <a href="https://techcrunch.com/2026/05/20/the-spacex-ipo-filing-ai-bets-starship-dreams-elon-musk/" target="_blank">TechCrunch</a> ·
+      <a href="https://fortune.com/2026/05/20/spacex-ipo-filing-s1-total-addressable-market-make-life-multiplanetary/" target="_blank">Fortune</a> ·
+      <a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm" target="_blank">SEC EDGAR</a> · 2026-05-20
+    </div>
+    <div class="field">
+      <div class="field-label">核心事實 / Facts</div>
+      <div class="field-content">
+        SpaceX 於 5/20 向 SEC 公開 S-1。2025 年：<strong>營收 $18B+，淨虧 $4.9B</strong>。時程：6/4 路演、6/11 定價、<strong>6/12 Nasdaq 掛牌（SPCX）</strong>。預估估值約 <strong>$1.7 兆</strong>，募資可能超過 <strong>$80B</strong>，有望成史上最大 IPO。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">背景脈絡 / Context</div>
+      <div class="field-content">
+        S-1 揭示 SpaceX 押注軌道 AI 算力衛星，計畫 2028 年起部署，利用可重複使用火箭降低發射成本。Starlink 為主要現金流來源。S-1 大篇幅揭露 Elon Musk 個人持股與治理集中風險。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">影響觀察 / Implications</div>
+      <div class="field-content">
+        若 SpaceX 成功以 $1.7T 掛牌，將重設太空與衛星新創估值基準，可能帶動 Planet Labs 等業者再融資。$80B+ 的 IPO 募資將吸走大量機構資金，短期壓縮其他 IPO 的配額空間（包含同期 OpenAI）。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      <span class="tag tag-ipo">IPO Prep</span>
+      OpenAI 目標 9–11 月掛牌，最快今日提交機密 S-1 草案 / OpenAI Eyes Fall 2026 IPO, May File Confidential Draft Today
+    </h3>
+    <div class="source-line">
+      來源: <a href="https://techcrunch.com/2026/05/20/openai-barrels-toward-ipo-that-may-happen-in-september/" target="_blank">TechCrunch</a> ·
+      <a href="https://cryptobriefing.com/openai-confidential-ipo-filing-goldman-sachs/" target="_blank">Crypto Briefing</a> · 2026-05-20/22
+    </div>
+    <div class="field">
+      <div class="field-label">核心事實 / Facts</div>
+      <div class="field-content">
+        OpenAI 委任 <strong>Goldman Sachs、Morgan Stanley、JPMorgan</strong> 承銷，最快 <strong>5/22（今日）</strong>向 SEC 提交機密 S-1 草案（Draft Registration Statement），目標 9–11 月掛牌，估值超過 <strong>$1 兆</strong>。最近私募（2026/3）估值 <strong>$852B</strong>，募集 $122B 為史上最大私募輪。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">背景脈絡 / Context</div>
+      <div class="field-content">
+        機密申請讓公司可在正式公開前與 SEC 來回修改，保留市場時機彈性。OpenAI 同時面對 Elon Musk 的訴訟（已敗訴）與 Anthropic 的正面競爭。上市時機對維持敘事高點至關重要，但 SpaceX 同期掛牌可能分流資金。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGIONAL -->
+<section id="regional">
+  <div class="section-header">
+    <div class="section-icon" style="background:#e0f2fe;">🌏</div>
+    <div>
+      <h2>區域焦點 <span class="en">/ Regional Spotlight</span></h2>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      台灣首度進入 StartupBlink 全球新創生態系前 20，年成長幅度居冠 / Taiwan Enters Global Top 20 Startup Ecosystems for First Time
+    </h3>
+    <div class="source-line">
+      來源: StartupBlink Global Startup Ecosystem Index 2026 · 2026-05-19
+    </div>
+    <div class="field">
+      <div class="field-label">核心事實 / Facts</div>
+      <div class="field-content">
+        StartupBlink 2026 年全球新創生態系指數顯示，<strong>台灣首度進入全球前 20 名</strong>，年成長幅度在所有上榜經濟體中最快。FINDIT 平台資料顯示，截至 2024 年底台灣新創企業數量逾 <strong>9,500 家</strong>。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">背景脈絡 / Context</div>
+      <div class="field-content">
+        台灣的半導體供應鏈生態（TSMC 周邊）、AI 硬體密度（NVIDIA 合作夥伴）、以及政府積極培育獨角獸政策，是排名快速提升的三大驅動力。政府目標 2 年內孕育至少 1 家獨角獸，並帶動 5 年內年創投投入額每年增加 NT$50 億。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      全球 Q1 2026 創投總額突破 $3,000 億，幾乎等同 2025 全年 / Global VC Hit $300B in Q1 2026, Nearly Full-Year 2025 Equivalent
+    </h3>
+    <div class="source-line">
+      來源: <a href="https://www.saasultra.com/startup-funding/" target="_blank">SaasUltra / 多家 VC 資料庫彙整</a> · 2026-05
+    </div>
+    <div class="field">
+      <div class="field-label">核心事實 / Facts</div>
+      <div class="field-content">
+        2026 年 Q1 全球創投投資額達 <strong>$3,000 億</strong>，相當於 2025 全年投資額的近 <strong>70%</strong>。AI、fintech 基礎設施、太空、先進製造為最受青睞賽道。資本集中趨勢明顯，主要流入後期（pre-IPO）與超大型 AI 輪次。
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">影響觀察 / Implications</div>
+      <div class="field-content">
+        (分析) 若 Q1 步調延續，2026 全年創投總額可能達 $1.2T+，超越所有歷史記錄。但對早期、非 AI 新創而言，融資仍具挑戰。「速度、品類控制、清晰的市場主導路徑」是此環境下獲得資本的核心條件。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- READS -->
+<section id="reads">
+  <div class="section-header">
+    <div class="section-icon" style="background:#ede9fe;">📖</div>
+    <div>
+      <h2>觀點 <span class="en">/ Reads Worth Bookmarking</span></h2>
+    </div>
+  </div>
+
+  <div class="reads-card">
+    <h4>Runway CEO：AI 影片只是序幕，世界模型才是終局 / Runway CEO: Video Is the Prequel to World Models</h4>
+    <p>
+      <a href="https://techcrunch.com/2026/05/15/runway-started-by-helping-filmmakers-now-it-wants-to-beat-google-at-ai/" target="_blank">TechCrunch, 2026-05-15</a> — Runway 創辦人 Cristóbal Valenzuela 的戰略思路：下一代 AI intelligence 不從文字長出來，而是從「理解物理世界」的影片世界模型長出來。這篇訪談同時揭示一個 founder 如何在資源不對稱下重新定義競爭框架，把 Google 從「威脅」轉化為「市場驗證者」。
+    </p>
+  </div>
+
+  <div class="reads-card">
+    <h4>2026 科技新創六大趨勢：IPO 潮、AI 大單與生技 M&A 加速 / 6 Trends in Tech &amp; Startups to Watch in 2026</h4>
+    <p>
+      <a href="https://news.crunchbase.com/venture/2026-tech-startup-trends-ipo-ai-ma/" target="_blank">Crunchbase News, 2026</a> — IPO 復甦、AI 算力軍備競賽、生技 M&A 可靠退出、fintech 重燃、deep tech 製造回流、平台整合加速。六個值得長期追蹤的結構性趨勢，配合具體數字與案例。
+    </p>
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<footer>
+  <strong>來源 / Sources</strong>：
+  <a href="https://techcrunch.com/" target="_blank">TechCrunch</a> ·
+  <a href="https://news.crunchbase.com/" target="_blank">Crunchbase News</a> ·
+  <a href="https://www.bloomberg.com/technology" target="_blank">Bloomberg Tech</a> ·
+  <a href="https://www.cnbc.com/" target="_blank">CNBC</a> ·
+  <a href="https://siliconangle.com/" target="_blank">SiliconANGLE</a> ·
+  <a href="https://fortune.com/" target="_blank">Fortune</a> ·
+  <a href="https://layoffs.fyi/" target="_blank">Layoffs.fyi</a> ·
+  <a href="https://www.sec.gov/edgar/" target="_blank">SEC EDGAR</a> ·
+  <a href="https://www.businesswire.com/" target="_blank">BusinessWire</a> ·
+  <a href="https://www.saasultra.com/" target="_blank">SaasUltra</a>
+  <br><br>
+  Paywall / 未能擷取：The Information、WSJ、FT（正文未開放）。
+  <br>
+  報告生成：2026-05-22 Asia/Taipei · claude-sonnet-4-6
+</footer>
+
+</body>
+</html>

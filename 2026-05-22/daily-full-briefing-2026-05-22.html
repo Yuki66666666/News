@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日完整簡報 — 2026-05-22</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: #f5f5f7;
+    color: #1d1d1f;
+    padding: 24px 16px 48px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 32px;
+    padding: 28px 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  }
+  header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin-bottom: 6px;
+  }
+  header .subtitle {
+    font-size: 14px;
+    color: #6e6e73;
+  }
+  header .date-badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 14px;
+    background: #0071e3;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    border-left: 4px solid #ccc;
+    transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+  .card.ai      { border-color: #5e5ce6; }
+  .card.politics{ border-color: #ff375f; }
+  .card.macro   { border-color: #30b0c7; }
+  .card.semi    { border-color: #34c759; }
+  .card.us-stock{ border-color: #ff9f0a; }
+  .card.tw-stock{ border-color: #ff6961; }
+  .card.vc      { border-color: #bf5af2; }
+  .card.startup { border-color: #32ade6; }
+  .card.articles{ border-color: #ffd60a; }
+  .card.tw-hot  { border-color: #ff2d55; }
+  .card.us-hot  { border-color: #ff6b00; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .card-icon { font-size: 22px; }
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1d1d1f;
+    line-height: 1.3;
+  }
+  .card-title .en {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    color: #6e6e73;
+    margin-top: 2px;
+  }
+  .headlines { list-style: none; padding: 0; margin-bottom: 14px; }
+  .headlines li {
+    font-size: 13px;
+    color: #3a3a3c;
+    padding: 6px 0;
+    border-bottom: 1px solid #f2f2f7;
+    line-height: 1.5;
+  }
+  .headlines li:last-child { border-bottom: none; }
+  .headlines li::before {
+    content: "▸ ";
+    color: #aaa;
+    font-size: 11px;
+  }
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #0071e3;
+    text-decoration: none;
+    padding: 5px 12px;
+    background: #f0f7ff;
+    border-radius: 20px;
+  }
+  .card-link:hover { background: #ddeeff; }
+  footer {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 12px;
+    color: #8e8e93;
+  }
+  .status-bar {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+  .status-chip {
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    background: #e8f5e9;
+    color: #2e7d32;
+  }
+  .paywall-note {
+    font-size: 11px;
+    color: #8e8e93;
+    margin-top: 8px;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>今日完整簡報 / Today's Full Briefing</h1>
+  <div class="subtitle">11 個主題全覆蓋 · 11 Topics · Parallel Run</div>
+  <div class="date-badge">2026年5月22日（星期五）</div>
+</header>
+
+<div class="grid">
+
+  <!-- 1. AI 新聞 -->
+  <div class="card ai">
+    <div class="card-header">
+      <span class="card-icon">🤖</span>
+      <div class="card-title">AI 產業新聞
+        <span class="en">AI Industry News</span>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>Musk 對 OpenAI 訴訟遭全數駁回，IPO 最後法律障礙掃除 / Jury throws out all Musk claims, clearing OpenAI IPO path</li>
+      <li>Google I/O 2026 全押 Agentic AI：Gemini 3.5 Flash 速度是同級旗艦 4 倍，Antigravity 2.0 開放 / Google bets on agents with Gemini 3.5 Flash at I/O 2026</li>
+      <li>Anthropic Mythos 發現數千個零日漏洞，Project Glasswing 開放給 50 家機構防禦修補 / Anthropic's Mythos finds zero-days, shares defensively via Glasswing</li>
+    </ul>
+    <a class="card-link" href="#" onclick="alert('請在 Cowork Artifacts 列表中搜尋：AI 新聞日報 — 2026-05-22')">👉 開啟完整版 artifact</a>
+    <div class="paywall-note">⚠ The Information, Bloomberg, WSJ, FT 為付費牆，已用公開來源補足</div>
+  </div>
+
+  <!-- 2. 政治新聞 -->
+  <div class="card politics">
+    <div class="card-header">
+      <span class="card-icon">🌐</span>
+      <div class="card-title">國際政治新聞
+        <span class="en">International Politics</span>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>習普北京峰會簽署逾 40 項協議，宣示「多極世界」，管線談判未突破 / Xi–Putin summit yields 40+ agreements, no pipeline deal</li>
+      <li>伊朗核談判緊繃：川普停火無限期延長，範斯警告軍事選項在桌 / Iran ceasefire extended; Vance warns US "locked and loaded"</li>
+      <li>習近平擬七年來首次訪北韓，最快本月底成行 / Xi may visit North Korea — first time in 7 years</li>
+    </ul>
+    <a class="card-link" href="#" onclick="alert('請在 Cowork Artifacts 列表中搜尋：政治新聞日報 — 2026-05-22')">👉 開啟完整版 artifact</a>
+    <div class="paywall-note">⚠ NYT, FT, WSJ, The Economist 付費牆，已用公開替代來源</div>
+  </div>
+
+  <!-- 3. 總經新聞 -->
+  <div class="card macro">
+    <div class="card-header">
+      <span class="card-icon">📊</span>
+      <div class="card-title">總體經濟新聞
+        <span class="en">Macroeconomics</span>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>伊朗戰爭衝擊：布蘭特油價 ~$105/bbl，自開戰累計漲逾 60%；川普稱談判進「最終階段」 / Brent ~$105/bbl; Trump says Iran ceasefire talks in "final stage"</li>
+      <li>美 4 月 CPI 年增 3.8%（能源 +17.9%），30 年債殖利率觸 5.2%（19 年高），Moody's 已降評 / US CPI +3.8% YoY; 30yr yields hit 5.2%; Moody's downgrade</li>
+      <li>歐元區 5 月 Flash PMI 47.5（31 個月低），ECB 市場預期年內仍升息兩次 / Eurozone PMI 47.5; ECB still expected to hike twice in 2026</li>
+    </ul>
+    <a class="card-link" href="#" onclick="alert('請在 Cowork Artifacts 列表中搜尋：總經新聞日報 — 2026-05-22')">👉 開啟完整版 artifact</a>
+    <div class="paywall-note">⚠ Bloomberg ECB 報告、FT 部分付費牆，已交叉核實</div>
+  </div>
+
+  <!-- 4. 半導體新聞 -->
+  <div class="card semi">
+    <div class="card-header">
+      <span class="card-icon">💾</span>
+      <div class="card-title">半導體產業新聞
+        <span class="en">Semiconductor Industry</span>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>NVIDIA Q1 FY2027 營收 $816 億（年增 85%），Q2 指引 $910 億 / NVIDIA posts record $81.6B revenue; guides Q2 to $91B</li>
+      <li>TSMC Tech Symposium：5.5-Reticle CoWoS 良率 >98%，2nm 產能 CAGR 70% / TSMC unveils world's largest CoWoS; 2nm growing 70% CAGR</li>
+      <li>HBM4 三廠鏖戰：SK Hynix 市佔 62%，NVIDIA 要求 16-Hi HBM4 Q4 交貨 / SK Hynix leads HBM at 62%; 16-Hi HBM4 race to Q4</li>
+    </ul>
+    <a class="card-link" href="#" onclick="alert('請在 Cowork Artifacts 列表中搜尋：半導體新聞日報 — 2026-05-22')">👉 開啟完整版 artifact</a>
+    <div class="paywall-note">⚠ DigiTimes Asia、TrendForce 部分付費牆</div>
+  </div>
+
+  <!-- 5. 美股新聞 -->
+  <div class="card us-stock">
+    <div class="card-header">
+      <span class="card-icon">🇺🇸</span>
+      <div class="card-title">美股市場新聞
+        <span class="en">US Stock Market</span>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>Nvidia 財報完美但「賣在好消息」，Nasdaq 跌 0.7% / NVDA earnings beat triggers "sell the news"; Nasdaq −0.7%</li>
+      <li>Intuit 裁員 17%（3,100 人），股價暴跌 19%，AI 重組難獲市場信任 / INTU down 19% on 17% workforce cut + guidance cut</li>
+      <li>SpaceX S-1 正式公開，估值 $1.75 兆，預定 6/12 掛牌 / SpaceX files S-1 at ~$1.75T valuation; IPO June 12</li>
+    </ul>
+    <a class="card-link" href="#" onclick="alert('請在 Cowork Artifacts 列表中搜尋：美股新聞日報 — 2026-05-22')">👉 開啟完整版 artifact</a>
+    <div class="paywall-note">⚠ WSJ/FT/Barron's 付費牆，5/22 收盤數字需盤後確認</div>
+  </div>
+
+  <!-- 6. 台股新聞 -->
+  <div class="card tw-stock">
+    <div class="card-header">
+      <span class="card-icon">🇹🇼</span>
+      <div class="card-title">台股市場新聞
+        <span class="en">Taiwan Stock Market</span>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>加權指數盤中衝上 42,400 點創波段新高後翻黑整理 / TAIEX briefly hit ~42,400 before retreating</li>
+      <li>聯發科（2454）出關首日鎖漲停 3,550 元（+9.91%）/ MediaTek hits limit-up on first day off surveillance</li>
+      <li>COMPUTEX 2026 一週倒數，黃仁勳 5/27 抵台、6/1 北流開講 / Jensen Huang keynote June 1; AI server stocks surging</li>
+    </ul>
+    <a class="card-link" href="#" onclick="alert('請在 Cowork Artifacts 列表中搜尋：台股新聞日報 — 2026-05-22')">👉 開啟完整版 artifact</a>
+    <div class="paywall-note">⚠ 5/22 盤後最終數字建議至 TWSE 官網核對</div>
+  </div>
+
+  <!-- 7. 創投新聞 -->
+  <div class="card vc">
+    <div class="card-header">
+      <span class="card-icon">💰</span>
+      <div class="card-title">創投生態新聞
+        <span class="en">Venture Capital</span>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>a16z 完成 $150 億史上最大募資，橫跨 AI/成長/國防六大策略，AUM 突破 $90B / a16z closes $15B across six funds; AUM crosses $90B</li>
+      <li>Founders Fund 完成 $60 億最大基金，GP 自投 $15 億，不到一年完成募資 / Founders Fund record $6B close; GPs self-commit $1.5B</li>
+      <li>Q1 2026 全球 VC 破歷史 $3,309 億，AI 佔 80% / Global VC hits record $330.9B in Q1 2026; AI = 80% of activity</li>
+    </ul>
+    <a class="card-link" href="#" onclick="alert('請在 Cowork Artifacts 列表中搜尋：創投新聞日報 — 2026-05-22')">👉 開啟完整版 artifact</a>
+    <div class="paywall-note">⚠ PitchBook、The Information 付費牆，改用 TechCrunch/Crunchbase</div>
+  </div>
+
+  <!-- 8. 新創新聞 -->
+  <div class="card startup">
+    <div class="card-header">
+      <span class="card-icon">🚀</span>
+      <div class="card-title">新創公司新聞
+        <span class="en">Startup News</span>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>SpaceX 遞交 S-1，史上最大 IPO 倒數，估值 $1.75 兆，6/12 Nasdaq 掛牌 / SpaceX S-1 filed; $1.75T valuation; Nasdaq June 12</li>
+      <li>以色列 AI 新創 Decart $300M、Viktor $75M、Dust $40M 相繼完成融資 / Decart $300M, Viktor $75M, Dust $40M rounds close</li>
+      <li>Innovaccer 裁員 340 人轉型 AI-Native；SAP 以 $1.16B 收購德國 Prior Labs / SAP acquires Prior Labs for $1.16B</li>
+    </ul>
+    <a class="card-link" href="#" onclick="alert('請在 Cowork Artifacts 列表中搜尋：新創新聞日報 — 2026-05-22')">👉 開啟完整版 artifact</a>
+    <div class="paywall-note">⚠ The Information、Bloomberg、WSJ 付費牆，已用替代來源</div>
+  </div>
+
+  <!-- 9. 好文推薦 -->
+  <div class="card articles">
+    <div class="card-header">
+      <span class="card-icon">📖</span>
+      <div class="card-title">今日值得讀的好文
+        <span class="en">Interesting Reads</span>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>Aeon：AI 做科學將是人類無法理解的事 — 探討 AI 接管科學後的認識論危機 / Aeon: Science done by AI may be incomprehensible to humans</li>
+      <li>Quanta：數學家用「凝縮集」從頭重建數學地基；哥德爾不完備定理的真正意涵 / Quanta: Condensed sets rebuild math foundations</li>
+      <li>思想領袖：Noah Smith（AI 訊息大轉向）、Karpathy 加入 Anthropic 解析 / Thought leaders: Noah Smith on AI info shift; Karpathy joins Anthropic</li>
+    </ul>
+    <a class="card-link" href="#" onclick="alert('請在 Cowork Artifacts 列表中搜尋：好文推薦 — 2026-05-22')">👉 開啟完整版 artifact</a>
+    <div class="paywall-note">⚠ The New Yorker、The Atlantic 部分會員文章，改用 Longreads 摘要</div>
+  </div>
+
+  <!-- 10. 台股熱門 -->
+  <div class="card tw-hot">
+    <div class="card-header">
+      <span class="card-icon">🔥</span>
+      <div class="card-title">台股熱門個股
+        <span class="en">Hot Taiwan Stocks</span>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>聯發科 2454 (+9.91% 漲停 NT$3,550)：處置期出關，AI ASIC 2026 年營收目標翻倍 / MediaTek limit-up; AI ASIC revenue target doubled</li>
+      <li>國巨 2327 (+10.0% 漲停)：被動元件漲價三廠共振，市值首破兆元 / Yageo limit-up; passive component supercycle; market cap crosses NT$1T</li>
+      <li>群創 3481 (+9.88%)：FOPLP 先進封裝量產 + 台積電合作傳聞，爆出 516,408 張天量 / Innolux surges on FOPLP packaging + TSMC rumor; record volume</li>
+    </ul>
+    <a class="card-link" href="#" onclick="alert('請在 Cowork Artifacts 列表中搜尋：台股熱門個股 — 2026-05-22')">👉 開啟完整版 artifact</a>
+    <div class="paywall-note">⚠ DigiTimes、CMoney 籌碼K線需訂閱；5/22 盤後數字需至 TWSE 核對</div>
+  </div>
+
+  <!-- 11. 美股熱門 -->
+  <div class="card us-hot">
+    <div class="card-header">
+      <span class="card-icon">⚡</span>
+      <div class="card-title">美股熱門個股
+        <span class="en">Hot US Stocks</span>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>$ELF e.l.f. Beauty +10% PM：Q4 FY26 營收 $449M(+35%)，Rhode 品牌年化破 $500M / ELF +10%; Rhode brand hits $500M annualized</li>
+      <li>$INTU Intuit -16% AH：財報 beat 但裁員 17%+TurboTax 指引下修，AI 蠶食護城河恐慌 / INTU −16%; AI disruption fears after layoffs + guidance cut</li>
+      <li>$AMC +14.6%：CEO 公開買入 25 萬股並發文「I ride with you」引爆 meme 動能 / AMC +14.6% on CEO open-market buy + meme rally call</li>
+    </ul>
+    <a class="card-link" href="#" onclick="alert('請在 Cowork Artifacts 列表中搜尋：美股熱門個股 — 2026-05-22')">👉 開啟完整版 artifact</a>
+    <div class="paywall-note">⚠ Bloomberg Markets、Barchart Options 即時數據、Ortex Short Interest 需訂閱</div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="status-bar">
+    <span class="status-chip">✅ AI 新聞</span>
+    <span class="status-chip">✅ 政治新聞</span>
+    <span class="status-chip">✅ 總經新聞</span>
+    <span class="status-chip">✅ 半導體</span>
+    <span class="status-chip">✅ 美股新聞</span>
+    <span class="status-chip">✅ 台股新聞</span>
+    <span class="status-chip">✅ 創投</span>
+    <span class="status-chip">✅ 新創</span>
+    <span class="status-chip">✅ 好文</span>
+    <span class="status-chip">✅ 台股熱門</span>
+    <span class="status-chip">✅ 美股熱門</span>
+  </div>
+  <p style="margin-top:14px;">11/11 完成 · 所有 artifact 已產出 · 可在 Cowork Artifacts 側欄分別開啟</p>
+  <p style="margin-top:6px; color:#aaa;">Generated at 02:10 Asia/Taipei · publish-to-github.sh not found (GitHub deploy skipped)</p>
+</footer>
+
+</body>
+</html>

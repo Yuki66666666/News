@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美股新聞日報 — 2026-05-22</title>
+<style>
+  :root { color-scheme: light; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    margin: 0;
+    padding: 0 0 48px 0;
+    line-height: 1.7;
+  }
+  header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    color: #fff;
+    padding: 28px 32px 20px;
+  }
+  header h1 { margin: 0 0 4px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+  header .subtitle { font-size: 0.85rem; opacity: 0.7; }
+  header .session-note { font-size: 0.78rem; opacity: 0.55; margin-top: 6px; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+  /* Index table */
+  .index-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    margin: 24px 0 20px;
+    overflow: hidden;
+  }
+  .index-card h2 {
+    margin: 0;
+    padding: 14px 20px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: #f0f4ff;
+    border-bottom: 1px solid #e0e6f7;
+    color: #334;
+  }
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    background: #f7f9ff;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #667;
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e8eef8;
+  }
+  td {
+    padding: 11px 16px;
+    border-bottom: 1px solid #f0f4fb;
+    font-size: 0.9rem;
+  }
+  tr:last-child td { border-bottom: none; }
+  .chg-pos { color: #16a34a; font-weight: 600; }
+  .chg-neg { color: #dc2626; font-weight: 600; }
+  .chg-flat { color: #888; font-weight: 600; }
+  .note-small { font-size: 0.72rem; color: #999; }
+
+  /* Section headings */
+  .section-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6b7;
+    font-weight: 700;
+    margin: 32px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::after { content: ""; flex: 1; height: 1px; background: #dde4ee; }
+
+  /* Story cards */
+  .story-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    padding: 18px 22px;
+    margin-bottom: 14px;
+    border-left: 4px solid #3b82f6;
+  }
+  .story-card.red { border-left-color: #ef4444; }
+  .story-card.green { border-left-color: #22c55e; }
+  .story-card.yellow { border-left-color: #f59e0b; }
+  .story-card.purple { border-left-color: #8b5cf6; }
+  .story-card.gray { border-left-color: #94a3b8; }
+
+  .story-title { font-size: 1.02rem; font-weight: 700; margin: 0 0 4px; }
+  .story-source { font-size: 0.75rem; color: #888; margin: 0 0 12px; }
+  .story-source a { color: #3b82f6; text-decoration: none; }
+  .story-source a:hover { text-decoration: underline; }
+
+  .fact-label, .ctx-label, .imp-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 10px 0 3px;
+  }
+  .fact-label { color: #1d4ed8; }
+  .ctx-label { color: #0369a1; }
+  .imp-label { color: #7c3aed; }
+  .story-body { font-size: 0.88rem; color: #334; }
+
+  /* Footer */
+  footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #e0e6f0;
+    font-size: 0.75rem;
+    color: #aaa;
+    text-align: center;
+  }
+  footer a { color: #6b7280; text-decoration: none; }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .badge-up { background: #dcfce7; color: #15803d; }
+  .badge-dn { background: #fee2e2; color: #b91c1c; }
+  .badge-neutral { background: #f1f5f9; color: #475569; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>美股新聞日報 / US Stocks Daily Briefing</h1>
+    <div class="subtitle">2026-05-22 (Friday) · 資料以 5/21 收盤 + 5/22 盤前盤後為基礎</div>
+    <div class="session-note">Session note: 5/22 (Fri) 為本週最後交易日。5/21 收盤數據為主，5/22 盤後資料待補。</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- INDEX TABLE -->
+  <div class="index-card">
+    <h2>市場快覽 / Market Snapshot (5/21 Close + Intraday Context)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>指數 / Index</th>
+          <th>收盤 / Close</th>
+          <th>漲跌 / Chg</th>
+          <th>% 變動</th>
+          <th>備注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>S&amp;P 500</strong></td>
+          <td>~7,395</td>
+          <td class="chg-neg">▼ ~37</td>
+          <td class="chg-neg">−0.50%</td>
+          <td class="note-small">Nvidia 後市壓力 + 殖利率回升</td>
+        </tr>
+        <tr>
+          <td><strong>Nasdaq Comp</strong></td>
+          <td>~26,083</td>
+          <td class="chg-neg">▼ ~187</td>
+          <td class="chg-neg">−0.71%</td>
+          <td class="note-small">NDX 跌 0.7%；科技股承壓</td>
+        </tr>
+        <tr>
+          <td><strong>Dow Jones</strong></td>
+          <td>~49,760</td>
+          <td class="chg-neg">▼ ~249</td>
+          <td class="chg-neg">−0.50%</td>
+          <td class="note-small">50,000 關卡得而復失</td>
+        </tr>
+        <tr>
+          <td><strong>Russell 2000</strong></td>
+          <td>未取得精確收盤</td>
+          <td class="chg-flat">—</td>
+          <td class="chg-flat">—</td>
+          <td class="note-small">小型股偏弱</td>
+        </tr>
+        <tr>
+          <td><strong>VIX</strong></td>
+          <td>~17.44</td>
+          <td class="chg-pos">▲ 小幅</td>
+          <td class="chg-flat">—</td>
+          <td class="note-small">波動度仍可控</td>
+        </tr>
+        <tr>
+          <td><strong>US 10Y Yield</strong></td>
+          <td>4.62%</td>
+          <td class="chg-neg">▲ 回升</td>
+          <td class="chg-neg">+0.02 bps</td>
+          <td class="note-small">前日曾觸 4.70% 16個月高點</td>
+        </tr>
+        <tr>
+          <td><strong>DXY</strong></td>
+          <td>~99.14</td>
+          <td class="chg-pos">▲ +0.30%</td>
+          <td class="chg-pos">+0.30%</td>
+          <td class="note-small">美元小幅反彈</td>
+        </tr>
+        <tr>
+          <td><strong>WTI Crude</strong></td>
+          <td>~$98.25</td>
+          <td class="chg-pos">▲ 回穩</td>
+          <td class="chg-flat">—</td>
+          <td class="note-small">前週高點 $105.46；美伊談判壓低油價</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 1: TOP STORIES -->
+  <div class="section-label">01 · 頭條 Top Stories</div>
+
+  <div class="story-card red">
+    <div class="story-title">
+      <span class="badge badge-dn">NVDA −2%</span>
+      Nvidia 財報驚艷但股價下挫，AI 超預期成長能否撐起過高估值？<br>
+      <span style="font-weight:400;font-size:0.9rem;">Nvidia Beats Massively on Data Center — But "Sell the News" Takes Over</span>
+    </div>
+    <div class="story-source">
+      來源 / Source: <a href="https://www.cnbc.com/2026/05/20/nvidia-nvda-earnings-report-q1-2027.html" target="_blank">CNBC</a> · 2026-05-20
+    </div>
+    <div class="fact-label">核心事實 / Facts</div>
+    <div class="story-body">
+      Nvidia Q1 FY2027 資料中心營收年增近 100%，達 752 億美元，佔總營收 92%。執行長黃仁勳稱「需求呈拋物線上升」，並宣布 800 億美元回購計畫。然而 5/21 股價仍下跌，Nasdaq 100 跌 0.7%，拖累科技板塊。
+    </div>
+    <div class="ctx-label">背景脈絡 / Context</div>
+    <div class="story-body">
+      Nvidia 過去三次財報公布後均出現「buy the rumor, sell the news」走勢。市場擔憂 Google、Meta、Microsoft 加速自研 AI 晶片，長期代工需求存在侵蝕風險。該股今年已大漲，估值溢價明顯。
+    </div>
+    <div class="imp-label">影響觀察 / Implications</div>
+    <div class="story-body">
+      SMH（半導體 ETF）連動下跌。短期而言，AI 基礎設施主題股需等待下一個更強催化劑才能突破。AMD、Broadcom 等 AI 相關個股同步受壓。
+    </div>
+  </div>
+
+  <div class="story-card red">
+    <div class="story-title">
+      <span class="badge badge-dn">INTU −19%</span>
+      Intuit 宣布裁員 17%（逾 3,000 人），AI 重組震驚市場<br>
+      <span style="font-weight:400;font-size:0.9rem;">Intuit Announces 17% Workforce Reduction; Stock Craters Nearly 19%</span>
+    </div>
+    <div class="story-source">
+      來源 / Source: <a href="https://www.cnbc.com/2026/05/20/intuit-intu-q3-earnings-report-2026-company-cutting-17percent-of-staff.html" target="_blank">CNBC</a> · <a href="https://techcrunch.com/2026/05/20/intuit-to-lay-off-over-3000-employees-to-refocus-on-ai/" target="_blank">TechCrunch</a> · 2026-05-20
+    </div>
+    <div class="fact-label">核心事實 / Facts</div>
+    <div class="story-body">
+      Intuit（INTU）5/20 盤後宣布裁員 3,100 人（全職人力的 17%），並提示 TurboTax 部門有壓力。Q3 調整後 EPS $12.80（優於預期 $12.57），營收 $85.6 億（略遜預期 $86.1 億）。重組費用 $3~3.4 億。年初至今股價跌逾 40%，5/21 單日再跌近 19%。
+    </div>
+    <div class="ctx-label">背景脈絡 / Context</div>
+    <div class="story-body">
+      Intuit 試圖以 AI 重組說服市場，但管理層否認裁員主因是 AI 取代，強調「簡化企業架構」。市場解讀為 TurboTax 業務結構性受壓（免費報稅競爭加劇），加上 AI 投入成本未見明確回報。
+    </div>
+    <div class="imp-label">影響觀察 / Implications</div>
+    <div class="story-body">
+      Intuit 為金融科技軟體代表性公司，此波下挫可能帶動同類股（H&amp;R Block、Palantir、Workday）情緒面壓力。警示市場：AI 重組故事若缺乏盈利具體路徑，難獲買單。
+    </div>
+  </div>
+
+  <!-- SECTION 2: EARNINGS -->
+  <div class="section-label">02 · 財報 Earnings of the Day</div>
+
+  <div class="story-card green">
+    <div class="story-title">
+      <span class="badge badge-up">RL +10%</span>
+      Ralph Lauren Q4 大幅超預期，高端消費韌性再獲驗證<br>
+      <span style="font-weight:400;font-size:0.9rem;">Ralph Lauren Q4 FY2026 Beats, Issues Upbeat FY2027 Guidance</span>
+    </div>
+    <div class="story-source">
+      來源 / Source: <a href="https://finance.yahoo.com/markets/stocks/articles/ralph-lauren-corporation-q4-2026-165135924.html" target="_blank">Yahoo Finance</a> · <a href="https://www.fool.com/earnings/call-transcripts/2026/05/21/ralph-lauren-rl-q4-2026-earnings-transcript/" target="_blank">Motley Fool</a> · 2026-05-21
+    </div>
+    <div class="fact-label">核心事實 / Facts</div>
+    <div class="story-body">
+      Ralph Lauren Q4 FY2026 財報超出市場預期，EPS 及營收均優於共識，並給出積極的 FY2027 展望。股價單日急漲逾 10%。
+    </div>
+    <div class="ctx-label">背景脈絡 / Context</div>
+    <div class="story-body">
+      高端服飾品牌在通膨環境中持續展現定價能力。Ralph Lauren 近年積極推進品牌高端化與直接面對消費者（DTC）轉型，歐美及亞太市場均表現穩健。
+    </div>
+    <div class="imp-label">影響觀察 / Implications</div>
+    <div class="story-body">
+      帶動奢侈消費類股（Tapestry、Capri）情緒好轉。XRT（零售 ETF）及 XLY（消費循環 ETF）獲得支撐。顯示富裕消費族群對通膨具較強抗壓性。
+    </div>
+  </div>
+
+  <div class="story-card green">
+    <div class="story-title">
+      <span class="badge badge-up">CAVA +7%</span>
+      CAVA Group Q1 強勁，同店銷售年增近 10%<br>
+      <span style="font-weight:400;font-size:0.9rem;">CAVA Group Q1 2026 Beats; Same-Restaurant Sales Up ~10% YoY</span>
+    </div>
+    <div class="story-source">
+      來源 / Source: <a href="https://www.cfo.com/news/may-earnings-dispatch-macys-bjs-ralph-lauren-dicks-sporting-goods-cava/749659/" target="_blank">CFO.com</a> · 2026-05-21
+    </div>
+    <div class="fact-label">核心事實 / Facts</div>
+    <div class="story-body">
+      CAVA Q1 EPS $0.20，營收 $4.38 億，均超出市場預期。同店銷售成長接近 10%，並上修全年指引。股價盤前及早盤均跳漲逾 7%。
+    </div>
+    <div class="ctx-label">背景脈絡 / Context</div>
+    <div class="story-body">
+      CAVA 定位地中海快速休閒餐廳，對標 Chipotle 的成長模式。在通膨環境中，「高性價比健康餐飲」概念持續受消費者追捧，拓店計畫穩步推進。
+    </div>
+    <div class="imp-label">影響觀察 / Implications</div>
+    <div class="story-body">
+      對快速休閒餐飲板塊（QSR）正面。Chipotle（CMG）、Sweetgreen（SG）等同類股可能受到情緒帶動。
+    </div>
+  </div>
+
+  <div class="story-card red">
+    <div class="story-title">
+      <span class="badge badge-dn">BORR −16%</span>
+      Borr Drilling Q1 營收遜於預期，離岸鑽井需求復甦放緩<br>
+      <span style="font-weight:400;font-size:0.9rem;">Borr Drilling Q1 CY2026 Misses Revenue; Stock Collapses 16%</span>
+    </div>
+    <div class="story-source">
+      來源 / Source: <a href="https://markets.financialcontent.com/stocks/article/stockstory-2026-5-21-borr-drilling-nyseborr-misses-q1-cy2026-sales-expectations-stock-drops" target="_blank">FinancialContent / StockStory</a> · 2026-05-21
+    </div>
+    <div class="fact-label">核心事實 / Facts</div>
+    <div class="story-body">
+      Borr Drilling Q1 實際營收 $2.47 億，年增 14%，但低於市場預期的 $2.52 億（miss 約 2%）。股價單日暴跌 16%。
+    </div>
+    <div class="ctx-label">背景脈絡 / Context</div>
+    <div class="story-body">
+      美伊核談判若達協議，伊朗石油重返市場將壓低油價，對離岸鑽井業者需求展望形成壓力。油價自高點 $105 回落至 $98，鑽井公司盈利能見度下降。
+    </div>
+    <div class="imp-label">影響觀察 / Implications</div>
+    <div class="story-body">
+      能源服務類股（Valaris、Transocean）同步承壓。XLE（能源 ETF）面臨地緣政治緩和的下行風險。
+    </div>
+  </div>
+
+  <div class="story-card red">
+    <div class="story-title">
+      <span class="badge badge-dn">LSPD −8%</span>
+      Lightspeed Commerce 財報不及預期，指引令市場失望<br>
+      <span style="font-weight:400;font-size:0.9rem;">Lightspeed Commerce Q4 Misses; Weak FY2027 Guidance Weighs</span>
+    </div>
+    <div class="story-source">
+      來源 / Source: <a href="https://seekingalpha.com/news/4595893-lightspeed-stock-slides-after-q4-earnings-disappoint-guidance-underwhelms" target="_blank">Seeking Alpha</a> · 2026-05-21
+    </div>
+    <div class="fact-label">核心事實 / Facts</div>
+    <div class="story-body">
+      Lightspeed Commerce（LSPD）Q4 財報 EPS 及營收均遜於市場共識，FY2027 展望也未提振信心，股價跌 8.1%。
+    </div>
+    <div class="ctx-label">背景脈絡 / Context</div>
+    <div class="story-body">
+      Lightspeed 在中小型零售與餐廳 POS / 支付市場面對 Toast、Square（Block）等強勁競爭。市場對其盈利時間表的疑慮未消。
+    </div>
+    <div class="imp-label">影響觀察 / Implications</div>
+    <div class="story-body">
+      Fintech 支付板塊情緒偏弱，Block、Shift4 等競爭者關注度提升。
+    </div>
+  </div>
+
+  <!-- SECTION 3: SINGLE STOCK MOVERS -->
+  <div class="section-label">03 · 個股大事 Single-Stock Movers</div>
+
+  <div class="story-card green">
+    <div class="story-title">
+      <span class="badge badge-up">APLD +16%</span>
+      Applied Digital 簽署 $182 億 AI 園區長租協議<br>
+      <span style="font-weight:400;font-size:0.9rem;">Applied Digital Signs $18.2B Long-Term Lease for Polaris Forge 3 AI Campus</span>
+    </div>
+    <div class="story-source">
+      來源 / Source: TheStreet · 2026-05-21
+    </div>
+    <div class="fact-label">核心事實 / Facts</div>
+    <div class="story-body">
+      Applied Digital（APLD）宣布與一家未具名科技公司達成針對 Polaris Forge 3 AI 資料中心園區的長期租賃協議，潛在總合約金額達 $182 億美元，股價暴漲 16%。
+    </div>
+    <div class="ctx-label">背景脈絡 / Context</div>
+    <div class="story-body">
+      Applied Digital 主攻 AI / HPC（高效能運算）資料中心業務，是超大規模 AI 訓練需求的直接受益者。此合約規模龐大，對公司市值形成重大正面衝擊。
+    </div>
+    <div class="imp-label">影響觀察 / Implications</div>
+    <div class="story-body">
+      AI 基礎設施概念股（Vertiv、Eaton、GE Vernova）獲得關注。顯示 AI 資料中心長期需求仍強勁，即使 Nvidia 股價短期受壓。
+    </div>
+  </div>
+
+  <div class="story-card green">
+    <div class="story-title">
+      <span class="badge badge-up">IBM +6%</span>
+      IBM 獲美商務部 $10 億量子運算補助<br>
+      <span style="font-weight:400;font-size:0.9rem;">Commerce Dept Awards IBM $1B+ Grant to Accelerate Quantum Computing</span>
+    </div>
+    <div class="story-source">
+      來源 / Source: TheStreet · 2026-05-21
+    </div>
+    <div class="fact-label">核心事實 / Facts</div>
+    <div class="story-body">
+      美國商務部宣布向量子運算產業提供 $20 億資金包，IBM 獲最大份額（逾 $10 億），股價上漲 6~7%。
+    </div>
+    <div class="ctx-label">背景脈絡 / Context</div>
+    <div class="story-body">
+      IBM 近年積極轉型為混合雲與量子計算公司，此補助強化其量子路線圖的可信度。量子計算為下一代算力的戰略方向，政府支持為重要背書。
+    </div>
+    <div class="imp-label">影響觀察 / Implications</div>
+    <div class="story-body">
+      量子運算主題相關股（IonQ、Rigetti、D-Wave）可能受到帶動。IBM 在量子硬體的政策護城河進一步鞏固。
+    </div>
+  </div>
+
+  <!-- SECTION 4: IPO & M&A -->
+  <div class="section-label">04 · 併購與 IPO M&amp;A and IPO</div>
+
+  <div class="story-card purple">
+    <div class="story-title">
+      <span class="badge badge-neutral">IPO</span>
+      SpaceX 公開 S-1，史上最大 IPO 倒數計時，預估估值 $1.75 兆<br>
+      <span style="font-weight:400;font-size:0.9rem;">SpaceX Files Public S-1; Expected to Be Largest IPO Ever at ~$1.75T Valuation</span>
+    </div>
+    <div class="story-source">
+      來源 / Source: <a href="https://techcrunch.com/2026/05/20/the-spacex-ipo-filing-has-arrived/" target="_blank">TechCrunch</a> · <a href="https://fortune.com/2026/05/20/spacex-finally-files-ipo-prospectus-reveals-revenue-is-up-but-losses-are-too/" target="_blank">Fortune</a> · 2026-05-20
+    </div>
+    <div class="fact-label">核心事實 / Facts</div>
+    <div class="story-body">
+      SpaceX 於 5/20 公開 S-1 招股說明書，2025 年營收逾 $180 億（Starlink 貢獻超過一半，達 $110 億），但淨虧損 $49 億。預計募資規模約 $750 億。預定掛牌日期：2026 年 6 月 12 日（ticker：SPCX）。馬斯克持有 85.1% 投票權，掛牌後仍維持絕對控制。
+    </div>
+    <div class="ctx-label">背景脈絡 / Context</div>
+    <div class="story-body">
+      SpaceX 兼具 Starlink 衛星互聯網、可重複使用 Starship 火箭及軌道 AI 資料中心等多重成長敘事。若估值成立，此 IPO 規模超越 Aramco（2019 年 $254 億 IPO）成為史上最大。
+    </div>
+    <div class="imp-label">影響觀察 / Implications</div>
+    <div class="story-body">
+      可能吸引大量機構資金排隊，並帶動空間科技 ETF（UFO）及衛星通訊股（Viasat、Iridium）熱度。馬斯克同時掌控 Tesla（TSLA）、xAI，潛在利益衝突問題亦值得留意。
+    </div>
+  </div>
+
+  <!-- SECTION 5: ANALYST CALLS -->
+  <div class="section-label">05 · 券商評等 Analyst Calls</div>
+
+  <div class="story-card yellow">
+    <div class="story-title">
+      多家券商微調科技目標價；Tom Lee 質疑密歇根消費者信心指數<br>
+      <span style="font-weight:400;font-size:0.9rem;">Mixed Analyst Actions; Fundstrat's Tom Lee Blasts Michigan Sentiment as "Notoriously Partisan"</span>
+    </div>
+    <div class="story-source">
+      來源 / Source: <a href="https://www.benzinga.com/markets/macro-economic-events/26/05/52711316/fundstrats-tom-lee-torches-michigan-consumer-sentiment-survey-over-notoriously-part" target="_blank">Benzinga</a> · BofA · Oppenheimer · 2026-05-21
+    </div>
+    <div class="fact-label">核心事實 / Facts</div>
+    <div class="story-body">
+      <ul style="margin:0;padding-left:18px;">
+        <li>BofA 上調 Nova Measuring Instruments（NVMI）目標價至 $612（原 $510）</li>
+        <li>Oppenheimer 上調 Biogen（BIIB）至 $300，維持 Outperform</li>
+        <li>UBS 下調 Wix.com（WIX）至 $68（原 $96），維持 Neutral</li>
+        <li>Fundstrat Tom Lee：密歇根大學消費者信心指數具「黨派偏差」，不應過度解讀其負面數據</li>
+      </ul>
+    </div>
+    <div class="ctx-label">背景脈絡 / Context</div>
+    <div class="story-body">
+      消費者信心指數 5 月初跌至歷史低位 48.2，但 Tom Lee 等多空論戰持續。5/22 將公布密歇根 5 月「最終值」，市場關注是否修正。
+    </div>
+    <div class="imp-label">影響觀察 / Implications</div>
+    <div class="story-body">
+      消費者信心最終值若較初值好轉，可能為市場週末前提供一波緩解。科技評等微調對盤面方向性影響有限。
+    </div>
+  </div>
+
+  <!-- SECTION 6: FED & RATES -->
+  <div class="section-label">06 · Fed 與利率 Fed &amp; Rates</div>
+
+  <div class="story-card gray">
+    <div class="story-title">
+      Fed 維持利率不變；Powell 確認任期屆滿後留任理事；下次會議迎來新主席 Warsh<br>
+      <span style="font-weight:400;font-size:0.9rem;">FOMC Holds at 3.50–3.75%; Powell to Stay as Governor; Warsh Takes Chair June 16–17</span>
+    </div>
+    <div class="story-source">
+      來源 / Source: <a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm" target="_blank">Federal Reserve</a> · <a href="https://www.cnbc.com/2026/04/29/fed-meeting-today-live-updates-warsh-powell.html" target="_blank">CNBC</a> · 2026-04-29 FOMC
+    </div>
+    <div class="fact-label">核心事實 / Facts</div>
+    <div class="story-body">
+      4/29 FOMC 以 8-4 票維持基準利率於 3.50~3.75%（34 年來最多次反對票）。2026 年降息預期已基本排除。美國 10 年期公債殖利率本週一度觸 4.70%（16 個月新高），5/21 回落至 4.62%，但仍處高位。30 年期國債殖利率 ~5.19%，繼續對股票估值形成壓力。
+    </div>
+    <div class="ctx-label">背景脈絡 / Context</div>
+    <div class="story-body">
+      Powell 確認 5/15 後以 Fed 理事身份留任，主席職位由前財政部長 Kevin Warsh 接任，下次 FOMC（6/16~17）為 Warsh 時代開端。市場高度關注新主席政策立場是否更鷹派或與白宮更緊密協調。
+    </div>
+    <div class="imp-label">影響觀察 / Implications</div>
+    <div class="story-body">
+      殖利率高位維持不利成長股估值。FedWatch 工具顯示 2026 年降息概率極低。REIT、公用事業等高股息板塊持續承壓，美元則獲得支撐。
+    </div>
+  </div>
+
+  <!-- SECTION 7: FLOWS & POSITIONING -->
+  <div class="section-label">07 · 資金流向 Flows &amp; Positioning</div>
+
+  <div class="story-card gray">
+    <div class="story-title">
+      ETF 淨資金持續流入；股市 ETF 單週 +$134 億；VIX 維持溫和<br>
+      <span style="font-weight:400;font-size:0.9rem;">Equity ETFs Attract $13.4B for Week of May 13; Bond Funds Lead; VIX ~17 Stays Calm</span>
+    </div>
+    <div class="story-source">
+      來源 / Source: ICI Research · State Street SSGA · 2026-05-13 週數據
+    </div>
+    <div class="fact-label">核心事實 / Facts</div>
+    <div class="story-body">
+      截至 5/13 週，股票型 ETF 淨流入 $134 億（含國內股 $108 億），債券型 ETF 流入 $221 億。VIX 維持約 17，波動度已從近期高點大幅回落。選擇權市場方面，散戶指數/ETF vs. 個股期權比例約 1.3x，已從高峰回落正常化。
+    </div>
+    <div class="ctx-label">背景脈絡 / Context</div>
+    <div class="story-body">
+      即便股市高點附近出現震盪，長期資金持續流入 ETF，顯示被動投資資金並未出走。債券流入創新高，反映市場對高殖利率的收益需求強烈（4.62% 10Y 對保守型投資人具吸引力）。
+    </div>
+    <div class="imp-label">影響觀察 / Implications</div>
+    <div class="story-body">
+      技術面而言，ETF 持續淨流入為市場提供了底部支撐。VIX 未大幅攀升，顯示市場對近期利率波動的容忍度偏高。
+    </div>
+  </div>
+
+  <!-- SECTION 8: KEY DATA THIS WEEK -->
+  <div class="section-label">08 · 本週關鍵數據 Key Data Points</div>
+
+  <div class="story-card yellow">
+    <div class="story-title">
+      密歇根大學 5 月消費者信心最終值（5/22 10am ET 公布）<br>
+      <span style="font-weight:400;font-size:0.9rem;">UMich Final May Consumer Sentiment Due 10am ET May 22 — Could Revise from Record Low 48.2</span>
+    </div>
+    <div class="story-source">
+      來源 / Source: <a href="https://www.sca.isr.umich.edu/" target="_blank">University of Michigan Surveys of Consumers</a>
+    </div>
+    <div class="fact-label">核心事實 / Facts</div>
+    <div class="story-body">
+      密歇根大學 5 月初值為 48.2（歷史新低），低於市場預期 49.5。通膨預期 1 年期 4.5%、5 年期 3.4%。約 1/3 受訪者提到油價，近 30% 提到關稅。5/22 公布最終值，若好於初值將對市場有短線提振。
+    </div>
+    <div class="ctx-label">背景脈絡 / Context</div>
+    <div class="story-body">
+      Fundstrat Tom Lee 等人指出該調查具政治偏差，不代表實際消費行為。市場主要關注通膨預期部分是否進一步降溫，因為這是 Fed 決策的重要參考指標。
+    </div>
+    <div class="imp-label">影響觀察 / Implications</div>
+    <div class="story-body">
+      最終值若較初值改善（如高於 50），週五收盤前可能出現科技 / 消費類股的反彈契機。反之，若惡化，殖利率敏感型資產將進一步承壓。
+    </div>
+  </div>
+
+  <!-- SECTION 9: READS -->
+  <div class="section-label">09 · 觀點 Reads &amp; Views</div>
+
+  <div class="story-card purple">
+    <div class="story-title">
+      本週市場敘事：AI 超預期成長 vs. 「賣在好消息」的矛盾<br>
+      <span style="font-weight:400;font-size:0.9rem;">The Week's Meta-Narrative: Parabolic AI Demand Meets "Sell the News" Exhaustion</span>
+    </div>
+    <div class="story-source">
+      來源 / Source: Motley Fool · Barchart Analysis · CNBC Commentary · 2026-05-19~22
+    </div>
+    <div class="fact-label">核心事實 / Facts</div>
+    <div class="story-body">
+      本週 S&P 500 自 7,432（5/20 收盤）回落，Nvidia 財報完美卻換來下跌，顯示市場估值已充分消化「AI 成長加速」的樂觀情境。AI 交易的下一個拐點需要看 6 月財報季或 Fed 政策轉向訊號。
+    </div>
+    <div class="ctx-label">背景脈絡 / Context</div>
+    <div class="story-body">
+      2026 年初美股從關稅衝擊中急速復甦，S&P 500 年內一度觸及 7,500 新高，但隨後在殖利率高位、AI 股「sell the news」以及地緣政治風險（美伊談判不確定性）下陷入震盪格局。消費者信心處於歷史低位，但就業數據仍算穩健，市場陷入「軟著陸 vs. 滯脹」兩難。
+    </div>
+    <div class="imp-label">影響觀察 / Implications</div>
+    <div class="story-body">
+      未來 2~4 週的觀察重點：(1) 6/16~17 FOMC（新主席 Warsh 首秀）；(2) SpaceX IPO 路演情況；(3) 油價走向（美伊協議是否落地）；(4) PCE 通膨數據。
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    資料來源 / Sources：
+    <a href="https://www.cnbc.com/markets/" target="_blank">CNBC</a> ·
+    <a href="https://www.thestreet.com" target="_blank">TheStreet</a> ·
+    <a href="https://finance.yahoo.com" target="_blank">Yahoo Finance</a> ·
+    <a href="https://techcrunch.com" target="_blank">TechCrunch</a> ·
+    <a href="https://www.benzinga.com" target="_blank">Benzinga</a> ·
+    <a href="https://seekingalpha.com" target="_blank">Seeking Alpha</a> ·
+    <a href="https://www.federalreserve.gov" target="_blank">Federal Reserve</a> ·
+    <a href="https://markets.financialcontent.com" target="_blank">FinancialContent</a> ·
+    <a href="https://www.fool.com" target="_blank">Motley Fool</a>
+    <br><br>
+    免責聲明 / Disclaimer：本日報僅供資訊參考，不構成任何投資建議。所有數字如有精確需求請以官方來源為準。<br>
+    This briefing is for informational purposes only and does not constitute investment advice. Verify all figures with official sources.
+    <br><br>
+    生成時間 / Generated: 2026-05-22 · 資料截止 / Data through: 2026-05-21 close + pre-market 5/22
+  </div>
+</footer>
+
+</body>
+</html>

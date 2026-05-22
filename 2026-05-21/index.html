@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日完整簡報 — 2026-05-20</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    background: #f7f8fa;
+    color: #1a1a2e;
+    min-height: 100vh;
+    padding: 0 0 48px 0;
+  }
+  header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    color: #fff;
+    padding: 32px 24px 28px;
+    text-align: center;
+  }
+  header h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 6px; }
+  header .subtitle { font-size: 0.95rem; opacity: 0.75; }
+  header .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    letter-spacing: 0.04em;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+    max-width: 1200px;
+    margin: 28px auto 0;
+    padding: 0 20px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 20px 22px 18px;
+    border-top: 4px solid #0f3460;
+    transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .card-icon { font-size: 1.4rem; line-height: 1; }
+  .card-title { font-size: 1rem; font-weight: 700; color: #1a1a2e; }
+  .card-title-en { font-size: 0.78rem; color: #666; font-weight: 400; }
+  .headlines { list-style: none; padding: 0; margin: 0 0 14px; }
+  .headlines li {
+    padding: 7px 0 7px 14px;
+    border-left: 3px solid #e8ecf4;
+    margin-bottom: 7px;
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: #333;
+  }
+  .headlines li:last-child { margin-bottom: 0; }
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: #0f3460;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid #0f3460;
+    border-radius: 6px;
+    padding: 5px 12px;
+    transition: background 0.15s, color 0.15s;
+    cursor: pointer;
+  }
+  .card-link:hover { background: #0f3460; color: #fff; }
+  .section-label {
+    max-width: 1200px;
+    margin: 32px auto 0;
+    padding: 0 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #999;
+    font-weight: 600;
+  }
+  footer {
+    max-width: 1200px;
+    margin: 32px auto 0;
+    padding: 0 20px;
+    font-size: 0.78rem;
+    color: #aaa;
+    text-align: center;
+  }
+  footer a { color: #0f3460; text-decoration: none; }
+  .status-ok { color: #27ae60; font-weight: 600; }
+
+  /* color accents per category */
+  .card.ai     { border-top-color: #6c5ce7; }
+  .card.politics { border-top-color: #e17055; }
+  .card.macro  { border-top-color: #00b894; }
+  .card.semi   { border-top-color: #0984e3; }
+  .card.us-stocks { border-top-color: #fdcb6e; }
+  .card.tw-stocks { border-top-color: #fd79a8; }
+  .card.vc     { border-top-color: #a29bfe; }
+  .card.startup { border-top-color: #55efc4; }
+  .card.articles { border-top-color: #fab1a0; }
+  .card.hot-tw { border-top-color: #e84393; }
+  .card.hot-us { border-top-color: #f39c12; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>今日完整簡報 / Today's Full Briefing</h1>
+  <div class="subtitle">11 個領域 · 每日自動彙整</div>
+  <div class="date-badge">2026 年 5 月 20 日（三） · Asia/Taipei</div>
+</header>
+
+<div class="section-label">科技 / Technology</div>
+<div class="grid">
+
+  <!-- AI -->
+  <div class="card ai">
+    <div class="card-header">
+      <span class="card-icon">🤖</span>
+      <div>
+        <div class="card-title">AI 產業新聞</div>
+        <div class="card-title-en">AI Industry News</div>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>Google I/O 2026：Gemini 3.5 Flash 速度 4 倍超越前代、個人代理 Spark 上線 / Gemini 3.5 Flash 4× faster; personal agent Spark goes live</li>
+      <li>Anthropic 傳以最高 9,500 億美元估值洽談 300–500 億融資，超越 OpenAI / Anthropic in talks for $30B–$50B at up to $950B valuation</li>
+      <li>EU AI Act Omnibus 達成協議：高風險合規延後 16 個月，新增禁止裸化 AI 條款 / EU AI Act Omnibus agreed: high-risk deadlines delayed 16 months</li>
+    </ul>
+    <a class="card-link" href="https://newsai-rosy.vercel.app/2026-05-20/ai-news-2026-05-20.html" target="_blank">👉 開啟完整版</a>
+  </div>
+
+  <!-- Semiconductor -->
+  <div class="card semi">
+    <div class="card-header">
+      <span class="card-icon">💾</span>
+      <div>
+        <div class="card-title">半導體產業新聞</div>
+        <div class="card-title-en">Semiconductor News</div>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>Intel Foundry 與蘋果簽署 18A 初步代工協議，股價創歷史新高 / Intel Foundry seals preliminary Apple 18A deal; stock hits all-time high</li>
+      <li>AMD Q1 營收 102.5 億美元 (+38%)，Meta/OpenAI 承諾數百億 MI450 GPU / AMD Q1 $10.25B +38%; Meta & OpenAI commit tens of billions to MI450</li>
+      <li>SK Hynix Q1 營業利益率 72% 創歷史，HBM 佔 DRAM 晶圓產能升至 23% / SK Hynix Q1 OPM 72% record; HBM now 23% of DRAM wafer capacity</li>
+    </ul>
+    <a class="card-link" href="https://newsai-rosy.vercel.app/2026-05-20/semiconductor-news-2026-05-20.html" target="_blank">👉 開啟完整版</a>
+  </div>
+
+</div>
+
+<div class="section-label">市場 / Markets</div>
+<div class="grid">
+
+  <!-- US Stocks -->
+  <div class="card us-stocks">
+    <div class="card-header">
+      <span class="card-icon">🇺🇸</span>
+      <div>
+        <div class="card-title">美股市場新聞</div>
+        <div class="card-title-en">US Stock Market</div>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>30 年期公債殖利率突破 5.12%，創 2007 年以來最高 / 30Y Treasury tops 5.12%, highest since 2007</li>
+      <li>Home Depot Q1 超預期但同店銷售遜色；EPS $3.43 vs 預期 $3.41 / HD beats EPS, comp sales miss at +0.6%</li>
+      <li>Seagate (STX) 續跌 6%，CEO 坦承建廠緩不濟急 / Seagate drops 6%; CEO says new factories "take too long"</li>
+    </ul>
+    <a class="card-link" href="https://newsai-rosy.vercel.app/2026-05-20/us-stocks-news-2026-05-20.html" target="_blank">👉 開啟完整版</a>
+  </div>
+
+  <!-- TW Stocks -->
+  <div class="card tw-stocks">
+    <div class="card-header">
+      <span class="card-icon">🇹🇼</span>
+      <div>
+        <div class="card-title">台股市場新聞</div>
+        <div class="card-title-en">Taiwan Stock Market</div>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>加權指數 5/19 收 40,175 點跌 716 點 (-1.75%)；外資連三日賣超累計 1,189 億元 / TAIEX -1.75%; FINI 3-day outflow NT$118.9B</li>
+      <li>520 三重碰撞：台指期結算日 + 輝達財報 + 總統就職行情 / Triple catalyst: futures expiry + NVIDIA earnings + inauguration</li>
+      <li>MSCI 5/29 台積電權重升至 58.33%，法人估 2,500 億被動資金流入 / MSCI rebalance lifts TSMC to 58.33%; NT$250B passive inflow estimated</li>
+    </ul>
+    <a class="card-link" href="https://newsai-rosy.vercel.app/2026-05-20/tw-stocks-news-2026-05-20.html" target="_blank">👉 開啟完整版</a>
+  </div>
+
+  <!-- Hot TW -->
+  <div class="card hot-tw">
+    <div class="card-header">
+      <span class="card-icon">🔥</span>
+      <div>
+        <div class="card-title">熱門台股</div>
+        <div class="card-title-en">Hot TW Stocks</div>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>記憶體族群「完美風暴」後反彈觀察：南亞科 (2408) 5/19 崩 -9.67%、群聯 (8299) 鎖跌停 / Memory sector post-crash watch: NANYA -9.67%, Phison limit-down</li>
+      <li>光通訊/CPO 族群持續火熱：聯亞 (3081) 毛利 48%；大立光 (3008) 切入 CPO / Optical CPO theme intact: GCS 48% GM, Largan enters CPO space</li>
+      <li>聯發科 (2454) 5/20 處置最後一天（10 天 5 分鐘撮合）觀察 / MediaTek last day of trading restriction watch</li>
+    </ul>
+    <a class="card-link" href="https://newsai-rosy.vercel.app/2026-05-20/hot-tw-stocks-2026-05-20.html" target="_blank">👉 開啟完整版</a>
+  </div>
+
+  <!-- Hot US -->
+  <div class="card hot-us">
+    <div class="card-header">
+      <span class="card-icon">📈</span>
+      <div>
+        <div class="card-title">熱門美股</div>
+        <div class="card-title-en">Hot US Stocks</div>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>$RAMP (LiveRamp)：Publicis $2.5B 全現金收購，29.8% 溢價，股價暴漲 +27.3% / Publicis acquires LiveRamp at 30% premium; RAMP +27.3%</li>
+      <li>$STX (Seagate)：CEO「建廠費時」引爆記憶體板塊拋售，STX ▼6.87%、MU ▼5.95% / CEO comment triggers memory sector selloff</li>
+      <li>$BRC (Brady Corp)：Q3 EPS 創紀錄 +23% + Honeywell $1.4B 收購加持，大漲 +18.98% / Record EPS + Honeywell deal drives +19% surge</li>
+    </ul>
+    <a class="card-link" href="https://newsai-rosy.vercel.app/2026-05-20/hot-us-stocks-2026-05-20.html" target="_blank">👉 開啟完整版</a>
+  </div>
+
+</div>
+
+<div class="section-label">總體經濟 & 政治 / Macro & Politics</div>
+<div class="grid">
+
+  <!-- Macro -->
+  <div class="card macro">
+    <div class="card-header">
+      <span class="card-icon">🌐</span>
+      <div>
+        <div class="card-title">總體經濟新聞</div>
+        <div class="card-title-en">Macro Economics</div>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>美國 4 月 CPI 年增 3.8%（三年最高），Kevin Warsh 就任新聯準會主席 / US April CPI +3.8% YoY; Kevin Warsh confirmed as new Fed Chair</li>
+      <li>台灣 Q1 GDP 年增 13.69%（38 年最快），AI 半導體出口驅動 / Taiwan Q1 GDP +13.69% YoY, fastest since 1987</li>
+      <li>日本財務省兩度干預日圓耗資逾 5.48 兆日圓，BOJ 維持 0.75% / Japan MOF intervened twice (~¥5.48tn); BOJ holds rates at 0.75%</li>
+    </ul>
+    <a class="card-link" href="https://newsai-rosy.vercel.app/2026-05-20/macro-news-2026-05-20.html" target="_blank">👉 開啟完整版</a>
+  </div>
+
+  <!-- Politics -->
+  <div class="card politics">
+    <div class="card-header">
+      <span class="card-icon">🏛️</span>
+      <div>
+        <div class="card-title">國際政治新聞</div>
+        <div class="card-title-en">International Politics</div>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>普丁訪北京：Xi-Trump 峰會後中俄戰略夥伴關係峰會重申能源紐帶 / Putin in Beijing: China-Russia summit reaffirms ties post Xi-Trump meeting</li>
+      <li>台灣 WHA 連十年遭拒，中國在日內瓦封鎖盟友提案 / Taiwan excluded from WHA for 10th consecutive year</li>
+      <li>美參院移民執法 720 億協調案審查啟動，GOP 趕在 6/1 前推進 / US Senate begins $72B immigration enforcement reconciliation markup</li>
+    </ul>
+    <a class="card-link" href="https://newsai-rosy.vercel.app/2026-05-20/politics-news-2026-05-20.html" target="_blank">👉 開啟完整版</a>
+  </div>
+
+</div>
+
+<div class="section-label">創投 & 新創 / Venture & Startups</div>
+<div class="grid">
+
+  <!-- VC -->
+  <div class="card vc">
+    <div class="card-header">
+      <span class="card-icon">💰</span>
+      <div>
+        <div class="card-title">創投生態新聞</div>
+        <div class="card-title-en">Venture Capital</div>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>Anduril 完成 50 億美元融資，估值翻倍至 610 億，Thrive + a16z 聯合領投 / Anduril raises $5B at $61B valuation co-led by Thrive & a16z</li>
+      <li>Robinhood Ventures Fund I IPO 吸引逾 15 萬散戶，第二支基金已秘密申報 / Robinhood retail VC fund draws 150K+ investors; Fund II confidentially filed</li>
+      <li>General Catalyst 仿蘋果廣告引爆與 a16z 公開口水戰，累計觸及 360 萬次 / GC ad sparks viral feud with Marc Andreessen; 3.6M+ impressions</li>
+    </ul>
+    <a class="card-link" href="https://newsai-rosy.vercel.app/2026-05-20/vc-news-2026-05-20.html" target="_blank">👉 開啟完整版</a>
+  </div>
+
+  <!-- Startup -->
+  <div class="card startup">
+    <div class="card-header">
+      <span class="card-icon">🚀</span>
+      <div>
+        <div class="card-title">新創公司大事</div>
+        <div class="card-title-en">Startup News</div>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>Anthropic 以逾 $3 億收購 SDK 工具新創 Stainless，掌握開發者基礎設施 / Anthropic acquires Stainless for $300M+, taking control of the SDK layer</li>
+      <li>Anduril 完成 $50 億 Series H，估值翻倍至 $610 億，defense tech 史上最大單輪 / Anduril $5B Series H at $61B — defense tech's biggest-ever round</li>
+      <li>健康科技獨角獸 Innovaccer 四年第三度裁員 340 人，以「AI 原生轉型」為由 / Innovaccer cuts 340 jobs for third time in four years, citing AI-native pivot</li>
+    </ul>
+    <a class="card-link" href="https://newsai-rosy.vercel.app/2026-05-20/daily-startup-news-2026-05-20.html" target="_blank">👉 開啟完整版</a>
+  </div>
+
+</div>
+
+<div class="section-label">閱讀 / Reading</div>
+<div class="grid">
+
+  <!-- Interesting Articles -->
+  <div class="card articles">
+    <div class="card-header">
+      <span class="card-icon">📚</span>
+      <div>
+        <div class="card-title">今日好文推薦</div>
+        <div class="card-title-en">Interesting Articles</div>
+      </div>
+    </div>
+    <ul class="headlines">
+      <li>哥德爾不完備定理到底在說什麼 / What Do Gödel's Incompleteness Theorems Truly Mean? — Quanta Magazine</li>
+      <li>矽谷新權力玩家：中國裔 AI 工程師的崛起 / Chinese AI Engineers Are Silicon Valley's New Power Players — Rest of World</li>
+      <li>AI 悲妻：科技熱潮的家庭代價 / Meet the Sad Wives of AI — Wired (部分付費牆)</li>
+    </ul>
+    <a class="card-link" href="https://newsai-rosy.vercel.app/2026-05-20/daily-interesting-articles-2026-05-20.html" target="_blank">👉 開啟完整版</a>
+  </div>
+
+</div>
+
+<footer>
+  <p><span class="status-ok">✅ 11/11 完成</span> &nbsp;·&nbsp; 生成時間：2026-05-20 02:10 Asia/Taipei &nbsp;·&nbsp; <a href="https://newsai-rosy.vercel.app/" target="_blank">🔗 Live: newsai-rosy.vercel.app</a></p>
+  <p style="margin-top:8px;">付費牆說明：Bloomberg、WSJ、The Information、Financial Times 等均為付費牆，內容透過二次來源補充。</p>
+</footer>
+
+
+</body>
+</html>

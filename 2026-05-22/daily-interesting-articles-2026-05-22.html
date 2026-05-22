@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>好文推薦 — 2026-05-22</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", Roboto, sans-serif;
+    background: #f8f7f4;
+    color: #1a1a1a;
+    line-height: 1.7;
+    padding: 0 0 60px 0;
+  }
+
+  header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    color: #fff;
+    padding: 32px 40px 28px;
+  }
+
+  header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+
+  header .subtitle {
+    font-size: 0.9rem;
+    color: #a8c4e0;
+    font-weight: 400;
+  }
+
+  header .date-badge {
+    display: inline-block;
+    margin-top: 10px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 3px 14px;
+    font-size: 0.8rem;
+    color: #d4e8ff;
+    letter-spacing: 0.04em;
+  }
+
+  .track-header {
+    background: #fff;
+    border-left: 5px solid #0f3460;
+    margin: 32px 32px 0;
+    padding: 14px 20px;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  .track-header.track-b {
+    border-left-color: #7c3aed;
+  }
+
+  .track-header h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f3460;
+  }
+
+  .track-header.track-b h2 {
+    color: #7c3aed;
+  }
+
+  .track-header .track-desc {
+    font-size: 0.82rem;
+    color: #666;
+    margin-top: 2px;
+  }
+
+  .section-label {
+    margin: 24px 32px 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #888;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    margin: 0 32px 16px;
+    padding: 24px 26px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    border: 1px solid #ebebeb;
+    transition: box-shadow 0.15s;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.11);
+  }
+
+  .card.editor-pick {
+    border-top: 3px solid #e63946;
+    background: linear-gradient(135deg, #fff 0%, #fff8f8 100%);
+  }
+
+  .card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f3460;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .card.editor-pick .card-title {
+    color: #c1121f;
+  }
+
+  .card-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card-title a:hover { text-decoration: underline; }
+
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .meta-source {
+    font-size: 0.78rem;
+    color: #555;
+  }
+
+  .badge {
+    display: inline-block;
+    border-radius: 12px;
+    padding: 1px 9px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .badge-time {
+    background: #e8f4fd;
+    color: #1565c0;
+  }
+
+  .badge-domain {
+    background: #f3e8ff;
+    color: #7c3aed;
+  }
+
+  .badge-editor {
+    background: #fdecea;
+    color: #c1121f;
+  }
+
+  .card-section {
+    margin-bottom: 10px;
+  }
+
+  .card-section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #aaa;
+    margin-bottom: 3px;
+  }
+
+  .card-section-text {
+    font-size: 0.88rem;
+    color: #333;
+    line-height: 1.65;
+  }
+
+  .card-section-text.highlight {
+    border-left: 3px solid #e8edf5;
+    padding-left: 10px;
+    color: #444;
+    font-style: italic;
+  }
+
+  .question-text {
+    font-size: 0.85rem;
+    color: #555;
+    font-style: italic;
+  }
+
+  .divider {
+    height: 1px;
+    background: #f0f0f0;
+    margin: 12px 0;
+  }
+
+  footer {
+    margin: 48px 32px 0;
+    padding: 18px 0 0;
+    border-top: 1px solid #ddd;
+    font-size: 0.77rem;
+    color: #888;
+    line-height: 1.8;
+  }
+
+  footer a { color: #0f3460; }
+
+  .pick-star {
+    color: #e63946;
+    font-size: 1rem;
+    margin-right: 4px;
+  }
+
+  @media (max-width: 600px) {
+    .card, .track-header, .section-label, footer { margin-left: 14px; margin-right: 14px; }
+    header { padding: 22px 18px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>好文推薦 · Reads of the Day</h1>
+  <div class="subtitle">精選長文・思想領袖觀點・跨領域深度閱讀</div>
+  <div class="date-badge">2026年5月22日 · Friday</div>
+</header>
+
+<!-- ===== TRACK A ===== -->
+<div class="track-header">
+  <h2>Track A — 長文精選 / Longform Essays</h2>
+  <div class="track-desc">深度文章・研究・隨筆・評論，橫跨科技、科學、文化、哲學</div>
+</div>
+
+<!-- EDITOR'S PICK -->
+<div class="section-label">編輯精選 / Editor's Pick</div>
+<div class="card editor-pick">
+  <div class="card-title">
+    <span class="pick-star">★</span>
+    <a href="https://explainx.ai/blog/openai-planar-unit-distance-erdos-problem-solved-2026" target="_blank">
+      AI 破解困擾數學界 80 年的幾何謎題 / OpenAI's Reasoning Model Disproves the Erdős Planar Unit Distance Conjecture
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="meta-source">explainx.ai / Digg / Gil Kalai's blog · 2026-05-21</span>
+    <span class="badge badge-editor">Editor's Pick</span>
+    <span class="badge badge-time">10 min</span>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <div class="card-section-text">
+      這不是 AI「輔助」研究的新聞稿，而是 AI 首次作為主要推理者獨立解開一道數學界正式開放問題（open problem）。邊界被移動了：過去被視為人類獨有的創造性數學推理，現在至少在某些子領域已可被機器複製。結果由外部數學家獨立驗證，並登上了頂尖組合數學家 Gil Kalai 的部落格，附「Amazing!」的驚嘆。
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <div class="card-section-text">
+      1946 年，匈牙利數學家 Paul Erdős 提出：在平面上 n 個點中，「距離恰好為 1 的點對」最多有多少個？近 80 年來，數學界普遍認為「方格陣列」（square grid）是最優構造。2026 年 5 月 20 日，OpenAI 的通用推理模型（非數學專用）透過深度代數數論，找到一個無窮家族的構造方案，能以多項式速度超越方格陣列，正式推翻這個猜想。這是 AI 首次自主解決一道在正式數學圈具有公認地位的開放問題。
+      <br><br>
+      In May 2026, an OpenAI general-purpose reasoning model disproved the central conjecture in Erdős's planar unit distance problem — posed in 1946 — by constructing infinite point-configuration families that beat square grids at polynomial scale. External mathematicians verified the result independently. This is the first time AI has autonomously solved a prominent open problem in mathematics.
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Key takeaway</div>
+    <div class="card-section-text highlight">
+      用通用（非特化）模型解決了需要跨領域數學創造力的問題。如果「創造性數學發現」這道門已開，其他需要跳躍性推理的知識領域也很可能跟進。
+    </div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <div class="question-text">
+      當 AI 能比人類更快提出並驗證數學猜想，數學家的角色會變成什麼？「提問的人」與「有能力判斷答案品質的人」，哪個更難被取代？
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: SCIENCE & RESEARCH -->
+<div class="section-label">科學與研究 / Science & Research</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://www.quantamagazine.org/two-researchers-are-rebuilding-mathematics-from-the-ground-up-20260520/" target="_blank">
+      兩位數學家正在從頭重建數學 / Two Researchers Are Rebuilding Mathematics From the Ground Up
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="meta-source">Quanta Magazine · Konstantin Kakaes · 2026-05-20</span>
+    <span class="badge badge-time">18 min</span>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <div class="card-section-text">
+      Quanta 擅長把高深數學寫得讓外行人也能感受到震撼。這篇關於 Scholze 與 Clausen 的「凝縮數學」（condensed mathematics）報導，描述了一個幾乎沒有新聞報導但影響可能深遠的數學革命。
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <div class="card-section-text">
+      Peter Scholze（Max Planck 研究所）與 Dustin Clausen（法國 IHÉS）過去十年致力於替換拓撲學中最基礎的概念「拓撲空間」，改以「凝縮集」（condensed sets）——一種無限細密的塵埃狀數學物件——重新定義分析學的地基。史丹佛數學家 Ravi Vakil 說：「他們在解決一個我們甚至不知道自己有的問題。」這個計畫的野心遠不止於此：他們希望藉此理解「為什麼數字表現得那樣」。
+      <br><br>
+      Scholze and Clausen are replacing the foundational concept of topology with "condensed sets," making swaths of mathematics simpler and setting the stage for a far larger program. Stanford's Vakil: "They are solving a problem we didn't know we had."
+    </div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Key takeaway</div>
+    <div class="card-section-text highlight">數學的地基從來不是固定的；重建地基，可能讓整棟大樓更清晰——甚至打開從未見過的新樓層。</div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <div class="question-text">「重建數學基礎」這件事，在 AI 大量輔助數學研究的時代，會以什麼速度加速？形式驗證系統（如 Lean）將如何介入？</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://www.quantamagazine.org/what-do-godels-incompleteness-theorems-truly-mean-20260518/" target="_blank">
+      哥德爾不完備定理真正的意涵是什麼？ / What Do Gödel's Incompleteness Theorems Truly Mean?
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="meta-source">Quanta Magazine · 2026-05-18</span>
+    <span class="badge badge-time">14 min</span>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <div class="card-section-text">
+      哥德爾定理常被誤讀（「所以一切都無法確定！」），但正確理解它需要真正的邏輯功底。這篇文章難得地把定理本身的精確意涵、常見誤解、以及真實數學影響，寫得既正確又可讀。
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <div class="card-section-text">
+      1931年，25歲的哥德爾證明：任何足夠強的形式系統，都存在在系統內無法被證明或反駁的真命題。這不是說「數學充滿謊言」，而是說數學的真理範圍永遠超出任何形式系統的推導能力。文章梳理了此後數學家真正遭遇「不可判定命題」的案例（連續統假設、停機問題），並討論這對 AI 輔助數學的意涵。
+      <br><br>
+      Gödel proved no formal system can be complete. The article traces what this actually means in practice: real mathematical statements that are undecidable, and what it implies for AI's ability to "solve all of mathematics."
+    </div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Key takeaway</div>
+    <div class="card-section-text highlight">數學的「不可知」不是失敗，而是結構性特徵——任何智能系統（包括 AI）都無法繞過它。</div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <div class="question-text">AI 系統在處理數學問題時，是否真正「理解」不可判定性？還是只是模式匹配？</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://www.quantamagazine.org/a-treasure-trove-of-cambrian-fossils-rewrites-the-story-of-early-life-20260501/" target="_blank">
+      寒武紀化石寶庫改寫生命起源故事 / A Treasure Trove of Cambrian Fossils Rewrites the Story of Early Life
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="meta-source">Quanta Magazine · 2026-05-01 · Oxford University / Yunnan University</span>
+    <span class="badge badge-time">12 min</span>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <div class="card-section-text">
+      古生物學的革命性發現，直接改寫了教科書。8681 枚化石、153 個物種，把複雜動物的出現時間推前了至少 400 萬年——「寒武紀大爆發」的敘事正在解體。
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <div class="card-section-text">
+      牛津大學與雲南大學研究團隊在雲南省江川盆地發現了一個前寒武紀化石群，年代介於 5.54～5.39 億年前，比寒武紀開始早了至少 400 萬年。其中包含具有左右對稱體型（兩側對稱動物的標誌）的生物，以及可能是脊椎動物遠祖「後口動物」的標本。這意味著複雜動物演化是漸進過程，而非「爆炸性」事件。
+      <br><br>
+      8,681 fossils across 153 species from pre-Cambrian China show complex bilateral animals evolved millions of years before the Cambrian, undermining the "sudden explosion" narrative of animal evolution.
+    </div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Key takeaway</div>
+    <div class="card-section-text highlight">「寒武紀大爆發」可能不是爆炸，而是我們化石記錄的空白。複雜生命的演化比我們以為的更古老、更緩慢。</div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <div class="question-text">還有多少「演化空白期」只是化石記錄的偏差？地球上其他地點是否也有類似的前寒武紀化石群尚待發現？</div>
+  </div>
+</div>
+
+<!-- SECTION: TECH & AI -->
+<div class="section-label">科技與 AI / Tech & AI</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://longreads.com/2026/05/20/prehistory-ai-slop/" target="_blank">
+      AI 垃圾內容的史前史 / The Prehistory of A.I. Slop
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="meta-source">Longreads / The New Yorker · Jill Lepore · 2026-05-20</span>
+    <span class="badge badge-time">22 min</span>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <div class="card-section-text">
+      哈佛歷史學家 Jill Lepore 用歷史眼光看「AI 寫作」——人類試圖讓機器寫作的努力，比 ChatGPT 早了七十年。這篇提供了我們當下焦慮的長鏡頭，讓人冷靜。
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <div class="card-section-text">
+      從 1930 年代的「情節機器人」（Plot Robot）、1960 年代的自動詩歌生成器，到 ChatGPT，Lepore 梳理了七十年的「機器寫作史」。她的論點是：每一代人都對自動化創作既著迷又恐懼，而每一代的答案都揭示了當代人對「創意」與「作者身份」的焦慮。今天的 AI slop（AI 垃圾內容）不是新問題，而是一個古老問題的最新形態。
+      <br><br>
+      Lepore traces 70+ years of machine writing — from Plot Robot to ChatGPT. Each generation's reaction to automated authorship reflects its own anxieties about creativity and meaning. AI slop is ancient, not new.
+    </div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Key takeaway</div>
+    <div class="card-section-text highlight">對 AI 寫作的恐懼，本質上是對「什麼讓人類獨特」這個問題的恐懼。這個問題在每個技術轉折點都會重演。</div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <div class="question-text">歷史上每一次「機器寫作恐慌」最終都消散了——這次會有什麼本質上的不同，讓它不會同樣消散？</div>
+  </div>
+</div>
+
+<!-- SECTION: CULTURE & SOCIETY -->
+<div class="section-label">文化與社會 / Culture & Society</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://restofworld.org/2026/chinese-ai-researchers-silicon-valley/" target="_blank">
+      矽谷新權貴：AI 時代的中國裔工程師 / Chinese AI Engineers Are Silicon Valley's New Power Players
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="meta-source">Rest of World · Viola Zhou · 2026-05-11</span>
+    <span class="badge badge-time">16 min</span>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <div class="card-section-text">
+      記者 Viola Zhou 花了六個月深入採訪矽谷中國裔 AI 研究者圈子——這個群體向來不接受媒體採訪——成功呈現一群夾在美中科技戰中、卻同時推動著全球 AI 前沿的人的真實面貌。她甚至住進了 Mark Zuckerberg 的前宅進行採訪，田野調查紮實，角度稀有。
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <div class="card-section-text">
+      中國裔技術人才幾十年來是矽谷的底層燃料，但在 AI 時代，他們正成為 OpenAI、Google DeepMind、Meta AI 等頂尖實驗室的明星研究員。文章呈現這群人的處境：一方面在技術上舉足輕重，另一方面必須在 U.S.-China 地緣政治張力中小心翼翼地保持低調，且隨時面臨「回國還是留下」的抉擇。
+      <br><br>
+      Chinese-born AI researchers have long powered Silicon Valley, but in the LLM era they have become irreplaceable stars at the leading labs. Reporter Viola Zhou spent six months embedded in their social scene to document how they navigate world-class technical ambition, US-China geopolitical risk, and a perpetual question of where to belong.
+    </div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Key takeaway</div>
+    <div class="card-section-text highlight">AI 時代的地緣政治風險讓「人才」本身成為稀缺的外交籌碼，而這群人每天都在用個人職涯決策回答一個國家層次的問題：技術人才的忠誠屬於哪裡？</div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <div class="question-text">當頂尖 AI 研究愈來愈集中於少數幾個實驗室，這些「人才磁鐵」機構的文化與國籍構成，最終會如何影響 AI 系統的價值觀取向？</div>
+  </div>
+</div>
+
+<!-- SECTION: CURIOSITIES -->
+<div class="section-label">奇文與偏門 / Curiosities</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://aeon.co/essays/weve-always-been-distracted-or-at-least-worried-that-we-are" target="_blank">
+      我們一直都是分心的，或至少一直擔心自己在分心 / We've Always Been Distracted, Or at Least Worried That We Are
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="meta-source">Aeon · 2026-01-29（近期重獲關注）</span>
+    <span class="badge badge-time">16 min</span>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <div class="card-section-text">
+      在人人抱怨「手機讓我無法專注」的時代，這篇文章的歷史考證讓人啞然失笑：從古羅馬到維多利亞時代，每個時代的人都在抱怨當代科技讓人分心。這是一劑讓人冷靜的反諷。
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <div class="card-section-text">
+      文章梳理了從古代書寫工具的出現、印刷術革命、電報與報紙普及，到廣播電視，每個時代的「新媒體焦慮」。人類對注意力的擔憂，幾乎與文明本身一樣古老。作者的結論帶著溫柔的諷刺：也許分心不是現代病，而是人類的基本狀態。
+      <br><br>
+      Every era has worried that new media destroys attention. From Roman wax tablets to Victorian newspapers to smartphones, the anxiety is ancient. Maybe distraction is not a modern pathology but a fundamental human condition.
+    </div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Key takeaway</div>
+    <div class="card-section-text highlight">對注意力的焦慮，本身就是人類注意力的產物。每個時代都相信「我們的時代特別糟糕」——這本身就是一個模式。</div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <div class="question-text">如果歷史上的分心焦慮都被克服了，AI 與算法時代的注意力問題真的有什麼結構性不同，使它更難被克服嗎？</div>
+  </div>
+</div>
+
+<!-- ===== TRACK B ===== -->
+<div class="track-header track-b">
+  <h2>Track B — 思想領袖觀點 / Thought Leaders</h2>
+  <div class="track-desc">AI・創業・創投・總經領域實踐者的最新深度觀點</div>
+</div>
+
+<div class="section-label">思想領袖今日觀點 / Thought Leader Picks</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://www.noahpinion.blog/p/ais-big-messaging-pivot" target="_blank">
+      [總經] Noah Smith — AI 正在進行的「訊息大轉向」/ AI's Big Messaging Pivot
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="meta-source">Noahpinion · Noah Smith · 2026-05-06</span>
+    <span class="badge badge-domain">[總經]</span>
+    <span class="badge badge-time">14 min</span>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <div class="card-section-text">
+      Noah Smith 是少數能把經濟學眼光帶進 AI 產業觀察的人。這篇文章指出了一個微妙但重要的轉變：AI 公司的公開說辭，正在悄悄修正自己。值得讀懂這個訊息轉向背後的政治經濟邏輯。
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Core insight</div>
+    <div class="card-section-text">
+      Smith 觀察到，AI 業界的公開訊息正從「AGI 將讓所有人失業」轉向「AI 將創造更多就業」。OpenAI 的 2026 版原則文件中，「AGI」只出現兩次，相比 2018 版的 12 次大幅縮減。Smith 認為這不完全是真心轉變，更多是對民調顯示美國公眾對 AI 態度急轉直下的防禦性回應。
+      <br><br>
+      AI companies are quietly pivoting from "AGI will make jobs obsolete" to "AI will create jobs." Smith sees this less as genuine rethinking and more as a defensive PR move as public opinion turns sharply against AI.
+    </div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <div class="question-text">如果 AI 公司的「就業友善」訊息只是公關策略，而非真實預測，政策制定者應如何辨別並設計配套的勞動力轉型政策？</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://marginalrevolution.com/marginalrevolution/2026/05/will-ai-kill-the-research-paper.html" target="_blank">
+      [AI] Tyler Cowen — AI 會終結學術論文嗎？「超論文」時代的到來 / Will AI Kill the Research Paper?
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="meta-source">Marginal Revolution · Tyler Cowen · 2026-05-10</span>
+    <span class="badge badge-domain">[AI]</span>
+    <span class="badge badge-time">10 min</span>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <div class="card-section-text">
+      Tyler Cowen 提出的「meta-paper」概念，是今年 AI 與學術界討論中最具挑釁性的想法之一。這不是在預測，而是在描述一個已經開始發生的轉型。
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Core insight</div>
+    <div class="card-section-text">
+      Cowen 提出 AI 將以「超論文」（meta-papers）取代傳統學術論文——這種新形式能夠綜合多篇論文、重跑分析、用最新數據更新結論，並提出原始論文從未追問的假設。他認為，未來的知識生產單位不再是「一篇文章」，而是能被持續修改與延伸的「動態知識物件」。
+      <br><br>
+      Cowen proposes AI will replace static papers with "meta-papers" — dynamic objects that synthesize multiple papers, re-run analyses with new data, and surface hidden hypotheses. The unit of knowledge production is changing.
+    </div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <div class="question-text">如果學術產出變成動態的 meta-papers，同儕審查（peer review）的機制如何重新設計？學術信用（credit）又如何歸屬？</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://www.noahpinion.blog/p/roundup-82-staring-in-wonder-at-the" target="_blank">
+      [總經] Noah Smith — 週報 #82：數學家或許是 AI 最早消滅的職業 / Roundup #82: Staring In Wonder at the World
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="meta-source">Noahpinion · Noah Smith · 2026-05-21</span>
+    <span class="badge badge-domain">[總經 · AI]</span>
+    <span class="badge badge-time">10 min</span>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <div class="card-section-text">
+      Noah Smith 在 Erdős 問題被 AI 解決的隔天，直接在週報中討論「職業數學家是否即將成為最早被 AI 功能性取代的知識勞動角色」——時機、反差與論述密度讓這段值得單獨讀。他同時整合了美國犯罪數據與中國 AI 失業焦慮的調查，展現他作為「用數據思考社會變遷」的評論者的完整風格。
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Core insight</div>
+    <div class="card-section-text">
+      本期週報涵蓋三個並列主題：(1) 美國各大城市暴力犯罪 2026 年初大幅下降（謀殺 -17.7%、搶劫 -20.4%）；(2) 中國對 AI 導致結構性失業的擔憂在 2024-2026 年間急劇上升；(3) AI 解決 Erdős 問題後，Smith 認為純數學學術職位面對根本性重估——如果 AI 能自主發現新數學，「做研究」為生的職業還剩什麼護城河？
+      <br><br>
+      Smith's roundup covers falling US crime, surging Chinese AI-displacement anxiety, and the unsettling implication of the Erdős proof: pure research mathematicians may be among the earliest professional knowledge workers to face functional AI substitution.
+    </div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <div class="question-text">「需要創造力的工作」不自動等於「AI 難取代的工作」——數學或許是第一個被迫承認這點的學術領域。哪些博士學位的護城河還能撐過十年？</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://marginalrevolution.com/marginalrevolution/2026/05/wokeness-has-peaked-what-followed-is-worse.html" target="_blank">
+      [文化] Tyler Cowen — 覺醒已達頂峰，繼之而來的更糟 / Wokeness Has Peaked. What Followed Is Worse.
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="meta-source">The Free Press / Marginal Revolution · Tyler Cowen · 2026-05-19</span>
+    <span class="badge badge-domain">[文化]</span>
+    <span class="badge badge-time">12 min</span>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <div class="card-section-text">
+      Cowen 的這篇文章不是「反 woke」的黨派文章，而是一個自由派經濟學家在文化鐘擺盪過頭之後的冷靜觀察，難得地同時批評兩端。
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Core insight</div>
+    <div class="card-section-text">
+      Cowen 認為 woke 運動在 2022 年左右達到頂峰後，社會反彈帶來的不是理性中道，而是另一種極端——反智主義、陰謀論與政治粗暴化。他區分了 woke 的合理面（支持平等、反歧視）與不合理面（取消文化、DEI 強制措施），並主張兩者都已讓位給更糟糕的替代品。
+      <br><br>
+      Cowen argues wokeness peaked around 2022, but its backlash hasn't brought reasoned moderation — instead, anti-intellectualism and political coarsening. He distinguishes legitimate woke goals from cancel culture, noting both have been eclipsed by something worse.
+    </div>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <div class="question-text">文化鐘擺的反彈，是否存在「過衝」的系統性傾向？有沒有任何機制能讓社會在文化爭議上找到穩定均衡？</div>
+  </div>
+</div>
+
+<footer>
+  <strong>資料來源 / Sources</strong><br>
+  <a href="https://www.quantamagazine.org/" target="_blank">Quanta Magazine</a> ·
+  <a href="https://aeon.co/" target="_blank">Aeon</a> ·
+  <a href="https://longreads.com/" target="_blank">Longreads</a> ·
+  <a href="https://www.wired.com/" target="_blank">Wired</a> ·
+  <a href="https://www.noahpinion.blog/" target="_blank">Noahpinion</a> ·
+  <a href="https://marginalrevolution.com/" target="_blank">Marginal Revolution</a> ·
+  <a href="https://www.thealgorithmicbridge.com/" target="_blank">The Algorithmic Bridge</a> ·
+  <a href="https://news.ycombinator.com/" target="_blank">Hacker News</a>
+  <br><br>
+  <span style="color:#bbb">部分來源（The New Yorker 全文、The Atlantic 會員文章）可能需要訂閱。本頁所有連結均指向原始文章。策展窗口：2026-05-15 至 2026-05-22。</span>
+  <br>
+  <span style="color:#ccc; font-size:0.72rem;">生成時間 / Generated: 2026-05-22 · Claude Sonnet 4.6 · v2 (verified sources)</span>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台股新聞日報 — 2026-05-22</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.65;
+    padding: 20px;
+    font-size: 14px;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    padding: 28px 24px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .header .sub {
+    font-size: 12px;
+    opacity: 0.75;
+    margin-top: 4px;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 11px;
+    margin-top: 8px;
+    letter-spacing: 0.3px;
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #e8eaed;
+    padding-bottom: 6px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th {
+    background: #f1f3f4;
+    color: #444;
+    font-weight: 600;
+    text-align: left;
+    padding: 6px 8px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  td {
+    padding: 7px 8px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  .up { color: #d32f2f; font-weight: 600; }
+  .down { color: #1565c0; font-weight: 600; }
+  .neutral { color: #555; }
+  .section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .section h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e8eaed;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-icon {
+    font-size: 18px;
+  }
+  .news-item {
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px dashed #e0e0e0;
+  }
+  .news-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .news-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .news-source {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .news-source a {
+    color: #1a73e8;
+    text-decoration: none;
+  }
+  .news-source a:hover { text-decoration: underline; }
+  .fact-block {
+    background: #f8f9fa;
+    border-left: 3px solid #1a73e8;
+    padding: 8px 12px;
+    margin: 8px 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 13px;
+  }
+  .context-block {
+    background: #fff8e1;
+    border-left: 3px solid #f9a825;
+    padding: 8px 12px;
+    margin: 8px 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 13px;
+  }
+  .implication-block {
+    background: #e8f5e9;
+    border-left: 3px solid #2e7d32;
+    padding: 8px 12px;
+    margin: 8px 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 13px;
+  }
+  .block-label {
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .tag {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    margin-right: 4px;
+    letter-spacing: 0.3px;
+  }
+  .tag-red { background: #ffebee; color: #c62828; }
+  .tag-blue { background: #e3f2fd; color: #1565c0; }
+  .tag-green { background: #e8f5e9; color: #2e7d32; }
+  .tag-orange { background: #fff3e0; color: #e65100; }
+  .tag-purple { background: #f3e5f5; color: #6a1b9a; }
+  .notice {
+    background: #fff3e0;
+    border: 1px solid #ffcc80;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: #795548;
+    margin-bottom: 16px;
+  }
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: #999;
+    padding: 16px;
+    border-top: 1px solid #e8eaed;
+    margin-top: 8px;
+  }
+  .footer a { color: #1a73e8; text-decoration: none; }
+  .pending { color: #999; font-style: italic; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>台股新聞日報</h1>
+  <div class="sub">Taiwan Stock Market Daily Briefing</div>
+  <div class="badge">2026年5月22日（週五）· Asia/Taipei · TWSE 交易日</div>
+</div>
+
+<div class="notice">
+  ⚠️ <strong>資料說明：</strong>5月22日（週五）為當日交易日，部分指數收盤數字及三大法人盤後統計尚待確認（收盤前/盤中資料）。本報告整合截至盤中的最新數據與前一交易日（5/21）盤後資料，並標明狀態。
+</div>
+
+<!-- Section 1: Index Summary -->
+<div class="summary-grid">
+  <div class="card">
+    <h2>大盤概況 / Index (5/22 盤中)</h2>
+    <table>
+      <tr>
+        <th>指數</th>
+        <th>數值</th>
+        <th>漲跌</th>
+        <th>%</th>
+      </tr>
+      <tr>
+        <td>加權 TAIEX</td>
+        <td><strong class="pending">待確認*</strong></td>
+        <td class="pending">—</td>
+        <td class="pending">—</td>
+      </tr>
+      <tr>
+        <td>盤中高點</td>
+        <td><strong>~42,400</strong></td>
+        <td class="up">+1,032</td>
+        <td class="up">+2.5%↑</td>
+      </tr>
+      <tr>
+        <td>盤中翻黑時</td>
+        <td>41,506</td>
+        <td class="down">-262 (翻黑)</td>
+        <td class="down">-0.6%</td>
+      </tr>
+      <tr>
+        <td>前日 5/21 收盤</td>
+        <td><strong>41,368</strong></td>
+        <td class="up">+1,347</td>
+        <td class="up">+3.37%</td>
+      </tr>
+    </table>
+    <div style="font-size:11px;color:#999;margin-top:8px;">* 5/22 收盤後請至 <a href="https://www.twse.com.tw/zh/indices/taiex/mi-5min-hist.html" style="color:#1a73e8;">TWSE</a> 確認最終數字</div>
+  </div>
+
+  <div class="card">
+    <h2>三大法人 / 5/21 盤後 (NT$ 億元)</h2>
+    <table>
+      <tr>
+        <th>法人</th>
+        <th>買賣超</th>
+        <th>主要方向</th>
+      </tr>
+      <tr>
+        <td>外資</td>
+        <td class="up">+603.41</td>
+        <td>台積電、鴻海</td>
+      </tr>
+      <tr>
+        <td>投信</td>
+        <td class="up">+51.14</td>
+        <td>南亞科、台積電</td>
+      </tr>
+      <tr>
+        <td>自營商</td>
+        <td class="up">+195.96</td>
+        <td>廣泛布局</td>
+      </tr>
+      <tr>
+        <td><strong>合計</strong></td>
+        <td class="up"><strong>+850.51</strong></td>
+        <td>全面買超</td>
+      </tr>
+    </table>
+    <div style="font-size:11px;color:#999;margin-top:8px;">來源：<a href="https://www.twse.com.tw/zh/trading/foreign/bfi82u.html" style="color:#1a73e8;">TWSE 三大法人統計</a></div>
+  </div>
+</div>
+
+<div class="summary-grid">
+  <div class="card">
+    <h2>ADR / 匯率參考</h2>
+    <table>
+      <tr>
+        <th>標的</th>
+        <th>價格/匯率</th>
+        <th>變化</th>
+      </tr>
+      <tr>
+        <td>TSM (台積電ADR)</td>
+        <td>$401.55</td>
+        <td class="up">+$8.94 (+2.28%)</td>
+      </tr>
+      <tr>
+        <td>新台幣 TWD/USD</td>
+        <td class="pending">待確認</td>
+        <td class="pending">—</td>
+      </tr>
+    </table>
+    <div style="font-size:11px;color:#999;margin-top:8px;">TSM ADR 數據為 5/21 美股盤中。<a href="https://www.cbc.gov.tw/tw/lp-645-1.html" style="color:#1a73e8;">央行匯率</a></div>
+  </div>
+
+  <div class="card">
+    <h2>權值股收盤 / 5/21</h2>
+    <table>
+      <tr>
+        <th>股票</th>
+        <th>收盤(元)</th>
+        <th>漲跌</th>
+      </tr>
+      <tr>
+        <td>台積電 2330</td>
+        <td>2,230</td>
+        <td class="up">+45 (+2.06%)</td>
+      </tr>
+      <tr>
+        <td>聯發科 2454</td>
+        <td>3,550</td>
+        <td class="up">+320 (+9.91%)</td>
+      </tr>
+      <tr>
+        <td>鴻海 2317</td>
+        <td>247.5</td>
+        <td class="up">+7.5 (+3.12%)</td>
+      </tr>
+    </table>
+    <div style="font-size:11px;color:#999;margin-top:8px;">來源：<a href="https://tw.stock.yahoo.com/" style="color:#1a73e8;">Yahoo 股市</a></div>
+  </div>
+</div>
+
+<!-- Section 2: Top Stories -->
+<div class="section">
+  <h2><span class="section-icon">🏆</span>頭條 / Top Stories</h2>
+
+  <div class="news-item">
+    <div class="news-title">
+      <span class="tag tag-red">大漲</span>
+      加權突破 42,000 點、盤中翻黑整理 — 量縮後市待觀察<br>
+      TAIEX Briefly Tops 42,000 Intraday, Retreats to Red — Post-Rally Consolidation
+    </div>
+    <div class="news-source">來源：風傳媒、鉅亨網 · 2026-05-22 · <a href="https://www.storm.mg/article/11131860">storm.mg</a></div>
+    <div class="fact-block">
+      <div class="block-label">核心事實 / Facts</div>
+      台股在 5/22 開盤延續前日（5/21 大漲 +3.37% 收 41,368 點）的多頭氣勢，早盤一度衝上 42,400 點高點（漲幅逾 2.5%），創波段歷史新高。然而隨後因科技股賣壓出籠，指數於盤中翻黑至 41,506 點（跌幅約 0.6%），走勢呈「V 轉 M」震盪格局。金融股逆勢抗跌，成為最後盤勢支撐。
+      <br><br>
+      On May 22, TAIEX extended the May 21 (+3.37%) bull run by briefly touching ~42,400 intraday — a fresh all-time high band — before reversing into negative territory at 41,506, down ~0.6%. Financial stocks bucked the trend as a defensive anchor.
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      本周台股持續受 AI 熱潮、聯發科出關行情及四大美國雲端業者 $725 億美元資本支出承諾激勵。5/21 的 1,347 點大漲為市場積累了較大的獲利回吐壓力，5/22 的技術性整理符合市場預期。加權指數本年度 YTD 漲幅已達約 40–42%，全球排名前五。
+    </div>
+    <div class="implication-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <strong>[分析]</strong> 若收盤能守住 41,000–41,500 一帶，視為健康整理；若放量下破 40,500 則需留意外資由買轉賣訊號。周末前縮量整理、金融股護盤屬性明顯，技術面日 KD 呈高檔鈍化，短線震盪風險仍在。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-title">
+      <span class="tag tag-red">熱門</span>
+      聯發科「出關首日」鎖漲停 3,550 元 — 處置解除市場全面重估<br>
+      MediaTek Surges to Daily Limit 3,550 on First Day After Surveillance Period Ends
+    </div>
+    <div class="news-source">來源：Yahoo 股市、工商時報 · 2026-05-21 · <a href="https://tw.stock.yahoo.com/news/%E7%99%BC%E5%93%A5%E7%8C%9B%E8%99%8E%E5%87%BA%E9%96%98%EF%BC%81%E8%81%AF%E7%99%BC%E7%A7%91%E5%87%BA%E9%97%9C%E9%A6%96%E6%97%A5-%E9%96%8B%E7%9B%A4%E4%B8%8D%E5%88%B010%E5%88%86%E9%90%98%E4%BA%AE%E7%87%88%E6%BC%B2%E5%81%9C%E9%8E%963550%E5%85%83-011757682.html">閱讀全文</a></div>
+    <div class="fact-block">
+      <div class="block-label">核心事實 / Facts</div>
+      聯發科（2454）於 5/20 結束「處置期間」（5分鐘撮合一次），5/21 出關首日開盤不到 10 分鐘即鎖漲停 3,550 元，漲幅 +9.91%（+320 元），市值突破 5 兆元。委買單排隊超過 4,000 張。外資大幅上修目標價，AI ASIC 爆發題材引爆史詩級重估。
+      <br><br>
+      MediaTek (2454) exited its 5-minute trading surveillance period on May 21 and immediately hit the daily price limit (+9.91%) at NT$3,550 — market cap exceeds NT$5T. Foreign funds sharply raised target prices citing AI ASIC revenue upside.
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      聯發科因連續漲停（前五根「妖股行情」）於 4 月底被交易所列入注意/處置股，期間只能 5 分鐘撮合一次。聯發科自行預估 2026 年 AI ASIC 營收目標翻倍上修至 20 億美元，分析師看好 2028 年 EPS 可能突破 400 元（目前約 120 元）。近一個月股價幾近翻倍。
+    </div>
+    <div class="implication-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <strong>[分析]</strong> 聯發科帶動台股 AI ASIC 族群（創意電子、力旺、智原等）共同走揚。外資全面重估完成後，後市動能端賴 Computex 2026（6/2-6/5）法說內容與美系客戶 AI 晶片訂單落地確認。技術面日 KD 達頂，短線需防回檔。
+    </div>
+  </div>
+
+</div>
+
+<!-- Section 3: Heavyweights -->
+<div class="section">
+  <h2><span class="section-icon">⚓</span>權值股動向 / Heavyweight Stocks</h2>
+
+  <div class="news-item">
+    <div class="news-title">
+      <span class="tag tag-orange">鴻海</span>
+      鴻海 5/22 續漲 5.7% — 上市櫃指數帶頭創新高<br>
+      Foxconn Advances +5.7% on May 22, Leading Listed Indices to New Records
+    </div>
+    <div class="news-source">來源：理財周刊 · 2026-05-22 · <a href="https://www.moneyweekly.com.tw/ArticleData/Info/Article/222027">閱讀全文</a></div>
+    <div class="fact-block">
+      <div class="block-label">核心事實 / Facts</div>
+      鴻海（2317）在 5/22 延續漲勢，盤中股價最高達 223 元（+5.7%），為連續第三個交易日上漲。上市櫃指數在鴻海帶頭下續創歷史新高。5/21 收盤 247.5 元（+3.12%）。
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      鴻海 5/14 法說會上，執行長蔣集恆表示 AI 投資規模將破一兆美元，能見度比 3 月更好。鴻海 AI 伺服器出貨量以約 3,700 櫃市佔率約 44% 居全球龍頭地位，Computex 前夕供應鏈訂單訊息持續流出。外資近期亦持續買超鴻海。
+    </div>
+    <div class="implication-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <strong>[分析]</strong> 鴻海帶動「老 AI 伺服器族群」（廣達 2382、緯創 3231、緯穎 6669）補漲行情。廣達因 5/15 法說會後毛利率跳水遭市場重新評估，5/22 表現相對弱勢。鴻海的強勢有助穩定台股多頭格局。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-title">
+      <span class="tag tag-blue">台積電</span>
+      台積電持穩 2,230 元 — TSM ADR 先行反映外資信心<br>
+      TSMC Holds 2,230; ADR TSM at $401 Signals Continued Foreign Confidence
+    </div>
+    <div class="news-source">來源：Yahoo 股市、CNBC · 2026-05-21-22 · <a href="https://tw.stock.yahoo.com/quote/2330.TW">Yahoo 股市</a></div>
+    <div class="fact-block">
+      <div class="block-label">核心事實 / Facts</div>
+      台積電（2330）5/21 收盤 2,230 元（+2.06%），TSM ADR 盤中達 $401.55（+2.28%）。台積電市值約 58 兆新台幣（約 $1.85 兆美元），佔 TAIEX 比重逾 40%。外資 5/21 買超台積電居第一。
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      Bloomberg 報導台積電主導 AI 晶片市場，三星、SK 海力士、台積電組成的亞洲 AI 供應鏈今年 YTD 漲幅卓著。Computex 2026 前夕，黃仁勳 5/27 抵台、6/1 開講，台積電南科產能與 NVIDIA 下一代晶片合作備受關注。
+    </div>
+    <div class="implication-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <strong>[分析]</strong> 台積電是 TAIEX 的定錨指標。TSM ADR 的高位運行（$401 vs 台股 2,230 元）顯示外資對台積電基本面無虞。若 Computex 釋出 N2/A16 製程新訂單訊息，台積電有機會再度攻堅 2,300 元。
+    </div>
+  </div>
+
+</div>
+
+<!-- Section 4: Sector Rotation -->
+<div class="section">
+  <h2><span class="section-icon">🔄</span>類股輪動 / Sector Rotation</h2>
+
+  <div class="news-item">
+    <div class="news-title">
+      <span class="tag tag-purple">AI 概念</span>
+      AI 伺服器族群分歧 — 鴻海強、廣達弱<br>
+      AI Server Sector Diverges: Foxconn Leads, Quanta Pressured by Margin Concerns
+    </div>
+    <div class="news-source">來源：今周刊、CMoney · 2026-05-16 / 05-22 · <a href="https://www.businesstoday.com.tw/article/category/183008/post/202605160008/">今周刊</a></div>
+    <div class="fact-block">
+      <div class="block-label">核心事實 / Facts</div>
+      鴻海（2317）5/22 盤中達 +5.7%，緯創（3231）跟進補漲，但廣達（2382）因 5/15 法說會首季毛利率跳水至 4.78%（近 15 季低點），股價持續受壓，5/22 盤中跌幅仍顯著。法人連 7 日賣超廣達逾 9.5 萬張。
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      廣達毛利率從上季 6.33% 大幅下降，AI 伺服器客戶定價壓力浮現；相比之下，鴻海因出貨規模優勢毛利率維持在 6.18%、三率三升。分析師認為廣達拉回提供中長線買點，但短線籌碼仍不利。
+    </div>
+    <div class="implication-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <strong>[分析]</strong> 市場資金正從廣達轉向鴻海、緯創、緯穎等毛利率相對穩健的 AI 伺服器股。Computex 後若有新訂單情報，廣達有機會重回補漲行列。散熱族群（奇鋐 3017、雙鴻 3324）受惠 AI 機架電力密度提升，持續受到關注。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-title">
+      <span class="tag tag-green">金融</span>
+      金融股逆勢抗跌 — 扮演 5/22 盤中護盤主力<br>
+      Financial Stocks Outperform as Defensive Safe Haven on May 22
+    </div>
+    <div class="news-source">來源：風傳媒、搜尋整合 · 2026-05-22</div>
+    <div class="fact-block">
+      <div class="block-label">核心事實 / Facts</div>
+      台股 5/22 盤中翻黑時，多檔金控權值股（富邦金 2881、國泰金 2882、中信金 2891 等）逆勢上揚，呈現防禦性買盤流入跡象。金融類股指數相對大盤表現優異，抗跌力道明顯。
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      台灣金融股受惠於高股息吸引力（殖利率 4–6%）及壽險業持有大量台積電等股票部位增值。在科技股高檔震盪時期，資金輪動至金融股為常見防禦策略。
+    </div>
+    <div class="implication-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <strong>[分析]</strong> 金融股護盤顯示指數賣壓未擴散至整體市場，為正面訊號。若外資本周對金融股保持買超，可視為機構配置輪動（科技獲利了結 → 金融補漲）而非系統性撤退。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-title">
+      <span class="tag tag-blue">記憶體</span>
+      記憶體族群強勢 — 南亞科、華邦電供給缺口題材持續<br>
+      Memory Stocks Stay Firm — Nanya, Winbond Ride Supply Gap Narrative
+    </div>
+    <div class="news-source">來源：鉅亨網、Yahoo 股市 · 2026-05-06-22 · <a href="https://news.cnyes.com/news/cat/tw_stock">鉅亨台股</a></div>
+    <div class="fact-block">
+      <div class="block-label">核心事實 / Facts</div>
+      南亞科（2408）、華邦電（2344）本周持續受到投信買超。5/6 台股 1,778 點史上最大單日漲點時，記憶體族群全面漲停，後續漲勢有所收斂但仍居強勢地位。投信連續買超南亞科為本周亮點。
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      DRAM 供給缺口持續（三星 HBM 產能外洩至 NVIDIA CoWoS 需求），AI 應用對傳統 DRAM 需求同步提升，Taiwan News 報導台股資金已開始從純 AI 股擴散至記憶體、傳統電子等較落後族群（May 13 報導）。
+    </div>
+    <div class="implication-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <strong>[分析]</strong> 若記憶體價格報價持續上漲，南亞科下半年毛利率改善空間大，為基本面驅動而非純題材炒作。HBM 旺季效應延伸至傳統 DRAM 市場，有助台股電子版塊均衡輪漲。
+    </div>
+  </div>
+
+</div>
+
+<!-- Section 5: Individual Movers -->
+<div class="section">
+  <h2><span class="section-icon">📊</span>個股大事 / Single-Stock Movers</h2>
+
+  <div class="news-item">
+    <div class="news-title">
+      <span class="tag tag-purple">法說</span>
+      聯發科 2026 AI ASIC 營收上修至 20 億美元 — 外資大幅調升目標價<br>
+      MediaTek Raises 2026 AI ASIC Revenue Target to $2B; Foreigners Upgrade Price Targets
+    </div>
+    <div class="news-source">來源：豐雲學堂、Sinotrade · 2026-05 · <a href="https://www.sinotrade.com.tw/richclub/hotstock/%E5%A4%96%E8%B3%87%E5%85%A8%E9%9D%A2%E9%87%8D%E4%BC%B0%E8%81%AF%E7%99%BC%E7%A7%91-AI-ASIC%E7%88%86%E7%99%BC%E5%8A%9B%E5%BC%95%E7%88%86%E5%8F%B2%E8%A9%A9%E7%B4%9A%E7%9B%AE%E6%A8%99%E5%83%B9-%E4%BD%95%E6%99%82%E9%85%8D%E6%81%AF-%E5%93%AA%E4%BA%9BETF%E6%8C%81%E6%9C%89%E8%81%AF%E7%99%BC%E7%A7%91--%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-69f81d4fa312ed005242f7cb">閱讀</a></div>
+    <div class="fact-block">
+      <div class="block-label">核心事實 / Facts</div>
+      聯發科自行預估 2026 年 AI ASIC 營收目標翻倍上修至 20 億美元，2027 年規模可擴大至數十億美元。外資多家法人史詩級上修目標價，分析師看好 2028 年 EPS 突破 400 元（當前市場共識約 120–150 元）。聯發科 5/21 出關首日即鎖漲停，市值超過 5 兆元。
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      聯發科 Dimensity 系列 AI 手機晶片市佔持續擴大，同時積極布局 AI ASIC 定制化服務，與美系雲端客戶合作。近一個月股價幾近翻倍，從 ~1,900 元漲至 3,550 元。
+    </div>
+    <div class="implication-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <strong>[分析]</strong> AI ASIC 題材確認後，台灣 IC 設計族群（創意電子 3443、力旺 3529、智原 3035）連動走強。需觀察 Computex 2026 期間是否有新客戶合作揭露，以及是否有配息/股利訊息（ETF 持倉題材）。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-title">
+      <span class="tag tag-orange">重大事件</span>
+      廣達法說毛利率跳水 — 法人連 7 日賣超、短線籌碼壓力大<br>
+      Quanta Post-Earnings Pressure: Margin Miss Prompts 7 Consecutive Sessions of Institutional Selling
+    </div>
+    <div class="news-source">來源：今周刊、CMoney · 2026-05-16 · <a href="https://www.businesstoday.com.tw/article/category/183008/post/202605160008/">閱讀</a></div>
+    <div class="fact-block">
+      <div class="block-label">核心事實 / Facts</div>
+      廣達（2382）5/15 法說會後股價單日重挫逾 8%，首季毛利率 4.78%（近 15 季最低），不如鴻海（6.18%）及市場預期。法人連續 7 日賣超合計超過 9.5 萬張。
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      廣達毛利率下滑主因 AI 伺服器競爭加劇（NVIDIA GB200/GB300 代工利潤受壓），加上電力、冷卻成本上升。廣達仍為全球 AI 伺服器代工前二大廠，Q2 後有機會因規模效益改善毛利。
+    </div>
+    <div class="implication-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <strong>[分析]</strong> 廣達短線弱勢反映市場對 AI 伺服器利潤率可持續性的疑慮。若下季毛利率回升至 5.5% 以上，可能引發反彈。分析師仍看多廣達長線（「肥肉在 AI 機架服務」），建議分批承接。
+    </div>
+  </div>
+
+</div>
+
+<!-- Section 6: COMPUTEX -->
+<div class="section">
+  <h2><span class="section-icon">🖥️</span>政策與外資觀察 / Policy & COMPUTEX Watch</h2>
+
+  <div class="news-item">
+    <div class="news-title">
+      <span class="tag tag-red">催化劑</span>
+      COMPUTEX 2026 進入一週倒數 — 黃仁勳 5/27 抵台、6/1 開講<br>
+      COMPUTEX 2026 One Week Away: Jensen Huang Arrives May 27, Keynote June 1
+    </div>
+    <div class="news-source">來源：鉅亨網、豐雲學堂 · 2026-05 · <a href="https://news.cnyes.com/news/id/6466019">鉅亨</a></div>
+    <div class="fact-block">
+      <div class="block-label">核心事實 / Facts</div>
+      COMPUTEX 2026 展覽期間：6/2–6/5（南港展覽館 1/2、世貿 1 館）。NVIDIA 黃仁勳將於 6/1 上午 11 時在台北流行音樂中心發表主題演說，主題圍繞 AI「五層蛋糕（Five-Layer Cake）」架構。黃仁勳 5/27 預計抵台，5/28 舉辦「兆元宴」廣邀台灣供應鏈。AMD 蘇姿丰、Intel 陳立武亦將同台。共 1,500 家廠商、6,000 個攤位參展，規模創新高。
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      Computex 歷年已成為台股的年度最大催化劑之一。2025 年黃仁勳 Computex 演講後帶動 AI 供應鏈長達數月的上漲行情。2026 年台積電 N2/A16 製程、NVIDIA Rubin/Vera 平台、以及 ASIC 合作均為關注焦點。黃仁勳預計卡位台積電南科產能、聯手聯發科晶片合作細節曝光。
+    </div>
+    <div class="implication-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <strong>[分析]</strong> 5/22–5/29 為 Computex 前夕敏感期，市場通常在展前一周展開「提前布局行情」。受惠標的：NVIDIA CoWoS 供應鏈（台積電、日月光 ASX、矽品）、AI 伺服器（鴻海、廣達、緯創）、散熱（奇鋐、雙鴻）、電源（台達電、光寶科）。需留意展後「利多出盡」賣壓。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-title">
+      <span class="tag tag-blue">外資</span>
+      外資年度大回補 — 四大雲端業者 $725B CapEx 承諾持續驅動台股買盤<br>
+      Foreign Funds Continue Returning: $725B US Cloud CapEx Commitment Sustains Taiwan Equity Inflows
+    </div>
+    <div class="news-source">來源：Taipei Times、TaiwanNews · 2026-05-05 / 05-13 · <a href="https://www.taipeitimes.com/News/front/archives/2026/05/05/2003856767">Taipei Times</a></div>
+    <div class="fact-block">
+      <div class="block-label">核心事實 / Facts</div>
+      Alphabet、Amazon、Microsoft、Meta 四大雲端業者合計宣布 2026 年資本支出 $7,250 億美元（年增 77%），直接拉動半導體需求。5/21 外資單日買超 603.41 億元，5/6 最高外資單日買超曾達 751 億元（為歷史前六大）。台股 YTD 漲幅約 40%，全球排名前五。
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      TaiwanNews（5/13）報導台股資金已從純 AI 名股擴散至傳統電子股，市場廣度（breadth）改善。Bloomberg 報導台灣股市集中度風險（台積電佔比 40%+）同時存在。CNBC（5/12）分析台積電、三星、SK 海力士在各自市場的 AI 股比重驅動因素。
+    </div>
+    <div class="implication-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <strong>[分析]</strong> 只要美國雲端業者的 CapEx 承諾持續兌現（下季財報更新），台股外資流入動能難以逆轉。最大風險在於市場過度集中台積電（40%+ 佔比），若台積電遭遇突發利空，TAIEX 下跌幅度將遠大於個股。匯率風險（新台幣升值壓縮出口商利潤）為次要觀察點。
+    </div>
+  </div>
+
+</div>
+
+<!-- Section 7: Reads -->
+<div class="section">
+  <h2><span class="section-icon">📖</span>值得收藏 / Reads</h2>
+
+  <div class="news-item">
+    <div class="news-title">
+      台股多頭背後的集中度風險 — Bloomberg「三星、台積電 AI 股票熱潮」深度分析<br>
+      The Concentration Risk Behind Taiwan's Bull Run — Bloomberg's Deep Dive on TSMC/Samsung AI Rally
+    </div>
+    <div class="news-source">來源：Bloomberg · 2026-05 · <a href="https://www.bloomberg.com/graphics/2026-samsung-tsmc-ai-rally/">閱讀</a></div>
+    <div class="fact-block">
+      <div class="block-label">核心重點</div>
+      Bloomberg 圖解分析台灣和南韓股市因 AI 飆漲的集中度風險：台積電佔 TAIEX 超過 40%，三星在 KOSPI 的比重同樣偏高。報告指出，YTD 台股漲幅全球第四（Asia 第二，YoY +90.89%），但其結構性集中對個別外資賣出台積電時的指數影響極為敏感。EDITORIAL 觀點（Taipei Times 5/19）亦提醒「股市漲幅真實，但風險同樣真實」。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-title">
+      COMPUTEX 2026 潛力股名單：分析師點名 20 檔 AI 概念股<br>
+      COMPUTEX 2026 Watchlist: Analysts Name 20 AI/Semiconductor Plays
+    </div>
+    <div class="news-source">來源：Yahoo 股市 · 2026-05 · <a href="https://tw.stock.yahoo.com/news/%E3%80%90computex-2026%E5%89%8D%E7%9E%BB2%E3%80%91%E9%BB%83%E4%BB%81%E5%8B%B3%E5%8A%A0%E6%8C%81%EF%BC%81computex%E6%A6%82%E5%BF%B5%E8%82%A1%E8%AA%B0%E6%9C%80%E6%9C%89%E6%88%B2%EF%BC%9F%E5%88%86%E6%9E%90%E5%B8%AB%E9%BB%9E%E5%90%8D%E3%80%8C%E8%80%81ai%E3%80%8D%E9%B4%BB%E6%B5%B7%E5%BB%A3%E9%81%94-20%E6%AA%94%E6%BD%9B%E5%8A%9B%E8%82%A1%E5%90%8D%E5%96%AE%E4%B8%80%E6%AC%A1%E7%9C%8B-044611196.html">閱讀名單</a></div>
+    <div class="fact-block">
+      <div class="block-label">核心重點</div>
+      分析師點名以黃仁勳加持為主軸的 Computex 2026 潛力股：鴻海（AI 伺服器龍頭）、廣達、緯創等「老 AI」族群，加上散熱（奇鋐、雙鴻）、電源（台達電、光寶科）、ABF 載板（欣興、南電）、高速傳輸（正威）等，合計 20 檔潛力股名單。重點在台積電南科 CoWoS 產能擴充與 NVIDIA Rubin 平台訂單動向。
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>台股新聞日報 — 2026-05-22 | 整合來源：<a href="https://www.twse.com.tw">TWSE</a> · <a href="https://tw.stock.yahoo.com">Yahoo 股市</a> · <a href="https://news.cnyes.com">鉅亨網</a> · <a href="https://www.storm.mg">風傳媒</a> · <a href="https://www.moneyweekly.com.tw">理財周刊</a> · <a href="https://www.businesstoday.com.tw">今周刊</a> · <a href="https://www.taipeitimes.com">Taipei Times</a> · <a href="https://www.bloomberg.com">Bloomberg</a></p>
+  <p style="margin-top:6px;">⚠️ 本報告僅供資訊參考，不構成投資建議。指數收盤數字以 <a href="https://www.twse.com.tw/zh/trading/historical/mi-index.html">TWSE 官方盤後數據</a> 為準。</p>
+</div>
+
+</body>
+</html>
