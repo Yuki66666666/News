@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日台股熱門焦點股 — 2026/05/23</title>
+<style>
+  :root { color-scheme: light; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.6;
+    padding: 24px 16px 60px;
+  }
+  header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+  }
+  header h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.5px; }
+  header .sub {
+    margin-top: 6px;
+    font-size: 0.88rem;
+    color: #a8c8f8;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  header .badge {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 2px 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .market-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .market-card {
+    background: #fff;
+    border: 1px solid #e4e8ef;
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .market-card .label { font-size: 0.75rem; color: #6c757d; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .market-card .val { font-size: 1.5rem; font-weight: 700; margin-top: 4px; }
+  .market-card .chg { font-size: 0.85rem; margin-top: 2px; font-weight: 600; }
+  .up { color: #e63946; }
+  .down { color: #2a9d8f; }
+  .neutral { color: #6c757d; }
+  section { margin-bottom: 32px; }
+  section h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e63946;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  section h2 .en { font-size: 0.8rem; font-weight: 500; color: #6c757d; }
+  /* Summary table */
+  .summary-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  .summary-table thead tr { background: #1a1a2e; color: #fff; }
+  .summary-table thead th { padding: 10px 12px; text-align: left; font-weight: 600; font-size: 0.78rem; }
+  .summary-table tbody tr { border-bottom: 1px solid #eee; }
+  .summary-table tbody tr:hover { background: #f0f4ff; }
+  .summary-table tbody td { padding: 10px 12px; vertical-align: middle; }
+  .ticker-badge {
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    font-family: monospace;
+    white-space: nowrap;
+  }
+  .stars { color: #f4a261; letter-spacing: 1px; }
+  /* Stock deep-dive cards */
+  .stock-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  .stock-card {
+    background: #fff;
+    border: 1px solid #e4e8ef;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .stock-card-header {
+    background: linear-gradient(90deg, #1a1a2e, #16213e);
+    color: #fff;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .stock-card-header .name-block { display: flex; align-items: center; gap: 12px; }
+  .stock-card-header .ticker { font-family: monospace; font-size: 1.1rem; font-weight: 700; color: #f4a261; }
+  .stock-card-header .cn-name { font-size: 1rem; font-weight: 700; }
+  .stock-card-header .en-name { font-size: 0.75rem; color: #a8c8f8; margin-top: 2px; }
+  .stock-price-block { text-align: right; }
+  .stock-price-block .price { font-size: 1.4rem; font-weight: 700; }
+  .stock-price-block .pct { font-size: 0.9rem; font-weight: 700; padding: 2px 10px; border-radius: 20px; margin-top: 4px; display: inline-block; }
+  .pct-up { background: rgba(230,57,70,0.2); color: #e63946; }
+  .pct-down { background: rgba(42,157,143,0.2); color: #2a9d8f; }
+  .stock-card-body { padding: 20px; }
+  .info-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 18px; }
+  .info-item { background: #f8f9fa; border-radius: 8px; padding: 10px 12px; }
+  .info-item .il { font-size: 0.72rem; color: #6c757d; font-weight: 600; text-transform: uppercase; }
+  .info-item .iv { font-size: 0.95rem; font-weight: 700; margin-top: 3px; }
+  .section-block { margin-bottom: 16px; }
+  .section-block h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #0f3460;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    border-left: 3px solid #e63946;
+    padding-left: 8px;
+  }
+  .section-block p { font-size: 0.88rem; line-height: 1.7; color: #333; }
+  .section-block .en-text { color: #555; font-style: italic; margin-top: 4px; }
+  .tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .tag-red { background: #fee2e2; color: #dc2626; }
+  .tag-blue { background: #dbeafe; color: #1d4ed8; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .tag-orange { background: #ffedd5; color: #9a3412; }
+  .tag-purple { background: #ede9fe; color: #5b21b6; }
+  .tag-yellow { background: #fef9c3; color: #854d0e; }
+  .watchlist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .watch-card {
+    background: #fff;
+    border: 1px solid #e4e8ef;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  }
+  .watch-card .wh { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+  .watch-card .wname { font-weight: 700; font-size: 0.95rem; }
+  .watch-card .wchg { font-size: 0.85rem; font-weight: 700; }
+  .watch-card p { font-size: 0.82rem; color: #555; }
+  .caution-list { display: grid; gap: 12px; }
+  .caution-item {
+    background: #fff8f0;
+    border: 1px solid #fed7aa;
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .caution-item .ch { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .caution-item .cticker { font-family: monospace; font-size: 0.85rem; font-weight: 700; background: #ea580c; color: #fff; padding: 2px 7px; border-radius: 5px; }
+  .caution-item .cname { font-weight: 700; font-size: 0.92rem; }
+  .caution-item p { font-size: 0.83rem; color: #7c2d12; }
+  .backdrop {
+    background: #fff;
+    border: 1px solid #e4e8ef;
+    border-radius: 12px;
+    padding: 18px 20px;
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: #333;
+  }
+  .sources-box {
+    background: #fff;
+    border: 1px solid #e4e8ef;
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 0.78rem;
+    color: #555;
+  }
+  .sources-box ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .sources-box li::before { content: "↗ "; color: #e63946; }
+  .sources-box a { color: #1d4ed8; text-decoration: none; }
+  .sources-box a:hover { text-decoration: underline; }
+  .disclaimer {
+    margin-top: 24px;
+    padding: 14px 16px;
+    background: #f8f9fa;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    color: #888;
+    text-align: center;
+  }
+  .table-wrap { overflow-x: auto; border-radius: 10px; }
+  .note-box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #1e40af;
+    margin-bottom: 16px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🔥 今日台股熱門焦點股 / Taiwan Hot Stocks</h1>
+  <div class="sub">
+    <span>📅 2026 年 05 月 23 日（週六）</span>
+    <span class="badge">TWSE</span>
+    <span class="badge">TPEx</span>
+    <span>資料以 5/22（週五）完整收盤為主 — 5/22 為週五最後一個完整交易日</span>
+  </div>
+  <div class="sub" style="margin-top:8px;">
+    <span>Session: 2026/05/22 完整收盤（今日 5/23 週六停市）</span>
+    <span>大盤: TAIEX 42,267.97 (+899.76, +2.18%)</span>
+  </div>
+</header>
+
+<!-- Market Backdrop -->
+<div class="market-bar">
+  <div class="market-card">
+    <div class="label">加權指數 TAIEX</div>
+    <div class="val up">42,268</div>
+    <div class="chg up">▲ +899.76 / +2.18%</div>
+  </div>
+  <div class="market-card">
+    <div class="label">成交值 Turnover</div>
+    <div class="val">~1.19兆</div>
+    <div class="chg neutral">5/22 集中市場</div>
+  </div>
+  <div class="market-card">
+    <div class="label">外資買超 FINI Net</div>
+    <div class="val up">買超</div>
+    <div class="chg up">力積電、南亞科為主</div>
+  </div>
+  <div class="market-card">
+    <div class="label">台指期 Fut. Premium</div>
+    <div class="val neutral">+52pts</div>
+    <div class="chg neutral">偏多 / Mild Contango</div>
+  </div>
+  <div class="market-card">
+    <div class="label">本周漲幅 Weekly</div>
+    <div class="val up">+1,095.61</div>
+    <div class="chg up">+2.66% 創收盤新高</div>
+  </div>
+</div>
+
+<!-- Note -->
+<div class="note-box">
+  ⚠️ <strong>交易日說明：</strong>今日（5/23，週六）台股停市。本報告以 <strong>2026/05/22（週五）</strong>盤後完整數據為分析基準，並輔以本週盤中新聞及 5/23 晨間訊息。
+  <br>Note: TWSE is closed Saturday. This report covers the <strong>May 22, 2026 (Friday)</strong> session as the reference trading day.
+</div>
+
+<!-- Section 1: Hot Stocks Summary Table -->
+<section>
+  <h2>🏆 熱門焦點 Top 6 <span class="en">/ Today's Hottest Names</span></h2>
+  <div class="table-wrap">
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>股號</th>
+          <th>公司</th>
+          <th>收盤</th>
+          <th>%漲跌</th>
+          <th>量(張)</th>
+          <th>vs 5MA</th>
+          <th>三大法人</th>
+          <th>熱度</th>
+          <th>主要 Catalyst</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="ticker-badge">2454</span></td>
+          <td>聯發科</td>
+          <td>3,860</td>
+          <td class="up">+8.73%</td>
+          <td>19,519</td>
+          <td>~2.0x</td>
+          <td>外+/投+</td>
+          <td class="stars">★★★★★</td>
+          <td>AMD 擴大台灣布局 + AI ASIC 訂單翻倍預期</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-badge">3037</span></td>
+          <td>欣興</td>
+          <td>970</td>
+          <td class="up">+7.18%</td>
+          <td>37,575</td>
+          <td>~3.2x</td>
+          <td>外+/投+</td>
+          <td class="stars">★★★★★</td>
+          <td>PCB 先進封裝 / AMD CoWoS 供應鏈</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-badge">3042</span></td>
+          <td>晶技</td>
+          <td>176</td>
+          <td class="up">+10.00% 漲停</td>
+          <td>待確認</td>
+          <td>待確認</td>
+          <td>待確認</td>
+          <td class="stars">★★★★</td>
+          <td>SAW 元件漲價 + 頻譜需求暴增</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-badge">3711</span></td>
+          <td>日月光投控</td>
+          <td>561</td>
+          <td class="up">+10.00% 漲停</td>
+          <td>待確認</td>
+          <td>待確認</td>
+          <td>外+</td>
+          <td class="stars">★★★★</td>
+          <td>封測需求爆量 / AMD 封裝訂單挹注</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-badge">2408</span></td>
+          <td>南亞科</td>
+          <td>310.5</td>
+          <td class="up">+5.97%</td>
+          <td>155,000+</td>
+          <td>~2.8x</td>
+          <td>外+/投+</td>
+          <td class="stars">★★★★</td>
+          <td>記憶體超級循環 + MSCI 權重調升預期</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-badge">2330</span></td>
+          <td>台積電</td>
+          <td>2,255</td>
+          <td class="up">+1.12%</td>
+          <td>24,381</td>
+          <td>0.9x</td>
+          <td>外+</td>
+          <td class="stars">★★★☆</td>
+          <td>MSCI 權重調升 5/29 生效 + 主升段護盤</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Section 2: Deep Dives -->
+<section>
+  <h2>📊 個股深度分析 <span class="en">/ Per-Ticker Deep Dive</span></h2>
+  <div class="stock-grid">
+
+    <!-- MediaTek 2454 -->
+    <div class="stock-card">
+      <div class="stock-card-header">
+        <div class="name-block">
+          <span class="ticker">2454</span>
+          <div>
+            <div class="cn-name">聯發科</div>
+            <div class="en-name">MediaTek Inc.</div>
+          </div>
+        </div>
+        <div class="stock-price-block">
+          <div class="price up">NT$ 3,860</div>
+          <div class="pct pct-up">▲ +8.73% / +310元</div>
+        </div>
+      </div>
+      <div class="stock-card-body">
+        <div class="info-row">
+          <div class="info-item"><div class="il">成交量</div><div class="iv">19,519 張</div></div>
+          <div class="info-item"><div class="il">成交值</div><div class="iv">~738 億元</div></div>
+          <div class="info-item"><div class="il">市值</div><div class="iv">5.45 兆</div></div>
+          <div class="info-item"><div class="il">本周漲幅</div><div class="iv">+8.73%+</div></div>
+          <div class="info-item"><div class="il">YTD 漲幅</div><div class="iv">+140%</div></div>
+          <div class="info-item"><div class="il">前置 Catalyst</div><div class="iv">AMD 台灣擴廠</div></div>
+        </div>
+        <div style="margin-bottom:12px;">
+          <span class="tag tag-red">AI ASIC</span>
+          <span class="tag tag-blue">CoWoS</span>
+          <span class="tag tag-orange">AMD 供應鏈</span>
+          <span class="tag tag-purple">已出處置</span>
+          <span class="tag tag-yellow">市值第二</span>
+        </div>
+        <div class="section-block">
+          <h4>為什麼今天熱 / Why it's hot</h4>
+          <p>AMD 宣布大幅擴大台灣研發與製造布局，外界解讀聯發科 ASIC 設計合作將進一步深化，市場預期 2026 AI 相關營收翻倍。加上聯發科甫自處置股出關（5/21），投資人壓抑已久的買盤在出關後集中爆發，5/22 大漲 8.73% 成交額衝上 738 億元，為成交值排行榜第一。</p>
+          <p class="en-text">AMD's expanded Taiwan R&D/manufacturing announcement reinforced expectations for MediaTek's AI ASIC revenue doubling in 2026. Adding to this, MediaTek's 14-day disposal-stock suspension expired on May 21 — pent-up buying erupted on May 22, pushing it to the top of TWSE turnover rankings at NT$73.8 billion.</p>
+        </div>
+        <div class="section-block">
+          <h4>籌碼觀察 / Flow Watch</h4>
+          <p>外資與投信均為淨買超；處置期間 5 分鐘撮合壓制了量能，出關後量能解放。市值 5.45 兆元，成為台積電以外台股最大市值企業。主力分點：多數券商同步買超，無特定分點集中。</p>
+          <p class="en-text">FINI and investment trust both net buyers. The 14-day manual-matching restriction suppressed volume during disposal; now unrestricted, turnover surged. No single broker concentration — broad institutional participation.</p>
+        </div>
+        <div class="section-block">
+          <h4>社群聲量 / Retail Buzz</h4>
+          <p>PTT Stock 板多篇文章討論「發哥猛虎出閘」，討論度為近期台股個股之冠。CMoney 熱搜第一。多數散戶關注短線是否過熱、隔日沖壓力。</p>
+          <p class="en-text">PTT Stock board flooded with "MediaTek lion released" discussions, topping CMoney's search rankings. Retail sentiment split between FOMO and overbought concern post-disposal.</p>
+        </div>
+        <div class="section-block">
+          <h4>後續觀察 / What to Watch Next</h4>
+          <p>• 量能能否在無處置限制下延續？<br>• 隔日沖籌碼（今已休市至周一）是否回補？<br>• 近期目標價：法人最高喊 5,000 元，但需以 Q3 財報驗證 ASIC 訂單能見度<br>• 注意：股價已較 4/7 起漲點 1,470 元大漲逾 160%，技術面過熱訊號明顯</p>
+        </div>
+        <div class="section-block">
+          <h4>來源 / Sources</h4>
+          <p><a href="https://m.cnyes.com/news/id/6444504" target="_blank">鉅亨網 — 聯發科漲停 3470 盤中速報</a> | <a href="https://www.businesstoday.com.tw/article/category/183008/post/202605050010/" target="_blank">今周刊 — 聯發科漲停第五根</a> | <a href="https://tw.stock.yahoo.com/rank/turnover" target="_blank">Yahoo 成交值排行</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Unimicron 3037 -->
+    <div class="stock-card">
+      <div class="stock-card-header">
+        <div class="name-block">
+          <span class="ticker">3037</span>
+          <div>
+            <div class="cn-name">欣興電子</div>
+            <div class="en-name">Unimicron Technology</div>
+          </div>
+        </div>
+        <div class="stock-price-block">
+          <div class="price up">NT$ 970</div>
+          <div class="pct pct-up">▲ +7.18% / +65元</div>
+        </div>
+      </div>
+      <div class="stock-card-body">
+        <div class="info-row">
+          <div class="info-item"><div class="il">成交量</div><div class="iv">37,575 張</div></div>
+          <div class="info-item"><div class="il">成交值</div><div class="iv">~361 億元</div></div>
+          <div class="info-item"><div class="il">vs 5MA</div><div class="iv">~3.2x 爆量</div></div>
+          <div class="info-item"><div class="il">前次法人動向</div><div class="iv">外資連買</div></div>
+        </div>
+        <div style="margin-bottom:12px;">
+          <span class="tag tag-blue">PCB 先進封裝</span>
+          <span class="tag tag-red">CoWoS 供應鏈</span>
+          <span class="tag tag-orange">AI 伺服器</span>
+        </div>
+        <div class="section-block">
+          <h4>為什麼今天熱 / Why it's hot</h4>
+          <p>欣興是台灣最大 IC 載板廠，直接受益於 AMD 宣布擴大台灣先進封裝布局。市場預期 CoWoS 及高階 ABF 載板需求在 2026H2 持續走強，欣興為核心受益廠。成交值 361 億元列全市場第五，爆量明顯。</p>
+          <p class="en-text">Unimicron is Taiwan's largest IC substrate maker and a direct beneficiary of AMD's expanded CoWoS/advanced packaging orders. The stock surged 7.18% with NT$36.1bn turnover on volume ~3x its 5-day average — clear institutional accumulation signal.</p>
+        </div>
+        <div class="section-block">
+          <h4>籌碼觀察 / Flow Watch</h4>
+          <p>外資與投信同步買超；成交量為 5MA 約 3.2 倍，屬真實爆量而非人為拉抬。近期外資連買多日，籌碼面健康。</p>
+        </div>
+        <div class="section-block">
+          <h4>炒作脈絡 / Narrative Context</h4>
+          <p>本波 PCB 族群受惠 AI 資料中心建設大爆發：CoWoS、SoIC、Chiplet 先進封裝均高度仰賴高層數 ABF 載板，欣興為唯一具備 Miva（高精度）製程能力的台廠，護城河明顯。</p>
+        </div>
+        <div class="section-block">
+          <h4>後續觀察 / What to Watch Next</h4>
+          <p>• 觀察欣興是否持續穿越 1,000 元整數關卡<br>• NVIDIA / AMD Q3 封裝訂單能見度<br>• 華通(2313)、南電(8046) 等 PCB 族群能否跟漲擴散</p>
+        </div>
+        <div class="section-block">
+          <h4>來源 / Sources</h4>
+          <p><a href="https://tw.stock.yahoo.com/rank/turnover" target="_blank">Yahoo 成交值排行 — 欣興第五</a> | <a href="https://news.cnyes.com/news/cat/tw_stock" target="_blank">鉅亨網 台股新聞</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ASE 3711 -->
+    <div class="stock-card">
+      <div class="stock-card-header">
+        <div class="name-block">
+          <span class="ticker">3711</span>
+          <div>
+            <div class="cn-name">日月光投控</div>
+            <div class="en-name">ASE Technology Holding</div>
+          </div>
+        </div>
+        <div class="stock-price-block">
+          <div class="price up">NT$ 561</div>
+          <div class="pct pct-up">▲ +10.00% 漲停</div>
+        </div>
+      </div>
+      <div class="stock-card-body">
+        <div class="info-row">
+          <div class="info-item"><div class="il">收盤</div><div class="iv">561 元</div></div>
+          <div class="info-item"><div class="il">漲停</div><div class="iv">是 ✓</div></div>
+          <div class="info-item"><div class="il">Catalyst</div><div class="iv">AMD 封裝訂單</div></div>
+        </div>
+        <div style="margin-bottom:12px;">
+          <span class="tag tag-red">封測龍頭</span>
+          <span class="tag tag-blue">AMD 供應鏈</span>
+          <span class="tag tag-orange">先進封裝</span>
+          <span class="tag tag-purple">漲停板</span>
+        </div>
+        <div class="section-block">
+          <h4>為什麼今天熱 / Why it's hot</h4>
+          <p>AMD 擴大台灣封裝製造布局，日月光為全球最大封測廠且是 AMD 核心封裝合作夥伴，直接拉抬 AMD 訂單想像空間。當日鎖漲停，買單高掛，市場信心強烈。</p>
+          <p class="en-text">ASE is the world's largest OSAT and AMD's key packaging partner. AMD's Taiwan investment expansion announcement caused market consensus that ASE would capture the majority of incremental packaging volumes — resulting in a limit-up session with strong demand overhang.</p>
+        </div>
+        <div class="section-block">
+          <h4>籌碼觀察 / Flow Watch</h4>
+          <p>外資為主要買方；鎖漲停表示買單遠大於賣單，市場沒有意願賣出。後續觀察是否能在 ADR 夜盤同步拉升。</p>
+        </div>
+        <div class="section-block">
+          <h4>後續觀察 / What to Watch Next</h4>
+          <p>• 封測族群擴散效應：京元電(2449)、力成(6239)等能否跟漲<br>• AMD 合作細節是否有更多官方說明<br>• 股價過去一週已創歷史新高，注意高檔震盪</p>
+        </div>
+        <div class="section-block">
+          <h4>來源 / Sources</h4>
+          <p><a href="https://tw.stock.yahoo.com/news/%E5%8F%B0%E8%82%A1%E7%9B%A4%E5%BE%8C-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%A8%8D%E6%81%AF-%E5%BC%B7%E5%8B%A2%E8%82%A1%E5%90%84%E6%93%81%E9%A1%8C%E6%9D%90%E5%A4%9A%E9%BB%9E%E9%96%8B%E8%8A%B1-%E6%BC%B264%E9%BB%9E%E5%86%8D%E5%89%B5%E6%94%B6%E7%9B%A4%E6%96%B0%E9%AB%98-064531069.html" target="_blank">Yahoo 台股盤後 — 強勢股多點開花</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nanya Tech 2408 -->
+    <div class="stock-card">
+      <div class="stock-card-header">
+        <div class="name-block">
+          <span class="ticker">2408</span>
+          <div>
+            <div class="cn-name">南亞科技</div>
+            <div class="en-name">Nanya Technology</div>
+          </div>
+        </div>
+        <div class="stock-price-block">
+          <div class="price up">NT$ 310.5</div>
+          <div class="pct pct-up">▲ +5.97% / +17.5元</div>
+        </div>
+      </div>
+      <div class="stock-card-body">
+        <div class="info-row">
+          <div class="info-item"><div class="il">成交值</div><div class="iv">~481 億元</div></div>
+          <div class="info-item"><div class="il">成交量</div><div class="iv">155,000+ 張</div></div>
+          <div class="info-item"><div class="il">外資動向</div><div class="iv">買超 5 萬張+</div></div>
+          <div class="info-item"><div class="il">MSCI</div><div class="iv">5/29 調整生效</div></div>
+        </div>
+        <div style="margin-bottom:12px;">
+          <span class="tag tag-red">記憶體超級循環</span>
+          <span class="tag tag-blue">DRAM</span>
+          <span class="tag tag-green">MSCI 題材</span>
+          <span class="tag tag-orange">AI 儲存</span>
+        </div>
+        <div class="section-block">
+          <h4>為什麼今天熱 / Why it's hot</h4>
+          <p>記憶體產業迎來 AI 驅動超級循環：HBM 與 DDR5 需求強勁，外資法人喊出南亞科 2026 毛利率穩站 40%、獲利超乎想像。同時 MSCI 半年度調整 5 月 29 日生效，市場預期南亞科有望納入或提高權重，吸引被動資金提前卡位。成交值 481 億元列全市場第三。</p>
+          <p class="en-text">Nanya benefits from twin catalysts: (1) AI-driven DRAM super-cycle with HBM/DDR5 ASP surging, pushing 2026 gross margin forecasts above 40%; (2) MSCI semi-annual rebalancing effective May 29 — front-running passive flows drove NT$48.1bn in turnover, ranking 3rd market-wide.</p>
+        </div>
+        <div class="section-block">
+          <h4>籌碼觀察 / Flow Watch</h4>
+          <p>外資大量買超（估 5 萬張以上）；投信同步加碼。本週南亞科已連續多日出現法人集中買超，籌碼面結構性改善明顯。資金由前期景氣低谷的「恐避標的」轉為「核心持股」，轉折明確。</p>
+        </div>
+        <div class="section-block">
+          <h4>社群聲量 / Retail Buzz</h4>
+          <p>PTT Stock 板有討論「記憶體要噴了」，多位知名投顧主播點名南亞科、旺宏為記憶體族群主攻標的。CMoney 熱搜前三。</p>
+        </div>
+        <div class="section-block">
+          <h4>炒作脈絡 / Narrative Context</h4>
+          <p>南亞科 10 月營收創 50 個月新高、年增 262%，Q3 終結連 11 季虧損。本波記憶體行情是基本面轉折而非純題材炒作，法人估 2026 全年 EPS 大幅正轉。</p>
+        </div>
+        <div class="section-block">
+          <h4>後續觀察 / What to Watch Next</h4>
+          <p>• MSCI 5/29 正式生效後是否出現「消息賣」<br>• 觀察旺宏(2337)、華邦電(2344)、威剛(3260)等記憶體族群擴散<br>• 月報告能見度（Q2 財報 7 月下旬）</p>
+        </div>
+        <div class="section-block">
+          <h4>來源 / Sources</h4>
+          <p><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E5%8F%B0%E8%82%A1%E8%A1%9D%E7%A0%B4%E5%9B%9B%E8%90%AC%E9%BB%9E%E8%B3%87%E9%87%91%E8%BC%AA%E5%8B%95-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E5%BC%B7%E5%8B%A2%E9%A0%98%E8%BB%8D-%E6%97%BA%E5%AE%8F-%E5%8D%97%E4%BA%9E%E7%A7%91%E7%AD%89%E8%A8%98%E6%86%B6%E9%AB%94%E6%97%8F%E7%BE%A4%E6%88%90%E7%B5%90%E6%A7%8B%E6%80%A7%E8%BD%89%E6%8A%98%E9%BB%91%E9%A6%AC-%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-69ef1476e06d930fd49ddebc" target="_blank">豐雲學堂 — 記憶體族群結構性轉折</a> | <a href="https://money.udn.com/money/story/5607/9491197" target="_blank">經濟日報 — MSCI 台股權重</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chroma 3042 -->
+    <div class="stock-card">
+      <div class="stock-card-header">
+        <div class="name-block">
+          <span class="ticker">3042</span>
+          <div>
+            <div class="cn-name">晶技股份有限公司</div>
+            <div class="en-name">Taiyo Yuden Taiwan / Crystal Tech</div>
+          </div>
+        </div>
+        <div class="stock-price-block">
+          <div class="price up">NT$ 176</div>
+          <div class="pct pct-up">▲ +10.00% 漲停</div>
+        </div>
+      </div>
+      <div class="stock-card-body">
+        <div class="info-row">
+          <div class="info-item"><div class="il">漲停</div><div class="iv">是 ✓</div></div>
+          <div class="info-item"><div class="il">前日收盤</div><div class="iv">160 元</div></div>
+          <div class="info-item"><div class="il">族群</div><div class="iv">被動元件/MEMS</div></div>
+        </div>
+        <div style="margin-bottom:12px;">
+          <span class="tag tag-red">漲停板</span>
+          <span class="tag tag-blue">SAW/MEMS 元件</span>
+          <span class="tag tag-orange">被動元件</span>
+        </div>
+        <div class="section-block">
+          <h4>為什麼今天熱 / Why it's hot</h4>
+          <p>晶技為台灣最大石英晶體元件廠，生產 SAW（表面聲波）濾波器與晶振。5G/AI 基站建設需求爆量，加上對岸擴大電子進口替代讓台系元件廠訂單大增，市場吹起被動元件再漲價風潮，晶技直接鎖漲停。</p>
+          <p class="en-text">Crystal Tech (Jintech) is Taiwan's largest quartz crystal component maker. 5G AI basestation buildout + supply chain re-ordering dynamics drove the SAW/MEMS component cycle back into the spotlight — resulting in a limit-up session.</p>
+        </div>
+        <div class="section-block">
+          <h4>炒作脈絡 / Narrative Context</h4>
+          <p>被動元件族群（國巨2327、華新科2492、禾伸堂3026、晶技3042）已在 5 月多次輪動拉抬。晶技屬族群中基期較低者，被視為補漲標的。</p>
+        </div>
+        <div class="section-block">
+          <h4>後續觀察 / What to Watch Next</h4>
+          <p>• 漲停量是否成功鎖住（成交量 / 未成交委買量比例）<br>• 國巨、華新科等龍頭是否同步發動確認族群行情<br>• 注意：被動元件本波已漲多，追高需謹慎</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TSMC 2330 -->
+    <div class="stock-card">
+      <div class="stock-card-header">
+        <div class="name-block">
+          <span class="ticker">2330</span>
+          <div>
+            <div class="cn-name">台灣積體電路製造</div>
+            <div class="en-name">TSMC</div>
+          </div>
+        </div>
+        <div class="stock-price-block">
+          <div class="price up">NT$ 2,255</div>
+          <div class="pct pct-up">▲ +1.12% / +25元</div>
+        </div>
+      </div>
+      <div class="stock-card-body">
+        <div class="info-row">
+          <div class="info-item"><div class="il">成交量</div><div class="iv">24,381 張</div></div>
+          <div class="info-item"><div class="il">成交值</div><div class="iv">~547 億元</div></div>
+          <div class="info-item"><div class="il">市值</div><div class="iv">58 兆元</div></div>
+          <div class="info-item"><div class="il">MSCI 權重</div><div class="iv">5/29 調升</div></div>
+          <div class="info-item"><div class="il">YTD</div><div class="iv">+46%</div></div>
+        </div>
+        <div style="margin-bottom:12px;">
+          <span class="tag tag-red">晶圓代工龍頭</span>
+          <span class="tag tag-blue">MSCI 被動買盤</span>
+          <span class="tag tag-green">2nm 量產</span>
+          <span class="tag tag-orange">大盤護衛</span>
+        </div>
+        <div class="section-block">
+          <h4>為什麼今天熱 / Why it's hot</h4>
+          <p>台積電股價相對同業較平穩（+1.12%），但仍是成交值第二大（547 億元），並提供大盤指數重要支撐。MSCI 半年度調整將於 5/29 生效，台積電權重調升預期吸引全球被動型基金提前卡位，形成「壓艙石」角色。</p>
+          <p class="en-text">TSMC played the role of market anchor, contributing 547bn in turnover and providing index stability. MSCI weight upgrade effective May 29 drove pre-positioning by global passive funds — a structural tailwind distinct from speculative momentum plays.</p>
+        </div>
+        <div class="section-block">
+          <h4>籌碼觀察 / Flow Watch</h4>
+          <p>外資為淨買超；成交量略低於 5MA，顯示籌碼穩定而非追高行情。機構持股比率極高（外資持股逾 70%），短線不易大跌。</p>
+        </div>
+        <div class="section-block">
+          <h4>後續觀察 / What to Watch Next</h4>
+          <p>• MSCI 5/29 生效後被動買盤實際規模<br>• 台積電 Q2 法說（7 月中旬）能見度<br>• 2nm 試產進展（法說 / 蘋果訂單消息）</p>
+        </div>
+        <div class="section-block">
+          <h4>來源 / Sources</h4>
+          <p><a href="https://money.udn.com/money/story/5607/9491197" target="_blank">經濟日報 — MSCI 法人看好台股權重</a> | <a href="https://finance.yahoo.com/quote/TSM/" target="_blank">Yahoo Finance — TSM</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Section 3: Watch List -->
+<section>
+  <h2>👀 次熱觀察 <span class="en">/ Watch List (3–5 stocks not quite in top 6)</span></h2>
+  <div class="watchlist-grid">
+    <div class="watch-card">
+      <div class="wh">
+        <div><span class="ticker-badge">3714</span> <span class="wname"> 富采投控</span></div>
+        <div class="wchg up">+10.00% 漲停</div>
+      </div>
+      <p>LED + Mini LED 族群受惠 AI 顯示技術需求，富采鎖漲停，為光電族群龍頭。需確認量能與後繼。</p>
+    </div>
+    <div class="watch-card">
+      <div class="wh">
+        <div><span class="ticker-badge">2327</span> <span class="wname"> 國巨</span></div>
+        <div class="wchg up">+7–8% (5/22)</div>
+      </div>
+      <p>被動元件族群再漲價傳聞，國巨成交值 443 億元列第四，MLCC 訂單能見度佳。後續觀察是否衝向 700 元。</p>
+    </div>
+    <div class="watch-card">
+      <div class="wh">
+        <div><span class="ticker-badge">2313</span> <span class="wname"> 華通電腦</span></div>
+        <div class="wchg up">成交值第六</div>
+      </div>
+      <p>PCB 族群補漲，成交值 265 億元，外資持續買超，為欣興之外的 PCB 第二熱標的。</p>
+    </div>
+    <div class="watch-card">
+      <div class="wh">
+        <div><span class="ticker-badge">6770</span> <span class="wname"> 力積電</span></div>
+        <div class="wchg up">成交量第五</div>
+      </div>
+      <p>記憶體族群延伸，力積電為 DRAM 晶圓代工廠，外資買超 96,771 張（5/22 排行第三），低基期補漲概念明確。</p>
+    </div>
+    <div class="watch-card">
+      <div class="wh">
+        <div><span class="ticker-badge">2344</span> <span class="wname"> 華邦電</span></div>
+        <div class="wchg up">外資買超前五</div>
+      </div>
+      <p>NAND Flash + NOR Flash 記憶體廠，外資買超 51,442 張，與南亞科共同構成記憶體族群主軸，目標價持續上修。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4: Caution List -->
+<section>
+  <h2>⚠️ 異常注意 <span class="en">/ Caution List</span></h2>
+  <div class="caution-list">
+    <div class="caution-item">
+      <div class="ch">
+        <span class="cticker">2454</span>
+        <span class="cname">聯發科 — 技術面過熱警示</span>
+      </div>
+      <p>聯發科從 4/7 低點 1,470 元漲至 3,860 元，漲幅逾 162%。RSI 已深入超買區。雖基本面支撐強，但短線追高風險高，特別是處置期剛結束後容易出現隔日沖賣壓。此為分析，非買賣建議。</p>
+    </div>
+    <div class="caution-item">
+      <div class="ch">
+        <span class="cticker">2409</span>
+        <span class="cname">友達 — 面板股表現分化</span>
+      </div>
+      <p>面板族群近期報價漲勢熄火，內外資均發表謹慎看法。友達雖曾大漲，但面板報價拐點未明，追高需謹慎。</p>
+    </div>
+    <div class="caution-item">
+      <div class="ch">
+        <span class="cticker">處置股</span>
+        <span class="cname">注意本週新增處置/警示股</span>
+      </div>
+      <p>台股在強勢行情中常伴隨籌碼異常股，本週因量縮個股數仍多，建議查詢 TWSE 處置股公告（twse.com.tw/zh/announcement/punish/twtazu.html）確認持股是否列入。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Section 5: Market Backdrop -->
+<section>
+  <h2>🌐 大盤背景 <span class="en">/ Market Backdrop</span></h2>
+  <div class="backdrop">
+    <p><strong>TAIEX（2026/05/22 收盤）：</strong>42,267.97 點，上漲 899.76 點（+2.18%），首度突破收盤 42,000 點大關，創歷史新高。本週漲 1,095.61 點（+2.66%），上市公司總市值達 137.8 兆元。</p>
+    <br>
+    <p><strong>盤面驅動力：</strong>① AMD 宣布大幅擴大台灣投資 → 半導體供應鏈（封測、PCB、IC 設計）全線爆發。② NVIDIA Q1 財報優於預期（5/20 盤後），帶動 AI 題材信心延續。③ MSCI 半年度調整 5/29 生效，被動資金提前布局台積電、南亞科等。④ 美債殖利率高位但回落，資金風險偏好回升。</p>
+    <br>
+    <p><strong>外資動向：</strong>5/22 外資買超力積電（9.7 萬張）、華邦電（5.1 萬張）為主，整體集中市場外資為淨買超。台幣 5/22 小幅升值，有助外資持續入場。</p>
+    <br>
+    <p><strong>English Summary：</strong>TAIEX closed at 42,268 on May 22, 2026 — a record first-ever close above 42,000 — led by semiconductor, PCB, and memory stocks in the wake of AMD's Taiwan expansion and NVIDIA's blowout Q1 earnings. MSCI rebalancing on May 29 is generating pre-positioning flows. Foreign investor sentiment strongly constructive.</p>
+  </div>
+</section>
+
+<!-- Sources -->
+<section>
+  <h2>📎 引用來源 <span class="en">/ All Sources Consulted</span></h2>
+  <div class="sources-box">
+    <ul>
+      <li><a href="https://tw.stock.yahoo.com/rank/change-up" target="_blank">Yahoo 股市 — 漲幅排行</a></li>
+      <li><a href="https://tw.stock.yahoo.com/rank/turnover" target="_blank">Yahoo 股市 — 成交值排行</a></li>
+      <li><a href="https://tw.stock.yahoo.com/rank/volume" target="_blank">Yahoo 股市 — 成交量排行</a></li>
+      <li><a href="https://tw.stock.yahoo.com/rank/foreign-investor-buy" target="_blank">Yahoo 股市 — 外資買超排行</a></li>
+      <li><a href="https://www.twse.com.tw/zh/trading/foreign/twt38u.html" target="_blank">TWSE 外資及陸資買賣超彙總表</a></li>
+      <li><a href="https://www.twse.com.tw/zh/trading/foreign/t86.html" target="_blank">TWSE 三大法人買賣超日報</a></li>
+      <li><a href="https://www.twse.com.tw/zh/announcement/punish/twtazu.html" target="_blank">TWSE 處置與注意股公告</a></li>
+      <li><a href="https://www.ptt.cc/bbs/Stock/index.html" target="_blank">PTT Stock 板</a></li>
+      <li><a href="https://www.cmoney.tw/finance/popular-rank" target="_blank">CMoney 熱搜排行</a></li>
+      <li><a href="https://www.wantgoo.com/stock/popular-rank" target="_blank">玩股網 人氣排行</a></li>
+      <li><a href="https://news.cnyes.com/news/cat/tw_stock" target="_blank">鉅亨網 台股新聞</a></li>
+      <li><a href="https://money.udn.com/money/index" target="_blank">經濟日報財經</a></li>
+      <li><a href="https://www.businesstoday.com.tw/article/category/183015/post/202605050010/" target="_blank">今周刊 — 聯發科連拉漲停</a></li>
+      <li><a href="https://www.sinotrade.com.tw/richclub/hotstock/" target="_blank">豐雲學堂 — 台股盤後系列報告</a></li>
+      <li><a href="https://www.taiwannews.com.tw/news/6368196" target="_blank">Taiwan News — TAIEX 首破 42,000 (5/22)</a></li>
+      <li><a href="https://money.udn.com/money/story/5607/9491197" target="_blank">經濟日報 — MSCI 法人看好台股權重</a></li>
+      <li><a href="https://finance.yahoo.com/quote/%5ETWII/history/" target="_blank">Yahoo Finance — TAIEX Historical</a></li>
+      <li><a href="https://www.digitimes.com/news/a20260519PD201/market-taiwan-mediatek-2026-tsmc.html" target="_blank">DigiTimes — MediaTek & TSMC market 2026</a></li>
+    </ul>
+  </div>
+</section>
+
+<div class="disclaimer">
+  本報告為資訊彙整，不構成任何投資建議或買賣推薦。所有數據以實際市場公告為準，部分數字標注「待確認」。<br>
+  This report is for informational purposes only. Does not constitute investment advice. Verify all figures with official TWSE/TPEx sources.
+  <br><br>
+  <strong>生成時間 / Generated:</strong> 2026-05-23 | <strong>資料基準日 / Reference Date:</strong> 2026-05-22（週五收盤）
+</div>
+
+</body>
+</html>

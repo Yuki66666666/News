@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日政治新聞日報 · 2026-05-23</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --card: #1a1d27;
+      --border: #2a2e3e;
+      --accent: #4f8ef7;
+      --accent2: #e06c75;
+      --accent3: #98c379;
+      --text: #dce1f0;
+      --muted: #8892a4;
+      --tag-bg: #252a3a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      padding: 0 0 60px;
+    }
+    header {
+      background: linear-gradient(135deg, #141828 0%, #1e2438 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 36px 40px 28px;
+    }
+    header .date-tag {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -.01em;
+    }
+    header p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 28px 0 0;
+    }
+    .toc h2 { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px; }
+    .toc ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+    .toc ul li a {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--accent);
+      font-size: 13px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .toc ul li a:hover { background: #2e3455; }
+    section { margin-top: 40px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header .flag { font-size: 22px; }
+    .section-header h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .section-header .en { color: var(--muted); font-weight: 400; font-size: 14px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 26px;
+      margin-bottom: 16px;
+    }
+    .card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .card .meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card .meta a { color: var(--accent); text-decoration: none; }
+    .card .meta a:hover { text-decoration: underline; }
+    .label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin-bottom: 4px;
+    }
+    .label-facts { background: #1e3a2a; color: var(--accent3); }
+    .label-context { background: #2a2010; color: #e5c07b; }
+    .label-impl { background: #2a1a1e; color: var(--accent2); }
+    .block { margin-bottom: 12px; }
+    .block p { font-size: 14.5px; color: var(--text); }
+    .top-badge {
+      display: inline-block;
+      background: var(--accent2);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .opinion-card {
+      background: linear-gradient(135deg, #1a1d27 0%, #1e2235 100%);
+      border-left: 3px solid var(--accent);
+    }
+    footer {
+      margin-top: 60px;
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    @media (max-width: 600px) {
+      header { padding: 24px 20px 18px; }
+      .card { padding: 16px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="date-tag">2026 · 05 · 23 &nbsp;|&nbsp; Asia/Taipei</div>
+    <h1>今日政治新聞日報<br><span style="font-size:18px;font-weight:500;color:#a0aabb;">Daily Politics Briefing</span></h1>
+    <p>涵蓋美國、兩岸、歐洲、亞太、中東 &nbsp;·&nbsp; 中英並陳 &nbsp;·&nbsp; 附背景脈絡與影響觀察</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="toc">
+    <h2>Today's Sections</h2>
+    <ul>
+      <li><a href="#top">頭條</a></li>
+      <li><a href="#us">美國</a></li>
+      <li><a href="#cross">中國與兩岸</a></li>
+      <li><a href="#europe">歐洲</a></li>
+      <li><a href="#apac">亞太</a></li>
+      <li><a href="#me">中東</a></li>
+      <li><a href="#opinion">觀點</a></li>
+    </ul>
+  </div>
+
+  <!-- ===== 頭條 ===== -->
+  <section id="top">
+    <div class="section-header">
+      <span class="flag">🌐</span>
+      <h2>頭條 <span class="en">/ Top Stories</span></h2>
+    </div>
+
+    <div class="card">
+      <h3><span class="top-badge">TOP</span>烏克蘭以524架無人機、22枚飛彈大規模攻擊俄羅斯；烏俄和談陷入僵局 / Ukraine Launches Massive Drone-Missile Barrage; US-Mediated Peace Talks Stalled</h3>
+      <div class="meta">
+        <span>來源 / Source:</span>
+        <a href="https://kyivindependent.com/" target="_blank">Kyiv Independent</a> ·
+        <a href="https://www.aljazeera.com/tag/ukraine-russia-crisis/" target="_blank">Al Jazeera</a> ·
+        <a href="https://www.pravda.com.ua/eng/news/2026/05/22/8035997/" target="_blank">Ukrainska Pravda</a> · 2026-05-22/23
+      </div>
+      <div class="block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>烏克蘭宣稱於近日一夜之內對俄羅斯境內發動了包含 524 架無人機與 22 枚飛彈的大規模攻擊，俄方官員確認莫斯科地區有 3 人死亡、別爾哥羅德 1 人死亡。俄方將近期烏克蘭擊中史塔羅比爾斯克宿舍（造成大量傷亡）之行動定性為「恐怖主義」。同期，美國國務卿魯比歐（Marco Rubio）公開承認，美方主導的烏俄和談已陷入停滯超過兩個月。</p>
+        <p>Ukraine declared a large-scale overnight attack comprising 524 drones and 22 missiles against Russian territory. Russian officials confirmed three deaths in the Moscow region and one in Belgorod. Secretary of State Marco Rubio publicly acknowledged that US-mediated peace talks have stalled for over two months, with Washington saying it would re-engage "only when productive talks become possible."</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>自2026年2月底美以聯合打擊伊朗戰事爆發以來，三方（烏克蘭、美、俄）談判中斷，美國外交重心轉向中東。烏克蘭今年以來已宣稱收復 590 平方公里領土，並持續以遠程無人機打擊莫斯科地區以展示縱深打擊能力。普丁同時面臨戰場膠著與國內經濟困境的雙重壓力。</p>
+        <p>Since the US-Israel strike on Iran in late February 2026, Washington has deprioritised Ukraine diplomacy. Ukraine claims to have recaptured 590 sq km of territory this year; drone strikes on Moscow demonstrate growing long-range capability. Putin faces simultaneous battlefield attrition and domestic economic strain.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）魯比歐的公開表態意味著美方不再承擔調解責任，短期和談前景黯淡。烏克蘭的大規模遠程打擊策略有助於維持談判籌碼，但同時升高衝突擴大風險。若美國持續將中東置於優先，歐洲盟友將承受更大壓力以填補援烏缺口。</p>
+        <p>(Analysis) Rubio's candid admission effectively relieves Washington of near-term mediation responsibility. Ukraine's long-range barrage strategy preserves bargaining leverage but raises escalation risks. European allies face growing pressure to compensate for any US disengagement from Ukraine support.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="top-badge">TOP</span>美伊戰後核談判持續；雙方就濃縮暫停年限與制裁解除拉鋸 / US-Iran Post-War Nuclear Deal Negotiations Continue, Gaps Remain on Enrichment Moratorium Duration</h3>
+      <div class="meta">
+        <span>來源 / Source:</span>
+        <a href="https://www.axios.com/2026/05/06/iran-us-deal-one-page-memo" target="_blank">Axios</a> ·
+        <a href="https://www.aljazeera.com/news/2026/5/6/has-the-us-accepted-irans-demand-to-settle-hormuz-first-nuclear-later" target="_blank">Al Jazeera</a> · 2026-05-06/07 (most recent updates)
+      </div>
+      <div class="block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>美伊雙方正透過直接及中介管道就一份14點備忘錄（MOU）進行磋商，條款包含伊朗暫停鈾濃縮（Iran 提議5年、美方要求20年，目前外傳落點為12–15年）、美方解除制裁並釋放凍結資產、荷莫茲海峽重新開放。白宮特使Witkoff 與Kushner 主導談判，白宮表示雙方為開戰以來最接近達成協議的時刻。</p>
+        <p>The US and Iran are negotiating a 14-point memorandum of understanding via direct and mediated channels. Key sticking points: enrichment moratorium duration (Iran proposes 5 years, US demands 20, with 12–15 years emerging as a likely compromise), sanctions relief, and Strait of Hormuz re-opening. Envoys Witkoff and Kushner are leading for Washington. The ceasefire signed April 7 remains in place.</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>美以於2026年2月28日聯合發動「史詩狂怒行動」，擊殺多名伊朗高層官員（包括最高領袖哈梅內伊）並重創伊朗軍事設施。4月7日宣布停火並重開荷莫茲海峽，全球能源市場隨之稍穩。伊朗內部在後哈梅內伊時代政治重組，談判團隊仍在整合。</p>
+        <p>Operation Epic Fury (Feb 28–May 5, 2026) resulted in the death of Supreme Leader Khamenei and extensive damage to Iranian military infrastructure. The April 7 ceasefire re-opened the Strait of Hormuz, easing global shipping disruptions. Iran is navigating post-Khamenei internal power dynamics.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）若MOU達成，12–15年濃縮暫停將是JCPOA後最長約束，具重大非擴散意義；但伊朗國內強硬派能否接受待觀察。荷莫茲海峽的永久開放攸關全球能源供應穩定，亦是談判最大公約數。協議若破裂，衝突復燃風險與油價劇烈波動將成主要市場尾部風險。</p>
+        <p>(Analysis) A 12–15-year enrichment moratorium would be the longest post-JCPOA constraint, with significant non-proliferation value. The Strait of Hormuz re-opening is the strongest mutual incentive for deal closure. Breakdown risk remains non-trivial given Iranian domestic political flux and the gap on enrichment duration.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="top-badge">TOP</span>習近平可能最快下週訪北韓，七年來首次 / Xi Jinping May Visit North Korea as Early as Next Week — First Trip in Seven Years</h3>
+      <div class="meta">
+        <span>來源 / Source:</span>
+        <a href="https://www.japantimes.co.jp/news/2026/05/21/asia-pacific/xi-jinping-visit-north-korea/" target="_blank">Japan Times</a> ·
+        <a href="https://foreignpolicy.com/2026/05/22/xi-north-korea-putin-trump-beijing-visit/" target="_blank">Foreign Policy</a> · 2026-05-21/22
+      </div>
+      <div class="block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>韓聯社（Yonhap）引述消息人士報導，中國國家主席習近平可能最快於本週末或下週訪問北韓，這將是習近平自2019年以來首次訪朝。中方安全人員及禮賓團隊近期已赴平壤進行先遣準備；中國外交部未置可否。此次訪問時間點適逢中朝《友好合作互助條約》簽署65周年。</p>
+        <p>Yonhap News cites sources saying Xi Jinping may visit Pyongyang as early as this weekend or next week — his first visit since 2019. Chinese security and protocol teams have already been sighted in Pyongyang. The Ministry of Foreign Affairs did not confirm. The visit would coincide with the 65th anniversary of the China-DPRK friendship treaty.</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>習近平甫於近期在北京分別接待特朗普與普丁，積極鞏固中國作為大國外交樞紐的地位。王毅上月亦訪問平壤。隨著美朝外交管道不明朗，北京試圖強化對平壤的戰略影響力，同時傳遞「多極外交」訊號給華府。</p>
+        <p>Xi recently hosted both Trump and Putin in Beijing in quick succession, positioning China as a hub of great-power diplomacy. Foreign Minister Wang Yi visited Pyongyang last month. With US-DPRK channels unclear, Beijing seeks to consolidate strategic influence over Pyongyang and signal multipolarity to Washington.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）習訪朝將強化中朝軍事及外交紐帶，可能使美日韓三邊聯防部署更複雜。若訪問確認，日韓可能要求與美方緊急磋商。此行亦可能成為中方對台灣問題態度的間接訊號——展示北京在半島維持影響力的能力，以作為對美談判籌碼。</p>
+        <p>(Analysis) A confirmed Xi visit would solidify China-DPRK security alignment and complicate US-Japan-Korea trilateral defense planning. Seoul and Tokyo may press Washington for urgent consultations. The visit also serves as a signal of Beijing's broader leverage in Northeast Asia, indirectly relevant to cross-strait dynamics.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 美國 ===== -->
+  <section id="us">
+    <div class="section-header">
+      <span class="flag">🇺🇸</span>
+      <h2>美國 <span class="en">/ United States</span></h2>
+    </div>
+
+    <div class="card">
+      <h3>特朗普宣布增兵5,000至波蘭，一週前甫停止輪換部署，盟友困惑 / Trump Orders 5,000 Additional Troops to Poland, Reversing Week-Old Hegseth Decision</h3>
+      <div class="meta">
+        <span>來源 / Source:</span>
+        <a href="https://www.cnn.com/2026/05/22/politics/trump-poland-troops-nato-ukraine-hnk" target="_blank">CNN</a> ·
+        <a href="https://foreignpolicy.com/2026/05/22/trump-troops-poland-deployment-hegseth-nato-rutte-rubio/" target="_blank">Foreign Policy</a> ·
+        <a href="https://www.washingtonpost.com/world/2026/05/22/nato-trump-troops-europe-poland-confusion/d4b89c12-55b2-11f1-9c40-7a0a12d9e745_story.html" target="_blank">Washington Post</a> · 2026-05-22
+      </div>
+      <div class="block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>特朗普5月22日宣布將額外增派5,000名美軍赴波蘭，並以與波蘭總統納沃羅茨基（Nawrocki）的密切關係為由。此舉直接推翻國防部長赫格塞斯（Hegseth）一週前停止一支戰鬥輪換隊伍部署波蘭的決定——彼時理由為「歐洲未善盡義務」。美國目前在波蘭常駐兵力約一萬人，此次部署將大幅強化。</p>
+        <p>Trump announced on May 22 the deployment of an additional 5,000 US troops to Poland, citing personal rapport with Polish President Nawrocki. This directly reverses Defense Secretary Hegseth's decision from just one week prior to halt a combat team rotation on grounds that European allies had not "stepped up." The US currently has ~10,000 troops in Poland.</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>特朗普第二任期以大幅削減駐歐兵力施壓歐洲增加國防支出，赫格塞斯的停止部署決定正是此策略的體現。然而此次180度轉彎發生在魯比歐宣布烏克蘭和談停滯的同一週，顯示行政內部協調存在明顯落差。北約秘書長呂特（Rutte）予以歡迎，但多個歐洲盟國坦言「困惑」。</p>
+        <p>Trump's second term has used threats of European troop withdrawal as leverage for NATO burden-sharing. Hegseth's halt order was consistent with this posture; the reversal, occurring the same week Rubio declared Ukraine talks stalled, signals intra-administration inconsistency. NATO chief Rutte welcomed the announcement; several European capitals expressed bewilderment.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）此次反轉短期有助於安撫北約東翼盟國，但決策過程的不一致性損及美國信譽，令盟友難以進行長期防務規劃。若行政團隊對歐洲政策的共識持續欠缺，未來類似反覆將繼續困擾跨大西洋關係。</p>
+        <p>(Analysis) The reversal reassures NATO's Eastern Flank in the short term, but the decision-making whipsaw undermines US credibility and complicates allied long-term defense planning. Persistent intra-administration incoherence on Europe policy is itself a strategic liability for Washington.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>美國威脅撤銷巴勒斯坦聯合國大使簽證，阻止其競選聯大副主席 / US Threatens to Revoke Palestinian UN Ambassador's Visa Over General Assembly Vice-Presidency Bid</h3>
+      <div class="meta">
+        <span>來源 / Source:</span>
+        <a href="https://www.npr.org/2026/05/20/nx-s1-5828826/us-palestinians-un" target="_blank">NPR</a> · 2026-05-20
+      </div>
+      <div class="block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>美國國務院5月19日發出外交電報，指示駐耶路薩冷人員向巴勒斯坦官員施壓，要求巴勒斯坦大使曼蘇爾（Riyad Mansour）撤回參選聯合國大會21位副主席之一的申請，否則面臨簽證撤銷等後果。電報稱曼蘇爾「具有指控以色列種族滅絕的歷史」，其競選「破壞特朗普的加薩和平計畫」。巴方隨後宣布放棄競選。聯大副主席選舉訂於6月2日。</p>
+        <p>A US State Department cable dated May 19 instructed diplomats to pressure Palestinian officials to withdraw Ambassador Riyad Mansour's bid for one of the 21 UN General Assembly vice-presidency slots, or face visa revocations. The cable cited Mansour's "history of accusing Israel of genocide" as grounds. The Palestinian delegation subsequently withdrew the bid. The vote was scheduled for June 2.</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>使用簽證威脅阻止一國外交代表在聯合國競選職位，被前任國務院官員形容為「史無前例」——過去此類手段僅用於俄羅斯間諜等極端情況。特朗普政府長期支持以色列立場，並反對聯合國系統中任何同情巴勒斯坦的人事安排。</p>
+        <p>Using visa threats to block a UN delegate from seeking office was described by former State Department officials as "extremely rare" and "unprecedented." Prior use of such tools has been limited to cases like Russian espionage. The Trump administration has consistently aligned US UN policy with Israeli positions.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）此舉顯示華府願意動用簽證管控等非傳統工具影響多邊機構人事，對未來聯合國人事選舉形成寒蟬效應。中、俄及全球南方國家可能藉此批評美國破壞多邊主義，為其另立機制提供話語資源。</p>
+        <p>(Analysis) Washington's willingness to weaponise visa controls to shape multilateral personnel outcomes sets a precedent with chilling effects on UN candidacies from developing-world states. China, Russia, and the Global South will likely exploit this for anti-US multilateralism narratives.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>共和黨休會前未能通過移民執法法案；中期選舉前通膨隱憂上升 / Republicans Leave for Recess Without Passing Immigration Bill; Rising Costs Haunt GOP Ahead of Midterms</h3>
+      <div class="meta">
+        <span>來源 / Source:</span>
+        <a href="https://www.politico.com/" target="_blank">Politico</a> · <a href="https://thehill.com/" target="_blank">The Hill</a> · 2026-05-22/23
+      </div>
+      <div class="block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>國會共和黨員在休會前未能通過特朗普重點推動的移民執法配套立法，顯示黨內在財政與移民議題上的裂痕。多位共和黨分析師指出，物價上漲對選民的衝擊正成為2026年期中選舉的核心議題，特朗普在降低生活成本方面的承諾兌現遲緩令黨內憂慮。</p>
+        <p>Congressional Republicans departed for recess without passing Trump's priority immigration enforcement package, exposing intra-party divisions on fiscal and migration policy. Republican strategists warn that consumer cost pressures are becoming a defining issue heading into the 2026 midterm elections.</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>「一個大美麗法案」（One Big Beautiful Bill Act）去年7月已簽署成法，其稅務減免與削減社福支出的組合預計10年增加1.7兆美元赤字。共和黨在移民及財政議題上的內部張力，使期中選舉前立法推進更加困難。</p>
+        <p>The One Big Beautiful Bill Act was signed into law in July 2025, with the CBO estimating a $1.7 trillion deficit increase over ten years. Internal Republican tensions on immigration and spending complicate the legislative calendar ahead of November 2026 midterms.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）若共和黨在期中選舉前無法在移民和物價議題上展示成果，民主黨有機會在眾議院多個搖擺選區翻盤。特朗普支持度若持續承壓，可能加劇黨內路線分歧，使下半年立法更加艱難。</p>
+        <p>(Analysis) Failure to deliver on immigration and affordability ahead of midterms creates electoral vulnerabilities in competitive House districts. Trump approval pressure could deepen intra-party fractures and further gridlock the second-half legislative agenda.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 兩岸 ===== -->
+  <section id="cross">
+    <div class="section-header">
+      <span class="flag">🇹🇼</span>
+      <h2>中國與兩岸 <span class="en">/ China &amp; Cross-Strait</span></h2>
+    </div>
+
+    <div class="card">
+      <h3>東部戰區警告「台獨分裂勢力」，北京繼續多域施壓策略 / PLA Eastern Theater Warns Against "Taiwan Independence," Beijing Sustains Multi-Domain Pressure</h3>
+      <div class="meta">
+        <span>來源 / Source:</span>
+        <a href="https://www.aei.org/articles/china-taiwan-update-may-22-2026/" target="_blank">AEI China &amp; Taiwan Update</a> · <a href="https://focustaiwan.tw/cross-strait/" target="_blank">Focus Taiwan</a> · 2026-05-22/23
+      </div>
+      <div class="block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>解放軍東部戰區發言人李希（Li Xi）警告，「尋求特殊性的分裂勢力」即台獨勢力正接受「嚴厲懲戒」，並向「干涉挑釁的外部勢力」發出嚴重警告。AEI最新分析顯示，中國正同步推進軍事態勢升級、網路間諜擴大、及對台系統性經濟施壓，以孤立台灣。</p>
+        <p>PLA Eastern Theater spokesman Li Xi warned that "separatist forces seeking uniqueness" — referring to Taiwan independence — are receiving "severe punishment," and issued a stern warning to external forces "interfering with provocations." AEI analysis notes Beijing is simultaneously escalating military posturing, cyberespionage, and economic coercion against Taiwan.</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>特朗普曾暗示台灣軍售可能成為對北京談判的「籌碼」，此表態令台北政府警惕。立法院正趕在5月31日前審議內閣提出的特別國防預算（含294億新台幣HIMARS採購案）。大陸近期允許首批上海遊客赴金門、馬祖，被解讀為以「交流機遇」為包裝的統戰操作。</p>
+        <p>Trump hinted arms sales to Taiwan might be used as a "negotiating chip" with Beijing, alarming Taipei. Taiwan's Legislative Yuan is racing to pass the Special Defense Budget (including NT$294 billion for HIMARS) before a May 31 deadline. The PRC recently allowed the first Shanghai tourists to visit Kinmen/Matsu, framed as economic opportunity but viewed by Taipei as united-front outreach.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）特朗普將軍售列為談判籌碼的表態使台北無法確定美方承諾的穩定性，增加其防務規劃的不確定性。北京的多域施壓策略旨在提高台灣依賴美國的代價、分化台美日三邊關係。台灣加速軍備採購是對上述不確定性的直接回應。</p>
+        <p>(Analysis) Trump's "negotiating chip" framing introduces uncertainty into Taiwan's defense planning and signals potential transactional US-PRC dealmaking at Taipei's expense. Beijing's multi-domain strategy aims to raise the cost of Taiwan's US alignment and fracture the Taiwan-US-Japan security alignment. Taipei's accelerated procurement reflects urgency under these pressures.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>賴清德史瓦帝尼之行後，中台外交攻防持續；立法院加速審議國防預算 / Post-Eswatini, Cross-Strait Diplomatic Contest Continues; Legislature Rushes Defense Budget</h3>
+      <div class="meta">
+        <span>來源 / Source:</span>
+        <a href="https://www.aljazeera.com/news/2026/5/3/taiwan-leader-visits-eswatini-despite-chinas-attempts-to-block-trip" target="_blank">Al Jazeera</a> ·
+        <a href="https://focustaiwan.tw/politics/202605030004" target="_blank">Focus Taiwan CNA</a> · 2026-05-03 (background)
+      </div>
+      <div class="block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>賴清德總統今月初採取「先到達再宣布」策略成功訪問史瓦帝尼，此前塞席爾、模里西斯、馬達加斯加因北京壓力撤銷飛越許可。台灣目前正推動立法院在5月31日前通過HIMARS等美製武器特別採購預算，總額294億新台幣；行政院亦已通過「第一波」特別國防預算的部分項目。</p>
+        <p>President Lai's "arrive-then-announce" visit to Eswatini in early May succeeded despite Beijing blocking overflight permits from three African nations. Taiwan's cabinet has passed portions of the "first wave" Special Defense Budget; the legislature faces a May 31 deadline to approve the HIMARS component (NT$294 billion total).</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>台灣目前僅剩史瓦帝尼為非洲唯一邦交國。北京對每次台灣的外交突破都會以強化其非正式邦交網絡及軍事姿態加以反制。美方2025年底宣布的110億美元軍售案（台灣有史以來最大）為此次特別預算提供了政治基礎。</p>
+        <p>Eswatini is Taiwan's only remaining African formal ally. Beijing responds to each Taipei diplomatic success by tightening its informal alliance network and intensifying military posture. The US December 2025 $11 billion arms package — largest ever for Taiwan — underpins the Special Defense Budget's political justification.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）台灣的「先到達再宣布」外交模式雖有效迴避中方預先封堵，但長期仍面臨邦交國數量持續縮減的結構性問題。國防預算若如期通過，將顯著提升台灣的精確打擊能力，具重要的嚇阻意義；若受阻，則對台美互信傳遞負面訊號。</p>
+        <p>(Analysis) Taiwan's "arrive-then-announce" tactic is effective tactically but cannot reverse the structural erosion of its formal diplomatic network. Timely passage of the Special Defense Budget would meaningfully improve Taiwan's precision-strike deterrence; a delay would send a negative signal on Taiwan-US defense commitment credibility.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 歐洲 ===== -->
+  <section id="europe">
+    <div class="section-header">
+      <span class="flag">🇪🇺</span>
+      <h2>歐洲 <span class="en">/ Europe</span></h2>
+    </div>
+
+    <div class="card">
+      <h3>賽普勒斯5月24日舉行國會選舉；兩大黨各約15%，選局高度分散 / Cyprus Holds Legislative Elections on May 24; AKEL &amp; DISY Tied ~15%, Race Highly Fragmented</h3>
+      <div class="meta">
+        <span>來源 / Source:</span>
+        <a href="https://en.wikipedia.org/wiki/2026_Cypriot_legislative_election" target="_blank">Wikipedia / 2026 Cypriot election</a> ·
+        <a href="https://cyprus-mail.com/2026/05/11/undecideds-may-decide-election-result" target="_blank">Cyprus Mail</a> · 2026-05-10/11
+      </div>
+      <div class="block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>賽普勒斯預定於5月24日舉行國會選舉（本報發稿前一日），選出80席眾議院中的56席。此次共有753名候選人、19個政黨或聯盟參選，選情高度碎片化。最新民調顯示左派AKEL與右派DISY分別各獲約15%支持度，直接民主黨（Direct Democracy Cyprus）獲近10%，逾四分之一選民仍未決定。</p>
+        <p>Cyprus is holding parliamentary elections on May 24 to elect 56 of 80 House seats. A total of 753 candidates representing 19 parties or coalitions are running. The latest poll shows AKEL and DISY neck-and-neck at ~15% each, with Direct Democracy Cyprus at ~10% and 26% of voters still undecided.</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>賽普勒斯政治近年因2013年紓困危機後遺症、難民議題、及天然氣開採主權爭議而高度分化。新興的改革派ALMA黨（由前審計長奧德賽斯·米哈利迪斯於2025年5月創立）亦加入角逐，進一步稀釋傳統政黨票源。</p>
+        <p>Cypriot politics has been fragmented by the legacy of the 2013 bail-in crisis, migration pressures, and offshore gas sovereignty disputes. The new centrist-reformist ALMA party (founded May 2025 by former Auditor-General Michaelides) further splinters the traditional party vote.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）高度碎片化的結果將使聯合政府談判複雜，可能形成不穩定的多黨聯盟。賽普勒斯作為歐盟成員，其政治穩定性對東地中海能源外交及難民政策具連帶影響。結果將於本報發布後數小時內揭曉。</p>
+        <p>(Analysis) A fragmented result will likely necessitate complex coalition talks and risk governmental instability. As an EU member, Cyprus's political stability affects Eastern Mediterranean energy diplomacy and migration policy. Results will be known within hours of this briefing's publication.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 亞太 ===== -->
+  <section id="apac">
+    <div class="section-header">
+      <span class="flag">🌏</span>
+      <h2>亞太 <span class="en">/ Asia-Pacific</span></h2>
+    </div>
+
+    <div class="card">
+      <h3>日韓峰會6個月內第4次舉行；高市早苗訪安東，能源安全成核心議題 / Lee-Takaichi Hold 4th Summit in 6 Months; Energy Security Tops Agenda in Historic Hometown Diplomacy</h3>
+      <div class="meta">
+        <span>來源 / Source:</span>
+        <a href="https://www.washingtonpost.com/world/2026/05/19/south-korea-japan-lee-takaichi/" target="_blank">Washington Post</a> ·
+        <a href="https://www.upi.com/Top_News/World-News/2026/05/19/korea-Sanae-Takaichi-Lee-Jae-Myung-Japan-Korea-summit-Andong-energy-deal/5761779187702/" target="_blank">UPI</a> ·
+        <a href="https://thediplomat.com/2026/05/the-geopolitical-circumstances-of-japan-south-korea-rapprochement/" target="_blank">The Diplomat</a> · 2026-05-19
+      </div>
+      <div class="block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>日本首相高市早苗5月19日赴韓國安東（總統李在明故鄉）舉行峰會，這是兩人在6個月內的第4次會面，且雙方均已互訪對方故鄉（首次為1月高市早苗在奈良接待李在明），史稱「穿梭外交」典範。雙方就能源供應鏈韌性、AI與經濟安全合作達成協議，並討論石油、石油製品與天然氣的互換安排。</p>
+        <p>Japanese PM Takaichi visited South Korean President Lee Jae-myung in Andong (Lee's hometown) on May 19 — their fourth meeting in six months and the second reciprocal hometown visit. The two agreed on energy supply chain resilience, AI, and economic security cooperation, including crude oil, petroleum product, and LNG swap arrangements.</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>中東戰事導致全球能源市場動盪，日韓兩國均高度依賴進口能源，使能源安保成為壓倒歷史領土爭端的優先議題。北約已積極與日韓強化安全合作，加速兩國向西方陣營靠攏。北京對高市早苗2025年的台海相關言論採取持續施壓，企圖阻止日韓進一步深化安全合作。</p>
+        <p>The 2026 Iran war disrupted global energy markets; both Japan and South Korea are heavily import-dependent, making energy security a priority that overrides historical territorial disputes. NATO has intensified security partnerships with both nations. Beijing continues pressure on Takaichi over her 2025 Taiwan contingency statements.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）日韓關係改善速度在過去六個月達到數十年來新高。能源互換協議若落實，可強化兩國在供應衝擊下的緩衝能力。美日韓三邊協調進一步深化，對中朝的聯合嚇阻效力上升；而習近平若如期訪朝，將是北京對此趨勢的直接外交反制。</p>
+        <p>(Analysis) Japan-South Korea rapprochement is proceeding at a pace unprecedented in decades. Energy swap agreements, if implemented, would meaningfully buffer both economies against future supply shocks. Strengthened trilateral US-Japan-Korea coordination increases deterrence vis-à-vis China and North Korea — Xi's prospective Pyongyang visit is a direct Beijing counter-move.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 中東 ===== -->
+  <section id="me">
+    <div class="section-header">
+      <span class="flag">🕌</span>
+      <h2>中東與其他 <span class="en">/ Middle East &amp; Elsewhere</span></h2>
+    </div>
+
+    <div class="card">
+      <h3>美伊停火持續，三週以色列黎巴嫩停火延長；WHO對剛果疫情宣布緊急狀態 / US-Iran Ceasefire Holds; Israel-Lebanon Ceasefire Extended Three Weeks; WHO Declares Congo Outbreak Emergency</h3>
+      <div class="meta">
+        <span>來源 / Source:</span>
+        <a href="https://en.wikipedia.org/wiki/2026_Iran_war" target="_blank">Wikipedia / 2026 Iran war</a> ·
+        <a href="https://www.aljazeera.com/news/liveblog/2026/5/9/iran-war-live-tehrans-reply-to-us-deal-expected-amid-clashes-in-hormuz" target="_blank">Al Jazeera</a> · 2026-05-23
+      </div>
+      <div class="block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>自4月8日生效的美伊停火目前仍然維持，荷莫茲海峽已重新開放，全球貨運正逐步恢復正常。特朗普宣布以色列與黎巴嫩延長停火協議三週。世界衛生組織就剛果爆發的不明死亡疾病宣布公共衛生緊急狀態，目前已累計逾600宗疑似病例、139宗疑似死亡。</p>
+        <p>The April 8 US-Iran ceasefire remains in effect and the Strait of Hormuz is reopened, with global shipping gradually normalising. Trump announced a three-week extension of the Israel-Lebanon ceasefire. The WHO declared a public health emergency over a deadly disease outbreak in Congo with 600+ suspected cases and 139 suspected deaths.</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>美伊停火後，雙方後續正式協議談判（核武計畫限制、制裁解除等）仍進行中，荷莫茲海峽是最大公約數。「史詩狂怒行動」共造成伊朗境內重大軍事基礎設施損失，並引發哈梅內伊死後伊朗的政治重組。剛果疫情為今年除中東外的另一人道主義警訊。</p>
+        <p>Post-ceasefire formal deal negotiations continue, with the Strait of Hormuz representing the strongest mutual incentive for a permanent agreement. Operation Epic Fury inflicted significant military infrastructure damage on Iran; post-Khamenei political reorganisation continues. The Congo outbreak adds a separate humanitarian alert for 2026.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）荷莫茲海峽持續開放是全球能源市場穩定的關鍵。以黎停火延長提供中東進一步降溫的窗口，但伊朗核談判進展仍是決定中東局勢走向的最核心變數。剛果疫情若擴散至鄰國，可能引發地區人道危機並考驗WHO在大國博弈下的協調能力。</p>
+        <p>(Analysis) Continued Strait of Hormuz access is the single most critical variable for global energy market stability. The Israel-Lebanon ceasefire extension opens a window for broader Middle East de-escalation, but the trajectory of the US-Iran nuclear deal remains the defining variable. The Congo outbreak, if it spreads regionally, could produce a humanitarian crisis testing WHO's coordination capacity.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 觀點 ===== -->
+  <section id="opinion">
+    <div class="section-header">
+      <span class="flag">💬</span>
+      <h2>觀點 <span class="en">/ Opinion Worth Reading</span></h2>
+    </div>
+
+    <div class="card opinion-card">
+      <h3>「印太政策的航向修正」— War on the Rocks / "Correcting Course in the Indo-Pacific" — War on the Rocks</h3>
+      <div class="meta">
+        <span>來源 / Source:</span>
+        <a href="https://warontherocks.com/correcting-course-in-the-indo-pacific/" target="_blank">War on the Rocks</a>
+      </div>
+      <div class="block">
+        <p>在日韓關係急速改善、北約向亞太延伸觸角、以及中國對台系統性施壓持續升溫的背景下，War on the Rocks 這篇分析提出美國應如何在中東牽制下重新確立印太戰略優先序列，並呼籲避免讓中東危機徹底吸走原本屬於印太聯盟的外交與軍事資源。適合作為本日新聞脈絡的深度補讀。</p>
+        <p>Against the backdrop of accelerating Japan-Korea reconciliation, NATO's Indo-Pacific pivot, and Beijing's sustained multi-domain pressure on Taiwan, this War on the Rocks analysis argues for rebalancing US strategic prioritisation toward the Indo-Pacific even amid Middle East entanglement. Recommended deep-read to contextualise today's regional developments.</p>
+      </div>
+    </div>
+
+    <div class="card opinion-card">
+      <h3>「日韓關係的地緣政治環境」— The Diplomat / "The Geopolitical Circumstances of Japan-South Korea Rapprochement" — The Diplomat</h3>
+      <div class="meta">
+        <span>來源 / Source:</span>
+        <a href="https://thediplomat.com/2026/05/the-geopolitical-circumstances-of-japan-south-korea-rapprochement/" target="_blank">The Diplomat</a> · 2026-05
+      </div>
+      <div class="block">
+        <p>The Diplomat 這篇深度分析解構日韓關係改善的結構性動因：能源危機、特朗普的不可預測性、及北京的共同威脅感知，如何使兩個歷史上摩擦深重的國家在六個月內召開四次首腦會談。文章亦提醒，這種「無爭議點」的蜜月期是否能持久，仍有待政治考驗。</p>
+        <p>The Diplomat dissects the structural drivers behind Japan-Korea rapprochement: shared energy vulnerability, Trump's unpredictability, and convergent threat perception toward Beijing have overridden decades of historical friction. The piece cautions that the "no sticking points" honeymoon depends heavily on continued alignment of interests rather than a genuine resolution of historical grievances.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p><strong>今日政治新聞日報 · Daily Politics Briefing · 2026-05-23</strong></p>
+    <p style="margin-top:8px;">
+      主要來源 / Primary Sources:
+      <a href="https://kyivindependent.com/" target="_blank">Kyiv Independent</a> ·
+      <a href="https://www.axios.com/2026/05/06/iran-us-deal-one-page-memo" target="_blank">Axios</a> ·
+      <a href="https://foreignpolicy.com/2026/05/22/xi-north-korea-putin-trump-beijing-visit/" target="_blank">Foreign Policy</a> ·
+      <a href="https://www.cnn.com/2026/05/22/politics/trump-poland-troops-nato-ukraine-hnk" target="_blank">CNN</a> ·
+      <a href="https://www.npr.org/2026/05/20/nx-s1-5828826/us-palestinians-un" target="_blank">NPR</a> ·
+      <a href="https://www.washingtonpost.com/world/2026/05/19/south-korea-japan-lee-takaichi/" target="_blank">Washington Post</a> ·
+      <a href="https://www.aei.org/articles/china-taiwan-update-may-22-2026/" target="_blank">AEI</a> ·
+      <a href="https://www.japantimes.co.jp/news/2026/05/21/asia-pacific/xi-jinping-visit-north-korea/" target="_blank">Japan Times</a> ·
+      <a href="https://thediplomat.com/2026/05/the-geopolitical-circumstances-of-japan-south-korea-rapprochement/" target="_blank">The Diplomat</a> ·
+      <a href="https://warontherocks.com/correcting-course-in-the-indo-pacific/" target="_blank">War on the Rocks</a>
+    </p>
+    <p style="margin-top:10px;color:#5a6070;">
+      Paywalled / restricted: NYT, Washington Post (partial), FT, WSJ, The Economist, Foreign Affairs — content referenced via secondary reporting only.
+    </p>
+    <p style="margin-top:6px;color:#5a6070;">自動生成 · Generated by Claude · 內容為分析目的之新聞摘要，不代表任何政治立場。</p>
+  </footer>
+
+</div>
+</body>
+</html>

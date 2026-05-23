@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美股日報 / US Stocks Daily — May 22, 2026 (Fri Close)</title>
+  <style>
+    :root { color-scheme: light; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #f8f9fa;
+      color: #1a1a2e;
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+      color: #fff;
+      padding: 28px 32px 20px;
+    }
+    header .badge {
+      display: inline-block;
+      background: #e94560;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+    header .subtitle {
+      font-size: 13px;
+      opacity: 0.75;
+      margin-top: 6px;
+    }
+    header .trading-session {
+      margin-top: 12px;
+      font-size: 12px;
+      background: rgba(255,255,255,0.12);
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 4px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+    }
+
+    /* Index table */
+    .index-section {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 20px 24px;
+      margin-bottom: 28px;
+    }
+    .index-section h2 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #555;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .index-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .index-table th {
+      text-align: left;
+      font-weight: 600;
+      color: #888;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid #f0f0f0;
+      padding: 6px 10px;
+    }
+    .index-table td {
+      padding: 9px 10px;
+      border-bottom: 1px solid #f5f5f5;
+      font-variant-numeric: tabular-nums;
+    }
+    .index-table tr:last-child td { border-bottom: none; }
+    .index-table .name { font-weight: 600; color: #1a1a2e; }
+    .up   { color: #16a34a; font-weight: 600; }
+    .down { color: #dc2626; font-weight: 600; }
+    .flat { color: #64748b; }
+
+    /* Sections */
+    .section {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 17px;
+      font-weight: 800;
+      color: #0f3460;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+    .section-title .icon {
+      width: 28px; height: 28px;
+      background: #e8f0fe;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+    }
+
+    /* Story cards */
+    .story {
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .story:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .story-headline {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .story-meta {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 10px;
+    }
+    .story-meta a { color: #0f3460; text-decoration: none; }
+    .story-meta a:hover { text-decoration: underline; }
+
+    .label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+    .label-facts    { background: #dbeafe; color: #1d4ed8; }
+    .label-context  { background: #fef9c3; color: #92400e; }
+    .label-imply    { background: #dcfce7; color: #166534; }
+
+    .fact-block, .context-block, .imply-block {
+      margin-bottom: 8px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .fact-block    { background: #eff6ff; border-left: 3px solid #2563eb; }
+    .context-block { background: #fffbeb; border-left: 3px solid #d97706; }
+    .imply-block   { background: #f0fdf4; border-left: 3px solid #16a34a; }
+
+    /* Mini tag */
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      background: #f1f5f9;
+      color: #475569;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-right: 4px;
+      font-weight: 500;
+    }
+
+    /* Sources footer */
+    .sources-section {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-top: 28px;
+    }
+    .sources-section h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .sources-section ul { list-style: none; }
+    .sources-section li { font-size: 12.5px; margin-bottom: 4px; }
+    .sources-section a { color: #2563eb; text-decoration: none; }
+    .sources-section a:hover { text-decoration: underline; }
+
+    .disclaimer {
+      font-size: 11.5px;
+      color: #94a3b8;
+      margin-top: 16px;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 12px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .pill-green { background: #dcfce7; color: #15803d; }
+    .pill-red   { background: #fee2e2; color: #b91c1c; }
+    .pill-gray  { background: #f1f5f9; color: #475569; }
+
+    @media (max-width: 600px) {
+      header { padding: 18px 16px; }
+      .container { padding: 14px 10px 40px; }
+      .section { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="badge">美股日報 · US Stocks Daily</div>
+  <h1>今日美股新聞日報<br>US Stocks Daily Briefing</h1>
+  <div class="subtitle">深度雙語市場摘要 · Bilingual In-Depth Market Summary</div>
+  <div class="trading-session">交易日 / Trading Session: Friday, May 22, 2026 (RTH Close)　|　更新 Updated: May 23, 2026 (Asia/Taipei)</div>
+</header>
+
+<div class="container">
+
+  <!-- ===== INDEX TABLE ===== -->
+  <div class="index-section">
+    <h2>市場概況 / Market Snapshot</h2>
+    <table class="index-table">
+      <thead>
+        <tr>
+          <th>指數 / Index</th>
+          <th>收盤 Close</th>
+          <th>漲跌 Chg</th>
+          <th>% Change</th>
+          <th>週漲跌 Weekly</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name">S&amp;P 500</td>
+          <td>7,473.47</td>
+          <td class="up">+27.49</td>
+          <td class="up">+0.37%</td>
+          <td class="up">+0.40% (8th consec. wk)</td>
+        </tr>
+        <tr>
+          <td class="name">Nasdaq Composite</td>
+          <td>26,343.97</td>
+          <td class="up">+50.96</td>
+          <td class="up">+0.19%</td>
+          <td class="up">+0.20% (7th of 8 wks)</td>
+        </tr>
+        <tr>
+          <td class="name">Dow Jones (DJIA)</td>
+          <td>50,579.70</td>
+          <td class="up">+294.00</td>
+          <td class="up">+0.59%</td>
+          <td class="up">Record close</td>
+        </tr>
+        <tr>
+          <td class="name">Russell 2000</td>
+          <td>—</td>
+          <td class="up">+</td>
+          <td class="up">Led Mon rally +2.44%</td>
+          <td class="flat">Data pending</td>
+        </tr>
+        <tr>
+          <td class="name">VIX</td>
+          <td>16.76</td>
+          <td class="down">↓</td>
+          <td class="flat">Compressed</td>
+          <td class="flat">Near Jan levels</td>
+        </tr>
+        <tr>
+          <td class="name">US 10Y Yield</td>
+          <td>4.558%</td>
+          <td class="down">−2.6 bps</td>
+          <td class="flat">—</td>
+          <td class="down">30Y hit 5.197% on 5/19</td>
+        </tr>
+        <tr>
+          <td class="name">DXY (USD Index)</td>
+          <td>—</td>
+          <td class="flat">—</td>
+          <td class="flat">Data not retrieved</td>
+          <td class="flat">—</td>
+        </tr>
+        <tr>
+          <td class="name">WTI Crude Oil</td>
+          <td>$96.36</td>
+          <td class="up">+$0.01</td>
+          <td class="up">+0.01%</td>
+          <td class="flat">Little-changed on week</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px;color:#94a3b8;margin-top:10px;">
+      注：5月22日（週五）為美國股市假日前最後一個交易日（Memorial Day weekend）。May 22 was the last session before the Memorial Day long weekend. May 23 is a Saturday — no RTH trading.
+    </p>
+  </div>
+
+  <!-- ===== SECTION 1: TOP STORIES ===== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">📰</div>
+      頭條 / Top Stories
+    </div>
+
+    <!-- Story 1: Dow Record -->
+    <div class="story">
+      <div class="story-headline">道瓊創歷史新高，S&amp;P 500 連八週上漲 / Dow Sets All-Time Record Close; S&amp;P Posts 8th Straight Winning Week</div>
+      <div class="story-meta">
+        <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-may-22-2026" target="_blank">TheStreet</a> · 2026-05-22
+        &nbsp;|&nbsp; <span class="tag">指數</span> <span class="tag">里程碑</span>
+      </div>
+      <div class="fact-block">
+        <span class="label label-facts">核心事實 / Facts</span><br>
+        道瓊上漲 294 點（+0.59%）收 50,579.70，創歷史收盤新高。S&amp;P 500 升 0.37% 至 7,473.47，寫下連八週上漲紀錄；健康醫療（+1.19%）與科技（+1.02%）領漲。Nasdaq 上漲 0.19% 至 26,343.97，單週為過去八週中的第七個上漲週。<br><br>
+        DJIA rose 294 pts (+0.59%) to 50,579.70, a fresh all-time record close. S&amp;P extended to eight consecutive winning weeks (+0.37% to 7,473.47); Health Care (+1.19%) and Technology (+1.02%) led. Nasdaq +0.19%, its 7th up-week in the last eight.
+      </div>
+      <div class="context-block">
+        <span class="label label-context">背景脈絡 / Context</span><br>
+        美股自四月底 S&amp;P 觸及 7,209 以來持續走高，Fed 三次會議均維持利率於 3.50–3.75%，通膨壓力雖存但市場對企業獲利的樂觀情緒支撐估值。本週進入 Memorial Day 長週末前最後一個交易日，成交量因假日效應偏低。<br><br>
+        Markets have rallied steadily since S&amp;P's April 30 close at 7,209. The Fed held at 3.50–3.75% across three 2026 meetings. Solid corporate earnings underpin valuations despite lingering inflation risks tied to high oil prices.
+      </div>
+      <div class="imply-block">
+        <span class="label label-imply">影響觀察 / Implications</span><br>
+        連八週上漲為近年罕見動能，但技術面進入超買區域（RSI 有待觀察）。長週末後的首個交易日（5/26）將是重要觀察點。若 SpaceX IPO 如期在六月上市，市場資金排擠效應可能引發短暫震盪。<br><br>
+        Eight consecutive winning weeks is rare momentum. Post-Memorial Day (May 26) open will be a key test. SpaceX's anticipated June 12 debut may temporarily crowd out capital from other risk assets.
+      </div>
+    </div>
+
+    <!-- Story 2: SpaceX IPO -->
+    <div class="story">
+      <div class="story-headline">SpaceX 正式申請 IPO，史上最大規模上市案震撼市場 / SpaceX Files Historic $2 Trillion IPO Prospectus — Nasdaq Debut Set for ~June 12</div>
+      <div class="story-meta">
+        <a href="https://www.cnbc.com/2026/05/20/spacex-ipo-live-updates.html" target="_blank">CNBC</a> ·
+        <a href="https://fortune.com/2026/05/20/spacex-finally-files-ipo-prospectus-reveals-revenue-is-up-but-losses-are-too/" target="_blank">Fortune</a> ·
+        <a href="https://www.bloomberg.com/news/articles/2026-05-21/spacex-ipo-ai-plans-starlink-growth-and-risks" target="_blank">Bloomberg</a> · 2026-05-20–21
+        &nbsp;|&nbsp; <span class="tag">IPO</span> <span class="tag">SpaceX</span> <span class="tag">SPCX</span>
+      </div>
+      <div class="fact-block">
+        <span class="label label-facts">核心事實 / Facts</span><br>
+        SpaceX 於 5/20 遞交公開說明書，擬在 Nasdaq 以代號 SPCX 掛牌，目標估值高達 2 兆美元，募資至少 750 億美元，預計 6/12 上市。Q1 2026：火箭業務虧損 6.62 億美元、AI 業務虧損近 25 億美元；Starlink 衛星通訊業務貢獻營業利潤 12 億美元。<br><br>
+        SpaceX filed its prospectus May 20. Ticker: SPCX on Nasdaq. Target valuation up to $2T; at least $75B raise; expected debut ~June 12. Q1 2026: rocket ops lost $662M, AI unit lost ~$2.5B, only Starlink earned a profit ($1.2B operating).
+      </div>
+      <div class="context-block">
+        <span class="label label-context">背景脈絡 / Context</span><br>
+        若以 2 兆美元市值計，SpaceX 將是歷史上規模最大的 IPO。公司披露三大業務中兩個虧損，但 Starlink 快速成長且馬斯克個人品牌效應龐大。市場目前 IPO 流量已因此案大幅升溫。<br><br>
+        At $2T, this would be the largest IPO in history. Two of three business segments lost money in Q1, but Starlink's trajectory and Musk's brand drive demand. Bankers warn this deal could crowd out liquidity for smaller IPO candidates.
+      </div>
+      <div class="imply-block">
+        <span class="label label-imply">影響觀察 / Implications</span><br>
+        航太與衛星通訊 ETF（如 ARKX）可能受到帶動；SpaceX 的上市預計引發散戶巨大關注，可能從現有科技股抽資。需密切追蹤認購定價與機構配售動態。<br><br>
+        Aerospace/satellite ETFs (e.g., ARKX) may see attention. Retail inflows toward SPCX could cannibalize existing mega-cap tech positions. Watch IPO pricing and institutional allocation closely through June.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 2: EARNINGS ===== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">📊</div>
+      財報 / Earnings of the Day (Week of May 20–22, 2026)
+    </div>
+
+    <!-- Nvidia -->
+    <div class="story">
+      <div class="story-headline">Nvidia 財報創紀錄，股價卻因「期望已被定價」小跌 / Nvidia Q1 FY27: $81.6B Revenue, +85% YoY — Stock Falls Despite Historic Beat</div>
+      <div class="story-meta">
+        <a href="https://www.cnbc.com/2026/05/20/nvidia-nvda-earnings-report-q1-2027.html" target="_blank">CNBC</a> ·
+        <a href="https://intellectia.ai/blog/nvidia-earnings-may-2026" target="_blank">Intellectia AI</a> ·
+        <a href="https://fortune.com/2026/05/20/nvidia-q1-earnings-forecast-dividend-stock-buybacks/" target="_blank">Fortune</a> · 2026-05-20
+        &nbsp;|&nbsp; <span class="tag">NVDA</span> <span class="tag">AI</span> <span class="tag">半導體</span>
+      </div>
+      <div class="fact-block">
+        <span class="label label-facts">核心事實 / Facts</span><br>
+        Nvidia Q1 FY2027（截至 4 月末）：營收 816 億美元（vs 共識 789 億，+85% YoY）；淨利 583 億（vs 共識 429 億）；資料中心收入翻倍至 752 億（佔總收入 92%）。每季股息提升至 0.25 美元（前為 0.01 美元），宣布 800 億美元回購計畫。盤後股價下跌 0.9%。<br><br>
+        NVDA Q1 FY2027 revenue $81.6B vs $78.9B consensus (+85% YoY). Net income $58.3B vs $42.9B est. Data center doubled YoY to $75.2B (92% of sales). Dividend raised to $0.25/qtr (from $0.01). $80B buyback authorized. Stock -0.9% AH.
+      </div>
+      <div class="context-block">
+        <span class="label label-context">背景脈絡 / Context</span><br>
+        Nvidia 過去 20 季有 18 季財報優於預期，但每次優異財報後股價不一定上漲——2 月財報後亦曾下跌 5%。市場已將「AI 超級週期」的期望充分定價，「只有完美已不夠，還需要再超越」成為市場共識。<br><br>
+        NVDA beat in 18 of 20 quarters, yet stock slid 5% post-Feb earnings too. "Good enough to beat isn't good enough anymore" — the market has priced in perfection, so even a blowout quarter produces sell-the-news dynamics.
+      </div>
+      <div class="imply-block">
+        <span class="label label-imply">影響觀察 / Implications</span><br>
+        Nvidia 依然是 AI 基礎設施的核心受益者，但短期股價已是「新聞賣出」模式。AMD、Broadcom、TSMC 等同業可觀察是否受溢出效應帶動。長期持有者關注 800 億美元回購對 EPS 的支撐效果。<br><br>
+        NVDA remains the structural AI capex winner, but near-term price action shows "sell-the-news" dynamics. Watch AMD, AVGO, TSM for spill-over. The $80B buyback is a meaningful EPS tailwind for long-term holders.
+      </div>
+    </div>
+
+    <!-- Ralph Lauren -->
+    <div class="story">
+      <div class="story-headline">Ralph Lauren 大漲逾 10%，中國市場成長 50%+ 驚艷市場 / Ralph Lauren Surges 10%+ on Record Revenue, China Boom, Pricing Power</div>
+      <div class="story-meta">
+        <a href="https://www.heygotrade.com/en/blog/ralph-lauren-rl-q4-2026-earnings-beat-premium-brand/" target="_blank">HeyGotrade</a> ·
+        <a href="https://finance.yahoo.com/markets/stocks/articles/ralph-lauren-rl-q4-earnings-131002010.html" target="_blank">Yahoo Finance</a> ·
+        <a href="https://www.benzinga.com/analyst-stock-ratings/price-target/26/05/52751322/ralph-laurens-runway-rally-china-boom-pricing-power-fuel-rl-surge" target="_blank">Benzinga</a> · 2026-05-21
+        &nbsp;|&nbsp; <span class="tag">RL</span> <span class="tag">奢侈消費</span> <span class="tag">中國市場</span>
+      </div>
+      <div class="fact-block">
+        <span class="label label-facts">核心事實 / Facts</span><br>
+        Q4 FY2026 營收 19.8 億美元（YoY +17%，預估 18.5 億）；調整後 EPS 2.80 美元（預估 2.54 美元）。全球零售同店銷售 +17%，平均售價（AUR）呈中雙位數增長，中國市場 Q4 加速至 +50%+。調整後毛利率 69.7%（YoY +110bps）。股價盤中最高跳升約 14%，最終收漲約 10.26%。<br><br>
+        Q4 FY26 revenue $1.98B (+17% YoY, vs $1.85B est); adj. EPS $2.80 vs $2.54 est. Global retail comps +17%, mid-teen AUR growth, China +50%+ in Q4. Adj. gross margin 69.7% (+110bps YoY). Stock surged ~10.26% on May 21 (intraday up ~14%).
+      </div>
+      <div class="context-block">
+        <span class="label label-context">背景脈絡 / Context</span><br>
+        Ralph Lauren 的 "Next Great Chapter: Drive" 計畫在 FY2026 實現全年收入突破 80 億美元里程碑。在消費降級的大背景下，奢侈及高端品牌持續展現定價能力——這與 Intuit 等科技公司面臨的消費端壓力形成鮮明對比。<br><br>
+        RL hit a record $8B+ in annual revenues under its "Next Great Chapter: Drive" plan. In an environment of cautious consumer spending, premium brand pricing power is a theme distinct from tech's AI-restructuring narrative.
+      </div>
+      <div class="imply-block">
+        <span class="label label-imply">影響觀察 / Implications</span><br>
+        中國需求復甦是 RL 此次財報最強催化劑。可觀察 LVMH、Tapestry、Capri 等奢侈品同業動態。FY2027 管理層指引固定匯率收入成長 4–5%，相對保守，需注意匯率風險。<br><br>
+        China demand rebound is the key catalyst. Watch luxury peers LVMH, Tapestry (TPR), Capri (CPRI) for read-through. FY27 guide of ~4–5% constant-currency growth is conservative; FX risk bears monitoring.
+      </div>
+    </div>
+
+    <!-- Intuit -->
+    <div class="story">
+      <div class="story-headline">Intuit 大跌近 19%，裁員 17% 震驚市場 / Intuit Plunges ~19% After 17% Workforce Cut Overshadows Q3 Beat</div>
+      <div class="story-meta">
+        <a href="https://www.cnbc.com/2026/05/20/intuit-intu-q3-earnings-report-2026-company-cutting-17percent-of-staff.html" target="_blank">CNBC</a> ·
+        <a href="https://ca.finance.yahoo.com/news/intuit-stock-falls-plans-cut-134815277.html" target="_blank">Yahoo Finance</a> ·
+        <a href="https://techcrunch.com/2026/05/20/intuit-to-lay-off-over-3000-employees-to-refocus-on-ai/" target="_blank">TechCrunch</a> · 2026-05-20
+        &nbsp;|&nbsp; <span class="tag">INTU</span> <span class="tag">裁員</span> <span class="tag">AI轉型</span>
+      </div>
+      <div class="fact-block">
+        <span class="label label-facts">核心事實 / Facts</span><br>
+        Intuit Q3 FY2026（截至 4 月 30 日）：調整後 EPS 12.80 美元（預估 12.57）；營收 85.6 億美元（預估 86.1 億，略微失之交臂）。同時宣布裁員 17%、逾 3,000 名員工。股價正常時段下跌 3.95%，盤後再跌 13.4%，2026 年迄今跌幅已逾 40%。<br><br>
+        INTU Q3 FY26: adj. EPS $12.80 (vs $12.57 est); revenue $8.56B (vs $8.61B est, slight miss). Announced 17% workforce cut (~3,000 jobs). Stock -3.95% RTH, -13.4% AH; now down 40%+ YTD in 2026.
+      </div>
+      <div class="context-block">
+        <span class="label label-context">背景脈絡 / Context</span><br>
+        執行長 Sasan Goodarzi 強調裁員「與 AI 無關」，目的是提升組織效率。然而市場將其解讀為成長預期降低的訊號。Meta 同期也宣布裁員 8,000 人，科技業 AI 轉型浪潮下的大規模人力結構調整成為 2026 年重要產業主題。<br><br>
+        CEO: "None of it had to do with AI — everything was about becoming more effective." Markets disagreed, reading it as a growth derating signal. Meta also cut 8,000 in a parallel AI pivot. Tech sector AI restructuring is a defining 2026 theme.
+      </div>
+      <div class="imply-block">
+        <span class="label label-imply">影響觀察 / Implications</span><br>
+        INTU 年初至今跌逾 40%，顯示市場對傳統 SaaS 的重新定價。H&amp;R Block (HRB)、Workday (WDAY) 等同業可能受到情緒蔓延衝擊。需密切追蹤 TurboTax 訂閱業務在 AI 競爭環境中的動態。<br><br>
+        INTU's 40%+ YTD decline signals market repricing of legacy SaaS moats. Contagion risk for H&amp;R Block (HRB), Workday (WDAY). TurboTax subscription trajectory in an AI-competing environment is key to watch.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 3: INDIVIDUAL MOVERS ===== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">📈</div>
+      個股大事 / Single-Stock Movers
+    </div>
+
+    <div class="story">
+      <div class="story-headline">Applied Digital (APLD) 飆漲 16%，AI 園區租約上看 182 億美元 / Applied Digital +16% on $18.2B AI Campus Lease Deal</div>
+      <div class="story-meta">
+        <span class="tag">APLD</span> <span class="tag">AI 基礎設施</span> · 2026-05-20–21
+      </div>
+      <div class="fact-block">
+        <span class="label label-facts">核心事實 / Facts</span><br>
+        Applied Digital 宣布就其 Polaris Forge 3 AI 園區簽訂長期租約協議，潛在合約價值高達 182 億美元。消息一出，股價單日飆升 16%。<br><br>
+        APLD soared 16% after securing a long-term leasing agreement for its Polaris Forge 3 AI campus with a potential value of up to $18.2 billion.
+      </div>
+      <div class="imply-block">
+        <span class="label label-imply">影響觀察 / Implications</span><br>
+        AI 資料中心基礎設施需求持續火熱，小型資料中心營運商受益程度或不亞於半導體。可觀察 IREN、CORZ 等同類標的。<br><br>
+        AI data center demand remains voracious; smaller infra operators like IREN, CORZ are read-through beneficiaries.
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-headline">IBM 上漲 6.2%，量子運算獲政府 20 億美元資金挹注 / IBM +6.2% on $2B US Commerce Dept Quantum Computing Funding</div>
+      <div class="story-meta">
+        <span class="tag">IBM</span> <span class="tag">量子運算</span> <span class="tag">政策催化</span> · 2026-05-20–21
+      </div>
+      <div class="fact-block">
+        <span class="label label-facts">核心事實 / Facts</span><br>
+        美國商務部宣布向量子運算產業提供 20 億美元資金，IBM 為主要受惠者之一，股價上漲 6.2%。<br><br>
+        IBM rose 6.2% after the US Commerce Dept announced a $2 billion quantum computing funding package; IBM is a primary beneficiary.
+      </div>
+      <div class="imply-block">
+        <span class="label label-imply">影響觀察 / Implications</span><br>
+        量子運算主題股（IonQ、Rigetti 等）可能獲得短期資金輪動關注。長期而言，政府資金對商業化時程的拉近效果仍需時間驗證。<br><br>
+        Quantum theme names (IONQ, RGTI) may see near-term rotation. Government-funded timelines need scrutiny — commercial quantum remains 3–5+ years out.
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-headline">Borr Drilling (BORR) 跌 16%，近海鑽探營收不及預期 / Borr Drilling -16% on Revenue Miss</div>
+      <div class="story-meta">
+        <span class="tag">BORR</span> <span class="tag">能源</span> <span class="tag">離岸鑽探</span> · 2026-05-20
+      </div>
+      <div class="fact-block">
+        <span class="label label-facts">核心事實 / Facts</span><br>
+        Borr Drilling 報告季度業績，營收不及華爾街預期，股價單日下跌 16%。相較能源板塊今年以來整體上漲 22%+，個別公司執行風險依然存在。<br><br>
+        BORR dropped 16% on a revenue miss — a cautionary tale within an energy sector that has gained 22%+ YTD. Execution risk persists at the individual company level.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 4: SECTOR ROTATION ===== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">🔄</div>
+      產業輪動 / Sector Rotation (2026 Year-to-Date Theme)
+    </div>
+    <div class="story">
+      <div class="story-headline">能源、工業、消費必需品領跑，AI 科技股光環漸褪 / Energy +22%, Industrials +16%, Consumer Defensives +13.3% Lead 2026; Tech Rotation Underway</div>
+      <div class="story-meta">
+        <a href="https://www.morningstar.com/markets/is-stock-market-rotation-underway-these-sectors-are-outpacing-tech-2026" target="_blank">Morningstar</a> ·
+        <a href="https://seekingalpha.com/article/4901125-us-equity-sector-rotation-chartbook-may-2026-unholy-alliance" target="_blank">Seeking Alpha</a> · 2026-05
+        &nbsp;|&nbsp; <span class="tag">CAT</span> <span class="tag">WMT</span> <span class="tag">CVX</span> <span class="tag">XOM</span>
+      </div>
+      <div class="fact-block">
+        <span class="label label-facts">核心事實 / Facts</span><br>
+        2026 年迄今：能源板塊 +22%+（Chevron +21.8%）；工業板塊 +16%+（Caterpillar +32%）；消費必需品 +13.3%（Walmart +13.7%、Costco +15.7%）。五月份頭部表現板塊為：醫療保健、科技、通訊服務。<br><br>
+        YTD 2026: Energy +22%+ (CVX +21.8%), Industrials +16%+ (CAT +32%), Consumer Defensives +13.3% (WMT +13.7%, COST +15.7%). May's top sectors: Healthcare, Tech, Communication Services.
+      </div>
+      <div class="context-block">
+        <span class="label label-context">背景脈絡 / Context</span><br>
+        AI 資料中心建設拉動 Caterpillar（機具設備）、Walmart/Costco（員工生活消費）、Exxon（能源供應）等傳統行業意外受惠。這場「非典型輪動」顯示 AI 資本支出的漣漪效應已遠超科技板塊本身。<br><br>
+        The AI data center buildout is indirectly lifting traditional sectors — CAT (infrastructure equipment), WMT/COST (workforce consumption), XOM (power generation). AI capex ripple effects extend well beyond the tech sector itself.
+      </div>
+      <div class="imply-block">
+        <span class="label label-imply">影響觀察 / Implications</span><br>
+        若 Fed 維持高利率，公用事業和房地產 REITs 等利率敏感型板塊的估值壓力難以消散。能源股受油價走高支撐但需關注伊朗談判進展（若達成協議，油價可能急跌）。<br><br>
+        Rate-sensitive sectors (Utilities, REITs) remain under pressure while Fed holds high. Energy gains depend on oil staying elevated — an Iran deal resolution could pressure crude sharply lower.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 5: M&A / IPO ===== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">🤝</div>
+      併購與 IPO / M&amp;A and IPO
+    </div>
+    <div class="story">
+      <div class="story-headline">2026 年 M&amp;A 浪潮持續，科技、生技領跑 / 2026 M&amp;A Wave Continues: Tech ($282.6B) and Life Sciences ($128.4B) Lead Deal Volume</div>
+      <div class="story-meta">
+        <a href="https://www.ey.com/en_us/insights/mergers-acquisitions/m-and-a-activity-report" target="_blank">EY M&amp;A Report</a> ·
+        <a href="https://dealroom.net/blog/recent-m-a-deals" target="_blank">Dealroom</a> · 2026-05
+        &nbsp;|&nbsp; <span class="tag">M&amp;A</span> <span class="tag">科技並購</span>
+      </div>
+      <div class="fact-block">
+        <span class="label label-facts">核心事實 / Facts</span><br>
+        2026 年 2–4 月，逾 1 億美元交易的總價值較去年同期大幅增長 65%（量增 17%），其中 50 億美元以上大型交易暴增 149%。科技業累計交易額 2,826 億美元，生技 1,284 億美元，消費品零售 800 億美元。<br><br>
+        Feb–Apr 2026: deals above $100M surged 65% in value (+17% in volume) vs same period 2025. Deals above $5B: value +149%, volume +94%. Tech: $282.6B; Life Sciences: $128.4B; Consumer/Retail: $80B.
+      </div>
+      <div class="imply-block">
+        <span class="label label-imply">影響觀察 / Implications</span><br>
+        M&amp;A 活躍是股市風險情緒的正面訊號，但大型科技並購也可能引發反壟斷監管關注（尤其在 DOJ/FTC 立場仍強硬的環境下）。投資銀行股（GS、MS、Lazard）可作為並購潮受惠指標。<br><br>
+        Active M&amp;A signals healthy risk appetite, but mega-tech deals face antitrust scrutiny under a still-aggressive DOJ/FTC posture. Investment banks (GS, MS, LAZ) are the clearest beneficiaries.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 6: FED & RATES ===== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">🏛️</div>
+      Fed 與利率 / Fed &amp; Rates
+    </div>
+    <div class="story">
+      <div class="story-headline">30 年期公債殖利率一度衝上 5.197%，創 2007 年來新高 / 30-Year Treasury Briefly Hit 5.197% — Highest Since Pre-GFC; Stocks Held Firm</div>
+      <div class="story-meta">
+        <a href="https://www.cnbc.com/2026/05/19/treasurys-yields-inflation-traders-fed-interest-rates.html" target="_blank">CNBC</a> ·
+        <a href="https://www.federalreserve.gov/releases/h15/" target="_blank">Federal Reserve H.15</a> · 2026-05-19–22
+        &nbsp;|&nbsp; <span class="tag">Fed</span> <span class="tag">公債</span> <span class="tag">利率</span>
+      </div>
+      <div class="fact-block">
+        <span class="label label-facts">核心事實 / Facts</span><br>
+        30 年期殖利率本週盤中最高觸 5.197%（5/19），最終週五收於 5.183%，為 2007 年金融危機前以來最高水準。10 年期殖利率週五收 4.558%（-2.6bps），2 年期 4.12%（+3bps）。Fed 2026 年三次會議均維持利率於 3.50–3.75%。目前市場隱含僅一次降息機率。<br><br>
+        30Y Treasury briefly hit 5.197% on May 19 (highest since pre-GFC 2007); settled at 5.183% on Friday. 10Y closed 4.558% (-2.6bps), 2Y at 4.12% (+3bps). Fed held at 3.50–3.75% across all three 2026 meetings. Market pricing in ~1 cut for rest of year.
+      </div>
+      <div class="context-block">
+        <span class="label label-context">背景脈絡 / Context</span><br>
+        驅動長端殖利率上行的主因：伊朗局勢拉高油價重燃通膨預期，部分市場人士甚至開始押注 Fed 下一步或為升息而非降息。但股市的強韌（道瓊創歷史新高）表明企業獲利仍足以對沖利率壓力。<br><br>
+        Drivers: Iran conflict + high oil prices rekindling inflation fears; some traders betting next Fed move may be a hike, not a cut. Yet equities shrugged off high yields (DJIA record) — corporate earnings are offsetting rate pressure for now.
+      </div>
+      <div class="imply-block">
+        <span class="label label-imply">影響觀察 / Implications</span><br>
+        若 30 年期殖利率站穩 5.2% 以上，將增加科技股（高久期資產）的估值壓力。房地產 REITs、公用事業最脆弱。市場需在「經濟強勁支撐股市」與「高利率壓縮估值」之間持續拔河。<br><br>
+        A sustained 30Y above 5.2% would add valuation headwinds for high-duration tech. REITs and utilities are most exposed. The market's tug-of-war between "strong earnings" and "rate compression" continues.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 7: FLOWS ===== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">💸</div>
+      資金流向 / Flows &amp; Positioning
+    </div>
+    <div class="story">
+      <div class="story-headline">ETF 年初流入突破 5,000 億美元，LQD 單日吸金近 10 億 / ETF Flows Top $500B YTD in Q1; LQD Sees ~$1B Single-Day Inflow; Equity-to-Bond Rebalancing</div>
+      <div class="story-meta">
+        <a href="https://www.etftrends.com/thematic-investing-content-hub/etf-flows-top-500-billion-first-quarter-2026/" target="_blank">ETF Trends</a> ·
+        <a href="https://finance.yahoo.com/markets/options/articles/daily-etf-flows-lqd-infows-210004535.html" target="_blank">Yahoo Finance ETF Flows</a> · 2026-05
+        &nbsp;|&nbsp; <span class="tag">ETF</span> <span class="tag">資金流</span> <span class="tag">LQD</span>
+      </div>
+      <div class="fact-block">
+        <span class="label label-facts">核心事實 / Facts</span><br>
+        Q1 2026 ETF 淨申購已突破 5,000 億美元。5/13 當週：長期基金（含 ETF）總流入 389.8 億美元，其中股票型 133.7 億、債券型 250.6 億。LQD（投資級公司債 ETF）單日吸金近 10 億美元。選擇權市場方面，指數/ETF 與個股選擇權比值正常化回約 1.3 倍。<br><br>
+        Q1 2026 ETF net issuance surpassed $500B. Week of May 13: total long-term fund inflows $38.98B; equities $13.37B, bonds $25.06B (taxable bond $22.1B). LQD saw ~$1B single-day inflow. Options: index/ETF-to-single-stock ratio normalized to ~1.3x.
+      </div>
+      <div class="context-block">
+        <span class="label label-context">背景脈絡 / Context</span><br>
+        高殖利率環境下，機構開始重新配置至投資級債券（LQD 大幅吸金即為佐證）。股票 ETF 流入以國內股票為主（108.6 億），海外股票相對受冷。選擇權市場回歸常態，表示系統性風險溢價壓縮中。<br><br>
+        High yields are attracting institutional reallocation into IG bonds (LQD proof). Domestic equity ETFs dominate ($10.86B domestic vs $2.5B world equity). Options normalizing signals systemic risk-premium compression.
+      </div>
+      <div class="imply-block">
+        <span class="label label-imply">影響觀察 / Implications</span><br>
+        資金從高波動 ETF 轉向投資級債，若持續將壓縮科技股的估值溢價。SpaceX IPO 的訂單積累期（5/20 至 6/12）或引發近期資金分配變化。<br><br>
+        Capital rotation from high-beta ETFs to IG bonds, if sustained, compresses tech multiples. SpaceX IPO book-building (May 20–June 12) may temporarily redirect discretionary allocation.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 8: READS ===== -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">📚</div>
+      觀點 / Reads Worth Bookmarking
+    </div>
+
+    <div class="story">
+      <div class="story-headline">Seeking Alpha：美股板塊輪動圖冊——「不神聖聯盟」 / SA Sector Rotation Chartbook: "The Unholy Alliance"</div>
+      <div class="story-meta">
+        <a href="https://seekingalpha.com/article/4901125-us-equity-sector-rotation-chartbook-may-2026-unholy-alliance" target="_blank">Seeking Alpha</a> · 2026-05
+      </div>
+      <div class="context-block">
+        <span class="label label-context">摘要 / Summary</span><br>
+        分析 2026 年能源 + 工業 + 消費防禦的「不神聖聯盟」如何共同在 AI 基礎建設的背景下跑贏科技板塊。文章指出，這不是傳統意義的「科技退燒」，而是 AI 資本支出擴散至全市場的新型態輪動。<br><br>
+        Analyzes how Energy + Industrials + Consumer Defensives formed an "unholy alliance" to outperform tech — not a tech sell-off, but AI capex diffusing across the entire economy.
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-headline">CNBC：Nvidia 再次財報後下跌，賣方忽略了什麼？ / CNBC: "Here We Go Again with Nvidia Falling on Earnings — What the Sellers Are Missing"</div>
+      <div class="story-meta">
+        <a href="https://www.cnbc.com/2026/05/21/here-we-go-again-with-nvidia-falling-on-earnings-what-the-sellers-are-missing.html" target="_blank">CNBC</a> · 2026-05-21
+      </div>
+      <div class="context-block">
+        <span class="label label-context">摘要 / Summary</span><br>
+        文章指出 Nvidia 的結構性 AI 故事並未改變，$800 億美元的回購計畫加上資料中心需求翻倍的趨勢，賣出者可能低估了長期 EPS 成長的複合效果。<br><br>
+        Argues NVDA's structural AI story is intact; $80B buyback + doubling data center revenue is a powerful EPS compounder. "Sell-the-news" traders may be underestimating the long-run trajectory.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SOURCES ===== -->
+  <div class="sources-section">
+    <h3>來源 / Sources</h3>
+    <ul>
+      <li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-may-22-2026" target="_blank">TheStreet — Stock Market Today May 22, 2026</a></li>
+      <li><a href="https://www.finsyn.com/weekly-market-recap-may-22-2026/" target="_blank">Financial Synergies — Weekly Market Recap May 22, 2026</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/20/nvidia-nvda-earnings-report-q1-2027.html" target="_blank">CNBC — Nvidia Q1 FY2027 Earnings Report</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/21/here-we-go-again-with-nvidia-falling-on-earnings-what-the-sellers-are-missing.html" target="_blank">CNBC — Nvidia Falls on Earnings Analysis</a></li>
+      <li><a href="https://intellectia.ai/blog/nvidia-earnings-may-2026" target="_blank">Intellectia AI — Nvidia Earnings May 2026</a></li>
+      <li><a href="https://fortune.com/2026/05/20/nvidia-q1-earnings-forecast-dividend-stock-buybacks/" target="_blank">Fortune — Nvidia Q1 Earnings</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/20/intuit-intu-q3-earnings-report-2026-company-cutting-17percent-of-staff.html" target="_blank">CNBC — Intuit Q3 2026 Earnings &amp; Layoffs</a></li>
+      <li><a href="https://techcrunch.com/2026/05/20/intuit-to-lay-off-over-3000-employees-to-refocus-on-ai/" target="_blank">TechCrunch — Intuit Layoffs</a></li>
+      <li><a href="https://www.heygotrade.com/en/blog/ralph-lauren-rl-q4-2026-earnings-beat-premium-brand/" target="_blank">HeyGotrade — Ralph Lauren Q4 2026</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/ralph-lauren-rl-q4-earnings-131002010.html" target="_blank">Yahoo Finance — Ralph Lauren Q4 Earnings</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/20/spacex-ipo-live-updates.html" target="_blank">CNBC — SpaceX IPO Live Updates</a></li>
+      <li><a href="https://fortune.com/2026/05/20/spacex-finally-files-ipo-prospectus-reveals-revenue-is-up-but-losses-are-too/" target="_blank">Fortune — SpaceX IPO Prospectus</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-05-21/spacex-ipo-ai-plans-starlink-growth-and-risks" target="_blank">Bloomberg — SpaceX IPO AI Plans &amp; Risks</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/19/treasurys-yields-inflation-traders-fed-interest-rates.html" target="_blank">CNBC — 30Y Treasury Yield Hits 5.197%</a></li>
+      <li><a href="https://www.federalreserve.gov/releases/h15/" target="_blank">Federal Reserve H.15 — Interest Rates May 21, 2026</a></li>
+      <li><a href="https://www.morningstar.com/markets/is-stock-market-rotation-underway-these-sectors-are-outpacing-tech-2026" target="_blank">Morningstar — Sector Rotation 2026</a></li>
+      <li><a href="https://seekingalpha.com/article/4901125-us-equity-sector-rotation-chartbook-may-2026-unholy-alliance" target="_blank">Seeking Alpha — US Equity Sector Rotation Chartbook May 2026</a></li>
+      <li><a href="https://www.etftrends.com/thematic-investing-content-hub/etf-flows-top-500-billion-first-quarter-2026/" target="_blank">ETF Trends — Q1 2026 ETF Flows Top $500B</a></li>
+      <li><a href="https://finance.yahoo.com/markets/options/articles/daily-etf-flows-lqd-infows-210004535.html" target="_blank">Yahoo Finance — LQD ETF Daily Flows</a></li>
+      <li><a href="https://www.ey.com/en_us/insights/mergers-acquisitions/m-and-a-activity-report" target="_blank">EY — M&amp;A Activity Report April 2026</a></li>
+    </ul>
+    <div class="disclaimer">
+      本報告僅供資訊參考，不構成任何投資建議。所有數據來自公開來源，部分指數收盤數字可能為初步報告值。DXY 與 Russell 2000 精確收盤數據未能於本次彙整中取得，以「—」標示。本期交易日為 2026 年 5 月 22 日（週五），5 月 23 日（週六）為休市，5 月 25 日（週一，Memorial Day）亦為美國市場休市日。<br><br>
+      This report is for informational purposes only and does not constitute investment advice. All data sourced from publicly available outlets. Some figures may be preliminary. DXY and RUT precise closes were not retrieved and are marked "—". Next US trading day: Tuesday, May 26, 2026 (post-Memorial Day).
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

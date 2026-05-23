@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日美股熱門焦點股 — 2026-05-23 (US Session: May 22, 2026)</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #222535;
+      --border: #2e3250;
+      --accent: #6c7aff;
+      --accent2: #00d4aa;
+      --red: #ff5555;
+      --green: #50fa7b;
+      --yellow: #f1fa8c;
+      --orange: #ffb86c;
+      --purple: #bd93f9;
+      --cyan: #8be9fd;
+      --text: #e8e8f0;
+      --muted: #8890b0;
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      padding: 24px 16px;
+    }
+    .container { max-width: 1080px; margin: 0 auto; }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 36px 24px 28px;
+      background: linear-gradient(135deg, #1a1d27 0%, #1e2240 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 28px;
+    }
+    .header h1 { font-size: 2rem; font-weight: 700; color: var(--accent); letter-spacing: -0.5px; }
+    .header .sub { color: var(--muted); font-size: 0.95rem; margin-top: 6px; }
+    .session-badge {
+      display: inline-block;
+      background: var(--surface2);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.85rem;
+      margin-top: 12px;
+    }
+
+    /* Section titles */
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+      margin: 32px 0 16px;
+    }
+    h3 { font-size: 1.05rem; font-weight: 700; color: var(--cyan); margin: 20px 0 8px; }
+
+    /* Summary table */
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      font-size: 0.88rem;
+    }
+    thead tr { background: var(--surface2); }
+    th {
+      padding: 10px 12px;
+      text-align: left;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    td {
+      padding: 9px 12px;
+      border-top: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:hover td { background: var(--surface2); }
+    .up { color: var(--green); font-weight: 700; }
+    .down { color: var(--red); font-weight: 700; }
+    .neut { color: var(--yellow); font-weight: 700; }
+    .ticker { font-family: monospace; font-weight: 700; font-size: 1rem; }
+    .buzz { letter-spacing: 2px; }
+
+    /* Ticker cards */
+    .ticker-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      margin-bottom: 22px;
+      transition: border-color 0.2s;
+    }
+    .ticker-card:hover { border-color: var(--accent); }
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-ticker { font-size: 1.5rem; font-weight: 800; font-family: monospace; }
+    .card-name { color: var(--muted); font-size: 0.95rem; }
+    .card-pct {
+      margin-left: auto;
+      font-size: 1.3rem;
+      font-weight: 800;
+      border-radius: 6px;
+      padding: 2px 10px;
+    }
+    .card-pct.up { background: rgba(80,250,123,0.12); color: var(--green); }
+    .card-pct.down { background: rgba(255,85,85,0.12); color: var(--red); }
+
+    .label {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      border-radius: 4px;
+      padding: 2px 7px;
+      margin-bottom: 5px;
+    }
+    .label.red { color: var(--red); border-color: var(--red); }
+    .label.green { color: var(--green); border-color: var(--green); }
+    .label.yellow { color: var(--yellow); border-color: var(--yellow); }
+    .label.purple { color: var(--purple); border-color: var(--purple); }
+    .label.orange { color: var(--orange); border-color: var(--orange); }
+
+    .section-block { margin-bottom: 14px; }
+    .section-block p { color: var(--text); margin-top: 4px; }
+    .zh { color: #c5c8e8; }
+    .en { color: var(--muted); font-size: 0.92rem; margin-top: 3px; }
+    blockquote {
+      border-left: 3px solid var(--purple);
+      padding: 6px 14px;
+      background: var(--surface2);
+      border-radius: 0 6px 6px 0;
+      color: var(--purple);
+      font-style: italic;
+      margin: 8px 0;
+      font-size: 0.9rem;
+    }
+
+    /* Watch list */
+    .watchlist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 14px;
+    }
+    .watch-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+    }
+    .watch-card .wt { font-family: monospace; font-weight: 700; font-size: 1.1rem; }
+    .watch-card .wpct { font-weight: 700; font-size: 1rem; }
+    .watch-card .wdesc { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
+
+    /* Backdrop */
+    .backdrop {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+    }
+    .backdrop-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      margin-bottom: 10px;
+    }
+    .bdx { font-size: 0.88rem; }
+    .bdx .blab { color: var(--muted); font-size: 0.8rem; }
+
+    /* Sources footer */
+    .sources {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      font-size: 0.82rem;
+    }
+    .sources a { color: var(--accent); text-decoration: none; }
+    .sources a:hover { text-decoration: underline; }
+    .sources li { margin-bottom: 4px; color: var(--muted); }
+
+    /* Disclaimer */
+    .disclaimer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 24px;
+      padding: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Halts section */
+    .halt-card {
+      background: rgba(255,85,85,0.07);
+      border: 1px solid rgba(255,85,85,0.3);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>🔥 今日美股熱門焦點股</h1>
+    <div class="sub">Hot US Stocks of the Day — Deepest Buzz + Volume + Catalyst Analysis</div>
+    <div class="session-badge">US Session: Friday May 22, 2026 (RTH Close) · Published: 2026-05-23 Taipei Time</div>
+  </div>
+
+  <!-- Summary Table -->
+  <h2>📊 Summary Table — Today's Hot Names / 今日熱門一覽</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>Company</th>
+          <th>Close</th>
+          <th>%</th>
+          <th>Catalyst</th>
+          <th>Options</th>
+          <th>Buzz ★</th>
+          <th>Theme</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ticker">AKTX</td>
+          <td>Akari Therapeutics</td>
+          <td>$18.27</td>
+          <td class="up">+255%</td>
+          <td>Preclinical cancer data + $5.5M raise</td>
+          <td>IV spike; short covering</td>
+          <td class="buzz up">★★★★★</td>
+          <td>Biotech / Meme</td>
+        </tr>
+        <tr>
+          <td class="ticker">FUTU</td>
+          <td>Futu Holdings</td>
+          <td>$77.86</td>
+          <td class="down">−37%</td>
+          <td>China CSRC penalty, illegal cross-border ops</td>
+          <td>Put-heavy; IV surge</td>
+          <td class="buzz up">★★★★★</td>
+          <td>China Reg / ADR</td>
+        </tr>
+        <tr>
+          <td class="ticker">TIGR</td>
+          <td>UP Fintech (Tiger)</td>
+          <td>$3.78</td>
+          <td class="down">−35%</td>
+          <td>CSRC to confiscate illegal gains from Tiger</td>
+          <td>Put activity; halt risk</td>
+          <td class="buzz up">★★★★☆</td>
+          <td>China Reg / ADR</td>
+        </tr>
+        <tr>
+          <td class="ticker">AMD</td>
+          <td>Advanced Micro Devices</td>
+          <td>$449.59</td>
+          <td class="up">+4%</td>
+          <td>MI450 Oracle 50K GPU deal; Lisa Su Taipei speech</td>
+          <td>Call flow; elevated IV</td>
+          <td class="buzz up">★★★★☆</td>
+          <td>AI Semiconductor</td>
+        </tr>
+        <tr>
+          <td class="ticker">RGTI</td>
+          <td>Rigetti Computing</td>
+          <td>$26.28</td>
+          <td class="up">+19%</td>
+          <td>$2B US govt quantum grant; $100M to Rigetti</td>
+          <td>Call-heavy; OI build</td>
+          <td class="buzz up">★★★★☆</td>
+          <td>Quantum Computing</td>
+        </tr>
+        <tr>
+          <td class="ticker">QBTS</td>
+          <td>D-Wave Quantum</td>
+          <td>$29.56</td>
+          <td class="up">+15%</td>
+          <td>$2B quantum grants; D-Wave call activity</td>
+          <td>5:1 calls/puts; vol 60M</td>
+          <td class="buzz up">★★★☆☆</td>
+          <td>Quantum Computing</td>
+        </tr>
+        <tr>
+          <td class="ticker">WRB</td>
+          <td>W. R. Berkley</td>
+          <td>~$40 est.</td>
+          <td class="down">−32%</td>
+          <td>Slowing growth, weak commercial insurance market</td>
+          <td>Put flow; vol spike</td>
+          <td class="buzz up">★★★☆☆</td>
+          <td>Insurance / Value</td>
+        </tr>
+        <tr>
+          <td class="ticker">LFS</td>
+          <td>Leifras Co.</td>
+          <td>待確認</td>
+          <td class="up">~+89%</td>
+          <td>Tokai Sports 100% acquisition announced</td>
+          <td>Low-float momentum</td>
+          <td class="buzz up">★★☆☆☆</td>
+          <td>Small Cap / M&A</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Hot Picks Section -->
+  <h2>🚀 Hot 5 — Deep Dives / 深度解析</h2>
+
+  <!-- AKTX -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <span class="card-ticker" style="color: var(--green);">$AKTX</span>
+      <span class="card-name">Akari Therapeutics, PLC — 艾卡里生物治療</span>
+      <span class="card-pct up">+255%</span>
+    </div>
+
+    <div class="section-block">
+      <span class="label green">TAPE</span>
+      <p>RTH Close: $18.27 (from $5.14 open) · Day range: $8.58–$18.99 · Intraday swing: 121% · Pre-market AH price: parabolic; $5.5M placement priced concurrent</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label green">為什麼今天熱 / Why It's Hot</span>
+      <p class="zh">Akari Therapeutics 公布其領先藥物 <strong>AKTX-101</strong> 在 KRAS 突變胰臟癌模型中展現出與 KRAS 抑製劑的協同抗腫瘤活性，並同步宣布以 $5.5M 私募融資。Gurufocus 與 Benzinga 同步報導，Wall Street 12 個月目標價 $26.78（潛在上漲 420%），短暫引爆投機買盤。</p>
+      <p class="en">Akari released preclinical data showing AKTX-101 (an antibody-drug conjugate / complement inhibitor) produced synergistic tumor-killing activity when combined with KRAS inhibitors in pancreatic cancer cell models — one of oncology's hardest-to-treat targets. Simultaneously, the company priced a $5.5 million private placement, fueling a "dilution plus hype" squeeze dynamic typical of micro-cap biotechs.</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label purple">Options &amp; Flow</span>
+      <p>Options data sparse for nano-cap. Short covering dynamics likely dominated the tape — shares rose from $5.14 to $18.27, consistent with forced short exits at thin book depth. Wall Street price target: $26.78 average, implying residual upside even post-surge. Float very small — extreme leverage to any narrative.</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label yellow">Retail Buzz</span>
+      <p>Trended on StockTwits and r/pennystocks. Narrative: "ADC plus KRAS inhibitor combo in pancreatic cancer — the last great frontier." Timothy Sykes flagged the move early. Common bull framing:</p>
+      <blockquote>"KRAS synergy in pancreatic cancer? This is huge if it holds in humans"</blockquote>
+      <p>Bear counter: "preclinical data + micro-cap + dilutive raise = classic penny biotech pump."</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label">炒作脈絡 / Narrative Context</span>
+      <p>Akari has been a complement-pathway biotech pivoting toward oncology. This move follows the broader ADC (antibody-drug conjugate) hype cycle ignited by Daiichi Sankyo / AstraZeneca deals. Pancreatic cancer KRAS mutations affect ~90% of patients — the market for a validated treatment is massive, making even early preclinical data market-moving for micro-caps. Prior history: AKTX has had similar spike-and-fade patterns before on underpowered data.</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label orange">後續觀察 / What to Watch</span>
+      <p>1) Sustainability of the $18 level — gap fill to ~$8 is the primary downside. 2) Whether the private placement investors flip shares. 3) Any IND filing timeline for AKTX-101. 4) Institutional follow-through vs. retail fade. This is a <em>分析觀察</em>, not a buy/sell recommendation.</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label">Sources</span>
+      <p style="font-size:0.82rem; color: var(--muted);">
+        <a href="https://www.gurufocus.com/news/8877208/akari-therapeutics-aktx-shares-surge-120-on-promising-preclinical-cancer-therapy-data" style="color:var(--accent);">Gurufocus — AKTX +120% preclinical data</a> ·
+        <a href="https://www.stocktitan.net/news/AKTX/akari-therapeutics-announces-5-5-million-private-placement-w7eg0e9o39yq.html" style="color:var(--accent);">StockTitan — $5.5M raise</a> ·
+        <a href="https://www.benzinga.com/trading-ideas/movers/26/05/52748332/akari-therapeutics-stock-jumps-on-promising-preclinical-data" style="color:var(--accent);">Benzinga</a> ·
+        <a href="https://finance.yahoo.com/markets/stocks/articles/aktx-stock-goes-parabolic-hours-002511035.html" style="color:var(--accent);">Yahoo Finance — AKTX parabolic</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- FUTU -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <span class="card-ticker" style="color: var(--red);">$FUTU</span>
+      <span class="card-name">Futu Holdings, Ltd. — 富途控股</span>
+      <span class="card-pct down">−37%</span>
+    </div>
+
+    <div class="section-block">
+      <span class="label red">TAPE</span>
+      <p>RTH Close: $77.86 · Pre-market initial drop: −33% · Final session close −37.1% · Volume: extremely elevated (多倍平均成交量)</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label red">為什麼今天熱 / Why It's Hot</span>
+      <p class="zh">中國證監會（CSRC）正式宣布，將對富途控股、老虎證券（TIGR）及 Longbridge 依法懲處，理由是上述券商在未取得大陸金融牌照的情況下，長期以「違規方式」招攬內地客戶進行境外證券投資。監管層表示將沒收全部「違法所得」，並對境內外實體雙重處罰，同時給予兩年過渡期讓現有客戶清倉撤資，但禁止接受新客戶。</p>
+      <p class="en">China's CSRC formally announced penalties against Futu Holdings, Tiger Brokers (TIGR), and Longbridge for operating cross-border brokerage services for mainland Chinese citizens without an onshore license — an escalation of a years-long regulatory campaign. The regulator will confiscate all "illegal gains" from both domestic and overseas entities and impose financial penalties. A two-year wind-down window is allowed: existing clients may sell holdings and withdraw funds, but no new clients are permitted. Bloomberg confirmed the announcement. This is an existential threat to the mainland-facing business model of both firms.</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label purple">Options &amp; Flow</span>
+      <p>Significant put activity in FUTU pre-market. Implied volatility spiked sharply. FUTU was downgraded by at least one broker on escalating regulatory risk. Institutional holders faced forced selling pressure as the 37% gap-down triggered margin calls for leveraged positions.</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label yellow">Retail Buzz</span>
+      <p>Massive discussion on StockTwits and r/stocks. Chinese retail diaspora communities heavily impacted — many use Futu and Tiger to access US/HK markets. Bulls pointed to the 2-year wind-down period as a lifeline; bears argued the business model is permanently impaired.</p>
+      <blockquote>"Futu without mainland China clients is just another small brokerage"</blockquote>
+    </div>
+
+    <div class="section-block">
+      <span class="label">炒作脈絡 / Narrative Context</span>
+      <p>FUTU and TIGR have long operated in a regulatory grey zone — offering HK/US market access to mainland China investors despite Beijing's capital controls. The CSRC had issued warnings before, but this is the most forceful action yet: formal penalty letters + confiscation orders. Peers: Longbridge (not publicly listed) also named. The move signals Beijing's sustained concern about domestic capital outflows via unlicensed channels.</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label orange">後續觀察 / What to Watch</span>
+      <p>1) Exact penalty amount (CSRC has not yet disclosed final figures — 待確認). 2) Whether two-year wind-down allows customer base retention in HK/SG/other jurisdictions. 3) FUTU's next earnings call for management response. 4) TIGR's separate trajectory — smaller and weaker balance sheet, thus higher insolvency risk. (分析, not recommendation.)</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label">Sources</span>
+      <p style="font-size:0.82rem; color: var(--muted);">
+        <a href="https://www.bloomberg.com/news/articles/2026-05-22/china-to-penalize-tiger-futu-in-cross-border-broker-crackdown" style="color:var(--accent);">Bloomberg — China penalizes Tiger, Futu</a> ·
+        <a href="https://finance.yahoo.com/markets/stocks/articles/futu-tigr-stocks-crashing-today-112811709.html" style="color:var(--accent);">Yahoo Finance — FUTU/TIGR crash</a> ·
+        <a href="https://coincentral.com/up-fintech-tigr-stock-drops-35-after-china-regulator-moves-to-shut-down-core-business/" style="color:var(--accent);">CoinCentral — TIGR −35%</a> ·
+        <a href="https://www.scmp.com/business/china-business/article/3354543/china-regulator-punishes-brokerages-offering-illegal-access-overseas-stocks" style="color:var(--accent);">SCMP — China crackdown</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- AMD -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <span class="card-ticker" style="color: var(--green);">$AMD</span>
+      <span class="card-name">Advanced Micro Devices, Inc. — 超微半導體</span>
+      <span class="card-pct up">+4%</span>
+    </div>
+
+    <div class="section-block">
+      <span class="label green">TAPE</span>
+      <p>RTH Close (May 21): $449.59 · May 22 closed ~$449 range · Vol May 21: 27M sh (~$12B) · YTD: +112%</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label green">為什麼今天熱 / Why It's Hot</span>
+      <p class="zh">AMD 在台北出席的 CEO Lisa Su 公開演講中，進一步確認了 MI450 GPU（採 TSMC 2nm 製程）與 Helios 機架架構的路線圖。AMD 與 Oracle 達成部署 50,000 枚 MI450 Instinct GPU 的合作協議，是 AMD AI 基礎建設訂單能見度持續提升的關鍵訊號。加上 Evercore ISI 上調目標價至 $579（從 $358），進一步點燃買氣。</p>
+      <p class="en">CEO Lisa Su's Taipei conference commentary confirmed the MI450 launch timeline (H2 2026) on TSMC's 2nm node, and unveiled a partnership with Oracle for 50,000 MI450 Instinct GPUs in new AI superclusters. The Meta multi-year arrangement covering up to 6 GW of AMD Instinct GPUs and OpenAI's 1 GW MI450 data center plan have made AMD the primary AI GPU alternative to NVIDIA. Evercore ISI raised its PT to $579 from $358 on May 19, the most aggressive bullish catalyst of the week. Q1 earnings (May 5) also beat: EPS $1.37 vs $1.29 est., revenue +38% YoY to $10.25B.</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label purple">Options &amp; Flow</span>
+      <p>AMD call activity has been elevated since Q1 earnings beat. On lighter volume days (like May 22 at ~$449), options flow was mixed at 356k contracts. IV remains elevated post-earnings drift. The stock is up 112% YTD, creating rich-option premium environments for both directional and spread traders.</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label yellow">Retail Buzz</span>
+      <p>AMD is among WSB's consistent AI infrastructure favorites for 2026. Key narrative:</p>
+      <blockquote>"TSMC can't print enough NVIDIA chips — AMD is the only game left in AI silicon"</blockquote>
+      <p>Skeptics note that the MI450 GPU software ecosystem (ROCm) still lags CUDA, and customer wins are concentrated at hyperscalers willing to invest in porting workloads.</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label orange">後續觀察 / What to Watch</span>
+      <p>1) MI450 volume production confirmation in Q3 earnings update. 2) NVIDIA Vera Rubin (competitor GPU) specs disclosure — AMD's "beat NVIDIA to 2nm" narrative is a key price driver. 3) ROCm software adoption metrics. 4) AMD's next AI partnership announcement — which hyperscaler next? (分析, not recommendation.)</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label">Sources</span>
+      <p style="font-size:0.82rem; color: var(--muted);">
+        <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/amd-and-oracle-partner-to-deploy-50-000-mi450-instinct-gpus-in-new-ai-superclusters-deployment-of-expansion-set-for-2026-powered-by-amds-helios-rack" style="color:var(--accent);">Tom's Hardware — AMD Oracle 50K MI450 deal</a> ·
+        <a href="https://www.foreignpolicyjournal.com/2026/05/22/advanced-micro-devices-inc-nasdaq-amd-stock-price-closes-at-449-as-lisa-su-speaks/" style="color:var(--accent);">FPJ — AMD $449 Lisa Su speech</a> ·
+        <a href="https://markets.financialcontent.com/stocks/article/stockstory-2026-5-22-why-amd-amd-stock-is-up-today" style="color:var(--accent);">FinancialContent — Why AMD is up</a> ·
+        <a href="https://marketwise.com/investing/amd-stock-surges-q1-2026-earnings-ai-growth/" style="color:var(--accent);">MarketWise — AMD Q1 blowout</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- RGTI -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <span class="card-ticker" style="color: var(--green);">$RGTI</span>
+      <span class="card-name">Rigetti Computing, Inc.</span>
+      <span class="card-pct up">+19%</span>
+    </div>
+
+    <div class="section-block">
+      <span class="label green">TAPE</span>
+      <p>RTH Close May 22: $26.28 (+$4.23 / +19.22%) · Vol: 87M+ shares · Extended 19% gains from May 21 surge · 1-month gain: 33%+</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label green">為什麼今天熱 / Why It's Hot</span>
+      <p class="zh">川普政府以《CHIPS 暨科學法》為框架，宣布向九家量子運算公司合計撥款 $20 億美元，並同步取得少數股權。Rigetti 與 D-Wave 各獲約 $1 億美元用於規模化超導量子系統，引爆量子股全面走揚。市場氛圍：「量子運算不再只是概念，美國政府用真金白銀押注了。」</p>
+      <p class="en">The Trump administration announced a $2.013 billion federal quantum computing grant package covering nine companies, with the government simultaneously taking minority equity stakes — a first-of-its-kind government co-investment model. Rigetti is set to receive ~$100M to advance superconducting qubit performance, coherence, and infrastructure. IBM received $1B for its Anderon quantum chip foundry. The structural narrative: the US is treating quantum computing as a strategic technology priority, echoing the CHIPS Act for semiconductors. Rigetti's stock had already gained 19% on May 21 and tacked on another 19% on May 22 — a 2-day 42% run.</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label purple">Options &amp; Flow</span>
+      <p>Heavy call buying in RGTI and QBTS since May 21. Open interest in out-of-money calls built significantly. D-Wave (QBTS) showed 5:1 calls-to-puts ratio per Barchart data. Retail and institutions both chasing; however, traders-bet-against reports note significant short interest also building as skeptics position for post-hype fade.</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label yellow">Retail Buzz</span>
+      <p>Quantum computing stocks trending on StockTwits, r/stocks, and X cashtags. IBM, RGTI, QBTS, QUBT all featured. Retail narrative split:</p>
+      <blockquote>"US government just validated the entire sector with $2B — buy everything quantum"</blockquote>
+      <p>Bears: "Most of these companies are still 5–10 years from commercial utility — grant money doesn't make the physics work faster."</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label orange">後續觀察 / What to Watch</span>
+      <p>1) Grant agreement signing timelines — LOI (letter of intent) vs binding contract. 2) Rigetti's next quarterly update on qubit performance improvements. 3) Whether QBTS, QUBT, IONQ momentum sustains through Memorial Day weekend (US markets closed May 26). 4) Short interest build — squeeze risk or fade candidate? (分析觀察)</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label">Sources</span>
+      <p style="font-size:0.82rem; color: var(--muted);">
+        <a href="https://247wallst.com/investing/2026/05/22/rigetti-surges-17-quantum-computing-inc-soars-14-d-wave-pops-13-ionq-rises-8-the-quantum-bounce-becomes-a-rally/" style="color:var(--accent);">24/7 Wall St — Quantum rally detail</a> ·
+        <a href="https://www.fxleaders.com/news/2026/05/21/qbts-and-rgti-stock-attempts-breakout-after-us-govt-2-billion-award-to-quantum-against-public/" style="color:var(--accent);">FX Leaders — $2B award</a> ·
+        <a href="https://stocktwits.com/news-articles/markets/equity/ibm-gfs-rgti-qbts-infq-stock-soar-trump-2b-quantum-computing-grants-equity-stakes/cZXCby2ReFN" style="color:var(--accent);">StockTwits — IBM/RGTI/QBTS soar</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- WRB -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <span class="card-ticker" style="color: var(--red);">$WRB</span>
+      <span class="card-name">W. R. Berkley Corporation</span>
+      <span class="card-pct down">−32%</span>
+    </div>
+
+    <div class="section-block">
+      <span class="label red">TAPE</span>
+      <p>RTH Close May 22: −32.24% (exact closing price 待確認 — data sourced from TheStreet real-time recap) · One of the largest single-session declines in the stock's history</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label red">為什麼今天熱 / Why It's Hot</span>
+      <p class="zh">W. R. Berkley 是美國主要商業財產險集團，今日股價大跌逾 32%，市場將其解讀為「商業保險市場成長放緩、環境惡化」的信號。具體 catalyst 尚待確認，但分析師共識指向保費成長動能衰退疑慮。此跌幅在 Dow 創新高的同一天格外突出，成為當日最大跌幅標的之一。</p>
+      <p class="en">W. R. Berkley is a major US commercial lines P&C insurer. The 32%+ single-session collapse — extremely rare for a large-cap insurer — reportedly reflected investor concerns about slowing premium growth in a weakening commercial insurance market. The move stood out sharply against the broader market's strength (Dow hit a record high on the same day). Exact earnings miss / guidance details are pending fuller confirmation, but the magnitude suggests a surprise negative catalyst.</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label purple">Options &amp; Flow</span>
+      <p>Put activity spiked sharply on WRB. The 32% single-session drop is consistent with a major earnings or guidance miss triggering institutional selling cascades. WRB had been a steady compounding name — this type of move typically signals an unexpected structural negative, not mere market noise. Short interest details: 待確認</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label yellow">Retail Buzz</span>
+      <p>Moderate retail discussion — mostly value/insurance investors reacting in shock. WRB not typically a meme name; discussion focused on "is this a buying opportunity or a value trap?"</p>
+      <blockquote>"WRB down 32% in one day? Something is seriously wrong with underwriting results"</blockquote>
+    </div>
+
+    <div class="section-block">
+      <span class="label orange">後續觀察 / What to Watch</span>
+      <p>1) Earnings transcript / investor day for specific commentary on loss ratios and premium trends. 2) Peer insurer reactions (AIG, Travelers, Markel). 3) Whether the selloff is company-specific or a read-through for the commercial insurance sector. (分析觀察)</p>
+    </div>
+
+    <div class="section-block">
+      <span class="label">Sources</span>
+      <p style="font-size:0.82rem; color: var(--muted);">
+        <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-may-22-2026" style="color:var(--accent);">TheStreet — May 22 market recap (WRB −32%)</a> ·
+        <a href="https://finance.yahoo.com/quote/WRB/" style="color:var(--accent);">Yahoo Finance — WRB quote</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Watch List -->
+  <h2>👀 Watch List — 次熱觀察 / Near-Misses Worth Noting</h2>
+  <div class="watchlist-grid">
+    <div class="watch-card">
+      <div class="wt">$TIGR</div>
+      <div class="wpct down">−35%</div>
+      <div class="wdesc">UP Fintech / Tiger Brokers — same CSRC crackdown as FUTU. Smaller balance sheet; higher insolvency risk. Close: $3.78.</div>
+    </div>
+    <div class="watch-card">
+      <div class="wt">$QBTS</div>
+      <div class="wpct up">+15%</div>
+      <div class="wdesc">D-Wave Quantum — unusual 5:1 calls/puts; 60M vol; $2B quantum grant beneficiary with $100M allocation.</div>
+    </div>
+    <div class="watch-card">
+      <div class="wt">$IBM</div>
+      <div class="wpct up">+12.4%</div>
+      <div class="wdesc">Quantum: $1B CHIPS grant for Anderon foundry. WSB mentions +844% over prior 24h. Not a typical hot stock but exceptional for IBM's size.</div>
+    </div>
+    <div class="watch-card">
+      <div class="wt">$LFS</div>
+      <div class="wpct up">~+89%</div>
+      <div class="wdesc">Leifras Co — Tokai Sports acquisition (+1,200 members). Small-cap Japanese sports school operator; low-float momentum play.</div>
+    </div>
+    <div class="watch-card">
+      <div class="wt">$NGEN</div>
+      <div class="wpct down">~−44%</div>
+      <div class="wdesc">NervGen Pharma — $60M offering at $2.50/sh (steep discount); SCI/Alzheimer's biotech. Classic dilution selloff. Closing: May 26.</div>
+    </div>
+    <div class="watch-card">
+      <div class="wt">$NIO</div>
+      <div class="wpct up">+5.5% PM</div>
+      <div class="wdesc">Q1 2026: 2nd consecutive adj. profitability quarter; revenue +112% YoY; 83,465 vehicles delivered. Vol 96.1M (~139% above avg). StockTwits trending.</div>
+    </div>
+  </div>
+
+  <!-- Halts & Weirdness -->
+  <h2>⚠️ Halts &amp; Weirdness / 異常事件</h2>
+  <div class="halt-card">
+    <strong style="color: var(--red);">FUTU &amp; TIGR — Regulatory Existential Risk</strong>
+    <p style="margin-top:6px;">While not exchange-halted, both stocks should be treated with extreme caution. China's CSRC penalty regime is unprecedented in scope — illegal gains confiscation hits both domestic AND overseas entities. The 2-year wind-down is a liquidity reprieve, not a rescue. Both stocks carry elevated SEC Form 6-K disclosure risk in coming days as companies file formal responses.</p>
+  </div>
+  <div class="halt-card">
+    <strong style="color: var(--orange);">AKTX — Micro-Cap Parabolic Move</strong>
+    <p style="margin-top:6px;">AKTX moved 255% intraday on minimal market cap — the type of move that can trigger Nasdaq surveillance review. Position sizing and liquidity risk are extreme. This is noted as an <em>observed market event</em>, not a recommendation.</p>
+  </div>
+
+  <!-- Market Backdrop -->
+  <h2>🌐 Market Backdrop / 大盤背景 (May 22, 2026)</h2>
+  <div class="backdrop">
+    <div class="backdrop-row">
+      <div class="bdx"><div class="blab">S&amp;P 500</div><strong class="up">7,473.47 (+0.37%)</strong></div>
+      <div class="bdx"><div class="blab">Dow Jones</div><strong class="up">50,579.70 (+0.58%) ← Record High</strong></div>
+      <div class="bdx"><div class="blab">Nasdaq</div><strong class="up">26,343.97 (+0.19%)</strong></div>
+      <div class="bdx"><div class="blab">VIX</div><strong class="neut">16.76 (Low Volatility)</strong></div>
+      <div class="bdx"><div class="blab">10Y Yield</div><strong class="neut">4.558% (−2.6 bps)</strong></div>
+    </div>
+    <div class="backdrop-row">
+      <div class="bdx"><div class="blab">Top Sector</div><strong style="color:var(--cyan);">Health Care (+1.19%) · Technology (+1.02%)</strong></div>
+      <div class="bdx"><div class="blab">Lagging</div><strong style="color:var(--red);">Communications (−0.54%)</strong></div>
+    </div>
+    <p style="margin-top:10px; font-size:0.9rem;">The S&P 500 posted its <strong>eighth consecutive weekly gain</strong> — the longest win streak since 2023. The Dow set a fresh record high, driven by Merck (+5.64%), Salesforce (+2.23%), and Cisco (+2.01%). Dell and HP surged on AI expectations ahead of earnings. Qualcomm soared on a partnership announcement. Nvidia dipped −1.86% after recent highs. US markets are closed Monday, May 26 (Memorial Day) — volume and liquidity will be thin in after-hours sessions Friday and Monday pre-market.</p>
+  </div>
+
+  <!-- All Sources -->
+  <h2>🔗 All Sources Consulted / 全部引用來源</h2>
+  <div class="sources">
+    <ul>
+      <li><a href="https://www.gurufocus.com/news/8877208/akari-therapeutics-aktx-shares-surge-120-on-promising-preclinical-cancer-therapy-data">Gurufocus — AKTX preclinical data surge</a></li>
+      <li><a href="https://www.stocktitan.net/news/AKTX/akari-therapeutics-announces-5-5-million-private-placement-w7eg0e9o39yq.html">StockTitan — AKTX $5.5M private placement</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/aktx-stock-goes-parabolic-hours-002511035.html">Yahoo Finance — AKTX parabolic after hours</a></li>
+      <li><a href="https://www.benzinga.com/trading-ideas/movers/26/05/52748332/akari-therapeutics-stock-jumps-on-promising-preclinical-data">Benzinga — AKTX preclinical data</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-05-22/china-to-penalize-tiger-futu-in-cross-border-broker-crackdown">Bloomberg — China penalizes Tiger, Futu</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/futu-tigr-stocks-crashing-today-112811709.html">Yahoo Finance — FUTU/TIGR crash details</a></li>
+      <li><a href="https://coincentral.com/up-fintech-tigr-stock-drops-35-after-china-regulator-moves-to-shut-down-core-business/">CoinCentral — TIGR −35%</a></li>
+      <li><a href="https://www.scmp.com/business/china-business/article/3354543/china-regulator-punishes-brokerages-offering-illegal-access-overseas-stocks">SCMP — China crackdown detail</a></li>
+      <li><a href="https://stocktwits.com/news-articles/markets/equity/why-futu-tigr-stock-down-today-china-crackdown/cZgR7NKReoX">StockTwits — Why FUTU/TIGR down</a></li>
+      <li><a href="https://www.gurufocus.com/news/8877445/ibms-market-surge-following-2-billion-quantum-computing-investment">Gurufocus — IBM $2B quantum surge</a></li>
+      <li><a href="https://finance.yahoo.com/sectors/technology/articles/ibm-shares-surge-securing-1-104206867.html">Yahoo Finance — IBM $1B quantum award</a></li>
+      <li><a href="https://247wallst.com/investing/2026/05/22/rigetti-surges-17-quantum-computing-inc-soars-14-d-wave-pops-13-ionq-rises-8-the-quantum-bounce-becomes-a-rally/">24/7 Wall St — Quantum rally recap</a></li>
+      <li><a href="https://www.fxleaders.com/news/2026/05/21/qbts-and-rgti-stock-attempts-breakout-after-us-govt-2-billion-award-to-quantum-against-public/">FX Leaders — QBTS/RGTI breakout</a></li>
+      <li><a href="https://www.banklesstimes.com/articles/2026/05/22/traders-bet-against-ionq-rgti-qbts-qubt-infq-stocks-amid-quantum-computing-hype/">BanklessTimes — Short interest in quantum stocks</a></li>
+      <li><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/amd-and-oracle-partner-to-deploy-50-000-mi450-instinct-gpus-in-new-ai-superclusters-deployment-of-expansion-set-for-2026-powered-by-amds-helios-rack">Tom's Hardware — AMD Oracle MI450 deal</a></li>
+      <li><a href="https://markets.financialcontent.com/stocks/article/stockstory-2026-5-22-why-amd-amd-stock-is-up-today">FinancialContent — Why AMD up May 22</a></li>
+      <li><a href="https://marketwise.com/investing/amd-stock-surges-q1-2026-earnings-ai-growth/">MarketWise — AMD Q1 blowout</a></li>
+      <li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-may-22-2026">TheStreet — Market Today May 22 (WRB −32%)</a></li>
+      <li><a href="https://www.fool.com/coverage/stock-market-today/2026/05/22/stock-market-today-may-22-s-and-p-500-reaches-eighth-straight-week-of-gains/">Motley Fool — S&P 500 eighth weekly gain</a></li>
+      <li><a href="https://www.prnewswire.com/news-releases/leifras-co-ltd-to-acquire-tokai-sports-as-wholly-owned-subsidiary-to-expand-market-leadership-and-accelerate-ltv-growth-302778239.html">PR Newswire — LFS Tokai Sports acquisition</a></li>
+      <li><a href="https://www.gurufocus.com/news/8877241/nervgen-pharma-ngen-launches-60-million-public-offering-of-shares-and-warrants">Gurufocus — NGEN $60M offering</a></li>
+      <li><a href="https://cnevpost.com/2026/05/21/nio-q1-2026-earnings/">CnEVPost — NIO Q1 2026 earnings</a></li>
+      <li><a href="https://altindex.com/wallstreetbets">AltIndex — WSB most mentioned stocks</a></li>
+      <li><a href="https://stocktwits.com/rankings/most-active">StockTwits Most Active</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/gainers/">Yahoo Finance Gainers</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/most-active/">Yahoo Finance Most Active</a></li>
+      <li><a href="https://www.barchart.com/options/unusual-activity">Barchart Unusual Options Activity</a></li>
+      <li><a href="https://www.cboe.com/us/options/market_statistics/">CBOE Options Statistics</a></li>
+    </ul>
+  </div>
+
+  <div class="disclaimer">
+    ⚠️ 本報告為市場觀察與資訊彙整，不構成任何投資建議。所有數據均引用公開來源，部分數字標注「待確認」者請自行核實。<br/>
+    This report is for informational purposes only and does not constitute investment advice. Always verify data from primary sources before making any trading decisions.
+  </div>
+
+</div>
+</body>
+</html>

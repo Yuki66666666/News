@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>今日創投新聞日報 · Daily VC News · 2026-05-23</title>
+<style>
+  :root { color-scheme: light; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #f9f9f7;
+    color: #1a1a1a;
+    line-height: 1.65;
+    padding: 0 0 60px;
+  }
+
+  /* ── Header ── */
+  header {
+    background: #0f1923;
+    color: #fff;
+    padding: 32px 40px 24px;
+    border-bottom: 3px solid #2563eb;
+  }
+  header .badge {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #93c5fd;
+    margin-bottom: 8px;
+  }
+  header h1 {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  header .sub {
+    font-size: 14px;
+    color: #94a3b8;
+  }
+
+  /* ── Layout ── */
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── Section Headers ── */
+  section { margin-top: 40px; }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #2563eb;
+    border-bottom: 2px solid #dbeafe;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+  .section-title .icon { font-size: 16px; }
+
+  /* ── Cards ── */
+  .card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.05);
+  }
+  .card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 10px;
+    color: #111827;
+  }
+  .card .meta {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 12px;
+  }
+  .card .meta a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+  .card .meta a:hover { text-decoration: underline; }
+
+  .label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+  .label-fact   { background: #dbeafe; color: #1d4ed8; }
+  .label-ctx    { background: #d1fae5; color: #065f46; }
+  .label-impl   { background: #fef3c7; color: #92400e; }
+
+  p.fact, p.ctx, p.impl {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  /* ── Top Story highlight ── */
+  .top-card {
+    border-left: 4px solid #2563eb;
+    background: #eff6ff;
+  }
+
+  /* ── Pill tags ── */
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 99px;
+    padding: 2px 10px;
+    color: #374151;
+    margin: 4px 4px 0 0;
+  }
+
+  /* ── Reads section ── */
+  .read-item {
+    padding: 14px 0;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .read-item:last-child { border-bottom: none; }
+  .read-item a {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1d4ed8;
+    text-decoration: none;
+  }
+  .read-item a:hover { text-decoration: underline; }
+  .read-item p {
+    font-size: 13px;
+    color: #4b5563;
+    margin-top: 4px;
+  }
+
+  /* ── Footer ── */
+  footer {
+    margin-top: 52px;
+    padding: 24px 40px;
+    background: #f3f4f6;
+    border-top: 1px solid #e5e7eb;
+    font-size: 12px;
+    color: #6b7280;
+  }
+  footer a { color: #2563eb; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  footer .sources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 6px 20px;
+    margin-top: 10px;
+  }
+
+  /* ── Stat bar ── */
+  .stat-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .stat {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 14px 20px;
+    min-width: 140px;
+    flex: 1;
+  }
+  .stat .num {
+    font-size: 22px;
+    font-weight: 800;
+    color: #2563eb;
+    line-height: 1.1;
+  }
+  .stat .desc { font-size: 12px; color: #6b7280; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">創投新聞日報 · Daily VC Briefing</div>
+  <h1>今日創投新聞 / Venture Capital Daily</h1>
+  <div class="sub">2026年5月23日（六）· Asia/Taipei · Powered by Claude</div>
+</header>
+
+<div class="container">
+
+  <!-- ── KEY STATS ── -->
+  <section>
+    <div class="stat-row" style="margin-top:32px;">
+      <div class="stat"><div class="num">$300B</div><div class="desc">Q1 2026 全球 VC 投資總額 (史上最高)</div></div>
+      <div class="stat"><div class="num">$80B+</div><div class="desc">Q1 美國基金募資額 (季度紀錄)</div></div>
+      <div class="stat"><div class="num">$15B</div><div class="desc">a16z 最新基金規模</div></div>
+      <div class="stat"><div class="num">$6B</div><div class="desc">Founders Fund 最新基金 (史上最大)</div></div>
+    </div>
+  </section>
+
+  <!-- ── 1. TOP STORIES ── -->
+  <section>
+    <div class="section-title"><span class="icon">🔥</span> 頭條 / Top Stories</div>
+
+    <div class="card top-card">
+      <h3>a16z 完成 $150 億歷史最大募資，AUM 超越 $900 億<br>
+          <span style="font-weight:400;font-size:14px;">Andreessen Horowitz Closes Record $15B, AUM Crosses $90B</span></h3>
+      <div class="meta">
+        來源 / Source:
+        <a href="https://www.axios.com/2026/01/09/andreessen-horowitz-15-billion-for-new-funds" target="_blank">Axios Pro Rata</a> ·
+        <a href="https://www.cnbc.com/2026/01/09/andreessen-horowitz-raises-15-billion-big-in-infrastructure-defense.html" target="_blank">CNBC</a> ·
+        <a href="https://techcrunch.com/2026/01/09/the-venture-firm-that-ate-silicon-valley/" target="_blank">TechCrunch</a> ·
+        2026-01-09
+      </div>
+
+      <div class="label label-fact">核心事實 / Facts</div>
+      <p class="fact">a16z 宣布完成 $150 億美元跨策略基金募資，為其史上最大單輪募集。資本結構：成長基金 $67.5 億（Growth Fund VI）、應用基金 $17 億（App Fund）、基礎設施基金 $17 億（Infra Fund）、美國動能基金 $12 億（American Dynamism）、生技健康基金 $7 億，其餘分配至各垂直策略。此輪後，a16z 管理資產（AUM）正式突破 $900 億。<br>
+      <em>a16z closed $15B across new fund vehicles — growth ($6.75B), apps ($1.7B), infra ($1.7B), American Dynamism ($1.2B), biotech/health ($700M). Total AUM surpassed $90B.</em></p>
+
+      <div class="label label-ctx">背景脈絡 / Context</div>
+      <p class="ctx">此輪募資發生在 2025 全美 VC 基金募資為 2017 年以來最弱的背景下，a16z 一家的 $150 億佔去年全美 VC 募資總額的 18%，充分展示「贏者全拿」的市場結構。本輪特別著重「美國動能」（國防、航太、製造）與 AI 基礎設施，反映 a16z 政治轉向與川普政府的親近策略。<br>
+      <em>This raise equals 18% of all 2025 US VC fundraising — in a year that was the weakest since 2017. The heavy American Dynamism allocation signals a deliberate alignment with the Trump administration's industrial priorities.</em></p>
+
+      <div class="label label-impl">影響觀察 / Implications</div>
+      <p class="impl">（分析）中型 VC 的 LP 池正被大型平台型基金系統性抽走資金，形成「擠出效應」。a16z 的 $90B AUM 規模使其進入另類資產公司（如黑石）的競爭圈，預示 VC 與 PE 界線持續模糊。<br>
+      <em>[Analysis] Mid-sized GPs face LP capital being absorbed by platform megafunds. At $90B AUM, a16z now competes in the same breath as alternative asset managers like Blackstone. The VC/PE boundary continues to blur.</em></p>
+
+      <span class="tag">Mega Fund</span>
+      <span class="tag">a16z</span>
+      <span class="tag">American Dynamism</span>
+      <span class="tag">Defense Tech</span>
+    </div>
+
+    <div class="card top-card">
+      <h3>Founders Fund 以 $60 億完成史上最大基金，Thiel 與內部人員自投 $15 億<br>
+          <span style="font-weight:400;font-size:14px;">Founders Fund Closes Record $6B Growth Fund; Thiel + Staff Put In $1.5B</span></h3>
+      <div class="meta">
+        來源 / Source:
+        <a href="https://www.bloomberg.com/news/articles/2026-05-01/thiel-s-founders-fund-raises-6-billion-in-its-largest-ever-haul" target="_blank">Bloomberg</a> ·
+        <a href="https://techcrunch.com/2026/03/09/founders-fund-nears-6-billion-close-for-latest-growth-fund-sources-say/" target="_blank">TechCrunch</a> ·
+        正式 close: 2026-05-01
+      </div>
+
+      <div class="label label-fact">核心事實 / Facts</div>
+      <p class="fact">Founders Fund 正式完成 $60 億美元第四支成長期基金（Growth Fund IV），創辦 20 年歷史最大募資。LP 資金 $45 億（含主權財富基金），Peter Thiel 及高階員工自投 $15 億（佔比 25%）。前一支成長基金完成後不足一年即啟動新一輪，為 FF 歷史上最快接力速度。<br>
+      <em>Founders Fund closed its fourth growth-stage fund at $6B — its largest ever. Of the $6B, $4.5B from LPs (incl. SWFs) and $1.5B from Thiel and senior staff. This is their fastest fund-to-fund succession in 20 years.</em></p>
+
+      <div class="label label-ctx">背景脈絡 / Context</div>
+      <p class="ctx">FF 的投資組合以後期集中佈局著稱（SpaceX、Anduril、Palantir 等），高 GP commit（25%）向 LP 釋放強力利益一致信號。新基金策略聚焦 AI、國防科技、金融基礎設施。<br>
+      <em>FF's concentrated late-stage playbook (SpaceX, Anduril, Palantir) has generated outsized returns. The 25% GP commit is a strong alignment signal to LPs. Focus: AI, defense tech, fintech infra.</em></p>
+
+      <div class="label label-impl">影響觀察 / Implications</div>
+      <p class="impl">（分析）FF 與 a16z 的同時期超大型基金，代表「成長期優質標的爭奪戰」將在下半年激烈上演。兩者皆重押國防科技，預計帶動更多 VC 跟進此賽道。<br>
+      <em>[Analysis] FF + a16z simultaneously in market with mega growth funds signals intense competition for late-stage AI/defense deals in H2 2026. Expect other firms to pivot further toward defense tech.</em></p>
+
+      <span class="tag">Founders Fund</span>
+      <span class="tag">Peter Thiel</span>
+      <span class="tag">Growth Fund</span>
+      <span class="tag">GP Commit</span>
+    </div>
+
+    <div class="card top-card">
+      <h3>Q1 2026 全球 VC 投資 $3,000 億，美國獨佔 83%，AI 包辦 64%<br>
+          <span style="font-weight:400;font-size:14px;">Q1 2026 Global VC Hits $300B Record; US Takes 83%, AI Rounds 64%</span></h3>
+      <div class="meta">
+        來源 / Source:
+        <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Crunchbase News</a> ·
+        <a href="https://www.thevccorner.com/p/q1-2026-us-fund-activity-record-fundraising" target="_blank">The VC Corner</a> ·
+        2026-04-01
+      </div>
+
+      <div class="label label-fact">核心事實 / Facts</div>
+      <p class="fact">2026 Q1 全球創投投資額 $3,000 億，6,000 家新創獲資金注入，創史上單季最高紀錄，年比季比均成長逾 150%。美國新創拿走 $2,500 億（83%），遠高於去年同期 71%。AI 相關輪次前五大即佔 $1,860 億（64%）：OpenAI $1,200 億、Anthropic $500 億、xAI $200 億、Waymo $160 億。美國 VC/PE 基金層面 Q1 募資突破 $800 億。<br>
+      <em>Global VC deployed $300B in Q1 (6,000 startups), shattering all records. US = 83% of global. AI top-5 rounds alone = $186B (64%). US fund formation Q1 = $80B+, biggest quarter since 2021.</em></p>
+
+      <div class="label label-ctx">背景脈絡 / Context</div>
+      <p class="ctx">Q1 的數字高度集中：AI 超大型輪次（OpenAI、Anthropic 等）本質上是「準主權融資」而非傳統 VC 輪。若剔除前五大 AI 輪，實際廣泛生態系的部署數字將更接近正常水準。<br>
+      <em>Stripping the top-5 AI hyper-rounds dramatically changes the picture — the underlying ecosystem is not $300B healthy. These are quasi-sovereign financing events, not typical VC.</em></p>
+
+      <div class="label label-impl">影響觀察 / Implications</div>
+      <p class="impl">（分析）LP 資金快速向美國 AI 集中的同時，歐洲、東南亞、印度的 GP 面臨更艱難的首次基金募資。「看標題數字」的 LP 可能誤判整體市場熱度。<br>
+      <em>[Analysis] LPs chasing headline $300B numbers risk misreading the underlying market. Capital concentration in US AI is crowding out global emerging market GPs at the fund formation stage.</em></p>
+
+      <span class="tag">Market Data</span>
+      <span class="tag">AI</span>
+      <span class="tag">Q1 2026</span>
+      <span class="tag">Record</span>
+    </div>
+  </section>
+
+  <!-- ── 2. FUND FORMATION & LP ── -->
+  <section>
+    <div class="section-title"><span class="icon">🏦</span> 新基金與 LP / Fund Formation &amp; LP Activity</div>
+
+    <div class="card">
+      <h3>General Catalyst 洽談募資 $100 億，挑戰 a16z 平台模式<br>
+          <span style="font-weight:400;font-size:14px;">General Catalyst in Talks to Raise ~$10B, Rivaling a16z's Platform Play</span></h3>
+      <div class="meta">
+        來源 / Source:
+        <a href="https://www.bloomberg.com/news/articles/2026-03-10/general-catalyst-discusses-raising-about-10-billion-in-funding-push" target="_blank">Bloomberg</a> ·
+        <a href="https://techcrunch.com/2026/03/11/vc-mega-funds-are-back-with-general-catalyst-spark-rumored-to-be-raising-billions/" target="_blank">TechCrunch</a> ·
+        2026-03-10（洽談中 / in discussion, not final close）
+      </div>
+
+      <div class="label label-fact">核心事實 / Facts</div>
+      <p class="fact">General Catalyst 正與 LP 磋商募集約 $100 億，資金將分散至早期、成長期多支基金。GC 現有 AUM 逾 $400 億（2021 年時為 $180 億）。這波募資同期尚有 Spark Capital 目標 $30 億，Founders Fund 已完成 $60 億。<br>
+      <em>GC discussing ~$10B raise across early + growth vehicles. AUM already >$40B (from ~$18B in 2021). Part of the 2026 mega-fund wave alongside Founders Fund ($6B closed) and Spark Capital ($3B target).</em></p>
+
+      <div class="label label-ctx">背景脈絡 / Context</div>
+      <p class="ctx">GC 近年積極轉型為「健康保障公司」（HCA）與全球平台，在印度、歐洲建立在地團隊。本輪若完成，GC 將與 a16z 共同把持美國 VC 募資的頭部地位，2024 年兩者已合佔美國 VC LP 承諾的 44%。<br>
+      <em>GC has repositioned as a global platform with teams in India and Europe. GC + a16z already captured 44% of US VC LP commitments in 2024. A $10B close would cement that duopoly.</em></p>
+
+      <div class="label label-impl">影響觀察 / Implications</div>
+      <p class="impl">（分析）若此輪完成，2026 年三大巨頭（a16z $150 億＋GC $100 億＋Founders Fund $60 億）合計吸走 $310 億，等同 Q1 2026 全球 VC 部署總額，中型 GP 的 LP 資源將更為稀薄。<br>
+      <em>[Analysis] Three mega-funds combined = $31B — equivalent to ALL global VC deployed in Q1. The LP scarcity effect for mid-tier GPs will intensify further in H2 2026.</em></p>
+
+      <span class="tag">General Catalyst</span>
+      <span class="tag">Mega Fund</span>
+      <span class="tag">Platform VC</span>
+    </div>
+
+    <div class="card">
+      <h3>Spark Capital 鎖定 $30 億新基金，成長 50% 創歷史新高<br>
+          <span style="font-weight:400;font-size:14px;">Spark Capital Targets $3B in New Funds — 50% Larger Than Prior Vintage</span></h3>
+      <div class="meta">
+        來源 / Source:
+        <a href="https://www.theinformation.com/articles/anthropic-backer-spark-capital-targets-3-billion-new-funds" target="_blank">The Information</a> ·
+        <a href="https://techcrunch.com/2026/03/11/vc-mega-funds-are-back-with-general-catalyst-spark-rumored-to-be-raising-billions/" target="_blank">TechCrunch</a> ·
+        2026-03-11
+      </div>
+
+      <div class="label label-fact">核心事實 / Facts</div>
+      <p class="fact">Spark Capital 正尋求募集 $30 億跨基金（早期 + 成長），較 2024 年 $21 億（早期 $7 億 + 成長 $14 億）成長約 50%。Spark 是 Twitter、Slack、Coinbase、Anthropic 的早期投資者。<br>
+      <em>Spark targeting $3B across its early and growth vehicles — 50% up from the $2.1B raised in 2024. Known for Twitter, Slack, Coinbase, and being Anthropic's first VC backer.</em></p>
+
+      <div class="label label-impl">影響觀察 / Implications</div>
+      <p class="impl">（分析）Spark 的 Anthropic 押注（史上最高 VC IRR 之一）為本輪募資提供強力背書，LP 對其繼續參與 AI 基礎模型下注的期待值極高。<br>
+      <em>[Analysis] Spark's Anthropic position is likely one of the best-performing VC bets of the decade, giving it a powerful LP pitch for this fund. Expect heavy focus on AI foundational model access rights.</em></p>
+
+      <span class="tag">Spark Capital</span>
+      <span class="tag">Anthropic</span>
+      <span class="tag">AI</span>
+    </div>
+
+    <div class="card">
+      <h3>沙烏地 Khwarizmi Ventures Fund II 首次關閉超 $7,000 萬，鎖定海灣六國新創<br>
+          <span style="font-weight:400;font-size:14px;">Saudi Khwarizmi Ventures Fund II First Closes at $70M+, Targets GCC Seeds</span></h3>
+      <div class="meta">
+        來源 / Source:
+        <a href="https://www.wamda.com/2026/05/khwarizmi-ventures-launches-fund-ii-70m-close-gcc-startups" target="_blank">Wamda</a> ·
+        <a href="https://entarabi.com/en/2026/05/khwarizmi-ventures-announces-first-close-of-fund-ii-to-back-the-next-generation-of-gcc-founders/" target="_blank">entARABI</a> ·
+        2026-05 (first close)
+      </div>
+
+      <div class="label label-fact">核心事實 / Facts</div>
+      <p class="fact">沙烏地早期 VC Khwarizmi Ventures 宣布 Fund II 首次關閉，金額超過 SAR 2.7 億（$7,000 萬以上），來自機構投資人及沙烏地大家族辦公室。目標規模 $1 億至 $1.2 億，計劃對每家被投標的出資 $100 萬至 $500 萬（含後續跟投能力）。沙烏地工業投資公司（SIC）為策略性 LP。Fund I（2022 年，$7,000 萬）已實現 5 次退出。<br>
+      <em>Saudi-based Khwarizmi Ventures Fund II first close: $70M+ (SAR 270M). Target: $100–120M. Cheque size: $1–5M. SIC is strategic LP. Fund I ($70M, 2022) already delivered 5 exits within 5 years.</em></p>
+
+      <div class="label label-ctx">背景脈絡 / Context</div>
+      <p class="ctx">GCC VC 生態系在 Vision 2030 政策推動下，近三年本土基金快速崛起，Khwarizmi 的 Fund I 在 Calo、Eyewa、Tamara、HALA 等明星標的中早期入場，Fund II 已達 Fund I 同等規模完成首輪。<br>
+      <em>GCC VC ecosystem is growing rapidly under Vision 2030. Khwarizmi's Fund I backers of Calo, Eyewa, and Tamara — Fund II first close already matches Fund I's total size.</em></p>
+
+      <span class="tag">MENA</span>
+      <span class="tag">GCC</span>
+      <span class="tag">Saudi Arabia</span>
+      <span class="tag">Emerging Markets</span>
+    </div>
+  </section>
+
+  <!-- ── 3. MEGA ROUNDS & LEAD INVESTORS ── -->
+  <section>
+    <div class="section-title"><span class="icon">💰</span> 大型 Round 與領投者 / Mega Rounds &amp; Lead Investors</div>
+
+    <div class="card">
+      <h3>Mercury $2 億 D 輪由 TCV 領投，估值 $52 億，a16z / Sequoia / Spark 跟投<br>
+          <span style="font-weight:400;font-size:14px;">Mercury $200M Series D Led by TCV at $5.2B; a16z, Sequoia, Spark Follow</span></h3>
+      <div class="meta">
+        來源 / Source:
+        <a href="https://www.businesswire.com/news/home/20260520511817/en/Mercury-Raises-$200-Million-Series-D-at-$5.2B-Valuation" target="_blank">BusinessWire</a> ·
+        <a href="https://news.crunchbase.com/venture/fintech-funding-digital-banking-startup-mercury-lands-200m/" target="_blank">Crunchbase News</a> ·
+        <a href="https://www.cnbc.com/2026/05/20/fintech-mercury-valuation-fundraise-bank-charter.html" target="_blank">CNBC</a> ·
+        2026-05-20
+      </div>
+
+      <div class="label label-fact">核心事實 / Facts</div>
+      <p class="fact">Mercury（數位銀行平台）完成 $2 億 D 輪，由 TCV 領投，估值 $52 億（14 個月前 Series C 估值 $35 億，增值 49%）。現有股東 a16z、Coatue、CRV、Sapphire Ventures、Sequoia Capital、Spark Capital 跟投。Mercury 至今累計融資（含二級交易）約 $7 億。Q3 2025 年化營收 $6.5 億，連續四年 GAAP 盈利。客戶超過 30 萬家企業。Mercury 已獲 OCC 條件批准成立 Mercury Bank, N.A.（全國銀行牌照）。<br>
+      <em>Mercury Series D: $200M at $5.2B (TCV leads; a16z, Sequoia, Spark follow-on). ARR at $650M+, 4 consecutive profitable years. OCC conditionally approved Mercury Bank N.A. national charter.</em></p>
+
+      <div class="label label-ctx">背景脈絡 / Context</div>
+      <p class="ctx">TCV 是 Spotify、Netflix、Airbnb 成長期的代表性投資者，本次領投 Mercury 是其在金融科技基礎設施上的戰略佈局。Mercury 主攻新創企業銀行需求，Q1 2026 申請量較去年同期增 2.5 倍，AI 驅動的新創浪潮直接帶動其業務成長。<br>
+      <em>TCV (Spotify, Netflix, Airbnb growth-stage) leading Mercury marks a conviction fintech-infra bet. Mercury's 2.5x YoY application growth in Q1 2026 is directly correlated with the AI startup boom.</em></p>
+
+      <div class="label label-impl">影響觀察 / Implications</div>
+      <p class="impl">（分析）全國銀行牌照是 Mercury 護城河加寬的關鍵，一旦成立 Mercury Bank, N.A.，可自行吸收存款並直接接觸聯準會，競爭門檻大幅提升。Fintech 競爭者 Brex、Ramp 等將面臨監管差距壓力。<br>
+      <em>[Analysis] A national bank charter is a moat-widening move — direct Fed access and deposit gathering would fundamentally shift Mercury's competitive position vs. Brex and Ramp.</em></p>
+
+      <span class="tag">Mercury</span>
+      <span class="tag">TCV</span>
+      <span class="tag">Fintech</span>
+      <span class="tag">Series D</span>
+      <span class="tag">Bank Charter</span>
+    </div>
+
+    <div class="card">
+      <h3>Create Medicines $1.22 億 B 輪 —— ARCH Venture 領投，精準醫療再獲大注資<br>
+          <span style="font-weight:400;font-size:14px;">Create Medicines $122M Series B — ARCH Venture, Newpath Lead; Precision Medicine Surge</span></h3>
+      <div class="meta">
+        來源 / Source: Crunchbase News · 2026-05-14
+      </div>
+
+      <div class="label label-fact">核心事實 / Facts</div>
+      <p class="fact">Create Medicines 完成 $1.22 億 B 輪，由 Newpath Partners、ARCH Venture Partners 領投，Hatteras Venture Partners 及 Alexandria Venture Investments 參投。ARCH 以孵化生技公司著稱（曾孵化 CRISPR Therapeutics、Moderna 等），本輪強調精準生物製造的下一代平台。<br>
+      <em>Create Medicines $122M Series B: led by Newpath + ARCH Venture (known for incubating CRISPR Therapeutics, Moderna). Focus on precision biomanufacturing.</em></p>
+
+      <span class="tag">ARCH Venture</span>
+      <span class="tag">Biotech</span>
+      <span class="tag">Series B</span>
+    </div>
+  </section>
+
+  <!-- ── 4. EXITS & DPI ── -->
+  <section>
+    <div class="section-title"><span class="icon">🚪</span> 退場 / Exits &amp; DPI Events</div>
+
+    <div class="card">
+      <h3>VC 退出市場：「大解鎖」啟動，M&amp;A 佔 85%，但 DPI 仍在歷史低點<br>
+          <span style="font-weight:400;font-size:14px;">"The Great Unlocking" Begins — But DPI at Generational Lows; M&amp;A = 85% of Exits</span></h3>
+      <div class="meta">
+        來源 / Source:
+        <a href="https://markets.financialcontent.com/wral/article/marketminute-2026-1-15-the-great-unlocking-private-equity-and-venture-capital-exits-surge-as-2026-begins" target="_blank">MarketMinute / FinancialContent</a> ·
+        <a href="https://www.jpmorgan.com/insights/banking/commercial-banking/trends-in-venture-capital" target="_blank">J.P. Morgan Q1 2026 VC Update</a> ·
+        2026-01 / Q1 2026
+      </div>
+
+      <div class="label label-fact">核心事實 / Facts</div>
+      <p class="fact">分析師稱 2026 年初為「大解鎖」（The Great Unlocking）— 利率穩定、估值修復、LP 強烈要求還款推動了退出活動升溫。然而 2018 年 vintage 基金的 DPI 仍僅 0.6x，為世代最低。2025 年全年 VC 支持 IPO 僅 66 檔，2026 Q1 有所回升但仍限於少數巨型標的。VC 退出 85% 經由 M&amp;A，二級市場僅佔獨角獸市值的約 2%。<br>
+      <em>2018 vintage funds at just 0.6x DPI — generational low. Only 66 VC-backed IPOs in 2025. M&amp;A = 85% of exits. Secondary market = ~2% of total unicorn market value traded.</em></p>
+
+      <div class="label label-ctx">背景脈絡 / Context</div>
+      <p class="ctx">LP 對 DPI 的訴求在 2025 年中達到沸點，GP 被迫在任何可行價格下尋求退出。Continuation fund（延續基金）已成為重要的流動性橋接工具，正在填補傳統退出渠道的空缺。<br>
+      <em>LP pressure for DPI hit a boiling point by mid-2025. Continuation vehicles now serve as the de facto liquidity bridge — GP-led secondaries hit $14.6B in 2025 US VC.</em></p>
+
+      <div class="label label-impl">影響觀察 / Implications</div>
+      <p class="impl">（分析）Continuation fund 的結構性利益衝突日益突出：GP 同時扮演買方/賣方定價者，且透過雙重 carry 獲益。LP 諮詢委員會的監督能力跟不上這一新工具的複雜度，監管討論可能在 2026 下半年浮上檯面。<br>
+      <em>[Analysis] Continuation fund structural conflicts — GP sets price, picks buyer, earns double carry — are growing faster than LP oversight capacity. SEC scrutiny of GP-led secondaries likely to intensify in H2.</em></p>
+
+      <span class="tag">DPI</span>
+      <span class="tag">Exits</span>
+      <span class="tag">Secondaries</span>
+      <span class="tag">Continuation Funds</span>
+      <span class="tag">IPO</span>
+    </div>
+  </section>
+
+  <!-- ── 5. GP MOVES ── -->
+  <section>
+    <div class="section-title"><span class="icon">🚶</span> GP 人事 / GP Moves</div>
+
+    <div class="card">
+      <h3>Peak XV 三位資深合夥人出走，成立 Mettle Capital，目標募 $3.5 至 $4 億瞄準印度 AI<br>
+          <span style="font-weight:400;font-size:14px;">Three Peak XV MDs Exit to Launch Mettle Capital, Target $350–400M India AI Fund</span></h3>
+      <div class="meta">
+        來源 / Source:
+        <a href="https://www.siliconindia.com/startup/startup-funding/expeak-xv-partners-launches-mettle-capital-targets-400-million-india-vc-fund-nwid-54443.html" target="_blank">Silicon India</a> ·
+        <a href="https://thetechportal.com/2026/02/03/ashish-agrawal-ishaan-mittal-and-tejeshwi-sharma-leave-peak-xv-partners-announce-plans-to-launch-new-vc-fund" target="_blank">The Tech Portal</a> ·
+        2026-02-03
+      </div>
+
+      <div class="label label-fact">核心事實 / Facts</div>
+      <p class="fact">Peak XV Partners（前 Sequoia India &amp; SEA）三位 Managing Director — Ashish Agrawal（13 年資歷）、Ishaan Mittal（9 年）、Tejeshwi Sharma（7 年）——同步宣布出走，共同創立 Mettle Capital，目標募集 $3.5 至 $4 億。投資策略：印度 Series A / B 企業 AI、深科技、消費網路。同期，Peak XV 本身完成 $13 億三支新基金（India Seed、India Venture、APAC Fund），並將繼續深耕 AI 策略。<br>
+      <em>Three MDs (13/9/7 yr tenures) co-found Mettle Capital, targeting $350–400M for India Series A/B — enterprise AI, deeptech, consumer internet. Simultaneously, Peak XV itself closed $1.3B across three new funds.</em></p>
+
+      <div class="label label-ctx">背景脈絡 / Context</div>
+      <p class="ctx">Agrawal 是 Groww（印度最大券商之一）的早期投資者，Peak XV 在 Groww 以約 Rs 2–2.5 億入場，帳面回報已超 Rs 27 億。這類「明星投資者出走」是 2024 至 2026 年 VC 業的結構性趨勢，資歷足夠的 GP 偏好在較小規模下保持靈活性並自主做主。<br>
+      <em>Agrawal backed Groww early — Peak XV invested ~INR 200-250Cr, now worth ~INR 2,700Cr. The 2024–26 'GP diaspora' trend: senior investors prefer smaller, agile funds where they control conviction bets.</em></p>
+
+      <span class="tag">Peak XV</span>
+      <span class="tag">India</span>
+      <span class="tag">Mettle Capital</span>
+      <span class="tag">GP Diaspora</span>
+    </div>
+
+    <div class="card">
+      <h3>Niko Bonatsos 離開 General Catalyst，計劃成立新早期基金<br>
+          <span style="font-weight:400;font-size:14px;">Niko Bonatsos Departs General Catalyst, Plans New Seed/Early-Stage VC Firm</span></h3>
+      <div class="meta">
+        來源 / Source:
+        <a href="https://techcrunch.com/2026/01/07/discord-and-mercor-investor-niko-bonatsos-departs-general-catalyst-plans-new-vc-firm/" target="_blank">TechCrunch</a> ·
+        2026-01-07
+      </div>
+
+      <div class="label label-fact">核心事實 / Facts</div>
+      <p class="fact">Niko Bonatsos 離開 General Catalyst，宣布與「友人」共同創立新早期 VC 基金，具體規模及投資策略尚未公開。Bonatsos 以早期押注 Discord 及 Mercor（估值 $100 億）著稱，主導 GC 的種子投資策略多年。<br>
+      <em>Bonatsos exits GC after leading its seed strategy. Known for Discord and Mercor ($10B valuation). New firm details undisclosed — size, strategy TBD.</em></p>
+
+      <span class="tag">General Catalyst</span>
+      <span class="tag">GP Departure</span>
+      <span class="tag">Seed Stage</span>
+    </div>
+  </section>
+
+  <!-- ── 6. STRATEGY & ECOSYSTEM ── -->
+  <section>
+    <div class="section-title"><span class="icon">🔭</span> 策略與生態 / Strategy &amp; Ecosystem Shifts</div>
+
+    <div class="card">
+      <h3>國防科技 VC 投資在 2026 Q1 再次接近歷史高峰，主流 VC 大規模入場<br>
+          <span style="font-weight:400;font-size:14px;">Defense Tech VC Near Record Highs in Q1 2026; Mainstream VCs Drop Ethical Objections</span></h3>
+      <div class="meta">
+        來源 / Source:
+        <a href="https://fnex.com/defence-tech-vc-2026/" target="_blank">FNEX Defense Tech VC Report</a> ·
+        <a href="https://www.spglobal.com/market-intelligence/en/news-insights/articles/2026/3/venture-capital-investment-in-defense-tech-surges-while-m-a-activity-slows-99534071" target="_blank">S&P Global Market Intelligence</a> ·
+        2026 Q1
+      </div>
+
+      <div class="label label-fact">核心事實 / Facts</div>
+      <p class="fact">2026 Q1 國防科技 VC 投資達 $178 億，接近 2025 Q2 的 $179 億峰值。主動投資國防科技的 VC 基金數量 2025 年增加 41%。Blackstone、KKR、Carlyle 等大型 PE 也大幅增加國防配置。Bessemer、a16z（American Dynamism）、Founders Fund 等均公開發布國防科技路線圖。<br>
+      <em>Defense tech VC = $17.8B in Q1 2026 (near Q2 2025 peak). Active defense-tech VC firms up 41% in 2025. Major PE (Blackstone, KKR, Carlyle) also entering. Five frontiers: autonomy, agentic AI, advanced manufacturing, network resilience, materials.</em></p>
+
+      <div class="label label-ctx">背景脈絡 / Context</div>
+      <p class="ctx">Chatham House 分析指出，國防與雙用途技術投資的激增可能重塑全球 AI 競賽，形成「更多安全化、多極化」的 AI 生態系。VC 業的道德倫理障礙已快速瓦解，「支持民主價值」成為新敘事框架。<br>
+      <em>Chatham House: defense/dual-use tech surge may 'reconfigure the global AI race' into a more securitized, multipolar AI ecosystem. 'Supporting democratic values' is the new ethical framework that replaced anti-defense VC stances.</em></p>
+
+      <span class="tag">Defense Tech</span>
+      <span class="tag">National Security</span>
+      <span class="tag">AI</span>
+      <span class="tag">Fund Strategy</span>
+    </div>
+
+    <div class="card">
+      <h3>Continuation Fund 占 GP 主導二級交易 89%，成為 VC 流動性核心工具<br>
+          <span style="font-weight:400;font-size:14px;">Continuation Vehicles = 89% of GP-Led Secondaries; Now Core VC Liquidity Infrastructure</span></h3>
+      <div class="meta">
+        來源 / Source:
+        <a href="https://caia.org/blog/2026/02/11/continuation-vehicle-boom-structural-shift-or-liquidity-patch" target="_blank">CAIA — Continuation Vehicle Boom</a> ·
+        <a href="https://news.crunchbase.com/liquidity/secondary-market-continuation-funds-eapen-goudey-sidley/" target="_blank">Crunchbase News</a> ·
+        2026-02
+      </div>
+
+      <div class="label label-fact">核心事實 / Facts</div>
+      <p class="fact">延續基金（Continuation Vehicle, CV）已佔 GP 主導二級交易的 89%，及二級市場總交易量的 43%。2025 年美國 VC GP 主導二級交易達 $146 億，2026 年預計持續成長。Lightspeed、NEA、General Catalyst、Insight Partners 等均有公開 CV 策略，中小型 GP 正快速跟進。<br>
+      <em>CVs = 89% of GP-led deals, 43% of total secondary volume. US VC GP-led secondaries = $14.6B in 2025. Lightspeed, NEA, GC, Insight all running CV strategies; mid-market GPs rapidly following.</em></p>
+
+      <div class="label label-impl">影響觀察 / Implications</div>
+      <p class="impl">（分析）CV 的結構性利益衝突（GP 同時是資產持有人、定價方、接受方且賺取雙重 carry）正引發 SEC 關注。2026 下半年可能出現強化的資訊揭露規定，對 LP 諮詢委員會的職責也可能重新界定。<br>
+      <em>[Analysis] SEC scrutiny of CV structural conflicts (GP prices, selects buyer, earns double carry) is building. H2 2026 may bring disclosure rulemaking — watch for LPAC governance reform proposals.</em></p>
+
+      <span class="tag">Continuation Funds</span>
+      <span class="tag">GP-Led Secondaries</span>
+      <span class="tag">Liquidity</span>
+      <span class="tag">DPI</span>
+    </div>
+
+    <div class="card">
+      <h3>General Catalyst vs. a16z 公開「責任門檻」論戰，行銷大戰延燒社群<br>
+          <span style="font-weight:400;font-size:14px;">General Catalyst vs. a16z: "Responsibility Bar" Marketing War Goes Viral</span></h3>
+      <div class="meta">
+        來源 / Source:
+        <a href="https://techcrunch.com/2026/05/15/general-catalyst-posted-vc-rage-bait-and-it-worked-especially-on-a16z/" target="_blank">TechCrunch</a> ·
+        2026-05-15
+      </div>
+
+      <div class="label label-fact">核心事實 / Facts</div>
+      <p class="fact">General Catalyst 發布行銷素材，暗示其他 VC（尤指 a16z）缺乏投資責任標準，透過「狗狗 AI」寓言諷刺對手什麼都投。a16z 方面有所回應，引發社群熱議。TechCrunch 稱此為「rage bait」但承認行銷效果顯著。<br>
+      <em>GC posted a 'Woof AI' parable implying a16z funds anything. a16z responded. TechCrunch labeled it VC 'rage bait' — but noted the campaign worked in driving narrative differentiation.</em></p>
+
+      <div class="label label-impl">影響觀察 / Implications</div>
+      <p class="impl">（分析）兩大 VC 的公開論戰反映品牌行銷已成為 LP 募資競爭的核心戰場，也揭示了平台型 VC 在策略定位上的差異化壓力。<br>
+      <em>[Analysis] Brand differentiation is now a core LP fundraising battleground. As mega-funds converge on similar AI/defense thesis, narrative positioning becomes increasingly important.</em></p>
+
+      <span class="tag">General Catalyst</span>
+      <span class="tag">a16z</span>
+      <span class="tag">VC Branding</span>
+    </div>
+  </section>
+
+  <!-- ── 7. REGIONAL ── -->
+  <section>
+    <div class="section-title"><span class="icon">🌏</span> 區域動向 / Regional Highlights</div>
+
+    <div class="card">
+      <h3>歐洲 Q1 2026：Air Street Capital、Quantonation、2150 等多支新基金關閉<br>
+          <span style="font-weight:400;font-size:14px;">Europe Q1 2026: Air Street Capital $232M, Quantonation €220M, 2150 €210M Close</span></h3>
+      <div class="meta">
+        來源 / Source:
+        <a href="https://www.vestbee.com/insights/articles/new-vc-funds-launched-in-q1-2026-to-invest-in-europe" target="_blank">Vestbee</a> ·
+        <a href="https://kpmg.com/xx/en/what-we-do/industries/private-enterprise/venture-pulse/europe.html" target="_blank">KPMG Venture Pulse Europe Q1 2026</a>
+      </div>
+
+      <div class="label label-fact">核心事實 / Facts</div>
+      <p class="fact">
+        • Air Street Capital Fund III：$2.32 億，聚焦北美與歐洲 AI-first 新創，成為歐洲最大 Solo GP VC 基金。<br>
+        • Quantonation Fund II：€2.2 億，早期量子計算與物理基礎科技。<br>
+        • 2150 Fund II：€2.1 億，城市去碳化與氣候科技。<br>
+        • Credo Ventures Fund V：$8,800 萬，中歐 pre-seed 最多 30 家被投。<br>
+        整體趨勢：深科技、氣候、國防三大賽道獲歐洲新基金高度關注。九輪私人主導的 Scale-up 中，四輪由美國基金領投。<br>
+        <em>Air Street $232M (largest solo GP Europe), Quantonation €220M (quantum), 2150 €210M (climate). 4 of 9 scale-up rounds in Q1 led by US firms — Europe's late-stage capital gap persists.</em>
+      </p>
+
+      <div class="label label-impl">影響觀察 / Implications</div>
+      <p class="impl">（分析）美國 GP 持續主導歐洲晚期融資，歐洲本土資本在 late-stage 仍然不足，成長期資金的「留歐」問題是政策討論重點。<br>
+      <em>[Analysis] Europe can generate talent and science, but still can't keep late-stage capital close to home — 4/9 scale-up leads by US firms. EU policy discussions on closing the growth capital gap are intensifying.</em></p>
+
+      <span class="tag">Europe</span>
+      <span class="tag">Deep Tech</span>
+      <span class="tag">Climate Tech</span>
+      <span class="tag">AI</span>
+    </div>
+
+    <div class="card">
+      <h3>印度：Peak XV $13 億三支新基金，Mettle Capital 挑戰者崛起<br>
+          <span style="font-weight:400;font-size:14px;">India: Peak XV Closes $1.3B in 3 New Funds; Mettle Capital Spins Out to Challenge</span></h3>
+      <div class="meta">
+        來源 / Source:
+        <a href="https://techcrunch.com/2026/02/20/peak-xv-raises-1-3b-doubles-down-on-ai-as-global-vc-rivalry-in-india-heats-up/" target="_blank">TechCrunch</a> ·
+        <a href="https://www.caproasia.com/2026/02/22/asia-based-9-billion-venture-capital-firm-peak-xv-partners-previously-sequoia-capital-india-sea-raised-1-3-billion-for-3-new-funds-with-1-india-seed-fund-2-india-venture-fund-3-apac-fund/" target="_blank">Caproasia</a> ·
+        2026-02
+      </div>
+
+      <div class="label label-fact">核心事實 / Facts</div>
+      <p class="fact">Peak XV Partners 完成 $13 億三支基金（India Seed Fund、India Venture Fund、APAC Fund），同期三位資深 MD 出走創立 Mettle Capital（目標 $3.5 至 $4 億）。印度 VC 市場正進入「第二波」—— 以 AI 企業軟體與深科技為核心，全球 VC 競爭加劇（Accel、Lightspeed 等均已深化在地佈局）。<br>
+      <em>Peak XV $1.3B across 3 funds while 3 MDs launch Mettle Capital ($350–400M target). India VC entering wave 2: enterprise AI + deeptech. Global VCs (Accel, Lightspeed) deepening local presence — intensifying GP competition.</em></p>
+
+      <span class="tag">India</span>
+      <span class="tag">Peak XV</span>
+      <span class="tag">APAC</span>
+    </div>
+
+    <div class="card">
+      <h3>中東：沙烏地 SIC 戰略投資 Khwarizmi Fund II，GCC VC 生態成熟信號<br>
+          <span style="font-weight:400;font-size:14px;">MENA: Saudi SIC Backs Khwarizmi Fund II — GCC VC Ecosystem Maturing</span></h3>
+      <div class="meta">
+        來源 / Source:
+        <a href="https://entarabi.com/en/2026/05/sic-makes-strategic-investment-in-khwarizmi-ventures-fund-ii/" target="_blank">entARABI</a> ·
+        2026-05
+      </div>
+      <p style="font-size:14px;padding-top:8px;">沙烏地工業投資公司（SIC）加入 Khwarizmi Fund II 作為策略性 LP，標誌 GCC 主權資本正由被動配置轉向主動支持本土 VC 生態系。Vision 2030 推動下，GCC VC 正從「引進美國 VC」過渡到「培養自有 GP」的第二階段。<br>
+      <em>Saudi SIC as strategic LP in Khwarizmi marks a shift from passive SWF capital to active domestic VC ecosystem building under Vision 2030. GCC moving from 'import US VCs' to 'grow local GPs' phase 2.</em></p>
+
+      <span class="tag">Saudi Arabia</span>
+      <span class="tag">SWF</span>
+      <span class="tag">Vision 2030</span>
+      <span class="tag">MENA</span>
+    </div>
+  </section>
+
+  <!-- ── 8. READS ── -->
+  <section>
+    <div class="section-title"><span class="icon">📖</span> 觀點 / Reads</div>
+    <div class="card">
+      <div class="read-item">
+        <a href="https://www.newcomer.co/p/andreessen-horowitzs-fresh-15-billion" target="_blank">
+          Andreessen Horowitz's Fresh $15 Billion Gives it Over $90 Billion in Assets Under Management — Eric Newcomer (newcomer.co)
+        </a>
+        <p>Newcomer 深度解析 a16z $150 億基金結構與基金策略轉向，包括 American Dynamism 的政治定位與基礎設施押注邏輯。必讀 VC 圈觀點。<br>
+        <em>Newcomer's deep dive on a16z's $15B fund breakdown, American Dynamism political positioning, and what $90B AUM means for Silicon Valley's power dynamics.</em></p>
+      </div>
+      <div class="read-item">
+        <a href="https://caia.org/blog/2026/02/11/continuation-vehicle-boom-structural-shift-or-liquidity-patch" target="_blank">
+          The Continuation Vehicle Boom: Structural Shift or Liquidity Patch? — CAIA Association
+        </a>
+        <p>CAIA 研究員從 LP 視角剖析 Continuation Fund 熱潮的結構性邏輯與風險，涵蓋利益衝突、定價機制、LPAC 治理缺口。對 LP/GP 皆有參考價值。<br>
+        <em>CAIA's rigorous LP-side analysis of the continuation fund boom — structural conflict mapping, pricing mechanics, LPAC governance gaps. Required reading for anyone deploying into or running CVs.</em></p>
+      </div>
+      <div class="read-item">
+        <a href="https://www.thevccorner.com/p/q1-2026-us-fund-activity-record-fundraising" target="_blank">
+          $80 Billion in 3 Months: Inside Q1 2026's Record-Breaking Fundraising — The VC Corner
+        </a>
+        <p>圖表豐富，解析美國 Q1 2026 創紀錄募資的結構：哪些策略在吸資、哪些 vintage 表現疲弱、AI 集中度對整體生態的影響。<br>
+        <em>Data-rich breakdown of Q1 2026's $80B US fundraising: which strategies are capturing LP attention, which vintages are struggling, and what AI concentration means for the broader ecosystem.</em></p>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<footer>
+  <div style="max-width:860px;margin:0 auto;padding:0 24px;">
+    <strong>資料來源 / Sources</strong>
+    <div class="sources-grid">
+      <a href="https://www.axios.com/2026/01/09/andreessen-horowitz-15-billion-for-new-funds" target="_blank">Axios Pro Rata</a>
+      <a href="https://www.bloomberg.com/news/articles/2026-05-01/thiel-s-founders-fund-raises-6-billion-in-its-largest-ever-haul" target="_blank">Bloomberg — Founders Fund</a>
+      <a href="https://techcrunch.com/category/venture/" target="_blank">TechCrunch Venture</a>
+      <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Crunchbase News — Q1</a>
+      <a href="https://www.businesswire.com/news/home/20260520511817/en/Mercury-Raises-$200-Million-Series-D-at-$5.2B-Valuation" target="_blank">BusinessWire — Mercury</a>
+      <a href="https://www.cnbc.com/2026/05/20/fintech-mercury-valuation-fundraise-bank-charter.html" target="_blank">CNBC — Mercury</a>
+      <a href="https://www.bloomberg.com/news/articles/2026-03-10/general-catalyst-discusses-raising-about-10-billion-in-funding-push" target="_blank">Bloomberg — General Catalyst</a>
+      <a href="https://www.theinformation.com/articles/anthropic-backer-spark-capital-targets-3-billion-new-funds" target="_blank">The Information — Spark</a>
+      <a href="https://www.wamda.com/2026/05/khwarizmi-ventures-launches-fund-ii-70m-close-gcc-startups" target="_blank">Wamda — Khwarizmi</a>
+      <a href="https://thetechportal.com/2026/02/03/ashish-agrawal-ishaan-mittal-and-tejeshwi-sharma-leave-peak-xv-partners-announce-plans-to-launch-new-vc-fund" target="_blank">The Tech Portal — Peak XV</a>
+      <a href="https://techcrunch.com/2026/02/20/peak-xv-raises-1-3b-doubles-down-on-ai-as-global-vc-rivalry-in-india-heats-up/" target="_blank">TechCrunch — Peak XV Fund</a>
+      <a href="https://techcrunch.com/2026/01/07/discord-and-mercor-investor-niko-bonatsos-departs-general-catalyst-plans-new-vc-firm/" target="_blank">TechCrunch — Bonatsos</a>
+      <a href="https://caia.org/blog/2026/02/11/continuation-vehicle-boom-structural-shift-or-liquidity-patch" target="_blank">CAIA — Continuation Funds</a>
+      <a href="https://www.spglobal.com/market-intelligence/en/news-insights/articles/2026/3/venture-capital-investment-in-defense-tech-surges-while-m-a-activity-slows-99534071" target="_blank">S&P Global — Defense Tech</a>
+      <a href="https://www.vestbee.com/insights/articles/new-vc-funds-launched-in-q1-2026-to-invest-in-europe" target="_blank">Vestbee — Europe Funds</a>
+      <a href="https://techcrunch.com/2026/05/15/general-catalyst-posted-vc-rage-bait-and-it-worked-especially-on-a16z/" target="_blank">TechCrunch — GC vs a16z</a>
+      <a href="https://www.thevccorner.com/p/q1-2026-us-fund-activity-record-fundraising" target="_blank">The VC Corner — Q1 Fundraising</a>
+      <a href="https://markets.financialcontent.com/wral/article/marketminute-2026-1-15-the-great-unlocking-private-equity-and-venture-capital-exits-surge-as-2026-begins" target="_blank">Financial Content — Great Unlocking</a>
+      <a href="https://www.newcomer.co/p/andreessen-horowitzs-fresh-15-billion" target="_blank">Eric Newcomer — a16z $15B</a>
+      <a href="https://entarabi.com/en/2026/05/sic-makes-strategic-investment-in-khwarizmi-ventures-fund-ii/" target="_blank">entARABI — SIC Khwarizmi</a>
+    </div>
+    <p style="margin-top:16px;color:#9ca3af;">
+      ⚠️ 本日報僅供資訊參考，不構成投資建議。部分來源（Bloomberg、The Information 等）可能有付費牆，標示為相關報導。數據截至 2026-05-23 Asia/Taipei。<br>
+      <em>For informational purposes only. Not investment advice. Some sources may be paywalled. Data as of 2026-05-23 Asia/Taipei.</em>
+    </p>
+    <p style="margin-top:8px;color:#9ca3af;font-size:11px;">付費牆 / Paywalled: Bloomberg, The Information, PitchBook, Fortune Term Sheet, WSJ, Financial Times</p>
+  </div>
+</footer>
+
+</body>
+</html>

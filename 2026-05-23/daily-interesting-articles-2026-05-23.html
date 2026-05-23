@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>今日有趣文章日報 — 2026-05-23</title>
+<style>
+  :root { color-scheme: light; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #f9f8f5;
+    color: #1a1a1a;
+    line-height: 1.7;
+    padding: 0 0 80px;
+  }
+
+  /* ── Header ── */
+  .page-header {
+    background: #fff;
+    border-bottom: 2px solid #e8e4dc;
+    padding: 28px 32px 22px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .page-header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: -0.3px;
+  }
+  .page-header .subtitle {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 3px;
+  }
+  .track-tabs {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .track-tab {
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .track-tab.a { background: #ffe8cc; color: #b35e00; border-color: #f5c68a; }
+  .track-tab.b { background: #dceeff; color: #1456a0; border-color: #9dc5f0; }
+  .track-tab:hover { filter: brightness(0.95); }
+
+  /* ── Layout ── */
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── Section headers ── */
+  .track-header {
+    margin: 40px 0 6px;
+    padding: 16px 20px 12px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .track-header.a { background: #fff4e6; border-left: 4px solid #f59e42; }
+  .track-header.b { background: #e8f2ff; border-left: 4px solid #3b82f6; }
+  .track-header h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .track-header .track-icon { font-size: 1.4rem; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #999;
+    margin: 32px 0 10px;
+    padding-left: 2px;
+  }
+
+  /* ── Cards ── */
+  .card {
+    background: #fff;
+    border: 1px solid #e8e4dc;
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.15s;
+  }
+  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+
+  .card.editor-pick {
+    border-color: #f59e42;
+    border-width: 2px;
+    background: linear-gradient(135deg, #fffbf5 0%, #fff 100%);
+  }
+  .card.editor-pick::before {
+    content: "✦ 編輯精選";
+    display: inline-block;
+    background: #f59e42;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .card-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card-title a:hover { color: #1456a0; text-decoration: underline; }
+
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 12px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: #f1f0ec;
+    border-radius: 8px;
+    padding: 2px 8px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: #555;
+    white-space: nowrap;
+  }
+  .badge.domain { background: #e8f2ff; color: #1456a0; }
+  .badge.time { background: #f0fdf4; color: #166534; }
+
+  .card-section { margin-bottom: 10px; }
+  .card-section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #aaa;
+    margin-bottom: 3px;
+  }
+  .card-section p { font-size: 0.9rem; color: #333; }
+
+  .card-section p strong { color: #111; }
+
+  .card-divider { border: none; border-top: 1px solid #f0ede8; margin: 12px 0; }
+
+  /* ── Footer ── */
+  .sources-footer {
+    margin-top: 52px;
+    padding: 24px;
+    background: #f1f0ec;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: #666;
+  }
+  .sources-footer h3 { font-size: 0.9rem; color: #444; margin-bottom: 10px; }
+  .sources-footer ul { list-style: disc inside; columns: 2; gap: 16px; }
+  .sources-footer li { margin-bottom: 4px; }
+  .sources-footer a { color: #1456a0; text-decoration: none; }
+  .sources-footer a:hover { text-decoration: underline; }
+
+  /* ── Paywall notice ── */
+  .paywall-notice {
+    display: inline-block;
+    font-size: 0.72rem;
+    background: #fef3c7;
+    color: #92400e;
+    border-radius: 6px;
+    padding: 1px 7px;
+    font-weight: 600;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .page-header { padding: 18px 16px 14px; }
+    .container { padding: 0 12px; }
+    .card { padding: 16px; }
+    .sources-footer ul { columns: 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<div class="page-header">
+  <div class="container">
+    <h1>今日有趣文章日報</h1>
+    <div class="subtitle">Daily Interesting Articles &nbsp;·&nbsp; 2026-05-23 (Asia/Taipei) &nbsp;·&nbsp; Lookback: last 7 days</div>
+    <div class="track-tabs">
+      <a class="track-tab a" href="#track-a">Track A — 長文精選</a>
+      <a class="track-tab b" href="#track-b">Track B — 思想領袖觀點</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ══════════════════════════════════════
+     TRACK A — LONGFORM ESSAYS
+══════════════════════════════════════ -->
+<div class="track-header a" id="track-a">
+  <span class="track-icon">📖</span>
+  <div>
+    <h2>Track A — 長文精選 / Longform Essays</h2>
+    <div style="font-size:0.82rem;color:#7a5200;margin-top:2px;">5 精選 · 跨科技、科學、政治、哲學、奇文</div>
+  </div>
+</div>
+
+
+<!-- ① Editor's Pick -->
+<div class="section-label">編輯精選 / Editor's Pick of the Day</div>
+
+<div class="card editor-pick">
+  <div class="card-title">
+    <a href="https://www.quantamagazine.org/two-researchers-rebuilding-mathematics-from-the-ground-up-20260520/" target="_blank">
+      兩位數學家正從地基重建整個數學 / Two Researchers Are Rebuilding Mathematics From the Ground Up
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="badge">Quanta Magazine</span>
+    <span>2026-05-20</span>
+    <span class="badge time">⏱ 18 min</span>
+    <a class="badge domain" href="https://www.quantamagazine.org/two-researchers-rebuilding-mathematics-from-the-ground-up-20260520/" target="_blank">↗ Read</a>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <p>Peter Scholze 和 Dustin Clausen 不是在「改進」數學，而是在替換拓撲學最底層的概念本身——這是每隔幾十年才發生一次的數學革命。Quanta 把高度技術性的研究說得讓非數學家也讀得入迷，是難得的示範。</p>
+  </div>
+  <hr class="card-divider" />
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <p>拓撲學的核心工具「凝聚層」(coherent sheaves) 自 20 世紀中葉以來主宰代數幾何，但它有根本性的限制：無法同時處理連續與離散的數學結構。Scholze 與 Clausen 提出「凝聚數學」(condensed mathematics)，以一種全新的對象取代傳統拓撲空間，讓兩類結構可以在同一語言中運作。這不只是技術細節的修補；他們的計畫最終目標是理解「為什麼數字會有它現在的行為方式」。<br><br>Topology's central toolkit has constrained algebraic geometry for decades. Scholze and Clausen replace its foundational object — the topological space — with "condensed sets," unifying continuous and discrete math under one roof. The ambition is nothing less than re-explaining why number systems behave as they do.</p>
+  </div>
+  <hr class="card-divider" />
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Key takeaway</div>
+    <p>數學基礎層的革命不需要推翻舊定理；它是換掉地基，讓更多樓層成為可能。如果這個計畫成功，未來幾十年的數學研究路徑都會因此改道。</p>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <p>當數學家改變「基礎概念」而非「具體命題」時，我們如何判斷新基礎是「更正確」還是只是「更方便」？基礎的選擇本身是客觀的嗎？</p>
+  </div>
+</div>
+
+
+<!-- ② Science & Research -->
+<div class="section-label">科學與研究 / Science &amp; Research</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://www.quantamagazine.org/what-causes-lightning-the-answer-keeps-getting-more-interesting-20260506/" target="_blank">
+      閃電怎麼發生？答案一直在變得更奇怪 / What Causes Lightning? The Answer Keeps Getting More Interesting
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="badge">Quanta Magazine</span>
+    <span>2026-05-06</span>
+    <span class="badge time">⏱ 12 min</span>
+    <a class="badge domain" href="https://www.quantamagazine.org/what-causes-lightning-the-answer-keeps-getting-more-interesting-20260506/" target="_blank">↗ Read</a>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <p>閃電是人類最日常的自然奇觀之一，但物理學家到 2026 年仍不確定它「如何被觸發」——這份不確定性本身就令人著迷。新的高速攝影與粒子物理數據正在重寫教科書。</p>
+  </div>
+  <hr class="card-divider" />
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <p>傳統理論認為閃電由冰晶碰撞產生的靜電引發，但新的衛星與地面數據顯示，雷雲內部存在「暗物質」等級的未知現象——包括可能在雷雨中發生的伽馬射線爆發（Terrestrial Gamma-ray Flashes）。物理學家現在懷疑宇宙射線也可能是觸發因子。最令人不安的結論是：我們過去教給學生的那個「閃電模型」是嚴重簡化的。<br><br>Lightning initiation remains unsolved. New data reveal gamma-ray bursts inside storm clouds and hint that cosmic rays may seed lightning channels — upending the textbook electrostatic model taught for generations.</p>
+  </div>
+  <hr class="card-divider" />
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Key takeaway</div>
+    <p>「我們已經理解這個」往往是科學裡最危險的句子。閃電是一個提醒：日常可見的現象裡可能藏著我們完全沒有意識到的謎。</p>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <p>還有多少我們以為「已經被解釋的」基礎自然現象，其實只是被包裝成了令人滿意的故事？科學教育應該如何誠實地呈現「未知的已知」？</p>
+  </div>
+</div>
+
+
+<!-- ③ Culture & Society -->
+<div class="section-label">文化與社會 / Culture &amp; Society</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://www.theguardian.com/news/series/the-long-read" target="_blank">
+      極右翼不是歷史的重演，但它同樣危險 / The New Far Right Is Not a Re-run of History — But It's No Less Dangerous
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="badge">The Guardian Long Read</span>
+    <span>作者 Daniel Trilling</span>
+    <span>2026-05-11</span>
+    <span class="badge time">⏱ 22 min</span>
+    <a class="badge domain" href="https://www.theguardian.com/news/series/the-long-read" target="_blank">↗ Read</a>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <p>Trilling 同步出版新書《If We Tolerate This》，這篇長文是其核心論點的精華版。在一個人人都拿「法西斯主義」比較的時代，他的論點恰好相反：不要把今日極右翼錯認為 1930 年代的重演，因為那樣會讓你誤判真正的威脅所在。</p>
+  </div>
+  <hr class="card-divider" />
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <p>Trilling 的核心論證是：當代極右翼的力量不在於它像希特勒或墨索里尼，而在於它成功讓原本邊緣的思想變成主流的常識。英國政界對移民問題的框架改變，不是因為有人舉起火炬，而是因為有人一點一點地改變了「何謂合理的討論範圍」。他稱之為「建制化的極右翼化」。<br><br>The threat of today's far right is not street violence but the normalization of its ideas within mainstream institutions. Trilling argues that the real danger is the Overton window moving — so far that what was once unthinkable now passes as pragmatic policy.</p>
+  </div>
+  <hr class="card-divider" />
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Key takeaway</div>
+    <p>警惕一個意識形態不需要掌權，只需要讓對手接受它的語言，就算勝利了。「我們只是在討論問題」這句話本身，有時就是陷阱。</p>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <p>台灣或東亞的政治語境中，是否存在類似的「被建制化的邊緣思想」？民主社會應該如何在言論自由與防止思想污染之間劃線？</p>
+  </div>
+</div>
+
+
+<!-- ④ History & Philosophy -->
+<div class="section-label">歷史與哲學 / History &amp; Philosophy</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://www.lrb.co.uk/the-paper/v47/n10/daniel-trilling/is-this-fascism" target="_blank">
+      這是法西斯主義嗎？/ Is This Fascism?
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="badge">London Review of Books</span>
+    <span>作者 Daniel Trilling</span>
+    <span>2026-05 (v47 n10)</span>
+    <span class="badge time">⏱ 25 min</span>
+    <span class="paywall-notice">部分付費牆</span>
+    <a class="badge domain" href="https://www.lrb.co.uk/the-paper/v47/n10/daniel-trilling/is-this-fascism" target="_blank">↗ Read</a>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <p>LRB 最擅長的那種文章：用歷史的精確性解剖當下。Trilling 在這篇學術性更強的文章裡，系統性地比較 1920-1940 年代的法西斯結構與當代威權民粹的異同，結論比大多數媒體評論都更有分量。</p>
+  </div>
+  <hr class="card-divider" />
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <p>「法西斯主義」這個詞現在被大量濫用，導致它失去分析功能。Trilling 追溯法西斯主義的結構性特徵——包括對「民族有機體」的崇拜、對議會制度的明確否定、以及由黨衛隊式組織執行的街頭暴力——並逐一檢視當代極右翼是否符合。他的結論是「部分符合但不完全」，這讓他的分析比單純說「是」或「不是」都更有用。<br><br>"Fascism" as a label has been so over-applied it no longer analyzes. Trilling stress-tests the historical criteria — organic nationalism, anti-parliamentarism, paramilitary violence — against today's movements, finding genuine resemblance in some areas and important divergence in others.</p>
+  </div>
+  <hr class="card-divider" />
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Key takeaway</div>
+    <p>精確的歷史比較要求我們放棄「這就是法西斯主義」和「這只是民粹主義」兩個都過於簡化的答案，轉而問：「在哪些面向上相似，在哪些面向上不同，以及這個差異意味著什麼樣的威脅？」</p>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <p>當我們說某個政治運動「像法西斯主義」，我們應該對哪些特徵更敏感？對有組織暴力、對對議會的態度、還是對媒體的控制意圖？</p>
+  </div>
+</div>
+
+
+<!-- ⑤ Curiosities -->
+<div class="section-label">奇文與偏門 / Curiosities</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://www.noahpinion.blog/p/dating-advice-for-men" target="_blank">
+      一位經濟學家寫給男性的約會建議（嚴肅的那種）/ Dating Advice for Men — From an Economist
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="badge">Noahpinion · Noah Smith</span>
+    <span>2026-05-17</span>
+    <span class="badge time">⏱ 10 min</span>
+    <a class="badge domain" href="https://www.noahpinion.blog/p/dating-advice-for-men" target="_blank">↗ Read</a>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <p>Noah Smith 是頂級的總體經濟部落客，突然寫約會文章——聽起來像是點擊誘餌，但他用的是行為經濟學、性別研究數據和市場設計的框架來分析「約會市場」，意外地嚴肅且有見地。這是 2026 年最令人意外的好文之一。</p>
+  </div>
+  <hr class="card-divider" />
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <p>Smith 把交友 App 時代的約會市場視為一個被結構性扭曲的雙邊市場，指出男性普遍採用的策略（廣撒網、強調身材外貌）是對市場訊號的錯誤解讀。他引用社會學與演化心理學數據，提出幾個反直覺的建議：選對「場所」遠比在 App 上最佳化個人頁面更重要；情緒上的真實性比「展示成就」更有效；而男性普遍低估了「友誼-轉-戀情」路徑的成功率。<br><br>Smith treats the dating market as a two-sided market with structural information asymmetries. Men optimize for the wrong signals. His evidence-backed advice: venue selection beats profile optimization; emotional authenticity beats achievement signaling; the friendship-to-romance path is underrated.</p>
+  </div>
+  <hr class="card-divider" />
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Key takeaway</div>
+    <p>當一個市場被平台演算法中介，參與者往往會學到演算法的偏好，而非真實對手的偏好。這不只適用於約會，也適用於求職、B2B 銷售和任何有「守門人」的市場。</p>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <p>交友 App 真的使「匹配效率」提高了嗎？還是它只是將人際關係的最初門檻遷移到了一個對某些族群結構性不利的平台？</p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     TRACK B — THOUGHT LEADERS
+══════════════════════════════════════ -->
+<div class="track-header b" id="track-b" style="margin-top:52px;">
+  <span class="track-icon">💡</span>
+  <div>
+    <h2>Track B — 思想領袖觀點 / Thought Leaders</h2>
+    <div style="font-size:0.82rem;color:#1a3a6a;margin-top:2px;">4 精選 · AI、創業、創投、總經</div>
+  </div>
+</div>
+
+<div class="section-label">思想領袖今日觀點 / Thought Leader Picks</div>
+
+
+<!-- B1 Sam Altman -->
+<div class="card">
+  <div class="card-meta" style="margin-bottom:8px;">
+    <span class="badge domain">[AI]</span>
+    <span style="font-weight:700;font-size:0.95rem;">Sam Altman</span>
+    <span class="badge time">⏱ 8 min</span>
+  </div>
+  <div class="card-title">
+    <a href="https://blog.samaltman.com/the-gentle-singularity" target="_blank">
+      溫柔的奇點 / The Gentle Singularity
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="badge">blog.samaltman.com</span>
+    <span>2026-04 (本週廣泛討論中)</span>
+    <a class="badge domain" href="https://blog.samaltman.com/the-gentle-singularity" target="_blank">↗ Read</a>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <p>Altman 是最接近 AGI 研發核心的人，這篇文章是他對「奇點」敘事的正式重塑。無論你同不同意，這個框架將深刻影響未來幾年政策制定者和投資人的思考方式。</p>
+  </div>
+  <hr class="card-divider" />
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Core insight</div>
+    <p>Altman 的核心主張是：奇點不會像科幻小說描述的那樣以一個戲劇性的時刻到來，而是以「驚奇變成日常、日常變成理所當然」的方式緩慢滲透。他的時間線：2025 年 AI 開始做真正的認知工作；2026 年 AI 有能力提出「新洞見」；2027 年機器人進入物理世界。他的核心安慰是：人類有足夠的時間適應，因為每一步都足夠漸進。</p>
+    <p style="margin-top:8px;">Altman's thesis: superintelligence arrives not as a rupture but as a gradient — each step impressive but digestible. Timeline: 2025 real cognitive work; 2026 novel insights; 2027 physical robots. The implicit bet is that society's adaptation speed will track AI's deployment speed.</p>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <p>「漸進」本身就是一種框架選擇。如果你站在被取代的職業端，或者站在沒有資源適應的人端，這個奇點還是「溫柔」的嗎？Altman 的敘事服務了誰的利益？</p>
+  </div>
+</div>
+
+
+<!-- B2 Noah Smith -->
+<div class="card">
+  <div class="card-meta" style="margin-bottom:8px;">
+    <span class="badge domain">[總經]</span>
+    <span style="font-weight:700;font-size:0.95rem;">Noah Smith</span>
+    <span class="badge time">⏱ 12 min</span>
+  </div>
+  <div class="card-title">
+    <a href="https://www.noahpinion.blog/p/ais-big-messaging-pivot" target="_blank">
+      AI 產業的大轉彎：「我們保證會創造工作機會」/ AI's Big Messaging Pivot
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="badge">Noahpinion</span>
+    <span>2026-05-06</span>
+    <a class="badge domain" href="https://www.noahpinion.blog/p/ais-big-messaging-pivot" target="_blank">↗ Read</a>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <p>Smith 在這篇文章裡做了一件優質評論員最應該做的事：把一個所有人都感覺到但說不清楚的現象——AI 業者突然改口說「我們要創造就業」——系統性地拆解，並問：「這是真心話，還是公關危機管理？」</p>
+  </div>
+  <hr class="card-divider" />
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Core insight</div>
+    <p>Sam Altman 和 Marc Andreessen 最近都轉口說 AI 將創造而非消滅工作，Smith 追溯兩人的歷史言論後發現這與他們過去宣稱「勞動力價格趨近於零」完全矛盾。他的解讀：美國民意對 AI 的反感急劇上升，AI 業者正在對潛在的民粹政治反彈進行預防性公關。Smith 認為這個轉向是「策略性的」而非「誠實的信念改變」，但他同時也保持了一定程度的不確定性——因為預測技術對就業的影響本來就非常困難。</p>
+    <p style="margin-top:8px;">AI leaders now claim their tech will create jobs — a 180° from earlier "labor prices to zero" rhetoric. Smith's read: this is crisis-PR ahead of populist political backlash, as poll after poll shows Americans turning sharply against AI.</p>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <p>AI 對就業的影響，到底哪些現有的經濟學工具可以可靠地預測，哪些不能？如果連業內最聰明的人都無法確定，我們應該如何制定政策？</p>
+  </div>
+</div>
+
+
+<!-- B3 Lenny Rachitsky -->
+<div class="card">
+  <div class="card-meta" style="margin-bottom:8px;">
+    <span class="badge domain">[產品]</span>
+    <span style="font-weight:700;font-size:0.95rem;">Lenny Rachitsky × Max Schoening</span>
+    <span class="badge time">⏱ 15 min</span>
+  </div>
+  <div class="card-title">
+    <a href="https://www.lennysnewsletter.com/p/why-cultivating-agency-matters-more" target="_blank">
+      AI 時代，培養「主動性」比培養「技能」更重要 / Why Cultivating Agency Matters More Than Cultivating Skills in the AI Era
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="badge">Lenny's Newsletter</span>
+    <span>2026-05-03</span>
+    <a class="badge domain" href="https://www.lennysnewsletter.com/p/why-cultivating-agency-matters-more" target="_blank">↗ Read</a>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <p>Schoening 在 Notion 的角色是讓設計師和 PM 真正跑起來「用 AI 構建產品」——不是在概念層面討論，是實際讓他們在終端機裡打命令、出 PR。他的 lesson learned 是從真實實踐中提煉的，而非 LinkedIn 式的勵志語錄。</p>
+  </div>
+  <hr class="card-divider" />
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Core insight</div>
+    <p>Schoening 的核心論點是：在 AI 工具讓幾乎任何技能都可以快速習得的時代，「有能力行動」（agency）本身成為最稀缺的資源。技能是可以外包給 AI 的，但「決定嘗試什麼、如何迭代、面對模糊時繼續推進」的能力是無法外包的。他還提出一個有用的觀察：「任何專案的前 10% 現在幾乎是免費的」——AI 讓原型快速存在，但從那之後的判斷仍然是人的工作。</p>
+    <p style="margin-top:8px;">Agency — the ability to initiate, adapt, and push through ambiguity — is the scarce skill when AI commoditizes execution. The first 10% of every project is now free; everything after still requires human judgment.</p>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <p>如果「主動性」是可以培養的，教育和企業管理應該用什麼具體方法來培養它？還是說，主動性本質上是一種人格特質，而非可訓練的能力？</p>
+  </div>
+</div>
+
+
+<!-- B4 Tyler Cowen -->
+<div class="card">
+  <div class="card-meta" style="margin-bottom:8px;">
+    <span class="badge domain">[總經]</span>
+    <span style="font-weight:700;font-size:0.95rem;">Tyler Cowen</span>
+    <span class="badge time">⏱ 8 min</span>
+  </div>
+  <div class="card-title">
+    <a href="https://marginalrevolution.com/marginalrevolution/2026/05/meta-papers-in-science-from-my-email.html" target="_blank">
+      AI 正在讓科學論文進化成「元論文」/ Meta-Papers in Science
+    </a>
+  </div>
+  <div class="card-meta">
+    <span class="badge">Marginal Revolution</span>
+    <span>2026-05-14</span>
+    <a class="badge domain" href="https://marginalrevolution.com/marginalrevolution/2026/05/meta-papers-in-science-from-my-email.html" target="_blank">↗ Read</a>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why it stands out</div>
+    <p>Cowen 整理了讀者寄來的真實案例：AI 不只是在「讀論文」，它正在生產一種新的學術產品——能夠自動合成、重跑和延伸既有研究的「元論文」。這是科學知識生產方式的結構性變化，而不只是效率提升。</p>
+  </div>
+  <hr class="card-divider" />
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Core insight</div>
+    <p>傳統學術論文是「一次性輸出」，元論文則是持續演化的知識聚合體。在腫瘤學等領域，研究者已經開始用 AI 生成「合成綜述」，這些綜述不是人工撰寫的系統性回顧，而是 AI 從數百篇原始論文中提煉的可更新摘要。Cowen 認為這改變了「誰算是知識貢獻者」以及「同儕審查的意義是什麼」。</p>
+    <p style="margin-top:8px;">AI-generated "meta-papers" — continuously updated syntheses that re-run and extend prior work — may replace static literature reviews. In oncology, real examples already exist. This changes who counts as a knowledge contributor and what peer review means.</p>
+  </div>
+  <div class="card-section">
+    <div class="card-section-label">引發的問題 / Questions it opens</div>
+    <p>如果 AI 可以持續更新一篇「活的綜述」，學術期刊的商業模式和知識產權制度應該如何重新設計？「第一作者」在元論文時代還有意義嗎？</p>
+  </div>
+</div>
+
+
+<!-- ══ Sources Footer ══ -->
+<div class="sources-footer">
+  <h3>數據來源 / Sources consulted</h3>
+  <ul>
+    <li><a href="https://www.quantamagazine.org/" target="_blank">Quanta Magazine</a></li>
+    <li><a href="https://www.theguardian.com/news/series/the-long-read" target="_blank">The Guardian Long Read</a></li>
+    <li><a href="https://www.lrb.co.uk/" target="_blank">London Review of Books</a></li>
+    <li><a href="https://www.noahpinion.blog/" target="_blank">Noahpinion</a></li>
+    <li><a href="https://blog.samaltman.com/" target="_blank">Sam Altman Blog</a></li>
+    <li><a href="https://www.lennysnewsletter.com/" target="_blank">Lenny's Newsletter</a></li>
+    <li><a href="https://marginalrevolution.com/" target="_blank">Marginal Revolution</a></li>
+    <li><a href="https://harpers.org/" target="_blank">Harper's Magazine</a></li>
+    <li><a href="https://theinitium.com/" target="_blank">端傳媒 Initium</a></li>
+    <li><a href="https://news.ycombinator.com/" target="_blank">Hacker News (searched)</a></li>
+  </ul>
+  <p style="margin-top:12px;font-size:0.75rem;color:#999;">
+    付費牆限制：LRB 文章需訂閱；Lenny's Newsletter 部分免費。The Atlantic、Harper's、Bloomberg 等均有付費牆，本期改以可公開訪問的替代源呈現。<br>
+    Generated: 2026-05-23 · Claude claude-sonnet-4-6
+  </p>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>

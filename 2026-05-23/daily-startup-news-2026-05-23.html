@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>今日新創新聞日報 · Daily Startup News · 2026-05-23</title>
+<style>
+  :root { color-scheme: light; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: #f7f8fa;
+    color: #1a1a2e;
+    line-height: 1.65;
+    font-size: 15px;
+  }
+  header {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+    color: #fff;
+    padding: 28px 32px 22px;
+  }
+  header h1 { font-size: 1.55rem; font-weight: 700; letter-spacing: -0.3px; }
+  header .sub { font-size: 0.85rem; opacity: 0.75; margin-top: 4px; }
+  .pill {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 0.78rem;
+    margin-right: 6px;
+    margin-top: 8px;
+  }
+  main { max-width: 860px; margin: 0 auto; padding: 28px 20px 60px; }
+  .section-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f3460;
+    border-left: 4px solid #e94560;
+    padding-left: 10px;
+    margin: 36px 0 16px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    border: 1px solid #e8eaf0;
+  }
+  .card h3 {
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: #16213e;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .card .meta {
+    font-size: 0.77rem;
+    color: #888;
+    margin-bottom: 10px;
+  }
+  .card .meta a { color: #0f3460; text-decoration: none; }
+  .card .meta a:hover { text-decoration: underline; }
+  .label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 2px 7px;
+    margin-right: 5px;
+    margin-bottom: 4px;
+  }
+  .l-fact   { background: #e3f0ff; color: #1a5fa8; }
+  .l-ctx    { background: #fff3cd; color: #856404; }
+  .l-impl   { background: #e8f5e9; color: #2e7d32; }
+  .block-label { font-weight: 600; font-size: 0.8rem; display: block; margin-bottom: 2px; }
+  .facts  { background: #f0f6ff; border-radius: 6px; padding: 8px 12px; margin-bottom: 8px; font-size: 0.87rem; }
+  .context{ background: #fffbf0; border-radius: 6px; padding: 8px 12px; margin-bottom: 8px; font-size: 0.87rem; }
+  .impl   { background: #f0faf0; border-radius: 6px; padding: 8px 12px; font-size: 0.87rem; }
+  .stage-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-right: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .seed  { background: #d1fae5; color: #065f46; }
+  .seriesa { background: #dbeafe; color: #1e40af; }
+  .seriesb { background: #ede9fe; color: #4c1d95; }
+  .seriesc { background: #fce7f3; color: #831843; }
+  .seriesd { background: #ffedd5; color: #7c2d12; }
+  .seriesh { background: #1a1a2e; color: #fff; }
+  .layoff  { background: #fee2e2; color: #7f1d1d; }
+  .ipo     { background: #f0fdf4; color: #14532d; border: 1px solid #86efac; }
+  .top-story-card {
+    border-left: 4px solid #e94560;
+    background: #fff;
+  }
+  .source-footer {
+    margin-top: 50px;
+    padding: 18px 20px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #e8eaf0;
+    font-size: 0.78rem;
+    color: #666;
+    line-height: 1.7;
+  }
+  .source-footer a { color: #0f3460; text-decoration: none; }
+  .source-footer a:hover { text-decoration: underline; }
+  .tag-row { margin-bottom: 8px; }
+  hr.divider { border: none; border-top: 1px solid #eee; margin: 10px 0; }
+  .alert-red { color: #b91c1c; font-weight: 600; }
+  .toc {
+    background: #fff;
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin-bottom: 24px;
+    border: 1px solid #e8eaf0;
+    font-size: 0.82rem;
+  }
+  .toc a { color: #0f3460; text-decoration: none; margin-right: 14px; display: inline-block; margin-bottom: 4px; }
+  .toc a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🚀 今日新創新聞日報 · Daily Startup News</h1>
+  <div class="sub">2026 年 05 月 23 日（五）· Asia/Taipei</div>
+  <div>
+    <span class="pill">募資 Funding</span>
+    <span class="pill">IPO 進程</span>
+    <span class="pill">裁員 Layoffs</span>
+    <span class="pill">區域 Regional</span>
+    <span class="pill">產品發表</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- TOC -->
+  <div class="toc">
+    <strong>Quick nav →</strong>
+    <a href="#top-stories">頭條</a>
+    <a href="#funding">募資</a>
+    <a href="#launches">新公司發表</a>
+    <a href="#products">產品大事</a>
+    <a href="#ma">收購整併</a>
+    <a href="#people">人事</a>
+    <a href="#layoffs">裁員停業</a>
+    <a href="#ipo">上市進程</a>
+    <a href="#regional">區域聚焦</a>
+    <a href="#reads">觀點 Reads</a>
+  </div>
+
+  <!-- ===== 1. TOP STORIES ===== -->
+  <div class="section-title" id="top-stories">🔥 1. 頭條 / Top Stories</div>
+
+  <div class="card top-story-card">
+    <h3>Mercury 以 $5.2B 估值完成 $200M D 輪 — AI 新創爆量推動銀行需求大躍進<br/>
+    <small style="font-weight:400;color:#555;">Mercury Raises $200M Series D at $5.2B Valuation as AI Startup Surge Fuels Banking Demand</small></h3>
+    <div class="meta">
+      <strong>來源 / Source:</strong>
+      <a href="https://www.businesswire.com/news/home/20260520511817/en/Mercury-Raises-$200-Million-Series-D-at-$5.2B-Valuation" target="_blank">BusinessWire</a> ·
+      <a href="https://news.crunchbase.com/venture/fintech-funding-digital-banking-startup-mercury-lands-200m/" target="_blank">Crunchbase News</a> ·
+      2026-05-20
+    </div>
+    <div class="facts">
+      <span class="block-label"><span class="label l-fact">核心事實 / Facts</span></span>
+      舊金山 fintech Mercury 完成 $200M Series D，post-money 估值 $5.2B（較 14 個月前上漲 49%）。
+      領投：<strong>TCV</strong>；跟投：Sequoia Capital、Andreessen Horowitz、Coatue。
+      主要數字：年化營收（ARR）$650M，已連續盈利四年。
+      Q1 2026 新帳戶申請量較 Q1 2025 成長 2.5 倍，由 AI 新創潮帶動。
+      累計融資約 $700M（primary + secondary）。
+      <br/><em>Mercury closed $200M Series D at $5.2B post-money valuation, +49% in 14 months. Led by TCV; Sequoia, a16z, Coatue participated. ARR $650M, four consecutive profitable years.</em>
+    </div>
+    <div class="context">
+      <span class="block-label"><span class="label l-ctx">背景脈絡 / Context</span></span>
+      Mercury 於 2019 年創立，定位為新創公司的首選商業銀行。近期 AI 浪潮帶動美國新創公司登記數量爆增，Mercury 直接受益。同時，公司剛獲得 OCC 有條件核准成為聯邦監管銀行，若 2027 年正式完成，將大幅提升貸款業務能力，脫離純帳戶服務框架。競品包括 Brex、Ramp、Relay。
+      <br/><em>Mercury was founded in 2019 as the go-to bank for startups. AI-driven new business formation surged applications 2.5x. OCC conditional approval for federal bank charter could unlock lending capabilities by 2027.</em>
+    </div>
+    <div class="impl">
+      <span class="block-label"><span class="label l-impl">影響觀察 / Implications</span></span>
+      （分析）Mercury 的高成長數據給其他 fintech 基礎設施公司一個強力背書——AI 新創浪潮帶來的 SMB 金融需求遠超主流銀行當前覆蓋範圍。TCV 領投也意味著 IPO 通道已在視野中。估值回升至 $5B+ 將鼓勵同期 fintech 公司重估融資窗口。
+    </div>
+  </div>
+
+  <div class="card top-story-card">
+    <h3>SpaceX 公開 S-1 — 史上最大 IPO 正式進入倒數<br/>
+    <small style="font-weight:400;color:#555;">SpaceX Files Public S-1, Targets Nasdaq SPCX — Potentially the Largest IPO in History</small></h3>
+    <div class="meta">
+      <strong>來源 / Source:</strong>
+      <a href="https://finance.yahoo.com/markets/stocks/articles/factbox-mega-ipos-loom-wall-205642104.html" target="_blank">Yahoo Finance</a> ·
+      <a href="https://www.cnbc.com/2026/05/20/spacex-ipo-live-updates.html" target="_blank">CNBC</a> ·
+      2026-05-20
+    </div>
+    <div class="facts">
+      <span class="block-label"><span class="label l-fact">核心事實 / Facts</span></span>
+      SpaceX 於 2026-05-20 向 SEC 提交公開 S-1，計劃在 Nasdaq 掛牌，代號 <strong>SPCX</strong>。
+      估值區間：$1.75T–$2T；IPO 定價目前欄位留空，待 6 月路演後定奪。
+      路演週期：6/8 開始；定價預計 6/18。
+      Q1 2026：Starlink 連結業務營收 $3.26B，但 xAI 併入後 Q1 淨損 $4.28B。
+      <br/><em>SpaceX filed public S-1 on May 20, targeting Nasdaq under SPCX. Valuation range $1.75T–$2T — largest IPO in history if realized. Roadshow week of June 8; pricing ~June 18. Starlink segment Q1 revenue $3.26B.</em>
+    </div>
+    <div class="context">
+      <span class="block-label"><span class="label l-ctx">背景脈絡 / Context</span></span>
+      SpaceX 在 xAI 合併後帳面虧損擴大（2025 年淨損 $4.94B，Q1 2026 單季虧 $4.28B），但 Starlink 仍是強力盈利引擎。市場對 xAI 整合的盈利路徑存在重大疑問。OpenAI 也傳出計劃在 5–6 月提交 confidential IPO 申請，可能在 SpaceX 之前搶先上市。
+      <br/><em>xAI merger has widened losses materially. However, Starlink connectivity remains highly profitable. Competing IPO wave: OpenAI may file confidentially in May–June, aiming for a September 2026 debut.</em>
+    </div>
+    <div class="impl">
+      <span class="block-label"><span class="label l-impl">影響觀察 / Implications</span></span>
+      （分析）SpaceX 的 S-1 揭露 xAI 整合後的合併財報，為市場定義了「AI 科技集團」的估值錨點。若定價成功，將對 2026 Q3–Q4 的其他大型 IPO（OpenAI、Kraken、Lime）形成強大的資金吸納壓力，可能縮短後續路演窗口。
+    </div>
+  </div>
+
+  <div class="card top-story-card">
+    <h3>Anduril 完成 $5B Series H，估值倍增至 $61B，國防科技融資破紀錄<br/>
+    <small style="font-weight:400;color:#555;">Anduril Raises $5B Series H at $61B Valuation — Defense Tech Funding Shatters Records</small></h3>
+    <div class="meta">
+      <strong>來源 / Source:</strong>
+      <a href="https://www.anduril.com/news/anduril-announces-usd5b-series-h-raise" target="_blank">Anduril</a> ·
+      <a href="https://news.crunchbase.com/defense-tech/anduril-5b-valuation-vc-funding-record-data/" target="_blank">Crunchbase News</a> ·
+      2026-05-13
+    </div>
+    <div class="facts">
+      <span class="block-label"><span class="label l-fact">核心事實 / Facts</span></span>
+      國防科技新創 Anduril 完成 $5B Series H，估值由 $30.5B 倍增至 <strong>$61B</strong>，由 Thrive Capital 與 a16z 領投。
+      同期美國國防部與 Anduril、CoAspire、Leidos、Zone 5 簽署協議，未來三年採購逾 10,000 枚低成本高速飛彈。
+      2026 年迄今國防科技新創募資總額已逼近 $13.6B，超過 2025 全年 $8.8B 的紀錄。
+      <br/><em>Anduril closed $5B Series H, valuation doubled to $61B. Led by Thrive Capital and a16z. Pentagon also inked a deal for 10,000+ low-cost hypersonic missiles with Anduril and partners.</em>
+    </div>
+    <div class="context">
+      <span class="block-label"><span class="label l-ctx">背景脈絡 / Context</span></span>
+      Anduril 由 Palmer Luckey 於 2017 年創立，以自主武器系統（Lattice OS、無人機、Roadrunner）為核心。此輪融資資金用於製造擴產與自主系統研發。IPO 廣泛預期，但時間表未公布。
+    </div>
+    <div class="impl">
+      <span class="block-label"><span class="label l-impl">影響觀察 / Implications</span></span>
+      （分析）國防科技已成為 2026 年新創融資最確定的增長賽道。Anduril 的估值跳躍也重新定義了「非 AI 平台公司」在高地緣政治風險環境下的溢價空間。對台灣、韓國、以色列的國防科技新創可能形成大資金引導效應。
+    </div>
+  </div>
+
+  <!-- ===== 2. FUNDING ===== -->
+  <div class="section-title" id="funding">💰 2. 募資 / Funding Rounds</div>
+
+  <!-- Sierra -->
+  <div class="card">
+    <h3>Sierra 以 $15B 估值募得 $950M，AI 客服代理覆蓋 40% 以上 Fortune 50<br/>
+    <small style="font-weight:400;color:#555;">Sierra Raises $950M at $15B+ Valuation — Bret Taylor's AI Agent Platform Serves 40%+ of Fortune 50</small></h3>
+    <div class="meta tag-row">
+      <span class="stage-badge seriesc">Late Stage</span>
+      <strong>來源:</strong>
+      <a href="https://techcrunch.com/2026/05/04/sierra-raises-950m-as-the-race-to-own-enterprise-ai-gets-serious/" target="_blank">TechCrunch</a> · 2026-05-04
+    </div>
+    <div class="facts">
+      由 Bret Taylor（前 Salesforce Co-CEO、OpenAI 董事長）創立。領投：Tiger Global、GV。ARR 超 $150M，七個季度從零增長至此。客戶含 Nordstrom、Singtel、Cigna。新資金用於歐亞擴張與銷售代理開發。
+      <br/><em>Founded by Bret Taylor. ARR $150M+ in just 7 quarters. Tiger Global &amp; GV led. Customers include Nordstrom (deployed Nora voice agent in 5 weeks), Singtel (70%+ resolution rate), Cigna (80% faster patient auth).</em>
+    </div>
+    <div class="impl">
+      （分析）Sierra 是 enterprise AI agent 賽道最明確的龍頭之一。$15B 估值顯示市場在 AI 客服基礎設施的溢價已高度集中。Salesforce、Zendesk 等傳統 CRM 需重新評估被侵蝕的速度。
+    </div>
+  </div>
+
+  <!-- Primer -->
+  <div class="card">
+    <h3>倫敦支付基礎設施新創 Primer 完成 $100M Series C，全力押注 AI 自主支付<br/>
+    <small style="font-weight:400;color:#555;">London Fintech Primer Raises $100M Series C to Wire AI Into Global Payments Stack</small></h3>
+    <div class="meta tag-row">
+      <span class="stage-badge seriesc">Series C</span>
+      <strong>來源:</strong>
+      <a href="https://sifted.eu/articles/primer-raises-100m-series-c" target="_blank">Sifted</a> · 2026-05-20
+    </div>
+    <div class="facts">
+      Primer 由前 PayPal 工程師於 2020 年創立。本輪由 Sofina 領投，Peak XV、Balderton、Accel、ICONIQ、Tencent、Speedinvest 跟投。累計融資 $170M。
+      計劃在美國新增 50 人，並將美國營收佔比拓展至三分之一（目標 2028）。
+      旗艦 AI 產品 Primer Companion 已可自主跑支付實驗、優化轉化率。
+      <br/><em>Founded by ex-PayPal engineers. Led by Sofina. Total raised $170M. US expansion: 50 hires planned. AI agent Primer Companion autonomously runs payment experiments within merchant-set parameters.</em>
+    </div>
+    <div class="impl">
+      （分析）支付基礎設施 + AI 自動化是 2026 H1 歐洲 fintech 的核心命題。Primer 定位「Stripe 的 AI 層」，但重點在多 PSP 編排而非發卡，差異化空間值得觀察。
+    </div>
+  </div>
+
+  <!-- Socket -->
+  <div class="card">
+    <h3>開源安全新創 Socket 完成 $60M Series C，晉升獨角獸，客戶含 Anthropic、xAI、Cursor<br/>
+    <small style="font-weight:400;color:#555;">Socket Raises $60M Series C at $1B Valuation — AI Security Unicorn Guarding the Software Supply Chain</small></h3>
+    <div class="meta tag-row">
+      <span class="stage-badge seriesc">Series C</span>
+      <strong>來源:</strong>
+      <a href="https://socket.dev/blog/socket-raises-60m-series-c-press-release" target="_blank">Socket</a> ·
+      <a href="https://techstartups.com/2026/05/21/ai-security-startup-socket-hits-1b-valuation-after-60m-raise-to-stop-software-supply-chain-attacks/" target="_blank">Tech Startups</a> · 2026-05-20
+    </div>
+    <div class="facts">
+      創辦人：Feross Aboukhadijeh（開源社群名人）。2020 年創立。本輪由 Thrive Capital 領投，a16z、Abstract Ventures、Capital One Ventures 跟投。累計融資 $125M。
+      產品：即時掃描 npm/PyPI/Go 開源套件中的惡意行為（後門、typosquatting、obfuscated code）。
+      客戶：Anthropic、xAI、Replit、Cursor、Figma、Vercel、Gusto。
+      <br/><em>Founded by Feross Aboukhadijeh. Led by Thrive Capital with a16z. Total $125M raised. Product scans open-source packages in real time for malicious behavior. Customers include Anthropic, xAI, Cursor, Figma, Vercel.</em>
+    </div>
+    <div class="impl">
+      （分析）AI 編程工具（Cursor、Replit）大幅加速開源套件使用量，供應鏈安全威脅同步放大。Socket 切入「vibe coding → 安全漏洞」這條最短路徑。Snyk、GitHub Advanced Security 是主要競爭對手。
+    </div>
+  </div>
+
+  <!-- Dust -->
+  <div class="card">
+    <h3>巴黎 AI 新創 Dust 完成 $40M Series B，打造「多人協作版 AI 作業系統」<br/>
+    <small style="font-weight:400;color:#555;">Paris-based Dust Raises $40M Series B for "Multiplayer AI" Enterprise Operating System</small></h3>
+    <div class="meta tag-row">
+      <span class="stage-badge seriesb">Series B</span>
+      <strong>來源:</strong>
+      <a href="https://sifted.eu/articles/dust-series-b-40m" target="_blank">Sifted</a> ·
+      <a href="https://www.axios.com/pro/enterprise-software-deals/2026/05/18/agentic-ai-dust-snowflake-sequoia" target="_blank">Axios</a> · 2026-05-18
+    </div>
+    <div class="facts">
+      創辦人：Gabriel Hubert、Stanislas Polu（均為前 Stripe，Polu 亦曾在 OpenAI）。領投：Sequoia Capital、Abstract Ventures；跟投：Snowflake Ventures、Datadog。累計融資 $60M+。
+      ARR 已超 $20M；3,000+ 客戶組織；70% 周活躍率；2025 零流失率。
+      <br/><em>Founded by ex-Stripe/OpenAI alums. Led by Sequoia &amp; Abstract with Snowflake and Datadog. ARR $20M+, 3,000+ org customers, 70% WAU, zero churn in 2025.</em>
+    </div>
+    <div class="context">
+      <span class="block-label"><span class="label l-ctx">背景脈絡 / Context</span></span>
+      Dust 定位比 Slack + Notion 更深——允許企業在共享空間部署、分享、協作 AI agents，跨部門連接所有工具。歐洲 enterprise AI 市場中的稀缺品：實際有客戶且零流失。
+    </div>
+  </div>
+
+  <!-- Manifest OS -->
+  <div class="card">
+    <h3>Manifest OS：法律 AI 新創以 $750M 估值完成 $60M Series A，挑戰律師計時收費制度<br/>
+    <small style="font-weight:400;color:#555;">Manifest OS Raises $60M Series A at $750M — AI-Native Law Firm OS Challenges Billable Hour Model</small></h3>
+    <div class="meta tag-row">
+      <span class="stage-badge seriesa">Series A</span>
+      <strong>來源:</strong>
+      <a href="https://www.businesswire.com/news/home/20260427884891/en/Manifest-OS-Raises-$60M-to-Scale-the-Worlds-First-AI-Native-Law-Firm-Model" target="_blank">BusinessWire</a> · 2026-04-27（近期）
+    </div>
+    <div class="facts">
+      Manifest OS 由創辦人 Mishin 兩年前在紐約創立，辦公室含舊金山、鳳凰城。
+      本輪由 Menlo Ventures、Kleiner Perkins、First Round Capital、Quiet Capital 領投，號稱法律科技史上最大 Series A。估值 $750M。
+      平台以 AI 自動化研究、文件起草、資料管理，並在 Arizona ABS 框架下孵化旗下律師事務所 Manifest Law（移民業務起步）。
+      <br/><em>Led by Menlo Ventures &amp; Kleiner Perkins. Largest Series A in legaltech history at $750M. Platform automates legal workflows and incubates Manifest Law under Arizona's alternative business structure program.</em>
+    </div>
+    <div class="impl">
+      （分析）法律科技進入「不只賣工具，自己也開律師事務所」的垂直整合新階段。Arizona ABS 是突破傳統法律執業壁壘的關鍵制度槓桿，值得密切追蹤其他州跟進可能。
+    </div>
+  </div>
+
+  <!-- WIRobotics -->
+  <div class="card">
+    <h3>韓國人形機器人新創 WIRobotics 完成 $68M Series B，獲 NVIDIA 實體 AI 研究員資格<br/>
+    <small style="font-weight:400;color:#555;">Korea's WIRobotics Closes $68M Series B for Humanoid "ALLEX" Platform, Named NVIDIA Physical AI Fellow</small></h3>
+    <div class="meta tag-row">
+      <span class="stage-badge seriesb">Series B</span>
+      <strong>來源:</strong>
+      <a href="https://www.prnewswire.com/news-releases/wirobotics-secures-approximately-krw-100-billion-usd-68-million-series-b-funding-302772164.html" target="_blank">PR Newswire</a> · 2026-05-15
+    </div>
+    <div class="facts">
+      融資 KRW 95B（約 $68M），JB Investment 領投，InterVest、Hana Ventures、Smilegate Investment、SBVA 等跟投。
+      人形機器人平台 ALLEX 聚焦「人類級物體操作能力」。
+      營收三年倍增：2023 KRW 560M → 2024 KRW 1.3B → 2025 KRW 2.79B；Q1 2026 已超 2024 全年。
+      與 NVIDIA、AWS 合作物理 AI 技術開發。
+      <br/><em>$68M Series B led by JB Investment. ALLEX humanoid platform focused on human-level manipulation. Revenue doubling annually. Designated NVIDIA Physical AI Fellow.</em>
+    </div>
+  </div>
+
+  <!-- ===== 3. LAUNCHES ===== -->
+  <div class="section-title" id="launches">🎉 3. 新公司發表 / Launches & Stealth-Out</div>
+
+  <div class="card">
+    <h3>Product Hunt 本週亮點：StoreClaw、PollyReach、Spellar 3.0 衝票<br/>
+    <small style="font-weight:400;color:#555;">Product Hunt Weekly Highlights: StoreClaw, PollyReach, Spellar 3.0 Top the Charts</small></h3>
+    <div class="meta">
+      <strong>來源:</strong>
+      <a href="https://www.producthunt.com/" target="_blank">Product Hunt</a> · 2026-05 month
+    </div>
+    <div class="facts">
+      五月最高票產品（全月排行）含：StoreClaw（633K+ 票）、PollyReach（529K+ 票）、Spellar 3.0（522K+ 票）、mailX by mailwarm（504K+ 票）、Kilo Code v7（VS Code AI 編碼工具）、Superset 2.0。
+      <br/><em>May 2026 PH highlights: StoreClaw, PollyReach, Spellar 3.0. AI coding (Kilo Code v7) and data tooling (Superset 2.0) are among the most-voted categories.</em>
+    </div>
+    <div class="context">
+      <span class="block-label"><span class="label l-ctx">背景脈絡 / Context</span></span>
+      Bezos 旗下的 Project Prometheus（AI 製造業模擬）仍未正式出 stealth，但融資傳聞持續。近期 stealth 出場規模最大的包括：Thinking Machines Lab（$2B 種子輪）、Fundamental（$255M）、Emanate（a16z + Peter Thiel）。
+    </div>
+  </div>
+
+  <!-- ===== 4. PRODUCTS ===== -->
+  <div class="section-title" id="products">🛠️ 4. 產品大事 / Notable Product Launches</div>
+
+  <div class="card">
+    <h3>Sierra 推出語音 AI 代理 Nora，Nordstrom 五週上線，解決率超 70%<br/>
+    <small style="font-weight:400;color:#555;">Sierra Deploys Voice AI Agent "Nora" at Nordstrom — 5-Week Deployment, 70%+ Resolution Rate</small></h3>
+    <div class="meta">
+      <strong>來源:</strong>
+      <a href="https://techcrunch.com/2026/05/04/sierra-raises-950m-as-the-race-to-own-enterprise-ai-gets-serious/" target="_blank">TechCrunch</a> · 2026-05-04
+    </div>
+    <div class="facts">
+      Nordstrom 採用 Sierra 平台在五週內上線語音 AI 客服代理 Nora；Singtel 同樣十週完成部署，解決率逾 70%；Cigna 縮短病患認證時間 80%。
+      <br/><em>Sierra voice agents show rapid enterprise deployment: Nordstrom Nora in 5 weeks; Singtel 10 weeks at 70%+ resolution; Cigna 80% faster patient auth. Sets benchmark for agentic AI deployment speed.</em>
+    </div>
+    <div class="impl">
+      （分析）「幾週上線 + 立即可量化結果」正成為 enterprise AI agent 的新銷售語言，取代傳統 SaaS 以「席位數」為單位的採購邏輯。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Primer Companion AI 代理升級：可自主跑支付實驗、優化轉化率<br/>
+    <small style="font-weight:400;color:#555;">Primer Companion AI Agent Upgraded to Run Autonomous Payment Experiments</small></h3>
+    <div class="meta">
+      <strong>來源:</strong>
+      <a href="https://sifted.eu/articles/primer-raises-100m-series-c" target="_blank">Sifted</a> · 2026-05-20
+    </div>
+    <div class="facts">
+      Primer Companion 從「回答問題」升級為「自主行動」：可在商家設定的參數內自動執行 A/B 測試、路由優化、轉化率提升實驗，無需人工介入。
+      <br/><em>Primer Companion upgrades from Q&amp;A to autonomous action: runs A/B tests, routing optimization, and conversion experiments within merchant-set guardrails — no human intervention required.</em>
+    </div>
+  </div>
+
+  <!-- ===== 5. M&A ===== -->
+  <div class="section-title" id="ma">🤝 5. 收購與整併 / Acquisitions & Consolidation</div>
+
+  <div class="card">
+    <h3>Eli Lilly 以最高 $2.4B 收購免疫細胞工程新創 Orna Therapeutics<br/>
+    <small style="font-weight:400;color:#555;">Eli Lilly Agrees to Acquire Orna Therapeutics for Up to $2.4B — In Vivo Immune Cell Engineering</small></h3>
+    <div class="meta">
+      <strong>來源:</strong>
+      <a href="https://news.crunchbase.com/health-wellness-biotech/startup-ma-ipo-delivering-exits/" target="_blank">Crunchbase News</a> · 2026年（近期）
+    </div>
+    <div class="facts">
+      Eli Lilly 同意以最高 $2.4B 收購 Orna Therapeutics，一家聚焦在體內直接工程化免疫細胞的 biotech 新創。此為 2026 年大型藥廠收購 biotech 新創的代表案例之一。
+      <br/><em>Eli Lilly agreed to pay up to $2.4B for Orna Therapeutics (in vivo immune cell engineering). One of the largest Big Pharma-acquires-biotech-startup deals so far in 2026.</em>
+    </div>
+    <div class="impl">
+      （分析）biotech 新創「被收購」依然是最主要的退場通道，M&amp;A 溢價遠高於 IPO。Orna 的成功退場將強化 in vivo 細胞治療領域的早期融資信心。
+    </div>
+  </div>
+
+  <!-- ===== 6. PEOPLE ===== -->
+  <div class="section-title" id="people">👤 6. 人事 / People Moves</div>
+
+  <div class="card">
+    <h3>Shield AI 引入 Gary Steele 擔任 CEO，Ryan Tseng 轉任總裁<br/>
+    <small style="font-weight:400;color:#555;">Shield AI Names Gary Steele CEO — Splunk &amp; Proofpoint Veteran Takes Over from Co-Founder Ryan Tseng</small></h3>
+    <div class="meta">
+      <strong>來源:</strong>
+      <a href="https://shield.ai/shield-ai-appoints-gary-steele-as-ceo-ryan-tseng-named-president/" target="_blank">Shield AI</a> · 2025-05（已任職，近期確認）
+    </div>
+    <div class="facts">
+      Gary Steele：前 Splunk CEO、Proofpoint 創辦人兼 CEO（任職近 20 年）。接替共同創辦人 Ryan Tseng 擔任 CEO，Tseng 轉任總裁聚焦政策與合作。
+      Shield AI 估值 $5.3B（Series F-1，$240M 融資後）。
+      <br/><em>Gary Steele (ex-Splunk CEO, Proofpoint founder) named CEO. Co-founder Ryan Tseng becomes President. Shield AI valued at $5.3B after $240M Series F-1. Classic "bring in the grown-ups" executive transition ahead of anticipated IPO.</em>
+    </div>
+    <div class="impl">
+      （分析）引入有上市公司管理經驗的外部 CEO 是「IPO 前接班」的標準套路。Shield AI 的 IPO 時間表尚未公布，但此舉強烈暗示倒數已開始。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Hootsuite 創辦人 Ryan Holmes 回任 CEO，替換 Irina Novoselsky<br/>
+    <small style="font-weight:400;color:#555;">Hootsuite Founder Ryan Holmes Returns as CEO, Replacing Irina Novoselsky</small></h3>
+    <div class="meta">
+      <strong>來源: Intellizence</strong> · 2026 年（近期）
+    </div>
+    <div class="facts">
+      社群媒體管理工具 Hootsuite 創辦人 Ryan Holmes 重返 CEO 職位，取代 Irina Novoselsky。此類「創辦人回任」在科技週期低谷後相對常見，通常伴隨業務重整或策略重定。
+      <br/><em>Hootsuite founder Ryan Holmes reinstated as CEO, replacing Irina Novoselsky. Founder returns are common signals of business reset or strategic reorientation.</em>
+    </div>
+  </div>
+
+  <!-- ===== 7. LAYOFFS ===== -->
+  <div class="section-title" id="layoffs">⚠️ 7. 裁員與停業 / Layoffs & Shutdowns</div>
+
+  <div class="card">
+    <h3 class="alert-red">Kraken 裁員 150 人，AI 取代客服人工；IPO 計劃延至 2027<br/>
+    <small style="font-weight:400;font-size:0.87rem;color:#555;">Kraken Cuts 150 Workers After AI Deployment — IPO Timeline Pushed to 2027</small></h3>
+    <div class="meta">
+      <strong>來源:</strong>
+      <a href="https://www.bloomberg.com/news/articles/2026-05-15/kraken-cuts-150-workers-after-deploying-ai-ipo-may-slip-to-2027" target="_blank">Bloomberg</a> · 2026-05-15
+    </div>
+    <div class="facts">
+      加密貨幣交易所 Kraken 裁員約 150 人（約 8% 員工），主要涉及客服、合規、交易支援部門。AI 客服機器人已處理約 80% 客戶詢問，自動化合規系統取代人工作業。IPO 計劃從 2026 年推遲至 2027 年。
+      <br/><em>Kraken cut ~150 staff (8% of workforce). AI chatbot handles 80% of customer queries. IPO previously targeting 2026 now slipping to 2027.</em>
+    </div>
+    <div class="context">
+      <span class="block-label"><span class="label l-ctx">背景脈絡 / Context</span></span>
+      同週加密數據公司 Dune Analytics 宣布裁員 25% 員工，稱重組業務聚焦核心產品。加密業 2026 年迄今裁員逾 5,000 人，AI 效率取代是主因之一。Block Inc. 今年二月裁 4,000 人（員工數的一半）同樣以 AI 驅動為由。
+    </div>
+    <div class="impl">
+      <span class="alert-red">注意：</span>裁員 + IPO 延期的組合通常反映收入增長承壓，非單純效率優化。Kraken 的 IPO 時程滑動應從資本市場預期角度解讀，而非只看 AI 取代的正面敘事。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="alert-red">Dune Analytics 裁員 25%，加密數據市場重整<br/>
+    <small style="font-weight:400;font-size:0.87rem;color:#555;">Dune Analytics Cuts 25% of Staff, Citing Business Restructuring</small></h3>
+    <div class="meta">
+      <strong>來源: Trueup.io Layoffs Tracker / Skillsyncer</strong> · 2026-05 mid
+    </div>
+    <div class="facts">
+      鏈上數據分析平台 Dune Analytics 宣布裁員 25%，稱「重組業務並聚焦核心產品」。未披露被裁員工數目。
+      <br/><em>Dune Analytics cut 25% of staff citing restructuring and product focus. Headcount not disclosed. Signals tightening in the on-chain analytics market as crypto data tools face monetization pressure.</em>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="alert-red">2026 年整體科技裁員：179 起事件，已衝擊逾 11.3 萬人<br/>
+    <small style="font-weight:400;font-size:0.87rem;color:#555;">2026 Tech Layoffs YTD: 179 Events, 113,863 Jobs Cut — Averaging 802/Day</small></h3>
+    <div class="meta">
+      <strong>來源:</strong>
+      <a href="https://www.trueup.io/layoffs" target="_blank">TrueUp Layoffs Tracker</a> · 持續更新
+    </div>
+    <div class="facts">
+      截至 2026-05-23，全年已有 179 起裁員事件，共計 113,863 人受衝擊，日均 802 人。五月單月 30 家公司裁減約 20,600 人。AI 效率化是最多次被引用的裁員理由。
+    </div>
+  </div>
+
+  <!-- ===== 8. IPO ===== -->
+  <div class="section-title" id="ipo">📈 8. 上市進程 / IPO Pipeline</div>
+
+  <div class="card">
+    <div class="tag-row"><span class="stage-badge ipo">IPO S-1 Filed</span></div>
+    <h3>SpaceX（SPCX）公開招股書，估值 $1.75T–$2T，路演 6 月啟動<br/>
+    <small style="font-weight:400;color:#555;">SpaceX Public S-1 Filed — Nasdaq SPCX, $1.75T–$2T Valuation, Roadshow June 8</small></h3>
+    <div class="meta">
+      <a href="https://finance.yahoo.com/markets/article/spacex-files-ipo-prospectus-offering-a-peek-into-its-finances-205406189.html" target="_blank">Yahoo Finance</a> · 2026-05-20
+    </div>
+    <div class="facts">
+      S-1 揭露：Starlink 連結業務 Q1 2026 營收 $3.26B；2025 Starlink 全年 $11.4B（年增 49.8%）。xAI 整合後 2025 淨損 $4.94B；Q1 2026 淨損 $4.28B。IPO 定價欄空白，路演後定奪。
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="tag-row"><span class="stage-badge ipo">IPO Confidential Filing</span></div>
+    <h3>OpenAI 傳 5–6 月提交機密 IPO 申請，最快 9 月掛牌，估值逾 $1T<br/>
+    <small style="font-weight:400;color:#555;">OpenAI Said to File Confidentially for IPO in May–June, Targeting September 2026 Debut at $1T+ Valuation</small></h3>
+    <div class="meta">
+      <a href="https://fortune.com/2026/05/22/openai-ipo-filing-1-trillion-may-finally-answer-these-big-questions/" target="_blank">Fortune</a> · 2026-05-22
+    </div>
+    <div class="facts">
+      多份報告顯示 OpenAI 計劃於 5–6 月提交機密申請（confidential filing），最快 9 月正式掛牌，估值可能逾 $1 trillion。與 SpaceX 形成「誰先上市」的競賽態勢。
+      <br/><em>OpenAI reportedly planning confidential IPO filing in May–June, targeting September 2026 at $1T+ valuation. Racing against SpaceX for 2026's most significant tech listing.</em>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="tag-row"><span class="stage-badge ipo">IPO Planned</span></div>
+    <h3>Lime（Neutron Holdings）申請 Nasdaq 掛牌，代號 LIME，預計 6 月<br/>
+    <small style="font-weight:400;color:#555;">Lime (Neutron Holdings) Files for Nasdaq IPO Under Ticker LIME — June 2026</small></h3>
+    <div class="meta">
+      <a href="https://forgeglobal.com/tech-ipo-calendar-2026/" target="_blank">Forge Global</a> · 2026-05-08
+    </div>
+    <div class="facts">
+      電動滑板車公司 Lime 以「Neutron Holdings」名稱向 SEC 申請 IPO，Nasdaq 代號 LIME，計劃 2026 年 6 月掛牌。
+    </div>
+  </div>
+
+  <!-- ===== 9. REGIONAL ===== -->
+  <div class="section-title" id="regional">🌏 9. 區域聚焦 / Regional Spotlight</div>
+
+  <div class="card">
+    <h3>亞洲 Q1 2026 新創融資達 $27.4B，三年新高；中國主導，台灣首次闖入全球前 20 新創生態系<br/>
+    <small style="font-weight:400;color:#555;">Asia Startup Funding Hits $27.4B in Q1 2026 — 3-Year High; Taiwan Enters Global Top 20 Ecosystem for First Time</small></h3>
+    <div class="meta">
+      <strong>來源:</strong>
+      <a href="https://news.crunchbase.com/venture/china-leads-startup-funding-ai-seed-growth-asia-q1-2026/" target="_blank">Crunchbase News</a> ·
+      <a href="https://www.manilatimes.net/2026/05/20/tmt-newswire/pr-newswire/historic-breakthrough-taiwan-surges-into-global-top-20-startup-ecosystems-ranking-1-in-top-tier-growth-and-9-in-brand-value/2347917" target="_blank">Manila Times</a>
+    </div>
+    <div class="facts">
+      亞洲 Q1 2026 新創融資 $27.4B，較上季增約 20%，較去年同期幾乎翻倍。中國主導增長；印度、新加坡、韓國亦環比上升。
+      台灣首次進入全球前 20 新創生態系（排名 #20），年生態系成長率 41.1%，為東亞最快；品牌價值全球排名 #9。
+      <br/><em>Asia Q1 2026 startup funding $27.4B — 3-year high, up ~20% QoQ, nearly doubled YoY. China leads. Taiwan enters global top 20 ecosystems for the first time, ranked #1 in top-tier growth rate (41.1% annually).</em>
+    </div>
+    <div class="context">
+      <span class="block-label"><span class="label l-ctx">背景脈絡 / Context</span></span>
+      台灣生態系的躍升背後是半導體 IP 外溢（IC 設計新創）、AI 推論硬體、以及政策支持（國發基金共投）的共同推動。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>印度旅行 fintech Scapia 完成 $63M 融資，General Catalyst 領投<br/>
+    <small style="font-weight:400;color:#555;">India's Travel Fintech Scapia Raises $63M Led by General Catalyst</small></h3>
+    <div class="meta">
+      <strong>來源: Techloy / Tech in Asia</strong> · 2026-05 mid
+    </div>
+    <div class="facts">
+      Scapia 為印度旅遊信用卡與旅行商務新創，完成 $63M 融資，General Catalyst 領投。計劃擴大旅行商務生態系並投資 AI 人才。
+      <br/><em>Scapia (travel fintech/commerce) raised $63M led by General Catalyst. Plans to expand travel commerce and invest in AI talent in India.</em>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>韓國 WIRobotics $68M Series B（見募資節）；中國 Accro Bioscience $50M Series C<br/>
+    <small style="font-weight:400;color:#555;">Korea WIRobotics $68M Series B; China Accro Bioscience $50M Series C (OrbiMed)</small></h3>
+    <div class="meta">
+      <strong>來源:</strong>
+      <a href="https://www.prnewswire.com/news-releases/wirobotics-secures-approximately-krw-100-billion-usd-68-million-series-b-funding-302772164.html" target="_blank">PR Newswire</a>
+    </div>
+    <div class="facts">
+      中國 Accro Bioscience 完成 $50M Series C，由 OrbiMed 領投，支持旗艦藥物 AC-101（免疫介導疾病）臨床試驗。
+      WIRobotics 詳情見第 2 節。
+    </div>
+  </div>
+
+  <!-- ===== 10. READS ===== -->
+  <div class="section-title" id="reads">📚 10. 觀點 / Reads Worth Bookmarking</div>
+
+  <div class="card">
+    <h3>YC 2026 路線圖：全面 AI-Native，拋棄「人類加強版 AI」<br/>
+    <small style="font-weight:400;color:#555;">YC 2026 Roadmap: The Great AI-Native Pivot — Not "AI-Augmented Humans" But "AI as the Default Worker"</small></h3>
+    <div class="meta">
+      <a href="https://nishadil.com/news/the-great-ai-pivot-y-combinators-radical-shift-towards-truly-ai-native-innovation/a00d558aa60a6f1577e2357f6c47cd74" target="_blank">分析文章</a>
+    </div>
+    <div class="facts">
+      Y Combinator 明確轉向「完全 AI-native」新創，要求創始人從零開始重新想像業務流程而非只在現有流程上疊加 AI。2026 Batch 申請中，AI-native 創始人比例大幅上升。這是 YC 本身的一次重要「策略樞紐」。
+      <br/><em>YC is explicitly steering its 2026 batch toward truly AI-native companies — those reimagining workflows from scratch, not layering AI on existing processes. A rare explicit YC strategy signal worth tracking.</em>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Crunchbase：Biotech Startup M&amp;A 正穩定創造大型退場<br/>
+    <small style="font-weight:400;color:#555;">Crunchbase: Biotech Startup M&amp;A Is Reliably Delivering Big Exits in 2026</small></h3>
+    <div class="meta">
+      <a href="https://news.crunchbase.com/health-wellness-biotech/startup-ma-ipo-delivering-exits/" target="_blank">Crunchbase News</a>
+    </div>
+    <div class="facts">
+      2026 年 biotech 並購依然是最可靠的大型退場通道，大型藥廠面臨專利懸崖下的強烈收購動機。Orna Therapeutics（$2.4B by Lilly）是年度指標案例。VC 回報率在 biotech M&amp;A 中仍顯著優於 IPO。
+    </div>
+  </div>
+
+  <!-- Sources footer -->
+  <div class="source-footer">
+    <strong>資料來源 / Sources</strong><br/>
+    <a href="https://techcrunch.com/" target="_blank">TechCrunch</a> ·
+    <a href="https://news.crunchbase.com/" target="_blank">Crunchbase News</a> ·
+    <a href="https://sifted.eu/" target="_blank">Sifted</a> ·
+    <a href="https://www.cnbc.com/" target="_blank">CNBC</a> ·
+    <a href="https://www.bloomberg.com/" target="_blank">Bloomberg</a> ·
+    <a href="https://fortune.com/" target="_blank">Fortune</a> ·
+    <a href="https://www.businesswire.com/" target="_blank">BusinessWire</a> ·
+    <a href="https://techstartups.com/" target="_blank">Tech Startups</a> ·
+    <a href="https://www.axios.com/" target="_blank">Axios</a> ·
+    <a href="https://socket.dev/" target="_blank">Socket</a> ·
+    <a href="https://fintech.global/" target="_blank">Fintech Global</a> ·
+    <a href="https://www.prnewswire.com/" target="_blank">PR Newswire</a> ·
+    <a href="https://www.trueup.io/layoffs" target="_blank">TrueUp Layoffs Tracker</a> ·
+    <a href="https://www.producthunt.com/" target="_blank">Product Hunt</a> ·
+    <a href="https://forgeglobal.com/" target="_blank">Forge Global</a> ·
+    <a href="https://www.globallegalpost.com/" target="_blank">Global Legal Post</a>
+    <br/><br/>
+    <em>⚠️ 付費牆 / Paywalled：The Information、Bloomberg（部分）、WSJ、FT — 以上文章摘要由公開索引取得，完整內容需訂閱。</em><br/>
+    <em>生成時間：2026-05-23 · 涵蓋時間範圍：2026-05-13 至 2026-05-23</em>
+  </div>
+
+</main>
+</body>
+</html>

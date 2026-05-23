@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>台股日報 — 2026-05-22 最後交易日</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3250;
+      --accent: #4f8ef7;
+      --green: #3ddc97;
+      --red: #f76d6d;
+      --yellow: #f5c842;
+      --text: #e2e6f3;
+      --muted: #8b90a8;
+      --tag-bg: #1e2540;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif; font-size: 15px; line-height: 1.7; padding: 0 0 60px; }
+
+    header { background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%); border-bottom: 1px solid var(--border); padding: 28px 32px 20px; }
+    header h1 { font-size: 1.65rem; font-weight: 700; color: #fff; letter-spacing: 0.01em; }
+    header .sub { color: var(--muted); font-size: 0.88rem; margin-top: 4px; }
+    .badge { display: inline-block; background: var(--accent); color: #fff; border-radius: 4px; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; margin-left: 10px; vertical-align: middle; letter-spacing: 0.05em; }
+    .holiday-notice { background: #2a1e3a; border: 1px solid #6b3fa0; border-radius: 8px; padding: 10px 16px; margin-top: 14px; font-size: 0.85rem; color: #c9a8f5; }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+    /* Summary tables */
+    .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0 24px; }
+    @media (max-width: 640px) { .summary-grid { grid-template-columns: 1fr; } }
+    .table-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .table-card h3 { background: var(--surface2); padding: 10px 16px; font-size: 0.82rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th { background: var(--surface2); color: var(--muted); font-weight: 600; padding: 8px 14px; text-align: left; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    td { padding: 9px 14px; border-top: 1px solid var(--border); }
+    tr:hover td { background: rgba(79,142,247,0.04); }
+    .up { color: var(--green); font-weight: 600; }
+    .dn { color: var(--red); font-weight: 600; }
+    .num { font-variant-numeric: tabular-nums; }
+    .label-col { font-weight: 600; color: var(--text); }
+
+    /* Sections */
+    section { margin: 32px 0; }
+    section h2 { font-size: 1.1rem; font-weight: 700; color: #fff; padding-bottom: 10px; border-bottom: 2px solid var(--border); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    section h2 .section-num { background: var(--accent); color: #fff; border-radius: 50%; width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; flex-shrink: 0; }
+    section h2 .en { color: var(--muted); font-size: 0.88rem; font-weight: 400; }
+
+    /* Story cards */
+    .story { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 16px; }
+    .story h3 { font-size: 1.0rem; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.45; }
+    .story .source-line { font-size: 0.78rem; color: var(--muted); margin-bottom: 12px; }
+    .story .source-line a { color: var(--accent); text-decoration: none; }
+    .story .source-line a:hover { text-decoration: underline; }
+    .story-block { margin-top: 12px; }
+    .story-block .block-label { font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 4px; }
+    .facts { color: var(--text); }
+    .context { color: #b0b8d8; }
+    .implication { color: #9fa8c8; border-left: 3px solid var(--accent); padding-left: 12px; font-style: italic; }
+    .tag { display: inline-block; background: var(--tag-bg); border: 1px solid var(--border); color: var(--muted); border-radius: 4px; font-size: 0.72rem; padding: 2px 8px; margin: 4px 4px 0 0; }
+    .tag.hot { border-color: var(--yellow); color: var(--yellow); }
+    .tag.up-tag { border-color: var(--green); color: var(--green); }
+    .tag.dn-tag { border-color: var(--red); color: var(--red); }
+
+    /* Heavyweight cards */
+    .hw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .hw-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+    .hw-card .ticker { font-size: 0.75rem; color: var(--muted); }
+    .hw-card .name { font-size: 0.95rem; font-weight: 700; color: #fff; }
+    .hw-card .price { font-size: 1.35rem; font-weight: 700; margin: 4px 0 2px; }
+    .hw-card .chg { font-size: 0.85rem; }
+    .hw-card .note { font-size: 0.78rem; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+
+    /* Sector pills */
+    .sector-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+    .sector-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+    .sector-card .sector-name { font-size: 0.82rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+    .sector-card .sector-body { font-size: 0.88rem; color: var(--text); line-height: 1.5; }
+
+    /* Sources footer */
+    .sources-footer { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin-top: 40px; }
+    .sources-footer h4 { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 12px; }
+    .sources-footer ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+    .sources-footer ul li a { color: var(--accent); text-decoration: none; font-size: 0.82rem; }
+    .sources-footer ul li a:hover { text-decoration: underline; }
+
+    .unconfirmed { color: var(--yellow); font-style: italic; }
+    hr.divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+    .note-banner { background: #1a2510; border: 1px solid #3d6b1a; border-radius: 8px; padding: 10px 16px; font-size: 0.84rem; color: #a8d87a; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>台股日報 Taiwan Stocks Daily <span class="badge">2026-05-22</span></h1>
+    <div class="sub">最後交易日 · 本報告由 Claude AI 整理，數字以公開資訊為準，不構成投資建議</div>
+    <div class="holiday-notice">
+      今日（2026-05-23）為週六休市。本報告涵蓋最近交易日 <strong>2026年5月22日（週五）</strong>收盤行情。
+      Today (Sat 2026-05-23) is a non-trading day. This briefing covers the last TWSE session: <strong>Friday, May 22, 2026</strong>.
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ════════════════════════════════
+       1. 大盤概況 / Index Overview
+       ════════════════════════════════ -->
+  <section>
+    <h2><span class="section-num">1</span> 大盤概況 <span class="en">/ Index Overview</span></h2>
+
+    <div class="summary-grid">
+      <div class="table-card">
+        <h3>大盤指數 Index</h3>
+        <table>
+          <thead>
+            <tr><th>指數</th><th>收盤</th><th>漲跌</th><th>%</th><th>成交量</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="label-col">加權 TAIEX</td>
+              <td class="num up">42,267.97</td>
+              <td class="up">▲ 899.76</td>
+              <td class="up">+2.18%</td>
+              <td class="num">1.19兆</td>
+            </tr>
+            <tr>
+              <td class="label-col">櫃買 OTC</td>
+              <td class="num up">— 待確認</td>
+              <td class="up">▲ ~3.28%</td>
+              <td class="up">+3.28%</td>
+              <td class="num">—</td>
+            </tr>
+            <tr>
+              <td class="label-col">台指期 (近月)</td>
+              <td class="num up">~42,500+</td>
+              <td class="up">正價差</td>
+              <td colspan="2" class="num muted" style="color:var(--muted)">夜盤一度攻 42,500</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-card">
+        <h3>三大法人 NT$ 億元 Institutional Flows</h3>
+        <table>
+          <thead>
+            <tr><th>法人</th><th>集中市場買超</th><th>櫃買市場買超</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="label-col">外資 FINI</td>
+              <td class="up num">+761.37 億</td>
+              <td class="up num">+41.85 億</td>
+            </tr>
+            <tr>
+              <td class="label-col">投信 IT</td>
+              <td class="up num">+112.26 億</td>
+              <td class="dn num">-5.53 億</td>
+            </tr>
+            <tr>
+              <td class="label-col">自營商 Prop</td>
+              <td class="up num">+194.76 億</td>
+              <td class="up num">+27.81 億</td>
+            </tr>
+            <tr>
+              <td class="label-col" style="font-weight:700;color:var(--green)">合計 Total</td>
+              <td class="up num" style="font-weight:700">+1,068.39 億</td>
+              <td class="up num">+64.14 億</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="summary-grid">
+      <div class="table-card">
+        <h3>匯率 &amp; ADR 參考</h3>
+        <table>
+          <thead>
+            <tr><th>項目</th><th>數值</th><th>備註</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="label-col">新台幣/USD</td>
+              <td class="num unconfirmed">待確認</td>
+              <td style="color:var(--muted);font-size:0.8rem">央行官網確認</td>
+            </tr>
+            <tr>
+              <td class="label-col">TSM ADR (5/22 美東)</td>
+              <td class="num up">~$406–410</td>
+              <td class="up" style="font-size:0.8rem">小幅收漲</td>
+            </tr>
+            <tr>
+              <td class="label-col">UMC ADR</td>
+              <td class="num unconfirmed">待確認</td>
+              <td style="color:var(--muted);font-size:0.8rem">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-card">
+        <h3>四大歷史紀錄 Four Records</h3>
+        <table>
+          <thead><tr><th>#</th><th>紀錄項目</th><th>數值</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>收盤新高</td><td class="up num">42,267.97 點</td></tr>
+            <tr><td>2</td><td>集中市場總市值</td><td class="up num">137.8 兆元</td></tr>
+            <tr><td>3</td><td>電子類股指數</td><td class="up num">2,752 點 歷史新高</td></tr>
+            <tr><td>4</td><td>市值兆元個股</td><td class="up num">17 檔 新增緯穎</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       2. 三大法人 / Institutional Flows
+       ════════════════════════════════ -->
+  <section>
+    <h2><span class="section-num">2</span> 三大法人詳析 <span class="en">/ Three Major Investors</span></h2>
+
+    <div class="story">
+      <h3>外資創歷史第 4 大單日買超 761.3 億元<br><span style="font-weight:400;color:var(--muted)">Foreign investors post 4th-largest single-day net buy of NT$76.1bn</span></h3>
+      <div class="source-line">來源：<a href="https://udn.com/news/story/7251/9520383" target="_blank">聯合新聞網</a>・<a href="https://news.tvbs.com.tw/money/3211261" target="_blank">TVBS 新聞網</a>・2026-05-22</div>
+
+      <div class="story-block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="facts">
+          外資及陸資單日淨買超集中市場 <strong class="up">761.37 億元</strong>，為史上第 4 大單日買超紀錄（第 1 大為 2025 年牛市高峰）。三大法人合計買超 <strong class="up">1,068.39 億元</strong>，為史上第 3 大。投信連五日買超，單日 112.26 億元；自營商買超 194.76 億元，創歷史第 6 大。外資同步狂掃 ETF 00403A 逾 13 萬張。
+        </div>
+      </div>
+
+      <div class="story-block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="context">
+          此次外資大舉回補，主要驅動力為：①美伊傳出接近和平協議，國際油價與美債殖利率雙降，全球風險胃納提升；②AMD（超微）宣布在台投資逾百億美元，帶動外資搶先布局台灣 AI 供應鏈；③聯發科解除「處置股」限制後首日，外資補回前期賣壓。外資前一週累計賣超已積壓，此次是典型的「認錯式回補」行情。
+        </div>
+      </div>
+
+      <div class="story-block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="implication">
+          外資單日買超規模逼近台股歷史前 5，顯示資金性質屬中長線佈局而非短線進出。若次周持續買超，加權指數挑戰 43,000～45,000 點整數關卡的動能將更確定。散戶資金（散戶信心指標：4 月底證券劃撥餘額達 4.3 兆元、創史上新高）配合入市，形成多方共振。（分析，非投資建議）
+        </div>
+      </div>
+
+      <div class="tags" style="margin-top:10px">
+        <span class="tag hot">外資史上第4大</span>
+        <span class="tag up-tag">三法人齊買</span>
+        <span class="tag">ETF 13萬張</span>
+        <span class="tag">散戶信心新高</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       3. 頭條 / Top Stories
+       ════════════════════════════════ -->
+  <section>
+    <h2><span class="section-num">3</span> 頭條 <span class="en">/ Top Stories</span></h2>
+
+    <!-- Story A -->
+    <div class="story">
+      <h3>台股首度收盤站上 42,000 點，改寫四大歷史紀錄<br><span style="font-weight:400;color:var(--muted)">TAIEX closes above 42,000 for the first time, setting four records</span></h3>
+      <div class="source-line">來源：<a href="https://udn.com/news/story/7251/9488148" target="_blank">聯合新聞網</a>・<a href="https://tw.stock.yahoo.com/news/%E7%9B%A4%E5%BE%8C%E7%84%A6%E9%BB%9E-%E5%8F%B0%E8%82%A1%E8%A1%9D%E9%AB%9842000%E9%BB%9E%E9%9C%87%E7%9B%AA-%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%AD%89%E6%AC%8A%E5%80%BC%E8%82%A1%E5%AF%AB%E5%A4%9A%E9%A0%85%E7%B4%80%E9%8C%84-071501174.html" target="_blank">Yahoo 股市</a>・2026-05-22</div>
+
+      <div class="story-block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="facts">
+          台股加權指數終場收 <strong class="up">42,267.97 點</strong>，上漲 899.76 點（+2.18%），成交量 <strong class="num">1兆1,884億元</strong>（爆量）。電子類股指數 2,752 點改寫歷史新高；集中市場總市值膨脹至 137.8 兆元，單日暴增 2.9 兆元；緯穎市值突破 1 兆元，全市場兆元俱樂部擴至 17 席。
+        </div>
+      </div>
+
+      <div class="story-block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="context">
+          本波多頭從 4 月底 36,000 點低點啟動，外資 3 天合計買超逾 1,460 億元，完整修正前波跌勢。台股近兩月走勢路徑：利空（4 月美關稅衝擊）→ 急跌探底 → 外資認錯回補 → 指數加速上攻，典型的「V 型反轉」格局。散戶劃撥餘額創史上最大單月增額（3,742 億元），顯示散戶已積極站回市場。
+        </div>
+      </div>
+
+      <div class="story-block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="implication">
+          42,000 點不僅是整數心理關卡，更是技術上多方確認「空頭格局徹底轉換」的訊號。電子類股指數同步創高，代表 AI／半導體主升段行情尚未完結。量能若次周維持 8,000 億元以上，則指數挑戰 43,000～45,000 點具備動能基礎。（技術分析觀察，非投資建議）
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <span class="tag hot">收盤新高</span>
+        <span class="tag up-tag">+2.18%</span>
+        <span class="tag">爆量 1.19 兆</span>
+        <span class="tag">兆元俱樂部 17 席</span>
+      </div>
+    </div>
+
+    <!-- Story B -->
+    <div class="story">
+      <h3>AMD 超微宣布投資台灣 AI 產業鏈逾 100 億美元，9 家台廠被點名<br><span style="font-weight:400;color:var(--muted)">AMD announces $10bn+ Taiwan AI ecosystem investment, names 9 local partners</span></h3>
+      <div class="source-line">來源：<a href="https://www.businesstoday.com.tw/article/category/183015/post/202605210034/" target="_blank">今周刊</a>・<a href="https://finance.technews.tw/2026/05/21/amd-ai-efb-tw/" target="_blank">TechNews 科技新報</a>・<a href="https://www.cna.com.tw/news/afe/202605210227.aspx" target="_blank">中央社 CNA</a>・2026-05-21/22</div>
+
+      <div class="story-block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="facts">
+          AMD 執行長蘇姿丰（Lisa Su）訪台，宣布投資台灣 AI 基礎設施產業體系 <strong>逾 100 億美元（約 NT$3,000 億元）</strong>，布局對象涵蓋：<br>
+          <br>• <strong>先進封裝（EFB 扇出型 2.5D）</strong>：日月光投控（3711）、力成（6239）、矽品精密<br>
+          • <strong>IC 載板</strong>：欣興（3037）、南電（8046）、景碩（3189）<br>
+          • <strong>AI 伺服器/機架</strong>：緯穎（6669）、緯創（3231）、英業達（2356）、營邦（2497）<br>
+          <br>AMD Helios 機架級 AI 平台預計 <strong>2026 下半年</strong>開始部署，合作廠商將直接受惠於 AI 基礎設施建置浪潮。
+        </div>
+      </div>
+
+      <div class="story-block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="context">
+          蘇姿丰同日與台積電董事長魏哲家會面，AMD 最新旗艦 AI 晶片 MI450 以台積電 2nm 製程生產，AMD 已宣示「2026 年 AI 營收大爆發」方向。此次投資聚焦「先進封裝」稀缺產能：AMD 押注 EFB（Embedded Fan-out Bridge）技術路線，直接對標英特爾的 EMIB 及輝達的 CoWoS，扇出型封裝成為兵家必爭之地。台廠在此次合作中的定位，從「代工」升級為「技術共同驗證夥伴」，議價地位大幅提升。
+        </div>
+      </div>
+
+      <div class="story-block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="implication">
+          此事件代表 AI 算力軍備競賽正式升溫至「封裝產能即是 AI 瓶頸」的新階段。力成、日月光在盤中即告漲停，顯示市場已快速 price in 短期訂單能見度。中長期而言，台灣封測族群的本益比重估空間仍大——若 AMD 再加碼，力成、日月光的 AI 封裝佔比有望超越傳統測試，改變商業模式。（分析觀察，非投資建議）
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <span class="tag hot">AMD $100億美元</span>
+        <span class="tag up-tag">力成漲停</span>
+        <span class="tag up-tag">日月光漲停</span>
+        <span class="tag">EFB 先進封裝</span>
+        <span class="tag">2026H2 部署</span>
+      </div>
+    </div>
+
+    <!-- Story C -->
+    <div class="story">
+      <h3>美伊接近和平協議，地緣風險溢價消退驅動台股外資大回補<br><span style="font-weight:400;color:var(--muted)">US–Iran peace deal progress sparks risk-on rally, foreigners rush back to Taiwan stocks</span></h3>
+      <div class="source-line">來源：<a href="https://www.epochtimes.com/b5/26/5/22/n14772354.htm" target="_blank">大紀元</a>・<a href="https://udn.com/news/story/7251/9520383" target="_blank">聯合新聞網</a>・2026-05-22</div>
+
+      <div class="story-block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="facts">
+          美伊傳達成和平協議接近共識，國際油價急跌，美債殖利率下行，全球風險性資產齊漲。台股外資買超 761.3 億元，為年度最大單日買超，同步為歷史第 4 大。電子股指數、OTC 指數同步創新高，顯示外資不僅補回大盤，也佈局中小型 AI 概念股。
+        </div>
+      </div>
+
+      <div class="story-block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="context">
+          4 月初美國對伊朗升級制裁後，地緣風險溢價壓抑外資對新興亞股的配置，台股承壓整理近 6 周。此次協議傳出後，外資對台股的看法從「戰術性減碼」快速轉向「重新增配」，尤以 AI 半導體類股為主力方向，反映外資長線仍高度認可台灣在全球 AI 供應鏈的稀缺地位。
+        </div>
+      </div>
+
+      <div class="story-block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="implication">
+          地緣利空的「消失」往往比單一利多更具爆發力，因為它同時解除了「被動賣出」的壓力（避險程式交易平倉）。若美伊協議落地，台股在「AI 需求強勁 + 地緣溢價消退 + 外資持續回補」三重順風下，多頭趨勢確立度高。需觀察：①協議是否最終簽署；②美中科技協議後續；③台積電法說（預計 7 月）是否調高展望。（宏觀分析，非投資建議）
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <span class="tag hot">美伊和平</span>
+        <span class="tag">地緣溢價消退</span>
+        <span class="tag up-tag">風險胃納回升</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       4. 權值股 / Heavyweights
+       ════════════════════════════════ -->
+  <section>
+    <h2><span class="section-num">4</span> 權值股動向 <span class="en">/ Heavyweight Stocks</span></h2>
+
+    <div class="hw-grid">
+      <div class="hw-card">
+        <div class="ticker">2330 · 台積電 TSMC</div>
+        <div class="price up">NT$2,255</div>
+        <div class="chg up">▲ +1.12%</div>
+        <div class="note">盤中一度刷新天價後回落收 2,255 元；市值穩守兆元級，電子指數基石。外資主力買超標的之一。</div>
+      </div>
+      <div class="hw-card">
+        <div class="ticker">2454 · 聯發科 MediaTek</div>
+        <div class="price up">NT$3,860</div>
+        <div class="chg up">▲ +8.73% (+310元)</div>
+        <div class="note">解除處置股限制後首日大漲；近月股價從低點翻倍，市值突破 5 兆元，挑戰台達電市值二哥地位。AI ASIC 題材持續發酵。</div>
+      </div>
+      <div class="hw-card">
+        <div class="ticker">2317 · 鴻海 Hon Hai</div>
+        <div class="price up">NT$250</div>
+        <div class="chg up">▲ +1.01%（盤中最高+5.7%）</div>
+        <div class="note">AI 伺服器出貨強勁，AMD 點名合作夥伴。老 AI 伺服器族群補漲行情啟動。</div>
+      </div>
+      <div class="hw-card">
+        <div class="ticker">2308 · 台達電 Delta</div>
+        <div class="price up">NT$2,095</div>
+        <div class="chg up">▲ +3.20% (+65元)</div>
+        <div class="note">電源管理需求随 AI 機房擴張爆量，連帶帶動類股。</div>
+      </div>
+      <div class="hw-card">
+        <div class="ticker">6669 · 緯穎 Wistron Network</div>
+        <div class="price up">NT$5,525</div>
+        <div class="chg up">▲ +180元</div>
+        <div class="note">市值突破 1.02 兆元，成為第 17 席兆元俱樂部成員；AI 伺服器需求直接受惠。AMD 合作夥伴。</div>
+      </div>
+      <div class="hw-card">
+        <div class="ticker">2330 ADR · TSM</div>
+        <div class="price up">~$406–410</div>
+        <div class="chg up">▲ 小幅收漲</div>
+        <div class="note">5/22 美東收盤前表現穩健，作為週一開盤的台積電正面參考指標。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       5. 類股輪動 / Sector Rotation
+       ════════════════════════════════ -->
+  <section>
+    <h2><span class="section-num">5</span> 類股輪動 <span class="en">/ Sector Rotation</span></h2>
+
+    <div class="sector-grid">
+      <div class="sector-card">
+        <div class="sector-name up">半導體 Semiconductors ▲</div>
+        <div class="sector-body">
+          電子類股指數創歷史新高 2,752 點。台積電、聯發科領軍，聯電補漲。AI ASIC 設計話題延燒，聯發科 ASIC 展望被法人上看 4,500 元。
+        </div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-name up">AI 先進封裝 Advanced Packaging ▲▲</div>
+        <div class="sector-body">
+          AMD 百億投資催化：日月光（3711）漲停衝 525 元歷史新高，力成（6239）漲停 283 元，景碩（3189）漲停 609 元。矽光子、EFB 扇出型封裝成為本波主線。
+        </div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-name up">AI 伺服器 AI Servers ▲</div>
+        <div class="sector-body">
+          鴻海、緯穎、緯創、英業達補漲，英業達盤中爆 7.8 萬張大量、股價強漲近 8%。AI 伺服器「老族群」接棒上攻，AMD Helios 平台帶動需求能見度明確至 2026 下半年。
+        </div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-name up">IC 載板 IC Substrates ▲</div>
+        <div class="sector-body">
+          欣興（3037）、南電（8046）、景碩（3189）被 AMD 點名，欣興、南電漲幅逾 7%，景碩直接漲停。
+        </div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-name dn">金融 Financials ▼</div>
+        <div class="sector-body">
+          金融類股指數逆勢下跌 0.11%，富邦金、國泰金小幅修正。電子強勢資金排擠效應顯現，資金持續往 AI 科技輪轉。
+        </div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-name" style="color:var(--muted)">生技 Biotech ─</div>
+        <div class="sector-body">
+          整體表現平淡，市場焦點全在 AI 科技，生技族群無明顯催化劑，量縮整理為主。
+        </div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-name up">電力/AI 電源 Power Infra ▲</div>
+        <div class="sector-body">
+          台達電強漲 3.2%，帶動電源管理類股；AI 機房電力需求估至 2028 年持續成長，電力設備受惠。
+        </div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-name" style="color:var(--muted)">傳產 Traditional Industries ─</div>
+        <div class="sector-body">
+          美伊和平預期帶動油價下跌，傳產能源相關表現分化；鋼鐵、石化因油價跌小幅承壓。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       6. 個股大事 / Single-Stock Movers
+       ════════════════════════════════ -->
+  <section>
+    <h2><span class="section-num">6</span> 個股大事 <span class="en">/ Single-Stock Movers</span></h2>
+
+    <div class="story">
+      <h3>聯發科（2454）解禁後狂飆 8.73%，近月翻倍 — 市值突破 5 兆元<br><span style="font-weight:400;color:var(--muted)">MediaTek surges 8.73% post-restriction lift; market cap tops NT$5 trillion</span></h3>
+      <div class="source-line">來源：<a href="https://money.udn.com/money/story/5710/9483084" target="_blank">經濟日報</a>・<a href="https://news.cnyes.com/news/id/6442583" target="_blank">鉅亨網</a>・2026-05-22</div>
+      <div class="story-block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="facts">
+          聯發科收 3,860 元（+310 元，+8.73%），先前連莊漲停曾攻上 <strong>3,155 元歷史天價</strong>後被列處置股，解除限制後資金繼續追捧，最新市值 <strong>突破 5 兆元</strong>（約 5.05 兆元）。近一個月股價翻倍大漲，挑戰台達電奪回市值二哥地位。
+        </div>
+      </div>
+      <div class="story-block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="context">
+          驅動力：AI ASIC 晶片設計需求爆發，聯發科獲多家雲端大廠 ASIC 設計服務委託（報導估達高通等規模），自研天璣旗艦 AI 手機晶片出貨強勁，外資分析師普遍上調目標價至 3,500～4,500 元區間。
+        </div>
+      </div>
+      <div class="story-block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="implication">
+          聯發科市值突破 5 兆元是台股結構性里程碑——繼台積電（全球最大）、台達電之後，聯發科成為第三個 5 兆元市值台股。AI ASIC 能否持續貢獻新訂單，是中長期估值能否維持的關鍵。（分析觀察）
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <span class="tag hot">市值突破 5 兆</span>
+        <span class="tag up-tag">+8.73%</span>
+        <span class="tag">AI ASIC 主題</span>
+        <span class="tag">解除處置</span>
+      </div>
+    </div>
+
+    <div class="story">
+      <h3>日月光（3711）漲停 525 元寫歷史新高，封測三雄齊飆<br><span style="font-weight:400;color:var(--muted)">ASE hits record NT$525 limit-up; advanced packaging trio all hit upper limit</span></h3>
+      <div class="source-line">來源：<a href="https://tw.stock.yahoo.com/news/%E5%B0%81%E6%B8%AC%E4%B8%89%E9%9B%84%E9%BD%8A%E9%A3%86%E6%BC%B2%E5%81%9C%EF%BC%81ai%E8%A8%82%E5%96%AE%E6%92%90%E8%85%B0-%E6%97%A5%E6%9C%88%E5%85%89%E8%A1%9D525%E5%85%83%E5%AF%AB%E6%AD%B7%E5%8F%B2%E6%96%B0%E9%AB%98-025611843.html" target="_blank">Yahoo 股市</a>・<a href="https://m.cnyes.com/news/id/6440885" target="_blank">鉅亨網</a>・2026-05-22</div>
+      <div class="story-block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="facts">
+          <strong>日月光投控（3711）</strong>：漲停 525 元，創歷史新高；<strong>力成（6239）</strong>：跳空漲停 283 元；<strong>景碩（3189）</strong>：開盤不到 3 分鐘攻上 609 元漲停。三家均被 AMD 點名為策略合作夥伴。英業達（2356）爆 7.8 萬張大量，強漲近 8%。欣興（3037）、南電（8046）漲幅逾 7%。
+        </div>
+      </div>
+      <div class="story-block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="context">
+          AMD EFB（Embedded Fan-out Bridge）技術路線需要台灣在「IC 載板 + 扇出型封裝」的雙重產能，此次點名 9 家台廠，構成 AMD 在台完整 AI 封裝生態系。日月光 LEAP 先進封裝部門 2026 年營收估逾 35 億美元，成長引擎地位明確。
+        </div>
+      </div>
+      <div class="story-block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="implication">
+          三雄同時漲停代表市場同步消化「訂單確定性大幅提升」的預期。關注後續：日月光法說是否更新 2026 年先進封裝比重；力成與 AMD MI450 晶片測試進度，是下次布局的觀察點。（分析，非建議）
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <span class="tag hot">日月光歷史新高</span>
+        <span class="tag up-tag">力成漲停</span>
+        <span class="tag up-tag">景碩漲停</span>
+        <span class="tag">EFB 封裝</span>
+      </div>
+    </div>
+
+    <div class="story">
+      <h3>緯穎（6669）市值突破兆元，第 17 席兆元俱樂部成員誕生<br><span style="font-weight:400;color:var(--muted)">Wistron Network Market Cap Tops NT$1 Trillion — 17th Member of the "Trillion Club"</span></h3>
+      <div class="source-line">來源：<a href="https://udn.com/news/story/7251/9520383" target="_blank">聯合新聞網</a>・2026-05-22</div>
+      <div class="story-block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="facts">
+          緯穎收 5,525 元（+180 元），市值攀升至 <strong>1.02 兆元</strong>，成為台灣第 17 檔市值兆元個股。AMD、輝達 AI 伺服器訂單雙雙挹注，2026 年 AI 伺服器業務佔比估達 60% 以上。
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <span class="tag hot">兆元俱樂部</span>
+        <span class="tag up-tag">+180元</span>
+        <span class="tag">AI 伺服器</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       7. 公司行動 / Corporate Actions
+       ════════════════════════════════ -->
+  <section>
+    <h2><span class="section-num">7</span> 公司行動 <span class="en">/ Corporate Actions</span></h2>
+
+    <div class="note-banner">
+      2026 年 5 月 22 日 MOPS 重大訊息公告：本報告未能即時取得當日完整 MOPS 公告清單，建議直接查閱
+      <a href="https://mops.twse.com.tw/mops/web/t05st01" target="_blank" style="color:#a8d87a">公開資訊觀測站重大訊息</a>。
+    </div>
+
+    <div class="story">
+      <h3>2026 年 5 月台股 ETF 配息潮 — 30 檔 ETF 進行配息<br><span style="font-weight:400;color:var(--muted)">30 Taiwan ETFs distribute dividends in May 2026</span></h3>
+      <div class="source-line">來源：<a href="https://www.kgi.com.tw/zh-tw/product-market/calendar-overview/ex-dividend-table" target="_blank">凱基證券除權息表</a>・2026-05</div>
+      <div class="story-block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="facts">
+          5 月份共 30 檔台股 ETF 進行配息，最後買進日橫跨 5/15–5/25，涵蓋月配、季配、雙月配。投信 ETF 連五日買超（112 億元），部分為因應配息前佈局所致。
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <span class="tag">ETF 配息潮</span>
+        <span class="tag">月配/季配</span>
+        <span class="tag">投信連買 5 日</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       8. 政策與外資觀察 / Policy & FINI
+       ════════════════════════════════ -->
+  <section>
+    <h2><span class="section-num">8</span> 政策與外資觀察 <span class="en">/ Policy &amp; FINI Watch</span></h2>
+
+    <div class="story">
+      <h3>散戶信心指標：證券劃撥存款 4 月底重回 4 兆、改寫史上新高<br><span style="font-weight:400;color:var(--muted)">Retail sentiment gauge: securities settlement deposits top NT$4tn, a new record</span></h3>
+      <div class="source-line">來源：<a href="https://www.cbc.gov.tw/tw/np-1-1.html" target="_blank">中央銀行</a>・<a href="https://udn.com/news/story/7251/9520383" target="_blank">聯合新聞網</a>・2026-05-22</div>
+      <div class="story-block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="facts">
+          中央銀行公布，4 月底散戶信心指標——證券劃撥存款餘額，重返 4 兆元大關，達 <strong>4兆3,028億元</strong>，改寫歷史新高；單月暴增 3,742 億元，同創史上最大月增額。顯示個人投資人在 4 月台股回跌後，大量資金進場承接。
+        </div>
+      </div>
+      <div class="story-block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="implication">
+          歷史上散戶劃撥餘額大幅增加後，市場往往進入「散戶接力、外資帶頭」的共振上漲格局。但也需注意：散戶資金集中進場在指數高點附近，若市場遭遇回檔，動能反轉風險需留意。（宏觀觀察）
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <span class="tag hot">散戶劃撥新高</span>
+        <span class="tag">4.3 兆</span>
+        <span class="tag">單月+3742 億</span>
+      </div>
+    </div>
+
+    <div class="story">
+      <h3>外資台指期多空淨額轉多，夜盤台指期攻破 42,500<br><span style="font-weight:400;color:var(--muted)">Foreign futures net long; TX night session breaks 42,500</span></h3>
+      <div class="source-line">來源：<a href="https://www.storm.mg/article/11134426" target="_blank">風傳媒</a>・<a href="https://histock.tw/stock/optionthree.aspx" target="_blank">HiStock</a>・2026-05-22</div>
+      <div class="story-block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="facts">
+          台指期 5/22 夜盤一度攻破 42,500 點，距歷史高點「42,554 點」僅一步之遙。外資台指期買權淨金額 6.53 億元，賣權淨金額 0.26 億元，多空比大幅偏多。三大法人台指期合計淨多口數顯著增加（確切數字待確認）。
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <span class="tag hot">夜盤 42,500</span>
+        <span class="tag up-tag">外資期貨轉多</span>
+        <span class="tag">歷史高點 42,554</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       9. 觀點 / Reads
+       ════════════════════════════════ -->
+  <section>
+    <h2><span class="section-num">9</span> 觀點與延伸閱讀 <span class="en">/ Reads &amp; Strategy</span></h2>
+
+    <div class="story">
+      <h3>《台股前 10 大權值股解析》：半導體 + AI 佔市值比重過半，結構性多頭確立<br><span style="font-weight:400;color:var(--muted)">TAIEX top 10 holdings analysis: AI &amp; semiconductors now over 50% of index weight</span></h3>
+      <div class="source-line">來源：<a href="https://www.peoplenews.tw/articles/hot-news/30726" target="_blank">民報 peoplenews</a></div>
+      <div class="story-block">
+        <div class="block-label">核心觀點</div>
+        <div class="facts">
+          台股前 10 大市值股中，台積電、聯發科、台達電、緯穎、日月光等清一色 AI 與半導體相關，合計市值佔加權指數權重逾 50%。這意味著台股「就是 AI 股」，與 2010 年代以代工為主的結構已截然不同。
+        </div>
+      </div>
+    </div>
+
+    <div class="story">
+      <h3>外資分析師觀點：聯發科目標價上看 4,500 元，AI ASIC 重估行情正式開展<br><span style="font-weight:400;color:var(--muted)">Analyst consensus: MediaTek PT raised to NT$4,500 as AI ASIC rerating begins</span></h3>
+      <div class="source-line">來源：<a href="https://wantrich.chinatimes.com/news/20260504900133-420101" target="_blank">旺得富理財網</a>・工商時報</div>
+      <div class="story-block">
+        <div class="block-label">核心觀點</div>
+        <div class="facts">
+          多家外資分析師以「AI ASIC 訂單能見度提升」為由，調升聯發科目標價至 4,000～4,500 元區間。報告指出，聯發科 2026 年 ASIC 設計服務佔營收比重有望突破 20%，毛利率中樞上移，本益比應享有更高溢價。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sources Footer -->
+  <div class="sources-footer">
+    <h4>數據來源 / Sources Cited</h4>
+    <ul>
+      <li><a href="https://udn.com/news/story/7251/9520383" target="_blank">聯合新聞網 — 台股雙王領軍改寫四驚奇</a></li>
+      <li><a href="https://news.tvbs.com.tw/money/3211261" target="_blank">TVBS — 外資史上第4大買超</a></li>
+      <li><a href="https://www.epochtimes.com/b5/26/5/22/n14772354.htm" target="_blank">大紀元 — 台股收盤再創新高</a></li>
+      <li><a href="https://udn.com/news/story/7251/9488148" target="_blank">聯合新聞網 — 台股衝高42000點震盪</a></li>
+      <li><a href="https://www.businesstoday.com.tw/article/category/183015/post/202605210034/" target="_blank">今周刊 — AMD超微100億美元投資台灣</a></li>
+      <li><a href="https://finance.technews.tw/2026/05/21/amd-ai-efb-tw/" target="_blank">TechNews — AMD點名台封測廠</a></li>
+      <li><a href="https://www.cna.com.tw/news/afe/202605210227.aspx" target="_blank">中央社 CNA — AMD投資台灣逾100億美元</a></li>
+      <li><a href="https://tw.stock.yahoo.com/news/%E5%B0%81%E6%B8%AC%E4%B8%89%E9%9B%84%E9%BD%8A%E9%A3%86%E6%BC%B2%E5%81%9C%EF%BC%81ai%E8%A8%82%E5%96%AE%E6%92%90%E8%85%B0-%E6%97%A5%E6%9C%88%E5%85%89%E8%A1%9D525%E5%85%83%E5%AF%AB%E6%AD%B7%E5%8F%B2%E6%96%B0%E9%AB%98-025611843.html" target="_blank">Yahoo 股市 — 封測三雄齊飆漲停</a></li>
+      <li><a href="https://money.udn.com/money/story/5710/9483084" target="_blank">經濟日報 — 聯發科飆3,155元市值突破5兆</a></li>
+      <li><a href="https://news.cnyes.com/news/id/6442583" target="_blank">鉅亨網 — 聯發科連莊跳空漲停</a></li>
+      <li><a href="https://www.storm.mg/article/11134426" target="_blank">風傳媒 — 台指期夜盤叩關歷史高點</a></li>
+      <li><a href="https://udn.com/news/story/7240/9517295" target="_blank">聯合新聞網 — AMD台積電合作2奈米</a></li>
+      <li><a href="https://www.twse.com.tw/zh/trading/foreign/bfi82u.html" target="_blank">TWSE 三大法人買賣超</a></li>
+      <li><a href="https://mops.twse.com.tw/mops/web/t05st01" target="_blank">公開資訊觀測站 重大訊息</a></li>
+      <li><a href="https://www.cbc.gov.tw/tw/np-1-1.html" target="_blank">中央銀行 — 重要經濟指標</a></li>
+      <li><a href="https://www.peoplenews.tw/articles/hot-news/30726" target="_blank">民報 — 台股前10大權值股分析</a></li>
+    </ul>
+    <hr class="divider" />
+    <div style="font-size:0.78rem;color:var(--muted);margin-top:8px">
+      本報告由 Claude AI（claude-sonnet-4-6）自動整理，資料來源均標示原始連結。數字如有出入以 TWSE／TAIFEX 官方為準。
+      本報告不構成投資建議，投資人應自行判斷風險。<br>
+      Generated: 2026-05-23 · Session: daily-tw-stocks-news
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
