@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 新聞日報 — 2026-05-25</title>
+<style>
+  :root { color-scheme: light; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #fafaf8;
+    color: #1a1a1a;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 17px;
+    line-height: 1.75;
+    padding: 0 0 60px;
+  }
+  header {
+    background: #0f0f0f;
+    color: #fff;
+    padding: 36px 24px 28px;
+    text-align: center;
+  }
+  header .label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 10px;
+  }
+  header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+  header .dateline {
+    margin-top: 10px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    color: #999;
+  }
+  .container {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .section-header {
+    margin: 48px 0 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e0e0e0;
+  }
+  .section-header h2 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #555;
+  }
+  .story {
+    margin-bottom: 44px;
+    padding-bottom: 44px;
+    border-bottom: 1px solid #ebebeb;
+  }
+  .story:last-child { border-bottom: none; }
+  .story h3 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #111;
+    margin-bottom: 8px;
+  }
+  .story h3 .zh { display: block; }
+  .story h3 .en {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #555;
+    margin-top: 3px;
+  }
+  .source-line {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 16px;
+  }
+  .source-line a { color: #3366cc; text-decoration: none; }
+  .source-line a:hover { text-decoration: underline; }
+  .badge {
+    display: inline-block;
+    background: #f0f0f0;
+    color: #555;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-right: 6px;
+  }
+  .badge.top { background: #ffeaea; color: #b00; }
+  .badge.model { background: #e8f0fe; color: #1a56db; }
+  .badge.policy { background: #e8fae8; color: #166534; }
+  .badge.company { background: #fff3e0; color: #b45309; }
+  .badge.research { background: #f3e8ff; color: #6d28d9; }
+  .block {
+    margin-bottom: 14px;
+  }
+  .block-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .block p { margin: 0; }
+  footer {
+    margin-top: 60px;
+    padding: 28px 20px;
+    background: #f0f0ee;
+    border-top: 1px solid #ddd;
+  }
+  footer .container { max-width: 740px; margin: 0 auto; }
+  footer h4 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 12px;
+  }
+  footer ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+  }
+  footer ul li {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    color: #666;
+  }
+  footer ul li a { color: #3366cc; text-decoration: none; }
+  footer ul li a:hover { text-decoration: underline; }
+  .paywalled {
+    display: inline-block;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    color: #b45309;
+    background: #fff3e0;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-left: 6px;
+  }
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    header h1 { font-size: 1.5rem; }
+    .story h3 { font-size: 1.05rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="label">Daily Briefing</div>
+  <h1>AI 新聞日報<br><span style="font-size:1.3rem;font-weight:400;color:#ccc;">Today in Artificial Intelligence</span></h1>
+  <div class="dateline">2026 年 5 月 25 日（星期一）· Asia/Taipei</div>
+</header>
+
+<div class="container">
+
+  <!-- ===== SECTION 1: TOP STORIES ===== -->
+  <div class="section-header">
+    <h2>頭條 / Top Stories</h2>
+  </div>
+
+  <div class="story">
+    <h3>
+      <span class="zh"><span class="badge top">頭條</span>Anthropic 推出 Claude Mythos Preview 與 Project Glasswing，聯手十二家科技巨頭守衛全球軟體安全</span>
+      <span class="en">Anthropic Launches Claude Mythos Preview &amp; Project Glasswing — a 12-Partner Coalition to Defend Critical Software</span>
+    </h3>
+    <div class="source-line">
+      <a href="https://www.anthropic.com/glasswing" target="_blank">Anthropic</a> · 2026-05-25 ·
+      <a href="https://www.cnbc.com/2026/05/05/anthropic-ceo-cyber-moment-of-danger-mythos-vulnerabilities.html" target="_blank">CNBC</a>
+    </div>
+
+    <div class="block">
+      <div class="block-label">核心事實</div>
+      <p>Anthropic 今日正式宣布 Claude Mythos Preview，這是一款尚未對外公開、能力遠超當前最佳模型的前沿 AI，以及建立在其上的跨產業安全聯盟「Project Glasswing」。聯盟成員涵蓋 AWS、Apple、Broadcom、Cisco、CrowdStrike、Google、JPMorganChase、Linux Foundation、Microsoft、NVIDIA 與 Palo Alto Networks，另有 40 餘個關鍵開源軟體維護組織加入。Anthropic 承諾提供價值 1 億美元的模型使用額度，並捐款 400 萬美元給開源安全組織。Mythos Preview 在 SWE-bench Verified 評測上得分 93.9%（對比 Claude Opus 4.6 的 80.8%），在網路安全漏洞重現評測 CyberGym 上達到 83.1%。<br><br>
+      <em>Anthropic today formally announced Claude Mythos Preview — an unreleased frontier model with a dramatic capability leap — alongside Project Glasswing, a 12-member industry coalition for defensive cybersecurity. The company committed $100M in usage credits and identified thousands of zero-day vulnerabilities across every major OS and browser, all of which have been or are being patched.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">背景脈絡</div>
+      <p>這一發布的觸發點，是 Anthropic 內部發現 Mythos Preview 已能自主找出各大作業系統中數十年來未被察覺的漏洞：包括 OpenBSD 一個存在 27 年的遠端崩潰漏洞、FFmpeg 中一段被自動測試命中五百萬次卻從未觸發的 16 年舊漏洞，以及 Linux kernel 中可被鏈式利用、從普通用戶提升至完整機器控制的漏洞群。AI CEO Dario Amodei 此前在 CNBC 公開警告，這是網路安全的「危機時刻」，敵對行為者取得同等能力的窗口可能只有六到十二個月。正因如此，Anthropic 選擇不公開發布模型，而是以嚴格管控的方式先交付給防禦方。<br><br>
+      <em>The impetus was internal research showing Mythos could autonomously discover vulnerabilities surviving decades of review. Amodei had publicly named a 6–12 month window before adversary AI reaches parity, motivating a "defenders first" controlled release rather than open access.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">影響觀察</div>
+      <p>Project Glasswing 標誌著 AI 安全論述的重要轉折：從「模型是否安全」轉向「AI 如何主動強化全球軟體基礎設施安全」。對產業的連鎖效應包括：（1）軟體漏洞修補週期將被大幅壓縮，持有大量遺留代碼的企業面臨緊迫的資安升級壓力；（2）競爭對手（OpenAI、Google）也將被迫加快類似的防禦性 AI 部署計畫；（3）政府監管機構預計將跟進要求前沿模型商在發布前提交網路安全能力報告。下一個觀察點是 Anthropic 預告中的 Claude Opus 新版本——它將搭載新的網路安全防護機制，是 Mythos 類模型走向大規模部署的先行步驟。<br><br>
+      <em>This shifts the AI-safety narrative from "is the model safe?" to "can AI actively harden the world's software?" Expect accelerated patching timelines, competitor pressure to launch analogous coalitions, and new regulatory asks for pre-release cyber capability disclosures. The upcoming Claude Opus release with new cyber safeguards is the next milestone to watch.</em></p>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3>
+      <span class="zh"><span class="badge top">頭條</span>OpenAI 秘密提交 S-1，目標千億估值；Q4 2026 IPO 計畫曝光</span>
+      <span class="en">OpenAI Files Confidential S-1 with SEC, Targets $1 Trillion Valuation for Q4 2026 IPO</span>
+    </h3>
+    <div class="source-line">
+      <a href="https://fortune.com/2026/05/22/openai-ipo-filing-1-trillion-may-finally-answer-these-big-questions/" target="_blank">Fortune</a> · 2026-05-22 ·
+      <a href="https://www.roborhythms.com/openai-ipo-filing-2026/" target="_blank">Robo Rhythms</a>
+    </div>
+
+    <div class="block">
+      <div class="block-label">核心事實</div>
+      <p>OpenAI 於 2026 年 5 月 22 日向美國證券交易委員會秘密提交 S-1 招股說明書，由高盛與摩根士丹利主導承銷，目標在 2026 年第四季（最快九月）完成公開上市，估值目標介於 8,520 億至 1 兆美元之間。公司目前每月收入達 20 億美元，年化營收跑道已達 250 億美元，擁有 5,000 萬付費消費者與 900 萬企業用戶，但 2026 年全年運營虧損預計仍達 140 億美元。<br><br>
+      <em>OpenAI filed a confidential S-1 on May 22, led by Goldman and Morgan Stanley, targeting a Q4 2026 IPO at $852B–$1T. The company shows $2B/month revenue and 50M consumer subscribers but is projected to lose $14B in operating income for 2026.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">背景脈絡</div>
+      <p>此次提交距 OpenAI 完成史上最大私募輪（1,220 億美元）僅數月。公司最近完成非營利結構轉型為公益公司（PBC），為上市鋪平法律道路。高達 75 倍的預測 P/S 倍數，遠超科技股歷史均值，顯示市場對 AI 超級週期的豪賭心態，也預示路演過程中機構投資者對獲利路徑的尖銳質問。<br><br>
+      <em>The filing comes months after OpenAI's record $122B private round and its conversion from non-profit to PBC, clearing the legal path. The implied 75× forward P/S multiple is well above historical tech medians, reflecting a high-conviction AI supercycle bet.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">影響觀察</div>
+      <p>OpenAI IPO 將是 AI 投資敘事的「壓力測試」：若市場以高估值通過，將解鎖更多 AI 新創效仿上市；若訂價折讓明顯，則可能引發整個 AI 資本市場的估值重估。短期要注意：（1）微軟持股稀釋與再授權協議最終條款；（2）與 Anthropic、Google 的模型能力差距是否繼續擴大，直接影響後市表現；（3）股東結構與 Sam Altman 的持股激勵設計，可能再度引爆治理爭議。<br><br>
+      <em>This IPO will stress-test AI market valuations: a strong debut unlocks a wave of AI listings; a discount could reprice the entire category. Near-term focus: Microsoft's dilution terms, the widening capability gap with Anthropic's Mythos, and governance optics around Altman's equity stake.</em></p>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3>
+      <span class="zh"><span class="badge top">頭條</span>Google I/O 2026：Gemini 3.5 Flash 與全天候 AI Agent「Gemini Spark」正式亮相</span>
+      <span class="en">Google I/O 2026: Gemini 3.5 Flash and 24/7 Personal Agent "Gemini Spark" Unveiled</span>
+    </h3>
+    <div class="source-line">
+      <a href="https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/" target="_blank">Google Blog</a> · 2026-05-19 ·
+      <a href="https://www.cnbc.com/2026/05/19/google-ai-ultra-gemini-spark-omni.html" target="_blank">CNBC</a>
+    </div>
+
+    <div class="block">
+      <div class="block-label">核心事實</div>
+      <p>Google 於 5 月 19 日 I/O 開發者大會發布多項重磅公告。模型層面：Gemini 3.5 Flash 以接近旗艦水準的推理能力搭配約旗艦一半至三分之一的成本登場，在複雜編程與 Agentic 任務上超越 Gemini 3.1 Pro；同時發布世界模型 Gemini Omni，支援視頻原生輸入輸出。Agent 層面：Gemini Spark 是全新個人 AI Agent，依託 Antigravity 平台，在手機與電腦後台自主運作、跨應用推理、代為行動——目前以 Beta 形式向美國 AI Ultra 訂閱用戶（$100/$200/月）開放。<br><br>
+      <em>At I/O 2026 (May 19), Google unveiled Gemini 3.5 Flash (frontier-class reasoning at 1/2–1/3 the cost), Gemini Omni (native video world model), and Gemini Spark — a 24/7 personal AI agent running on the Antigravity platform, currently in beta for U.S. AI Ultra subscribers.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">背景脈絡</div>
+      <p>Google 正試圖打破外界對其「AI 進度落後」的印象。I/O 2026 的核心敘事，是把 Gemini 從一個聊天機器人重新定位為「無所不在的個人基礎設施」。Gemini Spark 直接對標 OpenAI 的 Operator 願景與 Anthropic 的 Computer Use 能力，而 Gemini 3.5 Flash 的性價比策略則指向打壓 Mistral、Together AI 等低成本 API 競爭者。<br><br>
+      <em>I/O 2026's core narrative: repositioning Gemini from chatbot to ambient personal infrastructure. Spark targets OpenAI's Operator vision; Gemini 3.5 Flash's pricing undercuts low-cost API competitors.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">影響觀察</div>
+      <p>Gemini Spark 的「後台自主運行」設計，意味著使用者的行動授權範式將發生根本轉變——從「叫 AI 執行一件事」變成「設定目標讓 AI 持續代理」，這對隱私架構與資料主權的挑戰尚未被充分討論。Antigravity 平台也暗示 Google 意圖打造封閉的 Agent 作業系統生態，對第三方 Agent 框架（如 LangChain、AutoGPT）形成壓力。<br><br>
+      <em>Spark's background autonomy model signals a paradigm shift from "task-level commands" to "goal-level delegation," raising underexplored questions about privacy and data sovereignty. The Antigravity platform hints at Google building a closed agent OS, which could squeeze third-party frameworks.</em></p>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 2: MODELS & RESEARCH ===== -->
+  <div class="section-header">
+    <h2>模型與研究 / Models &amp; Research</h2>
+  </div>
+
+  <div class="story">
+    <h3>
+      <span class="zh"><span class="badge model">研究</span>DeepMind AlphaProof Nexus 解開 9 道 Erdős 開放問題，驗證 44 項數列猜想</span>
+      <span class="en">DeepMind's AlphaProof Nexus Solves 9 Open Erdős Problems and Verifies 44 OEIS Conjectures</span>
+    </h3>
+    <div class="source-line">
+      <a href="https://www.valuethemarkets.com/cryptocurrency/news/alphaproof-nexus-advanced-ai-solves-longstanding-mathematical-problems" target="_blank">Value The Markets</a> · 2026-05-21 ·
+      <a href="https://gpubeat.com/google-deepmind-s-alphaproof-nexus-solves-erdos-problems/" target="_blank">GPUBeat</a>
+    </div>
+
+    <div class="block">
+      <div class="block-label">核心事實</div>
+      <p>Google DeepMind 於 5 月 21 日在 arXiv 發表論文（預印本），描述 AlphaProof Nexus — 一個結合大型語言模型生成能力與 Lean 形式驗證器的 AI Agent。該系統從 353 道 Erdős 開放問題中自主解決 9 道，其中 2 道已懸置 56 年，成本僅數百美元一題；同時驗證了 OEIS（整數序列線上百科）中 44 項開放猜想，並公開了全部形式化證明的 GitHub 儲存庫。<br><br>
+      <em>AlphaProof Nexus (arXiv preprint, May 21) solved 9 of 353 open Erdős problems autonomously — two of which had been open 56 years — at a few hundred dollars each, and verified 44 OEIS conjectures. All formal proofs are publicly available.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">背景脈絡</div>
+      <p>此研究是 2024 年 AlphaProof/AlphaGeometry 2 的直接延伸，後者在 IMO 難度題目上達到金牌水準。AlphaProof Nexus 的關鍵創新在於：AI 提出假設後，由 Lean 形式驗證器逐步驗證每個邏輯步驟，有效消除 LLM「幻覺式證明」的痼疾。這也是 OpenAI o3 數學基準突破之後，DeepMind 直接以「研究級真實問題」（而非競賽題）回應競爭的方式。<br><br>
+      <em>This extends the 2024 AlphaProof/AlphaGeometry 2 IMO gold-level work. The key innovation: pairing generative hypothesis with Lean's exhaustive step-by-step verification, eliminating hallucinated proofs — a direct counter to OpenAI's o3 math benchmarks using real research problems rather than competition sets.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">影響觀察</div>
+      <p>「數百美元解開五十年難題」的成本曲線，對純數學研究群體的衝擊不亞於 AlphaFold 對蛋白質結構領域的震盪。可以預期：學術期刊對「AI 輔助證明」的引用與審查標準很快需要正式化；數學博士生的訓練模式也將面臨再評估。下一個觀察點是這些技術能否遷移至密碼學、組合最佳化等具工程價值的數學領域。<br><br>
+      <em>The "few hundred dollars per 56-year problem" cost curve will shake pure mathematics like AlphaFold shook structural biology. Expect journals to formalize AI-assisted proof citation standards, and watch for transfer to cryptography and combinatorial optimization.</em></p>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3>
+      <span class="zh"><span class="badge model">模型</span>OpenAI GPT-5.5 Instant 成為 ChatGPT 預設模型，醫療法律幻覺率減少逾五成</span>
+      <span class="en">OpenAI's GPT-5.5 Instant Becomes ChatGPT Default — Hallucinations in High-Stakes Domains Down 52.5%</span>
+    </h3>
+    <div class="source-line">
+      <a href="https://openai.com/index/gpt-5-5-instant/" target="_blank">OpenAI</a> · 2026-05-05 ·
+      <a href="https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/" target="_blank">TechCrunch</a>
+    </div>
+
+    <div class="block">
+      <div class="block-label">核心事實</div>
+      <p>5 月 5 日，OpenAI 以 GPT-5.5 Instant 取代 GPT-5.3 Instant，成為全體 ChatGPT 用戶的預設模型，同步在 API 以 <code>chat-latest</code> 標識上線。內部評測顯示，新模型在醫療、法律、財務等高風險問題上的幻覺聲稱（hallucinated claims）較前版減少 52.5%，同時維持低延遲特性。回答風格更為精準簡潔，大幅減少不必要的 emoji 使用。此外，GPT-5.5 Instant 可利用搜索工具回溯過往對話、檔案與 Gmail，提供更個人化的回應。<br><br>
+      <em>GPT-5.5 Instant (May 5) is now the default ChatGPT model for all users, cutting hallucinated claims in medicine, law, and finance by 52.5% versus its predecessor while preserving low latency. It also integrates memory and Gmail for personalized answers.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">背景脈絡</div>
+      <p>GPT-5.5 Instant 的定位是「高頻日常使用的高可靠基準模型」，與 OpenAI 旗艦級推理模型（o 系列）錯位競爭。52.5% 的幻覺降低幅度若能在第三方評測中獲得獨立驗證，將是企業採購決策的重要依據——特別是醫療助理、法律文件審閱等高合規需求場景。<br><br>
+      <em>GPT-5.5 Instant targets "high-frequency, high-reliability" use cases, complementing the o-series reasoning models. If the 52.5% hallucination reduction is independently replicated, it would be a compelling procurement signal for healthcare and legal verticals.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">影響觀察</div>
+      <p>隨著 Anthropic Mythos（尚未公開）和 Google Gemini 3.5 Flash（成本優先）同期在市場競爭，OpenAI 以「更可靠」為差異點的策略，顯示三強在「旗艦能力」之外，正同步在「可信任度」維度展開新一輪競爭。關注 GPT-5.3 三個月退場時間表是否會因競爭壓力提前。<br><br>
+      <em>As Mythos (unreleased) and Gemini 3.5 Flash (cost-focused) compete simultaneously, OpenAI's "more reliable" positioning signals a new battleground beyond raw capability. Watch whether the 3-month GPT-5.3 sunset accelerates under competitive pressure.</em></p>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 3: COMPANY MOVES ===== -->
+  <div class="section-header">
+    <h2>公司動態 / Company Moves</h2>
+  </div>
+
+  <div class="story">
+    <h3>
+      <span class="zh"><span class="badge company">公司</span>Mistral 宣布收購工業 AI 先驅 Emmi AI，強攻製造業市場</span>
+      <span class="en">Mistral Acquires Industrial AI Pioneer Emmi AI to Deepen Enterprise &amp; Manufacturing Push</span>
+    </h3>
+    <div class="source-line">
+      <a href="https://mistral.ai/news/accelerate-ai-native-industry" target="_blank">Mistral AI</a> · 2026-05-22
+    </div>
+
+    <div class="block">
+      <div class="block-label">核心事實</div>
+      <p>Mistral AI 於 5 月 22 日宣布達成收購 Emmi AI 的最終協議。Emmi AI 是一家「物理 AI」（Physics AI）先驅，研究如何讓模型理解並模擬真實世界的物理規律，使 AI Agent 能夠直接操作工程工具（如 CAD、仿真軟件）。Emmi 逾 30 名研究員與工程師將加入 Mistral 的科學與應用 AI 團隊，收購交易將於五月內完成。<br><br>
+      <em>Mistral signed a definitive agreement (May 22) to acquire Emmi AI, a Physics AI startup specializing in models that understand and simulate physical laws and can operate engineering tools. Emmi's 30+ staff join Mistral's science and applied AI teams this month.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">背景脈絡</div>
+      <p>Mistral 過去一年持續在模型層發力（Mistral 3、Magistral Medium/Small、Mistral Medium 3.5），但在垂直行業滲透上仍主要倚賴 API 合作夥伴。收購 Emmi 是其首次以「能力型併購」而非模型訓練來強化工業場景，也呼應其將自身定位為「歐洲最大 AI 產業轉型夥伴」的戰略野心。<br><br>
+      <em>Mistral has invested heavily in models but relied on API partners for vertical penetration. Acquiring Emmi is its first capability-driven M&amp;A rather than model-training expansion, aligning with its positioning as Europe's leading AI industrial transformation partner.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">影響觀察</div>
+      <p>這筆收購的長期意義在於：若物理 AI 能力被整合進 Mistral 的 Le Chat 企業版及 Work Agentic Mode，製造業客戶將得到一個「能讀工程文件、能操作 CAD 環境」的 AI 助理——這是 OpenAI 與 Anthropic 目前尚未專注的細分賽道。歐洲工業客戶（航空、汽車、能源）是最直接的受益方，也為 Mistral 的潛在 IPO 敘事增添了差異化籌碼。<br><br>
+      <em>If physics-AI capabilities integrate into Le Chat Work Mode, Mistral gains a differentiated "reads CAD, runs simulations" AI for European industrial clients — a niche OpenAI and Anthropic have not focused on. Expect aerospace, auto, and energy customers to be early targets, and this acquisition to feature prominently in any Mistral IPO roadshow.</em></p>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3>
+      <span class="zh"><span class="badge company">公司</span>Q1 2026 全球創投創紀錄：AI 資金集中驅動總額突破 3,000 億美元</span>
+      <span class="en">Q1 2026 VC Funding Shatters Records — AI Concentration Pushes Global Total Past $300B</span>
+    </h3>
+    <div class="source-line">
+      <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Crunchbase News</a> · 2026 Q1
+    </div>
+
+    <div class="block">
+      <div class="block-label">核心事實</div>
+      <p>根據 Crunchbase 數據，2026 年第一季全球創投融資突破 3,000 億美元，刷新有記錄以來的季度高點。AI 是最主要驅動力，資金高度集中於前沿研究團隊、Agent 基礎設施、國防軟件，以及醫療、法律等受監管行業垂直工具。代表案例包括：OpenAI 完成史上最大私募（1,220 億美元）、Shield AI 完成 22.5 億美元融資（系列 G，估值 127 億美元，一年內成長 140%）、Rhoda AI 以 4.5 億美元 A 輪融資從隱身模式公開亮相（估值 17 億美元）。<br><br>
+      <em>Q1 2026 global VC hit a record $300B+ driven by AI mega-rounds: OpenAI's $122B, Shield AI's $2.25B Series G ($12.7B valuation, +140% YoY), and Rhoda AI's $450M Series A exit from stealth ($1.7B valuation).</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">背景脈絡</div>
+      <p>此輪融資浪潮發生在 AI 能力快速迭代（Mythos、Gemini 3.5、AlphaProof Nexus 等均在短期內發布）以及國防與工業場景 AI 需求實質落地的雙重背景下。Shield AI 的 Hivemind 自主飛行平台已被美國空軍「協同作戰飛機」計畫採用，是 AI 國防合約商業化的關鍵案例；Rhoda AI 的視頻預測控制技術代表了「具身智慧」（embodied AI）走向工業部署的第一個規模化嘗試。<br><br>
+      <em>The funding surge tracks both rapid capability jumps and real deployment in defense and industrial settings. Shield AI's Hivemind is the first mission-autonomy software decoupled from its aircraft for a U.S. Air Force program; Rhoda AI represents the first scaled embodied AI deployment attempt in industry.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">影響觀察</div>
+      <p>當前 AI 資本市場的結構特徵是「少數巨額、多數乾渴」——資金極度向 3-5 個可能佔據全球 AI 市場絕大部分份額的公司集中，中型 AI 新創的融資難度反而上升。OpenAI IPO 若成功，將釋放出新一批流動性，有望帶動 2026 下半年 AI 新創上市潮；若折價，則可能加速中型 AI 公司尋求戰略性被收購的速度。<br><br>
+      <em>The "mega-round concentration" dynamic is starving mid-tier AI startups of oxygen. A successful OpenAI IPO would unlock liquidity for a wave of AI listings in H2 2026; a discounted one accelerates strategic M&amp;A among mid-tier players.</em></p>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 4: PRODUCTS & APPLICATIONS ===== -->
+  <div class="section-header">
+    <h2>產品與應用 / Products &amp; Applications</h2>
+  </div>
+
+  <div class="story">
+    <h3>
+      <span class="zh"><span class="badge company">產品</span>ChatGPT 推出個人財務功能；Microsoft Agent 365 正式全面上線</span>
+      <span class="en">ChatGPT Launches Personal Finance Experience; Microsoft Agent 365 Reaches General Availability</span>
+    </h3>
+    <div class="source-line">
+      <a href="https://releasebot.io/updates/openai/chatgpt" target="_blank">OpenAI Release Notes</a> · 2026-05-15 ·
+      <a href="https://llm-stats.com/llm-updates" target="_blank">LLM Stats</a>
+    </div>
+
+    <div class="block">
+      <div class="block-label">核心事實</div>
+      <p>OpenAI 於 5 月 15 日為 ChatGPT 網頁版與 iOS 版上線個人財務管理功能，使用者可透過 ChatGPT 追蹤消費、帳單、訂閱、淨資產、投資及財務目標規劃。同期，Microsoft Agent 365 正式全面上線（GA），將 AI Agent 治理能力延伸至企業環境，整合於 Microsoft 365 生態系統。<br><br>
+      <em>ChatGPT added a personal finance tracker (May 15, web + iOS) covering spending, bills, subscriptions, net worth, and investment goals. Concurrently, Microsoft Agent 365 reached GA, bringing AI agent governance to enterprise Microsoft 365 environments.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">背景脈絡</div>
+      <p>ChatGPT 財務功能的發布，意味著 OpenAI 正積極拓展超出「問答與寫作助理」定義的應用版圖，直接進入 Mint/個人理財類 App 的傳統地盤。這也與 CEO Sam Altman 多次提及的「超級應用」願景呼應。Microsoft Agent 365 GA 則代表微軟在企業 AI Agent 治理的標準制定上，比 Google Workspace AI 領先一步。<br><br>
+      <em>ChatGPT's finance feature marks OpenAI's move beyond Q&amp;A into personal finance apps' territory, consistent with Altman's "super-app" vision. Microsoft Agent 365 GA gives Microsoft a governance-framework lead over Google Workspace AI in enterprise agent deployments.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">影響觀察</div>
+      <p>財務功能涉及高度敏感的個人數據，OpenAI 的數據使用條款與隱私保護機制將面臨監管機構的放大鏡審查。對消費金融、記帳 App 類新創而言，ChatGPT 的進入是一個嚴重的市場顛覆訊號。<br><br>
+      <em>Finance data is highly sensitive — OpenAI's privacy terms will face regulatory scrutiny. For personal finance startups (budgeting apps, wealth trackers), ChatGPT's entry is a major market disruption signal.</em></p>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 5: POLICY & REGULATION ===== -->
+  <div class="section-header">
+    <h2>政策與監管 / Policy &amp; Regulation</h2>
+  </div>
+
+  <div class="story">
+    <h3>
+      <span class="zh"><span class="badge policy">政策</span>歐盟 AI Omnibus 達成政治協議：高風險系統合規期延至 2027 年底，新增兩類禁止行為</span>
+      <span class="en">EU AI Omnibus Deal Struck: High-Risk Compliance Delayed to Dec 2027, Two New Prohibitions Added</span>
+    </h3>
+    <div class="source-line">
+      <a href="https://www.consilium.europa.eu/en/press/press-releases/2026/05/07/artificial-intelligence-council-and-parliament-agree-to-simplify-and-streamline-rules/" target="_blank">EU Council</a> · 2026-05-07 ·
+      <a href="https://www.insideprivacy.com/artificial-intelligence/eu-ai-act-update-timeline-relief-targeted-simplification-and-new-prohibitions/" target="_blank">Inside Privacy</a>
+    </div>
+
+    <div class="block">
+      <div class="block-label">核心事實</div>
+      <p>歐盟理事會與歐洲議會於 5 月 7 日就 AI Omnibus（修訂 EU AI Act 的一攬子法規）達成政治協議。主要變化：以使用為基準的高風險 AI 系統義務，從 2026 年 8 月 2 日延後至 2027 年 12 月 2 日（延後 16 個月）；同時新增兩類禁止行為——非同意性親密影像的 AI 生成或操縱，以及兒童性剝削素材（CSAM）的 AI 生成。合成內容標示義務則延後至 2026 年 12 月。歐盟委員會另於 5 月 19 日就高風險 AI 系統分類指引草案公開徵詢意見。<br><br>
+      <em>The EU AI Omnibus political deal (May 7) delays high-risk AI compliance 16 months to December 2027, adds prohibitions on non-consensual intimate imagery and CSAM generation by AI, and defers synthetic content labeling to December 2026.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">背景脈絡</div>
+      <p>延期反映了業界對原版 AI Act 施行時間表過於倉促的廣泛批評，尤其是中小企業無力在短期內完成合規的現實。兩項新禁止行為則是回應 Deepfake 性犯罪案件在歐洲的快速上升，帶有明確的社會回應性質。Anthropic 尚未獲得向歐盟提供 Mythos Preview 的授權一事（相比 OpenAI 已提前獲批），也折射出歐盟 AI 監管機構與美國 AI 大廠之間地緣政治博弈的複雜性。<br><br>
+      <em>The delay reflects broad industry criticism of unrealistic compliance timelines, especially for SMEs. The new prohibitions respond to rising deepfake sexual crimes in Europe. Notably, Anthropic's EU Mythos access is still unresolved versus OpenAI's approval, illustrating ongoing geopolitical friction in EU-US AI regulatory relations.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">影響觀察</div>
+      <p>16 個月的合規緩衝期，讓企業有更多時間布局；但合規窗口的一再延後，也讓「什麼時候才算真的必須合規」的不確定性持續發酵，可能反而拖慢企業投資 AI 合規基礎設施的意願。另一個值得關注的衝突點：美國白宮 3 月發布的 AI 國家政策框架，明確試圖以聯邦先佔（federal preemption）凌駕各州 AI 法律，這與歐盟以嚴格監管為核心的路線形成鮮明對比，跨大西洋 AI 監管分歧的格局基本確立。<br><br>
+      <em>The 16-month buffer buys time, but repeated deadline delays create uncertainty that may slow enterprise compliance investment. The sharp contrast between the White House's federal preemption push and the EU's strict-regulation path signals that transatlantic AI regulatory divergence is now locked in.</em></p>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 6: OPINION & DEEP READS ===== -->
+  <div class="section-header">
+    <h2>觀點與深度 / Opinion &amp; Deep Reads</h2>
+  </div>
+
+  <div class="story">
+    <h3>
+      <span class="zh"><span class="badge research">觀點</span>前沿競賽「分道揚鑣」：Anthropic 守門、OpenAI 搶市、Google 滲透——三路戰略的深層差異</span>
+      <span class="en">The Frontier Race Splits Three Ways: Anthropic Gates, OpenAI Markets, Google Permeates</span>
+    </h3>
+    <div class="source-line">
+      <a href="https://www.axios.com/2026/05/21/google-ai-anthropic-openai-war" target="_blank">Axios</a> · 2026-05-21
+    </div>
+
+    <div class="block">
+      <div class="block-label">核心事實</div>
+      <p>Axios 的深度報導指出，儘管 Google、OpenAI 與 Anthropic 的高管都宣稱三者「難分伯仲」，但三家的戰略選擇正呈現截然不同的軌跡：Anthropic 以「安全守門者」自居，拒絕公開最強模型（Mythos Preview），將其定位為防禦性基礎設施工具；OpenAI 走消費者市場與 IPO 路線，以月活用戶數與 API 生態押注贏家通吃；Google 的策略是「無處不在的滲透」，將 Gemini 嵌入搜索、Gmail、辦公套件、作業系統與智慧眼鏡，以分發優勢對抗研究優勢。<br><br>
+      <em>Axios analysis identifies three diverging strategies: Anthropic as "safety gatekeeper" (restricts top model), OpenAI as consumer/IPO play (mass users + API ecosystem), and Google as "ambient permeator" (Gemini embedded in search, Gmail, OS, glasses). All three claim parity, but bet on different moats.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">背景脈絡</div>
+      <p>三路戰略分化的根源，是三家公司對「AI 終局形態」的不同判斷：Anthropic 相信 AI 安全是長期護城河；OpenAI 相信網絡效應與應用生態是護城河；Google 相信分發管道是護城河。這三種押注恰好對應三種不同的風險：監管風險（Anthropic）、估值泡沫風險（OpenAI）、反壟斷風險（Google）。<br><br>
+      <em>The strategic divergence maps onto different moat theories: safety credibility (Anthropic), network effects and app ecosystem (OpenAI), distribution dominance (Google). Each moat carries a matching risk: regulatory scrutiny, valuation bubble, and antitrust exposure.</em></p>
+    </div>
+
+    <div class="block">
+      <div class="block-label">影響觀察</div>
+      <p>未來十二個月是三路戰略的壓力測試期：Anthropic 的「守門者」地位能否轉化為可持續的商業模式？OpenAI IPO 的訂價能否反映其技術領先地位被 Mythos 挑戰的現實？Google 的分發霸主地位能否在 AI Agent 時代繼續有效——當 Agent 本身開始代替用戶決定「去哪裡找資訊」時，傳統的分發護城河可能需要重新定義。<br><br>
+      <em>The next 12 months stress-test all three: Anthropic's gatekeeper model vs. commercial sustainability; OpenAI's IPO pricing vs. Mythos-revealed capability gap; Google's distribution moat vs. agents that decide what information sources to consult, potentially redefining "distribution" entirely.</em></p>
+    </div>
+  </div>
+
+</div><!-- end .container -->
+
+<footer>
+  <div class="container">
+    <h4>今日參考來源 / Sources Consulted</h4>
+    <ul>
+      <li><a href="https://www.anthropic.com/glasswing" target="_blank">Anthropic — Project Glasswing</a></li>
+      <li><a href="https://red.anthropic.com/2026/mythos-preview/" target="_blank">Anthropic — Claude Mythos Preview (Red Team Blog)</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/05/anthropic-ceo-cyber-moment-of-danger-mythos-vulnerabilities.html" target="_blank">CNBC — Anthropic CEO Cyber Danger</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/11/openai-eu-cyber-model-anthropic-mythos-gpt.html" target="_blank">CNBC — OpenAI EU vs Anthropic Mythos</a></li>
+      <li><a href="https://fortune.com/2026/05/22/openai-ipo-filing-1-trillion-may-finally-answer-these-big-questions/" target="_blank">Fortune — OpenAI IPO S-1 Filing</a></li>
+      <li><a href="https://openai.com/index/gpt-5-5-instant/" target="_blank">OpenAI — GPT-5.5 Instant</a></li>
+      <li><a href="https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/" target="_blank">TechCrunch — GPT-5.5 Instant</a></li>
+      <li><a href="https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/" target="_blank">Google Blog — I/O 2026 All Announcements</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/19/google-ai-ultra-gemini-spark-omni.html" target="_blank">CNBC — Google Gemini Spark &amp; Omni</a></li>
+      <li><a href="https://www.eweek.com/news/google-io-2026-ai-agents-gemini-search/" target="_blank">eWeek — Google I/O 2026 Takeaways</a></li>
+      <li><a href="https://mistral.ai/news/accelerate-ai-native-industry" target="_blank">Mistral AI — Emmi Acquisition</a></li>
+      <li><a href="https://www.valuethemarkets.com/cryptocurrency/news/alphaproof-nexus-advanced-ai-solves-longstanding-mathematical-problems" target="_blank">Value The Markets — AlphaProof Nexus</a></li>
+      <li><a href="https://gpubeat.com/google-deepmind-s-alphaproof-nexus-solves-erdos-problems/" target="_blank">GPUBeat — AlphaProof Nexus Erdős</a></li>
+      <li><a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Crunchbase — Q1 2026 VC Records</a></li>
+      <li><a href="https://news.crunchbase.com/venture/global-startup-funding-april-2026-anthropic-jeff-bezos-project-prometheus-biggest-deals/" target="_blank">Crunchbase — April 2026 Funding</a></li>
+      <li><a href="https://fortune.com/2026/03/26/shield-ai-revenue-series-g-funding-12-billion-valuation/" target="_blank">Fortune — Shield AI Series G</a></li>
+      <li><a href="https://www.businesswire.com/news/home/20260310715139/en/Rhoda-AI-Exits-Stealth-with-$450-Million-Series-A-to-Bring-Robots-Out-of-the-Lab-and-Into-the-Real-World" target="_blank">BusinessWire — Rhoda AI Series A</a></li>
+      <li><a href="https://www.consilium.europa.eu/en/press/press-releases/2026/05/07/artificial-intelligence-council-and-parliament-agree-to-simplify-and-streamline-rules/" target="_blank">EU Council — AI Omnibus Political Agreement</a></li>
+      <li><a href="https://www.insideprivacy.com/artificial-intelligence/eu-ai-act-update-timeline-relief-targeted-simplification-and-new-prohibitions/" target="_blank">Inside Privacy — EU AI Act Update</a></li>
+      <li><a href="https://www.axios.com/2026/05/21/google-ai-anthropic-openai-war" target="_blank">Axios — How Google Plans to Win the AI War</a></li>
+      <li><a href="https://www.weforum.org/stories/2026/04/anthropic-mythos-ai-cybersecurity/" target="_blank">WEF — Anthropic Mythos Cybersecurity</a></li>
+      <li>
+        <span style="color:#b45309">⚠ 付費牆 / Paywalled:</span>
+        The Information (AI vertical) · Bloomberg Technology · Financial Times AI · WSJ AI · Stratechery · Platformer
+      </li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

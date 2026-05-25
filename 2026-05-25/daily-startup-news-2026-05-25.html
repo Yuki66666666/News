@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日新創新聞日報 / Daily Startup News — 2026-05-25</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --accent: #6c63ff;
+      --accent2: #00d4aa;
+      --warn: #f59e0b;
+      --danger: #ef4444;
+      --text: #e2e8f0;
+      --muted: #8892a4;
+      --border: #2d3348;
+      --tag-bg: #2a2f45;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* HEADER */
+    .header {
+      background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 1.5rem 1.5rem;
+      text-align: center;
+    }
+    .header .label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 0.5rem;
+    }
+    .header h1 {
+      font-size: clamp(1.4rem, 3vw, 2.1rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.35rem;
+    }
+    .header .date {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* NAV PILLS */
+    .nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .nav-pills a {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      background: var(--tag-bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    .nav-pills a:hover { background: var(--accent); color: #fff; text-decoration: none; }
+
+    /* LAYOUT */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 4rem;
+    }
+
+    /* SECTION */
+    .section { margin-bottom: 2.5rem; }
+    .section-title {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* CARD */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .card:hover { border-color: var(--accent); }
+
+    .card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      flex: 1;
+    }
+    .badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .badge-seed    { background: #166534; color: #bbf7d0; }
+    .badge-seriesA { background: #1e40af; color: #bfdbfe; }
+    .badge-seriesB { background: #5b21b6; color: #ddd6fe; }
+    .badge-seriesE { background: #92400e; color: #fde68a; }
+    .badge-ipo     { background: #9f1239; color: #fecdd3; }
+    .badge-shutdown{ background: #450a0a; color: #fca5a5; }
+    .badge-layoffs { background: #78350f; color: #fde68a; }
+    .badge-product { background: #0c4a6e; color: #bae6fd; }
+    .badge-yc      { background: #431407; color: #fdba74; }
+    .badge-region  { background: #1e3a5f; color: #93c5fd; }
+    .badge-analysis{ background: #1a2744; color: #a5b4fc; }
+
+    .source-line {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+    .source-line a { color: var(--muted); }
+    .source-line a:hover { color: var(--accent2); }
+
+    .facts, .context, .implications {
+      font-size: 0.88rem;
+      margin-bottom: 0.6rem;
+    }
+    .facts strong, .context strong, .implications strong {
+      color: var(--accent2);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    /* PRODUCT HUNT LIST */
+    .ph-list { list-style: none; }
+    .ph-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.86rem;
+    }
+    .ph-list li:last-child { border-bottom: none; }
+    .ph-rank {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--muted);
+      width: 1.5rem;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .ph-upvotes {
+      font-size: 0.72rem;
+      color: var(--warn);
+      flex-shrink: 0;
+    }
+
+    /* READS */
+    .read-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 0.9rem 1.1rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.87rem;
+    }
+    .read-card .read-title { font-weight: 600; color: #fff; margin-bottom: 0.25rem; }
+    .read-card .read-why { color: var(--muted); font-size: 0.82rem; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 1.5rem 2.5rem;
+      text-align: center;
+      font-size: 0.77rem;
+      color: var(--muted);
+    }
+    footer ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; justify-content: center; margin-top: 0.75rem; }
+    footer ul li a { color: var(--muted); }
+
+    /* HIGHLIGHT BOX */
+    .highlight {
+      background: linear-gradient(135deg, #1a2744 0%, #1a1d27 100%);
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 2rem;
+    }
+    .highlight h2 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .highlight ul { list-style: none; }
+    .highlight ul li {
+      padding: 0.3rem 0;
+      font-size: 0.87rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .highlight ul li:last-child { border-bottom: none; }
+    .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); margin-right: 0.5rem; vertical-align: middle; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="label">今日新創新聞日報 / Daily Startup Briefing</div>
+  <h1>新創公司大事 · 2026-05-25</h1>
+  <div class="date">Asia/Taipei · Sources: TechCrunch, Crunchbase News, Product Hunt, Hacker News, StockAnalysis</div>
+</div>
+
+<nav class="nav-pills">
+  <a href="#top-stories">頭條</a>
+  <a href="#funding">募資</a>
+  <a href="#launches">新公司/產品</a>
+  <a href="#acquisitions">收購</a>
+  <a href="#people">人事</a>
+  <a href="#layoffs">裁員/停業</a>
+  <a href="#ipo">上市進程</a>
+  <a href="#regional">區域</a>
+  <a href="#reads">觀點</a>
+</nav>
+
+<div class="container">
+
+  <!-- SNAPSHOT -->
+  <div class="highlight">
+    <h2>本日快覽 / Today at a Glance</h2>
+    <ul>
+      <li><span class="dot"></span>OpenAI 向整個 YC Spring 2026 班 (169 家) 提供每家 $2M tokens 換股權的 uncapped SAFE — 改寫新創融資邏輯 / OpenAI offers $2M in tokens (uncapped SAFE) to every startup in the YC Spring 2026 batch.</li>
+      <li><span class="dot"></span>Oura Ring (芬蘭智慧戒指, 估值 $11B) 秘密遞交 S-1, IPO 進程正式啟動 / Oura confidentially files S-1; $11B valuation at last round.</li>
+      <li><span class="dot"></span>Intuit 宣布裁員逾 3,000 人 (17% 員工), 全員工已達 18,200 人 — AI 轉型代價再現 / Intuit cuts 17% of global workforce (~3,000 people) to double down on AI.</li>
+      <li><span class="dot"></span>核電新創 Deep Fission 再度提交 Nasdaq IPO 申請, 尋求募資 $157M; S-1 仍含 going concern 警語 / Deep Fission files for $157M Nasdaq IPO despite "going concern" warning in S-1.</li>
+      <li><span class="dot"></span>AI 音訊 app Huxe (前 NotebookLM 開發者創立, 曾募資 $4.6M) 關停, 消費 AI 商品化壓力顯現 / Huxe shuts down — yet another casualty of Big Tech feature commoditization.</li>
+    </ul>
+  </div>
+
+  <!-- 1. TOP STORIES -->
+  <section class="section" id="top-stories">
+    <div class="section-title">01 · 頭條 / Top Stories</div>
+
+    <!-- Sam Altman / YC -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">OpenAI 向 YC Spring 2026 全班 169 家新創提供 $2M Tokens 換股 / Altman Makes "Mic Drop" Offer to Every YC Startup</div>
+        <span class="badge badge-yc">YC / OpenAI</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/20/sam-altman-makes-mic-drop-offer-to-every-y-combinator-startup/" target="_blank">TechCrunch</a> · 2026-05-20</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        Sam Altman 於 YC 活動上提出: OpenAI 向 Spring 2026 班每家新創提供 $2M 美元等值的 OpenAI API tokens, 作為 uncapped SAFE (不設上限可轉換票據), 下一次 priced round (通常是 Series A) 時轉換為股權。YC 本班共有 169 家公司。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        YC 自身標準條件已向每家公司投入 $500K 換取 7% 股權。OpenAI 的 deal 讓新創用 AI 基礎設施成本換股份, 而非直接掏現金。隨推斷成本持續下滑, OpenAI 今日讓出的 tokens 未來成本極低, 換回的股權可觀。Seed VC Jason Calacanis 公開警告: 接受 tokens 可能讓 OpenAI 掌握新創的產品動向。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        (分析) 此舉在邏輯上等同 OpenAI 以低成本方式「批量布局」整個 YC 生態, 相當於分散式 acqui-hire pipeline。對新創而言, 可節省早期最大成本項目之一, 但需衡量是否形成平台鎖定。若此模式被 Anthropic/Google 跟進, 新創早期生態的競爭格局將發生根本性改變。
+      </div>
+    </div>
+
+    <!-- Intuit layoffs -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Intuit 裁員逾 3,000 人 (17%) 以轉型 AI / Intuit Cuts 17% of Workforce to Pivot to AI</div>
+        <span class="badge badge-layoffs">裁員</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/20/intuit-to-lay-off-over-3000-employees-to-refocus-on-ai/" target="_blank">TechCrunch</a> · 2026-05-20</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        Intuit (TurboTax、QuickBooks、Credit Karma) CEO Sasan Goodarzi 致員工備忘錄宣布裁減約 3,000 人, 佔全球員工 18,200 人的 17%。Q2 FY2026 收入 $4.65B (+17% YoY), 淨利 $693M (+48%); 公司仍盈利。裁員理由: 降低複雜度、聚焦 AI 產品。Goodarzi 個人薪酬 FY2025 達 $36.8M。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        2026 年已有 Amazon (~16,000)、Block (~4,000)、Cisco (~4,000)、Cloudflare (~1,100)、Meta、Microsoft 等相繼大規模裁員, 全年科技業裁員人數已逾 10 萬。SaaS 公司普遍面臨「AI 替代傳統功能」的估值壓力, Intuit 股價過去 12 個月明顯跑輸 S&P 500。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        財務健康但仍大幅裁員, 顯示「AI 轉型型裁員」已成為科技業標準劇本, 而非困境時的無奈之舉。對財務軟體生態的中型 SaaS 新創形成雙重壓力: 資金緊縮且 Intuit 將加速用 AI 重建核心功能。
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. FUNDING -->
+  <section class="section" id="funding">
+    <div class="section-title">02 · 募資 / Funding Rounds</div>
+
+    <!-- SolarSquare -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">SolarSquare (印度屋頂太陽能) 洽談募資最高 $60M / India's SolarSquare in Talks to Raise Up to $60M</div>
+        <span class="badge badge-seriesB">Late Stage</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/23/solarsquare-in-talks-to-raise-up-to-60m-as-indias-rooftop-solar-market-draws-major-vc-interest/" target="_blank">TechCrunch</a> · 2026-05-23</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        SolarSquare — 印度屋頂太陽能安裝新創 — 據報正在進行最高 $60M 的融資談判。估值與 lead investor undisclosed。市場背景: 印度屋頂太陽能市場正吸引大量 VC 湧入。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        印度政府推動「Surya Ghar」屋頂太陽能計畫, 目標 2026 年讓 1000 萬戶安裝太陽能板, 政策補貼驅動市場快速擴張。競品包括 Bluetti、Waaree 等。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        (分析) 氣候科技在印度市場的吸引力正在上升, General Catalyst 等頂級 VC 布局印度能源轉型可能帶動跟進。若成交, 估值預計顯著超過上一輪。
+      </div>
+    </div>
+
+    <!-- Scapia -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">印度旅遊金融 Scapia 獲 General Catalyst 領投 $63M, 估值翻倍至 $500M+ / India Travel Fintech Scapia Raises $63M, Valuation Tops $500M</div>
+        <span class="badge badge-seriesB">Series B</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/20/indian-travel-fintech-scapia-more-than-doubles-valuation-to-over-500m-in-a-year/" target="_blank">TechCrunch</a> · 2026-05-20</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        Scapia — 印度旅遊支付 fintech — 由 General Catalyst 領投, 募得 $63M。估值較一年前已翻倍至逾 $500M (post-money undisclosed, 報導用「more than doubles」)。公司提供旅遊信用卡及旅遊支付整合服務。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        印度航空旅客數量 2025 年突破 1.5 億人次, 旅遊信用卡滲透率仍低。Scapia 瞄準年輕中產消費者的旅遊支付場景, 競品包括 Niyo、Axis Bank 旅遊卡。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        General Catalyst 持續在印度金融市場下重注, 估值快速翻倍說明印度旅遊 fintech 賽道在國際 VC 眼中仍有高成長空間。
+      </div>
+    </div>
+
+    <!-- Fresha -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">美容預約平台 Fresha 獲 KKR 支持, 估值達 $1B 躋身獨角獸 / Beauty Booking Startup Fresha Hits $1B Valuation with KKR Backing</div>
+        <span class="badge badge-seriesB">Growth / Unicorn</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/21/booking-platform-fresha-announces-80m-investment-unicorn-valuation/" target="_blank">TechCrunch</a> · 2026-05-21</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        Fresha — 英國美容/健康預約 SaaS — 宣布 $80M 投資並確認 $1B 估值, 達成獨角獸地位。投資方包含 KKR。Fresha 服務超過 120 個國家的美容師、美甲師等美業從業者。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        先前競品 Vagaro、Mindbody 已被 PE 收購; Fresha 採「免費預約工具 + 支付抽成」商業模式, 搶佔中小美業客群。英國美業市場規模達 £8B/年。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        KKR 入局意味著 Fresha 正在備戰 IPO 或進一步整合。此輪也是 2026 年少數非 AI 垂直仍能拿到獨角獸估值的案例, 說明 GMV 規模強勁的市集模型仍受青睞。
+      </div>
+    </div>
+
+    <!-- Lucra -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">非 AI 新創 Lucra (eSports 競技平台) 募得 $20M Series A / Non-AI Startup Lucra Raises $20M Series A as an eSports Play</div>
+        <span class="badge badge-seriesA">Series A</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/20/indian-travel-fintech-scapia-more-than-doubles-valuation-to-over-500m-in-a-year/" target="_blank">TechCrunch</a> · 2026-05-20</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        Lucra Sports (創辦人 Dylan Robbins) 完成 $20M Series A。Lucra 是朋友間競技博彩/對賭平台, 核心產品讓用戶就運動比賽互相對賭。Lead investor undisclosed。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        在全球 VC 只想投 AI 的氛圍下, Lucra 以消費娛樂定位拿到融資, 被 TechCrunch 作為「非 AI 也能募資」的典型案例。美國多州 2025 年已通過運動博彩合法化, 市場空間擴張。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        (分析) 說明只要商業模式清晰、可見收入路徑, 非 AI 賽道的融資並未完全凍結, 只是選擇性更嚴格。
+      </div>
+    </div>
+
+    <!-- NanoClaw -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">NanoClaw 拒絕 $20M 收購, 自行募種子輪 $12M / NanoClaw Turns Down $20M Buyout, Raises $12M Seed Instead</div>
+        <span class="badge badge-seed">Seed</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/20/nanoclaw-creator-turns-down-20m-buyout-offer-raises-12m-seed-instead/" target="_blank">TechCrunch</a> · 2026-05-20</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        NanoClaw (奈米材料/抓附技術新創) 創辦人拒絕了一份 $20M 現金收購要約, 選擇獨立融資, 完成 $12M Seed 輪。Lead investor undisclosed。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        NanoClaw 的抓附技術源自壁虎腳掌原理 (van der Waals 力), 可用於機器人、醫療裝置等。拒絕收購顯示創辦人相信技術護城河足夠強, 獨立路徑的長期回報更高。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        深科技新創在早期就收到收購要約, 說明大公司對前沿材料技術的並購興趣強烈。創辦人選擇獨立亦反映 deep tech 在 2026 年的融資環境相對仍然健康。
+      </div>
+    </div>
+
+    <!-- Stilta -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">法律 AI Stilta 獲 a16z 與 YC 聯合支持, 種子輪 $10.5M / Legal Tech Stilta Raises $10.5M Seed Backed by a16z and YC</div>
+        <span class="badge badge-seed">Seed</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/19/legal-tech-announced-stilta-announces-10m-seed-backed-by-yc-and-a16z-months-after-launch/" target="_blank">TechCrunch</a> · 2026-05-19</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        Stilta — 幫助企業「重新發現」自己持有但遺忘專利」的 AI 平台 — 完成 $10.5M Seed 輪。投資方: a16z + Y Combinator。公司成立僅數月即完成本輪。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        企業專利組合管理長期依賴昂貴律所, Stilta 用 AI 自動挖掘現有專利的潛在應用場景與授權機會。競品包括 Dennemeyer、IPfolio 等傳統工具。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        a16z + YC 雙重背書在 Seed 階段屬強力信號。法律 AI 在 2026 年已是競爭激烈賽道 (Clio 剛宣布 $500M ARR 里程碑), 但專利管理利基仍是相對空白。
+      </div>
+    </div>
+
+    <!-- Status AI -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">遊戲化社群平台 Status AI 獲 $17M / Gamified Social Network Status AI Raises $17M</div>
+        <span class="badge badge-seriesA">Series A</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/19/gamified-social-media-network-status-announces-17m-funding-to-help-usher-in-new-era-of-social-networking/" target="_blank">TechCrunch</a> · 2026-05-19</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        Status AI — 「把社群媒體變成互動娛樂」的遊戲化社群平台 — 宣布 $17M 融資。Lead investor undisclosed。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        以 TikTok 為首的短影音平台使用者注意力競爭進入白熱化, Status AI 押注「遊戲化互動」而非純被動消費的社群新形態。Meta 也剛推出類似 Reddit 的 Forum app。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        社群消費娛樂類新創在 2026 年仍能融資, 但需要清晰的差異化定位來對抗 Meta/TikTok 的資源優勢。
+      </div>
+    </div>
+
+    <!-- Imperagen -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">英國酵素工程 Imperagen 募得 £5M, 結合量子物理與 AI / UK's Imperagen Raises £5M for Quantum Physics + AI Enzyme Engineering</div>
+        <span class="badge badge-seed">Seed</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/20/imperagen-raises-5-million-to-redefine-enzyme-engineering/" target="_blank">TechCrunch</a> · 2026-05-20</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        Imperagen (英國深科技生技新創) 完成 £5M Seed 輪。利用量子物理原理加速 AI 驅動的酵素工程設計流程, 目標應用於製藥、農業、材料等領域。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        酵素工程是合成生物學核心應用; 傳統迭代速度慢, AI + 量子計算的結合有望大幅壓縮 design cycle。競品包括 Ginkgo Bioworks、Arzeda。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        量子 + AI + 生技三路線的交叉投資在歐洲正在快速增加, 此輪規模小但象徵意義強。
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. LAUNCHES -->
+  <section class="section" id="launches">
+    <div class="section-title">03 · 新公司發表 / Launches &amp; Product Hunt</div>
+
+    <!-- Meta Forum -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Meta 低調推出類 Reddit 應用程式「Forum」 / Meta Quietly Launches Reddit-Like App Called Forum</div>
+        <span class="badge badge-product">產品發表</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/22/meta-quietly-launches-a-new-reddit-like-app-called-forum/" target="_blank">TechCrunch</a> · 2026-05-22</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        Meta 低調推出名為「Forum」的新應用, 定位類似 Reddit 的討論社群。未有大規模公告, 目前仍在小規模測試。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        Reddit IPO 後市值穩健, 顯示討論型社群具有廣告變現潛力。Meta 早有 Threads (類 Twitter)、Groups 等社群功能, Forum 是再一次橫向擴張。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        對 Reddit 及任何垂直社群論壇新創構成直接威脅。Meta 有 30 億 MAU 的分發優勢, 若 Forum 整合 Facebook/Instagram 帳號, 冷啟動問題幾乎不存在。
+      </div>
+    </div>
+
+    <!-- Maka Kids -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Maka Kids 推出「以健康為核心」兒童串流 App / Maka Kids Launches Streaming App Optimized for Well-Being, Not Engagement</div>
+        <span class="badge badge-product">產品發表</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/21/maka-kids-is-redefining-kids-screen-time-with-a-streaming-app-optimized-for-well-being-not-engagement/" target="_blank">TechCrunch</a> · 2026-05-21</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        Maka Kids 推出串流 app, 刻意設計為「不以最大化參與度 (engagement) 為目標」, 而以兒童健康為核心指標。平台優化觀看時間的質量而非長度。融資情況 undisclosed。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        美國多州已立法限制演算法推薦給未成年人 (如 Kids Online Safety Act), 家長對 Netflix/YouTube 兒童內容的演算法成癮疑慮日增。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        監管趨勢與家長意識同步上升, 兒童科技的「反成癮」定位在 2026 年具有真實市場需求。
+      </div>
+    </div>
+
+    <!-- Product Hunt Top Today (May 25) -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Product Hunt 今日 (2026-05-25) 頭排</div>
+        <span class="badge badge-product">Product Hunt</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://www.producthunt.com/leaderboard/daily/2026/5/24" target="_blank">Product Hunt</a> · 2026-05-25</div>
+      <ul class="ph-list">
+        <li><span class="ph-rank">#1</span> <a href="https://www.producthunt.com/products/stitch-by-google" target="_blank">Stitch 3.0 by Google</a> — Google 出品 AI UI 畫面生成工具 (live canvas) <span class="ph-upvotes">388 upvotes</span></li>
+        <li><span class="ph-rank">#2</span> <a href="https://www.producthunt.com/products/modelhub" target="_blank">ModelHub</a> — Mac menu bar 上的本地 LLM 管理工具 <span class="ph-upvotes">245 upvotes</span></li>
+        <li><span class="ph-rank">#3</span> <a href="https://www.producthunt.com/products/freu-cli" target="_blank">Freu AI</a> — Mac 全應用自動化, $0 recurring run cost <span class="ph-upvotes">229 upvotes</span></li>
+        <li><span class="ph-rank">#4</span> <a href="https://www.producthunt.com/products/whatcable" target="_blank">WhatCable</a> — 偵測 USB-C 線纜真實規格 <span class="ph-upvotes">197 upvotes</span></li>
+        <li><span class="ph-rank">#5</span> <a href="https://www.producthunt.com/products/edgee" target="_blank">Edgee Fallback Models</a> — Claude Code 永不中斷的備援模型服務 <span class="ph-upvotes">160 upvotes</span></li>
+        <li><span class="ph-rank">#6</span> <a href="https://www.producthunt.com/products/runway-agent" target="_blank">Runway Agent</a> — 透過對話生成剪輯完整影片 <span class="ph-upvotes">148 upvotes</span></li>
+      </ul>
+      <div style="font-size:0.8rem; color: var(--muted); margin-top:0.7rem;">今日 PH 趨勢顯示: AI 開發工具 (coding / LLM infra) 與 Mac 生產力工具佔據前段, Runway Agent 是首個在 PH 榜上出現的 AI 影片代理產品, 值得注意。</div>
+    </div>
+  </section>
+
+  <!-- 4. ACQUISITIONS -->
+  <section class="section" id="acquisitions">
+    <div class="section-title">04 · 收購與整併 / Acquisitions &amp; Consolidation</div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Anthropic 收購被 OpenAI、Google、Cloudflare 使用的開發工具新創 / Anthropic Acquires Dev Tools Startup Used by OpenAI, Google, and Cloudflare</div>
+        <span class="badge badge-product">收購</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/18/anthropic-has-acquired-the-dev-tools-startup-used-by-openai-google-and-cloudflare/" target="_blank">TechCrunch</a> · 2026-05-18</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        Anthropic 完成對一家開發工具新創的收購 (名稱未完整披露於本次數據中)。該新創的工具被 OpenAI、Google、Cloudflare 所使用, 凸顯此次收購的戰略意涵。收購金額 undisclosed。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        Anthropic 近期在企業工具 (Claude Code 等) 上加速布局。收購一個被競爭對手自身採用的工具, 顯示 Anthropic 希望掌握基礎開發者基礎設施。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        (分析) 被競爭對手共同使用的中立工具一旦被任何一方收購, 其他用戶可能面臨資料安全顧慮或需切換, 形成生態護城河爭奪戰的新戰場。
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PEOPLE -->
+  <section class="section" id="people">
+    <div class="section-title">05 · 人事 / People Moves</div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">OpenAI 共同創辦人 Greg Brockman 掌管產品策略 / OpenAI Co-Founder Greg Brockman Takes Charge of Product Strategy</div>
+        <span class="badge badge-analysis">人事</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/16/openai-co-founder-greg-brockman-reportedly-takes-charge-of-product-strategy/" target="_blank">TechCrunch</a> · 2026-05-16</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        Greg Brockman (OpenAI 共同創辦人, 曾請假修養) 據報已回任並主導 OpenAI 的產品策略方向。此前 OpenAI 多名產品負責人相繼離職。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        2025 年 OpenAI 在高層人事上動盪頻繁 (Ilya Sutskever 出走創 Safe Superintelligence、多名 VP 離職)。Brockman 回歸被視為穩定核心管理團隊的信號, 也與 OpenAI 邁向 IPO 的時間表吻合。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        IPO 前強化產品領導層是標準做法。Brockman 的回歸預示 OpenAI 在消費品(ChatGPT)與開發者工具(API/Claude Code 競爭)兩條線上將有更清晰的策略走向。
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. LAYOFFS & SHUTDOWNS -->
+  <section class="section" id="layoffs">
+    <div class="section-title">06 · 裁員與停業 / Layoffs &amp; Shutdowns</div>
+
+    <!-- Huxe shutdown -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">AI 音訊 App Huxe 關停 — 前 NotebookLM 開發者創業, 曾募資 $4.6M / Huxe Shuts Down — Former NotebookLM Devs, $4.6M Raised</div>
+        <span class="badge badge-shutdown">停業</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/22/audio-generation-app-huxe-founded-by-former-notebooklm-developers-shuts-down/" target="_blank">TechCrunch</a> · 2026-05-22</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        Huxe (AI 播客生成 app, 輸入 prompt 即可生成完整 podcast) 宣布關停, App Store/Play Store 已下架。關停前七天仍可使用, 之後所有用戶資料將刪除。公司共募資 $4.6M, 投資方包括 Conviction、Genius Ventures、Figma CEO Dylan Field、Google Research 首席科學家 Jeff Dean。創辦人: Raiza Martin、Jason Spielman、Stephen Hughes (皆為前 Google/NotebookLM 成員)。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        Huxe 關停的前一天, Spotify 宣布推出類似的個人播客生成功能。此外 Adobe、Amazon、ElevenLabs、Meta 均已將 podcast 生成內建為功能。NotebookLM 的爆紅激發了整個類別, 但也加速了功能商品化。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        消費 AI 新創的核心教訓: 當大平台 (Google/Spotify/Meta) 能在一夜之間將你的核心功能內建為免費附加項目, 獨立 app 的商業模式極脆弱。此模式在 AI 時代正在加速循環。Huxe 的關停不代表這個需求消失, 而是代表「單一轉換格式」的獨立 app 已難以生存。
+      </div>
+    </div>
+
+    <!-- Intuit (already covered in top stories, cross-ref) -->
+    <div class="card" style="background: var(--surface2);">
+      <div style="font-size:0.82rem; color: var(--muted);">
+        另見頭條: <strong>Intuit 裁員 3,000+ 人</strong> — 詳細分析已列於「頭條」section。
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. IPO PIPELINE -->
+  <section class="section" id="ipo">
+    <div class="section-title">07 · 上市進程 / IPO Pipeline</div>
+
+    <!-- Oura -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Oura Ring (芬蘭智慧戒指, 估值 $11B) 秘密遞交 S-1 / Smart Ring Maker Oura Confidentially Files S-1, $11B Valuation</div>
+        <span class="badge badge-ipo">IPO</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/22/smart-ring-maker-oura-files-to-go-public/" target="_blank">TechCrunch</a> · 2026-05-22</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        Oura (芬蘭, 2015 年創立) 向 SEC 秘密遞交 Form S-1。最新估值: $11B (Series E, 2025 年 9 月, 募資 $875M)。累計銷售量 550 萬枚 (vs 2024 年底的 250 萬枚)。IPO 時程/承銷商 undisclosed。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        Oura 2024 年估值 $5B → 2025 年 $11B, 一年翻倍。差異化策略: 戒指形態 + 女性健康 AI 模型 (2026 年 2 月推出)。競爭對手: Apple Watch、Garmin、WHOOP。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        2026 年上市的大型消費硬體 + 訂閱 SaaS 組合模式, 將是投資人評估 health wearable 公司的重要基準案例。SpaceX S-1 同周遞交讓 Oura 稍顯低調, 但 $11B 估值的 IPO 仍是今年最大的非 AI 消費科技上市之一。
+      </div>
+    </div>
+
+    <!-- OpenAI IPO -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">OpenAI IPO 可能 9 月登場 / OpenAI Reportedly Targeting September IPO</div>
+        <span class="badge badge-ipo">IPO</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/20/openai-barrels-toward-ipo-that-may-happen-in-september/" target="_blank">TechCrunch</a> · 2026-05-20</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        據報 OpenAI 正推進可能於 2026 年 9 月完成的 IPO。若成功, 將是史上最大規模 IPO 之一。Greg Brockman 回任掌管產品策略一事亦與 IPO 準備相關。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        (分析) OpenAI IPO 將重新定義 AI 公司的估值基準。Nvidia 剛宣布無法向 OpenAI 投資 $100B (因 IPO 規定), 顯示 OpenAI 正在嚴格管控 IPO 前股東結構。
+      </div>
+    </div>
+
+    <!-- SpaceX -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">SpaceX 遞交 S-1, 目標成為史上最大 IPO / SpaceX Files S-1, Aiming to Become Largest IPO in US History</div>
+        <span class="badge badge-ipo">IPO</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/video/spacex-files-to-go-public-and-the-math-requires-a-little-faith/" target="_blank">TechCrunch</a> · 2026-05-22</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        SpaceX 正式公開 S-1。S-1 中揭示 36 頁風險因素、TAM 聲稱 $28 兆美元市場、CEO 報酬與建立火星殖民地掛鉤。若依目標估值上市, 將超越 Aramco 成為史上最大 IPO。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        S-1 中的 $28T TAM 數字引發廣泛質疑 (多包含未開發的太空經濟預測)。Elon Musk 的個人持股約 42%, IPO 利益高度集中。仍是 2026 年最矚目的上市案。
+      </div>
+    </div>
+
+    <!-- Deep Fission -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">核電新創 Deep Fission 再度申請 Nasdaq IPO, 尋求 $157M; S-1 含 Going Concern 警語 / Nuclear Startup Deep Fission Files for $157M IPO — Again, With Going Concern Warning</div>
+        <span class="badge badge-ipo">IPO (高風險)</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/23/nuclear-startup-deep-fission-says-its-going-public-again-and-i-have-questions/" target="_blank">TechCrunch</a> · 2026-05-23</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        Deep Fission (深井地下核電廠新創) 申請 Nasdaq IPO, 目標募資 $157M, 定價區間 $24–$26/股, 估值上限 $1.66B。S-1 中仍含 going concern 警告 (若 IPO 失敗, 12 個月內可能耗盡資金)。截至 3 月, 累計虧損 $88.1M (vs 去年 12 月的 $56.2M)。同公司 2025 年 9 月曾透過 SPAC 掛牌但股票從未實際交易。Blue Owl 投資 $20M 並簽署非約束性 MOU。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        核能新創 X-energy 同月上市且大漲 27%, Deep Fission 正在蹭熱度。但兩者差距顯著: X-energy 有收入且 NRC 審查進展較前, Deep Fission 仍在打第一口測試井 (只有 8 英寸直徑, 商業規模需 30–50 英寸)。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        (分析) 這是 2026 年最值得觀察的「核能炒作 vs 技術現實」案例。估值 $1.66B 對應 $88M 累計虧損且尚無收入的公司, 需要投資人對長期核能政策高度樂觀才能支撐。TechCrunch 的報導態度明顯存疑。
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. REGIONAL -->
+  <section class="section" id="regional">
+    <div class="section-title">08 · 區域焦點 / Regional Spotlight</div>
+
+    <!-- India: SolarSquare + Scapia already covered. Quick regional summary -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">印度 India: 能源 &amp; 金融科技領銜本週</div>
+        <span class="badge badge-region">India</span>
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        本週印度新創最活躍的兩條賽道為: (1) 氣候/能源 — SolarSquare ($60M 談判中) 反映政策補貼紅利; (2) 旅遊 Fintech — Scapia ($63M, General Catalyst 領投) 展示印度中產消費升級。兩者合計為印度生態帶入逾 $120M 潛在資金。此外 Walmart 旗下 Flipkart 宣布將公司基地遷回印度, 為 IPO 做準備; PhonePe 目標 $10.5B 估值在印度上市。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        印度 2026 年已成為全球第三大新創生態, 本地 IPO 市場 (NSE/BSE) 的成熟也讓更多科技公司考慮在地上市而非赴美, 降低外匯與監管風險。
+      </div>
+    </div>
+
+    <!-- Korea LetinAR -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">南韓 LetinAR 建構 AI 眼鏡光學技術 / South Korea's LetinAR Building Optics for AI Glasses</div>
+        <span class="badge badge-region">Korea</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/18/south-koreas-letinar-is-building-the-optics-behind-ai-glasses/" target="_blank">TechCrunch</a> · 2026-05-18</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        LetinAR (首爾) 專攻 AR 眼鏡的 Pin Mirror 光學技術, 為品牌 AI 眼鏡代工光學模組。融資金額 undisclosed。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        Meta Ray-Ban、Samsung Galaxy Glasses 等 AI 眼鏡熱潮帶動供應鏈需求。韓國光電技術厂商 (如 LG Innotek) 是全球 AR 元件的重要供應來源。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        AI 眼鏡的供應鏈佈局正在形成, 韓國 B2B 元件新創在此波浪潮中具有地利之便。
+      </div>
+    </div>
+
+    <!-- Berlin Peec -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">柏林新創 Peec 年化收入數月內翻倍至 $10M / Berlin Startup Peec More Than Doubled ARR to $10M in Months</div>
+        <span class="badge badge-region">Europe</span>
+      </div>
+      <div class="source-line">來源 / Source: <a href="https://techcrunch.com/2026/05/23/peec-one-of-berlins-rising-startups-more-than-doubled-annualized-revenue-in-months-to-10m-sources-say/" target="_blank">TechCrunch</a> · 2026-05-23</div>
+      <div class="facts">
+        <strong>核心事實 / Facts</strong>
+        Peec — 柏林 AI 採購/工作流程新創 — 年化收入 (ARR) 在數月內從不到 $5M 倍增至 $10M。消息來源為知情人士, 公司未官方確認。融資情況 undisclosed。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        歐洲企業 AI 採購工具市場在 2025–2026 年快速擴張, 德國中大型企業對合規及本地化部署的需求尤為強烈。
+      </div>
+      <div class="implications">
+        <strong>影響觀察 / Implications</strong>
+        ARR 在數月內翻倍是 Series B 前的強力信號, Peec 下一輪融資可能以 $100M+ 估值進行。
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. READS -->
+  <section class="section" id="reads">
+    <div class="section-title">09 · 觀點 / Reads Worth Bookmarking</div>
+
+    <div class="read-card">
+      <div class="read-title">
+        <a href="https://techcrunch.com/2026/05/22/how-vcs-and-founders-use-inflated-arr-to-kingmake-ai-startups/" target="_blank">
+          "How VCs and Founders Use Inflated 'ARR' to Crown AI Startups" — TechCrunch (Marina Temkin)
+        </a>
+      </div>
+      <div class="read-why">為何值得讀: 深度揭示 AI 新創如何透過「重新定義 ARR」(包含 committed contract、token credit 承諾等非現金收入) 炒高估值。在 OpenAI 向 YC 全班提供 $2M tokens-as-investment 的同一週出現格外應景。投資人與創辦人都該了解 ARR 定義的邊界在哪裡。</div>
+    </div>
+
+    <div class="read-card">
+      <div class="read-title">
+        <a href="https://techcrunch.com/2026/05/23/nuclear-startup-deep-fission-says-its-going-public-again-and-i-have-questions/" target="_blank">
+          "Nuclear startup Deep Fission says it's going public, again, and I have questions" — TechCrunch (Tim De Chant)
+        </a>
+      </div>
+      <div class="read-why">為何值得讀: 一篇罕見對 IPO 申請書提出尖銳問題的新聞分析。展示如何用 S-1 原文細節 (going concern、timeline slippage、cash burn) 評估一家「騎乘趨勢」的新創的真實狀態。是辨識 hype vs substance 的實用模板。</div>
+    </div>
+
+    <div class="read-card">
+      <div class="read-title">
+        <a href="https://news.crunchbase.com/public/pwc-bellin-qa-2026-ipo-timing-secondary-boom/" target="_blank">
+          "PwC's US IPO Lead On The 2026 Outlook, IPO Timing And The Secondary Boom" — Crunchbase News
+        </a>
+      </div>
+      <div class="read-why">為何值得讀: PwC 美國 IPO 主管深入解析 2026 上市市場: 何種公司最容易成功 IPO、二級市場爆炸性成長背後的驅動因素、以及為什麼「市場已開放」但很多獨角獸仍在等待。</div>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<footer>
+  <div>今日新創新聞日報 · Daily Startup News · 2026-05-25 · Asia/Taipei</div>
+  <ul>
+    <li><a href="https://techcrunch.com/category/startups/" target="_blank">TechCrunch Startups</a></li>
+    <li><a href="https://news.crunchbase.com/" target="_blank">Crunchbase News</a></li>
+    <li><a href="https://www.producthunt.com/" target="_blank">Product Hunt</a></li>
+    <li><a href="https://news.ycombinator.com/show" target="_blank">Hacker News Show HN</a></li>
+    <li><a href="https://stockanalysis.com/ipos/" target="_blank">StockAnalysis IPO</a></li>
+  </ul>
+  <div style="margin-top:0.75rem; color: #5a6378;">
+    付費牆/無法取得: The Information · Bloomberg · WSJ · FT · PitchBook (完整資料庫) · TechInAsia (部分) · Sifted Pro
+  </div>
+  <div style="margin-top:0.4rem; color: #5a6378; font-size:0.72rem;">
+    Generated by Claude (Anthropic) · Not financial advice · All facts sourced from public reporting
+  </div>
+</footer>
+
+</body>
+</html>

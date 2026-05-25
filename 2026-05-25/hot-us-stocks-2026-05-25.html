@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日美股熱門焦點股 — Hot US Stocks · May 23, 2026</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --red: #f85149;
+    --orange: #d29922;
+    --purple: #bc8cff;
+    --yellow: #e3b341;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.6rem; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+  h2 { font-size: 1.2rem; font-weight: 600; color: var(--yellow); margin: 28px 0 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+  h3 { font-size: 1rem; font-weight: 700; color: var(--accent); margin: 20px 0 8px; }
+  .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 20px; }
+  .tag { display: inline-block; background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: 1px 7px; font-size: 0.75rem; margin-right: 4px; color: var(--muted); }
+  .tag.hot { background: rgba(248,81,73,0.15); border-color: var(--red); color: var(--red); }
+  .tag.up { background: rgba(63,185,80,0.15); border-color: var(--green); color: var(--green); }
+  .tag.down { background: rgba(248,81,73,0.15); border-color: var(--red); color: var(--red); }
+  .tag.neutral { background: rgba(88,166,255,0.15); border-color: var(--accent); color: var(--accent); }
+
+  /* Summary table */
+  .summary-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 0.82rem; }
+  .summary-table th { background: var(--surface2); color: var(--muted); font-weight: 600; padding: 8px 10px; text-align: left; border: 1px solid var(--border); }
+  .summary-table td { padding: 8px 10px; border: 1px solid var(--border); background: var(--surface); vertical-align: top; }
+  .summary-table tr:hover td { background: var(--surface2); }
+  .ticker-sym { font-weight: 700; color: var(--accent); font-size: 0.95rem; }
+  .pct-pos { color: var(--green); font-weight: 700; }
+  .pct-neg { color: var(--red); font-weight: 700; }
+  .buzz-stars { color: var(--yellow); }
+
+  /* Deep dive cards */
+  .stock-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; margin-bottom: 20px; }
+  .stock-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+  .stock-card-header .sym { font-size: 1.3rem; font-weight: 800; color: var(--accent); }
+  .stock-card-header .name { color: var(--muted); font-size: 0.9rem; }
+  .section-label { font-weight: 700; color: var(--orange); font-size: 0.85rem; margin-top: 12px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+  p { margin-bottom: 8px; }
+  .tape-box { background: var(--surface2); border-radius: 6px; padding: 10px 14px; font-family: monospace; font-size: 0.85rem; color: var(--text); margin-bottom: 10px; border: 1px solid var(--border); }
+  .watch-box { background: rgba(88,166,255,0.07); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 6px 6px 0; margin-top: 10px; font-size: 0.88rem; }
+  blockquote { border-left: 3px solid var(--purple); padding-left: 12px; color: var(--muted); font-style: italic; margin: 8px 0; }
+
+  /* Market backdrop */
+  .backdrop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 20px; }
+  .backdrop-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; }
+  .backdrop-item .index { font-size: 0.75rem; color: var(--muted); }
+  .backdrop-item .val { font-size: 1rem; font-weight: 700; }
+  .backdrop-item .chg { font-size: 0.82rem; }
+
+  /* Watchlist */
+  .watchlist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .watch-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; }
+  .watch-card .w-sym { font-weight: 700; color: var(--accent); }
+  .watch-card .w-desc { color: var(--muted); font-size: 0.82rem; margin-top: 4px; }
+
+  /* Footer */
+  footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.78rem; }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .src-list { columns: 2; column-gap: 20px; margin-top: 8px; }
+  .src-list li { margin-bottom: 3px; break-inside: avoid; }
+
+  /* Disclaimer */
+  .disclaimer { background: rgba(210,153,34,0.1); border: 1px solid var(--orange); border-radius: 6px; padding: 10px 14px; margin-top: 20px; font-size: 0.82rem; color: var(--orange); }
+</style>
+</head>
+<body>
+
+<h1>🔥 今日美股熱門焦點股 / Hot US Stocks of the Day</h1>
+<div class="meta">
+  📅 交易日 Trading Session: <strong>Friday, May 22, 2026 (US RTH close)</strong> &nbsp;|&nbsp;
+  📊 報告生成 Report Date: May 25, 2026 (Asia/Taipei) &nbsp;|&nbsp;
+  <span class="tag neutral">Session Note: May 23 is Saturday (NYSE Closed) — data reflects most recent close: Friday May 22, 2026</span>
+</div>
+
+<!-- ─── MARKET BACKDROP ─── -->
+<h2>🌐 大盤背景 / Market Backdrop</h2>
+<div class="backdrop-grid">
+  <div class="backdrop-item">
+    <div class="index">S&amp;P 500 (SPX)</div>
+    <div class="val">7,473</div>
+    <div class="chg pct-pos">+0.37% (+27.75)</div>
+  </div>
+  <div class="backdrop-item">
+    <div class="index">Dow Jones (DJIA)</div>
+    <div class="val">50,579</div>
+    <div class="chg pct-pos">+0.58% (+294)</div>
+  </div>
+  <div class="backdrop-item">
+    <div class="index">Nasdaq (NDX)</div>
+    <div class="val">26,343</div>
+    <div class="chg pct-pos">+0.19% (+50.87)</div>
+  </div>
+  <div class="backdrop-item">
+    <div class="index">VIX</div>
+    <div class="val">16.76</div>
+    <div class="chg" style="color:var(--muted)">低恐慌 / Low Fear</div>
+  </div>
+</div>
+<p>大盤小漲、氣氛尚穩。NVIDIA 財報（5/20）雖 EPS/Rev 均超預期，但市場對 AI 估值飽和呈觀望態度，NVDA 收盤微跌 -1.4%。中國監管機構針對境外非法跨境證券交易展開最強力打壓（5/22），資金從中概 ADR 撤出，逃至小型生技股與 AI 基礎設施題材股。VIX 維持在 16 低位，顯示整體恐慌情緒有限。</p>
+<p>Markets closed mildly higher on Friday, May 22. NVIDIA earnings beat but the stock faded ~1.4% post-release as AI valuations face digestion. China's cross-border trading crackdown triggered a sector-wide rout in Chinese ADRs, while capital rotated aggressively into small-cap biotech and AI infra plays. VIX at 16.76 signals contained macro fear.</p>
+
+<!-- ─── SUMMARY TABLE ─── -->
+<h2>📋 熱門股一覽 / Hot Stocks Summary Table</h2>
+<div style="overflow-x:auto;">
+<table class="summary-table">
+  <thead>
+    <tr>
+      <th>Ticker</th>
+      <th>公司 / Company</th>
+      <th>Close (approx)</th>
+      <th>% Change</th>
+      <th>Vol vs 30D Avg</th>
+      <th>Options Signal</th>
+      <th>Buzz ★</th>
+      <th>Catalyst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="ticker-sym">AKTX</span></td>
+      <td>Akari Therapeutics</td>
+      <td>待確認</td>
+      <td><span class="pct-pos">+120~210%</span></td>
+      <td>爆量 &gt;20x</td>
+      <td>IV大漲 / IV spike</td>
+      <td><span class="buzz-stars">★★★★★</span></td>
+      <td>KRAS 胰臟癌 preclinical data + $5.5M 私募</td>
+    </tr>
+    <tr>
+      <td><span class="ticker-sym">HLIT</span></td>
+      <td>Harmonic Inc.</td>
+      <td>~$16.56</td>
+      <td><span class="pct-pos">+15~20%</span></td>
+      <td>~3.3x (12.97M vs 3.91M avg)</td>
+      <td>C/P=92x avg · 9,563 calls</td>
+      <td><span class="buzz-stars">★★★★</span></td>
+      <td>$145M Video業務出售 + CableLabs 晶片認證</td>
+    </tr>
+    <tr>
+      <td><span class="ticker-sym">EVC</span></td>
+      <td>Entravision Comms</td>
+      <td>~$9.89</td>
+      <td><span class="pct-pos">+80% (週)</span></td>
+      <td>爆量</td>
+      <td>待確認</td>
+      <td><span class="buzz-stars">★★★★</span></td>
+      <td>Q1 revenue +114% YoY，廣告科技部門爆發</td>
+    </tr>
+    <tr>
+      <td><span class="ticker-sym">RXT</span></td>
+      <td>Rackspace Technology</td>
+      <td>~$7.29</td>
+      <td><span class="pct-pos">+26% (5/7-8)</span></td>
+      <td>高量</td>
+      <td>待確認</td>
+      <td><span class="buzz-stars">★★★★</span></td>
+      <td>AMD AI Cloud 夥伴合作 + Q1 轉盈</td>
+    </tr>
+    <tr>
+      <td><span class="ticker-sym">NVDA</span></td>
+      <td>NVIDIA Corp.</td>
+      <td>~$215.33</td>
+      <td><span class="pct-neg">-1.4%</span></td>
+      <td>常態高量</td>
+      <td>C/P 持續偏多 / bullish skew</td>
+      <td><span class="buzz-stars">★★★★★</span></td>
+      <td>Q1 FY27 超預期但股價承壓；WSB 124 mentions</td>
+    </tr>
+    <tr>
+      <td><span class="ticker-sym">ROST</span></td>
+      <td>Ross Stores</td>
+      <td>~$232.11</td>
+      <td><span class="pct-pos">+6.4% (5/21-22)</span></td>
+      <td>異常 put 量 10x avg</td>
+      <td>8,468 puts traded · 10x avg · C:P=1:3</td>
+      <td><span class="buzz-stars">★★★</span></td>
+      <td>Q1 同店銷售超預期 · 分析師上調目標價</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ─── DEEP DIVES ─── -->
+<h2>🔍 個股深度分析 / Per-Ticker Deep Dive</h2>
+
+<!-- AKTX -->
+<div class="stock-card">
+  <div class="stock-card-header">
+    <span class="sym">$AKTX</span>
+    <span class="name">Akari Therapeutics PLC &nbsp;·&nbsp; 阿卡里生技</span>
+    <span class="tag hot">BIOTECH HOT</span>
+    <span class="tag up">+120~210%</span>
+  </div>
+  <div class="tape-box">
+    Tape: Close 待確認 (+120%~210% 報導不一) · Vol: 爆量 est. &gt;20x 30D avg · Range 待確認 · 前日 AH +157% 觸發 · Catalyst: May 22–23 連二日熱炒
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+  <p>Akari Therapeutics（AKTX）在 5/22 發布其 KRAS 突變型胰臟癌臨床前數據，主力藥物 AKTX-101（TROP2 ADC）在與 KRAS 抑制劑 adagrasib 合用時展現「協同殺腫瘤」效果，而市面上主流的 Topo I 靶向 TROP2 ADC 類藥物反而呈現拮抗效果。AKTX-101 的差異在於其 RNA spliceosome 調節 payload（PH1）——這在 KRAS 突變癌症領域屬 first-in-class 機制。同日公司還完成 $5.5M 私募融資，雙重催化劑點燃投機性買盤，盤後即跳漲 89% → 157%。</p>
+  <p>Akari Therapeutics released preclinical data on May 22 showing AKTX-101, its TROP2 ADC, demonstrated synergistic tumor-killing activity when combined with KRAS inhibitor adagrasib in pancreatic cancer models — while rival Topo I-based TROP2 ADCs showed antagonism. The differentiation lies in its RNA spliceosome-modulating payload (PH1) that degrades pre-mRNA transcripts carrying KRAS mutations. Paired with a $5.5M private placement closed the same day, the dual catalyst ignited a speculative biotech squeeze.</p>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>IV 大幅跳升（具體數據待確認），股本小、流通量少，一旦有爆量消息配合 AH 跳漲，極易出現 gamma squeeze。短倉擠壓風險需觀察 Ortex/Fintel short interest 數據（目前待確認）。$5.5M 私募價格若低於市價，需注意稀釋壓力鎖定期結束後賣壓。</p>
+  <p>IV spiked sharply (exact figures unconfirmed). With a small float, any high-volume catalyst can accelerate a gamma squeeze dynamic. Short interest data pending from Fintel/Ortex. The $5.5M placement price versus market creates dilution-related selling risk post-lockup.</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>Reddit r/wallstreetbets、r/biotech、r/Shortsqueeze 均有討論，但多以「preclinical data unreliable」為警告。StockTwits 熱搜中。X (Twitter) 上 $AKTX cashtag 當日大量出現。</p>
+  <blockquote>"AKTX-101 synergy with KRAS is genuinely differentiated if it holds in humans"</blockquote>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>胰臟癌 KRAS 突變佔超過 90%，是腫瘤學最難啃的領域之一。近年 sotorasib、adagrasib 等 KRAS inhibitor 獲 FDA 核准，讓市場對 KRAS 聯療組合高度敏感。AKTX 屬微型股（micro cap），這類股在生技消息面前常有 3–10 倍暴漲，但 preclinical data 到人體試驗仍有極高失敗率。</p>
+
+  <div class="watch-box">
+    <strong>後續觀察 / What to Watch Next:</strong><br>
+    · 是否安排 Q2 IND filing（初步人體試驗申請）<br>
+    · 私募認購者的鎖定期與轉售條款<br>
+    · 股本小 → 追高風險極高，preclinical ≠ 臨床成功<br>
+    · 同類 ADC 股（IMVT、KDNY）可能出現 spillover buzz
+  </div>
+  <p style="font-size:0.8rem;color:var(--muted);margin-top:8px;">Sources: <a href="https://www.timothysykes.com/news/akaritherapeuticsplc-aktx-news-2026_05_23/" target="_blank">TimothySykes</a> · <a href="https://www.gurufocus.com/news/8877208/akari-therapeutics-aktx-shares-surge-120-on-promising-preclinical-cancer-therapy-data" target="_blank">GuruFocus</a> · <a href="https://www.quiverquant.com/news/Akari+Therapeutics+(AKTX)+surges+as+new+KRAS+pancreatic+cancer+data+and+a+$5.5M+financing+grab+investor+attention" target="_blank">QuiverQuant</a></p>
+</div>
+
+<!-- HLIT -->
+<div class="stock-card">
+  <div class="stock-card-header">
+    <span class="sym">$HLIT</span>
+    <span class="name">Harmonic Inc. &nbsp;·&nbsp; 諧波科技</span>
+    <span class="tag up">+15~20%</span>
+    <span class="tag hot">UNUSUAL CALLS 92x</span>
+  </div>
+  <div class="tape-box">
+    Tape: Close ~$16.56 (+15~20%) · Range $13.76–$17.35 · Vol: 12.97M sh (vs 30D avg 3.91M = ~3.3x) · Premarket +15% triggered by CableLabs news
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+  <p>Harmonic（HLIT）在 5/22 出現連環催化劑：首先是分析師 Citrini/BryzonX 發表覆蓋報告，緊接著 CableLabs 完成對 HLIT 寬頻晶片（cOS vCMTS）的技術認證，這強化了公司在虛擬化有線電視寬頻基礎設施的競爭地位。此外，公司此前公告以 $1.45 億元現金將 Video 業務出售給 MediaKind（預計 Q2 完成），讓 HLIT 得以聚焦高成長的純寬頻業務——Q1 寬頻營收年增 43% 至 $1.217 億，backlog 達 $5.821 億。</p>
+  <p>Harmonic got a one-two punch on May 22: CableLabs chip certification for its cOS vCMTS broadband platform arrived alongside Citrini/BryzonX analyst initiation. Layered on top: HLIT's pending $145M Video unit sale to MediaKind (Q2 close expected) strips away lower-margin drag and leaves a pure-play broadband growth story. Q1 broadband revenue surged 43% YoY to $121.7M, backlog at $582.1M.</p>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>Schwab 期權市場報告顯示，5/22 出現超異常買權活動：共 9,563 張 calls 成交，為平均水準的 92 倍；calls 與 puts 比例為 150:1，顯示市場強烈看多押注。這類極端 C/P 比在 mid-cap tech 股較少見，可能有機構或選擇權策略基金在 news 前佈局。</p>
+  <p>Charles Schwab's options market update flagged 9,563 calls traded on May 22 — 92x average volume, with calls outnumbering puts 150:1. This extreme call skew in a mid-cap stock strongly suggests institutional positioning ahead of or immediately after the CableLabs news. IV expansion provided tailwinds for call holders.</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>QuiverQuant 追蹤顯示 $HLIT 討論度上升，Citrini/BryzonX 為知名 Twitter/X 財經分析帳號，其覆蓋報告往往帶動散戶跟進。</p>
+  <blockquote>"Video sale finally gives HLIT the clean broadband story it deserved"</blockquote>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>有線電視虛擬化是一個被市場低估已久的利基基礎設施題材。Harmonic 在全球 vCMTS 市場佔有領導地位，過去因 Video 業務拖累估值。Video 出售後，公司進入 pure-play 高成長階段，故此輪上漲具備基本面支撐，並非純粹炒作。</p>
+
+  <div class="watch-box">
+    <strong>後續觀察 / What to Watch Next:</strong><br>
+    · $145M Video 業務出售能否如期於 Q2 完成交割<br>
+    · 賣出 Video 後的資本配置（buyback vs. 研發）<br>
+    · 2026 年全年寬頻指引 $475–$495M 是否持續上調<br>
+    · 同業 ARRIS / CommScope 是否出現 spillover
+  </div>
+  <p style="font-size:0.8rem;color:var(--muted);margin-top:8px;">Sources: <a href="https://www.harmonicinc.com/press-releases/harmonic-announces-pending-sale-of-its-video-business-to-mediakind" target="_blank">Harmonic PR Newswire</a> · <a href="https://www.quiverquant.com/news/%24HLIT+stock+is+up+15%25+today.+Here%27s+what+we+see+in+our+data." target="_blank">QuiverQuant</a> · <a href="https://www.benzinga.com/calendars/unusual-options-activity" target="_blank">Benzinga Unusual Options</a></p>
+</div>
+
+<!-- EVC -->
+<div class="stock-card">
+  <div class="stock-card-header">
+    <span class="sym">$EVC</span>
+    <span class="name">Entravision Communications &nbsp;·&nbsp; 恩特拉維森傳播</span>
+    <span class="tag up">+80% (週漲)</span>
+    <span class="tag hot">EARNINGS SQUEEZE</span>
+  </div>
+  <div class="tape-box">
+    Tape: Close ~$9.89 · Range $9.28–$10.12 · Monthly gain: +148% (May 2026) · Vol: 高量 (具體數據待確認) · Catalyst: Q1 2026 earnings beat
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+  <p>Entravision（EVC）Q1 2026 合併淨收入年增 114% 至 $1.96 億，主力驅動來自廣告科技與服務部門（Advertising Technology &amp; Services），該部門收入更暴增 204%。這對一家西班牙語媒體集團而言是超出所有預期的轉型成功訊號，市場重新定價其廣告科技業務價值。</p>
+  <p>Entravision's Q1 2026 consolidated net revenue surged 114% YoY to $196M, with its Advertising Technology &amp; Services segment exploding +204%. This blowout result signals a successful pivot from traditional Spanish-language broadcast media to performance advertising technology — a complete narrative re-rating event that caught short sellers off guard.</p>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>具體期權數據待確認。鑒於 EVC 為流動性較低的小型股，earnings surprise 往往導致短倉擠壓（short squeeze），加速漲幅。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>Benzinga 報導週漲 80% 的異常表現，散戶在 StockTwits 上討論其廣告科技轉型故事。數字媒體廣告買量（performance marketing）業務在 2026 年 AI 廣告工具普及下受益。</p>
+  <blockquote>"204% revenue jump in ad tech — this is not the EVC I knew two years ago"</blockquote>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>EVC 過去被市場視為傳統媒體殘局，Q1 數字顛覆了這一預期。廣告科技業務在程式化廣告（programmatic）與 AI 投放工具普及的背景下快速成長，但需觀察季節性與客戶集中度風險。</p>
+
+  <div class="watch-box">
+    <strong>後續觀察 / What to Watch Next:</strong><br>
+    · Q2 廣告科技部門是否維持 200%+ 成長動能<br>
+    · 主要客戶集中度風險（是否依賴少數大型廣告商）<br>
+    · 傳統廣播業務是否繼續拖累整體毛利率
+  </div>
+  <p style="font-size:0.8rem;color:var(--muted);margin-top:8px;">Sources: <a href="https://www.benzinga.com/trading-ideas/movers/26/05/52408469/entravision-shares-surge-80-this-week-what-investors-need-to-know" target="_blank">Benzinga</a> · <a href="https://www.stocktitan.net/rankings/stock-gains-monthly/2026/may" target="_blank">StockTitan May Gainers</a></p>
+</div>
+
+<!-- RXT -->
+<div class="stock-card">
+  <div class="stock-card-header">
+    <span class="sym">$RXT</span>
+    <span class="name">Rackspace Technology &nbsp;·&nbsp; Rackspace 科技</span>
+    <span class="tag up">+145% (May YTD)</span>
+    <span class="tag hot">AI INFRA ROTATION</span>
+  </div>
+  <div class="tape-box">
+    Tape: Close ~$7.29 (+26.34% on May 7–8) · Pre-market on 5/8 +74.89% to $3.97 · 2026 YTD: ~+210% · Q1 earnings + AMD deal = dual catalyst
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+  <p>Rackspace（RXT）在 5/7 發布 Q1 2026 財報，同日宣布與 AMD 簽署多年期 AI Cloud 合作備忘錄（MOU），打造針對受監管產業的「Governed Enterprise AI Infrastructure」——鎖定金融、醫療、政府等超大客戶。Q1 收入 $6.78 億，超出預期，且重返盈利（淨利 $830 萬），從上年同期淨虧損轉正。這是 RXT 脫離破產陰影後最強力的基本面支撐。</p>
+  <p>Rackspace delivered a double catalyst on May 7–8: Q1 2026 revenue of $678.1M beat consensus, with a $8.3M net income reversing year-ago losses, combined with a multi-year AMD MOU to co-build a Governed Enterprise AI Cloud targeting regulated industries (finance, healthcare, gov't). The AI narrative + profitability return triggered a violent short squeeze from sub-$2 levels earlier in the year.</p>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>具體期權數據待確認。RXT 為高空倉股票（此前瀕臨破產），一旦轉盈訊號出現，空倉回補（short cover）加速漲幅。AMD MOU 非具約束力協議，需注意後續是否轉為正式合約。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>WSB 與科技投資類 Reddit 討論 RXT 的「turnaround play」故事。The Motley Fool、StocksToTrade、InvestorIdeas 均有專文報導。</p>
+  <blockquote>"RXT nearly quadrupled but the AMD deal could keep gains coming"</blockquote>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>RXT 在 2023–2024 年深陷債務危機，股價跌至 $0.5 以下。2026 年 AI 基礎設施熱潮加上管理層重組，讓市場重新評估其企業 AI 雲端定位。受監管產業確實有 air-gapped、主權化 AI 基礎設施需求，RXT 的利基不無道理，但毛利率下滑與負自由現金流仍是隱憂。</p>
+
+  <div class="watch-box">
+    <strong>後續觀察 / What to Watch Next:</strong><br>
+    · AMD MOU 轉為正式合約的進度與條款<br>
+    · Q2 毛利率能否回升（目前下滑是警訊）<br>
+    · 自由現金流何時轉正<br>
+    · AI 競爭：AWS、Azure 是否推出類似 sovereign AI 方案壓縮利基空間
+  </div>
+  <p style="font-size:0.8rem;color:var(--muted);margin-top:8px;">Sources: <a href="https://www.fool.com/coverage/stock-market-today/2026/05/08/stock-market-today-may-8-rackspace-surges-after-amd-ai-cloud-agreement/" target="_blank">Motley Fool</a> · <a href="https://www.investing.com/news/company-news/rackspace-q1-2026-slides-ai-pivot-fuels-stock-surge-despite-eps-miss-93CH-4668689" target="_blank">Investing.com</a> · <a href="https://finance.yahoo.com/markets/stocks/articles/rackspace-nearly-quadrupled-2026-deal-155838063.html" target="_blank">Yahoo Finance</a></p>
+</div>
+
+<!-- NVDA -->
+<div class="stock-card">
+  <div class="stock-card-header">
+    <span class="sym">$NVDA</span>
+    <span class="name">NVIDIA Corporation &nbsp;·&nbsp; 輝達</span>
+    <span class="tag down">-1.4% RTH close</span>
+    <span class="tag hot">WSB #1 MENTIONS</span>
+  </div>
+  <div class="tape-box">
+    Tape: Close ~$215.33 (-1.4%) · Earnings beat: EPS $1.87 vs est $1.76 · Revenue $81.62B vs est $79.2B · Earnings date: May 20, 2026 (Q1 FY2027) · AH initially +, then fade
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+  <p>NVIDIA 在 5/20 發布 Q1 FY27 財報，EPS $1.87 超預期 6.3%，營收 $816.2 億超預期 3%，資料中心收入預估年增 60%+，整體為「beat and raise」。然而股價反應是典型的「利多出盡」——盤後先漲後跌，5/22 正式收盤微跌 -1.4%。原因：估值已定價完美業績，Blackwell 出貨進度為市場已知，沒有超預期驚喜元素。但 WSB 124 次提及且情緒偏多，短線散戶仍在討論是否 dip buy。</p>
+  <p>NVIDIA beat Q1 FY2027 with EPS $1.87 (+6.3% vs consensus) and revenue $81.6B (+3.3%). Data center revenue surged 60%+. However, the stock faded -1.4% in a textbook "sell the news" reaction — the beat was priced in and Blackwell ramp is already known. NVDA remains the single most-discussed stock on WSB (124 mentions, bullish sentiment) with retail debating entry points.</p>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>財報後 IV crush（隱含波動率驟降）對 straddle 持有者不利。市場整體對 NVDA 仍維持看多期權偏斜（call skew），但短期 gamma 已大量消化。Unusual Whales 追蹤顯示大型機構持續在 NVDA 建立長期 LEAPS 部位。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>WSB 24 小時內 124 次提及，為所有 Reddit 股票中最多。Meta 以 22% 提及量增長緊跟其後。多數帖子討論「是否是買點」而非積極追高。</p>
+  <blockquote>"Beat again, stock down again — classic NVDA earnings play trap"</blockquote>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>NVDA 每季財報都是全球科技股最重要事件之一，AI 資本支出週期的代理指標。此次財報確認需求穩健，但沒有「超超預期」的催化劑。市場輪動進入中型 AI 基礎設施（如 RXT、INOD）尋求更高彈性。</p>
+
+  <div class="watch-box">
+    <strong>後續觀察 / What to Watch Next:</strong><br>
+    · Blackwell GB300 系列出貨量能否在 Q2 加速<br>
+    · 中國出口管制能否進一步鬆綁（影響 H20 銷售）<br>
+    · $220 前高能否突破確立新高軌跡<br>
+    · 競爭：AMD MI400、Google Trillium 進展
+  </div>
+  <p style="font-size:0.8rem;color:var(--muted);margin-top:8px;">Sources: <a href="https://www.kiplinger.com/investing/live/nvidia-earnings-live-updates-and-commentary-may-2026" target="_blank">Kiplinger Earnings Live</a> · <a href="https://altindex.com/wallstreetbets" target="_blank">AltIndex WSB</a> · <a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026" target="_blank">NVIDIA Newsroom</a></p>
+</div>
+
+<!-- ROST -->
+<div class="stock-card">
+  <div class="stock-card-header">
+    <span class="sym">$ROST</span>
+    <span class="name">Ross Stores, Inc. &nbsp;·&nbsp; 羅斯百貨</span>
+    <span class="tag up">+6.4%</span>
+    <span class="tag hot">UNUSUAL PUTS 10x</span>
+  </div>
+  <div class="tape-box">
+    Tape: Close ~$232.11 (+$14.92) · Unusual put activity: 8,468 puts traded = 10x avg · C:P ratio ~1:3 (bearish skew despite price rise) · Catalyst: Q1 SSS beat + analyst upgrades
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+  <p>Ross Stores 在 5/21 公布 Q1 同店銷售（SSS）超預期，股價次日跳漲。Telsey Advisory 上調目標價至 $265，Truist 上調至 $290。折扣零售在通膨環境持續獲得市占。然而，奇特之處在於，儘管股價上漲 +6%，期權市場卻出現 10 倍於平均的 put（賣權）交易量，calls vs puts 比例僅 1:3，顯示機構在股價高點對沖下行風險，或有人押注 ROST 無法維持漲勢。</p>
+  <p>Ross Stores surged on a Q1 same-store sales beat (May 21) with analysts raising targets (Telsey to $265, Truist to $290). Discount retail remains a tariff-environment beneficiary. However, the anomaly: despite +6% price action, 8,468 put contracts traded at 10x average, with puts outnumbering calls 3:1 — suggesting institutional hedging at elevated levels or outright bearish positioning anticipating a reversal.</p>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>8,468 puts traded on 5/22 = 10x average volume；C:P 比約 1:3，為顯著看空偏斜。這在 SSS beat + 股價上漲的背景下異常。Historical vol 24.9% vs IV 32%——市場在隱含波動率上溢價，預期後續有重新定價事件。機構可能在使用 protective put 策略鎖定獲利。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>消費類 Reddit 討論關稅環境下折扣零售業者的受益邏輯。散戶關注 ROST 相較 TJX 的估值差距。</p>
+  <blockquote>"Off-price retail is the tariff trade — why is everyone buying puts though?"</blockquote>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>折扣零售在關稅通膨環境中是典型防禦 + 成長組合。TJX、Burlington 同類表現不俗。ROST 的異常 put 活動值得持續追蹤，可能是對沖基金在分析 Q2 展望的謹慎信號。</p>
+
+  <div class="watch-box">
+    <strong>後續觀察 / What to Watch Next:</strong><br>
+    · 異常 put 活動是否為機構保護性對沖或方向性空單——看下週期權到期日<br>
+    · Q2 guidance 是否保守（消費者信心與關稅雙重壓力）<br>
+    · TJX 同業比較：是否存在相對輪動機會<br>
+    · $232 附近是否為阻力位（52 週高點附近）
+  </div>
+  <p style="font-size:0.8rem;color:var(--muted);margin-top:8px;">Sources: <a href="https://www.schwab.com/learn/story/todays-options-market-update" target="_blank">Charles Schwab Options Market Update</a> · <a href="https://www.trefis.com/stock/rost/articles/599384/what-rost-options-know-that-the-stock-price-wont-tell-you/2026-05-14" target="_blank">Trefis ROST Options</a></p>
+</div>
+
+<!-- ─── WATCHLIST ─── -->
+<h2>👀 次熱觀察名單 / Watchlist (Honorable Mentions)</h2>
+<div class="watchlist-grid">
+  <div class="watch-card">
+    <div class="w-sym">$INOD &nbsp;<span class="tag up">+92% May 8</span></div>
+    <div class="w-desc">Innodata — Q1 revenue +54% YoY to $90.1M，AI data annotation 大客戶合約 $51M。LLM training data 供應商中最具爆發力。</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-sym">$AGL &nbsp;<span class="tag up">+172% May</span></div>
+    <div class="w-desc">Agilon Health — Q1 revenue $1.42B 超預期，FY2026 指引上調，Jefferies 升評 Buy+75% 目標價。VBC 模式加速滲透。</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-sym">$LOAN &nbsp;<span class="tag hot">WSB +200% mentions</span></div>
+    <div class="w-desc">Manhattan Bridge Capital — WSB 24hr 提及量暴增 200%，疑似空倉擠壓目標。實際 catalyst 待確認，屬投機性炒作。</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-sym">$NKE &nbsp;<span class="tag down">-30% YTD</span></div>
+    <div class="w-desc">Nike ($44.67) — 年跌 30%，WSB 討論輪動 dip 買入機會。2026 世界盃為潛在 catalyst，但轉型仍未完成。</div>
+  </div>
+  <div class="watch-card">
+    <div class="w-sym">$META &nbsp;<span class="tag up">+22% mentions</span></div>
+    <div class="w-desc">Meta Platforms — Reddit 提及量 24hr 激增 22%，AI 廣告工具升級討論熱烈，股價維持高位。</div>
+  </div>
+</div>
+
+<!-- ─── HALTS & WEIRDNESS ─── -->
+<h2>⚠️ 異常事件 / Halts &amp; Weirdness</h2>
+<div class="stock-card">
+  <div class="section-label">中國 ADR 跨境交易打壓 / China Cross-Border Trading Crackdown</div>
+  <p>5/22，中國監管機構對非法跨境股票交易發動史上最強力打壓行動，宣布嚴懲違規券商，並要求不合規帳戶在兩年內清算。Bloomberg 報導中國投資者正急尋其他海外股票買賣管道。此舉導致中概 ADR 板塊性大跌（PDD、LI 等均出現異常 put 活動），也解釋了資金為何同日大舉流入美國小型生技與 AI 基礎設施股。</p>
+  <p>China launched its most forceful crackdown on illicit cross-border securities trading on May 22, threatening severe penalties and ordering liquidation of non-compliant accounts within two years. This triggered a sector-wide rout in Chinese ADRs (PDD, LI saw unusual put activity) and appears to have catalyzed capital rotation into US domestic small-cap biotech and AI infrastructure names the same session.</p>
+  <p style="font-size:0.8rem;color:var(--muted);">Sources: <a href="https://www.bloomberg.com/news/articles/2026-05-22/china-cracks-down-on-illegal-cross-border-securities-trading" target="_blank">Bloomberg May 22</a> · <a href="https://www.bloomberg.com/news/articles/2026-05-25/china-traders-rush-for-exit-after-cross-border-flow-crackdown" target="_blank">Bloomberg May 25</a></p>
+</div>
+
+<!-- ─── DISCLAIMER ─── -->
+<div class="disclaimer">
+  ⚠️ 本報告僅供資訊與教育目的，不構成任何投資建議或買賣推薦。股市投資有風險，過去表現不代表未來結果。preclinical 數據（如 AKTX）距臨床成功仍有極大不確定性。所有數字以截稿時可查資訊為準，部分數字標示「待確認」者請自行核對最新資料。<br>
+  This report is for informational purposes only and does not constitute investment advice or a recommendation to buy or sell any security.
+</div>
+
+<!-- ─── FOOTER / SOURCES ─── -->
+<footer>
+  <strong>Sources Consulted / 參考來源</strong>
+  <ul class="src-list">
+    <li><a href="https://finance.yahoo.com/markets/stocks/gainers/" target="_blank">Yahoo Finance Gainers</a></li>
+    <li><a href="https://finance.yahoo.com/markets/stocks/most-active/" target="_blank">Yahoo Finance Most Active</a></li>
+    <li><a href="https://www.stocktitan.net/rankings/stock-gains-monthly/2026/may" target="_blank">StockTitan May 2026 Gainers</a></li>
+    <li><a href="https://www.timothysykes.com/news/akaritherapeuticsplc-aktx-news-2026_05_23/" target="_blank">Timothy Sykes — AKTX</a></li>
+    <li><a href="https://www.gurufocus.com/news/8877208/akari-therapeutics-aktx-shares-surge-120-on-promising-preclinical-cancer-therapy-data" target="_blank">GuruFocus — AKTX +120%</a></li>
+    <li><a href="https://www.quiverquant.com/news/Akari+Therapeutics+(AKTX)+surges+as+new+KRAS+pancreatic+cancer+data+and+a+$5.5M+financing+grab+investor+attention" target="_blank">QuiverQuant — AKTX</a></li>
+    <li><a href="https://www.harmonicinc.com/press-releases/harmonic-announces-pending-sale-of-its-video-business-to-mediakind" target="_blank">Harmonic — Video Sale PR</a></li>
+    <li><a href="https://www.quiverquant.com/news/%24HLIT+stock+is+up+15%25+today.+Here%27s+what+we+see+in+our+data." target="_blank">QuiverQuant — HLIT +15%</a></li>
+    <li><a href="https://www.stocktitan.net/news/HLIT/harmonic-announces-first-quarter-2026-p6n817lbqhe3.html" target="_blank">StockTitan — HLIT Q1</a></li>
+    <li><a href="https://www.benzinga.com/calendars/unusual-options-activity" target="_blank">Benzinga Unusual Options</a></li>
+    <li><a href="https://www.schwab.com/learn/story/todays-options-market-update" target="_blank">Schwab Options Market Update</a></li>
+    <li><a href="https://www.benzinga.com/trading-ideas/movers/26/05/52408469/entravision-shares-surge-80-this-week-what-investors-need-to-know" target="_blank">Benzinga — EVC +80%</a></li>
+    <li><a href="https://www.fool.com/coverage/stock-market-today/2026/05/08/stock-market-today-may-8-rackspace-surges-after-amd-ai-cloud-agreement/" target="_blank">Motley Fool — RXT AMD deal</a></li>
+    <li><a href="https://finance.yahoo.com/markets/stocks/articles/rackspace-nearly-quadrupled-2026-deal-155838063.html" target="_blank">Yahoo Finance — RXT quadrupled</a></li>
+    <li><a href="https://www.kiplinger.com/investing/live/nvidia-earnings-live-updates-and-commentary-may-2026" target="_blank">Kiplinger — NVDA Earnings Live</a></li>
+    <li><a href="https://altindex.com/wallstreetbets" target="_blank">AltIndex — WSB Tracker</a></li>
+    <li><a href="https://apewisdom.io/wallstreetbets/" target="_blank">ApeWisdom — WSB Tickers</a></li>
+    <li><a href="https://www.quiverquant.com/wallstreetbets/" target="_blank">QuiverQuant WSB</a></li>
+    <li><a href="https://stocktwits.com/rankings/trending" target="_blank">StockTwits Trending</a></li>
+    <li><a href="https://www.bloomberg.com/news/articles/2026-05-22/china-cracks-down-on-illegal-cross-border-securities-trading" target="_blank">Bloomberg — China Crackdown May 22</a></li>
+    <li><a href="https://www.bloomberg.com/news/articles/2026-05-25/china-traders-rush-for-exit-after-cross-border-flow-crackdown" target="_blank">Bloomberg — China ADR Rout May 25</a></li>
+    <li><a href="https://www.barchart.com/options/unusual-activity" target="_blank">Barchart Unusual Options</a></li>
+    <li><a href="https://marketchameleon.com/Reports/UnusualOptionsActivityReport" target="_blank">Market Chameleon Unusual Options</a></li>
+    <li><a href="https://fintel.io/sst" target="_blank">Fintel Short Interest</a></li>
+  </ul>
+  <p style="margin-top:12px;">Generated by Claude (Sonnet 4.6) · Session: hot-us-stocks skill · Data as of US RTH close May 22, 2026</p>
+</footer>
+
+</body>
+</html>

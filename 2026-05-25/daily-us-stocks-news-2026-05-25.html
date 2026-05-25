@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美股日報 · US Stocks Daily — 2026-05-25</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .header {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    color: #fff;
+    padding: 28px 32px 22px;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.03em; }
+  .header .subtitle { color: #a8c5d6; font-size: 13px; margin-top: 4px; }
+  .session-badge {
+    display: inline-block;
+    background: #e63946;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 6px;
+    letter-spacing: 0.04em;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 24px 20px 60px; }
+
+  /* Index table */
+  .index-table-wrap { overflow-x: auto; margin-bottom: 28px; }
+  table.index-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    font-size: 14px;
+  }
+  table.index-table thead tr { background: #1a1a2e; color: #e0e7ef; }
+  table.index-table thead th { padding: 10px 14px; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.index-table tbody tr { border-bottom: 1px solid #f0f2f5; }
+  table.index-table tbody tr:last-child { border-bottom: none; }
+  table.index-table tbody td { padding: 9px 14px; white-space: nowrap; }
+  .up { color: #2ecc71; font-weight: 600; }
+  .down { color: #e63946; font-weight: 600; }
+  .neutral { color: #777; }
+
+  /* Section */
+  .section {
+    background: #fff;
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .section-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f2027;
+    border-left: 4px solid #e63946;
+    padding-left: 10px;
+    margin-bottom: 18px;
+  }
+  .section-title .en { color: #555; font-weight: 500; font-size: 13px; margin-left: 6px; }
+
+  /* News item */
+  .news-item { margin-bottom: 24px; padding-bottom: 22px; border-bottom: 1px solid #f0f2f5; }
+  .news-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .news-item h3 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+  .news-item .source-line { font-size: 12px; color: #888; margin-bottom: 8px; }
+  .news-item .source-line a { color: #2a7bbf; text-decoration: none; }
+  .news-item .source-line a:hover { text-decoration: underline; }
+  .label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-right: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .label-facts { background: #dbeafe; color: #1d4ed8; }
+  .label-context { background: #fef3c7; color: #92400e; }
+  .label-imply { background: #dcfce7; color: #166534; }
+  .field { margin-bottom: 8px; font-size: 14px; }
+  .field:last-child { margin-bottom: 0; }
+
+  /* Sector bar mini chart */
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .sector-bar { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+  .sector-name { width: 120px; flex-shrink: 0; color: #444; }
+  .bar-outer { flex: 1; background: #f0f2f5; border-radius: 3px; height: 10px; overflow: hidden; }
+  .bar-inner-up { height: 100%; background: #2ecc71; border-radius: 3px; }
+  .bar-inner-down { height: 100%; background: #e63946; border-radius: 3px; }
+  .sector-pct { width: 48px; text-align: right; font-weight: 600; font-size: 12px; }
+
+  /* Callout box */
+  .callout {
+    background: #fff7ed;
+    border-left: 4px solid #f97316;
+    padding: 12px 16px;
+    border-radius: 0 6px 6px 0;
+    font-size: 13.5px;
+    margin: 12px 0;
+    color: #44260e;
+  }
+  .callout strong { color: #c2410c; }
+
+  /* Holiday notice */
+  .holiday-notice {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: #78350f;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Source footer */
+  .sources-footer {
+    background: #f0f4f8;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 12px;
+    color: #666;
+    margin-top: 24px;
+  }
+  .sources-footer h4 { font-size: 13px; color: #444; margin-bottom: 8px; }
+  .sources-footer ul { list-style: none; padding: 0; columns: 2; gap: 8px; }
+  .sources-footer ul li { margin-bottom: 4px; }
+  .sources-footer ul li a { color: #2a7bbf; text-decoration: none; }
+  .sources-footer ul li a:hover { text-decoration: underline; }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    background: #e0e7ef;
+    color: #334155;
+    border-radius: 3px;
+    padding: 1px 6px;
+    margin-right: 4px;
+    font-weight: 600;
+  }
+  .tag-hot { background: #fee2e2; color: #991b1b; }
+  .tag-ipo { background: #ede9fe; color: #5b21b6; }
+  .tag-fed { background: #e0f2fe; color: #0369a1; }
+  .tag-earn { background: #fef9c3; color: #713f12; }
+  .tag-ma { background: #dcfce7; color: #14532d; }
+
+  @media (max-width: 600px) {
+    .header { padding: 20px 16px 16px; }
+    .container { padding: 16px 12px 40px; }
+    .section { padding: 16px 14px; }
+    .sources-footer ul { columns: 1; }
+    .sector-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🇺🇸 美股日報 · US Stocks Daily</h1>
+  <div class="subtitle">發布日期 Published: 2026-05-25 (Taipei) &nbsp;|&nbsp; 交易日 Trading session: <strong>Friday, May 22, 2026</strong></div>
+  <div class="session-badge">📵 5/25 Memorial Day — NYSE Closed</div>
+</div>
+
+<div class="container">
+
+  <div class="holiday-notice">
+    ⚠️ <strong>今日休市提醒：</strong>5月25日（週一）為美國陣亡將士紀念日（Memorial Day），NYSE 及 Nasdaq 全日休市。本報告涵蓋最後一個交易日（5月22日，週五）收盤數據，以及長週末期間重要的盤後新聞。
+    <br><em>Note: US markets (NYSE/Nasdaq) are closed Monday May 25 for Memorial Day. This briefing covers the May 22 close and weekend developments.</em>
+  </div>
+
+  <!-- ① INDEX TABLE -->
+  <div class="index-table-wrap">
+    <table class="index-table">
+      <thead>
+        <tr>
+          <th>指數 / Index</th>
+          <th>收盤 Close</th>
+          <th>漲跌 Chg</th>
+          <th>漲跌幅 %</th>
+          <th>週漲跌幅 Week %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>S&amp;P 500 (SPX)</strong></td>
+          <td>7,473.47</td>
+          <td class="up">+27.75</td>
+          <td class="up">+0.37%</td>
+          <td class="up">+0.9%</td>
+        </tr>
+        <tr>
+          <td><strong>Nasdaq Comp (COMP)</strong></td>
+          <td>26,343.97</td>
+          <td class="up">+50.87</td>
+          <td class="up">+0.19%</td>
+          <td class="up">+0.5%</td>
+        </tr>
+        <tr>
+          <td><strong>Dow Jones (DJIA)</strong></td>
+          <td>50,579.70 🏆</td>
+          <td class="up">+294.04</td>
+          <td class="up">+0.58%</td>
+          <td class="up">+2.1%</td>
+        </tr>
+        <tr>
+          <td><strong>Russell 2000 (RUT)</strong></td>
+          <td>2,869.23</td>
+          <td class="up">+26.02</td>
+          <td class="up">+0.91%</td>
+          <td class="neutral">—</td>
+        </tr>
+        <tr>
+          <td><strong>VIX 恐慌指數</strong></td>
+          <td>16.70</td>
+          <td class="down">−0.06</td>
+          <td class="down">−0.36%</td>
+          <td class="neutral">—</td>
+        </tr>
+        <tr>
+          <td><strong>US 10Y Treasury</strong></td>
+          <td>4.558%</td>
+          <td class="down">−0.014</td>
+          <td class="neutral">收斂</td>
+          <td class="neutral">—</td>
+        </tr>
+        <tr>
+          <td><strong>DXY 美元指數</strong></td>
+          <td>99.19</td>
+          <td class="down">−0.03</td>
+          <td class="down">−0.03%</td>
+          <td class="neutral">—</td>
+        </tr>
+        <tr>
+          <td><strong>WTI 原油</strong></td>
+          <td>$96.60</td>
+          <td class="up">+0.25</td>
+          <td class="up">+0.26%</td>
+          <td class="neutral">高位震盪</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ① 市場概況 -->
+  <div class="section">
+    <div class="section-title">① 市場概況 <span class="en">/ Market Overview</span></div>
+
+    <div class="field">
+      <span class="label label-facts">核心事實</span>
+      道瓊斯工業指數5月22日收盤50,579.70，創<strong>歷史新高</strong>，為連續八週上漲的S&P 500寫下最新一章。標普500收7,473.47（+0.37%）；Nasdaq因科技股表現相對保守僅小漲0.19%；小型股Russell 2000領漲+0.91%。VIX跌至16.70，顯示市場情緒偏向樂觀。10年期公債殖利率從週高點微降至4.558%。
+    </div>
+    <div class="field">
+      <span class="label label-context">背景脈絡</span>
+      美伊衝突談判出現積極信號——兩國均表示在結束波斯灣衝突方面有所進展，推升風險資產情緒。WTI原油仍高居$96/桶以上，較2月開戰前漲逾50%，但因和談消息，本週油價漲勢趨緩。S&P 500已連續八週收紅，為2023年以來最長連漲紀錄。
+    </div>
+    <div class="field">
+      <span class="label label-imply">影響觀察</span>
+      市場正呈現「矛盾共存」格局：股市創歷史新高，但消費者信心卻跌至史上最低（見下方）。能源股年初至今仍是最強主線，科技股本週因Nvidia財報「利多出盡」承壓。長週末後是否延續漲勢，伊朗談判進展與Warsh首次FOMC表態是最大變數。
+    </div>
+
+    <h4 style="margin: 16px 0 8px; font-size: 13px; color: #555; font-weight: 600;">板塊表現 Sector Snapshot（May 22）</h4>
+    <div class="sector-grid">
+      <div class="sector-bar"><span class="sector-name">健康醫療 Health</span><div class="bar-outer"><div class="bar-inner-up" style="width:85%"></div></div><span class="sector-pct up">+1.19%</span></div>
+      <div class="sector-bar"><span class="sector-name">科技 Technology</span><div class="bar-outer"><div class="bar-inner-up" style="width:73%"></div></div><span class="sector-pct up">+1.02%</span></div>
+      <div class="sector-bar"><span class="sector-name">能源 Energy</span><div class="bar-outer"><div class="bar-inner-up" style="width:65%"></div></div><span class="sector-pct up">+0.90%</span></div>
+      <div class="sector-bar"><span class="sector-name">工業 Industrials</span><div class="bar-outer"><div class="bar-inner-up" style="width:60%"></div></div><span class="sector-pct up">+0.78%</span></div>
+      <div class="sector-bar"><span class="sector-name">金融 Financials</span><div class="bar-outer"><div class="bar-inner-up" style="width:48%"></div></div><span class="sector-pct up">+0.55%</span></div>
+      <div class="sector-bar"><span class="sector-name">材料 Materials</span><div class="bar-outer"><div class="bar-inner-up" style="width:42%"></div></div><span class="sector-pct up">+0.48%</span></div>
+      <div class="sector-bar"><span class="sector-name">必需消費 Staples</span><div class="bar-outer"><div class="bar-inner-up" style="width:32%"></div></div><span class="sector-pct up">+0.30%</span></div>
+      <div class="sector-bar"><span class="sector-name">通訊 Comms</span><div class="bar-outer"><div class="bar-inner-down" style="width:46%"></div></div><span class="sector-pct down">−0.54%</span></div>
+    </div>
+    <div style="font-size:12px; color:#888; margin-top:8px;">來源：TheStreet / CNBC Markets</div>
+  </div>
+
+  <!-- ② 頭條 -->
+  <div class="section">
+    <div class="section-title">② 頭條 <span class="en">/ Top Stories</span></div>
+
+    <div class="news-item">
+      <h3><span class="tag tag-hot">HOT</span>道瓊破5萬、連八週收紅：美伊和談點燃多頭 / Dow Hits Record 50,579 as Iran Peace Signals Lift Bulls</h3>
+      <div class="source-line">來源：<a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-may-22-2026" target="_blank">TheStreet</a> · 2026-05-22</div>
+      <div class="field"><span class="label label-facts">核心事實</span> DJIA +294點至50,579（+0.58%），收盤創歷史新高。S&P 500收7,473（+0.37%），連八週收紅，為近三年最長連漲紀錄。Russell 2000領漲（+0.91%），顯示資金正擴散至中小型股。</div>
+      <div class="field"><span class="label label-context">背景脈絡</span> 美伊兩國均公開表示「正朝解決衝突方向前進」，但仍在伊朗濃縮鈾庫存與霍爾木茲海峽通行費兩大議題上存歧見。上週四傳假消息說「草案近達成」曾引發Russell 2000單日暴漲，本週五是真實和談信號，漲幅更為穩健。</div>
+      <div class="field"><span class="label label-imply">影響觀察</span> 若和談實質突破，WTI原油恐急跌（目前$96/桶，開戰前$72），能源股年初至今+22%的漲幅將面臨大幅回吐壓力；相對受惠的航空、零售、運輸板塊反彈空間更大。反之，若談判破裂，油價重測$120高點將引爆通膨擔憂。</div>
+    </div>
+
+    <div class="news-item">
+      <h3><span class="tag tag-fed">FED</span>Warsh宣誓就職Fed主席：鷹派色彩為市場帶來不確定性 / Kevin Warsh Sworn In as 17th Fed Chair</h3>
+      <div class="source-line">來源：<a href="https://www.cnn.com/2026/05/22/economy/kevin-warsh-sworn-in-fed-chair" target="_blank">CNN Business</a> · <a href="https://www.cnbc.com/video/2026/05/22/what-new-fed-chair-kevin-warsh-may-mean-for-markets.html" target="_blank">CNBC</a> · 2026-05-22</div>
+      <div class="field"><span class="label label-facts">核心事實</span> Kevin Warsh於5月22日宣誓就任Fed第17任主席，參議院以54-45確認，為Fed史上最具爭議的任命投票。目前聯邦基金利率維持3.50–3.75%，上屆FOMC 8-4投票維持不變（四票反對為1992年來最多）。CME FedWatch顯示市場對2026年剩餘會議降息機率已幾乎清零；對2027年1月升息機率估57%。</div>
+      <div class="field"><span class="label label-context">背景脈絡</span> Warsh曾在布希政府時期擔任Fed理事，以鷹派立場聞名，強調「Fed需要regime change（體制轉型）」。他接手的時機極為棘手：4月CPI年增3.8%（三年高點），能源貢獻最大，同時消費者信心跌至史上最低。前Fed主席Powell在任期間推行了2022–2023年的急速升息週期，Warsh則被認為可能更進一步收緊，也可能從基礎設施層面改革Fed資產負債表操作。</div>
+      <div class="field"><span class="label label-imply">影響觀察</span> Warsh的首次公開講話與下一次FOMC聲明（6/10–11）將是關鍵風向指標。若他對通膨措辭偏硬，利率敏感型股票（REITs、公用事業、成長股）壓力最大；若他釋出「觀察數據」的溫和信號，市場有望延續當前樂觀情緒。</div>
+    </div>
+
+    <div class="news-item">
+      <h3><span class="tag tag-hot">消費信心</span>密大消費者信心終值44.8：史上最低、遠遜預期 / UMich Sentiment Hits All-Time Low of 44.8</h3>
+      <div class="source-line">來源：<a href="https://investinglive.com/news/umich-may-final-consumer-sentiment-448-vs-482-expected-20260522/" target="_blank">InvestingLive</a> · <a href="https://www.advisorperspectives.com/dshort/updates/2026/05/22/consumer-sentiment-sinks-to-record-low-as-cost-of-living-concerns-intensify" target="_blank">Advisor Perspectives</a> · 2026-05-22</div>
+      <div class="field"><span class="label label-facts">核心事實</span> 密西根大學5月消費者信心終值44.8，低於初值48.2，創1952年調查以來歷史新低。一年通膨預期升至4.8%，長期通膨預期升至3.9%——均為多年高點。57%受訪者自發提及高物價正侵蝕其個人財務。</div>
+      <div class="field"><span class="label label-context">背景脈絡</span> 信心指數自2月以來已下跌逾21%。霍爾木茲海峽供應中斷導致汽油價格飆升（已逼近$4.50/加侖），低收入族群與非大學畢業者受衝擊最深。諷刺的是，本日股市收盤卻在歷史高位——財富效應集中在持有股票的高所得族群，與廣大消費者感受嚴重背離。</div>
+      <div class="field"><span class="label label-imply">影響觀察</span> 消費信心崩跌歷史上往往領先實際消費支出下滑6–9個月。若油價居高不下，零售、餐飲、旅遊等周期性消費股在下半年將面臨業績壓力。目前該數據尚未充分反映在股價中，值得持續追蹤。</div>
+    </div>
+  </div>
+
+  <!-- ③ 財報 -->
+  <div class="section">
+    <div class="section-title">③ 財報 <span class="en">/ Earnings of the Day</span></div>
+
+    <div class="news-item">
+      <h3><span class="tag tag-earn">NVDA</span>Nvidia Q1 FY2027：營收$816億破紀錄，「利多出盡」股價下挫 / Nvidia Reports Record $81.6B Revenue, Stock Slides on 'Sell the News'</h3>
+      <div class="source-line">來源：<a href="https://www.cnbc.com/2026/05/20/nvidia-nvda-earnings-report-q1-2027.html" target="_blank">CNBC</a> · <a href="https://intellectia.ai/blog/nvidia-earnings-may-2026" target="_blank">Intellectia</a> · 2026-05-20（5月22日延續影響）</div>
+      <div class="field"><span class="label label-facts">核心事實</span> Nvidia FY2027 Q1（至4月底）：總營收$816億（YoY +85%），超預期$789億；調整後EPS $1.87，超預期$1.76；淨利$583億，大幅超出分析師$429億估計。資料中心營收$752億（YoY +100%），佔總營收92%。5月22日NVDA收$225.01（+1.77%），但距財報後高點$236.54（5月14日ATH）已有回落。</div>
+      <div class="field"><span class="label label-context">背景脈絡</span> 財報公布後（5月20日盤後）股價初跌0.9%，典型「buy the rumor, sell the news」。NVDA在財報前已自2月低點漲+13.7%，以30倍前瞻本益比交易，預期極高。市場期待的是「戲劇性超越」，而非漸進式超越。Motley Fool分析師指出，若Warsh發動升息，高本益比科技股將首當其衝。</div>
+      <div class="field"><span class="label label-imply">影響觀察</span> Nvidia仍是AI基礎設施最直接的受益者，但市值已相當龐大，短期股價上行空間受估值壓制。競爭對手AMD、SMCI、Marvell等走勢亦值得觀察；若Stargate/OpenAI資本支出持續加碼，Nvidia資料中心業務下季指引是最強觸媒。</div>
+    </div>
+  </div>
+
+  <!-- ④ 個股大事 -->
+  <div class="section">
+    <div class="section-title">④ 個股大事 <span class="en">/ Single-Stock Movers</span></div>
+
+    <div class="news-item">
+      <h3><span class="tag tag-hot">IBM +12%</span>量子運算政府投資：IBM獲10億美元聯邦股權注資 / IBM Surges 12% on $1B US Government Quantum Computing Stake</h3>
+      <div class="source-line">來源：<a href="https://www.cnbc.com/2026/05/21/quantum-stocks--us-taking-equity-stakes.html" target="_blank">CNBC</a> · <a href="https://www.gurufocus.com/news/8877445/ibms-market-surge-following-2-billion-quantum-computing-investment" target="_blank">GuruFocus</a> · 2026-05-21–22</div>
+      <div class="field"><span class="label label-facts">核心事實</span> 川普政府宣布投入20億美元，以換取9家量子運算公司的股權——IBM獲最大份額10億美元，計劃建立專用量子晶片製造廠。IBM股價5月22日大漲逾11–12%，市值一日增加約260億美元。HLIT（Harmonic）等量子概念股options call活動激增92倍。</div>
+      <div class="field"><span class="label label-context">背景脈絡</span> 這是繼《芯片法案》後規模最大的政府直接入股科技公司行動之一，明確對標中國量子運算布局。IBM近年在AI與量子運算的雙軌策略逐漸顯效，但先前因企業雲端遷移合約放緩而承壓。HSBC在此事件後將IBM評等從Reduce調升至Hold。</div>
+      <div class="field"><span class="label label-imply">影響觀察</span> 量子板塊（IonQ, D-Wave, Rigetti等）同步大漲，但多數仍為高風險早期公司。政府以股權換支持的模式，若成功，可能形成AI晶片、半導體、國防科技等板塊的新政策框架。</div>
+    </div>
+
+    <div class="news-item">
+      <h3><span class="tag tag-hot">QCOM +12%</span>高通週漲12%：量子概念+供應鏈利多 / Qualcomm Jumps 12% on Quantum Tailwind and Supply Chain News</h3>
+      <div class="source-line">來源：<a href="https://watcher.guru/news/qualcomm-qcom-stock-forecast-what-is-sparking-a-15-rally" target="_blank">Watcher.Guru</a> · 2026-05-22</div>
+      <div class="field"><span class="label label-facts">核心事實</span> Qualcomm週漲約12%（日內收+12%附近），收盤逼近歷史高點。政府量子投資方案中高通獲得1億美元注資，但更大驅動力來自市場對高通AI晶片多元化（終端AI、汽車、物聯網）的重新定價。</div>
+      <div class="field"><span class="label label-context">背景脈絡</span> 高通在智慧型手機晶片依賴上持續分散，其Snapdragon X Elite在PC端AI應用市場份額擴大；汽車晶片（Snapdragon Ride）業務增長達53% YoY。儘管與蘋果的授權談判仍是潛在干擾因素。</div>
+      <div class="field"><span class="label label-imply">影響觀察</span> 若量子計算政策框架進一步落地，傳統半導體公司切入量子路線圖的動作將加快。高通估值面臨再評等可能。</div>
+    </div>
+
+    <div class="news-item">
+      <h3><span class="tag">MMM +3.7%</span> <span class="tag">JNJ +1.6%</span> 醫療健康板塊領漲 / Health Care Leads Gainers</h3>
+      <div class="source-line">來源：TheStreet / Yahoo Finance · 2026-05-22</div>
+      <div class="field"><span class="label label-facts">核心事實</span> 3M（MMM）+3.70%至$148.62，受惠財報超預期及正面前景展望。Johnson &amp; Johnson（JNJ）+1.61%至$227.63。UnitedHealth Group（UNH）+1.00%至$399.64。Health Care為當日最強板塊（+1.19%）。</div>
+      <div class="field"><span class="label label-context">背景脈絡</span> 在整體高通膨、消費信心萎縮的環境下，防禦性板塊（醫療、必需消費）吸引避險資金。3M持續從訴訟負擔中復甦，配息吸引力在利率高位下依然顯著。</div>
+    </div>
+
+    <div class="news-item">
+      <h3><span class="tag down">HD −2.1%</span> <span class="tag down">CRM −1.6%</span> 弱勢個股 / Notable Laggards</h3>
+      <div class="source-line">來源：Yahoo Finance · 2026-05-22</div>
+      <div class="field"><span class="label label-facts">核心事實</span> Home Depot（HD）−2.14%至$303.85，因消費信心崩跌打壓大型家居零售展望。Salesforce（CRM）−1.64%至$168.45。JPMorgan Chase（JPM）−1.12%至$301.51，美國運通（AXP）−1.27%至$310.29，金融股受美元弱勢與貸款前景疑慮拖累。</div>
+      <div class="field"><span class="label label-imply">影響觀察</span> 消費信心跌至史上最低直接衝擊可選消費與大型零售。HD的疲弱與密大數據同步，是消費降溫最即時的市場反應之一。</div>
+    </div>
+  </div>
+
+  <!-- ⑤ 併購與IPO -->
+  <div class="section">
+    <div class="section-title">⑤ 併購與 IPO <span class="en">/ M&amp;A and IPO</span></div>
+
+    <div class="news-item">
+      <h3><span class="tag tag-ipo">SpaceX IPO</span>SpaceX提交S-1：目標$1.75兆估值，歷史最大IPO / SpaceX Files for IPO at $1.75T Valuation — Largest Float in History</h3>
+      <div class="source-line">來源：<a href="https://www.cnbc.com/2026/05/20/spacex-ipo-live-updates.html" target="_blank">CNBC</a> · <a href="https://techcrunch.com/2026/05/20/the-spacex-ipo-filing-has-arrived/" target="_blank">TechCrunch</a> · <a href="https://fortune.com/2026/05/23/what-business-is-space-x-in-ipo-filing-stock/" target="_blank">Fortune</a> · 2026-05-20–23</div>
+      <div class="field"><span class="label label-facts">核心事實</span> SpaceX於5月20日提交IPO招股書，計劃在Nasdaq掛牌（代號SPCX），目標募資750億美元，估值$1.75–$2兆，預計6月12日掛牌。2025年全年營收$180億，其中Starlink衛星網路貢獻$114億（63%）；淨虧損約$49億。Musk持有85.1%投票權，IPO後仍將超過50%。</div>
+      <div class="field"><span class="label label-context">背景脈絡</span> SpaceX是近10年最受期待的科技IPO，與OpenAI同步引發市場關注（Fortune稱為「兆元IPO雙人舞」）。CNBC分析師指出，大型IPO密集涌現往往是市場頂部訊號（「mega-IPO is a market top signal」），歷史上2000年及2019–2021均出現類似情況。SpaceX的AI研發支出（2025年$127億）遠超太空本業，顯示其實際定位更接近AI公司。</div>
+      <div class="field"><span class="label label-imply">影響觀察</span> SPCX若成功上市，將同步影響：(1) Nasdaq科技成分權重重新計算；(2) 對ARKK、ARK Space ETF等主題基金的被動納入；(3) 競爭對手ULA（波音/洛馬合資）、AST SpaceMobile（ASTS）等定位重整。</div>
+    </div>
+
+    <div class="news-item">
+      <h3><span class="tag tag-ipo">OpenAI IPO</span>OpenAI秘密提交S-1：估值逾1兆美元，Q4 2026掛牌 / OpenAI Confidentially Files for IPO, $852B–$1T Valuation Target</h3>
+      <div class="source-line">來源：<a href="https://www.cnbc.com/2026/05/20/openai-ipo-filing.html" target="_blank">CNBC</a> · <a href="https://fortune.com/2026/05/22/openai-ipo-filing-1-trillion-may-finally-answer-these-big-questions/" target="_blank">Fortune</a> · 2026-05-20–22</div>
+      <div class="field"><span class="label label-facts">核心事實</span> OpenAI於5月22日（週五）秘密提交S-1，高盛與摩根士丹利主承銷，目標估值$8,520億至$1兆，預計2026年Q4（可能9月）掛牌。2025年全年收入$131億，淨虧損約$90億（每賺$1虧$1.22）；目前每月營收約$20億，年化跑率$250億；消費端訂閱戶5,000萬，企業用戶900萬。</div>
+      <div class="field"><span class="label label-context">背景脈絡</span> 公司預估2030年前還需額外$2,070億資本才能履行現有算力合約。公開市場是唯一夠深的資金池。OpenAI由非營利轉向營利架構的過程（2024–2025年）中爭議不斷，Sam Altman持有大量股份的結構安排將在S-1中首次公開。</div>
+      <div class="field"><span class="label label-imply">影響觀察</span> OpenAI掛牌將強制市場對所有AI公司進行公開估值比較，利好MSFT（持股10%）、對其餘AI概念股估值構成「比價壓力」。若IPO定價在$1兆以上，可能成為美股市值第三大公司（超越Alphabet）。</div>
+    </div>
+  </div>
+
+  <!-- ⑥ 券商評等 -->
+  <div class="section">
+    <div class="section-title">⑥ 券商評等 <span class="en">/ Analyst Calls</span></div>
+
+    <div class="news-item">
+      <h3>本週值得關注的評等變化 / Notable Rating Changes (Week of May 18–22, 2026)</h3>
+      <div class="source-line">來源：<a href="https://seekingalpha.com/news/4596405-sa-analyst-upgrades-downgrades-nvda-meta-gdrx-jpm" target="_blank">Seeking Alpha</a> · Benzinga · 2026-05-22</div>
+      <div class="field">
+        <table style="width:100%; border-collapse:collapse; font-size:13.5px;">
+          <thead><tr style="background:#f0f4f8; color:#334155;">
+            <th style="padding:7px 10px; text-align:left;">股票</th>
+            <th style="padding:7px 10px; text-align:left;">券商</th>
+            <th style="padding:7px 10px;">評等變化</th>
+            <th style="padding:7px 10px;">目標價</th>
+          </tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #f0f2f5;">
+              <td style="padding:7px 10px;"><strong>IBM</strong></td>
+              <td style="padding:7px 10px;">HSBC</td>
+              <td style="padding:7px 10px;" class="up">Reduce → Hold ↑</td>
+              <td style="padding:7px 10px;">$290</td>
+            </tr>
+            <tr style="border-bottom:1px solid #f0f2f5;">
+              <td style="padding:7px 10px;"><strong>NVDA</strong></td>
+              <td style="padding:7px 10px;">Cestrian Capital</td>
+              <td style="padding:7px 10px;" class="up">升評 Upgrade</td>
+              <td style="padding:7px 10px;">—</td>
+            </tr>
+            <tr style="border-bottom:1px solid #f0f2f5;">
+              <td style="padding:7px 10px;"><strong>META</strong></td>
+              <td style="padding:7px 10px;">多家機構</td>
+              <td style="padding:7px 10px;" class="up">維持 Buy；看好AI廣告</td>
+              <td style="padding:7px 10px;">—</td>
+            </tr>
+            <tr style="border-bottom:1px solid #f0f2f5;">
+              <td style="padding:7px 10px;"><strong>ELV (Elevance)</strong></td>
+              <td style="padding:7px 10px;">UBS</td>
+              <td style="padding:7px 10px;" class="up">目標價 $400 → $460</td>
+              <td style="padding:7px 10px;">$460</td>
+            </tr>
+            <tr>
+              <td style="padding:7px 10px;"><strong>ZM (Zoom)</strong></td>
+              <td style="padding:7px 10px;">RBC Capital</td>
+              <td style="padding:7px 10px;" class="up">目標價 $110 → $130 Outperform</td>
+              <td style="padding:7px 10px;">$130</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑦ Fed與利率 -->
+  <div class="section">
+    <div class="section-title">⑦ Fed 與利率 <span class="en">/ Fed &amp; Rates</span></div>
+
+    <div class="news-item">
+      <h3><span class="tag tag-fed">FED</span>Warsh就任時的政策座標：通膨3.8%、Fed暫停升息週期、市場開始押注2027升息</h3>
+      <div class="source-line">來源：<a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm" target="_blank">Federal Reserve</a> · <a href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank">CME FedWatch</a> · 2026-05-22</div>
+      <div class="field"><span class="label label-facts">核心事實</span>
+        <ul style="margin: 6px 0 0 18px; font-size:14px;">
+          <li>聯邦基金目標利率：3.50–3.75%（連續三次會議未變）</li>
+          <li>4月CPI YoY：3.8%（三年高點），能源貢獻超40%月增量</li>
+          <li>核心CPI（扣除食能）YoY：2.8%</li>
+          <li>10年期殖利率：4.558%（週五微降，仍高位）</li>
+          <li>CME FedWatch：2026年底前降息機率幾近零；2027年1月升息機率57%</li>
+          <li>BofA：公開警示「2026年剩餘降息預期已被完全排除」</li>
+        </ul>
+      </div>
+      <div class="field"><span class="label label-context">背景脈絡</span> 4月FOMC票數8-4，反對票創1992年以來最多，顯示Fed內部存在顯著分歧。Warsh歷史上曾在2011年率先呼籲退出量化寬鬆，市場預期他在通膨高位時不會手軟。密大長期通膨預期（3.9%）已遠超Fed 2%目標，若不下行，升息機率將繼續升高。</div>
+      <div class="field"><span class="label label-imply">影響觀察</span> 下一個重大催化劑：6月10日5月CPI數據，與6月11日FOMC決議。若5月CPI繼續走高，Warsh首秀可能即是偏鷹聲明，長債殖利率將急升，科技股估值壓力重燃。</div>
+    </div>
+
+    <div class="callout">
+      <strong>Motley Fool 觀點（2026-05-24）：</strong>Warsh「唯一能真正撼動股市的一步」是在通膨預期仍錨定的情況下主動升息。目前多數分析師認為這機率低於25%，但一旦發生，S&P 500的15–20%修正將難以避免。
+      <br><em>"The one thing new Fed chair Kevin Warsh could do that would actually crash the stock market." — <a href="https://www.fool.com/investing/2026/05/24/heres-the-one-thing-kevin-warsh-could-do-that-woul/" target="_blank">Motley Fool</a></em>
+    </div>
+  </div>
+
+  <!-- ⑧ 資金流向 -->
+  <div class="section">
+    <div class="section-title">⑧ 資金流向 <span class="en">/ Flows &amp; Positioning</span></div>
+
+    <div class="news-item">
+      <h3>ETF 資金流向與 Options 異常活動 / ETF Flows and Unusual Options Activity</h3>
+      <div class="source-line">來源：<a href="https://www.ici.org/research/stats/combined_flows" target="_blank">ICI</a> · <a href="https://www.benzinga.com/calendars/unusual-options-activity" target="_blank">Benzinga</a> · 2026-05-13–22</div>
+      <div class="field"><span class="label label-facts">核心事實 — ETF 流入（截至5月13日當週）</span>
+        <ul style="margin:6px 0 0 18px; font-size:14px;">
+          <li>長期共同基金+ETF 總流入：389億美元</li>
+          <li>ETF 淨申購：573億美元</li>
+          <li>股票型基金流入：134億（國內$109億 + 海外$25億）</li>
+          <li>債券型基金流入：251億（應稅$221億 + 市政$30億）</li>
+        </ul>
+      </div>
+      <div class="field"><span class="label label-facts">核心事實 — 異常 Options 活動（5月22日）</span>
+        <ul style="margin:6px 0 0 18px; font-size:14px;">
+          <li><strong>ROST (Ross Stores) 異常 Put：</strong>8,468張 Put 成交（均值10倍）；集中在7/17到期$210 Put，兩筆大單合計6,200張 @$2.23，偏空方向。</li>
+          <li><strong>HLIT (Harmonic) 異常 Call：</strong>9,563張 Call 成交（均值92倍！）；5,500+張集中於6–7月到期$15 Call，明顯偏多方建倉。</li>
+          <li><strong>NVDA options flow：</strong>財報後整週出現大規模散戶 call 獲利了結，機構轉向配置 covered calls，顯示短期情緒偏保守。</li>
+        </ul>
+      </div>
+      <div class="field"><span class="label label-context">背景脈絡</span> 資金繼續大規模流入ETF，但更多進入債券而非股票，顯示部分配置轉向防禦。ROST的空頭押注與消費信心崩跌時點一致，值得留意是否反映大戶對零售業的實質擔憂。HLIT的瘋狂 Call 活動尚無明確消息驅動，可能是量子/光纖通訊概念延伸。</div>
+    </div>
+  </div>
+
+  <!-- ⑨ 觀點 -->
+  <div class="section">
+    <div class="section-title">⑨ 觀點 <span class="en">/ Reads Worth Bookmarking</span></div>
+
+    <div class="news-item">
+      <h3>「市場在夢遊走向衰退嗎？」/ "Misplaced Euphoria": Are Markets Sleepwalking Into Recession?</h3>
+      <div class="source-line">來源：<a href="https://www.cnbc.com/2026/05/04/strait-hormuz-gas-price-oil-shock-recession-risk-economy-iran-us-war.html" target="_blank">CNBC</a> · Morgan Stanley · 2026-05-04</div>
+      <div class="field">股市在歷史高位，但消費者信心在歷史低位；油價從$72漲至$96（+33%，峰值$120）；4月CPI 3.8%——然而S&P 500的本益比並未顯著下調。摩根士丹利報告指出，此前最近兩次油價衝擊（1973年和2022年）分別早於實質衰退15個月和9個月。若伊朗和談破裂，「1970年代式滯脹」情境將非小概率事件。</div>
+    </div>
+
+    <div class="news-item">
+      <h3>SpaceX + OpenAI「兆元雙雄」IPO——市場頂部訊號還是新紀元？/ The Trillion-Dollar Dual IPO: Market Top or New Era?</h3>
+      <div class="source-line">來源：<a href="https://www.cnbc.com/2026/05/22/ipo-flurry-top-market-analysts-ai-spacex-musk-altman.html" target="_blank">CNBC</a> · <a href="https://www.investing.com/analysis/the-trilliondollar-ipo-test-spacex-and-openai-face-public-markets-200680688" target="_blank">Investing.com</a> · 2026-05-22</div>
+      <div class="field">歷史上最大規模IPO往往出現在市場狂熱高點（2000年Pets.com/Webvan；2021年Rivian/Coinbase），但也有反例（1956年Ford IPO後市場繼續上漲）。本次特殊之處在於：兩家公司都具備實際但模糊的「護城河」——SpaceX的衛星軌道資產、OpenAI的模型優勢——而估值極度取決於AI未來10年的想像空間。數字上看，若OpenAI以$1兆上市、市銷率約40倍，投資人在當前成長速度下需等待約7–8年才能合理化估值。</div>
+    </div>
+  </div>
+
+  <!-- 來源 -->
+  <div class="sources-footer">
+    <h4>資料來源 / Sources</h4>
+    <ul>
+      <li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-may-22-2026" target="_blank">TheStreet — May 22 Market Recap</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/21/stock-market-today-live-updates.html" target="_blank">CNBC — Stock Market Live Updates</a></li>
+      <li><a href="https://www.cnn.com/2026/05/22/economy/kevin-warsh-sworn-in-fed-chair" target="_blank">CNN — Warsh Sworn In</a></li>
+      <li><a href="https://investinglive.com/news/umich-may-final-consumer-sentiment-448-vs-482-expected-20260522/" target="_blank">InvestingLive — UMich Sentiment</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/20/nvidia-nvda-earnings-report-q1-2027.html" target="_blank">CNBC — Nvidia Q1 FY2027 Earnings</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/21/quantum-stocks--us-taking-equity-stakes.html" target="_blank">CNBC — Quantum Stocks / IBM</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/20/spacex-ipo-live-updates.html" target="_blank">CNBC — SpaceX IPO Filing</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/20/openai-ipo-filing.html" target="_blank">CNBC — OpenAI Confidential Filing</a></li>
+      <li><a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm" target="_blank">Federal Reserve — FOMC Statement</a></li>
+      <li><a href="https://www.bls.gov/news.release/archives/cpi_05122026.htm" target="_blank">BLS — April 2026 CPI</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/04/strait-hormuz-gas-price-oil-shock-recession-risk-economy-iran-us-war.html" target="_blank">CNBC — Iran War Oil Shock</a></li>
+      <li><a href="https://www.benzinga.com/calendars/unusual-options-activity" target="_blank">Benzinga — Unusual Options</a></li>
+      <li><a href="https://m.cnyes.com/news/id/6466742" target="_blank">鉅亨網 — 美股重點摘要 5/22</a></li>
+      <li><a href="https://www.fool.com/investing/2026/05/24/heres-the-one-thing-kevin-warsh-could-do-that-woul/" target="_blank">Motley Fool — Warsh &amp; Market Risk</a></li>
+    </ul>
+    <div style="margin-top:10px; color:#aaa; font-size:11px;">⚠️ 本報告僅供資訊參考，不構成投資建議。數字均來自公開新聞報導，請以官方公告為準。This report is for informational purposes only and does not constitute investment advice.</div>
+  </div>
+
+</div><!-- /container -->
+</body>
+</html>

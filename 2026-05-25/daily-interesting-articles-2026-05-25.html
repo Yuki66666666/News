@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日有趣文章日報 · 2026-05-25</title>
+  <style>
+    :root {
+      --bg: #fafaf8;
+      --surface: #ffffff;
+      --border: #e8e4dc;
+      --accent: #2c5282;
+      --accent-light: #ebf4ff;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --tag-ai: #dbeafe;
+      --tag-ai-text: #1d4ed8;
+      --tag-startup: #dcfce7;
+      --tag-startup-text: #166534;
+      --tag-vc: #fef9c3;
+      --tag-vc-text: #854d0e;
+      --tag-macro: #f3e8ff;
+      --tag-macro-text: #7e22ce;
+      --tag-product: #ffe4e6;
+      --tag-product-text: #9f1239;
+      --editor-bg: #fffbeb;
+      --editor-border: #f59e0b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Serif TC", Georgia, serif;
+      line-height: 1.7;
+      padding: 0 16px 60px;
+    }
+    header {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 40px 0 24px;
+      border-bottom: 2px solid var(--border);
+    }
+    header .date-label {
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.3;
+    }
+    header .subtitle {
+      margin-top: 6px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .track-label {
+      max-width: 780px;
+      margin: 36px auto 0;
+      font-size: 11px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-title {
+      max-width: 780px;
+      margin: 28px auto 0;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .card {
+      max-width: 780px;
+      margin: 16px auto 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px 28px;
+    }
+    .card.editor-pick {
+      background: var(--editor-bg);
+      border-color: var(--editor-border);
+    }
+    .card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--text);
+    }
+    .card h3 a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .card h3 a:hover { text-decoration: underline; color: var(--accent); }
+    .meta {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+    .badge {
+      display: inline-block;
+      padding: 1px 8px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+    .badge.ai { background: var(--tag-ai); color: var(--tag-ai-text); }
+    .badge.startup { background: var(--tag-startup); color: var(--tag-startup-text); }
+    .badge.vc { background: var(--tag-vc); color: var(--tag-vc-text); }
+    .badge.macro { background: var(--tag-macro); color: var(--tag-macro-text); }
+    .badge.product { background: var(--tag-product); color: var(--tag-product-text); }
+    .field {
+      margin-top: 14px;
+    }
+    .field-label {
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .field p {
+      font-size: 14.5px;
+      color: #374151;
+      line-height: 1.65;
+    }
+    .field p.zh { margin-bottom: 4px; }
+    .field p.en { color: #4b5563; font-size: 14px; }
+    blockquote {
+      border-left: 3px solid var(--editor-border);
+      padding-left: 14px;
+      margin-top: 8px;
+      font-style: italic;
+      color: #6b5c00;
+      font-size: 14px;
+    }
+    footer {
+      max-width: 780px;
+      margin: 48px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+    footer strong { color: #374151; }
+    @media (max-width: 600px) {
+      .card { padding: 18px 16px; }
+      header h1 { font-size: 21px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="date-label">Daily Interesting Articles · 今日有趣文章日報</div>
+  <h1>2026年5月25日 精選好文</h1>
+  <div class="subtitle">Track A — 長文精選 · Track B — 思想領袖觀點 &nbsp;·&nbsp; Lookback window: ~7 days</div>
+</header>
+
+<!-- ======== TRACK A ======== -->
+<div class="track-label">Track A &nbsp;—&nbsp; 長文精選 / Longform Essays</div>
+
+<!-- 1. Editor's Pick -->
+<div class="section-title">🏅 編輯精選 / Editor's Pick of the Day</div>
+
+<div class="card editor-pick">
+  <h3>
+    <a href="https://paulgraham.com/brandage.html" target="_blank">品牌時代 / The Brand Age</a>
+  </h3>
+  <div class="meta">
+    <span>paulgraham.com · Paul Graham · 2026-03 · ~25 min</span>
+    <span class="badge">哲學/商業</span>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <p class="zh">這不是一篇關於手錶的文章——它是一篇關於「當功能消失後，世界會變得多奇怪」的哲學論文。Paul Graham 用瑞士鐘錶業的蛻變，建構出一套關於品牌與設計根本衝突的理論，適用範圍遠超產品設計，延伸到宗教、藝術、甚至人生選擇。</p>
+    <p class="en">Not a watch essay — a philosophical argument about what happens when function disappears and brand becomes the only constraint. PG traces the Swiss watch industry's transformation into a case study that illuminates art, religion, and how to find your own "golden age."</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">摘要 / Summary</div>
+    <p class="zh">1970 年代，日本製錶技術超越瑞士、石英錶誕生，瑞士表業失去了「精準」這個核心功能。倖存下來的品牌（Patek Philippe、Audemars Piguet、Rolex）做出了一個奇特選擇：不再競爭性能，改而出售「品牌」本身——刻意製造稀缺、擴大尺寸讓錶盤成為廣告、甚至追蹤二手市場防止炒賣以維持資產泡沫。Graham 指出，品牌與設計在本質上是對立的：設計趨向正確答案（收斂），品牌必須獨特（發散）。這造就了一個「功能脫鉤後的怪誕世界」——巨大難看的錶殼、虛假的稀缺排隊、王冠護環上刻著商標警告。黃金時代（1945–1970）是匠人追求精準與纖薄的年代；品牌時代（1985–今）則是人性弱點驅動的年代。他的結論是：跟著問題走，你就會自動走進黃金時代。</p>
+    <p class="en">When quartz killed Swiss mechanical watchmaking's functional advantage, the survivors pivoted to selling brand. PG documents how Patek, AP, and Rolex gradually transformed — growing case sizes (brand as billboard), engineering artificial scarcity, even rebuying their own watches on the secondary market to catch flippers and prevent bubble collapse. His deeper point: branding is centrifugal (must diverge), good design is centripetal (converges on right answers). They're fundamentally incompatible. The golden age ended when form stopped following function.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">核心觀點 / Key takeaway</div>
+    <p class="zh">「品牌是離心的，設計是向心的。」當一個領域進入品牌時代，它的最佳設計已經過去，而且大概率不會回來。跟著有趣的問題走，不要追品牌——無論是選錶、選領域或選職業。</p>
+    <p class="en">"Branding is centrifugal; design is centripetal." When a field enters its brand age, its golden age is over. The antidote: follow interesting problems, and you'll find yourself in the next golden age almost by accident.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <p>哪些今天仍在黃金時代的領域，正悄悄走向品牌時代？AI 硬體、頂尖大學學歷，是否也在重演這個故事？ / Which fields today are quietly transitioning from golden age to brand age? Is elite university credentialing already there?</p>
+  </div>
+</div>
+
+<!-- 2. Tech & AI -->
+<div class="section-title">💻 科技與 AI / Tech & AI</div>
+
+<div class="card">
+  <h3>
+    <a href="https://sockpuppet.org/blog/2026/05/12/emacsification/" target="_blank">軟體的 Emacs 化 / The Emacsification of Software</a>
+  </h3>
+  <div class="meta">
+    <span>sockpuppet.org · Thomas Ptacek · 2026-05-12 · ~10 min</span>
+    <span class="badge">HN 276 pts</span>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <p class="zh">這是今年少數真正抓住「AI 讓個人軟體開發質變」這件事的文章——不是在預測未來，而是在描述一個已經在發生的現象，用精準的 Emacs 文化類比讓讀者瞬間理解。</p>
+    <p class="en">One of the clearest-eyed observations about how AI coding is changing personal software culture — not prediction, but description of a present shift. The Emacs analogy is precise and immediately illuminating.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">摘要 / Summary</div>
+    <p class="zh">資安研究員 Thomas Ptacek 用 30 分鐘 AI 協作，造出一個比 App Store 任何 Markdown 閱覽器都好用的 native macOS app（MDV）。他的論點是：AI Agent 把 Emacs 文化「外洩」到了整個軟體世界。以前，高度個人化的原生 UI 程式只有 Emacs 老手靠 elisp 才能做到；現在人人都能造出完全針對自己問題、美觀的原生 app，且因為 AI 寫了所有 SwiftUI 程式碼，重要的不是 source code，而是「想法」本身與用來生成它的 prompts。這是一場靜悄悄的個人軟體文藝復興。</p>
+    <p class="en">Ptacek built a native macOS Markdown viewer better than anything on the App Store in ~30 minutes of interactive AI collaboration. His thesis: AI agents have "fracked" Emacs culture, leaking it into the wider world. What was once only possible for elisp lifers is now achievable by anyone with an interesting personal problem. The valuable artifact is no longer the source code — it's the idea and the prompts.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">核心觀點 / Key takeaway</div>
+    <p>原生 UI 開發的門檻消失了。現在的問題不再是「能不能做」，而是「你有沒有值得解決的個人問題」。 / The barrier to native UI development has collapsed. The question is no longer "can I build this?" but "do I have a personal problem worth solving?"</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <p>如果每個人都能製作針對自己的軟體，「通用軟體產品」這個商業模式是否會在某些利基市場逐漸萎縮？ / If everyone can make software tailored to themselves, does the business model of general-purpose niche software slowly erode?</p>
+  </div>
+</div>
+
+<div class="card">
+  <h3>
+    <a href="https://laurent.le-brun.eu/blog/a-history-of-ides-at-google" target="_blank">Google IDE 的演化史 / A History of IDEs at Google</a>
+  </h3>
+  <div class="meta">
+    <span>laurent.le-brun.eu · Laurent Le Brun (ex-Google) · 2026-05-09 · ~14 min</span>
+    <span class="badge">HN 351 pts</span>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <p class="zh">親歷者的第一手紀錄，涵蓋 2011–2024 年 Google 內部如何從碎片化的 IDE 生態，歷經 Cider（雲端 IDE）到 Cider V（VSCode 前端），最終達到 80% 開發者使用同一工具的過程。對理解大型工程組織的工具標準化有罕見的真實度。</p>
+    <p class="en">A firsthand account of Google's 12-year IDE unification journey — from the "it doesn't matter what editor you use" ethos endorsed by Jeff Dean himself, through the accidental success of a web-based IDE, to a VSCode-based platform used by 80% of engineers. Rare insider detail about the real costs and politics of tooling standardization.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">摘要 / Summary</div>
+    <p class="zh">Google 的程式碼庫大到傳統 IDE 假設（本地 indexing、本地 build）根本撐不住。2013 年一群工程師悄悄開始做 Cider——一個 web-based IDE，原本只是給技術寫作者改 markdown 用的。它靠著雲端 backend 索引整個 monorepo 的 cross-reference 而爆紅。2020 年，作者加入後決定用 VSCode 前端替換自家 UI，繼承成熟的插件生態。到 2023 年，80% 的 Google 主代碼庫開發在 Cider V 進行，且隨之帶來的副作用是：100 多個內部擴充套件被開發出來，極大提升了各個 team 的專屬工作流。</p>
+    <p class="en">Google's monorepo broke every IDE assumption about local indexing. Cider, a cloud IDE, gained popularity by indexing a billion files and serving cross-references anywhere. Switching to the VSCode frontend in 2020 was the key unlock — inheriting years of editor polish and an extension ecosystem that eventually spawned 100+ internal Google-specific extensions. Final lesson: "standard tooling creates leverage."</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">核心觀點 / Key takeaway</div>
+    <p>「標準工具創造槓桿。」當大多數工程師用同一工具，每個改進的影響力倍增，且外部貢獻者更容易上手。 / "Standard tooling creates leverage." When most engineers share a tool, every improvement has outsized impact, and teams can build on each other.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <p>AI coding agent（Cursor、Claude Code 等）是否正在創造新一代的「標準工具」效應，還是反而會讓開發環境更加碎片化？</p>
+  </div>
+</div>
+
+<!-- 3. Science & Research -->
+<div class="section-title">🔬 科學與研究 / Science & Research</div>
+
+<div class="card">
+  <h3>
+    <a href="https://www.quantamagazine.org/two-researchers-are-rebuilding-mathematics-from-the-ground-up-20260520/" target="_blank">兩位研究者正在從零重建數學 / Two Researchers Are Rebuilding Mathematics From the Ground Up</a>
+  </h3>
+  <div class="meta">
+    <span>Quanta Magazine · Konstantin Kakaes · 2026-05-20 · ~16 min</span>
+    <span class="badge">數學基礎</span>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <p class="zh">Peter Scholze 和 Dustin Clausen 正在做的事，是替換拓撲學（乃至整個現代數學）最底層的基礎概念——這不是改進，是移除地基再重蓋。Quanta 把一個幾乎無法向外行人解釋的項目，寫成了引人入勝的智識冒險故事。</p>
+    <p class="en">Scholze and Clausen are not merely extending math — they're replacing the foundational concept that underpins modern topology to fix deep incompatibilities between algebra and geometry. Quanta makes a nearly-impossible-to-explain project feel like an urgent intellectual adventure.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">摘要 / Summary</div>
+    <p class="zh">拓撲空間（topological space）這個概念自 20 世紀初以來一直是現代數學的基石——但它有個根本問題：某些幾何直覺在這個框架下根本無法被捕捉。Scholze 和 Clausen 提出用「condensed sets（凝縮集）」取代拓撲空間，讓代數與幾何終於可以用同一種語言對話。這是他們更龐大計畫的第一步，目標是重新理解「為什麼數字會有現在這樣的行為」。文章同時也提到了這個計畫如何借助自動形式化工具（Lean）驗證龐大的證明。</p>
+    <p class="en">Topological spaces, a concept unchanged since the 1900s, turn out to be the wrong foundation for connecting algebra and geometry. Scholze and Clausen propose "condensed sets" as a replacement that eliminates the incompatibilities, opening the door to a far larger program of understanding why numbers behave as they do. The piece also touches on how Lean-based formal verification is enabling proofs of unprecedented scale.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">核心觀點 / Key takeaway</div>
+    <p>數學基礎不是一勞永逸的：當舊的基礎語言讓兩個重要領域無法對話，換掉它就是正確選擇，即使代價是重做幾十年的工作。</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <p>如果數學基礎可以被更換，物理或電腦科學的「底層假設」中，是否也有我們尚未意識到的錯誤地基？</p>
+  </div>
+</div>
+
+<div class="card">
+  <h3>
+    <a href="https://dynomight.net/lifespan/" target="_blank">壽命的遺傳性，其實是 50%？前提是重新定義「遺傳性」 / Heritability of Lifespan Is ~50% When Heritability Is Redefined</a>
+  </h3>
+  <div class="meta">
+    <span>dynomight.net · Dynomight · 2026-02 · ~12 min</span>
+    <span class="badge">HN 92 pts</span>
+    <span class="badge">科學批評</span>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <p class="zh">一篇用溫和幽默徹底解剖一篇 Science 論文的典範文章——既不攻擊作者，也不掩蓋問題，而是耐心帶讀者走過三層越來越深的解釋，最後揭示：媒體標題宣稱的「50%」根本建立在一個假想世界的模擬資料上。</p>
+    <p class="en">A model of how to critique a Science paper without being uncharitable — patient, three-tiered explanation that ultimately shows the "50% heritable" headline is based on simulated data from a hypothetical world with no accidents or murder. Also a devastating critique of Science's writing conventions.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">摘要 / Summary</div>
+    <p class="zh">這篇 Science 論文聲稱「人類壽命遺傳性約 50%」，遠高於傳統雙胞胎研究的 23–35%。Dynomight 拆解後發現：研究者建了一個數學模型，把「外在死亡因素（意外、謀殺、感染病）」設為零，在那個假想世界的模擬資料上算出 50%。這沒有錯——但標題說的「壽命遺傳性是 50%」根本不是我們實際生活的世界。更諷刺的是，若按照研究中「現代人的外在死亡率」代入，數字其實是 35–45%，而非 50%。Science 的寫作風格被批評為故意模糊、讓讀者難以自行驗證。</p>
+    <p class="en">The paper built a simulation of a world without accidents, murder, or infectious disease, and computed heritability on that simulated data. The headline "50% heritable" is not about our actual world. When you plug in modern actual extrinsic mortality rates, the model's own output gives ~35–45%, not 50%. A lucid lesson in how to read quantitative claims in prestigious journals skeptically.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">核心觀點 / Key takeaway</div>
+    <p>「遺傳性」不是柏拉圖式的真理，而是一個比率，它隨社會環境改變。當科學標題聲稱「修正了偏差，得出真實值」，先問：修正後的世界是現實還是假設？</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <p>有多少被廣泛引用的「遺傳性百分比」，其實是在某個特定的社會或假設情境下計算出來的，而非普遍真理？</p>
+  </div>
+</div>
+
+<!-- 4. Business & Economics -->
+<div class="section-title">📊 商業與經濟 / Business & Economics</div>
+
+<div class="card">
+  <h3>
+    <a href="https://marginalrevolution.com/marginalrevolution/2026/05/liberal-economists-score-an-own-goal-against-bezos.html" target="_blank">進步派經濟學家對貝佐斯的烏龍球 / Liberal Economists Score an Own Goal Against Bezos</a>
+  </h3>
+  <div class="meta">
+    <span>Marginal Revolution · Alex Tabarrok · 2026-05-24 · ~8 min</span>
+    <span class="badge">政治經濟學</span>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <p class="zh">一篇在政治光譜上能讓左右兩派都感到不舒服的文章——它揭示了社福辯護策略的內在矛盾，論述嚴謹，引用 FDR、Buchanan、Summers，不是罵戰而是智識上的解剖。</p>
+    <p class="en">A rare piece that makes both sides uncomfortable: rigorous institutional economics showing that modern progressives' framing of payroll taxes as "regressive" directly contradicts the 80-year rhetorical foundation they built to protect Social Security. Sharp, non-partisan, intellectually honest.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">摘要 / Summary</div>
+    <p class="zh">貝佐斯建議免除低收入者的聯邦稅以使稅制更累進，進步派經濟學家（Gabriel Zucman、Justin Wolfers）立刻反駁說美國稅制沒那麼累進，因為薪資稅（payroll tax）是累退的。但 Tabarrok 指出這踩到了進步派自己的地雷：自羅斯福以來，社會安全體制的政治防護一直建立在「這不是稅，這是你賺來的退休金」這個框架上。現在把它重新定義為「累退稅」，等於拆掉了社會安全制度抵禦私有化攻擊的護城河。他進一步引用 Buchanan 和 Summers 的分析，區分「強制儲蓄（非稅）」與「真正的稅」。</p>
+    <p class="en">Bezos proposed zeroing taxes on the bottom 50% to make the system more progressive. Progressives attacked by arguing the system isn't as progressive as claimed, since payroll taxes are regressive. But this directly abandons FDR's "earned right" framing that has been Social Security's political armor for 80 years — the very argument that prevents means-testing and privatization. Tabarrok dissects whether payroll taxes are taxes at all using the Buchanan/Summers framework of mandated benefits.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">核心觀點 / Key takeaway</div>
+    <p>政治論述的框架本身是政策的一部分；放棄一個對自己有利的框架去贏得一次推特辯論，是非常昂貴的代價。 / Political framing is policy — abandoning a 80-year rhetorical fortress to win a Twitter argument is an extraordinarily costly own goal.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <p>台灣的勞保與健保是否面臨類似的框架困境？當「保險」被重新解讀為「稅」，會對制度的政治支持產生什麼影響？</p>
+  </div>
+</div>
+
+<!-- 5. History & Philosophy -->
+<div class="section-title">🏛️ 歷史與哲學 / History & Philosophy</div>
+
+<div class="card">
+  <h3>
+    <a href="https://www.beren.io/2025-11-22-Space-Warfare-Seems-Mostly-Defense-Dominant/" target="_blank">星際戰爭大多是防禦佔優的 / Space Warfare Seems Mostly Defense Dominant</a>
+  </h3>
+  <div class="meta">
+    <span>beren.io · Beren Millidge · 2025-11-22（本週在 Marginal Revolution 引發討論）· ~30 min</span>
+    <span class="badge">長篇思想實驗</span>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <p class="zh">這是一篇讓你用不同的角度思考宇宙命運的思想實驗——用已知物理學嚴肅推導出 K3 文明之間的星系間戰爭邏輯，意外得出「宇宙可能基本上是和平的」這個結論，並對費米悖論提供了獨特的人擇論證角度。</p>
+    <p class="en">A rigorous long-form wargame of intergalactic warfare under known physics — no wormholes, no FTL — that reaches the surprising conclusion that mature K3 civilizations are basically unable to destroy each other, making large-scale cosmic war irrational. Has unexpected implications for the Fermi paradox and existential risk.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">摘要 / Summary</div>
+    <p class="zh">作者以銀河系對上仙女座（250萬光年）為沙盤，推演 Kardashev-3 等級文明的攻防能力。攻方有三大武器：星系級雷射砲、相對論性動能彈（RKV）、入侵飛船。但每種武器都有根本限制：雷射無法鎖定移動目標（目標資訊是 500 萬年前的），RKV 慢於光速讓防方有時間攔截，入侵飛船在減速時會暴露位置。成熟的防方文明只需要「散佈、隨機移動、冗餘」，就能讓攻方耗費遠超能回收的能量。結論：成熟 K3 文明之間的星系際戰爭是「不理性的」，宇宙大機率是和平瓜分的。</p>
+    <p class="en">Using the Milky Way vs. Andromeda as the sandbox, Millidge wargames three weapon classes: intergalactic laser beams (can't hit mobile targets with 5M-year-old targeting data), RKVs (slower than light, giving defenders reaction time), and invasion ships (deceleration burns are giant beacons). A paranoid K3 that keeps infrastructure dispersed and randomly mobile is nearly invulnerable. The attacker spends more than it gains. Implication: Earth's continued existence provides weak evidence against hostile K3s in our local group.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">核心觀點 / Key takeaway</div>
+    <p>在已知物理學下，宇宙尺度的防禦天然強於進攻——距離本身就是最強的護盾，而且防禦者不需要移動。這使得成熟文明間的全面戰爭在能量經濟上不合理。</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <p>如果大規模宇宙戰爭不理性，為什麼費米悖論的「大沉默」仍然存在？是文明都自我毀滅了，還是全都在靜靜「paperclip-ifying」自己的星系？</p>
+  </div>
+</div>
+
+<!-- 6. Curiosities -->
+<div class="section-title">🎲 奇文與偏門 / Curiosities</div>
+
+<div class="card">
+  <h3>
+    <a href="https://ardoedo.it/kempelen/" target="_blank">我在父親舊書裡找到一道西洋棋謎題 / Chess Puzzle I Found in My Dad's Old Book</a>
+  </h3>
+  <div class="meta">
+    <span>ardoedo.it · Ardoedo · 2026-05 · ~5 min（互動體驗）</span>
+    <span class="badge">HN 146 pts</span>
+    <span class="badge">互動</span>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <p class="zh">一道18世紀的西洋棋謎題，有互動式棋盤，背後連結著「土耳其人」（The Turk）——歷史上最著名的自動機騙局之一。5分鐘的輕鬆閱讀，卻意外開啟了一扇通往人工智能前史的窗。</p>
+    <p class="en">An interactive chess puzzle from the 18th century, connected to Wolfgang von Kempelen's famous "Turk" automaton — the greatest chess-playing hoax in history, and a fascinating piece of AI prehistory. Light, fun, and unexpectedly deep.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">摘要 / Summary</div>
+    <p class="zh">作者在父親的舊書裡發現一道來自 Wolfgang von Kempelen（18世紀機械土耳其人的發明者）的棋謎，製作成網頁互動體驗。「機械土耳其人」看似是下棋機器，實際是藏有真人棋手的精密騙局，騙倒了拿破崙、班傑明·富蘭克林等人。這道謎題本身也極具巧思。</p>
+    <p class="en">A father's old book, an 18th-century puzzle by the creator of the chess-playing "Turk" automaton — which fooled Napoleon and Benjamin Franklin before being revealed as an elaborate human-hiding machine. The interactive puzzle itself is elegant; the story behind it is a wonderful piece of history.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <p>從「機械土耳其人」到今天的 AI 棋手，人類對「機器能思考嗎」這個問題的態度，在 250 年間改變了多少？</p>
+  </div>
+</div>
+
+<!-- ======== TRACK B ======== -->
+<div class="track-label">Track B &nbsp;—&nbsp; 思想領袖觀點 / Thought Leader Picks</div>
+<div class="section-title">🧠 思想領袖今日觀點 / Thought Leader Picks</div>
+
+<!-- TL 1: Alex Tabarrok on AI solving math -->
+<div class="card">
+  <h3>[AI] Alex Tabarrok — AI 解決了 Erdős 最愛的開放問題 / AI Solves a Major Erdős Problem</h3>
+  <div class="meta">
+    <span class="badge ai">AI</span>
+    <span>Marginal Revolution · 2026-05-21 ·</span>
+    <a href="https://marginalrevolution.com/marginalrevolution/2026/05/the-ais-are-one-of-us-now.html" target="_blank" style="font-size:12px;color:#2c5282;">連結</a>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <p class="zh">不是新聞稿，而是對一個真正里程碑事件的深度見證：OpenAI 模型解決了 Erdős 單位距離問題（被稱為「組合幾何學中最知名的問題」），數學家 Timothy Gowers 的評論和 Thomas Bloom 的技術分析讓這件事的重量感變得具體。</p>
+    <p class="en">A genuine milestone documented with mathematical rigor: an AI disproved a famous Erdős conjecture (the unit distance problem, unsolved since 1946) by pursuing a path human mathematicians had dismissed as not worth their time. The accompanying commentary from working mathematicians makes the significance tangible.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">核心觀點 / Core insight</div>
+    <p class="zh">AI 解題的優勢不在「比人類更聰明」，而在「比人類更有耐心追蹤人類認為不值得探索的路徑」，且同時掌握超大量的技術工具。Thomas Bloom 指出，這個證明需要同時符合四個「各自不太可能」的條件，人類數學家因為先入之見幾乎不可能都去嘗試；AI 沒有這個偏見。</p>
+    <p class="en">The AI's advantage was not superior intelligence but "superhuman patience" combined with vast technical machinery — it pursued paths humans had dismissed. The proof required four independently unlikely conditions to align; human priors made this trajectory nearly invisible. Tabarrok and Bloom both note this is "Gooble Gobble" — the mathematicians are acknowledging AI as one of their own.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <p>「先入之見」是科學進步的阻礙之一。如果 AI 能系統性地探索人類因認知偏見而跳過的路徑，它在哪些領域最有可能產生下一個突破？</p>
+  </div>
+</div>
+
+<!-- TL 2: Tyler Cowen on India fertility -->
+<div class="card">
+  <h3>[總經] Tyler Cowen — 印度生育率跌破替代水準，且沒有「印度例外」</h3>
+  <div class="meta">
+    <span class="badge macro">總經</span>
+    <span>Marginal Revolution · 2026-05-23 ·</span>
+    <a href="https://marginalrevolution.com/marginalrevolution/2026/05/india-fertility-facts-of-the-day.html" target="_blank" style="font-size:12px;color:#2c5282;">連結</a>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <p class="zh">印度 TFR 跌至 1.88 的新數據，加上 Jesús Fernández-Villaverde 的 10 點分析，是理解人口地緣政治板塊移動的必讀片段。Kerala（1.3）vs Bihar（2.9）的對比，說明「印度」其實是多個人口動態並行的複合體。</p>
+    <p class="en">India's TFR at 1.88 (below replacement) with Kerala at 1.3 approaching Spanish levels. Ten sharp facts from a demographer that reveal India's population trajectory is more complex — and more converging with global trends — than most coverage suggests.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">核心觀點 / Core insight</div>
+    <p class="zh">印度正在快速走上每個已發展經濟體走過的路：都市化→生育率下降。若趨勢延續，印度 TFR 將於 2031 年左右達到美國目前水準（1.57）。更重要的是：「智慧型手機是生育率下降元凶」這個說法在印度沒有明確的數據支持，因為引進智慧型手機前後，印度的下降速度並未顯著加快。</p>
+    <p class="en">India is on the same demographic path as every other society that urbanizes and develops. TFR projected to reach US levels (~1.57) around 2031. Also: the smartphone-fertility narrative doesn't hold up in Indian data — the decline rate didn't meaningfully accelerate post-smartphone adoption, suggesting structural factors dominate.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <p>若印度的人口「紅利」期比預期短，印度在全球供應鏈中取代中國的窗口有多寬？</p>
+  </div>
+</div>
+
+<!-- TL 3: Alex Tabarrok on payroll tax -->
+<div class="card">
+  <h3>[總經] Paul Graham — 最新文章雷達：《The Shape of the Essay Field》《Good Writing》</h3>
+  <div class="meta">
+    <span class="badge startup">創業/寫作</span>
+    <span>paulgraham.com · 2026年（最新兩篇）·</span>
+    <a href="https://paulgraham.com/field.html" target="_blank" style="font-size:12px;color:#2c5282;">field</a>
+    &nbsp;/&nbsp;
+    <a href="https://paulgraham.com/goodwriting.html" target="_blank" style="font-size:12px;color:#2c5282;">goodwriting</a>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <p class="zh">PG 最近在密集思考「寫作」這件事本身——什麼是好的 essay，essay 這個領域的地圖長什麼樣。對任何在意自己如何思考與表達的人，這些短篇值得一讀。今日 The Brand Age 是他近期最長且最具論證深度的文章，但這兩篇也是同期輸出的思想脈絡。</p>
+    <p class="en">PG has been in a productive run on meta-writing: mapping what good essays look like, what makes writing actually good versus conventionally praised. Short pieces worth reading alongside The Brand Age to see the coherent intellectual run he's been on.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">核心觀點 / Core insight</div>
+    <p class="zh">《The Shape of the Essay Field》：essay 的空間是開放的，而非階層式的——這意味著每一篇好文章都是新疆土，而非排名中的某個位置。《Good Writing》則區分「好寫作」與「被廣泛讚揚的寫作」，前者讓讀者看到他們本來看不到的東西，後者只是符合讀者的期待。</p>
+    <p class="en">"The Shape of the Essay Field" argues the essay space is open and flat, not hierarchical — good essays claim new territory rather than rank within existing territory. "Good Writing" distinguishes writing that shows readers things they couldn't otherwise see from writing that merely confirms what they already believe.</p>
+  </div>
+
+  <div class="field">
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <p>如果好寫作的定義是「讓讀者看到他們本來看不到的東西」，那 AI 生成的文字可以達到這個標準嗎？還是它只能「符合讀者的期待」？</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <strong>數據來源 / Sources checked today</strong><br>
+  Hacker News (top stories) · Marginal Revolution · paulgraham.com · Quanta Magazine · beren.io · sockpuppet.org · dynomight.net · laurent.le-brun.eu · ardoedo.it<br><br>
+  <strong>Paywalled / Failed sources</strong><br>
+  The Browser (paywalled headlines only) · longform.org (fetch timeout) · asymco.com (fetch returned empty) · The Atlantic / New Yorker / NYT Magazine (paywalled) · aeon.co (fetch timeout)<br><br>
+  <strong>Disclaimer</strong><br>
+  精選以「今天值得轉發給一個聰明朋友」為標準。文章觀點為原作者所有。日期以 Asia/Taipei (UTC+8) 為準。<br>
+  Curated using the daily-interesting-articles skill · Generated 2026-05-25
+</footer>
+
+</body>
+</html>

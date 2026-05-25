@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日台股熱門焦點股 — 2026年5月25日</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --card2: #22263a;
+    --border: #2e3251;
+    --accent: #e05c5c;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #f59e0b;
+    --blue: #3b82f6;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --tag-ai: #7c3aed;
+    --tag-panel: #0ea5e9;
+    --tag-steel: #78716c;
+    --tag-passive: #d97706;
+    --tag-quantum: #06b6d4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 15px; line-height: 1.65; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 16px 60px; }
+
+  header { border-bottom: 2px solid var(--accent); padding-bottom: 18px; margin-bottom: 32px; }
+  header h1 { font-size: 1.75rem; font-weight: 700; color: #fff; }
+  header .sub { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+  .date-badge { display: inline-block; background: var(--accent); color: #fff; border-radius: 4px; padding: 2px 10px; font-size: 0.8rem; font-weight: 600; margin-right: 8px; }
+
+  .market-bar { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 20px; margin-bottom: 28px; display: flex; flex-wrap: wrap; gap: 20px; }
+  .market-bar .item { display: flex; flex-direction: column; }
+  .market-bar .label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .market-bar .val { font-size: 1.1rem; font-weight: 700; }
+  .up { color: var(--green); }
+  .dn { color: var(--red); }
+
+  h2 { font-size: 1.2rem; font-weight: 700; color: #fff; margin: 32px 0 14px; border-left: 4px solid var(--accent); padding-left: 10px; }
+  h3 { font-size: 1rem; font-weight: 700; color: #fff; margin: 24px 0 8px; }
+
+  /* Summary table */
+  .tbl-wrap { overflow-x: auto; margin-bottom: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead th { background: var(--card2); color: var(--muted); text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); font-weight: 600; white-space: nowrap; }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:hover { background: var(--card2); }
+  td { padding: 8px 10px; vertical-align: middle; white-space: nowrap; }
+  .ticker { font-weight: 700; color: var(--yellow); font-family: monospace; font-size: 0.95rem; }
+  .co-name { font-weight: 600; }
+
+  /* Tags */
+  .tag { display: inline-block; border-radius: 3px; padding: 1px 7px; font-size: 0.72rem; font-weight: 600; margin: 1px; }
+  .tag-ai { background: var(--tag-ai); color: #fff; }
+  .tag-panel { background: var(--tag-panel); color: #fff; }
+  .tag-steel { background: var(--tag-steel); color: #fff; }
+  .tag-passive { background: var(--tag-passive); color: #fff; }
+  .tag-quantum { background: var(--tag-quantum); color: #000; }
+  .tag-warning { background: #7f1d1d; color: #fca5a5; }
+  .tag-caution { background: #78350f; color: #fde68a; }
+
+  /* Stars */
+  .stars { color: var(--yellow); letter-spacing: -2px; }
+
+  /* Deep dive cards */
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 22px; }
+  .card-header { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+  .card-header .ticker-big { font-size: 1.3rem; font-weight: 800; color: var(--yellow); font-family: monospace; }
+  .card-header .co-name-big { font-size: 1.1rem; font-weight: 700; }
+  .card-header .price { font-size: 1.05rem; font-weight: 700; }
+  .card-header .tags { display: flex; flex-wrap: wrap; gap: 4px; }
+
+  .field { margin-bottom: 14px; }
+  .field-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-bottom: 4px; }
+  .field-body { font-size: 0.92rem; }
+  .field-body.bilingual .zh { margin-bottom: 6px; }
+  .field-body.bilingual .en { color: var(--muted); font-size: 0.88rem; border-left: 2px solid var(--border); padding-left: 8px; }
+
+  .chips-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  .chip { background: var(--card2); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; font-size: 0.82rem; }
+  .chip .chip-label { color: var(--muted); margin-right: 4px; }
+  .chip .chip-val { font-weight: 700; }
+
+  .caution-box { background: #1c0505; border: 1px solid #7f1d1d; border-radius: 8px; padding: 10px 14px; margin-top: 8px; font-size: 0.88rem; color: #fca5a5; }
+  .note-box { background: #0c1a2e; border: 1px solid #1e3a5f; border-radius: 8px; padding: 10px 14px; margin-top: 8px; font-size: 0.88rem; color: #93c5fd; }
+
+  /* Watch list */
+  .watch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px; }
+  .watch-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+  .watch-card .wt { font-weight: 700; font-size: 1rem; color: var(--yellow); }
+  .watch-card .wn { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+  .watch-card .wd { font-size: 0.82rem; color: var(--muted); }
+
+  /* Sources */
+  .sources { font-size: 0.8rem; color: var(--muted); }
+  .sources a { color: #60a5fa; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+  .sources li { margin-bottom: 3px; }
+
+  footer { margin-top: 48px; border-top: 1px solid var(--border); padding-top: 16px; font-size: 0.78rem; color: var(--muted); }
+
+  @media (max-width: 600px) {
+    .market-bar { flex-direction: column; }
+    .card-header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1><span class="date-badge">2026-05-25</span>今日台股熱門焦點股</h1>
+  <div class="sub">Hot Taiwan Stocks of the Day &nbsp;·&nbsp; TWSE + TPEx 收盤分析 &nbsp;·&nbsp; 數據截至 13:30 Asia/Taipei</div>
+</header>
+
+<!-- ====== MARKET BACKDROP ====== -->
+<h2>大盤背景 / Market Backdrop</h2>
+<div class="market-bar">
+  <div class="item">
+    <span class="label">加權指數</span>
+    <span class="val up">43,644 <small style="font-size:0.7em">+1,376pt</small></span>
+  </div>
+  <div class="item">
+    <span class="label">漲跌幅</span>
+    <span class="val up">+3.26%</span>
+  </div>
+  <div class="item">
+    <span class="label">大盤創高</span>
+    <span class="val up">史上收盤新高</span>
+  </div>
+  <div class="item">
+    <span class="label">漲點紀錄</span>
+    <span class="val up">史上第5大</span>
+  </div>
+  <div class="item">
+    <span class="label">外資買超</span>
+    <span class="val up">待確認 (5/22 為 761億)</span>
+  </div>
+  <div class="item">
+    <span class="label">三大法人</span>
+    <span class="val up">全體大幅買超</span>
+  </div>
+  <div class="item">
+    <span class="label">台幣</span>
+    <span class="val">升值趨勢</span>
+  </div>
+</div>
+<div class="card" style="margin-bottom:28px;">
+  <div class="field-body bilingual">
+    <div class="zh">台股5月25日延續史詩級多頭格局，加權指數收盤大漲1,376.43點至43,644.4點，創下史上收盤新高，漲點為史上第5大。驅動力三管齊下：<strong>① 輝達(NVIDIA)執行長黃仁勳5月23日抵台出席Computex（預計6月2日開展），人工智慧話題熱度全面爆發</strong>；② 超微(AMD)執行長蘇姿丰同步訪台，AI半導體供應鏈信心大振；③ 美伊地緣政治風險降溫、美股近期強彈給台股開高的底氣。大盤32大類股漲多跌少，漲幅前三大類股為電子零組件、鋼鐵類、光電類，外資全面翻多重新卡位。</div>
+    <div class="en">Taiwan's benchmark TAIEX surged 1,376 pts (+3.26%) to a record 43,644 close — its 5th-largest single-day point gain ever. Three catalysts converged: NVIDIA CEO Jensen Huang arrived May 23 ahead of Computex (June 2); AMD CEO Lisa Su also visited Taiwan boosting AI supply-chain confidence; and geopolitical de-escalation in the Middle East supported risk-on globally. Foreign institutional buyers (外資) poured in heavily across the board, with electronic components, steel, and optoelectronics leading sector gains.</div>
+  </div>
+</div>
+
+<!-- ====== TOP HOT STOCKS SUMMARY TABLE ====== -->
+<h2>熱門焦點 Top 7 / Today's Hottest Names</h2>
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>股號</th>
+      <th>公司</th>
+      <th>收盤估</th>
+      <th>漲跌幅</th>
+      <th>成交量估</th>
+      <th>vs 5MA</th>
+      <th>三大法人</th>
+      <th>熱度</th>
+      <th>主要 Catalyst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="ticker">2454</td>
+      <td class="co-name">聯發科</td>
+      <td>4,245元</td>
+      <td class="up">+9.97% 漲停</td>
+      <td>待確認</td>
+      <td>爆量</td>
+      <td class="up">外+/投+/自+</td>
+      <td><span class="stars">★★★★★</span></td>
+      <td><span class="tag tag-ai">AI</span> 黃仁勳訪台、Computex 前夕</td>
+    </tr>
+    <tr>
+      <td class="ticker">3481</td>
+      <td class="co-name">群創</td>
+      <td>49.1元</td>
+      <td class="up">+9.96% 漲停</td>
+      <td>38萬張+</td>
+      <td>極爆量</td>
+      <td class="up">外+++ 連買</td>
+      <td><span class="stars">★★★★★</span></td>
+      <td><span class="tag tag-panel">面板轉型</span> FOPLP / AI封裝轉型＋外資軋空</td>
+    </tr>
+    <tr>
+      <td class="ticker">2409</td>
+      <td class="co-name">友達</td>
+      <td>24.4元</td>
+      <td class="up">+9.95% 漲停</td>
+      <td>38萬張+</td>
+      <td>極爆量</td>
+      <td class="up">外+++ 連買</td>
+      <td><span class="stars">★★★★★</span></td>
+      <td><span class="tag tag-panel">面板轉型</span> 股東會轉型題材、外資追加</td>
+    </tr>
+    <tr>
+      <td class="ticker">2002</td>
+      <td class="co-name">中鋼</td>
+      <td>19.95元</td>
+      <td class="up">+9.92% 漲停</td>
+      <td>20萬張+</td>
+      <td>爆量</td>
+      <td>官股護盤 vs 外資</td>
+      <td><span class="stars">★★★★</span></td>
+      <td><span class="tag tag-steel">鋼鐵</span> 由虧轉盈＋鋼價連六漲＋超薄電磁鋼發表</td>
+    </tr>
+    <tr>
+      <td class="ticker">2324</td>
+      <td class="co-name">仁寶</td>
+      <td>34.65元</td>
+      <td class="up">+9.97% 漲停</td>
+      <td>3.2萬張+</td>
+      <td>爆量</td>
+      <td class="up">外+/投+</td>
+      <td><span class="stars">★★★★</span></td>
+      <td><span class="tag tag-quantum">量子</span><span class="tag tag-ai">AI伺服器</span> 美量子運算投資$200億</td>
+    </tr>
+    <tr>
+      <td class="ticker">2492</td>
+      <td class="co-name">華新科</td>
+      <td>~266元</td>
+      <td class="up">+9.9% 漲停</td>
+      <td>待確認</td>
+      <td>爆量</td>
+      <td class="up">主力連買</td>
+      <td><span class="stars">★★★★</span></td>
+      <td><span class="tag tag-passive">被動元件</span> MLCC漲價潮＋AI伺服器需求爆發</td>
+    </tr>
+    <tr>
+      <td class="ticker">6116</td>
+      <td class="co-name">彩晶</td>
+      <td>13元附近</td>
+      <td class="up">+9.9% 漲停</td>
+      <td>待確認</td>
+      <td>爆量</td>
+      <td>跟漲</td>
+      <td><span class="stars">★★★</span></td>
+      <td><span class="tag tag-panel">面板族群</span> 跟隨面板三雄題材</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="note-box">📌 收盤價與成交量部分為盤中/外電引用數字，精確值請以 TWSE 官網或 Goodinfo 為準。「待確認」=截稿前數據來源未明確報導。</div>
+
+<!-- ====== DEEP DIVES ====== -->
+
+<!-- 1. 聯發科 2454 -->
+<div class="card">
+  <div class="card-header">
+    <span class="ticker-big">2454</span>
+    <span class="co-name-big">聯發科 / MediaTek</span>
+    <span class="price up">4,245元 (+9.97% 漲停🔒)</span>
+    <div class="tags">
+      <span class="tag tag-ai">AI IC設計</span>
+      <span class="tag tag-ai">Computex</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">今日數據 / Today's Tape</div>
+    <div class="chips-row">
+      <div class="chip"><span class="chip-label">收盤</span><span class="chip-val up">4,245元</span></div>
+      <div class="chip"><span class="chip-label">漲幅</span><span class="chip-val up">+9.97%</span></div>
+      <div class="chip"><span class="chip-label">漲停形態</span><span class="chip-val">跳空開高鎖死</span></div>
+      <div class="chip"><span class="chip-label">歷史高</span><span class="chip-val">創新高</span></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="field-body bilingual">
+      <div class="zh">黃仁勳（Jensen Huang）5月23日抵台，消息一出即帶動整個AI半導體供應鏈情緒全面升溫。聯發科作為全球第二大IC設計廠，旗下天璣（Dimensity）系列晶片已搭上端側AI（On-device AI）浪潮，市場預期其與輝達在AI邊緣運算的合作深化，帶動外資、投信同步加碼。聯發科自4月處置期出關後，技術面形成突破形態，空單回補力道同時助推股價跳空漲停至4,245元創歷史新高。前次高點（約3,155元）已大幅超越，多方信心大增。</div>
+      <div class="en">NVIDIA CEO Jensen Huang's arrival in Taiwan on May 23 ahead of Computex (June 2) ignited the entire AI semiconductor supply chain. MediaTek, the world's #2 fabless chipmaker, is embedded in the on-device AI narrative with its Dimensity series. Markets expect deepening MediaTek-NVIDIA collaboration in AI edge compute. Post-treatment-period (處置) recovery plus heavy institutional buying drove a gap-up limit-lock at 4,245 TWD, an all-time high. Short covering from previous elevated short interest added additional momentum.</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">籌碼觀察 / Flow Watch</div>
+    <div class="field-body bilingual">
+      <div class="zh">外資、投信雙買超，自營商亦轉買。聯發科先前因股價連日急漲被列為處置股（分盤交易），5月本次解除處置後法人快速補倉。特定外資分點（含大型外資券商）盤前即掛入大量委買，造成跳空開出即鎖漲停格局。融資餘額動向待確認，但研判以外資拉抬為主力，融資成份相對低。</div>
+      <div class="en">Foreign institutions (外資) and investment trusts (投信) both net-bought; proprietary dealers (自營) also flipped to buy. After being removed from "restricted trading" status, institutional funds rushed to rebuild positions. Large foreign brokerage desks placed heavy pre-open buy orders, causing gap-up limit-lock at the open. Margin (融資) data unconfirmed but the rally is predominantly institutional-driven rather than retail-leveraged.</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">社群聲量 / Retail Buzz</div>
+    <div class="field-body">PTT Stock 板多篇討論聯發科創歷史新高，討論重點包含「處置出關後補漲」、「黃仁勳題材不退燒」；有網友引用分析師目標價5,000元說法；CMoney 熱搜榜聯發科持續高居前三。同時 PTT 也有「擦鞋童理論」討論串，質疑台股是否過熱，但多數回應認為「AI 題材與基本面支撐有別於泡沫」。</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">炒作脈絡 / Narrative Context</div>
+    <div class="field-body">聯發科2026年屬於「AI端側＋Computex前題材」的雙主軸配置。過去類似 setup（台積電法說前夕、AI峰會前）常見法人提前卡位後跳空走高，隔日多為高開後震盪洗盤。族群擴散觀察：聯電、創意、世芯是否跟進。</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">後續觀察 / What To Watch Next</div>
+    <div class="field-body">
+      ① Computex (6/2起) 黃仁勳主題演講內容是否有明確聯發科合作利多。<br>
+      ② 隔日沖籌碼：漲停鎖死後隔日是否出現高開溜壓。<br>
+      ③ 量能能否延續：若隔日成交量萎縮且5MA向下，注意短線回調。<br>
+      ④ 目標價喊至5,000元的分析師報告是否後續跟進下修。<br>
+      <em style="color:var(--muted); font-size:0.85rem;">以上為分析觀點，非投資建議。</em>
+    </div>
+  </div>
+
+  <div class="field sources">
+    <div class="field-label">來源 / Sources</div>
+    <ul>
+      <li><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E4%BB%8A%E6%97%A5%E6%BC%B2%E5%81%9C%E8%82%A1-AI-%E5%8D%8A%E5%B0%8E%E9%AB%94%E9%A0%98%E8%BB%8D-%E5%8F%B0%E8%82%A1%E6%94%BB%E7%A0%B4-43000-%E9%BB%9E-%E8%81%AF%E7%99%BC%E7%A7%91-%E8%81%AF%E9%9B%BB-%E5%8F%8B%E9%81%94%E5%BC%B7%E5%8B%A2%E9%8E%96%E5%AE%9A-0525-6a13eba0b9f65b18ab6f5909" target="_blank">豐雲學堂 0525 今日漲停股</a></li>
+      <li><a href="https://www.businesstoday.com.tw/article/category/183015/post/202605050010/" target="_blank">今周刊：聯發科漲停第五根變妖股分析</a></li>
+      <li><a href="https://news.pchome.com.tw/finance/crwant/20260525/index-77967849143844316003.html" target="_blank">PChome財經：台股開盤飆到43628點</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 2. 群創 3481 -->
+<div class="card">
+  <div class="card-header">
+    <span class="ticker-big">3481</span>
+    <span class="co-name-big">群創光電 / Innolux</span>
+    <span class="price up">49.1元 (+9.96% 漲停🔒)</span>
+    <div class="tags">
+      <span class="tag tag-panel">面板轉型</span>
+      <span class="tag tag-panel">FOPLP</span>
+      <span class="tag tag-ai">AI封裝</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">今日數據 / Today's Tape</div>
+    <div class="chips-row">
+      <div class="chip"><span class="chip-label">收盤</span><span class="chip-val up">49.1元</span></div>
+      <div class="chip"><span class="chip-label">漲幅</span><span class="chip-val up">+9.96%</span></div>
+      <div class="chip"><span class="chip-label">16年新高</span><span class="chip-val up">創高</span></div>
+      <div class="chip"><span class="chip-label">委買排隊</span><span class="chip-val">38萬張+</span></div>
+      <div class="chip"><span class="chip-label">連漲停</span><span class="chip-val up">連三根</span></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="field-body bilingual">
+      <div class="zh">群創本波上漲已超越「面板景氣回升」的傳統敘事，市場正在重新定價其「AI先進封裝（FOPLP）轉型概念股」的身份。外資連日大幅買超，股價一個月內翻倍以上，達到16年來新高49.1元。更關鍵的是，群創股東常會訂於5月27日（周三）登場，市場預期管理層將揭示FOPLP、矽光子、車用AI等轉型進度，引發搶先卡位行情。借券賣出（空單）大幅增加後遭軋，部分分析師認為這是「瘋狗流軋空行情」。</div>
+      <div class="en">Innolux's rally has transcended its legacy cyclical-panel narrative. The market is repricing the company as an AI advanced packaging (FOPLP) transformation play. Foreign investors have been buying heavily for multiple consecutive sessions, driving the stock to a 16-year high at NT$49.1 — more than doubling in one month. With the AGM on May 27, investors are pre-positioning for FOPLP, silicon photonics, and automotive AI disclosures. Analysts note short-squeeze dynamics ("crazy dog" short squeeze) after heavy short-selling that backfired.</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">籌碼觀察 / Flow Watch</div>
+    <div class="field-body bilingual">
+      <div class="zh">外資目標價已全面超過當前股價，在漲停板上繼續追價買入，顯示外資並非拉高出貨，而是持續增倉。融券（空單）餘額因股價急漲造成回補壓力，融券強制回補與外資買超形成共振。委買掛單超過38萬張，為近年罕見大量，顯示市場對後市信心強烈。</div>
+      <div class="en">Foreign broker target prices now all exceed current market price, and they continued buying at the limit-up, signaling position building rather than distribution. Short sellers (融券) who built positions earlier are being forced to cover, creating a powerful short-squeeze amplifying foreign buying. 380,000+ shares queued at the limit-up is exceptionally high by recent standards.</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">社群聲量 / Retail Buzz</div>
+    <div class="field-body">Yahoo股市新聞、工商時報、聯合新聞網多篇頭條報導群創面板三雄漲停，討論度居本日台股最高。TVBS報導「專家示警1原因別盲目追高」，顯示市場已有過熱疑慮聲音。PTT Stock板討論「群創一個月漲逾1倍，到底能不能追？」為熱門文。</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">炒作脈絡 / Narrative Context</div>
+    <div class="field-body">群創2026年的轉型邏輯：不再是廉價面板廠，而是切入FOPLP（Fan-Out Panel Level Packaging）先進封裝，搶佔CoWoS之外的AI晶片封裝市場。若5/27股東會確認重大合作或量產時程，將進一步強化結構性多頭。歷史模式：面板股類似「題材重塑」行情在題材確認前常有急漲，股東會後若無新料可能出現短線獲利了結。</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">後續觀察 / What To Watch Next</div>
+    <div class="field-body">
+      ① 5/27（三）股東會FOPLP進度是否有具體時程揭示。<br>
+      ② 外資是否連續買超第5日。<br>
+      ③ 融券回補後空單是否已清空，清空後若無新空單介入，上漲動能可能減弱。<br>
+      ④ 是否進入TWSE「注意股」或「處置股」名單（連三日漲停+爆量是觸發門檻之一）。<br>
+      <em style="color:var(--muted); font-size:0.85rem;">以上為分析觀點，非投資建議。</em>
+    </div>
+  </div>
+
+  <div class="field sources">
+    <div class="field-label">來源 / Sources</div>
+    <ul>
+      <li><a href="https://www.chinatimes.com/realtimenews/20260525001661-260410" target="_blank">時報資訊：面板股強勢升級！三雄噴發漲停</a></li>
+      <li><a href="https://wantrich.chinatimes.com/news/20260525900377-420101" target="_blank">旺得富：群創友達目標價全超標 外資追價補貨</a></li>
+      <li><a href="https://tw.stock.yahoo.com/news/%E9%9D%A2%E6%9D%BF%E9%9B%99%E8%99%8E%E9%8E%96%E6%BC%B2%E5%81%9C%EF%BC%81%E7%BE%A4%E5%89%B5%E5%8F%8B%E9%81%94%E6%88%90%E4%BA%A4%E9%87%8F%E9%9C%B8%E6%A6%9C%E9%80%BE38%E8%90%AC%E5%BC%B5%E8%B2%B7%E5%96%AE%E9%AB%98%E6%8E%9B-%E5%88%86%E6%9E%90%E5%B8%AB%E6%A8%82%E7%9C%8B%E8%A1%8C%E6%83%85-020237626.html" target="_blank">Yahoo股市：群創友達成交量霸榜逾38萬張</a></li>
+      <li><a href="https://news.tvbs.com.tw/money/3212679" target="_blank">TVBS：面板迎資金狂潮！專家示警</a></li>
+      <li><a href="https://udn.com/news/story/7251/9518971" target="_blank">聯合新聞網：外資狂買超群創友達齊鎖漲停</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 3. 友達 2409 -->
+<div class="card">
+  <div class="card-header">
+    <span class="ticker-big">2409</span>
+    <span class="co-name-big">友達光電 / AUO</span>
+    <span class="price up">24.4元 (+9.95% 漲停🔒)</span>
+    <div class="tags">
+      <span class="tag tag-panel">面板轉型</span>
+      <span class="tag tag-panel">FOPLP</span>
+      <span class="tag tag-ai">車用AI</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">今日數據 / Today's Tape</div>
+    <div class="chips-row">
+      <div class="chip"><span class="chip-label">收盤</span><span class="chip-val up">24.4元</span></div>
+      <div class="chip"><span class="chip-label">漲幅</span><span class="chip-val up">+9.95%</span></div>
+      <div class="chip"><span class="chip-label">委買</span><span class="chip-val">38萬張+</span></div>
+      <div class="chip"><span class="chip-label">連漲停</span><span class="chip-val up">連二根</span></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="field-body bilingual">
+      <div class="zh">友達與群創並列「面板雙虎」，本日同步鎖住漲停。友達股東常會訂5月28日（四）舉行，市場焦點集中於：① AI先進封裝（FOPLP）具體進度、② 車用智慧移動業務佈局、③ 矽光子事業進展。外資在漲停板上連續追價補貨，顯示已有明確基本面看法。友達同時也受惠於群創的話題熱度「族群連動效應」。</div>
+      <div class="en">AUO tracked its twin Innolux with another limit-up. Its AGM on May 28 is the near-term catalyst, with analysts focused on: FOPLP packaging commercialization timeline, automotive intelligent mobility business expansion, and silicon photonics ventures. Foreign brokerages continued buying at limit-up price, signaling conviction rather than momentum chasing. Cross-stock sector contagion from Innolux's aggressive run also amplifies AUO's daily volatility.</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">籌碼觀察 / Flow Watch</div>
+    <div class="field-body">外資連日淨買超，目標價超過當前市價（外資目標價待確認精確數字）。投信同步加碼。自營商方向待確認。融券回補壓力與群創類似但規模可能略小。</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">社群聲量 / Retail Buzz</div>
+    <div class="field-body">友達討論熱度略低於群創，但因同步漲停，Yahoo 股市論壇與 CMoney 討論區均有大量「面板雙虎」主題討論。主要爭論點：「這波是真轉型還是又一次景氣循環拉高出貨？」</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">後續觀察 / What To Watch Next</div>
+    <div class="field-body">
+      ① 5/28 股東會具體轉型方向說明。<br>
+      ② 外資是否已達到其合理持股比率上限，後續買盤動能是否衰竭。<br>
+      ③ 大盤若出現盤整，面板雙虎是否會相對抗跌或率先回落。<br>
+      <em style="color:var(--muted); font-size:0.85rem;">以上為分析觀點，非投資建議。</em>
+    </div>
+  </div>
+
+  <div class="field sources">
+    <div class="field-label">來源 / Sources</div>
+    <ul>
+      <li><a href="https://finance.ettoday.net/news/3171497" target="_blank">ETtoday：面板股4檔飆漲停！群創友達股東會本周登場</a></li>
+      <li><a href="https://www.chinatimes.com/realtimenews/20260525001661-260410" target="_blank">時報資訊：面板三雄噴發漲停</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 4. 中鋼 2002 -->
+<div class="card">
+  <div class="card-header">
+    <span class="ticker-big">2002</span>
+    <span class="co-name-big">中國鋼鐵 / China Steel</span>
+    <span class="price up">19.95元 (+9.92% 漲停🔒)</span>
+    <div class="tags">
+      <span class="tag tag-steel">鋼鐵轉盈</span>
+      <span class="tag tag-steel">超薄電磁鋼</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">今日數據 / Today's Tape</div>
+    <div class="chips-row">
+      <div class="chip"><span class="chip-label">收盤</span><span class="chip-val up">19.95元</span></div>
+      <div class="chip"><span class="chip-label">漲幅</span><span class="chip-val up">+9.92%</span></div>
+      <div class="chip"><span class="chip-label">成交量</span><span class="chip-val">逾20萬張</span></div>
+      <div class="chip"><span class="chip-label">中鴻同步</span><span class="chip-val up">漲停18.85元</span></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="field-body bilingual">
+      <div class="zh">中鋼攻上漲停19.95元，為傳產類股最受矚目個股。驅動因素有三：① 4月單月營收由虧轉盈，創近23個月新高；② 盤價（自結算價）已連六個月調漲，鋼價上升趨勢確立；③ 中鋼近期發表0.1mm超薄電磁鋼並搭配自黏塗膜技術，技術水準躍居國際前列，被視為進軍「雙機（電動車＋機器人）」概念的基礎材料供應商。官股持續加碼護盤，低檔買盤湧現，空單被迫回補，帶動連中鴻、新鋼、燁興、海光等鋼鐵族群集體漲停。</div>
+      <div class="en">China Steel hit the limit-up at NT$19.95 with 200,000+ shares traded, becoming the most-watched traditional industry stock of the day. Three catalysts: ① April monthly revenue turned profitable for the first time in 23 months; ② Settlement prices have risen for six consecutive months, establishing an upward steel price trend; ③ New ultra-thin (0.1mm) electromagnetic steel technology positions CSC as a leading global supplier to EV and humanoid robot ("dual machine") manufacturers. State-owned fund buying (官股護盤) provided consistent support, and short-squeeze dynamics swept through the steel sector — CSC sub-stocks (中鴻, 新鋼, 燁興, 海光) also hit limit-up.</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">籌碼觀察 / Flow Watch</div>
+    <div class="field-body bilingual">
+      <div class="zh">官股（臺灣銀行、合庫等）持續逢低加碼，官股持股比率穩步墊高，形成「官方撐盤 vs 外資緩慢倒貨」的對作局面。外資外電給出目標價24元，技術面低檔整理後一口氣直攻漲停，短線乖離擴大。ETtoday報導「他第一反應蛤，山頂苦主說水才剛及腰」反映高點套牢戶對此波補漲的複雜情緒。</div>
+      <div class="en">State-run funds have been steadily accumulating on dips, creating a support base. Foreign investors have a 24 TWD target price. After an extended base period (低檔整理), today's jump to limit-up significantly widened short-term deviation from moving averages. Media commentary reflects the irony of long-suffering holders not yet breakeven even at this new high, suggesting potential resistance from trapped longs at higher prices.</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">社群聲量 / Retail Buzz</div>
+    <div class="field-body">ETtoday 社群文「他第一反應蛤」引發廣泛轉發，顯示中鋼有龐大散戶基礎。CMoney 討論區「中鋼終於要解套了嗎？」熱度高。工商時報稱「傳產最後一棒」，暗示鋼鐵類股補漲是這波多頭尾段的特徵。</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">炒作脈絡 / Narrative Context</div>
+    <div class="field-body">中鋼在台股具有「傳產壓軸指標」的地位，歷史上大盤歷史新高行情的最後幾天常出現鋼鐵股補漲。本次「雙機（EV+機器人）概念」是新型態 catalyst，若後續有國際車廠或機器人製造商訂單公告，則可望擺脫純景氣循環框架。</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">後續觀察 / What To Watch Next</div>
+    <div class="field-body">
+      ① 鋼價是否能維持七連漲，7月盤價調漲幅度是關鍵。<br>
+      ② 超薄電磁鋼是否有明確大客戶訂單公告（若有，題材升級）。<br>
+      ③ 傳產股漲停後隔日是否出現隔日沖賣壓（法人鎖定獲利了結）。<br>
+      <em style="color:var(--muted); font-size:0.85rem;">以上為分析觀點，非投資建議。</em>
+    </div>
+  </div>
+
+  <div class="field sources">
+    <div class="field-label">來源 / Sources</div>
+    <ul>
+      <li><a href="https://www.ettoday.net/news/20260525/3171794.htm" target="_blank">ETtoday：中鋼漲停19.95元！山頂苦主反應</a></li>
+      <li><a href="https://udn.com/news/story/7252/9523797" target="_blank">聯合新聞網：中鋼漲停板 雙機概念股發酵</a></li>
+      <li><a href="https://www.chinatimes.com/realtimenews/20260525002395-260410" target="_blank">時報資訊：傳產最後一棒？中鋼中鴻罕見漲停</a></li>
+      <li><a href="https://cmnews.com.tw/article/cmoneyairesearcher-3f0c0018-57f0-11f1-8c1e-0a34b7b6f490" target="_blank">CMoney即時：中鋼亮燈漲停19.95元，由虧轉盈</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 5. 仁寶 2324 -->
+<div class="card">
+  <div class="card-header">
+    <span class="ticker-big">2324</span>
+    <span class="co-name-big">仁寶電腦 / Compal Electronics</span>
+    <span class="price up">34.65元 (+9.97% 漲停🔒)</span>
+    <div class="tags">
+      <span class="tag tag-quantum">量子運算</span>
+      <span class="tag tag-ai">AI伺服器</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">今日數據 / Today's Tape</div>
+    <div class="chips-row">
+      <div class="chip"><span class="chip-label">收盤</span><span class="chip-val up">34.65元</span></div>
+      <div class="chip"><span class="chip-label">漲幅</span><span class="chip-val up">+9.97%</span></div>
+      <div class="chip"><span class="chip-label">委買</span><span class="chip-val">3.2萬張+</span></div>
+      <div class="chip"><span class="chip-label">同步漲停</span><span class="chip-val up">金寶/英業達</span></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="field-body bilingual">
+      <div class="zh">仁寶、金寶（2312）、英業達（2356）三檔「低價老AI股」齊漲停，催化劑為美國政府宣布投入200億美元資金投資九家量子運算公司（量子版晶片法案），帶動市場重新評估量子運算商機對「AI伺服器代工廠」的滲透。仁寶作為全球前三大筆電/AI伺服器代工商，市場認為其既有基礎設施可承接量子–經典混合（quantum-classical hybrid）運算訂單，搭配Computex在即，引發大量委買。</div>
+      <div class="en">Compal, Kinpo (2312), and Inventec (2356) all hit limit-up as a cluster of "old AI" ODM/EMS plays. The catalyst: the U.S. government announced $20B in quantum computing investments covering nine companies under a Quantum Chips Act-style program. Markets jumped to conclusion that AI server ODMs with existing infrastructure could onboard quantum-classical hybrid workloads. Pre-Computex positioning further amplified the move. All three hit the 34–65 TWD limit-up range.</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">籌碼觀察 / Flow Watch</div>
+    <div class="field-body">外資、投信同步買超，但成交量規模遠小於面板股，主要為散戶追價與融資介入。CMoney分析師報告指出「AI伺服器題材是真轉骨還是短線脈衝」尚待觀察，顯示基本面確認度較低。</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">社群聲量 / Retail Buzz</div>
+    <div class="field-body">聯合新聞網頭條「量子商機讓低價老AI動了？仁寶金寶英業達全漲停」，引發大量轉傳。CMoney討論區「仁寶漲停後AI伺服器題材還能撐多久？」為當日最多點讚之一。PTT有網友稱「量子概念是新題材還是在賭？」。</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">後續觀察 / What To Watch Next</div>
+    <div class="field-body">
+      ① 美國量子晶片法案實際立法進程——若後續無具體進展，題材可能快速退潮。<br>
+      ② Computex 6/2 若有量子–AI整合展示，可能延燒。<br>
+      ③ 仁寶基本面：AI伺服器ODM佔比是否有實質提升的財報數字佐證。<br>
+      <em style="color:var(--muted); font-size:0.85rem;">以上為分析觀點，非投資建議。</em>
+    </div>
+  </div>
+
+  <div class="field sources">
+    <div class="field-label">來源 / Sources</div>
+    <ul>
+      <li><a href="https://udn.com/news/story/7253/9523673" target="_blank">聯合新聞網：量子商機讓低價老AI動了？仁寶金寶英業達全漲停</a></li>
+      <li><a href="https://cmnews.com.tw/article/chenyixuan-42fdf604-55c1-11f1-825c-b68f6f6b0e1d" target="_blank">CMoney：仁寶漲停後AI伺服器題材分析</a></li>
+      <li><a href="https://www.ctee.com.tw/news/20260525700779-430201" target="_blank">工商時報：5/25盤中焦點股</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 6. 華新科 2492 -->
+<div class="card">
+  <div class="card-header">
+    <span class="ticker-big">2492</span>
+    <span class="co-name-big">華新科技 / Walsin Technology</span>
+    <span class="price up">~266元 (+9.9% 漲停🔒)</span>
+    <div class="tags">
+      <span class="tag tag-passive">被動元件MLCC</span>
+      <span class="tag tag-ai">AI伺服器</span>
+      <span class="tag tag-caution">處置股注意</span>
+    </div>
+  </div>
+
+  <div class="caution-box">⚠️ 處置股警示：華新科因短期累積漲幅過大，已於近期被列入TWSE處置股（分盤交易）名單，交易機制與一般股票不同，請注意流動性風險。</div>
+
+  <div class="field" style="margin-top:12px;">
+    <div class="field-label">今日數據 / Today's Tape</div>
+    <div class="chips-row">
+      <div class="chip"><span class="chip-label">收盤估</span><span class="chip-val up">~266元</span></div>
+      <div class="chip"><span class="chip-label">漲幅</span><span class="chip-val up">+9.9%</span></div>
+      <div class="chip"><span class="chip-label">波段漲幅</span><span class="chip-val up">131→266元 +103%</span></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="field-body bilingual">
+      <div class="zh">被動元件族群整體同步噴發，包含華新科（2492）、禾伸堂（3026）、日電貿（3090）、信昌電（6173）等多達10檔同步鎖停。驅動力：① MLCC（積層陶瓷電容）因AI伺服器功耗飆升，需求大增——AI伺服器單機耗電從數百瓦暴增至千瓦以上，帶動高階被動元件需求倍增；② Panasonic（7月）、Kemet（基美，6月）等日系廠商宣布漲價5%–65%，帶動漲價預期；③ 大盤大漲3%以上，被動元件族群跟隨資金輪動爆量。</div>
+      <div class="en">Passive components erupted sector-wide with 10+ stocks hitting limit-up. Drivers: ① AI server power consumption has surged from hundreds of watts to 1,000+ watts per server, dramatically increasing demand for high-end MLCCs and tantalum capacitors; ② Panasonic (July) and Kemet (June) announced price hikes of 5–65%, reinforcing pricing power expectations; ③ The 3%+ market surge triggered broad sector rotation into passive component stocks. Walsin Technology (2492) has already doubled from NT$131 to ~NT$266 in recent weeks.</div>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">籌碼觀察 / Flow Watch</div>
+    <div class="field-body">主力與三大法人連日買超，外資目標價公告推升信心。但華新科已被列入處置股，分盤交易降低了日內流動性。CMoney研究員報告：「進處置還繼續衝漲停」顯示籌碼依然強勁。前波4月底進場的投信持倉成本遠低於當前，獲利豐厚。</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">後續觀察 / What To Watch Next</div>
+    <div class="field-body">
+      ① 處置期何時結束？結束後流動性恢復，可能帶動急漲或大幅回落。<br>
+      ② 真正的漲價令（漲幅確認）時間點（松下7月、基美6月）。<br>
+      ③ 國巨（2327）等同族群龍頭是否跟上，若龍頭補漲則族群行情仍在。<br>
+      <em style="color:var(--muted); font-size:0.85rem;">以上為分析觀點，非投資建議。</em>
+    </div>
+  </div>
+
+  <div class="field sources">
+    <div class="field-label">來源 / Sources</div>
+    <ul>
+      <li><a href="https://www.nownews.com/news/6838589" target="_blank">NOWnews：被動元件又噴了！國巨衝天價 華新科等10檔全數漲停</a></li>
+      <li><a href="https://tw.stock.yahoo.com/news/%E8%A2%AB%E5%8B%95%E5%85%83%E4%BB%B6%E8%B6%85%E7%86%B1-%E9%80%99%E6%AA%94-%E9%80%A310%E6%BC%B2%E8%BF%9190-%E6%94%9C%E5%9C%8B%E5%B7%A8-%E8%8F%AF%E6%96%B0%E7%A7%91-094500368.html" target="_blank">Yahoo股市：被動元件超熱！連10漲近90%</a></li>
+      <li><a href="https://cmnews.com.tw/article/cmoneyairesearcher-db543fe1-54bf-11f1-86e1-96f45dfdd3fd" target="_blank">CMoney：華新科攻上漲停266元</a></li>
+      <li><a href="https://wantrich.chinatimes.com/news/20260521900372-420101" target="_blank">旺得富：被動元件全線噴發 專家剖析</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ====== WATCH LIST ====== -->
+<h2>次熱觀察 / Watch List</h2>
+<div class="watch-grid">
+  <div class="watch-card">
+    <div class="wt">6116</div>
+    <div class="wn">彩晶 Hannstar</div>
+    <div class="wd"><span class="up">+9.9% 漲停</span>，面板三雄跟漲，基本面較弱但族群連動。需觀察轉型題材是否獨立。</div>
+  </div>
+  <div class="watch-card">
+    <div class="wt">2356</div>
+    <div class="wn">英業達 Inventec</div>
+    <div class="wd"><span class="up">漲停 65.4元</span>，量子＋AI伺服器 ODM，與仁寶同族群。財報佐證AI轉骨待確認。</div>
+  </div>
+  <div class="watch-card">
+    <div class="wt">2312</div>
+    <div class="wn">金寶 Kinpo</div>
+    <div class="wd"><span class="up">漲停 36.4元</span>，仁寶集團股，量子題材連動，但基本面連結度較弱。</div>
+  </div>
+  <div class="watch-card">
+    <div class="wt">2303</div>
+    <div class="wn">聯電 UMC</div>
+    <div class="wd"><span class="up">+9.9%+ 漲停</span>，英特爾合作＋成熟製程漲價，26年波段高峰，外資連買。AI CoWoS旁系受惠。</div>
+  </div>
+  <div class="watch-card">
+    <div class="wt">2330</div>
+    <div class="wn">台積電 TSMC</div>
+    <div class="wd">收盤~2,285–2,310元 (+2%+)，黃仁勳訪台、Computex前夕，外資大幅加碼，為大盤量能主力。</div>
+  </div>
+</div>
+
+<!-- ====== CAUTION LIST ====== -->
+<h2>異常注意 / Caution List</h2>
+<div class="card" style="border-color:#7f1d1d; background:#160505;">
+  <h3 style="color:#fca5a5;">⚠️ 處置股與高風險注意名單</h3>
+  <div class="field-body" style="font-size:0.9rem; margin-top:10px;">
+    <p><strong>華新科 (2492)</strong> — 已列入處置股（分盤交易），累積漲幅超過100%，短線乖離過大。處置期間流動性下降，止損成本偏高。</p>
+    <p style="margin-top:8px;"><strong>禾伸堂 (3026)</strong> — 同樣已列處置股，被動元件族群整體過熱，宜留意「族群輪動退燒」風險。</p>
+    <p style="margin-top:8px;"><strong>群創 / 友達</strong> — 連日爆量漲停後，留意TWSE是否將其納入「注意股」或「處置股」（連三日漲停+成交量異常是觸發指標之一）。若進入處置，主力可能利用分盤機制操作出貨。</p>
+    <p style="margin-top:8px;"><strong>彩晶 (6116)</strong> — 相對面板雙虎基本面較弱，若大盤回落或面板題材退燒，可能率先跌深。</p>
+    <p style="margin-top:8px; color:var(--muted); font-size:0.82rem;">⚠️ 以上均為風險提示，非推介或看空建議。投資人應自行評估風險。</p>
+  </div>
+</div>
+
+<!-- ====== SOURCES FOOTER ====== -->
+<h2>全部來源 / All Sources Consulted</h2>
+<div class="sources" style="font-size:0.82rem; line-height:1.8;">
+  <ul>
+    <li><a href="https://cmnews.com.tw/article/cmoneyaicurator-59f9b58c-580e-11f1-88eb-93075b16466b" target="_blank">CMoney：05/25台股盤後總覽 大盤漲逾1376點</a></li>
+    <li><a href="https://www.sinotrade.com.tw/richclub/hotstock/%E4%BB%8A%E6%97%A5%E6%BC%B2%E5%81%9C%E8%82%A1-AI-%E5%8D%8A%E5%B0%8E%E9%AB%94%E9%A0%98%E8%BB%8D-%E5%8F%B0%E8%82%A1%E6%94%BB%E7%A0%B4-43000-%E9%BB%9E-%E8%81%AF%E7%99%BC%E7%A7%91-%E8%81%AF%E9%9B%BB-%E5%8F%8B%E9%81%94%E5%BC%B7%E5%8B%A2%E9%8E%96%E5%AE%9A-0525-6a13eba0b9f65b18ab6f5909" target="_blank">豐雲學堂：今日漲停股 0525 AI半導體領軍台股攻破43000點</a></li>
+    <li><a href="https://news.pchome.com.tw/finance/crwant/20260525/index-77967849143844316003.html" target="_blank">PChome財經：台股開盤飆到43628點 聯發科聯電仁寶漲停</a></li>
+    <li><a href="https://www.chinatimes.com/realtimenews/20260525001661-260410" target="_blank">時報資訊：面板股強勢升級！三雄噴發漲停 群創一個月漲逾1倍</a></li>
+    <li><a href="https://wantrich.chinatimes.com/news/20260525900377-420101" target="_blank">旺得富：群創友達目標價全超標！外資漲停板追價</a></li>
+    <li><a href="https://tw.stock.yahoo.com/news/%E9%9D%A2%E6%9D%BF%E9%9B%99%E8%99%8E%E9%8E%96%E6%BC%B2%E5%81%9C%EF%BC%81%E7%BE%A4%E5%89%B5%E5%8F%8B%E9%81%94%E6%88%90%E4%BA%A4%E9%87%8F%E9%9C%B8%E6%A6%9C%E9%80%BE38%E8%90%AC%E5%BC%B5%E8%B2%B7%E5%96%AE%E9%AB%98%E6%8E%9B-%E5%88%86%E6%9E%90%E5%B8%AB%E6%A8%82%E7%9C%8B%E8%A1%8C%E6%83%85-020237626.html" target="_blank">Yahoo股市：群創友達成交量霸榜逾38萬張買單高掛</a></li>
+    <li><a href="https://finance.ettoday.net/news/3171497" target="_blank">ETtoday財經雲：面板股4檔飆漲停！股東會本周登場</a></li>
+    <li><a href="https://news.tvbs.com.tw/money/3212679" target="_blank">TVBS：面板迎資金狂潮！群創友達都亮燈 專家示警</a></li>
+    <li><a href="https://udn.com/news/story/7251/9518971" target="_blank">聯合新聞網：外資狂買超+華麗轉型題材！群創友達齊鎖漲停</a></li>
+    <li><a href="https://www.ettoday.net/news/20260525/3171794.htm" target="_blank">ETtoday：中鋼漲停19.95元！山頂苦主：水才剛及腰</a></li>
+    <li><a href="https://udn.com/news/story/7252/9523797" target="_blank">聯合新聞網：中鋼漲停板拉出長紅棒 雙機概念股發酵</a></li>
+    <li><a href="https://www.chinatimes.com/realtimenews/20260525002395-260410" target="_blank">時報資訊：傳產最後一棒？中鋼中鴻罕見漲停！後市看漲</a></li>
+    <li><a href="https://udn.com/news/story/7253/9523673" target="_blank">聯合新聞網：量子商機讓低價老AI動了？仁寶金寶英業達全漲停</a></li>
+    <li><a href="https://www.ctee.com.tw/news/20260525700779-430201" target="_blank">工商時報：5/25盤中焦點股</a></li>
+    <li><a href="https://www.ctee.com.tw/news/20260525700396-430201" target="_blank">工商時報：5/25盤前 從AI伺服器到機器人 台廠COMPUTEX秀肌肉</a></li>
+    <li><a href="https://www.nownews.com/news/6838589" target="_blank">NOWnews：被動元件又噴了！國巨衝天價 華新科等10檔全數漲停</a></li>
+    <li><a href="https://wantrich.chinatimes.com/news/20260521900372-420101" target="_blank">旺得富：被動元件全線噴發 5家香過國巨華新科</a></li>
+    <li><a href="https://cmnews.com.tw/article/cmoneyairesearcher-db543fe1-54bf-11f1-86e1-96f45dfdd3fd" target="_blank">CMoney：華新科攻上漲停266元，被動元件多頭續攻</a></li>
+    <li><a href="https://news.cnyes.com/news/id/6466293" target="_blank">鉅亨網：台股狂飆千點、外資翻多加碼603億</a></li>
+    <li><a href="https://www.twse.com.tw/zh/trading/foreign/t86.html" target="_blank">TWSE：三大法人買賣超日報</a></li>
+    <li><a href="https://www.ptt.cc/bbs/Stock/index.html" target="_blank">PTT Stock板</a></li>
+    <li><a href="https://www.cmoney.tw/finance/popular-rank" target="_blank">CMoney 熱搜排行</a></li>
+    <li><a href="https://www.wantgoo.com/stock/popular-rank" target="_blank">玩股網 人氣排行</a></li>
+    <li><a href="https://goodinfo.tw/tw/index.asp" target="_blank">Goodinfo! 台灣股市資訊網</a></li>
+  </ul>
+</div>
+
+<footer>
+  <p>本報告資料截至 2026-05-25 TWSE 收盤 (13:30 Asia/Taipei)。部分數據來自即時新聞報導引用，精確收盤價/成交量請以 TWSE 官網為準。本報告僅供資訊參考，不構成任何投資建議。「待確認」標示代表截稿前未能從公開來源確認之數字。</p>
+  <p style="margin-top:6px;">Generated by Claude (hot-tw-stocks skill) · <a href="https://www.twse.com.tw" style="color:#60a5fa;">TWSE</a> · <a href="https://www.tpex.org.tw" style="color:#60a5fa;">TPEx</a></p>
+</footer>
+
+</div>
+</body>
+</html>
