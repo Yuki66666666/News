@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日美股熱門焦點股 — Hot US Stocks · May 22, 2026</title>
+<style>
+  :root { color-scheme: light; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.6;
+    padding: 0 0 60px;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 60%, #1a1a2e 100%);
+    color: #fff;
+    padding: 28px 32px 20px;
+    border-bottom: 3px solid #e94560;
+  }
+  .header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; }
+  .header .subtitle { font-size: 0.85rem; color: #a8b2d8; margin-top: 4px; }
+  .header .badge {
+    display: inline-block; background: #e94560; color: #fff;
+    font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 99px;
+    margin-right: 8px; vertical-align: middle; letter-spacing: 0.5px;
+  }
+  .header .mkt-summary {
+    margin-top: 14px; display: flex; flex-wrap: wrap; gap: 18px;
+    font-size: 0.82rem; color: #c8d0e7;
+  }
+  .header .mkt-summary span { white-space: nowrap; }
+  .header .mkt-summary .up   { color: #4ade80; font-weight: 600; }
+  .header .mkt-summary .down { color: #f87171; font-weight: 600; }
+
+  /* ── Content ── */
+  .content { max-width: 960px; margin: 0 auto; padding: 28px 20px 0; }
+
+  /* ── Section title ── */
+  .section-title {
+    font-size: 1.05rem; font-weight: 700; color: #0f3460;
+    border-left: 4px solid #e94560; padding-left: 10px;
+    margin: 32px 0 14px;
+  }
+
+  /* ── Summary table ── */
+  .table-wrap { overflow-x: auto; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+  table { width: 100%; border-collapse: collapse; background: #fff; font-size: 0.82rem; }
+  thead tr { background: #0f3460; color: #fff; }
+  thead th { padding: 10px 12px; text-align: left; font-weight: 600; white-space: nowrap; }
+  tbody tr { border-bottom: 1px solid #f0f0f0; }
+  tbody tr:hover { background: #fafbff; }
+  tbody td { padding: 9px 12px; vertical-align: middle; white-space: nowrap; }
+  .up   { color: #16a34a; font-weight: 700; }
+  .down { color: #dc2626; font-weight: 700; }
+  .neutral { color: #6b7280; }
+  .buzz-stars { color: #f59e0b; letter-spacing: 1px; }
+
+  /* ── Stock cards ── */
+  .stock-card {
+    background: #fff; border-radius: 12px; padding: 22px 24px;
+    margin-bottom: 20px; box-shadow: 0 2px 14px rgba(0,0,0,.07);
+    border-top: 4px solid #e94560;
+  }
+  .stock-card.gainer { border-top-color: #16a34a; }
+  .stock-card.loser  { border-top-color: #dc2626; }
+  .stock-card.mixed  { border-top-color: #f59e0b; }
+  .stock-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .stock-ticker { font-size: 1.3rem; font-weight: 800; color: #0f3460; }
+  .stock-name   { font-size: 0.88rem; color: #6b7280; margin-top: 2px; }
+  .tape-row { display: flex; flex-wrap: wrap; gap: 10px; font-size: 0.8rem; margin-bottom: 14px; }
+  .tape-pill {
+    background: #f1f5f9; border-radius: 6px; padding: 3px 10px;
+    font-weight: 500; color: #334155;
+  }
+  .tape-pill.green { background: #dcfce7; color: #15803d; }
+  .tape-pill.red   { background: #fee2e2; color: #b91c1c; }
+  .tape-pill.amber { background: #fef3c7; color: #92400e; }
+
+  .section-block { margin-bottom: 12px; }
+  .section-block h4 {
+    font-size: 0.78rem; font-weight: 700; color: #e94560;
+    text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 5px;
+  }
+  .section-block p { font-size: 0.85rem; color: #374151; }
+  .section-block .zh { color: #1e3a5f; margin-bottom: 4px; }
+  .section-block .en { color: #4b5563; font-style: italic; }
+
+  /* ── Watch list ── */
+  .watchlist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+  .watchlist-card {
+    background: #fff; border-radius: 10px; padding: 14px 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06); border-left: 3px solid #a78bfa;
+  }
+  .watchlist-card h4 { font-size: 0.95rem; font-weight: 700; color: #0f3460; }
+  .watchlist-card p  { font-size: 0.78rem; color: #6b7280; margin-top: 4px; }
+
+  /* ── Halts / weird ── */
+  .halts-card {
+    background: #fff8f0; border: 1px solid #fed7aa; border-radius: 10px;
+    padding: 16px 18px; margin-bottom: 14px;
+  }
+  .halts-card h4 { font-size: 0.9rem; font-weight: 700; color: #c2410c; margin-bottom: 6px; }
+  .halts-card p  { font-size: 0.83rem; color: #451a03; }
+
+  /* ── Sources footer ── */
+  .sources { margin-top: 32px; padding: 20px; background: #f1f5f9; border-radius: 10px; font-size: 0.75rem; color: #64748b; }
+  .sources h3 { font-size: 0.82rem; font-weight: 700; color: #334155; margin-bottom: 8px; }
+  .sources ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 14px; }
+  .sources a  { color: #2563eb; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+
+  /* ── Disclaimer ── */
+  .disclaimer {
+    margin-top: 20px; padding: 14px 18px; background: #fff3cd;
+    border: 1px solid #ffc107; border-radius: 8px;
+    font-size: 0.75rem; color: #665200;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>
+    <span class="badge">HOT</span>今日美股熱門焦點股
+    <span style="font-size:1rem;font-weight:400;opacity:0.8"> / Hot US Stocks of the Day</span>
+  </h1>
+  <div class="subtitle">交易日：May 22, 2026 (Friday RTH close) ｜ 製作時間：May 26, 2026 (Asia/Taipei)</div>
+  <div class="mkt-summary">
+    <span>S&amp;P 500 <span class="up">7,473.47 (+0.37%)</span></span>
+    <span>Nasdaq <span class="up">26,343.97 (+0.19%)</span></span>
+    <span>Dow <span class="up">50,579.70 (+0.58%)</span></span>
+    <span>VIX <span class="neutral">16.70 (-0.36%)</span></span>
+    <span>週漲跌 SPX 8連週上漲 <span class="up">+0.9%</span></span>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- ══ SECTION 1: SUMMARY TABLE ══ -->
+  <div class="section-title">Hot 7 — 今日主角一覽</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>公司</th>
+          <th>Close</th>
+          <th>% Move</th>
+          <th>類型</th>
+          <th>Options</th>
+          <th>Buzz</th>
+          <th>Catalyst 摘要</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ROST</strong></td>
+          <td>Ross Stores</td>
+          <td>~$229</td>
+          <td class="up">+7.1%</td>
+          <td>大型股 / Gainer</td>
+          <td>Put 10x avg · 52W high</td>
+          <td class="buzz-stars">★★★★★</td>
+          <td>Q1 EPS $2.02 vs $1.76E · 17% SSS史上最高</td>
+        </tr>
+        <tr>
+          <td><strong>FUTU</strong></td>
+          <td>Futu Holdings</td>
+          <td>$89.76</td>
+          <td class="down">−27.5%</td>
+          <td>中概股 / Loser</td>
+          <td>Put 爆量</td>
+          <td class="buzz-stars">★★★★★</td>
+          <td>CSRC罰款¥18.5億 + 2年整改令</td>
+        </tr>
+        <tr>
+          <td><strong>TIGR</strong></td>
+          <td>UP Fintech</td>
+          <td>~$7.8</td>
+          <td class="down">−23%</td>
+          <td>中概股 / Loser</td>
+          <td>Put 爆量</td>
+          <td class="buzz-stars">★★★★</td>
+          <td>同一波 CSRC 整治 Tiger Brokers</td>
+        </tr>
+        <tr>
+          <td><strong>QUBT</strong></td>
+          <td>Quantum Computing</td>
+          <td>~$13.20</td>
+          <td class="up">+15.6%</td>
+          <td>量子/題材股</td>
+          <td>Call:Put = 19:4</td>
+          <td class="buzz-stars">★★★★</td>
+          <td>Q1 Rev $3.7M 爆增 · 量子板塊接力行情</td>
+        </tr>
+        <tr>
+          <td><strong>HLIT</strong></td>
+          <td>Harmonic</td>
+          <td>$14.78</td>
+          <td class="up">+16.4%</td>
+          <td>科技/中型股</td>
+          <td>Call 92x avg · IV+</td>
+          <td class="buzz-stars">★★★★</td>
+          <td>Q1 Rev $171.8M vs $102E · 寬頻+43%</td>
+        </tr>
+        <tr>
+          <td><strong>AKTX</strong></td>
+          <td>Akari Therapeutics</td>
+          <td>待確認</td>
+          <td class="up">+122%</td>
+          <td>生技/低浮籌</td>
+          <td>待確認</td>
+          <td class="buzz-stars">★★★</td>
+          <td>AKTX-101 KRAS 胰臟癌 preclinical 突破 + $5.5M 融資</td>
+        </tr>
+        <tr>
+          <td><strong>PCLA</strong></td>
+          <td>PicoCELA</td>
+          <td>$5.55</td>
+          <td class="up">+149%</td>
+          <td>低浮籌/動能</td>
+          <td>待確認</td>
+          <td class="buzz-stars">★★★</td>
+          <td>低浮籌 momentum squeeze · 無明確基本面 catalyst</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══ DEEP DIVES ══ -->
+  <div class="section-title">深度解析 — Per-Ticker Deep Dive</div>
+
+  <!-- ROST -->
+  <div class="stock-card gainer">
+    <div class="stock-header">
+      <div>
+        <div class="stock-ticker">$ROST &nbsp;<span style="font-size:0.9rem;color:#16a34a">▲ +7.1%</span></div>
+        <div class="stock-name">Ross Stores, Inc. ／ 美國折扣零售龍頭</div>
+      </div>
+    </div>
+    <div class="tape-row">
+      <span class="tape-pill green">Close ~$229</span>
+      <span class="tape-pill green">+7.1% RTH</span>
+      <span class="tape-pill">Put 8,468 contracts · 10× avg</span>
+      <span class="tape-pill amber">52-Week HIGH</span>
+      <span class="tape-pill">盤前即跳空高開</span>
+    </div>
+
+    <div class="section-block">
+      <h4>為什麼今天熱 / Why it's hot today</h4>
+      <p class="zh">Ross Stores 在 5/21 盤後公布 FY2026 Q1 財報，繳出史上最強數字：Non-GAAP EPS $2.02（vs 預期 $1.76，beat +14.8%），營收 $6.01B（vs 預期 $5.75B），可比門市銷售成長 17%，是其 40 年歷史中最高增速。管理層同步上調全年 EPS 指引至 $7.50–$7.74，可比銷售增長展望提升至 6–7%。市場反應立即且劇烈，盤前即大漲，正式開盤後延續至收盤，創下新的 52 週高點。</p>
+      <p class="en">Ross Stores delivered its strongest-ever comparable-store sales growth of 17% in Q1 FY2026, blowing past both the EPS ($2.02 vs. $1.76 est.) and revenue ($6.01B vs. $5.75B est.) consensus. Management raised full-year EPS guidance to $7.50–$7.74. The stock gapped up pre-market and held its gains through the close, hitting a new 52-week high.</p>
+    </div>
+
+    <div class="section-block">
+      <h4>Options &amp; Flow</h4>
+      <p>異常 Put 活動：8,468 puts traded (10× 平均 put 量；put:call = 3:1)，集中在 July 17 expiry / $210 strike，兩筆大單共 6,200 合約平均 $2.23 成交，行為偏向「賣 put 收 premium」（neutral-to-bullish）。IV 整體因財報公布後 crush，call-side IV 在新高位有所回落。短期 call OI 集中在 $230–$240 strike，gamma 壓力偏多。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>Retail Buzz</h4>
+      <p>WSB / r/stocks：多個帖子討論「ROST 是 tariff-proof retail」敘事，認為消費者下移至折扣通路是持續性趨勢。StockTwits 上 ROST 出現罕見高度情緒標記。X (Twitter) cashtag $ROST 討論量暴增，核心 narrative：「關稅環境下的 recession-resistant play」。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>炒作脈絡 / Narrative Context</h4>
+      <p>Ross 與 TJX、BURL 同屬 off-price retail，在通膨/消費降級大環境下是市場公認「防禦型成長股」。此次 17% SSS 遠超預期，打破了「折扣零售成長上限」的疑慮，是結構性 re-rating 而非短期 meme 動能。與之前 TJX 強勁財報形成板塊共振。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>後續觀察 / What to Watch Next</h4>
+      <p>1) $230 附近是否有賣壓（技術面阻力兼 call wall）；2) TJX 後續財報若同樣強勁，ROST 可能再有上行；3) 分析師 PT 上調潮是否帶來更多機構資金流入；4) 消費信心數據是否強化「降級消費」thesis。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>Sources</h4>
+      <p>
+        <a href="https://www.tradingkey.com/news/market-movers/261923343-market-movers-rost-20260522" target="_blank">TradingKey ROST +7.12%</a> ·
+        <a href="https://www.chartmill.com/news/ROST/Chartmill-48887-Ross-Stores-NASDAQROST-Surges-After-Smashing-Q1-Estimates-and-Raising-Full-Year-Guidance" target="_blank">ChartMill</a> ·
+        <a href="https://www.stocktitan.net/news/ROST/ross-stores-reports-robust-first-quarter-sales-and-earnings-results-hekd6z3wgnzl.html" target="_blank">StockTitan Q1 EPS</a> ·
+        <a href="https://www.benzinga.com/calendars/unusual-options-activity" target="_blank">Benzinga Unusual Options (ROST put)</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- FUTU -->
+  <div class="stock-card loser">
+    <div class="stock-header">
+      <div>
+        <div class="stock-ticker">$FUTU &nbsp;<span style="font-size:0.9rem;color:#dc2626">▼ −27.5%</span></div>
+        <div class="stock-name">Futu Holdings Ltd. ／ 富途控股（港版 Robinhood）</div>
+      </div>
+    </div>
+    <div class="tape-row">
+      <span class="tape-pill red">Close $89.76 (−27.5%)</span>
+      <span class="tape-pill red">盤前最深 −35%，低至 $80.55</span>
+      <span class="tape-pill">1年低點</span>
+      <span class="tape-pill amber">YTD 高點以來跌 >50%</span>
+    </div>
+
+    <div class="section-block">
+      <h4>為什麼今天熱 / Why it's hot today</h4>
+      <p class="zh">中國證監會（CSRC）聯合人民銀行、公安部等 8 個部門，於 5/22 宣布對富途控股開出史上最大跨境券商罰單：擬沒收違法所得並處罰款合計約人民幣 18.5 億元（約 2.71 億美元），理由是富途旗下多個主體在中國大陸違規從事證券、基金、期貨仲介業務。更關鍵的是，監管同時宣布「強制 2 年整改期」，現有大陸客戶在整改期內僅能賣出持倉、不得新開倉或注資，實際上等同於宣告其中國大陸業務的終結。</p>
+      <p class="en">China's CSRC — coordinating with 8 ministries — issued a formal investigation notice and administrative penalty pre-notification against Futu, proposing a RMB 1.85 billion (~$271M) fine for operating mainland brokerage services without a domestic license. A mandatory 2-year wind-down order blocks any new buy-side orders from existing mainland clients, effectively terminating the company's mainland business. This was the defining China regulatory shock of the week.</p>
+    </div>
+
+    <div class="section-block">
+      <h4>Options &amp; Flow</h4>
+      <p>盤前 put 量爆量，OI 在近月低 strike 快速堆積，顯示機構及散戶大量對沖。收盤後仍有零星 put 掛單活動。Short interest：待確認（事件發生迅速，Ortex/Fintel 數據延遲）。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>Retail Buzz</h4>
+      <p>StockTwits $FUTU 下方洗牌，情緒幾乎一面倒 bearish。WSB 討論有人把 FUTU/TIGR 事件對比 2022 年教育股監管殺估值案例（好未來/新東方）。X cashtag 上出現「中概雷區」相關討論，不少散戶在問「還能抄底嗎？」</p>
+    </div>
+
+    <div class="section-block">
+      <h4>炒作脈絡 / Narrative Context</h4>
+      <p>FUTU 自 2022 年起已被禁止在大陸招募新客，此次是升級版打擊——不只禁新客，連舊客都強制退出。市場對照 2021 年滴滴、好未來遭監管清算的案例，擔憂 FUTU 核心估值邏輯崩塌。香港業務及海外（新加坡、美國）客戶不受直接影響，但佔整體 AUM 比重存疑。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>後續觀察 / What to Watch Next</h4>
+      <p>1) FUTU 管理層回應聲明中大陸 AUM 比例披露；2) 2 年整改期執行細則（是否允許 HK/SG 帳戶移轉）；3) CSRC 是否對其他跨境平台（如 Longbridge）採取一致行動；4) 財報（預計 Q2 2026）時大陸業務收入佔比；5) 是否出現跌深反彈交易機會（需確認監管措辭最終版本）。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>Sources</h4>
+      <p>
+        <a href="https://www.fool.com/coverage/filings/2026/05/24/futu-stock-plunged-30-on-regulatory-news-this-investor-was-already-out/" target="_blank">Motley Fool FUTU −30%</a> ·
+        <a href="https://seekingalpha.com/news/4596301-futu-stock-plunges-on-investigation-penalty-related-letter-from-chinas-regulator" target="_blank">Seeking Alpha</a> ·
+        <a href="https://www.bloomberg.com/news/articles/2026-05-22/china-to-penalize-tiger-futu-in-cross-border-broker-crackdown" target="_blank">Bloomberg</a> ·
+        <a href="https://www.investing.com/news/stock-market-news/why-is-futu-holdings-stock-collapsing-today-93CH-4706184" target="_blank">Investing.com</a> ·
+        <a href="https://finance.yahoo.com/markets/stocks/articles/futu-tigr-stocks-crashing-today-112811709.html" target="_blank">Yahoo Finance FUTU/TIGR</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- TIGR -->
+  <div class="stock-card loser">
+    <div class="stock-header">
+      <div>
+        <div class="stock-ticker">$TIGR &nbsp;<span style="font-size:0.9rem;color:#dc2626">▼ −23%</span></div>
+        <div class="stock-name">UP Fintech Holding (Tiger Brokers) ／ 老虎證券</div>
+      </div>
+    </div>
+    <div class="tape-row">
+      <span class="tape-pill red">Close ~$7.8 (−23%)</span>
+      <span class="tape-pill red">盤前最深 −47%</span>
+      <span class="tape-pill amber">罰款 ¥3.08 億 + 沒收 ¥1.03 億</span>
+    </div>
+
+    <div class="section-block">
+      <h4>為什麼今天熱 / Why it's hot today</h4>
+      <p class="zh">Tiger Brokers 與 FUTU 同一波遭 CSRC 開罰，被迫啟動 2 年強制退出程序。TIGR 股本較小，跌幅相對更劇烈。盤前一度崩跌 47%，尾盤有所回補但仍收跌 23%。</p>
+      <p class="en">UP Fintech's Tiger Brokers received the same CSRC enforcement action alongside Futu, with fines totaling RMB 308.1M + RMB 103.1M in confiscated illegal gains. The stock cratered 47% in pre-market before recovering to -23% at close. Like FUTU, a 2-year wind-down of mainland operations was ordered.</p>
+    </div>
+
+    <div class="section-block">
+      <h4>後續觀察 / What to Watch Next</h4>
+      <p>Tiger 的海外業務（新加坡、澳洲、NZ）受影響較小，但大陸客戶佔比是關鍵。若 Longbridge 同樣受罰，板塊性恐慌可能延伸至其他在美上市中概金融平台。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>Sources</h4>
+      <p>
+        <a href="https://seekingalpha.com/news/4596356-up-fintech-stock-loses-23-after-chinese-investigation-notice-penalties" target="_blank">Seeking Alpha TIGR −23%</a> ·
+        <a href="https://coincentral.com/up-fintech-tigr-stock-drops-35-after-china-regulator-moves-to-shut-down-core-business/" target="_blank">CoinCentral</a> ·
+        <a href="https://stocktwits.com/news-articles/markets/equity/why-futu-tigr-stock-down-today-china-crackdown/" target="_blank">StockTwits</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- HLIT -->
+  <div class="stock-card gainer">
+    <div class="stock-header">
+      <div>
+        <div class="stock-ticker">$HLIT &nbsp;<span style="font-size:0.9rem;color:#16a34a">▲ +16.4%</span></div>
+        <div class="stock-name">Harmonic Inc. ／ 寬頻基礎設施技術公司</div>
+      </div>
+    </div>
+    <div class="tape-row">
+      <span class="tape-pill green">Close $14.78 (+16.4%)</span>
+      <span class="tape-pill">前收 $12.70</span>
+      <span class="tape-pill amber">Call 92× avg · 150× puts</span>
+      <span class="tape-pill">Rosenblatt PT ↑ $20</span>
+    </div>
+
+    <div class="section-block">
+      <h4>為什麼今天熱 / Why it's hot today</h4>
+      <p class="zh">Harmonic 繳出超強 Q1 財報：Non-GAAP EPS $0.21（vs 預期 $0.12），營收 $171.8M（vs 預期 $102.1M），寬頻業務成長 43%。公司同步上調 2026 全年非 GAAP EPS 指引至 $0.57–$0.67，Broadband 營收展望提升至 $4.75–$4.95 億，均高於市場共識。多家券商同步上調目標價（Rosenblatt $16→$20、Needham $17→$18、Jefferies $10→$15），且即將完成的 $1.45 億 Video 業務出售將讓 Harmonic 蛻變為純寬頻公司，打開重新定價空間。</p>
+      <p class="en">Harmonic smashed Q1 estimates with Non-GAAP EPS of $0.21 (vs. $0.12 est.) and revenue of $171.8M (vs. $102.1M est.), driven by 43% broadband growth. Multiple analyst price-target upgrades followed. The upcoming $145M video divestiture will transform HLIT into a pure-play broadband company — a major re-rating catalyst. Call options activity was 92× average volume with bullish intent (5,500+ calls at $15 strike).</p>
+    </div>
+
+    <div class="section-block">
+      <h4>Options &amp; Flow</h4>
+      <p>Call 量 9,563 contracts（92× 平均），集中在 June 16 / July 18 expiry 的 $15 strike，超過 5,500 合約靠近 offer 成交，偏多邊建倉。Put 量極低（150:1 call/put），顯示市場高度偏多。然而相對成交量僅為 20 日均量的 0.58×，暗示此波升勢有一定脆弱性。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>Retail Buzz</h4>
+      <p>StockTwits $HLIT 出現財報後一波興奮情緒，主要圍繞「cable 寬頻升級週期」及「純寬頻 pure-play」敘事。ApeWisdom 上 HLIT 提及量小幅上升但不算 meme 等級。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>後續觀察 / What to Watch Next</h4>
+      <p>1) Video 業務出售完成時間及現金用途（回購/去槓桿）；2) $15 gamma wall——若突破可能觸發 delta-hedging 買盤；3) 季線走勢（相對量偏低，若成交量不放大，突破可能不持久）；4) 競爋者 Vecima/Commscope 動態。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>Sources</h4>
+      <p>
+        <a href="https://www.ainvest.com/news/harmonic-surges-16-thin-volume-fragile-breakout-2605/" target="_blank">AIInvest HLIT +16%</a> ·
+        <a href="https://www.timothysykes.com/news/harmonicinc-hlit-news-2026_05_24/" target="_blank">Timothy Sykes</a> ·
+        <a href="https://www.investing.com/news/stock-market-news/why-is-harmonic-stock-surging-today-93CH-4707107" target="_blank">Investing.com</a> ·
+        <a href="https://www.benzinga.com/calendars/unusual-options-activity" target="_blank">Benzinga Unusual Options (HLIT call)</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- QUBT -->
+  <div class="stock-card gainer">
+    <div class="stock-header">
+      <div>
+        <div class="stock-ticker">$QUBT &nbsp;<span style="font-size:0.9rem;color:#16a34a">▲ +15.6%</span></div>
+        <div class="stock-name">Quantum Computing Inc. ／ 量子計算公司</div>
+      </div>
+    </div>
+    <div class="tape-row">
+      <span class="tape-pill green">Close ~$13.20 (+15.6%)</span>
+      <span class="tape-pill">前一日也漲 +19.4%</span>
+      <span class="tape-pill amber">Call:Put = 19:4 盤前</span>
+      <span class="tape-pill red">P/S = 497× ⚠</span>
+      <span class="tape-pill">市值 $2.99B</span>
+    </div>
+
+    <div class="section-block">
+      <h4>為什麼今天熱 / Why it's hot today</h4>
+      <p class="zh">QUBT 公布 Q1 2026 財報：營收 $3.7M（vs 去年同期 $39K，爆增 94×），EPS -$0.02（vs 預期 -$0.05，雙超）。收購 Luminar Semiconductor 和 NuCrypt 是這波營收暴增的主因。此外，Trump 政府宣布對量子計算類股進行政策支持（直接利好 RGTI/IONQ，QUBT 跟隨板塊情緒），疊加 Reddit 帖子推波助瀾，兩天累計漲幅超 35%。</p>
+      <p class="en">QUBT reported Q1 2026 revenue of $3.7M (vs. $39K a year ago, largely acquisition-driven via Luminar + NuCrypt) and beat EPS estimates. The Trump administration's quantum sector policy support boosted the whole quantum cohort (RGTI, IONQ leading), with QUBT riding the sector beta. The stock had already run +55% in the prior 3 weeks from ~$8.28 to $13.11.</p>
+    </div>
+
+    <div class="section-block">
+      <h4>Options &amp; Flow</h4>
+      <p>盤前 call/put = 19:4，市場明顯偏多押注。Options OI 集中在近月 call，IV 隨股價急升走高。注意：公司仍有 $20.6M 季度營業虧損，負毛利，P/S 高達 497×——此為高度投機性押注，非基本面驅動。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>Retail Buzz</h4>
+      <p>WSB 帖子：<em>"The Trump admin just announced it is buying in quantum stocks. Bullish activity picked up 2 days prior"</em>（注意：QUBT 非政策直接受益者，為情緒外溢）。Reddit r/stocks 和 StockTwits 均有熱烈討論，但多數聰明資金提醒「P/S 500× 要小心」。247WallSt 直接發文「Don't Buy the Hype」。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>後續觀察 / What to Watch Next</h4>
+      <p>1) 量子板塊政策支持是否有實質採購/合約落地；2) 下次財報是否能擺脫依賴收購的一次性營收；3) $14–$15 區域是否有賣壓（前波高點）；4) RGTI/IONQ 若遭到拋售是否拖累 QUBT。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>Sources</h4>
+      <p>
+        <a href="https://stockstotrade.com/news/quantum-computing-inc-qubt-news-2026_05_22-2/" target="_blank">StocksToTrade QUBT Rev x94</a> ·
+        <a href="https://247wallst.com/investing/2026/05/22/qubt-rallies-with-the-rest-of-quantum-computing-but-dont-buy-the-hype/" target="_blank">247WallSt</a> ·
+        <a href="https://stocktwits.com/symbol/QUBT" target="_blank">StockTwits QUBT</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- AKTX -->
+  <div class="stock-card gainer">
+    <div class="stock-header">
+      <div>
+        <div class="stock-ticker">$AKTX &nbsp;<span style="font-size:0.9rem;color:#16a34a">▲ +122%</span></div>
+        <div class="stock-name">Akari Therapeutics PLC ／ 生技 ADC 公司</div>
+      </div>
+    </div>
+    <div class="tape-row">
+      <span class="tape-pill green">+122% (盤前 +99%)</span>
+      <span class="tape-pill amber">ASCO 2026 摘要公開</span>
+      <span class="tape-pill">$5.5M 私募融資</span>
+      <span class="tape-pill red">低浮籌 · 高波動</span>
+    </div>
+
+    <div class="section-block">
+      <h4>為什麼今天熱 / Why it's hot today</h4>
+      <p class="zh">Akari Therapeutics 釋出 AKTX-101 在 KRAS 突變型胰臟癌模型的突破性 preclinical 數據，顯示與 KRAS 抑制劑（如 sotorasib）協同增效殺傷腫瘤細胞，並發表於 ASCO 2026 線上摘要。同日宣布 $5.5M 私募融資。這是胰臟癌 KRAS 靶向治療的新機制——AKTX-101 的 RNA spliceosome 調節 payload (PH1) 不同於現有 Topo I 抑制劑類 ADC，引發投資者想象空間，股價兩天累計飆升逾 120%。</p>
+      <p class="en">Akari Therapeutics released positive preclinical data for AKTX-101 (ADC with novel RNA spliceosome modulating payload PH1) showing synergistic activity with KRAS inhibitors in KRAS G12D/G12C pancreatic cancer models. The data appeared as an ASCO 2026 online abstract. The company also priced a $5.5M private placement. Phase 1 trial planned for mid-2027.</p>
+    </div>
+
+    <div class="section-block">
+      <h4>炒作脈絡 / Narrative Context</h4>
+      <p>胰臟癌 + KRAS 是當前腫瘤學最熱門 theme 之一（參見 Mirati/Amgen sotorasib 生態圈）。AKTX 為低市值公司，單一數據就能帶來倍數級波動。然而 preclinical ≠ clinical，Phase 1 要到 2027 年中——此類漲幅存在很高的消息散退風險。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>後續觀察 / What to Watch Next</h4>
+      <p>1) $5.5M 融資的 dilution 影響（已公開後可能打壓動能）；2) ASCO 大會上是否有更多數據或 KOL 討論；3) Phase 1 IND 提交時間表；4) 短期高波動，注意超買後的快速回吐風險。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>Sources</h4>
+      <p>
+        <a href="https://www.gurufocus.com/news/8877208/akari-therapeutics-aktx-shares-surge-120-on-promising-preclinical-cancer-therapy-data" target="_blank">GuruFocus AKTX +120%</a> ·
+        <a href="https://www.quiverquant.com/news/Akari+Therapeutics+(AKTX)+surges+as+new+KRAS+pancreatic+cancer+data+and+a+$5.5M+financing+grab+investor+attention" target="_blank">Quiver Quantitative</a> ·
+        <a href="https://finance.yahoo.com/sectors/healthcare/articles/akari-therapeutics-reports-breakthrough-210100810.html" target="_blank">Yahoo Finance</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- PCLA -->
+  <div class="stock-card mixed">
+    <div class="stock-header">
+      <div>
+        <div class="stock-ticker">$PCLA &nbsp;<span style="font-size:0.9rem;color:#16a34a">▲ +149–194%</span></div>
+        <div class="stock-name">PicoCELA Inc. ／ 日系無線網路公司（Nasdaq ADR）</div>
+      </div>
+    </div>
+    <div class="tape-row">
+      <span class="tape-pill green">Close $5.55 (+149%)</span>
+      <span class="tape-pill">盤中高點 $6.80</span>
+      <span class="tape-pill red">⚠ 無明確 catalyst</span>
+      <span class="tape-pill amber">低浮籌 momentum squeeze</span>
+    </div>
+
+    <div class="section-block">
+      <h4>為什麼今天熱 / Why it's hot today</h4>
+      <p class="zh">PicoCELA 是一家日本無線網路基礎設施公司的 Nasdaq ADR，無重大新聞公告，主要是低浮籌 momentum squeeze：股票從 $1 多飆升至 $6 多，兩天內成為 Nasdaq 最活躍低浮籌之一。這是典型的「散戶動能追買 → 快速 pump-and-dump」模式，與基本面關係不大（公司毛利率約 -114%）。</p>
+      <p class="en">PicoCELA is a Japanese wireless networking ADR with no major catalyst. The move is a classic low-float momentum squeeze — the stock exploded from $1s to $6s in 48 hours, drawing retail momentum traders. The company has negative margins (~-114% pretax profit margin). This is a trading event, not a fundamental story. Use extreme caution.</p>
+    </div>
+
+    <div class="section-block">
+      <h4>⚠ 警告 / Caution</h4>
+      <p>PCLA 此類低浮籌爆拉後通常跟著急速回落。本次未發現 SEC halt 或 LULD halt 記錄，但建議投資人辨別「正在被討論」與「真的發生了什麼」的差異。此處收錄僅為記錄當日市場現象，非推介。</p>
+    </div>
+
+    <div class="section-block">
+      <h4>Sources</h4>
+      <p>
+        <a href="https://stockstotrade.com/news/picocela-inc-pcla-news-2026_05_22/" target="_blank">StocksToTrade PCLA</a> ·
+        <a href="https://ts2.tech/en/picocela-stock-more-than-doubles-as-traders-swarm-tiny-nasdaq-float/" target="_blank">TS2 Tech</a> ·
+        <a href="https://www.tipranks.com/news/why-is-penny-stock-picocela-pcla-up-today" target="_blank">TipRanks</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 2: WATCH LIST ══ -->
+  <div class="section-title">次熱觀察 — Watch List (未入選主榜但值得追蹤)</div>
+  <div class="watchlist-grid">
+    <div class="watchlist-card">
+      <h4>$STZ — Constellation Brands</h4>
+      <p>Citi「upside catalyst watch」·新董事 Morgan Flatley 加入·RSI 深度超賣反彈設定·World Cup 啤酒需求敘事。Put/Call 異常活動列入 May 22 unusual options 名單。</p>
+    </div>
+    <div class="watchlist-card">
+      <h4>$AR — Antero Resources</h4>
+      <p>天然氣價格波動 + 異常 options 活動。LNG 出口前景重新定價。列入 May 22 unusual options 名單。</p>
+    </div>
+    <div class="watchlist-card">
+      <h4>$SOC / 相關中概</h4>
+      <p>中概 ADR 整體受 FUTU/TIGR 事件波及，同板塊情緒傳染，留意溢出效應。</p>
+    </div>
+    <div class="watchlist-card">
+      <h4>$NGEN — 生技低浮籌</h4>
+      <p>盤前跌 −39%，原因為 $60M 公開增發稀釋。低浮籌增資殺估值典型案例。</p>
+    </div>
+    <div class="watchlist-card">
+      <h4>$RGTI / $IONQ — 量子板塊</h4>
+      <p>政策加持的量子計算板塊領頭羊，QUBT 本日跟漲主要靠此兩檔板塊情緒帶動。若政策落地更多細節，或再有一波。</p>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 3: HALTS & WEIRDNESS ══ -->
+  <div class="section-title">異常事件 — Halts &amp; Weirdness</div>
+  <div class="halts-card">
+    <h4>⚠ 中概跨境券商板塊系統性衝擊</h4>
+    <p>5/22 最大「異常事件」非單一個股 halt，而是 CSRC 聯合 8 部門針對跨境非法券商的系統性整治行動，同時波及 FUTU（−27.5%）、TIGR（−23%）、Longbridge（未單獨上市但關聯受影響）。市場參與者需注意：此事件性質接近 2021 年中國教育股/滴滴事件，屬政策性而非市場性風險。</p>
+  </div>
+  <div class="halts-card">
+    <h4>📋 PCLA 低浮籌爆量觀察</h4>
+    <p>PicoCELA (PCLA) 在無明確 catalyst 下兩日暴漲逾 200%，需留意是否有 LULD 盤中暫停或後續 SEC 關注。截至本報告製作時未發現正式 halt 記錄，但此類低浮籌爆拉有時滯後觸發監管調查。</p>
+  </div>
+
+  <!-- ══ SECTION 4: MARKET BACKDROP ══ -->
+  <div class="section-title">大盤背景 — Market Backdrop (May 22, 2026 RTH Close)</div>
+  <div style="background:#fff;border-radius:12px;padding:20px 24px;box-shadow:0 2px 14px rgba(0,0,0,.07);font-size:0.87rem;color:#374151;">
+    <p>S&amp;P 500 收 <strong style="color:#16a34a">+0.37%</strong> (7,473.47)、Nasdaq 收 <strong style="color:#16a34a">+0.19%</strong> (26,343.97)、Dow 收 <strong style="color:#16a34a">+0.58%</strong> (50,579.70)、VIX 16.70 (−0.36%)。週績效：SPX <strong>+0.9%</strong>，完成第 8 連週上漲（2023 年底以來最長週漲連續），Dow 週漲 +2.1%，Nasdaq 週漲 +0.5%（過去 8 週中第 7 週上漲）。</p>
+    <br>
+    <p>本周大盤主旋律：美伊戰爭「接近終戰」的外交進展持續提振風險情緒；新聯準會主席 Kevin Warsh 預計 5/22 宣誓就職，市場開始重新評估貨幣政策路徑；強勁製造業數據與略為降溫的通膨數字提供基本面支撐。個股層面，ROST 等強勁財報帶動消費類股，而 FUTU/TIGR 的中概監管事件是周内最大負面衝擊。整體 VIX 在 17 附近維持，屬於偏低波動率環境，但下周進入 Memorial Day 假期週，需注意流動性收縮風險。</p>
+  </div>
+
+  <!-- ══ DISCLAIMER ══ -->
+  <div class="disclaimer">
+    ⚠ <strong>免責聲明 / Disclaimer：</strong>本報告為資訊彙整用途，不構成任何投資建議（「該買/該賣」）。所有數字若無特別標注均為估算或媒體報導數據，非官方財務資料。投資有風險，請自行盡職調查。
+  </div>
+
+  <!-- ══ SOURCES FOOTER ══ -->
+  <div class="sources">
+    <h3>數據來源 / Sources Consulted</h3>
+    <ul>
+      <li><a href="https://finance.yahoo.com/markets/stocks/gainers/" target="_blank">Yahoo Finance Gainers</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/losers/" target="_blank">Yahoo Finance Losers</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/most-active/" target="_blank">Yahoo Finance Most Active</a></li>
+      <li><a href="https://www.benzinga.com/calendars/unusual-options-activity" target="_blank">Benzinga Unusual Options (May 22)</a></li>
+      <li><a href="https://www.schwab.com/learn/story/stock-market-update-open" target="_blank">Schwab Market Update</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/21/stock-market-today-live-updates.html" target="_blank">CNBC Markets May 22, 2026</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-05-22/china-to-penalize-tiger-futu-in-cross-border-broker-crackdown" target="_blank">Bloomberg FUTU/TIGR Crackdown</a></li>
+      <li><a href="https://seekingalpha.com/news/4596301-futu-stock-plunges-on-investigation-penalty-related-letter-from-chinas-regulator" target="_blank">Seeking Alpha FUTU</a></li>
+      <li><a href="https://seekingalpha.com/news/4596356-up-fintech-stock-loses-23-after-chinese-investigation-notice-penalties" target="_blank">Seeking Alpha TIGR</a></li>
+      <li><a href="https://www.tradingkey.com/news/market-movers/261923343-market-movers-rost-20260522" target="_blank">TradingKey ROST</a></li>
+      <li><a href="https://www.stocktitan.net/news/ROST/ross-stores-reports-robust-first-quarter-sales-and-earnings-results-hekd6z3wgnzl.html" target="_blank">StockTitan ROST Q1</a></li>
+      <li><a href="https://www.gurufocus.com/news/8877850/ross-stores-rost-achieves-record-17-sales-growth-surpassing-expectations" target="_blank">GuruFocus ROST 17% SSS</a></li>
+      <li><a href="https://stockstotrade.com/news/quantum-computing-inc-qubt-news-2026_05_22-2/" target="_blank">StocksToTrade QUBT</a></li>
+      <li><a href="https://247wallst.com/investing/2026/05/22/qubt-rallies-with-the-rest-of-quantum-computing-but-dont-buy-the-hype/" target="_blank">247WallSt QUBT</a></li>
+      <li><a href="https://www.ainvest.com/news/harmonic-surges-16-thin-volume-fragile-breakout-2605/" target="_blank">AIInvest HLIT</a></li>
+      <li><a href="https://www.investing.com/news/stock-market-news/why-is-harmonic-stock-surging-today-93CH-4707107" target="_blank">Investing.com HLIT</a></li>
+      <li><a href="https://www.gurufocus.com/news/8877208/akari-therapeutics-aktx-shares-surge-120-on-promising-preclinical-cancer-therapy-data" target="_blank">GuruFocus AKTX +120%</a></li>
+      <li><a href="https://stockstotrade.com/news/picocela-inc-pcla-news-2026_05_22/" target="_blank">StocksToTrade PCLA</a></li>
+      <li><a href="https://apewisdom.io/wallstreetbets/" target="_blank">ApeWisdom WSB Mentions</a></li>
+      <li><a href="https://altindex.com/wallstreetbets" target="_blank">AltIndex WSB Tracker</a></li>
+      <li><a href="https://www.stocktitan.net/rankings/stock-gains-monthly/2026/may" target="_blank">StockTitan May 2026 Monthly Gainers</a></li>
+    </ul>
+  </div>
+
+</div><!-- /content -->
+</body>
+</html>

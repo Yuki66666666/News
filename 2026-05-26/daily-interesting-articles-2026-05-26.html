@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日有趣文章日報 · 2026-05-26</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3347;
+      --accent: #7c8cf8;
+      --accent2: #a78bfa;
+      --green: #34d399;
+      --amber: #fbbf24;
+      --red: #f87171;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --tag-bg: #1e2a3a;
+      --track-a: #2563eb;
+      --track-b: #7c3aed;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Georgia', 'Noto Serif TC', serif;
+      font-size: 16px;
+      line-height: 1.75;
+      padding: 0 16px 80px;
+    }
+    header {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 0 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    header .eyebrow {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    header h1 {
+      font-size: clamp(24px, 5vw, 36px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+    header .subtitle {
+      color: var(--muted);
+      margin-top: 8px;
+      font-style: italic;
+      font-size: 15px;
+    }
+    .track-label {
+      max-width: 860px;
+      margin: 40px auto 0;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.06em;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .track-label.a { background: rgba(37,99,235,0.18); color: #93c5fd; border-left: 3px solid var(--track-a); }
+    .track-label.b { background: rgba(124,58,237,0.18); color: #c4b5fd; border-left: 3px solid var(--track-b); }
+    .section-head {
+      max-width: 860px;
+      margin: 28px auto 0;
+      font-size: 12px;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .card {
+      max-width: 860px;
+      margin: 20px auto 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card.editor-pick {
+      border-color: var(--amber);
+      background: linear-gradient(135deg, #1a1d27 85%, #251f0a 100%);
+    }
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .card-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-family: 'Courier New', monospace;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .card.editor-pick .card-num {
+      background: rgba(251,191,36,0.15);
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+    .card-title-block { flex: 1; }
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+    }
+    .card-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .card-title a:hover { color: var(--accent); }
+    .card-meta {
+      margin-top: 6px;
+      font-size: 12px;
+      font-family: 'Courier New', monospace;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .badge {
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .badge-time { background: var(--tag-bg); color: var(--green); }
+    .badge-editor { background: rgba(251,191,36,0.15); color: var(--amber); }
+    .badge-domain { background: rgba(124,58,237,0.18); color: #c4b5fd; }
+    .card-section { margin-top: 14px; }
+    .card-section-label {
+      font-size: 11px;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .card-section p { font-size: 15px; color: #cbd5e1; }
+    .card-section p + p { margin-top: 8px; }
+    .key-takeaway {
+      margin-top: 14px;
+      padding: 12px 16px;
+      background: var(--surface2);
+      border-left: 3px solid var(--green);
+      border-radius: 0 6px 6px 0;
+    }
+    .key-takeaway .card-section-label { color: var(--green); }
+    .question-box {
+      margin-top: 14px;
+      padding: 12px 16px;
+      background: var(--surface2);
+      border-left: 3px solid var(--accent2);
+      border-radius: 0 6px 6px 0;
+    }
+    .question-box .card-section-label { color: var(--accent2); }
+    .source-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 12px;
+      font-size: 12px;
+      font-family: 'Courier New', monospace;
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .source-link:hover { opacity: 0.75; }
+    .divider {
+      max-width: 860px;
+      margin: 48px auto 0;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+    footer {
+      max-width: 860px;
+      margin: 40px auto 0;
+      font-size: 12px;
+      color: var(--muted);
+      font-family: 'Courier New', monospace;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .card { padding: 18px 16px; }
+      .card-title { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Daily Interesting Articles · 今日有趣文章日報</div>
+  <h1>5 月 26 日精選長文</h1>
+  <div class="subtitle">2026-05-26 &nbsp;·&nbsp; Track A: 長文精選 &nbsp;/&nbsp; Track B: 思想領袖觀點 &nbsp;·&nbsp; 共 9 篇</div>
+</header>
+
+<!-- ─────────────────────── TRACK A ─────────────────────── -->
+<div class="track-label a">Track A — 長文精選 / Longform Essays</div>
+
+<!-- 1. Editor's Pick -->
+<div class="section-head">★ 編輯精選 / Editor's Pick of the Day</div>
+<div class="card editor-pick">
+  <div class="card-header">
+    <div class="card-num">★</div>
+    <div class="card-title-block">
+      <div class="card-title">
+        <a href="https://sockpuppet.org/blog/2026/05/12/emacsification/" target="_blank">軟體的「Emacs 化」/ The Emacsification of Software</a>
+      </div>
+      <div class="card-meta">
+        <span>sockpuppet.org · Thomas Ptacek (Quarrelsome)</span>
+        <span class="badge badge-time">⏱ 10 min</span>
+        <span class="badge badge-editor">編輯首選</span>
+        <span>2026-05-12</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why It Stands Out</div>
+    <p>這篇文章不只是談工具——它準確地命名了一個尚未有名字的文化轉型：AI agent 讓每個人都能在三十分鐘內造出一個比 App Store 架上的同類 app 還要好的原生 UI 工具。Ptacek 是資安研究員，他從親身造出一個 Markdown 閱讀器出發，提煉出一個具有說服力的文化論點，既不過度樂觀也不末日恐慌，是本週 HN 上討論最深的一篇。</p>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <p>作者對 App Store 上找不到好 Markdown 閱讀器感到挫敗，於是花了約 30 分鐘與 Claude 合作，造出一個比市售軟體更好的 native macOS 工具。這讓他想起 Emacs 文化：那些習慣用 elisp 為自己打造個人工具的人。AI agent 正在把這種「個人軟體」文化從 Emacs 社群滲漏到整個世界——過去只有資深 hacker 才能完成的事，現在任何人都可以做。關鍵洞見：<em>你想要的不是原始碼，而是想法與 prompt；軟體正在從「packaged product」走向「personal configuration」</em>。</p>
+    <p>The author, frustrated by poor Markdown viewers on the App Store, built a better native macOS app in ~30 minutes with Claude. This triggers a cultural observation: AI agents have "fracked" Emacs culture — the tradition of building hyper-personal bespoke tools — and it's leaking out to the whole world. The key point: in this new paradigm, the idea and the prompt matter more than the source code.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <div class="card-section-label">核心觀點 / Key Takeaway</div>
+    <p>原生 UI 開發曾是少數天才的領地；現在它和編輯器設定一樣個人化、隨手可得。「Building」感覺越來越像「configuring」，而那個平台就是 Emacs。</p>
+  </div>
+
+  <div class="question-box">
+    <div class="card-section-label">引發的問題 / Questions It Opens</div>
+    <p>當「造軟體」的摩擦消失，個人工具與商業產品的邊界還有意義嗎？這對開源社群的 contribution 文化會有什麼影響？</p>
+  </div>
+
+  <a class="source-link" href="https://sockpuppet.org/blog/2026/05/12/emacsification/" target="_blank">→ 閱讀全文</a>
+</div>
+
+<!-- 2. Tech & AI -->
+<div class="section-head">科技與 AI / Tech & AI</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-num">2</div>
+    <div class="card-title-block">
+      <div class="card-title">
+        <a href="https://laurent.le-brun.eu/blog/a-history-of-ides-at-google" target="_blank">Google 的 IDE 進化史 / A History of IDEs at Google</a>
+      </div>
+      <div class="card-meta">
+        <span>laurent.le-brun.eu · Laurent Le Brun (Google, 2011–2024)</span>
+        <span class="badge badge-time">⏱ 15 min</span>
+        <span>2026-05-09</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why It Stands Out</div>
+    <p>第一手敘述：一位在 Google 開發者工具工作 12 年的工程師，講述 Google 如何從百花齊放的 IDE 混戰，走向 80% 工程師使用同一工具（Cider V，基於 VSCode 的雲端 IDE）的結局。這不只是技術史，更是一個關於「標準化工具帶來的乘數效應」的真實 case study。</p>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <p>2011 年，Jeff Dean 認為「強迫開發者使用同一 IDE 是自找不快」。十年後，Cider V（VSCode 前端 + Google 自研後端）佔據了 Google monorepo 開發量的 80%。關鍵轉折：採用 VSCode 作為前端，讓各團隊能自行開發 extension；雲端後端則解決了 10 億行程式碼規模下傳統 IDE 的 indexing 瓶頸。最後教訓：「Standard tooling creates leverage」——統一平台讓 AI 輔助功能（code completion、comment resolution）的投入有了更大的回報。</p>
+    <p>A 12-year Google engineer traces how the company went from IDE fragmentation to ~80% adoption of Cider V (VSCode frontend + Google backend). The pivot: using VSCode as frontend unlocked 100+ internal extensions. The lesson: standardized tooling creates leverage, especially as AI features compound on a shared platform.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <div class="card-section-label">核心觀點 / Key Takeaway</div>
+    <p>統一工具不是為了控制，而是為了讓每一次投入都有更大的影響力。AI 功能讓這個道理變得更加明顯。</p>
+  </div>
+
+  <div class="question-box">
+    <div class="card-section-label">引發的問題 / Questions It Opens</div>
+    <p>Google 花了十多年、數十名工程師才做到的事，其他公司能複製嗎？或者 Cursor / Claude Code 之類的工具正在走一條更快的路？</p>
+  </div>
+
+  <a class="source-link" href="https://laurent.le-brun.eu/blog/a-history-of-ides-at-google" target="_blank">→ 閱讀全文</a>
+</div>
+
+<!-- 3. Business & Economics -->
+<div class="section-head">商業與經濟 / Business & Economics</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-num">3</div>
+    <div class="card-title-block">
+      <div class="card-title">
+        <a href="https://marginalrevolution.com/marginalrevolution/2026/05/liberal-economists-score-an-own-goal-against-bezos.html" target="_blank">進步派經濟學家的自擺烏龍 / Liberal Economists Score an Own Goal Against Bezos</a>
+      </div>
+      <div class="card-meta">
+        <span>Marginal Revolution · Alex Tabarrok</span>
+        <span class="badge badge-time">⏱ 8 min</span>
+        <span>2026-05-24</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why It Stands Out</div>
+    <p>Tabarrok 的文章示範了真正的論辯：他不只說「你們錯了」，而是指出左派經濟學家在攻擊 Bezos 的過程中，無意間拆解了自己保護社會安全網長達八十年的核心論述框架。這是難得一見的學術精準度與政治清晰度並存的短文。</p>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <p>Bezos 提議降低底層 50% 的稅負以讓稅制更累進；Gabriel Zucman 和 Justin Wolfers 反駁說薪資稅讓整個體系並不累進。Tabarrok 指出：這個反駁迫使他們把薪資稅定性為「累退稅」——但這恰恰打臉了 FDR 以來左派用以保護社會安全制度的核心論點：薪資繳款是「賺來的權利（earned right）」，不是稅。若承認它是稅，就打開了縮減、私有化社會安全的大門。文章最後提出 Buchanan / Summers 框架：薪資稅是否構成「稅」，取決於邊際貢獻與邊際利益之差，而非法定稅率。</p>
+    <p>Bezos proposed cutting taxes on the bottom 50%; left-leaning economists countered that payroll taxes make the system regressive. Tabarrok shows this framing contradicts 80 years of liberal doctrine — FDR deliberately framed payroll contributions as "earned rights" to make Social Security politically untouchable. Calling them taxes now is an own goal: it invites means-testing and privatization.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <div class="card-section-label">核心觀點 / Key Takeaway</div>
+    <p>政策框架不只是修辭——它是制度生存的防火牆。為了贏一場推特論辯而放棄框架，代價可能是數十年的制度防禦。</p>
+  </div>
+
+  <div class="question-box">
+    <div class="card-section-label">引發的問題 / Questions It Opens</div>
+    <p>台灣的勞退制度採「確定提撥制」，更接近 Buchanan 框架的「強制儲蓄」，是否因此對類似的政治攻防更有免疫力？</p>
+  </div>
+
+  <a class="source-link" href="https://marginalrevolution.com/marginalrevolution/2026/05/liberal-economists-score-an-own-goal-against-bezos.html" target="_blank">→ 閱讀全文</a>
+</div>
+
+<!-- 4. Science & Research -->
+<div class="section-head">科學與研究 / Science & Research</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-num">4</div>
+    <div class="card-title-block">
+      <div class="card-title">
+        <a href="https://www.quantamagazine.org/two-researchers-are-rebuilding-mathematics-from-the-ground-up-20260520/" target="_blank">重建數學地基 / Two Researchers Are Rebuilding Mathematics From the Ground Up</a>
+      </div>
+      <div class="card-meta">
+        <span>Quanta Magazine · Konstantin Kakaes</span>
+        <span class="badge badge-time">⏱ 18 min</span>
+        <span>2026-05-20</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why It Stands Out</div>
+    <p>Quanta 本週最受讀者分享的文章。Peter Scholze 和 Dustin Clausen 的「凝聚數學（condensed mathematics）」計畫，試圖用一個更堅固的基礎概念替換拓撲學的核心——這是自 Grothendieck 以來最雄心勃勃的數學基礎重建工程。文章把這個極度抽象的計畫寫得讓非數學家也能感受到其重量。</p>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <p>拓撲學的基礎概念「拓撲空間（topological space）」有一個根本缺陷：它無法優雅地處理某些數論對象（如 p-adic 數）。Scholze 與 Clausen 提出用「凝聚集合（condensed set）」取代拓撲空間，讓代數與幾何能在同一語言下自然交談。這不只是技術修補，而是整個數學建築的地基換磚——目的是最終解釋為什麼數字以它們的方式運作。</p>
+    <p>Scholze and Clausen propose replacing "topological space" — a core concept in topology — with "condensed sets," which handle p-adic numbers and algebraic geometry more elegantly. This is a foundational rewrite ambitious enough to eventually unify large swaths of modern math under one coherent language.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <div class="card-section-label">核心觀點 / Key Takeaway</div>
+    <p>最偉大的數學進步有時不是解決新問題，而是找到更好的語言——讓舊問題變得容易說清楚。</p>
+  </div>
+
+  <div class="question-box">
+    <div class="card-section-label">引發的問題 / Questions It Opens</div>
+    <p>如果基礎概念的替換能讓數學更「自然」，AI 輔助的形式化證明（如 Lean）會加速這類基礎重建，還是反而讓我們更依賴現有框架？</p>
+  </div>
+
+  <a class="source-link" href="https://www.quantamagazine.org/two-researchers-are-rebuilding-mathematics-from-the-ground-up-20260520/" target="_blank">→ 閱讀全文</a>
+</div>
+
+<!-- 5. Culture & Society -->
+<div class="section-head">文化與社會 / Culture & Society</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-num">5</div>
+    <div class="card-title-block">
+      <div class="card-title">
+        <a href="https://www.dailyprincetonian.com/article/2026/05/princeton-news-adpol-proctoring-in-person-examinations-passed-faculty-133-years-precedent" target="_blank">普林斯頓廢除 133 年榮譽制度 / Princeton Mandates Proctoring, Upending 133 Years of Precedent</a>
+      </div>
+      <div class="card-meta">
+        <span>The Daily Princetonian · Devon Williams</span>
+        <span class="badge badge-time">⏱ 8 min</span>
+        <span>2026-05-11</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why It Stands Out</div>
+    <p>這不只是校園新聞：普林斯頓的榮譽制度自 1893 年起禁止監考，是美國大學信任文化的象徵。AI 作弊浪潮迫使它在一次幾乎零反對票的投票中終結。文章呈現了制度如何在不得不改變時改變，以及它帶走了什麼。</p>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <p>普林斯頓教授會以壓倒性多數（僅一票反對）通過決議，從 7 月 1 日起所有現場考試必須有監考員。直接原因：AI 工具讓作弊難以被其他學生察覺，而學生自主檢舉意願急遽下降（2025 年畢業生調查：44.6% 知道有人違規卻選擇不舉報）。1893 年建立的榮譽制度的核心假設——「學生能夠也願意互相監督」——在 AI 時代已不成立。</p>
+    <p>Princeton faculty voted to mandate exam proctoring for the first time since 1893, driven by AI-enabled cheating that's invisible to peers and a sharp decline in student willingness to report violations. The 133-year honor system was built on the assumption that students would self-police; that assumption has collapsed.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <div class="card-section-label">核心觀點 / Key Takeaway</div>
+    <p>AI 不只改變工作，它也在悄悄改寫幾個世紀以來的社會契約——從誠信制度到知識產權，那些依賴「難以作弊」假設而建立的規則都在鬆動。</p>
+  </div>
+
+  <div class="question-box">
+    <div class="card-section-label">引發的問題 / Questions It Opens</div>
+    <p>如果連普林斯頓都放棄了，台灣大學的書面考試與論文制度下一步會怎麼走？「用 AI 完成作業」的邊界該由誰來劃定？</p>
+  </div>
+
+  <a class="source-link" href="https://www.dailyprincetonian.com/article/2026/05/princeton-news-adpol-proctoring-in-person-examinations-passed-faculty-133-years-precedent" target="_blank">→ 閱讀全文</a>
+</div>
+
+<!-- 6. Psychology & Behavior -->
+<div class="section-head">心理與行為 / Psychology & Behavior</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-num">6</div>
+    <div class="card-title-block">
+      <div class="card-title">
+        <a href="https://dynomight.net/lifespan/" target="_blank">壽命的遺傳率真的是 50% 嗎？/ Heritability of Human Lifespan Is ~50% When Heritability Is Redefined</a>
+      </div>
+      <div class="card-meta">
+        <span>Dynomight · Dynomight (anon)</span>
+        <span class="badge badge-time">⏱ 12 min</span>
+        <span>2026-02 (HN 今日熱門)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why It Stands Out</div>
+    <p>Dynomight 是少數能把統計批判寫得既嚴謹又幽默的部落格。這篇文章是對一篇刊於 <em>Science</em> 的論文的精彩解剖：論文聲稱人類壽命的遺傳率是 50%，但 Dynomight 一層層拆開，揭示這個數字其實是在「假設沒有人死於意外或謀殺的假想世界」中算出來的——而且即使在那個假想世界，數字也更接近 40%。</p>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <p>研究者建立了一個數學模型，在「外部死亡率為零」的假想世界中模擬雙胞胎壽命，得到 46–57% 的遺傳率。但 Dynomight 指出：(1) 「遺傳率」本就是觀察統計，不存在「真正的」遺傳率；(2) 即使在他們自己的數據中，將外部死亡率設為現代水平（0.001/年），遺傳率也是 35–45%，而非 50%；(3) <em>Science</em> 的論文格式讓這些細節幾乎不可能被一般讀者理解。</p>
+    <p>A paper in <em>Science</em> claimed lifespan heritability is ~50%, but it computed this in a hypothetical world with no accidents or murders. Dynomight shows that even within the paper's own model, using realistic modern extrinsic mortality, heritability is closer to 40%. A masterclass in reading statistical claims carefully.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <div class="card-section-label">核心觀點 / Key Takeaway</div>
+    <p>「遺傳率」是一個依賴社會條件的比率，不是基因的固有屬性；換個世界的假設，就能讓任何特徵的遺傳率大幅改變。</p>
+  </div>
+
+  <div class="question-box">
+    <div class="card-section-label">引發的問題 / Questions It Opens</div>
+    <p><em>Science</em>、<em>Nature</em> 這類頂刊的「寫給大眾」格式，是否系統性地犧牲了可重複性與精確性？開放同儕評審能解決這個問題嗎？</p>
+  </div>
+
+  <a class="source-link" href="https://dynomight.net/lifespan/" target="_blank">→ 閱讀全文</a>
+</div>
+
+<!-- 7. History & Philosophy -->
+<div class="section-head">歷史與哲學 / History & Philosophy</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-num">7</div>
+    <div class="card-title-block">
+      <div class="card-title">
+        <a href="https://marginalrevolution.com/marginalrevolution/2026/05/ross-douthat-on-what-ai-money-should-learn-from-the-golden-age-of-philanthropy.html" target="_blank">AI 富豪應該向鍍金時代慈善家學什麼 / What AI Money Should Learn from the Golden Age of Philanthropy</a>
+      </div>
+      <div class="card-meta">
+        <span>NYT (via Marginal Revolution) · Ross Douthat</span>
+        <span class="badge badge-time">⏱ 10 min</span>
+        <span>2026-05-23</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why It Stands Out</div>
+    <p>Douthat 提出了一個讓人不舒服但有說服力的問題：上一個慈善黃金時代（Gates、Bezos 之前）留下了大都會博物館、Carnegie Hall、城市公園；當代科技富豪的慈善留下了什麼實體紀念物？這是一篇關於財富、美學與永恆性的歷史哲學文章。</p>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <p>二十世紀初的慈善家把財富化為城市基礎建設：博物館、音樂廳、大學校園、公園。這些建築今天仍是公共空間。當代慈善的最佳成果是疾病防治與扶貧，但沒有等量的實體遺產。Douthat 認為，AI 財富的下一波浪潮，應該重新思考「如何讓金錢化為共享的美麗」——不只是有效利他主義計算，而是真正的文明積累。</p>
+    <p>Douthat argues the last great philanthropic era (pre-Gates) left physical monuments — museums, concert halls, campuses — still serving as public spaces. The Gates era delivered health and anti-poverty results but no comparable built legacy. As AI wealth surges, he asks: what enduring beautiful things should it build?</p>
+  </div>
+
+  <div class="key-takeaway">
+    <div class="card-section-label">核心觀點 / Key Takeaway</div>
+    <p>「有效」慈善與「美麗」慈善並不互斥，但當代慈善文化對後者缺乏想像力。</p>
+  </div>
+
+  <div class="question-box">
+    <div class="card-section-label">引發的問題 / Questions It Opens</div>
+    <p>台灣的科技財富積累正在加速，我們的慈善文化更靠近鍍金時代還是 Gates 時代？故宮、國家音樂廳之後，下一個屬於這個世代的公共紀念物是什麼？</p>
+  </div>
+
+  <a class="source-link" href="https://www.nytimes.com/2026/05/23/opinion/artificial-intelligence-philanthropy-beauty.html" target="_blank">→ 閱讀全文 (NYT)</a>
+</div>
+
+<!-- 8. Curiosities -->
+<div class="section-head">奇文與偏門 / Curiosities</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-num">8</div>
+    <div class="card-title-block">
+      <div class="card-title">
+        <a href="https://ardoedo.it/kempelen/" target="_blank">我在父親舊書裡找到的西洋棋謎題 / Chess Puzzle I Found in My Dad's Old Book</a>
+      </div>
+      <div class="card-meta">
+        <span>ardoedo.it · Ardoedo</span>
+        <span class="badge badge-time">⏱ 15 min (互動式)</span>
+        <span>2026-05 (HN 熱門)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why It Stands Out</div>
+    <p>這是一個互動式網頁，藏著一段關於 18 世紀「土耳其機器棋手（The Turk）」的歷史兔子洞。作者在父親的舊書中發現一道西洋棋謎題，追查後發現它與 Wolfgang von Kempelen 的著名機械棋手騙局有關。頁面本身就是藝術品。</p>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">摘要 / Summary</div>
+    <p>1770 年，Kempelen 向奧地利女王瑪麗亞·特蕾莎展示了一台看似自動下棋的機械裝置，震驚歐洲。它實際上藏了一名棋手在機器肚子裡。作者在一道謎題的線索中重新追溯了這段歷史，並做成了可互動的棋局體驗。有點像 ARG，讀起來比讀 Wikipedia 有趣一百倍。</p>
+    <p>A beautiful interactive page built around a chess puzzle from the author's father's old book, which turns out to connect to the 18th-century "Turk" chess automaton hoax. Part puzzle, part history essay, part web art.</p>
+  </div>
+
+  <div class="key-takeaway">
+    <div class="card-section-label">核心觀點 / Key Takeaway</div>
+    <p>最好的 AI 焦慮不是 2026 年的新發明——人類在 1770 年就已經被「思考機器」的幻覺迷倒並欺騙了。</p>
+  </div>
+
+  <a class="source-link" href="https://ardoedo.it/kempelen/" target="_blank">→ 互動體驗</a>
+</div>
+
+<hr class="divider" />
+
+<!-- ─────────────────────── TRACK B ─────────────────────── -->
+<div class="track-label b">Track B — 思想領袖觀點 / Thought Leader Picks</div>
+
+<div class="section-head">思想領袖今日觀點 · 3 篇</div>
+
+<!-- TL1 -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-num">B1</div>
+    <div class="card-title-block">
+      <div class="card-title">
+        <a href="https://avkcode.github.io/blog/us-winning-ai-race.html" target="_blank">[AI / 地緣政治] Anton Krylov — 美國正在贏得 AI 競賽中最關鍵的那一層 / The US Is Winning the AI Race Where It Matters Most: Commercialization</a>
+      </div>
+      <div class="card-meta">
+        <span class="badge badge-domain">[AI]</span>
+        <span>avkcode.github.io · Anton Krylov</span>
+        <span class="badge badge-time">⏱ 8 min</span>
+        <span>2026-05-25 (HN 193 pts)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why It Stands Out</div>
+    <p>這是少數把「AI 競爭力」拆分為不同層次（晶片、電力、雲端基礎設施、數據平台、商業化）並逐層分析的文章，而非只談算力或論文數量。論點清晰、數據具體（各國電費比較）、結論有說服力，且誠實承認美國的弱項在哪。</p>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Core Insight</div>
+    <p>許多人用錯誤的計分板衡量 AI 競爭：論文數量和工程師數量不是決定性指標。真正的決勝層是雲端基礎設施（AWS/Azure/GCP）加上數據平台（YouTube、GitHub、Microsoft 365）。美國同時擁有廉價電力、全球 hyperscaler、消費者平台、企業軟體——這種「全棧」優勢難以複製。</p>
+    <p>DeepSeek 對中國的戰略價值不是商業競爭，而是降低對 Nvidia 的依賴、推動 Huawei Ascend 等國內算力棧——這是供應鏈自主，不是 AI 領導力。</p>
+  </div>
+
+  <div class="question-box">
+    <div class="card-section-label">引發的問題 / Questions It Opens</div>
+    <p>文章末尾提到「武器化 AI」（bot networks、自主武器中的偏見放大）——這個面向是否被主流 AI 安全討論嚴重低估？</p>
+  </div>
+
+  <a class="source-link" href="https://avkcode.github.io/blog/us-winning-ai-race.html" target="_blank">→ 閱讀全文</a>
+</div>
+
+<!-- TL2 -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-num">B2</div>
+    <div class="card-title-block">
+      <div class="card-title">
+        <a href="https://marginalrevolution.com/marginalrevolution/2026/05/robert-wrights-the-god-test.html" target="_blank">[AI / 哲學] Tyler Cowen — 對 AI「宇宙敬畏」浪潮的 Straussian 解讀 / Robert Wright's The God Test</a>
+      </div>
+      <div class="card-meta">
+        <span class="badge badge-domain">[AI]</span>
+        <span>Marginal Revolution · Tyler Cowen</span>
+        <span class="badge badge-time">⏱ 5 min</span>
+        <span>2026-05-24</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why It Stands Out</div>
+    <p>Cowen 評論 Robert Wright 新書時，順帶提出了一個典型的「Straussian 視角」：當人們聲稱他們對 AI 充滿「宇宙級敬畏」，他們實際上在爭奪的是相對地位，而不是宇宙意義。短短幾段，但密度極高。</p>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Core Insight</div>
+    <p>Wright 認為 AI 加速主義者和末日論者的世界觀「都不夠宇宙」，需要更大的重新定向。Cowen 同意轉型會來，但他的 Straussian 直覺告訴他：大多數「宇宙敬畏」的表演，骨子裡是地位競爭——用新語言包裝的舊把戲。他個人對偉大的回應不是宇宙哲學，而是 Rainier 櫻桃和泰國導演 Apichatpong Weerasethakul 的電影。</p>
+  </div>
+
+  <div class="question-box">
+    <div class="card-section-label">引發的問題 / Questions It Opens</div>
+    <p>如果「AI 焦慮 / AI 狂喜」都是地位遊戲，那什麼樣的 AI 回應才不是？沉默與喜悅（Cowen 的選擇）是答案嗎？</p>
+  </div>
+
+  <a class="source-link" href="https://marginalrevolution.com/marginalrevolution/2026/05/robert-wrights-the-god-test.html" target="_blank">→ 閱讀全文</a>
+</div>
+
+<!-- TL3 -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-num">B3</div>
+    <div class="card-title-block">
+      <div class="card-title">
+        <a href="https://marginalrevolution.com/marginalrevolution/2026/05/india-fertility-facts-of-the-day.html" target="_blank">[總經] Jesús Fernández-Villaverde（via Tyler Cowen）— 印度生育率的 10 個關鍵數字</a>
+      </div>
+      <div class="card-meta">
+        <span class="badge badge-domain">[總經]</span>
+        <span>Marginal Revolution / X · Jesús Fernández-Villaverde</span>
+        <span class="badge badge-time">⏱ 5 min</span>
+        <span>2026-05-23</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">為什麼值得讀 / Why It Stands Out</div>
+    <p>印度剛公布 2024 SRS 統計報告，總生育率已降至 1.88——低於替代率。這份 10 點摘要是目前最清晰的數據解讀，提供了從全國到區域（Kerala 1.3 vs Bihar 2.9）的細節，並對未來走勢有具體預測。對任何關注人口趨勢的人都值得存檔。</p>
+  </div>
+
+  <div class="card-section">
+    <div class="card-section-label">核心觀點 / Core Insight</div>
+    <p>印度 TFR 現在是 1.88，預計 2031 年降至 1.57（美國現行水平）。地區差異巨大：Kerala/Delhi 已接近義大利；Bihar 仍達 2.9。性別選擇性墮胎仍在，但已在改善（918/1000 vs 自然的 952/1000）。重要結論：印度沒有「人口例外論」，它正在走與其他所有國家一樣的路。</p>
+  </div>
+
+  <div class="question-box">
+    <div class="card-section-label">引發的問題 / Questions It Opens</div>
+    <p>如果印度在 2031 年跌破 1.6，「印度成為下一個人口紅利大國」的敘事將需要全面修正——這對台商的印度投資邏輯有何影響？</p>
+  </div>
+
+  <a class="source-link" href="https://marginalrevolution.com/marginalrevolution/2026/05/india-fertility-facts-of-the-day.html" target="_blank">→ 閱讀全文</a>
+</div>
+
+<hr class="divider" />
+
+<footer>
+  <p>策展日期：2026-05-26 &nbsp;·&nbsp; 資料來源：Hacker News / Quanta Magazine / Marginal Revolution / Daily Princetonian / Dynomight / sockpuppet.org / avkcode.github.io</p>
+  <p style="margin-top:8px;">付費牆 / 封鎖來源：The Browser (headlines only) · LRB Squillions (John Lanchester, 付費) · The Atlantic · The Guardian Long Reads (403) · Asymco (空白頁) · One Useful Thing / Noahpinion (需 JS)</p>
+  <p style="margin-top:8px; font-size:11px; opacity:0.5;">Generated by Claude · daily-interesting-articles skill · 2026-05-26</p>
+</footer>
+
+</body>
+</html>

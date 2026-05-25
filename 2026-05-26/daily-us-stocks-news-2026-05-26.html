@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美股日報 · Daily US Stocks News — May 22, 2026 (Last Close)</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --card: #1a1d27;
+      --border: #2a2d3a;
+      --text: #e2e8f0;
+      --muted: #8b95a6;
+      --accent: #6366f1;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+      --blue: #38bdf8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      padding: 24px 16px 64px;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+
+    /* Header */
+    header { margin-bottom: 32px; }
+    header .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    header h1 { font-size: 1.7rem; font-weight: 800; line-height: 1.2; }
+    header .sub { color: var(--muted); font-size: 13px; margin-top: 6px; }
+    .holiday-notice {
+      background: #1e2030;
+      border-left: 4px solid var(--yellow);
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--yellow);
+    }
+
+    /* Index table */
+    .index-table { width: 100%; border-collapse: collapse; margin-bottom: 32px; font-size: 14px; }
+    .index-table th {
+      background: var(--card);
+      color: var(--muted);
+      font-weight: 600;
+      text-align: left;
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .index-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .index-table tr:hover td { background: rgba(99,102,241,.06); }
+    .up { color: var(--green); font-weight: 600; }
+    .down { color: var(--red); font-weight: 600; }
+    .flat { color: var(--muted); }
+
+    /* Section */
+    section { margin-bottom: 40px; }
+    section h2 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+      margin-bottom: 20px;
+      letter-spacing: .02em;
+    }
+
+    /* Article card */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+    }
+    .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .card .source {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .card .source a { color: var(--blue); text-decoration: none; }
+    .card .source a:hover { text-decoration: underline; }
+    .label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+    .label-fact { background: #1e3a5f; color: #7ec8ff; }
+    .label-ctx  { background: #1c2e1c; color: #6ee75e; }
+    .label-impl { background: #2e1e3a; color: #c97ef5; }
+    .block { margin-bottom: 10px; }
+    .block p { margin-top: 4px; font-size: 14px; color: #cbd5e1; }
+
+    /* Sector mini-heatmap */
+    .sectors { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .sector-tag {
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .s-up   { background: #14532d; color: #86efac; }
+    .s-down { background: #450a0a; color: #fca5a5; }
+    .s-flat { background: #1e2030; color: #94a3b8; }
+
+    /* Footer */
+    footer {
+      margin-top: 48px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    footer a { color: var(--blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer ul { list-style: none; padding: 0; columns: 2; column-gap: 24px; }
+    footer ul li { margin-bottom: 6px; }
+    .disclaimer {
+      margin-top: 16px;
+      padding: 12px;
+      background: var(--card);
+      border-radius: 6px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="badge">美股日報 · Daily US Stocks</div>
+    <h1>美股日報 — 2026年5月22日 (週五) 收盤</h1>
+    <p class="sub">Published: 2026-05-26 Taipei · Last US session: Friday, May 22, 2026</p>
+    <div class="holiday-notice">
+      ⚠️ 注意：美國 Memorial Day 假日 — 2026年5月25日 (週一) 美股休市。台北時間5月26日 (週一) 最新收盤資料為 5月22日 (週五)。<br>
+      Markets closed Monday May 25 for Memorial Day. US trading resumes Tuesday May 26. This briefing covers the May 22 close plus weekend M&amp;A/geopolitical news.
+    </div>
+  </header>
+
+  <!-- Index Table -->
+  <table class="index-table">
+    <thead>
+      <tr>
+        <th>指數 / Index</th>
+        <th>收盤 Close</th>
+        <th>漲跌 Chg</th>
+        <th>%</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>S&amp;P 500</td><td>7,473.47</td><td class="up">+27.6</td><td class="up">+0.37%</td></tr>
+      <tr><td>Nasdaq Comp</td><td>26,343.97</td><td class="up">+50.0</td><td class="up">+0.19%</td></tr>
+      <tr><td>Dow Jones</td><td>50,579.70</td><td class="up">+294.0</td><td class="up">+0.58%</td></tr>
+      <tr><td>Russell 2000</td><td>2,869.23</td><td class="up">+25.8</td><td class="up">+0.91%</td></tr>
+      <tr><td>VIX</td><td>16.76</td><td class="down">−0.68</td><td class="down">−3.90%</td></tr>
+      <tr><td>US 10Y Yield</td><td>4.57%</td><td class="flat">≈ Steady</td><td class="flat">—</td></tr>
+      <tr><td>DXY</td><td>99.32</td><td class="up">+0.06</td><td class="up">+0.06%</td></tr>
+      <tr><td>WTI Crude</td><td>~$97.29</td><td class="down">↓ Pullback</td><td class="down">Iran deal hopes</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Section 1: Market Overview -->
+  <section>
+    <h2>1. 市場概況 / Market Overview</h2>
+
+    <div class="card">
+      <h3>道瓊創新高、S&amp;P 500連八週上漲 / Dow Sets Record, S&amp;P 500 Posts 8th Straight Weekly Gain</h3>
+      <div class="source">來源 / Source: <a href="https://www.cnbc.com/2026/05/21/stock-market-today-live-updates.html" target="_blank">CNBC</a> · <a href="https://sherwood.news/markets/market-wrap-2026-05-22-sp500-qqq/" target="_blank">Sherwood News</a> · <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-may-22-2026" target="_blank">TheStreet</a> · 2026-05-22</div>
+
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>道瓊週五收 50,579（+294點，+0.58%），創歷史收盤新高。S&amp;P 500 收 7,473（+0.37%），連續第八週收漲，為 2023年12月以來最長連漲周串。Nasdaq 收 26,344（+0.19%）。Russell 2000 小型股表現最佳，收 2,869（+0.91%）。VIX 跌至 16.76，下跌 3.9%，恐慌情緒緩解。<br>
+        Dow closed at 50,579 (+294 pts, +0.58%), a record. S&amp;P 500 at 7,473 (+0.37%), marking its eighth straight winning week — longest since Dec 2023. Russell 2000 led at +0.91%. VIX dropped 3.9% to 16.76.</p>
+      </div>
+
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 / Context</span>
+        <p>本週上漲動力來自三大主題：NVIDIA 強勁財報彰顯 AI 需求仍旺盛、美伊接近核協議帶動石油供給預期改善、企業財報季整體優於預期。S&amp;P 500 的八週連漲顯示市場情緒由四月的關稅衝擊中大幅修復。<br>
+        Three narratives drove the week: NVDA's blowout AI earnings, near-deal US-Iran talks that eased oil supply fears, and a broadly solid earnings season. The 8-week streak reflects a significant sentiment recovery from April's tariff-shock correction.</p>
+      </div>
+
+      <div class="sectors">
+        <span class="sector-tag s-up">Utilities XLU +1.0%</span>
+        <span class="sector-tag s-up">Consumer Disc. XLY +0.8%</span>
+        <span class="sector-tag s-up">Materials XLB +0.7%</span>
+        <span class="sector-tag s-up">Energy +0.6%</span>
+        <span class="sector-tag s-up">Industrials +0.4%</span>
+        <span class="sector-tag s-flat">Technology ~flat</span>
+        <span class="sector-tag s-down">Consumer Staples XLP −1.6%</span>
+      </div>
+
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>Consumer Staples 下跌 1.6%，顯示資金從防禦型股輪出，重回風險偏好。小型股 Russell 2000 跑贏大型股，暗示市場對美國內需信心升溫。VIX 降至 16 附近，選擇權市場對近期波動預期相當溫和。<br>
+        Staples weakness signals rotation away from defensives. Small-cap outperformance hints at domestic growth confidence. VIX near 16 reflects low near-term vol expectations heading into Memorial Day.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Top Stories -->
+  <section>
+    <h2>2. 頭條 / Top Stories</h2>
+
+    <div class="card">
+      <h3>NVIDIA Q1 FY2027 財報：營收破紀錄 $816 億但股價承壓 / Record $81.6B Revenue, Stock Under Pressure</h3>
+      <div class="source">來源 / Source: <a href="https://www.cnbc.com/2026/05/20/nvidia-nvda-earnings-report-q1-2027.html" target="_blank">CNBC</a> · <a href="https://intellectia.ai/blog/nvidia-earnings-stock-analysis-may-2026" target="_blank">Intellectia AI</a> · 2026-05-20</div>
+
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>NVDA 2027財年Q1（截至2026年4月底）營收 $816億，年增 +85%；資料中心收入 $752億，年增 +92%。調整後 EPS $1.87（高於共識 $1.76）。公司宣布 800 億美元股票回購計畫，季度股息由每股 $0.01 提升至 $0.25。下一季指引：$910 億（±2%）。<br>
+        Q1 FY2027 revenue $81.6B (+85% YoY); Data Center $75.2B (+92%). Adj. EPS $1.87 vs. $1.76 estimate. $80B buyback authorized; dividend raised 25x to $0.25/share. Q2 guidance $91B.</p>
+      </div>
+
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 / Context</span>
+        <p>NVDA 已連續 18/20 季超越預期，但市場「期望值已達天際」——股價自2月財報後上漲 13.7%，本次結果雖強勁但幅度略低於最樂觀預期，導致「買謠言、賣事實」反應。NVDA 過去四次財報後都出現股價下跌（最近：FY4Q26 後 −5%、FY3Q26 後 −3%、FY2Q26 後 −0.8%）。<br>
+        NVDA has beaten in 18 of 20 quarters, yet stock has fallen after each of its last three reports. The bar was simply unattainable: expectations demanded a dramatic beat, and investors took profits off a 13.7% pre-earnings run-up.</p>
+      </div>
+
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>NVDA 財報確認 AI 基礎設施需求仍極旺盛，利好整個 AI 供應鏈（AMD、SMCI、台積電 ADR）。$91B 的Q2 指引暗示全球 AI 算力投資週期仍遠未觸頂。股息大幅提升可能吸引更多機構/退休基金買盤。<br>
+        Results confirm AI infrastructure demand remains intact — positive read-through for AMD, SMCI, TSMC ADR. $91B Q2 guide suggests no cyclical peak in sight. Dividend hike may unlock new institutional buyer categories.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>美伊談判接近協議：霍爾木茲海峽將開放 / US-Iran Near Deal: Strait of Hormuz to Reopen</h3>
+      <div class="source">來源 / Source: <a href="https://www.axios.com/2026/05/24/iran-deal-strait-hormuz-sanctions-nuclear" target="_blank">Axios</a> · <a href="https://fortune.com/2026/05/24/oil-prices-us-ceasefire-deal-iran-hormuz-strait-reopening/" target="_blank">Fortune</a> · <a href="https://www.bloomberg.com/news/articles/2026-05-24/latest-oil-market-news-and-analysis-for-may-25" target="_blank">Bloomberg</a> · 2026-05-24</div>
+
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>週末消息：美伊接近簽署 60 天諒解備忘錄（MOU），核心內容包括霍爾木茲海峽解除封鎖、伊朗承諾不發展核武、暫停鈾濃縮談判。布蘭特原油週末重挫至約 $98，WTI 跌至 $92 附近（此為週末 AH 動態，非 RTH 官方收盤）。<br>
+        Weekend: US and Iran near 60-day MOU; Hormuz strait to reopen, Iran pledges no nukes. Brent dropped ~5.2% to $98 AH; WTI near $92. Note: these are after-hours / weekend moves, not official RTH closes.</p>
+      </div>
+
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 / Context</span>
+        <p>自2026年初中東緊張局勢升溫後，WTI 高點曾觸及 $110+ 以上，地緣政治風險溢價是近幾個月能源股強勢的重要支撐。若協議落地，全球供給預期改善，能源板塊可能面臨修正壓力。<br>
+        WTI had rallied to $110+ earlier in 2026 on Middle East tensions. A Hormuz reopening removes a key supply-risk premium that has supported energy equities for months.</p>
+      </div>
+
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析，非投資建議）原油下跌對能源股 XLE 構成下行壓力，但對消費者／航運成本構成利好，可能支撐 Consumer Discretionary 和 Transportation 類股。協議不確定性仍高，需關注週二 (5/27) 美股開盤後油價與 XLE 的走向。<br>
+        Analysis: Oil drop pressures XLE but is a tailwind for consumers and transport costs. High uncertainty — deal could still collapse per Iran's Tasnim agency. Watch XLE and crude on Tue May 27 open.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Earnings -->
+  <section>
+    <h2>3. 財報 / Earnings of the Day</h2>
+
+    <div class="card">
+      <h3>Workday (WDAY) Q1 FY2027 超預期、全年利潤率上調 / Beat + Margin Raise</h3>
+      <div class="source">來源 / Source: <a href="https://www.sec.gov/Archives/edgar/data/0001327811/000132781126000024/wday-04302026x991.htm" target="_blank">SEC EDGAR 8-K</a> · <a href="https://www.gurufocus.com/news/8873045/workday-wday-set-to-report-q1-earnings-on-may-21" target="_blank">GuruFocus</a> · 2026-05-21</div>
+
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>WDAY Q1 FY2027 總營收 $25.4億（年增 +13.5%），訂閱收入 $23.5億（+14.3%）；GAAP 營業利益率 13.3%（vs 去年同期 1.8%）。全年指引：訂閱收入 $99.25–99.50億（12–13% 成長），Non-GAAP 營業利益率上調至 30.5%。股價週五上漲 ~4%。<br>
+        Q1 FY2027 revenue $2.54B (+13.5%); subscription $2.35B (+14.3%). GAAP op margin 13.3% vs. 1.8% prior year. FY27 guidance: subscription revenue $9.93–9.95B; non-GAAP op margin raised to 30.5%. Stock +~4% Friday.</p>
+      </div>
+
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>利潤率大幅改善顯示 WDAY 從成長優先轉向盈利優先的策略奏效。結果帶動 HR/ERP 軟體同業（SAP、Oracle）情緒改善。<br>
+        Margin improvement signals successful pivot from growth-at-all-costs to profitable-growth. Positive read-through for HR/ERP peers SAP and Oracle.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Single-stock movers -->
+  <section>
+    <h2>4. 個股大事 / Single-Stock Movers</h2>
+
+    <div class="card">
+      <h3>Dell (DELL) 創歷史新高 —— AI PC 與伺服器訂單強勁 / DELL Hits All-Time High on AI Server Optimism</h3>
+      <div class="source">來源 / Source: <a href="https://www.benzinga.com/trading-ideas/movers/26/05/52749477/dell-technologies-stock-hits-52-week-high-heres-why" target="_blank">Benzinga</a> · <a href="https://www.cnbc.com/2026/05/22/stocks-making-the-biggest-moves-midday-dell-hpq-el-gnrc.html" target="_blank">CNBC</a> · 2026-05-22</div>
+
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>DELL 週五盤中觸及歷史新高 $295.19，全日上漲 7.21%。Wells Fargo 目標價從 $180 上調至 $270，Morgan Stanley 從 $110 上調至 $170，Evercore ISI 維持 Outperform。DELL 將於 5月28日發布 FY1Q27 財報。<br>
+        DELL hit ATH $295.19, up 7.21%. Multiple PT raises: Wells Fargo $180→$270, MS $110→$170. FY1Q27 earnings due May 28.</p>
+      </div>
+
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 / Context</span>
+        <p>中國聯想財報強勁 PC 銷售數據溢出正面效應，加上市場對 Dell AI 伺服器出貨量加速的期待，成為本次漲勢觸媒。年初以來 DELL 已累積大幅漲幅。<br>
+        Positive spillover from China's Lenovo strong PC results, combined with accelerating expectations for Dell's AI server order book, drove the move.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Estée Lauder (EL) 飆漲 12% —— 終止與 Puig 合併談判 / EL Jumps 12% as $40B Merger Deal with Puig Collapses</h3>
+      <div class="source">來源 / Source: <a href="https://www.cnbc.com/2026/05/22/estee-lauder-puig-merger-talks-end.html" target="_blank">CNBC</a> · <a href="https://www.gurufocus.com/news/8875905/este-lauder-el-shares-surge-15-after-ending-merger-talks-with-puig" target="_blank">GuruFocus</a> · 2026-05-22</div>
+
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>EL 官方確認終止與西班牙奢侈品集團 Puig 的合併談判（曾洽談組建 $400億美元奢華美妝巨頭）。EL 週五收盤上漲約 11.9%。反之，西班牙 Puig 股價重挫近 14%。<br>
+        EL confirmed end of merger talks with Puig (would have been $40B luxury beauty combo). EL +11.9% Friday. Puig plunged ~14% in Madrid.</p>
+      </div>
+
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 / Context</span>
+        <p>消息於 3月23日曝光時 EL 股價下跌，市場擔憂整合風險。公司重申「Beauty Reimagined」轉型策略，投資人歡迎專注自身業務重整而非高度不確定的跨境整合。<br>
+        EL sold off when the deal was first disclosed in March on integration risk fears. Investors cheered the walk-away as it lets management focus on the standalone "Beauty Reimagined" turnaround.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>HP Inc. (HPQ) 強勢拉升 15% —— 聯想 PC 銷售帶動預期 / HPQ +15% on Lenovo PC Halo Effect</h3>
+      <div class="source">來源 / Source: <a href="https://www.cnbc.com/2026/05/22/stocks-making-the-biggest-moves-midday-dell-hpq-el-gnrc.html" target="_blank">CNBC</a> · 2026-05-22</div>
+
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>HPQ 週五大漲逾 15%，收 $24.32（+$2.42）。Lenovo Q4 財報顯示 PC 出貨量大幅回升，市場預期 AI PC 換機潮將帶動 HPQ 同期受益。<br>
+        HPQ surged 15%+ to $24.32. Lenovo Q4 results showed strong PC shipment recovery, stoking expectations that HPQ will benefit from the AI PC upgrade cycle.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>AeroVironment (AVAV) +6.8% —— 國防無人機需求持續 / Defense Drone Demand Intact</h3>
+      <div class="source">來源 / Source: Memorial Day weekend news recap · 2026-05-23</div>
+
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>AVAV 週五收 $174.23（+6.8%），週漲幅達 10.3%。Lockheed Martin (LMT) 同步上漲 2.0% 至 $533.24。市場情緒受惠於持續的地緣政治緊張局勢對國防預算的正面期望。<br>
+        AVAV closed $174.23 (+6.8%), +10.3% for the week. LMT +2.0% to $533.24. Geopolitical risk premium supporting defense names.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: M&A / IPO -->
+  <section>
+    <h2>5. 併購與 IPO / M&A and IPO</h2>
+
+    <div class="card">
+      <h3>Estée Lauder × Puig 400億合併案告吹 / $40B Beauty Merger Collapses</h3>
+      <div class="source">來源 / Source: <a href="https://www.investing.com/news/stock-market-news/estee-lauder-stock-surges-after-ending-puig-merger-talks-93CH-4705006" target="_blank">Investing.com</a> · <a href="https://www.tikr.com/blog/estee-lauder-nyse-el-stock-jumps-as-merger-talks-with-puig-officially-end" target="_blank">TIKR</a> · 2026-05-22</div>
+
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>本案自3月23日披露後，曾引發市場對跨境整合風險與品牌定位衝突的疑慮。兩公司均已確認談判終止，EL 表示將全力推進「Beauty Reimagined」計畫。<br>
+        Deal disclosed March 23, terminated May 22. Would have combined Estée Lauder (NYSE) and Puig (BME) into a $40B luxury beauty giant. Both companies confirmed termination.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Analyst Calls -->
+  <section>
+    <h2>6. 券商評等 / Analyst Calls</h2>
+
+    <div class="card">
+      <h3>本週重要評等變動 / Key Rating Actions — Week of May 22, 2026</h3>
+      <div class="source">來源 / Source: <a href="https://seekingalpha.com/news/4596405-sa-analyst-upgrades-downgrades-nvda-meta-gdrx-jpm" target="_blank">Seeking Alpha</a> · Benzinga · 2026-05-22</div>
+
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>
+          • <strong>DELL</strong>：Wells Fargo PT $180 → $270；Morgan Stanley PT $110 → $170；Evercore ISI 重申 Outperform<br>
+          • <strong>NVDA</strong>：Cestrian Capital Research 上調評等（財報後）；多數機構維持買入<br>
+          • <strong>META</strong>：Seeking Alpha 分析師看多，認為估值具吸引力<br>
+          • <strong>Ralph Lauren (RL)</strong>：UBS PT $480 → $511，維持 Buy<br>
+          • <strong>Dorian LPG (LPG)</strong>：Freedom Broker 降評至 Hold（估值因素）
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Fed & Rates -->
+  <section>
+    <h2>7. Fed 與利率 / Fed &amp; Rates</h2>
+
+    <div class="card">
+      <h3>Fed 維持利率 3.50–3.75%，全年降息預期大幅縮水 / Fed Holds, Rate Cut Hopes Fading for 2026</h3>
+      <div class="source">來源 / Source: <a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm" target="_blank">Federal Reserve</a> · <a href="https://www.cnbc.com/2026/04/29/fed-interest-rate-decision-april-2026.html" target="_blank">CNBC</a> · 2026-04-29 (latest FOMC)</div>
+
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>Fed 於4月28–29日 FOMC 會議三度連續按兵不動，維持聯邦基金利率目標區間 3.50–3.75%。FOMC 票決 8–4，部分官員反對降息訊號。CME FedWatch 目前隱含 2026 年內降息概率大幅下降，J.P. Morgan 甚至預測下一步可能是 2027年Q3 升息。美國十年期公債殖利率目前約 4.57%。<br>
+        Fed held at 3.50–3.75% for third straight meeting. Split 8-4 vote. CME FedWatch shows diminished 2026 cut probability; JPM sees next move as a potential 25bp hike in Q3 2027. 10Y Treasury at ~4.57%.</p>
+      </div>
+
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 / Context</span>
+        <p>能源價格高漲（油價中東風險溢價）加上勞動市場韌性，使通膨降溫速度不如預期。Fed 鷹派傾向維持，限制了長債殖利率下行空間。美股的持續上漲是在「higher for longer」的利率環境下完成，顯示企業獲利支撐力道強勁。<br>
+        High energy prices from Middle East tensions plus resilient labor market have kept inflation sticky. Fed hawkishness caps bond rally. Equities rallying despite "higher for longer" signals — earnings growth is doing the heavy lifting.</p>
+      </div>
+
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>利率高位持續對估值有壓，但科技/AI 成長股在強勁 EPS 成長面前展現較強韌性。需關注 5月27日 (週二) 美股開盤後，若美伊協議落地導致油價下行，是否能加速通膨回落預期、進而重燃降息預期。<br>
+        Persistent high rates cap valuations but tech/AI is offsetting with earnings growth. Watch if oil price collapse from Iran deal shifts inflation expectations — that could quickly reprice rate-cut odds.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: Flows -->
+  <section>
+    <h2>8. 資金流向 / Flows &amp; Positioning</h2>
+
+    <div class="card">
+      <h3>連八週資金仍偏多、VIX 回落顯示選擇權市場平靜 / Eight-Week Rally Amid Calm Options Market</h3>
+      <div class="source">來源 / Source: <a href="https://www.advisorperspectives.com/dshort/updates/2026/05/22/s-p-500-snapshot-eight-week-win-streak-longest-since-2023" target="_blank">Advisor Perspectives</a> · <a href="https://seekingalpha.com/article/4908222-sp-500-snapshot-8-week-win-streak-longest-since-2023" target="_blank">Seeking Alpha</a> · 2026-05-22</div>
+
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>VIX 收 16.76，下跌近 4%，處於過去一年相對低位。S&amp;P 500 連八週正報酬，為 2023年底以來最長連漲週串。小型股（RUT +0.91%）跑贏大型股，顯示風險偏好廣泛。<br>
+        VIX at 16.76 (−4%), near one-year lows. Eight straight SPX winning weeks since late 2023. Small caps outperformed — broad risk appetite.</p>
+      </div>
+
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>低 VIX 環境有利於系統性策略（Risk Parity、Vol-Target）維持高倉位。需注意 Memorial Day 後首個交易日（5/27）若美伊協議新聞顯著推動油價，可能造成能源板塊的倉位調整。<br>
+        Low VIX keeps systematic vol-target and risk-parity strategies at full allocation. Watch for energy sector repositioning on Tue May 27 depending on Iran deal news flow.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 9: Reads -->
+  <section>
+    <h2>9. 觀點 / Reads</h2>
+
+    <div class="card">
+      <h3>S&P 500 八週連漲深度解讀 — 2023年以來最強連續上漲 / Deep Dive: 8-Week Win Streak Context</h3>
+      <div class="source">來源 / Source: <a href="https://www.advisorperspectives.com/dshort/updates/2026/05/22/s-p-500-snapshot-eight-week-win-streak-longest-since-2023" target="_blank">Advisor Perspectives / dshort</a> · <a href="https://www.finsyn.com/weekly-market-recap-may-22-2026/" target="_blank">Financial Synergies Weekly Recap</a> · 2026-05-22</div>
+
+      <div class="block">
+        <p>指數的連漲是由 AI 題材（NVDA、DELL、HPQ）、地緣政治降溫（美伊談判）、財報季整體超預期三股力量共同推動。然而，上行動能背後仍有潛在風險：(1) Fed 不降息甚至可能升息；(2) 美伊協議若破局，油價可能反彈；(3) 高估值（SPX 前瞻本益比仍在歷史高位區間）缺乏緩衝。週二開盤將是對假日期間消息的第一個定價機會。<br>
+        The 8-week streak rests on three pillars: AI earnings momentum, geopolitical de-escalation, and a solid earnings season. Counter-risks: Fed hold (or hike), Iran deal collapse → oil rebound, elevated valuations. Tuesday's open is the first pricing event for holiday-weekend news.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p><strong>數據來源 / Sources</strong></p>
+    <ul>
+      <li><a href="https://www.cnbc.com/2026/05/21/stock-market-today-live-updates.html" target="_blank">CNBC — Stock Market Live Updates May 22</a></li>
+      <li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-may-22-2026" target="_blank">TheStreet — Market Today May 22</a></li>
+      <li><a href="https://sherwood.news/markets/market-wrap-2026-05-22-sp500-qqq/" target="_blank">Sherwood News — Weekly Market Wrap</a></li>
+      <li><a href="https://www.advisorperspectives.com/dshort/updates/2026/05/22/s-p-500-snapshot-eight-week-win-streak-longest-since-2023" target="_blank">Advisor Perspectives — 8-Week Win Streak</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/20/nvidia-nvda-earnings-report-q1-2027.html" target="_blank">CNBC — NVDA Q1 FY2027 Earnings</a></li>
+      <li><a href="https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000051/q1fy27pr.htm" target="_blank">SEC EDGAR — NVIDIA Q1 FY2027 Press Release</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/22/estee-lauder-puig-merger-talks-end.html" target="_blank">CNBC — Estée Lauder / Puig Merger Ends</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/22/stocks-making-the-biggest-moves-midday-dell-hpq-el-gnrc.html" target="_blank">CNBC — Biggest Movers Midday</a></li>
+      <li><a href="https://www.benzinga.com/trading-ideas/movers/26/05/52749477/dell-technologies-stock-hits-52-week-high-heres-why" target="_blank">Benzinga — DELL 52-Week High</a></li>
+      <li><a href="https://www.axios.com/2026/05/24/iran-deal-strait-hormuz-sanctions-nuclear" target="_blank">Axios — US-Iran Deal Details</a></li>
+      <li><a href="https://fortune.com/2026/05/24/oil-prices-us-ceasefire-deal-iran-hormuz-strait-reopening/" target="_blank">Fortune — Oil Drops on Iran Deal</a></li>
+      <li><a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm" target="_blank">Federal Reserve — FOMC Statement April 2026</a></li>
+      <li><a href="https://www.sec.gov/Archives/edgar/data/0001327811/000132781126000024/wday-04302026x991.htm" target="_blank">SEC EDGAR — Workday Q1 FY2027 8-K</a></li>
+      <li><a href="https://www.finsyn.com/weekly-market-recap-may-22-2026/" target="_blank">Financial Synergies — Weekly Recap May 22</a></li>
+    </ul>
+
+    <div class="disclaimer">
+      <strong>免責聲明 / Disclaimer：</strong>本文件僅供資訊參考，不構成任何投資建議。所有數據均來自公開來源，可能存在延遲或誤差。投資決策請諮詢專業顧問。<br>
+      For informational purposes only. Not investment advice. All data sourced from public sources; may contain delays or errors. Consult a professional for investment decisions.
+    </div>
+    <p style="margin-top:12px;">Generated: 2026-05-26 · AI-compiled briefing</p>
+  </footer>
+
+</div>
+</body>
+</html>

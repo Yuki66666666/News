@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日創投新聞日報 / Daily VC News — 2026-05-26</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --border: #2a2d3e;
+      --accent: #7c6af7;
+      --accent2: #4fc3f7;
+      --green: #4caf7d;
+      --red: #f05454;
+      --yellow: #f7c94e;
+      --text: #e2e4ef;
+      --muted: #8b8fa8;
+      --tag-bg: #252838;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #252042 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 32px 22px;
+    }
+    header .date-label {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    header .subtitle {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 28px 20px 60px; }
+    .section {
+      margin-bottom: 36px;
+    }
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 18px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+      transition: border-color 0.15s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .card h3 .cn { color: var(--accent2); }
+    .source-line {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .source-line a { color: var(--accent); text-decoration: none; }
+    .source-line a:hover { text-decoration: underline; }
+    .badge {
+      display: inline-block;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 1px 6px;
+      color: var(--muted);
+    }
+    .badge.fund { border-color: var(--accent); color: var(--accent); }
+    .badge.exit { border-color: var(--green); color: var(--green); }
+    .badge.gp { border-color: var(--yellow); color: var(--yellow); }
+    .badge.strategy { border-color: var(--accent2); color: var(--accent2); }
+    .badge.regional { border-color: #f7a94e; color: #f7a94e; }
+    .block { margin-bottom: 10px; }
+    .block-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+    .block p { font-size: 14px; color: var(--text); }
+    .highlight-box {
+      background: linear-gradient(135deg, #1e2038 0%, #1a2336 100%);
+      border: 1px solid var(--accent);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+    }
+    .highlight-box .hl-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .highlight-box p { font-size: 13px; color: #b0b4cc; }
+    .stat-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .stat-box {
+      flex: 1;
+      min-width: 140px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .stat-box .val { font-size: 22px; font-weight: 700; color: var(--accent2); }
+    .stat-box .lab { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .reads-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .reads-card .num {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--border);
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 2px;
+    }
+    .reads-card h4 { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .reads-card p { font-size: 13px; color: var(--muted); }
+    .reads-card a { color: var(--accent); text-decoration: none; font-size: 12px; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 22px 32px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    @media (max-width: 600px) {
+      header { padding: 20px 16px; }
+      .container { padding: 20px 12px 50px; }
+      .stat-row { gap: 8px; }
+      .stat-box .val { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="date-label">今日創投新聞日報 / Daily VC News</div>
+  <h1>創投生態系動態 · VC Ecosystem Watch</h1>
+  <div class="subtitle">2026-05-26 &nbsp;|&nbsp; Asia/Taipei &nbsp;|&nbsp; 涵蓋新基金、LP動向、大型領投、退場與GP人事</div>
+</header>
+
+<div class="container">
+
+  <!-- Key Numbers -->
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="val">$3.5B</div>
+      <div class="lab">Kleiner Perkins 新募資</div>
+    </div>
+    <div class="stat-box">
+      <div class="val">$232M</div>
+      <div class="lab">Air Street Fund III</div>
+    </div>
+    <div class="stat-box">
+      <div class="val">$60B+</div>
+      <div class="lab">次級市場 2025 交易量</div>
+    </div>
+    <div class="stat-box">
+      <div class="val">800+</div>
+      <div class="lab">獨角獸等待 IPO</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: TOP STORIES -->
+  <div class="section">
+    <div class="section-title">01 · 頭條 / Top Stories</div>
+
+    <div class="highlight-box">
+      <div class="hl-title">VC 大資金週期加速：Thrive $10B、General Catalyst $10B、Founders Fund $6B、Kleiner Perkins $3.5B——超級基金時代來臨</div>
+      <p>過去數月，頂級創投進入大規模再融資衝刺。資本集中趨勢明顯：少數旗艦 GP 持續吸走 LP 配置，中小型新興基金募資空間壓縮。AI 超大型 round（OpenAI $110B、Anthropic $30B、xAI $20B）正在重塑整個創投資金流向。<br><br>Top VC funds are in a mega-raise sprint: Thrive $10B, GC ~$10B, Founders Fund $6B, KP $3.5B. LP capital is concentrating rapidly at the top, squeezing emerging managers. AI mega-rounds are structurally reshaping deployment.</p>
+    </div>
+
+    <div class="highlight-box">
+      <div class="hl-title">SoftBank $40B 無擔保貸款暗示 OpenAI 2026 IPO 迫近 / SoftBank's $40B Unsecured Loan Signals Imminent OpenAI IPO</div>
+      <p>SoftBank 以 12 個月期限取得 $400 億美元無擔保貸款（由 JPMorgan、Goldman Sachs 及四家日本銀行提供），用以支撐其對 OpenAI 的 $300 億美元承諾。12 個月到期強烈暗示放款方預期 OpenAI IPO 今年完成，提供足夠流動性清償。若 OpenAI 上市，將是史上最大科技 IPO 之一，直接影響 KP、Thrive 等所有 OpenAI 機構股東的 DPI。<br><br>SoftBank secured a $40B unsecured 12-month loan—structured assuming OpenAI IPO proceeds will cover repayment—signaling that major institutional creditors are pricing in a 2026 listing. OpenAI IPO would be a DPI catalyst for most major AI-era VC funds.</p>
+    </div>
+
+    <div class="highlight-box">
+      <div class="hl-title">創投生態「K 型分化」：AI 吃掉 41% 創投資金，2023-24 vintage 基金 IRR 領先 / K-Shaped VC: AI Takes 41% of Dollars, Recent Vintages Lead IRR</div>
+      <p>Carta 最新數據：2025 年 AI 新創吸收 Carta 平台 $1,280 億美元中的 41%，史上最高。但 10% 的新創包辦了一半的融資。2023-24 vintage 基金 IRR 已創新高，但多為帳面估值增益，尚未兌現為真實 DPI。PwC 指出次級市場 2025 交易量突破 $600 億，預計 2026 持續增長，成為 GP-led secondary 主流管道。<br><br>Carta data shows AI took 41% of VC dollars in 2025, but 10% of startups captured 50% of capital. 2023-24 vintage funds show high IRR, mostly paper gains. Secondary market hit $60B+ in 2025 transactions, now mainstream for LP liquidity before IPOs arrive.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: FUND FORMATION & LP -->
+  <div class="section">
+    <div class="section-title">02 · 新基金與 LP / Fund Formation & LP Activity</div>
+
+    <div class="card">
+      <span class="badge fund">Fund Close</span>
+      <h3><span class="cn">Kleiner Perkins 完成 $35 億雙基金募集，重押 AI</span> / Kleiner Perkins Closes $3.5B Across Two AI-Focused Funds</h3>
+      <div class="source-line">
+        <a href="https://techcrunch.com/2026/03/24/with-3-5b-in-fresh-capital-kleiner-perkins-is-going-all-in-on-ai/" target="_blank">TechCrunch</a> · 2026-03-24
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>Kleiner Perkins 宣布募集兩檔新基金：早期風險基金（KP XXII）$10 億，以及成長期後期基金 $25 億，合計 $35 億。對比不到兩年前的 $20 億融資，資金規模大幅提升。KP 目前以 5 位合夥人精簡運作，近期合夥人異動：Ev Randle 離職加入 Benchmark，Annie Case 轉為顧問角色。現有 AI 投資組合含 Together AI、Harvey、OpenEvidence，亦持有 Anthropic 及 SpaceX。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>KP 成立於 1972 年，是矽谷歷史最悠久的 VC 之一。其 2018 年主導 Figma $2,500 萬 Series B，2025 年隨 Figma IPO 實現顯著 DPI，也從 Windsurf 被 Google acqui-hire 中獲益。此次 $25 億成長基金為近年規模之最，顯示 KP 意圖在 AI 公司進入 pre-IPO 階段時搶奪後期配置席位。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <p>（分析）KP 的大型成長基金與 Thrive、GC 大基金直接競爭 OpenAI/Anthropic 後期股份。少數頂級 GP 壟斷 AI 巨型 round，LP 被迫集中配置，對中小型 VC 形成「資金重力」壓力。KP 合夥人變動（Randle 至 Benchmark）值得觀察：Benchmark 是否借此重返成長期配置？</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge fund">Fund Close · Europe</span>
+      <h3><span class="cn">Air Street 完成 $2.32 億 Fund III，成歐洲最大單人 VC 之一</span> / Air Street Closes $232M Fund III, Becomes One of Europe's Largest Solo VCs</h3>
+      <div class="source-line">
+        <a href="https://techcrunch.com/2026/03/23/air-street-becomes-one-of-the-largest-solo-vcs-in-europe-with-232m-fund/" target="_blank">TechCrunch</a> · 2026-03-23
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>倫敦 Air Street Capital 完成 $2.32 億 Fund III，由 Nathan Benaich 單人主導，聚焦歐洲及北美早期 AI 新創。支票規模 $50 萬至 $1,500 萬，成長期投資最高 $2,500 萬。AUM 達 $4 億。前兩檔基金：Fund I（2020）$1,700 萬 → Fund II $1.21 億 → Fund III $2.32 億，成長軌跡清晰。投資組合包含 Black Forest Labs、ElevenLabs；已實現退出含 Adept（售予 Amazon）、Graphcore（售予 SoftBank）。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>歐洲 solo GP 崛起是近年趨勢，代表投資人選擇以更精實的架構、更集中的策略操作基金，避免傳統 VC 的官僚決策。Air Street 在 AI 研究型公司上有專業聲譽（同時出版《State of AI Report》），在歐洲 AI 生態中具備獨特品牌差異化。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <p>（分析）歐洲 AI 早期生態的資金供給明顯提升。Air Street 的快速基金增長（2020 年 $1,700 萬到今日 $2.32 億）可能吸引更多 LP 重新評估歐洲 solo GP 機會。對 Sequoia、Index 等大型泛歐 VC 而言，早期 AI deal flow 競爭加劇。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge fund">New Fund · Niche</span>
+      <h3><span class="cn">Kalshi、Polymarket 兩大競爭對手 CEO 共同支持預測市場 VC 基金 5(c) Capital</span> / Rival CEOs of Kalshi & Polymarket Back $35M Predictions Market VC Fund 5(c) Capital</h3>
+      <div class="source-line">
+        <a href="https://techcrunch.com/2026/03/23/despite-bitter-rivalry-kalshi-polymarket-ceos-back-35m-predictions-markets-vc-fund/" target="_blank">TechCrunch</a> · 2026-03-23
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>5(c) Capital — 名稱取自監管條款 — 正在募集 $3,500 萬首檔基金，由前 Kalshi 員工 Adhi Rajaprabhakaran 與 Noah Zingler-Sternig 聯合領導。LP 包括：Kalshi CEO Tarek Mansour、Polymarket CEO Shayne Coplan、Marc Andreessen（通過 Moneta Luna）、Ribbit Capital 創辦人 Micky Malka。基金將投資約 20 家公司，聚焦預測市場基礎建設（做市商、指數設計商）。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>Kalshi 目前以 $220 億估值融資（四個月前估值 $110 億，翻倍），Polymarket 也傳出以 $200 億估值新一輪融資。這兩家彼此激烈競爭的預測市場平台，同時押注自己賽道的生態基金，顯示對整個類別二、三、四階效應的信心。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <p>（分析）預測市場從監管灰色地帶走向主流的過程中，周邊生態（做市商、數據提供商、合規工具）將快速成長。此基金是主題型 VC 崛起的另一佐證，與 AI vertical fund、defense tech fund 同屬新型態 thesis-first 投資。Andreessen 背書強化合法性。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge fund">Mega Raises</span>
+      <h3><span class="cn">頂級 GP 超級募資浪潮：Thrive $100B、General Catalyst ~$100B、Founders Fund $60B（成長基金）</span> / Mega GP Fundraise Wave: Thrive $10B, GC ~$10B, Founders Fund $6B Growth Vehicle</h3>
+      <div class="source-line">
+        <a href="https://techcrunch.com/2026/03/24/with-3-5b-in-fresh-capital-kleiner-perkins-is-going-all-in-on-ai/" target="_blank">TechCrunch（援引報導）</a> · 2026-03-24
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>根據 Bloomberg 及 SEC 文件：Thrive Capital（Josh Kushner）完成 $100 億新承諾（2026-02）；General Catalyst 報導中目標約 $100 億（2026-03）；Founders Fund 通過 SEC 文件確認第四檔成長基金關閉 $60 億（此前 TechCrunch 已報導）。三檔基金合計超過 $250 億，代表 LP 對旗艦 AI-era GP 的高度集中配置意願。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>Thrive 以 OpenAI 早期投資聞名（持有 Stripe、ByteDance 股份），GC 以 Helsing $6.93 億 defense 輪領投為近期亮點，Founders Fund 以 Palantir、Anduril 等創始機構聲譽吸引 LP。三家均受益於 AI 泡沫時代的紙面估值增益，吸引養老基金、主權財富基金加碼。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <p>（分析）創投資金集中化達到近 20 年最高水位。小型 GP 的 LP 關係面臨存在性壓力：大型基金以過去 AI 投資的帳面報酬為行銷工具，LP 難以拒絕配置。若 AI 市場遭遇修正，這批超大型基金將是最難部署的乾火藥。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: MEGA ROUNDS & LEAD INVESTORS -->
+  <div class="section">
+    <div class="section-title">03 · 大型 Round 與領投者 / Mega Rounds & Lead Investors</div>
+
+    <div class="card">
+      <span class="badge fund">Lead Investor Focus</span>
+      <h3><span class="cn">Sequoia 對 Harvey 三度加注，確認 $110 億估值</span> / Sequoia Triples Down on Harvey at $11B Valuation</h3>
+      <div class="source-line">
+        <a href="https://techcrunch.com/2026/03/25/harvey-confirms-11b-valuation-sequoia-triples-down/" target="_blank">TechCrunch</a> · 2026-03-25
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>法律 AI 公司 Harvey 確認 $110 億估值，Sequoia 為第三次出手支持（三度領投）。輪次規模未公開。Harvey 是法律垂直 AI 龍頭，用戶包含多家 AmLaw 100 律師事務所。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>Sequoia 多次領投同一家公司屬高度確定性信號，顯示其對 Harvey 的 conviction 超越組合多元化考量。法律 AI 是 2025-26 年企業 AI 代理人（agentic AI）最成熟商業化的垂直之一，Harvey 競爭對手 Clio、EvenUp 也獲大額融資。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <p>（分析）Sequoia 的領投選擇為法律 AI 定錨了 $100 億+估值的可能性，可能帶動同類公司估值重新定價。對競爭對手而言，Sequoia 加持意味著 Harvey 更容易鎖定頂級律所客戶。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge fund">AI Mega Round</span>
+      <h3><span class="cn">AI 超級輪次已成常態：OpenAI $1,100 億、Anthropic $300 億、xAI $200 億 2026 年初接連完成</span> / AI Mega Rounds Now Routine: OpenAI $110B, Anthropic $30B, xAI $20B All Closed in Early 2026</h3>
+      <div class="source-line">
+        <a href="https://techcrunch.com/2026/03/20/ai-startups-are-eating-the-venture-industry-and-the-returns-so-far-are-good/" target="_blank">TechCrunch / Carta</a> · 2026-03-20
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>2026 年初三大 AI 巨型輪次：OpenAI Series（$1,100 億，2026-02，史上最大私募融資）；Anthropic Series G（$300 億，估值 $3,800 億，2026-02）；xAI Series E（$200 億，2026-01）。三筆合計超過 $1,600 億，佔 2026 年 2 月全球 VC 融資 $1,890 億的主要份額。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>這三家公司在 AI 基礎模型賽道競爭，但其融資規模已超越傳統創投的部署邏輯，本質上是主權財富基金、大型科技公司戰略投資的混合體。SoftBank、GIC、PIF、微軟、Google 均有參與，傳統 VC 持股被大量稀釋。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <p>（分析）AI 基礎模型融資已超出傳統 VC 的能力範疇，正在重新定義「what is venture capital」。這對傳統 LP-GP 配置模式構成結構性挑戰：頂級 LP 現在可以直接參與 AI 巨型輪次，繞過 GP 費用結構。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: EXITS & DPI -->
+  <div class="section">
+    <div class="section-title">04 · 退場 / Exits & DPI Events</div>
+
+    <div class="card">
+      <span class="badge exit">IPO Pipeline</span>
+      <h3><span class="cn">國防科技 IPO 大門開啟：AI 無人機公司 Swarmer 首日暴漲 520%，12 家潛在 IPO 候選出列</span> / Defense Tech IPO Wave: Swarmer Surges 520% on Debut, 12 Potential Candidates Identified</h3>
+      <div class="source-line">
+        <a href="https://news.crunchbase.com/public/potential-defense-tech-ipo-candidates-swmr/" target="_blank">Crunchbase News</a> · 2026-03-18
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>AI 無人機公司 Swarmer（德州奧斯汀）以每股 $5 美元、發行 300 萬股、融資約 $1,500 萬、初始市值 $6,000 萬上市 Nasdaq。首日收盤市值衝至逾 $3.82 億（漲幅 520%）。背景：2025 年全球國防科技創投投資達 $84 億，史上新高，較 2024 年倍增。Anduril 2025 Series G 由 Founders Fund 領投 $25 億；Helsing 由 GC/Accel/Lightspeed 共同領投 $6.93 億；Saronic（無人水面艦）由 Elad Gil 領投 $6 億。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>Swarmer IPO 時機與美伊衝突升級及俄烏戰爭持續有直接關聯，地緣政治驅動防務科技的公開市場估值溢價。Crunchbase 根據預測智能工具（考量融資、估值、里程碑）列出 12 家潛在國防科技 IPO 候選，包含 Anduril、Saronic 等。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <p>（分析）Swarmer 的上市表現是 2026 年最具指標性的 IPO 試水溫之一。若後續國防科技 IPO 維持類似熱度，持有 Anduril（Founders Fund、a16z）、Saronic（Elad Gil 主導）、Helsing（GC）等大額部位的 GP 將有顯著 DPI 機會。對 LP 而言，2023-24 vintage 中已納入國防科技的基金，帳面收益正在轉化為可見的退出路徑。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge exit">Secondary Boom</span>
+      <h3><span class="cn">次級市場 2025 交易量突破 $600 億，IPO 前流動性成為主流工具</span> / Secondary Market Tops $60B in 2025 Transactions; Pre-IPO Liquidity Now Mainstream</h3>
+      <div class="source-line">
+        <a href="https://news.crunchbase.com/public/pwc-bellin-qa-2026-ipo-timing-secondary-boom/" target="_blank">Crunchbase News (PwC Mike Bellin Q&amp;A)</a> · 2026-03-18
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>PwC IPO 服務負責人 Mike Bellin：2025 年次級市場交易量突破 $600 億，2026 年預計繼續增長。近半數資產管理機構已使用 continuation funds 釋放流動性；GP-led secondary 與 continuation vehicle 已成主流。IPO 至今平均上市等待時間達 11 年以上，為近十年最長。超過 800 家獨角獸等待出場。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>2021 年 IPO 窗口關閉後，次級市場快速擴張填補流動性需求。2025 Figma IPO 帶來真實 DPI，但整體而言，IPO 仍是少數 GP 的選項，次級市場成為多數 LP/員工的實際流動性來源。「Secondaries 是 IPO 的緩衝帶，而非替代品」——但使用不當可能讓公司無限期延後上市。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <p>（分析）次級市場的結構性成熟，代表 LP 的期望管理模式正在改變：DPI 可以不依賴 IPO 按時交付，但也意味著傳統「上市即終點」的創投退出邏輯正在瓦解。2026 年如果 OpenAI、Anthropic 成功上市，將是 2021 年以來最重要的 DPI 事件，影響估計數十家 GP 的業績基準。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: GP MOVES -->
+  <div class="section">
+    <div class="section-title">05 · GP 人事 / GP Moves</div>
+
+    <div class="card">
+      <span class="badge gp">CVC Leadership</span>
+      <h3><span class="cn">Toyota Woven Capital 任命新 CIO 與 COO，均為女性領導人</span> / Toyota's Woven Capital Names New Female CIO and COO</h3>
+      <div class="source-line">
+        <a href="https://techcrunch.com/2026/03/31/toyotas-woven-capital-appoints-new-cio-and-coo-in-push-for-finding-the-future-of-mobility/" target="_blank">TechCrunch</a> · 2026-03-31
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>Michiko Kato 正式出任 Woven Capital CIO 兼 Toyota Invention Partners CEO（豐田旗下子公司首位女性 CEO）；Mia Panzer 出任新設 COO 一職，負責財務、運營、人資與法務。兩人均向 Woven Capital 管理董事 Ro Gupta 匯報。Woven Capital 管理 Fund I 及 Fund II 各 $8 億（2021 及 2025 年宣布），聚焦移動科技 Series B 投資，組合包含衛星公司 Xona 及國防製造公司 Machina Labs。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>Kato 在 2020 年加入 Woven Capital 時即為最早期雇員之一，15 年投資資歷含 Unison Capital M&A、ABEJA（日本 AI 新創）CFO。她主導的投資包括可重復使用火箭公司 Stoke 及自動駕駛公司 Nuro。CVC 世界中女性領導人比例，歷史上略高於傳統 VC（約 20% vs 7%，2014 年數據），但仍相對低。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <p>（分析）豐田 CVC 的領導層更迭是日系汽車集團在 AI/物理 AI 時代重新定位投資策略的重要信號。Kato 對 aeromobility 與 physical AI 的偏好，預示 Woven Capital Fund II 的部署重心可能更傾向機器人製造轉型。日本主流機構投資者進入 AI/defense/mobility 的速度，相較美國 GP 仍有落後但在加速。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge gp">Partner Departure · KP</span>
+      <h3><span class="cn">Kleiner Perkins 合夥人 Ev Randle 離職加入 Benchmark；Annie Case 轉顧問</span> / KP Partner Ev Randle Departs for Benchmark; Annie Case Transitions to Advisory Role</h3>
+      <div class="source-line">
+        <a href="https://techcrunch.com/2026/03/24/with-3-5b-in-fresh-capital-kleiner-perkins-is-going-all-in-on-ai/" target="_blank">TechCrunch</a> · 2026-03-24
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>Kleiner Perkins 確認合夥人 Ev Randle 離職，加入競爭對手 Benchmark；Annie Case 由合夥人身份轉為顧問角色。KP 目前以 5 名活躍合夥人精簡運作。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>Benchmark 素以精簡合夥人組合（通常不超過 6 人）著稱，在 AI 時代如何重新定位引人關注。Randle 加入代表 Benchmark 有意強化在 AI 生態的早期配置能力。KP 儘管合夥人流失，但仍成功完成 $35 億募資，顯示 LP 對 KP 品牌及 portfolio（Anthropic、OpenAI 持股）的信心。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: STRATEGY & ECOSYSTEM -->
+  <div class="section">
+    <div class="section-title">06 · 策略與生態 / Strategy & Ecosystem Shifts</div>
+
+    <div class="card">
+      <span class="badge strategy">Fund Strategy</span>
+      <h3><span class="cn">PwC：2026 IPO 市場「準備好等窗口」而非「等待窗口」，次級成交額超 $600 億重塑 VC 退出生態</span> / PwC: 2026 IPO Market Shifts to "Readiness-Driven" Timing; Secondaries Reshape Exit Landscape</h3>
+      <div class="source-line">
+        <a href="https://news.crunchbase.com/public/pwc-bellin-qa-2026-ipo-timing-secondary-boom/" target="_blank">Crunchbase News</a> · 2026-03-18
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>PwC IPO 服務主管 Mike Bellin 訪談重點：1) 公司從「何時有窗口」轉為「隨時做好準備」；2) 上市公司需提前 18-24 個月完成治理升級與財務報告基礎建設；3) 投資人要求 Rule of 40（甚至 Rule of 60）；4) GAAP 盈利不是必要條件，但可信的盈利路徑是必須的；5) 2025 年 IPO 融資為 2021 年以來最高；6) 有超過 800 家獨角獸等待上市，10 年來最大 IPO 前管線。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>2025 年 Q4 SEC 積壓 900+ 份注冊聲明（因政府停擺）對 2026 年初的上市時間表造成延遲。SaaS 公司 IPO 目前仍非常稀少，AI 基礎建設、保險/特殊風險、國防/航太是 PwC 視角最強的 2026 IPO 管線。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <p>（分析）對 GP 的實務啟示：portfolio 公司應在私募期就建立公開市場水準的財務控制和 IR 能力；次級市場可以紓解員工流失壓力，但不應成為永久推遲 IPO 的藉口。若 OpenAI、Anthropic 相繼上市，將開啟 2026 下半年最重要的科技 IPO 浪潮。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge strategy">AI VC Returns</span>
+      <h3><span class="cn">Carta 數據：2023-24 vintage 基金 IRR 創新高，但多屬帳面估值；AI 吃掉 41% 創投資金</span> / Carta: 2023-24 Vintage IRR at All-Time Highs, But Mostly Paper; AI Consumes 41% of VC Capital</h3>
+      <div class="source-line">
+        <a href="https://techcrunch.com/2026/03/20/ai-startups-are-eating-the-venture-industry-and-the-returns-so-far-are-good/" target="_blank">TechCrunch</a> · 2026-03-20
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>Carta Q4 2025 全報告核心數據：AI 新創吸收 Carta 平台全年 $1,280 億中的 41%（史上最高比例）；10% 的新創包辦 50% 的融資；2023-24 vintage 基金 IRR 最高，主因含 AI 早期投資的帳面漲幅；2017-20 vintage 基金 IRR 持續下滑。Carta 頭部洞察：「更少的押注，但每注更大。」</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>2022 年 ChatGPT 發布後 AI 浪潮帶動的 2023-24 基金，目前帳面表現優異，但尚未有足夠的真實 DPI 驗證。2021 vintage 基金現值持續受壓（估值回調未完全反映）。這與 PwC 的分析吻合：IPO 管線豐富，但窗口尚未開啟，「好看的報酬只是紙面數字」。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: REGIONAL -->
+  <div class="section">
+    <div class="section-title">07 · 區域 / Regional Highlights</div>
+
+    <div class="card">
+      <span class="badge regional">Europe</span>
+      <h3><span class="cn">歐洲：Air Street $232M 確立 Solo GP 地位；Helsing 完成 $6.93 億 defense 輪</span> / Europe: Air Street $232M Cements Solo GP Status; Helsing $693M Defense Round Closed in 2025</h3>
+      <div class="source-line">
+        <a href="https://techcrunch.com/2026/03/23/air-street-becomes-one-of-the-largest-solo-vcs-in-europe-with-232m-fund/" target="_blank">TechCrunch</a>
+      </div>
+      <div class="block">
+        <p>倫敦 Air Street Capital 完成歐洲最大 solo VC 之一的基金募集（$232M Fund III）。德國 AI 國防公司 Helsing 由 General Catalyst、Accel 和 Lightspeed 聯合領投，2025 年完成約 $6.93 億融資，是歐洲國防科技最重要的 deal 之一。歐洲 AI 生態在 2026 年明顯受到美系 GP 更多關注，但本土 LP 生態（政府基金、EIF）仍是主要支持來源。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge regional">Japan / CVC</span>
+      <h3><span class="cn">日本：豐田 Woven Capital 領導層更替，瞄準 physical AI 與 aeromobility</span> / Japan: Toyota Woven Capital Leadership Reshuffled, Eyes Physical AI & Aeromobility</h3>
+      <div class="source-line">
+        <a href="https://techcrunch.com/2026/03/31/toyotas-woven-capital-appoints-new-cio-and-coo-in-push-for-finding-the-future-of-mobility/" target="_blank">TechCrunch</a> · 2026-03-31
+      </div>
+      <div class="block">
+        <p>豐田旗下 Woven Capital 以 $16 億 AUM（兩檔 $8 億基金）在 mobility/physical AI/defense 製造等領域深耕。新任 CIO Kato 明確表態看好 aeromobility 與 AI 改造製造業，可能帶動日本汽車系 CVC 在相關賽道加大配置力度。亞洲工業型 CVC 的投資議題可觀察：日本/韓國汽車巨頭 CVC 正從單純 corporate strategy 轉向財務回報導向的 GP 模式。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge regional">India</span>
+      <h3><span class="cn">印度：Accel × Prosus 聯手設立首屆印度新創加速計畫，篩選 6 家「遠離地圖」新創</span> / India: Accel x Prosus Launch Inaugural Cohort, Pick 6 'Off-the-Map' Startups</h3>
+      <div class="source-line">
+        <a href="https://techcrunch.com/2026/03/24/accel-prosus-pick-six-off-the-map-startups-for-inaugural-india-cohort-atoms/" target="_blank">TechCrunch</a> · 2026-03-24
+      </div>
+      <div class="block">
+        <p>Accel（印度 partner Pratik Agarwal）與 Prosus（Ashutosh Sharma）合推首屆 Atoms 加速計畫，從大量申請中篩選 6 家早期印度新創，強調非「AI wrapper」的真實科技含量。此計畫信號：Accel 與 Prosus 持續深耕印度市場的早期生態，相較僅追逐已知明星新創，嘗試建立更早期的 deal flow 管道。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8: READS -->
+  <div class="section">
+    <div class="section-title">08 · 觀點推薦 / Reads for GP & LP</div>
+
+    <div class="reads-card">
+      <div class="num">01</div>
+      <div>
+        <h4>PwC：「IPO 不再是日曆驅動，而是準備度驅動」/ "Readiness-Driven, Not Calendar-Driven" IPO Strategy</h4>
+        <p>PwC 美國 IPO 服務主管 Mike Bellin 的詳盡訪談，涵蓋 2026 年市場觀察、次級市場崛起的結構性意義、Rule of 40/60 回歸、GAAP vs 非 GAAP 策略——是 pre-IPO 公司和 GP 最值得研讀的一手觀點。</p>
+        <a href="https://news.crunchbase.com/public/pwc-bellin-qa-2026-ipo-timing-secondary-boom/" target="_blank">閱讀全文 → Crunchbase News</a>
+      </div>
+    </div>
+
+    <div class="reads-card">
+      <div class="num">02</div>
+      <div>
+        <h4>TechCrunch：「AI 正在吃掉創投產業，而目前回報是正的」/ "AI Is Eating the Venture Industry and the Returns, So Far, Are Good"</h4>
+        <p>Carta Q4 2025 完整報告解析：AI 新創佔 41% 創投資金、K 型分化現象、2023-24 vintage 高 IRR 的警示意義——以及這是否只是下一個泡沫的帳面前奏。對 LP 評估目前配置是否過度暴露 AI 有實用參考價值。</p>
+        <a href="https://techcrunch.com/2026/03/20/ai-startups-are-eating-the-venture-industry-and-the-returns-so-far-are-good/" target="_blank">閱讀全文 → TechCrunch</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <p>今日創投新聞日報 / Daily VC News &nbsp;·&nbsp; 2026-05-26 &nbsp;·&nbsp; 資料來源：TechCrunch、Crunchbase News、PitchBook、PwC &nbsp;·&nbsp; 本報告為資訊整理，不構成投資建議。</p>
+  <p style="margin-top:6px;">Sources: <a href="https://techcrunch.com/category/venture/" target="_blank">TechCrunch Venture</a> · <a href="https://news.crunchbase.com/" target="_blank">Crunchbase News</a> · <a href="https://news.crunchbase.com/public/pwc-bellin-qa-2026-ipo-timing-secondary-boom/" target="_blank">PwC IPO Outlook</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 新聞日報 · 2026-05-26</title>
+  <style>
+    :root {
+      --bg: #fafaf8;
+      --surface: #ffffff;
+      --border: #e8e6e1;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --accent: #1a56db;
+      --tag-model: #dbeafe;
+      --tag-company: #dcfce7;
+      --tag-policy: #fef3c7;
+      --tag-product: #f3e8ff;
+      --tag-top: #fee2e2;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+    header {
+      background: var(--surface);
+      border-bottom: 2px solid var(--border);
+      padding: 2.5rem 1rem 2rem;
+      text-align: center;
+    }
+    header .label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    header .subtitle {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    main {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+    .section-title {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 3rem 0 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+    .item h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 0.6rem;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    .item .source-line {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+    }
+    .item .source-line a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .item .source-line a:hover { text-decoration: underline; }
+    .item .block-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 1rem 0 0.3rem;
+    }
+    .item p { margin-bottom: 0.2rem; font-size: 0.97rem; }
+    .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      margin-bottom: 0.8rem;
+    }
+    .tag-top { background: var(--tag-top); color: #9f1239; }
+    .tag-model { background: var(--tag-model); color: #1e40af; }
+    .tag-company { background: var(--tag-company); color: #166534; }
+    .tag-product { background: var(--tag-product); color: #6b21a8; }
+    .tag-policy { background: var(--tag-policy); color: #92400e; }
+    footer {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+      border-top: 1px solid var(--border);
+    }
+    footer h2 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    footer ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+    }
+    footer ul li { font-size: 0.8rem; }
+    footer ul li a { color: var(--accent); text-decoration: none; font-family: 'Helvetica Neue', Arial, sans-serif; }
+    footer ul li a:hover { text-decoration: underline; }
+    .divider { height: 1px; background: var(--border); margin: 0.5rem 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="label">AI 新聞日報 · Daily AI Briefing</div>
+  <h1>2026 年 5 月 26 日 · Tuesday</h1>
+  <div class="subtitle">人工智慧產業每日精選 · Curated by AI · Asia/Taipei</div>
+</header>
+
+<main>
+
+  <!-- ─────────────────────────────────────── -->
+  <div class="section-title">頭條 / Top Stories</div>
+  <!-- ─────────────────────────────────────── -->
+
+  <div class="item">
+    <span class="tag tag-top">頭條</span>
+    <h3>梵蒂岡發布 AI 時代人類保護通諭，Anthropic 共同創辦人站台<br/>Vatican Releases AI Encyclical on Protection of Humanity; Anthropic Co-Founder Joins Stage</h3>
+    <div class="source-line">
+      <strong>來源 / Source:</strong> Multiple outlets · 2026-05-26 ·
+      <a href="https://imfounder.com/science-tech/ai/ai-updates-may-2026/" target="_blank">imfounder.com</a>
+    </div>
+
+    <div class="block-label">核心事實</div>
+    <p>今日（5月26日），教宗利奧十四世（Pope Leo XIV）在梵蒂岡正式發布以「AI 時代人類保護」為主題的通諭（Encyclical），同時成立涵蓋全球 14 億教徒的 AI 倫理委員會。Anthropic 共同創辦人 Chris Olah 受邀出席同台，為梵蒂岡在 AI 議題上尋求科技業對話的里程碑事件。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">Today (May 26), Pope Leo XIV formally issued an encyclical on the protection of humanity in the AI era at the Vatican, simultaneously establishing an AI ethics committee representing 1.4 billion believers worldwide. Anthropic co-founder Chris Olah joined the stage, marking a landmark moment of dialogue between the Church and the AI industry.</p>
+
+    <div class="block-label">背景脈絡</div>
+    <p>梵蒂岡長期關注科技倫理，但以正式通諭（最高層級教義文件）回應 AI 為史上首見。教宗利奧十四世（前名 Robert Prevost，2025年5月當選，為首位美國籍教宗）在上任初期即多次公開談及 AI 對人類尊嚴的威脅。Anthropic 的 Chris Olah 以「可解釋性研究」（Mechanistic Interpretability）著稱，是少數在學術與產業界均被視為 AI 安全良心的代表人物。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">The Vatican has long engaged with technology ethics, but issuing a formal encyclical — the highest-level doctrinal document — in response to AI is unprecedented. Pope Leo XIV (formerly Robert Prevost, elected May 2025, the first American pope) had repeatedly raised concerns about AI's threat to human dignity early in his papacy. Chris Olah, known for pioneering mechanistic interpretability research, is one of the few figures viewed as an AI safety conscience by both academia and industry.</p>
+
+    <div class="block-label">影響觀察</div>
+    <p>梵蒂岡的通諭雖無法律效力，但對全球天主教社群的道德影響力不容低估，將為正在進行中的 EU AI Act 最終合規期（8月2日）與聯合國 AI 治理框架談判增添道德維度。對 Anthropic 而言，此舉強化了其「負責任 AI」的品牌定位，在 OpenAI 積極推動 IPO、商業化擴張的背景下，提供了差異化的公眾形象。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">While the encyclical carries no legal force, its moral authority over the global Catholic community is significant. It will add an ethical dimension to ongoing EU AI Act compliance negotiations (August 2 deadline) and UN AI governance talks. For Anthropic, the appearance reinforces its "responsible AI" brand positioning — a meaningful differentiator as OpenAI aggressively pursues its IPO and commercial scale-up.</p>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-top">頭條</span>
+    <h3>OpenAI 秘密提交 IPO 文件，目標估值逾 1 兆美元<br/>OpenAI Confidentially Files IPO Prospectus, Eyes $1 Trillion+ Valuation</h3>
+    <div class="source-line">
+      <strong>來源 / Source:</strong> CNBC · Bloomberg · Fortune · 2026-05-20/22 ·
+      <a href="https://www.cnbc.com/2026/05/20/openai-ipo-filing.html" target="_blank">cnbc.com</a> ·
+      <a href="https://fortune.com/2026/05/22/openai-ipo-filing-1-trillion-may-finally-answer-these-big-questions/" target="_blank">fortune.com</a>
+    </div>
+
+    <div class="block-label">核心事實</div>
+    <p>OpenAI 於 5月22日 向 SEC 秘密提交 S-1 招股書，由高盛（Goldman Sachs）與摩根士丹利（Morgan Stanley）主導承銷，目標估值介於 8,520 億至逾 1 兆美元之間，預計最快 2026 年第四季掛牌。公司目前月收入約 20 億美元（年化 250 億美元），但 Q1 2026 每賺 1 美元仍虧損 1.22 美元。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">OpenAI confidentially filed its S-1 with the SEC on May 22, with Goldman Sachs and Morgan Stanley leading the underwriting. The target valuation ranges from $852 billion to over $1 trillion, with a potential Q4 2026 public listing. The company generates ~$2B/month in revenue (annualized $25B run rate), but was losing $1.22 for every $1 of revenue in Q1 2026.</p>
+
+    <div class="block-label">背景脈絡</div>
+    <p>OpenAI 已歷經多年組織重組——從非營利轉型為公益公司（PBC），並在 2026 年初完成 1,220 億美元的史上最大單輪融資。IPO 文件將首次揭露訓練成本、資料中心支出與企業合約結構等財務細節。根據 S-1 封存規定，文件在公開路演前 15 天才解密，預計 9 月為最早可能的掛牌窗口。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">OpenAI has undergone years of restructuring — converting from a nonprofit to a Public Benefit Corporation — and closed the largest single venture round in history ($122B) in early 2026. The S-1 will for the first time disclose training costs, data center capex, and enterprise contract structures. Under SEC confidential filing rules, the document stays sealed until ~15 days before the public roadshow, with September as the earliest realistic window.</p>
+
+    <div class="block-label">影響觀察</div>
+    <p>此次 IPO 將是科技史上規模最大的上市案之一。一旦成功，將對整個 AI 生態系的估值基準產生重定錨效應：Anthropic、xAI 等私人公司的估值將面臨重新審視。然而，持續虧損的體質與全球算力短缺（矽谷 Q1 出現算力荒）也讓市場對盈利路徑心存疑慮。投資人將緊盯企業客戶佔比（已超過 40%）與 API token 消耗量（每分鐘 150 億）兩項指標。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">This would be one of the largest tech IPOs in history. A successful listing would reset valuation anchors across the AI ecosystem — privately held Anthropic and xAI would face immediate re-pricing scrutiny. However, persistent losses and the Q1 Silicon Valley compute shortage raise questions about the path to profitability. Investors will watch enterprise revenue share (already above 40%) and API token throughput (15B tokens/minute) as proxy metrics for monetization quality.</p>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-top">頭條</span>
+    <h3>AI 抗拒浪潮席捲美國：資料中心遭封殺、科技大佬被噓、七成民眾認為 AI 進展太快<br/>AI Backlash Sweeps the US: Data Centers Blocked, Tech CEOs Booed, 70%+ Say AI Moves Too Fast</h3>
+    <div class="source-line">
+      <strong>來源 / Source:</strong> Axios · Fortune · 2026-05-17/22 ·
+      <a href="https://www.axios.com/2026/05/17/ai-backlash-polling-sentiment" target="_blank">axios.com (polling)</a> ·
+      <a href="https://www.axios.com/2026/05/22/ai-data-centers-stocks-jobs" target="_blank">axios.com (investor risk)</a>
+    </div>
+
+    <div class="block-label">核心事實</div>
+    <p>Axios 與 Gallup 調查顯示，超過 70% 的美國人認為 AI 發展速度太快（共和黨 68%、民主黨 77%），14–29 歲年輕人中僅 18% 對 AI 感到樂觀。2026 年 Q1 美國資料中心取消案例創歷史新高，Oregon 州已通過一年期資料中心減稅暫停令；Seattle、Portland 均出現地方性抗議運動。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">Axios/Gallup polling shows over 70% of Americans think AI is advancing too fast (68% R, 77% D); only 18% of 14-to-29-year-olds feel hopeful about AI. Q1 2026 saw a record number of US data center cancellations; Oregon passed a one-year moratorium on data-center tax breaks; Seattle and Portland have seen local protest movements.</p>
+
+    <div class="block-label">背景脈絡</div>
+    <p>AI 帶動的電力需求暴增（資料中心平均用電量等同一座中型城市）、就業焦慮（69% 的企業主管計劃裁員以換 AI）以及財富集中效應，正共同催生廣泛的社會反彈。年輕世代的不滿尤為值得關注——這批人是最熟悉 AI 工具的使用者，卻也是最擔心 AI 搶奪職涯機會的族群。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">AI-driven power demand surges (data centers consuming city-scale electricity), job anxiety (69% of executives planning AI-related layoffs), and wealth concentration are collectively fueling broad social pushback. Gen Z's disillusionment is particularly notable — this cohort is the most AI-literate yet most worried about career displacement.</p>
+
+    <div class="block-label">影響觀察</div>
+    <p>此一民意趨勢正轉化為真實的政治與商業風險：各州資料中心選址阻力上升，將推高 AI 基礎設施成本並延緩算力擴張。69% 企業計劃 AI 裁員的數據若兌現，可能引爆勞工團體針對科技業的更大規模組織動員，進而影響 2026 年期中選舉議程。對投資人而言，Axios 明確將此列為影響 AI 股票的「真實業務風險」。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">This sentiment is converting into real political and business risk: rising data center siting resistance will increase AI infrastructure costs and slow compute expansion. If 69% of executives follow through on AI layoffs, larger-scale labor mobilization targeting tech firms could emerge, influencing the 2026 midterm agenda. Axios has explicitly classified this trend as a "real business risk" for AI stocks.</p>
+  </div>
+
+  <!-- ─────────────────────────────────────── -->
+  <div class="section-title">模型與研究 / Models &amp; Research</div>
+  <!-- ─────────────────────────────────────── -->
+
+  <div class="item">
+    <span class="tag tag-model">模型</span>
+    <h3>Google 發布 Gemini 3.5 Flash：速度快 4 倍、程式碼與代理任務超越 3.1 Pro<br/>Google Launches Gemini 3.5 Flash: 4× Speed, Beats Gemini 3.1 Pro on Coding &amp; Agentic Tasks</h3>
+    <div class="source-line">
+      <strong>來源 / Source:</strong> Google Blog · MarkTechPost · 2026-05-19 ·
+      <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/" target="_blank">blog.google</a> ·
+      <a href="https://www.marktechpost.com/2026/05/20/google-introduces-gemini-3-5-flash-at-i-o-2026-a-faster-and-cheaper-model-for-ai-agents-and-coding/" target="_blank">marktechpost.com</a>
+    </div>
+
+    <div class="block-label">核心事實</div>
+    <p>Google 在 I/O 2026（5月19日）發布 Gemini 3.5 Flash，在 Terminal-Bench 2.1（76.2%）、GDPval-AA（1,656 Elo）、MCP Atlas（83.6%）等代理基準上全面超越 Gemini 3.1 Pro，速度快 4 倍，定價 $1.50/$9.00 每百萬 token（輸入/輸出）。當日起成為 Gemini App 與 Google Search「AI Mode」的預設模型，1M token 上下文窗口。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">Launched at Google I/O 2026 (May 19), Gemini 3.5 Flash surpasses Gemini 3.1 Pro on key agentic benchmarks at 4× the speed. Pricing: $1.50/$9.00 per 1M tokens (input/output). It is now the default model in the Gemini App and Google Search AI Mode worldwide, with a 1M-token context window.</p>
+
+    <div class="block-label">背景脈絡</div>
+    <p>Google 這次刻意選擇以「Flash」（較輕量、較快速的版本）打頭陣，而非旗艦的 Pro 版本，是明確的市場策略訊號：在邊緣部署與 Agent 場景（長時程任務、高頻 API 呼叫）中，速度與成本效益比純粹的最高分數更重要。Gemini 3.5 Pro 仍在測試中，預計下個月推出。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">Google's deliberate choice to lead with the Flash (lighter, faster) variant rather than the Pro flagship is a clear strategic signal: in edge deployments and agentic scenarios (long-horizon tasks, high-frequency API calls), speed and cost-efficiency matter more than peak benchmark scores. Gemini 3.5 Pro is still in testing and expected next month.</p>
+
+    <div class="block-label">影響觀察</div>
+    <p>Gemini 3.5 Flash 的定價將直接施壓 Anthropic Claude Haiku 4 與 OpenAI GPT-4o Mini，這三個模型在企業「大量推論」場景中直接競爭。同時，Google 把 3.5 Flash 塞入 Google Search AI Mode 的決策，意味著每日數十億次搜尋查詢將成為 Gemini 3.5 的免費大規模測試床，加速其在真實世界的反饋迭代。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">Gemini 3.5 Flash pricing will directly pressure Anthropic Claude Haiku 4 and OpenAI GPT-4o Mini — these three compete head-to-head in enterprise "high-volume inference" use cases. Deploying 3.5 Flash into Google Search AI Mode means billions of daily queries become a free large-scale real-world testing bed, accelerating feedback loops for model iteration.</p>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-model">模型</span>
+    <h3>Anthropic Claude Mythos Preview：能自主發現並利用未修補漏洞，僅限 40 家關鍵組織<br/>Anthropic's Claude Mythos Preview: Autonomously Finds &amp; Exploits Unpatched Vulnerabilities; Access Restricted to 40 Orgs</h3>
+    <div class="source-line">
+      <strong>來源 / Source:</strong> Anthropic Red Team Blog · Turing Institute CETAS · 2026-04-07 onwards ·
+      <a href="https://red.anthropic.com/2026/mythos-preview/" target="_blank">red.anthropic.com</a> ·
+      <a href="https://cetas.turing.ac.uk/publications/claude-mythos-future-cybersecurity" target="_blank">cetas.turing.ac.uk</a>
+    </div>
+
+    <div class="block-label">核心事實</div>
+    <p>Anthropic 於 4月7日發布 Claude Mythos Preview——一個通用語言模型，但在資安任務上展現出令人警惕的能力：能識別並利用主流作業系統與瀏覽器中超過 99% 尚未修補的零日漏洞（Zero-day），首次嘗試即成功開發可用漏洞利用程式的比率超過 83%。Anthropic 未將此模型公開發布，僅授權 40 個關鍵軟體組織進行監控存取，同步啟動「Project Glasswing」負責任揭露計畫。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">Anthropic released Claude Mythos Preview on April 7 — a general-purpose model that exhibits alarming cybersecurity capabilities: it can identify and exploit unpatched zero-day vulnerabilities in major OSes and browsers (99%+ not yet patched across leading platforms), with over 83% first-attempt exploit success. Anthropic has withheld public release, granting monitored access to 40 critical software organizations and launching "Project Glasswing" for responsible disclosure.</p>
+
+    <div class="block-label">背景脈絡</div>
+    <p>Anthropic 強調，Mythos 的資安能力並非刻意訓練的產物，而是通用推理與軟體工程能力提升的「湧現」結果（Emergent capability）。這是 AI 安全領域長期警告「能力誤對齊」（Capability misalignment）的現實版教材：一個設計用途良善的模型，因為能力太強而產生了設計者未預期的高風險能力。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">Anthropic emphasizes that Mythos's cyber capabilities were not explicitly trained — they are an emergent consequence of general improvements in reasoning and software engineering. This is a real-world textbook case of the "capability misalignment" that AI safety researchers have long warned about: a well-intentioned model develops high-risk capabilities its designers did not anticipate.</p>
+
+    <div class="block-label">影響觀察</div>
+    <p>Mythos 案例將成為監管機構制定「前部署評估義務」（Pre-deployment evaluation mandates）的核心論據，美國 CAISI 與 EU AI Act 均可能以此為由加速強制安全評估的立法進程。對其他 AI 實驗室而言，這也是一個警訊：下一代模型可能同樣會浮現未被預期的高風險能力，現有的安全測試框架是否足夠？</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">The Mythos case will become a central argument for regulators pushing "pre-deployment evaluation mandates." Both US CAISI and the EU AI Act may cite this as justification for accelerating mandatory safety evaluation legislation. For other AI labs, it is a warning: next-generation models may similarly surface unanticipated high-risk capabilities — are current safety testing frameworks sufficient?</p>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-model">模型</span>
+    <h3>DeepSeek V4 永久降價 75%，中國開源陣營持續以低成本壓制西方定價<br/>DeepSeek V4 Makes 75% Price Cut Permanent; Chinese Open-Source Models Sustain Pressure on Western Pricing</h3>
+    <div class="source-line">
+      <strong>來源 / Source:</strong> CNBC · Fortune · wtaq.com · 2026-04-24 / 2026-05-23 ·
+      <a href="https://www.cnbc.com/2026/04/24/deepseek-v4-llm-preview-open-source-ai-competition-china.html" target="_blank">cnbc.com</a> ·
+      <a href="https://wtaq.com/2026/05/23/chinas-deepseek-to-make-permanent-75-price-cut-on-flagship-v4%E2%80%91pro-ai-model/" target="_blank">wtaq.com</a>
+    </div>
+
+    <div class="block-label">核心事實</div>
+    <p>DeepSeek 於 4月24日發布 V4 模型（與 Huawei Ascend 950 晶片深度整合），5月23日宣布永久維持旗艦版 V4-Pro 的 75% 折扣，定價僅 $3.48/百萬輸出 token（V4-Flash 更低至 $0.28）。與此同時，AI State of May 2026 報告指出，中國有四家實驗室（Z.ai GLM-5.1、MiniMax M2.7、Moonshot Kimi K2.6、DeepSeek V4）在 12 天內連續釋出開源程式碼模型，每個定價均不超過 Claude Opus 4.7 的三分之一。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">DeepSeek released V4 on April 24 (deeply integrated with Huawei Ascend 950 chips) and on May 23 announced a permanent 75% discount, with V4-Pro at $3.48/M output tokens and V4-Flash at just $0.28. The State of AI May 2026 report notes four Chinese labs (Z.ai GLM-5.1, MiniMax M2.7, Moonshot Kimi K2.6, DeepSeek V4) released open-weight coding models within a 12-day window — each priced at under a third of Claude Opus 4.7.</p>
+
+    <div class="block-label">背景脈絡</div>
+    <p>DeepSeek 的低成本策略延續了其 2025 年震驚業界的 V3/R1 模式，但這次更深入地與 Huawei 供應鏈整合，顯示中國 AI 生態正在加速建立擺脫 Nvidia 依賴的平行算力基礎設施。這四家中國實驗室的協同密集發布，無論是否有意為之，都在對西方定價形成持續性的「地板效應」。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">DeepSeek's low-cost strategy extends its 2025 V3/R1 playbook, but now with deeper Huawei supply-chain integration — evidence that China's AI ecosystem is accelerating a parallel compute infrastructure independent of Nvidia. The dense coordinated releases from four Chinese labs, whether intentional or not, are establishing a persistent "price floor effect" on Western model pricing.</p>
+
+    <div class="block-label">影響觀察</div>
+    <p>中國開源陣營的持續低價攻勢，將加速西方 AI 廠商的「API 商品化」風險，迫使 OpenAI、Anthropic、Google 更快地將競爭重心從模型能力轉移到應用層（開發者生態、企業整合、代理平台）。對台灣半導體供應鏈而言，Huawei Ascend 950 的大規模部署是一個需要持續追蹤的地緣政治訊號。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">China's sustained low-price open-source offensive accelerates "API commoditization" risk for Western AI vendors, forcing OpenAI, Anthropic, and Google to shift competitive emphasis from model capability to the application layer (developer ecosystems, enterprise integrations, agent platforms) faster than planned. For Taiwan's semiconductor supply chain, the large-scale deployment of Huawei Ascend 950 is a geopolitical signal worth watching closely.</p>
+  </div>
+
+  <!-- ─────────────────────────────────────── -->
+  <div class="section-title">公司動態 / Company Moves</div>
+  <!-- ─────────────────────────────────────── -->
+
+  <div class="item">
+    <span class="tag tag-company">公司動態</span>
+    <h3>OpenAI 成立 DeployCo 企業 AI 部署子公司，強化 B2B 商業化佈局<br/>OpenAI Launches DeployCo Consulting Subsidiary to Deepen Enterprise AI Deployment</h3>
+    <div class="source-line">
+      <strong>來源 / Source:</strong> OpenAI Blog · 2026-05 ·
+      <a href="https://openai.com/index/openai-launches-the-deployment-company/" target="_blank">openai.com</a>
+    </div>
+
+    <div class="block-label">核心事實</div>
+    <p>OpenAI 正式成立名為「OpenAI Deployment Company（DeployCo）」的子公司，將派駐精通前沿 AI 部署的工程師至大型企業，負責識別 AI 最高價值應用點並重新設計工作流程。企業合約收入目前已佔 OpenAI 總收入 40% 以上。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">OpenAI formally launched the OpenAI Deployment Company (DeployCo), embedding frontier AI deployment specialists directly into enterprise organizations to identify highest-impact use cases and redesign workflows. Enterprise contracts currently account for over 40% of OpenAI's total revenue.</p>
+
+    <div class="block-label">背景脈絡</div>
+    <p>此舉類似麥肯錫或 Accenture 的「IT 諮詢駐點」模式，但以 AI 工程能力為核心賣點。隨著 IPO 在即，OpenAI 必須向公開市場投資人展示超越訂閱費的多元變現路徑，DeployCo 是其中的關鍵論述。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">The move resembles a McKinsey or Accenture "on-site IT consulting" model, but with frontier AI engineering as the core differentiator. With an IPO imminent, OpenAI needs to demonstrate monetization paths beyond subscriptions to public market investors; DeployCo is a key piece of that narrative.</p>
+
+    <div class="block-label">影響觀察</div>
+    <p>DeployCo 直接進入 Accenture、Deloitte 等傳統系統整合商（SI）的市場，可能引發傳統 SI 與 OpenAI 的夥伴關係重新定義：從「轉售合作」轉向「正面競爭」。Anthropic 的「Code with Claude」與 SAP 的合作模式走的是另一條路——嵌入現有平台而非自建服務商。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">DeployCo enters the market of traditional systems integrators (SIs) like Accenture and Deloitte, potentially forcing a redefinition of partner relationships from "resale cooperation" to "direct competition." Anthropic's "Code with Claude" and SAP partnership takes a different path — embedding into existing platforms rather than building a standalone service business.</p>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-company">公司動態</span>
+    <h3>Anthropic 在企業市場份額四倍成長，超越 OpenAI 成為 B2B 首選<br/>Anthropic Quadruples Enterprise Market Share Since May 2025, Surpassing OpenAI Among Business Customers</h3>
+    <div class="source-line">
+      <strong>來源 / Source:</strong> TechCrunch · 2026-05 ·
+      <a href="https://techcrunch.com/2026/05/13/anthropics-cat-wu-says-that-in-the-future-ai-will-anticipate-your-needs-before-you-know-what-they-are/" target="_blank">techcrunch.com</a>
+    </div>
+
+    <div class="block-label">核心事實</div>
+    <p>根據近期報告，Anthropic 在企業客戶中的市場份額自 2025 年 5 月以來已增長四倍，首次在 B2B 市場超越 OpenAI。同期，SAP 宣布將 Claude 整合為 SAP Business AI Platform 的核心推理與代理能力，覆蓋 SAP 數百萬企業用戶。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">According to recent reports, Anthropic has quadrupled its enterprise market share since May 2025, surpassing OpenAI among business customers for the first time. Simultaneously, SAP announced that Claude will be integrated as the primary reasoning and agentic capability of the SAP Business AI Platform, covering SAP's millions of enterprise users.</p>
+
+    <div class="block-label">背景脈絡</div>
+    <p>Anthropic 在 5月6日舉行的 Code with Claude 大會上展示了 Claude Managed Agents（含多代理協作、主動工作流、Webhook 整合），並正式推出「Project Glasswing」安全工具套件（公開測試版）。Claude 4 Opus 系列在企業使用者的「複雜任務準確度」與「幻覺率」評估中持續領先，是市場份額增長的核心驅動力。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">Anthropic unveiled Claude Managed Agents (multi-agent orchestration, proactive workflows, webhooks) at the Code with Claude conference on May 6, along with the public beta of Project Glasswing security tools. Claude 4 Opus's consistent leadership in "complex task accuracy" and lower hallucination rates in enterprise evaluations is the core driver of market share growth.</p>
+
+    <div class="block-label">影響觀察</div>
+    <p>SAP 整合是一個具有複合效應的決策：SAP 軟體運行全球 87% 的《財富》500 強企業的核心業務系統，此次整合等同於 Claude 默默嵌入全球企業基礎設施的關鍵通道。對 OpenAI 而言，企業市場的鬆動是 IPO 前最不樂見的訊號之一。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">The SAP integration is a compounding decision: SAP software runs the core business systems of 87% of Fortune 500 companies, making this partnership a key conduit for Claude quietly embedding itself in global enterprise infrastructure. For OpenAI, losing enterprise share ground is one of the least welcome signals ahead of its IPO.</p>
+  </div>
+
+  <!-- ─────────────────────────────────────── -->
+  <div class="section-title">產品與應用 / Products &amp; Applications</div>
+  <!-- ─────────────────────────────────────── -->
+
+  <div class="item">
+    <span class="tag tag-product">產品</span>
+    <h3>Google 大幅改造搜尋介面，AI Mode 成為預設；Apple 宣布 iOS 27 將支援第三方 LLM 插件<br/>Google Reimagines Search with AI Mode as Default; Apple to Allow Third-Party LLMs in iOS 27</h3>
+    <div class="source-line">
+      <strong>來源 / Source:</strong> TIME · TechCrunch · CNN Business · 2026-05-19/05 ·
+      <a href="https://time.com/article/2026/05/20/google-search-ai-internet/" target="_blank">time.com</a> ·
+      <a href="https://techcrunch.com/2026/05/05/apple-plans-to-make-ios-27-a-choose-your-own-adventure-of-ai-models/" target="_blank">techcrunch.com</a>
+    </div>
+
+    <div class="block-label">核心事實</div>
+    <p>Google 宣布 Google Search 將以「AI Mode」作為預設介面，TIME 稱此為「25年來最大的搜尋欄改變」。與此同時，TechCrunch 爆料 Apple 正為 iOS 27 開發代號「Extensions」的功能，允許用戶透過 Apple Intelligence 啟用 Siri、Writing Tools、Image Playground 等功能時，調用第三方已安裝的 LLM（如 ChatGPT、Claude 等）作為後端引擎。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">Google announced AI Mode as the new default interface for Google Search — TIME called it "the biggest change to the search bar in 25 years." Separately, TechCrunch reports Apple is developing an "Extensions" feature for iOS 27, allowing users to invoke third-party LLMs (e.g., ChatGPT, Claude) as back-end engines for Siri, Writing Tools, and Image Playground via Apple Intelligence.</p>
+
+    <div class="block-label">背景脈絡</div>
+    <p>Google 搜尋 AI 化是其 2025 年以來「Search Generative Experience」的全面落地，現在透過 Gemini 3.5 Flash 提供全球用戶預設的對話式搜尋體驗。Apple 的「Extensions」策略則是典型的「平台策略」——Apple 不自建最強 LLM，而是讓自己的設備成為各家 LLM 的最佳入口，並在此過程中保留用戶關係與數據控制權。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">Google's AI-ification of Search is the full deployment of its Search Generative Experience rollout from 2025, now delivering a default conversational search experience to global users via Gemini 3.5 Flash. Apple's "Extensions" strategy is classic platform playbook — Apple doesn't build the best LLM itself; instead it makes its devices the best portal for all LLMs, retaining user relationships and data control throughout.</p>
+
+    <div class="block-label">影響觀察</div>
+    <p>Google 搜尋 AI Mode 化意味著廣告商和出版商的流量邏輯將被根本性重構——AI 摘要替代連結點擊，使依賴 SEO 流量的媒體與電商面臨系統性威脅。Apple Extensions 若在 WWDC 2026（6月9日）正式公布，將為 OpenAI、Anthropic 等公司打開 15 億 iPhone 用戶的前端觸達，但也意味著被 Apple 平台規則約束。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">Google Search AI Mode will fundamentally restructure advertiser and publisher traffic logic — AI summaries replacing link clicks create systemic threats for SEO-dependent media and e-commerce. If Apple Extensions is formally announced at WWDC 2026 (June 9), it opens a 1.5-billion-iPhone front-end reach for OpenAI and Anthropic — but also means submitting to Apple's platform rules.</p>
+  </div>
+
+  <!-- ─────────────────────────────────────── -->
+  <div class="section-title">政策與監管 / Policy &amp; Regulation</div>
+  <!-- ─────────────────────────────────────── -->
+
+  <div class="item">
+    <span class="tag tag-policy">政策</span>
+    <h3>EU AI Act 8月2日全面生效倒計時；歐盟就「AI 法規鬆綁」達成政治協議<br/>EU AI Act Full Applicability Deadline Approaches August 2; EU Reaches Political Deal on Simplified Rules</h3>
+    <div class="source-line">
+      <strong>來源 / Source:</strong> EU Council · Holland &amp; Knight · 2026-05-07 ·
+      <a href="https://www.consilium.europa.eu/en/press/press-releases/2026/05/07/artificial-intelligence-council-and-parliament-agree-to-simplify-and-streamline-rules/" target="_blank">consilium.europa.eu</a> ·
+      <a href="https://www.hklaw.com/en/insights/publications/2026/04/us-companies-face-eu-ai-acts-possible-august-2026-compliance-deadline" target="_blank">hklaw.com</a>
+    </div>
+
+    <div class="block-label">核心事實</div>
+    <p>歐盟理事會與歐洲議會於 5月7日就「AI 法規精簡修正案（AI Omnibus）」達成政治協議，將高風險 AI 系統合規義務的適用時程延長最多 16 個月，以減輕企業合規負擔。但核心的全面適用期限仍維持 8月2日。美國企業若在歐盟部署高風險 AI 系統，同樣必須遵守相關規定。美國方面，川普行政令要求司法部對抗各州 AI 法律，但科羅拉多等州 AI 法案已於今年生效。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">The EU Council and Parliament reached a political agreement on May 7 on an "AI Omnibus" simplification proposal, extending compliance timelines for high-risk AI systems by up to 16 months. However, the core August 2 full applicability deadline remains. US companies deploying high-risk AI systems in the EU must comply. In the US, a Trump executive order directs the DOJ to challenge state AI laws, but Colorado's AI Act is already in effect in 2026.</p>
+
+    <div class="block-label">背景脈絡</div>
+    <p>EU AI Act 自 2024 年 8 月生效以來，已分階段實施：2025 年 2 月起禁止「高風險 AI 行為」並強制 AI 識讀教育；2025 年 8 月起規範通用 AI（GPAI）模型；今年 8 月 2 日則是對高風險 AI 系統最全面的一套規定正式適用。對全球 AI 廠商而言，這是 GDPR 之後最重要的合規里程碑。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">The EU AI Act has been phased in since August 2024: prohibited AI practices and AI literacy obligations since February 2025; GPAI model governance since August 2025; the August 2, 2026 deadline brings the most comprehensive set of high-risk AI system requirements. For global AI vendors, this is the most significant compliance milestone since GDPR.</p>
+
+    <div class="block-label">影響觀察</div>
+    <p>16個月的延期緩衝有助於中小企業，但大型 AI 廠商的核心合規義務（風險評估、透明度文件、人機監督機制）並未改變。對台灣企業而言，若向歐盟市場部署 AI 輔助醫療、招聘或信用評分系統，今年8月是必須完成合規或退出市場的最後截止日。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">The 16-month extension buffer helps SMEs, but core compliance obligations for major AI vendors (risk assessments, transparency documentation, human oversight mechanisms) are unchanged. For Taiwanese companies deploying AI-assisted medical, hiring, or credit-scoring systems to EU markets, August 2026 is the final deadline to achieve compliance or exit those markets.</p>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-policy">政策</span>
+    <h3>美國政府要求 Google、Microsoft、xAI 在發布前提交 AI 模型審查<br/>US Government to Test Google, Microsoft &amp; xAI Models Before Public Release</h3>
+    <div class="source-line">
+      <strong>來源 / Source:</strong> CNBC · CNN Business · 2026-05-05 ·
+      <a href="https://www.cnbc.com/2026/05/05/ai-oversight-trump-google-microsoft-xai.html" target="_blank">cnbc.com</a>
+    </div>
+
+    <div class="block-label">核心事實</div>
+    <p>美國商務部下設的「AI 標準與創新中心（CAISI）」宣布與 Google DeepMind、Microsoft 及 Elon Musk 的 xAI 達成協議，允許聯邦政府在 AI 模型公開發布前進行評估測試。先前 OpenAI 與 Anthropic 的類似協議已重新談判，以符合商務部長指令與「美國 AI 行動計畫」。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">The Center for AI Standards and Innovation (CAISI) under the US Commerce Department announced agreements with Google DeepMind, Microsoft, and xAI to allow federal government evaluation of AI models before public release. Prior agreements with OpenAI and Anthropic were renegotiated to align with Commerce Secretary directives and the America's AI Action Plan.</p>
+
+    <div class="block-label">背景脈絡</div>
+    <p>川普政府對 AI 的態度呈現「去監管但保留國家安全主導權」的矛盾張力：一方面拆除拜登時代的 AI 行政令，廢除州級 AI 法律；另一方面，卻透過 CAISI 建立聯邦級的前部署審查機制，尤其針對可能影響國家安全的模型能力。Claude Mythos 所暴露的自主漏洞利用能力，無疑加速了這一機制的形成。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">The Trump administration's AI stance shows tension between "deregulation but retain national security control": on one hand dismantling Biden-era AI executive orders and fighting state AI laws; on the other, establishing federal pre-deployment review through CAISI, especially for capabilities that may affect national security. The autonomous exploit capabilities exposed by Claude Mythos undoubtedly accelerated this mechanism's formation.</p>
+
+    <div class="block-label">影響觀察</div>
+    <p>前部署審查機制的常態化，將為 AI 模型的發布節奏帶來新的不確定性，並可能成為美國對盟友或競爭者施加 AI 管控的新工具。對中國的開源模型（如 DeepSeek V4）而言，由於繞過了美國審查體系，其在地緣政治上的「灰色地帶」優勢將更加顯著。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">Normalizing pre-deployment review will introduce new uncertainty in AI model release cadences and may become a new tool for the US to exercise AI controls over allies or competitors. For Chinese open-source models like DeepSeek V4, bypassing the US review framework actually amplifies their geopolitical "gray zone" advantage.</p>
+  </div>
+
+  <!-- ─────────────────────────────────────── -->
+  <div class="section-title">觀點與深度 / Opinion &amp; Deep Reads</div>
+  <!-- ─────────────────────────────────────── -->
+
+  <div class="item">
+    <span class="tag tag-product">觀點</span>
+    <h3>Google I/O 2026 啟示：AI 驅動的科學研究不是未來，是現在<br/>Google I/O 2026 Insight: AI-Driven Science Is Not the Future — It's Now</h3>
+    <div class="source-line">
+      <strong>來源 / Source:</strong> MIT Technology Review · 2026-05-22 ·
+      <a href="https://www.technologyreview.com/2026/05/22/1137813/google-i-o-showed-how-the-path-for-ai-science-is-shifting/" target="_blank">technologyreview.com</a>
+    </div>
+
+    <div class="block-label">核心事實</div>
+    <p>MIT Technology Review 深度分析 Google I/O 2026 的核心主題：Google DeepMind CEO Demis Hassabis 宣稱「我們正站在奇點的山腳」，Google Cloud 首席科學家發文稱「AI 正在從促進科學轉向執行科學」，DeepMind 的氣象 AI 提前預警了颶風 Melissa 在牙買加的登陸，可能拯救了生命。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">MIT Technology Review's deep analysis of Google I/O 2026's central theme: DeepMind CEO Demis Hassabis declared "we are standing in the foothills of the singularity"; Google Cloud's chief scientist wrote "AI is moving from facilitating science to doing science"; DeepMind's weather AI provided advance warning of Hurricane Melissa's catastrophic Jamaica landfall, potentially saving lives.</p>
+
+    <div class="block-label">背景脈絡</div>
+    <p>過去一年間，AlphaFold 3、AlphaEvolve（擴展到多個科學領域）、GNoME（材料科學發現）陸續落地，DeepMind 正將自身定位從「AI 研究實驗室」轉型為「科學基礎設施提供者」。Hassabis 的「奇點山腳」論述，是對比爾・蓋茲「AI 是有史以來最重要的發明」、OpenAI「AGI 已到來」等言論的又一輪媒體敘事競逐。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">Over the past year, AlphaFold 3, AlphaEvolve (expanded to multiple scientific fields), and GNoME (materials science discoveries) have all deployed at scale. DeepMind is repositioning from "AI research lab" to "scientific infrastructure provider." Hassabis's "foothills of the singularity" narrative is another round in the media framing competition against Bill Gates's "most important invention" and OpenAI's "AGI is here" declarations.</p>
+
+    <div class="block-label">影響觀察</div>
+    <p>值得書籤的核心問題：若 AI 真的開始「執行科學」而不僅僅是輔助科學家，那麼科學發現的信用歸屬（credit attribution）、同儕審查（peer review）機制，乃至基礎科學教育的設計，都將需要重新思考。MIT TR 的這篇文章是目前最值得深讀的一篇關於「AI 科學化」的批判性分析。</p>
+    <p style="color: var(--muted); font-size:0.88rem; margin-top:0.3rem;">The core question worth bookmarking: if AI truly begins "doing science" rather than merely assisting scientists, then credit attribution for discoveries, peer review mechanisms, and the design of foundational science education all require rethinking. This MIT Technology Review piece is currently the most worthwhile critical analysis of the "AI doing science" paradigm to read in full.</p>
+  </div>
+
+</main>
+
+<footer>
+  <h2>今日參考來源 / Sources Consulted</h2>
+  <ul>
+    <li><a href="https://imfounder.com/science-tech/ai/ai-updates-may-2026/" target="_blank">imfounder.com — AI Updates May 2026</a></li>
+    <li><a href="https://www.cnbc.com/2026/05/20/openai-ipo-filing.html" target="_blank">CNBC — OpenAI IPO Filing</a></li>
+    <li><a href="https://fortune.com/2026/05/22/openai-ipo-filing-1-trillion-may-finally-answer-these-big-questions/" target="_blank">Fortune — OpenAI IPO Questions</a></li>
+    <li><a href="https://www.axios.com/2026/05/17/ai-backlash-polling-sentiment" target="_blank">Axios — AI Backlash Polling</a></li>
+    <li><a href="https://www.axios.com/2026/05/22/ai-data-centers-stocks-jobs" target="_blank">Axios — AI Backlash Investor Risk</a></li>
+    <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/" target="_blank">Google Blog — Gemini 3.5</a></li>
+    <li><a href="https://www.marktechpost.com/2026/05/20/google-introduces-gemini-3-5-flash-at-i-o-2026-a-faster-and-cheaper-model-for-ai-agents-and-coding/" target="_blank">MarkTechPost — Gemini 3.5 Flash</a></li>
+    <li><a href="https://red.anthropic.com/2026/mythos-preview/" target="_blank">Anthropic Red Team — Claude Mythos Preview</a></li>
+    <li><a href="https://cetas.turing.ac.uk/publications/claude-mythos-future-cybersecurity" target="_blank">Turing Institute CETAS — Claude Mythos Cybersecurity</a></li>
+    <li><a href="https://www.cnbc.com/2026/04/24/deepseek-v4-llm-preview-open-source-ai-competition-china.html" target="_blank">CNBC — DeepSeek V4</a></li>
+    <li><a href="https://wtaq.com/2026/05/23/chinas-deepseek-to-make-permanent-75-price-cut-on-flagship-v4%E2%80%91pro-ai-model/" target="_blank">wtaq.com — DeepSeek V4 Price Cut</a></li>
+    <li><a href="https://openai.com/index/openai-launches-the-deployment-company/" target="_blank">OpenAI — DeployCo</a></li>
+    <li><a href="https://news.sap.com/2026/05/sap-anthropic-to-bring-claude-sap-business-ai-platform/" target="_blank">SAP News — SAP × Anthropic</a></li>
+    <li><a href="https://techcrunch.com/2026/05/13/anthropics-cat-wu-says-that-in-the-future-ai-will-anticipate-your-needs-before-you-know-what-they-are/" target="_blank">TechCrunch — Anthropic Enterprise Share</a></li>
+    <li><a href="https://time.com/article/2026/05/20/google-search-ai-internet/" target="_blank">TIME — Google AI Search</a></li>
+    <li><a href="https://techcrunch.com/2026/05/05/apple-plans-to-make-ios-27-a-choose-your-own-adventure-of-ai-models/" target="_blank">TechCrunch — Apple iOS 27 LLM Extensions</a></li>
+    <li><a href="https://www.consilium.europa.eu/en/press/press-releases/2026/05/07/artificial-intelligence-council-and-parliament-agree-to-simplify-and-streamline-rules/" target="_blank">EU Council — AI Act Omnibus</a></li>
+    <li><a href="https://www.hklaw.com/en/insights/publications/2026/04/us-companies-face-eu-ai-acts-possible-august-2026-compliance-deadline" target="_blank">Holland &amp; Knight — EU AI Act US Companies</a></li>
+    <li><a href="https://www.cnbc.com/2026/05/05/ai-oversight-trump-google-microsoft-xai.html" target="_blank">CNBC — US AI Oversight CAISI</a></li>
+    <li><a href="https://www.technologyreview.com/2026/05/22/1137813/google-i-o-showed-how-the-path-for-ai-science-is-shifting/" target="_blank">MIT Technology Review — AI Doing Science</a></li>
+    <li><a href="https://press.airstreet.com/p/state-of-ai-may-2026" target="_blank">Air Street Press — State of AI May 2026</a></li>
+  </ul>
+  <p style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.75rem; color: var(--muted); margin-top: 1.5rem;">
+    生成時間 / Generated: 2026-05-26 · Asia/Taipei · 部分來源因付費牆無法全文存取：The Information、Bloomberg、Financial Times、WSJ、Stratechery（均為付費訂閱制）。
+  </p>
+</footer>
+
+</body>
+</html>
