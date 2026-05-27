@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日新創新聞日報 / Daily Startup News — 2026-05-28</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --accent: #6c8fff;
+      --accent2: #a78bfa;
+      --accent3: #34d399;
+      --warn: #f59e0b;
+      --danger: #ef4444;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --border: #2d3250;
+      --tag-bg: #1e2442;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ─── Header ─── */
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 40px 24px;
+    }
+    .header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .brand { font-size: 13px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
+    header h1 { font-size: 26px; font-weight: 700; color: #fff; }
+    .date-badge {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 13px;
+      color: var(--muted);
+      white-space: nowrap;
+      align-self: flex-start;
+    }
+    .tagline { margin-top: 8px; color: var(--muted); font-size: 14px; }
+
+    /* ─── Nav pills ─── */
+    nav {
+      padding: 16px 40px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    nav a {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      color: var(--muted);
+      transition: color .15s, border-color .15s;
+    }
+    nav a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+
+    /* ─── Main layout ─── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+
+    /* ─── Section ─── */
+    section { margin-bottom: 48px; }
+    .section-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+    }
+
+    /* ─── Item card ─── */
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin-bottom: 18px;
+    }
+    .item:hover { border-color: #3d4570; }
+    .item h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .item h3 .en { color: var(--accent); }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .meta a { color: var(--muted); }
+    .meta a:hover { color: var(--accent); }
+    .tag {
+      background: var(--tag-bg);
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+    .tag.seed { color: #34d399; border: 1px solid #34d39940; }
+    .tag.seriesb { color: #6c8fff; border: 1px solid #6c8fff40; }
+    .tag.seriesf { color: #a78bfa; border: 1px solid #a78bfa40; }
+    .tag.ipo { color: var(--warn); border: 1px solid #f59e0b40; }
+    .tag.layoff { color: var(--danger); border: 1px solid #ef444440; }
+    .tag.product { color: #38bdf8; border: 1px solid #38bdf840; }
+    .tag.india { color: #fb923c; border: 1px solid #fb923c40; }
+    .tag.europe { color: #e879f9; border: 1px solid #e879f940; }
+    .tag.us { color: #6c8fff; border: 1px solid #6c8fff40; }
+
+    .block { margin-bottom: 10px; }
+    .block-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+    .block p { font-size: 14px; color: var(--text); }
+
+    .highlight-box {
+      background: var(--surface2);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+    .highlight-box strong { color: var(--text); }
+
+    /* ─── Top stories banner ─── */
+    .top-story {
+      border-left-color: var(--accent2);
+      border-left-width: 4px;
+    }
+
+    /* ─── Product Hunt table ─── */
+    .ph-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .ph-table th {
+      text-align: left;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .ph-table td { padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .ph-table tr:last-child td { border-bottom: none; }
+    .ph-table .rank { color: var(--accent); font-weight: 700; font-size: 12px; }
+    .ph-table .prod-name { color: #fff; font-weight: 600; }
+    .ph-table .votes { color: var(--accent3); font-size: 12px; }
+
+    /* ─── Footer ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 40px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    footer h4 { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 10px; }
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 6px 24px;
+    }
+    .source-grid a { color: var(--muted); font-size: 12px; }
+    .source-grid a:hover { color: var(--accent); }
+    .disclaimer { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); color: #64748b; font-size: 11px; }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════ HEADER ════════════════════════════════════ -->
+<header>
+  <div class="header-top">
+    <div>
+      <div class="brand">Daily Startup News · 今日新創新聞日報</div>
+      <h1>新創公司動態 / Startup Briefing</h1>
+    </div>
+    <div class="date-badge">2026-05-28 · Asia/Taipei</div>
+  </div>
+  <p class="tagline">募資 · 裁員 · 上市 · 發表 · 人事 · 區域動態 — 中英並陳，附背景脈絡</p>
+</header>
+
+<!-- ════════════════════════════════════ NAV ════════════════════════════════════ -->
+<nav>
+  <a href="#top-stories">頭條</a>
+  <a href="#funding">募資</a>
+  <a href="#launches">新公司發表</a>
+  <a href="#products">產品大事</a>
+  <a href="#ipo">上市進程</a>
+  <a href="#layoffs">裁員</a>
+  <a href="#regional">區域焦點</a>
+  <a href="#reads">觀點</a>
+  <a href="#sources">來源</a>
+</nav>
+
+<!-- ════════════════════════════════════ MAIN ════════════════════════════════════ -->
+<main>
+
+  <!-- ── 1. TOP STORIES ── -->
+  <section id="top-stories">
+    <div class="section-title">01 · 頭條 / Top Stories</div>
+
+    <!-- Story A -->
+    <div class="item top-story">
+      <h3>OpenRouter 估值翻倍至 13 億美元，AI 多模型閘道器時代確立<br>
+        <span class="en">OpenRouter Doubles Valuation to $1.3B — The Multi-Model Era Is Here</span>
+      </h3>
+      <div class="meta">
+        <span class="tag seriesb">Series B</span>
+        <span class="tag us">US</span>
+        <a href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" target="_blank">TechCrunch · 2026-05-26</a>
+      </div>
+
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>OpenRouter（2023 年成立，AI 閘道器）完成 <strong>1.13 億美元 Series B</strong>，由 Google 母公司 Alphabet 旗下成長基金 <strong>CapitalG</strong> 領投，估值約 <strong>13 億美元</strong>（post-money，NYT 報導）。一年前 Series A 時估值僅 5.47 億美元（PitchBook）。平台提供 400+ 模型接入，包含 Anthropic、OpenAI、Google、xAI、DeepSeek；宣稱 800 萬全球用戶，每月處理 100 兆 token，是六個月前週處理量（5 兆）的 5 倍。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>OpenRouter 在 AI 從訓練 → 推論 → Agent 階段演進中受益最深。企業端需依任務切換不同模型以控成本、提升推理精度，而 OpenRouter 恰好是這個需求的基礎設施層。上一輪 Series A 由 a16z + Menlo Ventures 領投，Sequoia 跟投。此次 CapitalG 出手，代表 Alphabet 對「模型中立閘道器」賽道的正式押注。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <p>（分析）多模型未來已到來——企業不打算像過去綁定 SaaS 一樣綁定單一 AI 供應商。OpenRouter 的快速成長壓縮了模型廠商直接掌握企業關係的空間，也使「哪個模型最強」的競爭邏輯讓位給「哪個閘道器最穩、最便宜」。</p>
+      </div>
+      <div class="highlight-box"><strong>總募資：</strong>前期 Series A $40M（2025.06）+ 本輪 $113M，合計 ~$153M+</div>
+    </div>
+
+    <!-- Story B -->
+    <div class="item top-story">
+      <h3>ClickUp 裁員 22%：以 AI Agent 取代數百人，是趨勢先聲還是藉口？<br>
+        <span class="en">ClickUp Cuts 22% of Workforce to Deploy Thousands of AI Agents</span>
+      </h3>
+      <div class="meta">
+        <span class="tag layoff">裁員</span>
+        <span class="tag us">US</span>
+        <a href="https://techcrunch.com/2026/05/25/what-clickups-mass-layoff-tells-us-about-the-future-of-work/" target="_blank">TechCrunch · 2026-05-25</a>
+      </div>
+
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>協作軟體新創 ClickUp（2021 年估值 <strong>40 億美元</strong>）宣布裁減 <strong>22% 員工</strong>。CEO Zeb Evans 稱此舉非削減成本，而是以 3,000 個內部 AI Agent 取代複雜任務；留任員工薪資帶上限拉高至百萬美元級別，以績效綁定 AI 產出。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>ClickUp 同期推出 AI Agent 產品供客戶使用，此次裁員同時也是產品路線的「自我展示」。Gartner 調查顯示，約 80% 導入自主 AI 的企業已削減崗位，但財務回報未必跟上。Polsia（一人公司）則是同期案例：1 位創辦人、以 AI 全面操盤，剛完成 <strong>$30M 募資，估值 $250M</strong>。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <p>（分析）ClickUp 裁員是 AI 取代工作浪潮從「話題」到「現實」的新數據點，但 Gartner 警告省人力≠省錢。對 SaaS 公司人才市場的衝擊更大：被裁者多為中階操作型職能，未來求職競爭加劇。</p>
+      </div>
+    </div>
+
+    <!-- Story C -->
+    <div class="item top-story">
+      <h3>Stord 完成 2.5 億美元 Series F，估值翻倍至 30 億美元<br>
+        <span class="en">Stord Raises $250M Series F at $3B Valuation — Anti-Amazon Fulfillment Play</span>
+      </h3>
+      <div class="meta">
+        <span class="tag seriesf">Series F</span>
+        <span class="tag us">US</span>
+        <a href="https://techcrunch.com/2026/05/26/amazon-fulfillment-competitor-stord-raises-250m-at-3b-valuation/" target="_blank">TechCrunch · 2026-05-26</a>
+      </div>
+
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>電商物流新創 Stord（亞特蘭大，2015 年創立）完成 <strong>2.5 億美元 Series F</strong>，由 Strike Capital 領投，Kleiner Perkins、Founders Fund、Franklin Templeton、Baillie Gifford、G Squared、Bond 跟投。估值 <strong>30 億美元</strong>，較一年前 15 億翻倍，累計總募資約 7.75 億美元。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>Stord 提供實體倉網 + 庫存管理軟體，定位為「反亞馬遜」——讓品牌保有客戶關係的同時享有 FBA 等級速度。2021 年首次達獨角獸地位，熬過 VC 寒冬，2025 年再以 Strike Capital 領投完成 2 億美元融資（估值 15 億）。今年 AI 介面上線後，受 Google Cloud Next 大會點名展示，曝光度大增。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <p>（分析）非純 AI 公司仍能在 2026 融資市場取得大輪次，前提是具備紮實的基礎設施 + 穩定增長 + AI 加持敘事。Stord 案例說明「AI 介面化」現有物流平台的融資溢價效應正在兌現。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 2. FUNDING ── -->
+  <section id="funding">
+    <div class="section-title">02 · 募資 / Funding Rounds</div>
+
+    <!-- Human Archive Seed -->
+    <div class="item">
+      <h3>Human Archive 募得 820 萬美元 Seed：用印度零工訓練世界機器人<br>
+        <span class="en">Human Archive Raises $8.2M Seed to Train Robots Using India's Gig Workers (YC-backed)</span>
+      </h3>
+      <div class="meta">
+        <span class="tag seed">Seed</span>
+        <span class="tag india">India / Physical AI</span>
+        <a href="https://techcrunch.com/2026/05/26/human-archive-taps-into-indias-services-startups-to-collect-data-for-physical-ai/" target="_blank">TechCrunch · 2026-05-26</a>
+      </div>
+
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>Human Archive（UC Berkeley + Stanford 研究者創辦，矽谷）完成 <strong>820 萬美元 Seed 輪</strong>，投資方包含 Wing Venture Capital、NVP Capital、<strong>Y Combinator</strong>，及 OpenAI、Nvidia、Google、Meta 的天使投資人。公司讓印度外賣、家政服務零工頭戴攝影帽、穿觸覺手套，收集第一人稱視角訓練資料供機器人 / Physical AI 實驗室使用。目前超 1,000 套頭戴裝置在線。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>Physical AI 賽道最大瓶頸是缺乏高品質真實世界訓練資料。Human Archive 同步收集 RGB-D 影像、觸覺力回饋、全身動作捕捉、手腕攝影，宣稱多模態同步為業界少見。公司遭 Urban Company、Pronto 拒絕合作，並引發隱私爭議——印度資通訊部已啟動稽查。創辦人每小時支付零工 $1，低於同業 $2.63–4.20。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <p>（分析）印度零工成為全球 Physical AI 軍備競賽的底層資料供給者——這同時是商機也是倫理議題。資料產業化的地緣政治敏感性（印度政府介入）可能成為後續隱患。</p>
+      </div>
+    </div>
+
+    <!-- Lucra Sports Series B -->
+    <div class="item">
+      <h3>電競白標新創 Lucra Sports 募得 2,000 萬美元 Series B，Cathie Wood 的 ARK 領投<br>
+        <span class="en">Lucra Sports $20M Series B — ARK Invest's First-Ever Startup Lead</span>
+      </h3>
+      <div class="meta">
+        <span class="tag seriesb">Series B</span>
+        <span class="tag us">US · Esports</span>
+        <a href="https://techcrunch.com/2026/05/25/the-pitch-trick-that-helped-an-esports-startup-raise-20m-when-vcs-only-wanted-ai/" target="_blank">TechCrunch · 2026-05-25</a>
+      </div>
+
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>Lucra Sports（電競白標互動競賽平台）完成 <strong>2,000 萬美元 Series B</strong>，由 <strong>ARK Invest Venture Fund</strong>（Cathie Wood，<em>首次擔任新創主要投資方</em>）領投。估值 undisclosed。客戶包含 Five Iron Golf、Dave &amp; Buster's、Chess King。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>Lucra 不是 AI 公司，但 CEO Dylan Robbins 以「若 AI 成功 → 人們休閒時間增加 → 遊戲需求放大」的對沖邏輯說服 ARK。這是非 AI 新創在 AI 融資環境突圍的典型案例。ARK 曾對 Skillz（類似賽道）重倉虧損，此次為再次下注。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 3. LAUNCHES / STEALTH ── -->
+  <section id="launches">
+    <div class="section-title">03 · 新公司發表 / Launches &amp; Stealth-Out</div>
+
+    <div class="item">
+      <h3>Polsia：一人公司模式，以 AI 全面自動化軟體運營，剛獲 3,000 萬美元融資<br>
+        <span class="en">Polsia — 1-Person AI-Automated Software Startup Raises $30M at $250M Valuation</span>
+      </h3>
+      <div class="meta">
+        <span class="tag seed">新輪次</span>
+        <span class="tag us">US</span>
+        <a href="https://techcrunch.com/2026/05/25/what-clickups-mass-layoff-tells-us-about-the-future-of-work/" target="_blank">TechCrunch 提及 · 2026-05-25</a>
+      </div>
+
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>Polsia（創立一年，CEO Ben Broca 為唯一成員）以 AI 代理全面處理 solopreneur 的軟體運營，完成 <strong>3,000 萬美元募資，估值 2.5 億美元</strong>。具體投資方 undisclosed；消息來源為 ClickUp 裁員報導中提及的對比案例。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <p>（分析）「一人獨角獸」從概念變成真實融資案例，揭示投資人對「最大化 AI 槓桿 / 最小化人頭數」新創模式的高度偏好。若 Polsia 成立一年即達 2.5 億估值，將引爆更多「AI-first, headcount-zero」新創浪潮。</p>
+      </div>
+    </div>
+
+    <!-- Product Hunt Top Today -->
+    <div class="item">
+      <h3>Product Hunt 今日熱門發表（2026-05-28）<br>
+        <span class="en">Product Hunt Top Launches Today</span>
+      </h3>
+      <div class="meta">
+        <span class="tag product">Product Hunt</span>
+        <a href="https://www.producthunt.com/" target="_blank">producthunt.com</a>
+      </div>
+      <table class="ph-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>產品名稱 / Product</th>
+            <th>描述</th>
+            <th>票數</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rank">#1</td>
+            <td class="prod-name"><a href="https://www.producthunt.com/products/bluedot-2" target="_blank">Bluedot 2.1</a></td>
+            <td>Apple Watch 錄音 + Claude 同步 / Record on Apple Watch, sync with Claude</td>
+            <td class="votes">212</td>
+          </tr>
+          <tr>
+            <td class="rank">#2</td>
+            <td class="prod-name"><a href="https://www.producthunt.com/products/powabase" target="_blank">Powabase</a></td>
+            <td>以 Postgres + RAG + Agent 建 AI 應用</td>
+            <td class="votes">185</td>
+          </tr>
+          <tr>
+            <td class="rank">#3</td>
+            <td class="prod-name"><a href="https://www.producthunt.com/products/kahana" target="_blank">Oasis Browser for Mac</a></td>
+            <td>隱私優先、可匿名訓練的 AI 瀏覽器</td>
+            <td class="votes">140</td>
+          </tr>
+          <tr>
+            <td class="rank">#4</td>
+            <td class="prod-name"><a href="https://www.producthunt.com/products/zero-xyz" target="_blank">zero.xyz</a></td>
+            <td>給 AI Agent 接入 8,000 個工具 / API</td>
+            <td class="votes">132</td>
+          </tr>
+          <tr>
+            <td class="rank">#5</td>
+            <td class="prod-name"><a href="https://www.producthunt.com/products/coworker-ai" target="_blank">Coworker AI</a></td>
+            <td>Context-aware 模型路由，降低 AI 費用</td>
+            <td class="votes">113</td>
+          </tr>
+          <tr>
+            <td class="rank">推廣</td>
+            <td class="prod-name"><a href="https://www.producthunt.com/products/viktor" target="_blank">getviktor.com</a></td>
+            <td>真正做事的 AI 同事 / An AI coworker that actually does the work</td>
+            <td class="votes">457</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 4. NOTABLE PRODUCT LAUNCHES ── -->
+  <section id="products">
+    <div class="section-title">04 · 產品大事 / Notable Product Launches</div>
+
+    <div class="item">
+      <h3>DuckDuckGo 安裝量年增 30%：用戶拒絕被「強餵」Google AI 搜尋<br>
+        <span class="en">DuckDuckGo Installs +30% YoY as Users Reject Google's Force-Fed AI Search</span>
+      </h3>
+      <div class="meta">
+        <span class="tag product">Product Milestone</span>
+        <a href="https://techcrunch.com/2026/05/26/duckduckgo-installs-are-up-30-as-users-reject-being-force-fed-googles-ai-search/" target="_blank">TechCrunch · 2026-05-26</a>
+      </div>
+      <div class="block">
+        <p>DuckDuckGo 並非嚴格意義的新創，但這條數據對搜尋替代品賽道極為重要。Google AI Overviews 大規模推送後，用戶對「被動接受 AI 摘要」的反彈轉化成 DuckDuckGo 實質安裝增長。對於 Brave Search、Perplexity、You.com 等搜尋新創而言，這驗證了市場空間仍在擴大。</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <h3>Spotify 新增「雜誌文章朗讀」功能，內容邊界進一步模糊<br>
+        <span class="en">Spotify Adds Narrated Magazine Articles — Content Boundaries Keep Blurring</span>
+      </h3>
+      <div class="meta">
+        <span class="tag product">Product Launch</span>
+        <a href="https://techcrunch.com/2026/05/26/spotify-now-lets-you-stream-narrated-magazine-articles-too/" target="_blank">TechCrunch · 2026-05-26</a>
+      </div>
+      <div class="block">
+        <p>Spotify（非新創，但動作影響內容新創格局）正式推出 AI 朗讀雜誌文章。這對依賴音訊廣告的 podcast 新創是壓力，也對長文內容平台（Substack、Every 等）形成潛在競爭。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 5. IPO PIPELINE ── -->
+  <section id="ipo">
+    <div class="section-title">05 · 上市進程 / IPO Pipeline</div>
+
+    <div class="item">
+      <h3>智慧戒指 Oura 秘密遞交 S-1，估值 110 億美元的穿戴健康獨角獸備戰上市<br>
+        <span class="en">Oura Smart Ring Confidentially Files S-1 — $11B Finnish Health Wearable Eyes IPO</span>
+      </h3>
+      <div class="meta">
+        <span class="tag ipo">IPO Filing</span>
+        <span class="tag europe">Finland / Europe</span>
+        <a href="https://techcrunch.com/2026/05/22/smart-ring-maker-oura-files-to-go-public/" target="_blank">TechCrunch · 2026-05-22</a>
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>芬蘭智慧戒指公司 Oura（2015 年創立）向 SEC 秘密遞交 S-1 草稿，正式啟動 IPO 籌備。2025 年 9 月完成 <strong>8.75 億美元 Series E，估值 110 億美元</strong>（較 2024 年 Series D 的 50 億翻倍）。截至去年 9 月已售出 <strong>550 萬枚戒指</strong>（前一年為 250 萬，一年翻倍）。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>Oura 近期推出針對女性健康的自研 AI 模型，女性用戶比例持續攀升——這是其差異化於 Fitbit、Garmin、Apple Watch 的關鍵策略。SpaceX 同週遞交 S-1（更高關注度），但 Oura IPO 對歐洲硬體生態系意義重大，可能是 2026 年最受矚目的 HealthTech 上市案。</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <h3>SpaceX S-1 揭露 Starship 再利用路徑不明，但 Starlink 繼續強攻企業市場<br>
+        <span class="en">SpaceX S-1 Uncertainty Around Starship Reusability; Starlink Locks American Airlines Deal</span>
+      </h3>
+      <div class="meta">
+        <span class="tag ipo">IPO Filing Context</span>
+        <span class="tag us">US</span>
+        <a href="https://techcrunch.com/2026/05/26/starships-path-to-reusability-looks-murky-after-spacexs-s-1/" target="_blank">TechCrunch · 2026-05-26</a>
+      </div>
+      <div class="block">
+        <p>SpaceX S-1 本週持續受媒體解讀：Starship 完全再利用的時間表不明確，但 Starlink 已拿下美國航空（American Airlines）合約，是 IPO 前強化商業收入的重要動作。SpaceX 上市若實現，將可能成為美股史上最大 IPO，需持續追蹤 roadshow 進度。</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <h3>防禦科技 IPO 潮：AI 無人機公司 Swarmer 上市首日暴漲 520%，12 家後繼者已在列<br>
+        <span class="en">Defense Tech IPO Wave: AI Drone Co. Swarmer +520% on Debut; 12 More Candidates Identified</span>
+      </h3>
+      <div class="meta">
+        <span class="tag ipo">IPO Trend</span>
+        <span class="tag us">US</span>
+        <a href="https://news.crunchbase.com/public/potential-defense-tech-ipo-candidates-swmr/" target="_blank">Crunchbase News · 2026-03-18 (本週繼續熱議)</a>
+      </div>
+      <div class="block">
+        <p>Austin 的 AI 無人機公司 Swarmer（以 1,500 萬美元 IPO，市值首日飆至 3.82 億美元）已示範防禦科技在公開市場的高本益比。Crunchbase 預測 Anduril、Helsing、Saronic 等 12 家防禦科技新創是下一批 IPO 候選。防禦科技 2025 年創投流入達 <strong>84 億美元（歷史新高）</strong>，俄烏戰爭持續 + 美伊戰爭擴大背景下，此熱度 2026 持續。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 6. LAYOFFS ── -->
+  <section id="layoffs">
+    <div class="section-title">06 · 裁員與停業 / Layoffs &amp; Shutdowns</div>
+
+    <div class="item">
+      <h3>Intuit 裁員逾 3,000 人，以 AI 重組財務軟體業務<br>
+        <span class="en">Intuit Lays Off 3,000+ to Refocus on AI Across QuickBooks, TurboTax</span>
+      </h3>
+      <div class="meta">
+        <span class="tag layoff">裁員 3,000+</span>
+        <span class="tag us">US</span>
+        <a href="https://techcrunch.com/2026/05/20/intuit-to-lay-off-over-3000-employees-to-refocus-on-ai/" target="_blank">TechCrunch · 2026-05-20（本週仍在討論）</a>
+      </div>
+      <div class="block">
+        <p>Intuit（QuickBooks / TurboTax 母公司）本週宣布裁員 3,000 人以上，理由是將資源集中於 AI。這與 ClickUp 22% 裁員形成共振——傳統 SaaS 工具層公司正在以 AI Agent 重塑員工規模。財務軟體賽道對 fintech 新創（Gusto、Ramp、Pilot 等）是開放機會，也是壓力。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 7. REGIONAL ── -->
+  <section id="regional">
+    <div class="section-title">07 · 區域焦點 / Regional Spotlight</div>
+
+    <!-- Berlin / Peec -->
+    <div class="item">
+      <h3>柏林 AI 搜尋能見度新創 Peec 年化收入數月內翻倍至 1,000 萬美元<br>
+        <span class="en">Berlin's Peec AI Doubles ARR to $10M — GEO (Generative Engine Optimization) Takes Off in Europe</span>
+      </h3>
+      <div class="meta">
+        <span class="tag europe">Europe · Berlin</span>
+        <a href="https://techcrunch.com/2026/05/23/peec-one-of-berlins-rising-startups-more-than-doubled-annualized-revenue-in-months-to-10m-sources-say/" target="_blank">TechCrunch · 2026-05-23</a>
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <p>Peec AI（柏林，幫助品牌追蹤並提升在 ChatGPT 等 AI 搜尋引擎中的能見度）年化收入已達 <strong>1,000 萬美元</strong>（TechCrunch 查驗公司儀表板數據），較 6 個月前 Series A 時的 400 萬美元成長超過一倍。Series A 由 Antler 領投（估值未披露，高於 1 億美元）。</p>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <p>Peec 是 GEO（Generative Engine Optimization）類別的代表公司，即「AI 時代的 SEO 工具」。創辦人 Marius Meiners 前職業電競選手（LoL 全球前 100），全公司公開 ARR 儀表板是其獨特管理風格。近期在柏林各大科技公司大樓外投放廣告牌搶人才。</p>
+      </div>
+    </div>
+
+    <!-- India / Human Archive already covered above, add context on India startup scene -->
+    <div class="item">
+      <h3>印度新創生態：Physical AI 資料爭奪戰成隱私主戰場，政府介入調查<br>
+        <span class="en">India Startup Scene: Egocentric Data Race Hits Privacy Flashpoint — Government Probes Consent Mechanisms</span>
+      </h3>
+      <div class="meta">
+        <span class="tag india">India</span>
+        <a href="https://www.moneycontrol.com/news/business/startup/it-ministry-to-look-into-pronto-s-in-home-ai-recording-pilot-amid-privacy-concerns-13929802.html" target="_blank">Moneycontrol 報導</a>
+      </div>
+      <div class="block">
+        <p>印度資通訊部（MeitY）已啟動稽查，針對 Human Archive、Pronto 等新創在家政服務工人身上收集第一人稱視角影像資料的同意機制與資料使用方式。Urban Company CEO 公開拒絕合作，Pronto 承認早期討論但選擇不推進。事件顯示「Physical AI 資料採集 + 零工勞動力」的全球複製模式在印度本土監管環境面臨更高阻力。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 8. READS ── -->
+  <section id="reads">
+    <div class="section-title">08 · 觀點 / Reads Worth Bookmarking</div>
+
+    <div class="item">
+      <h3>如何在「VC 只要 AI」的環境下拿到錢：Lucra Sports CEO 的 pitch 方法論<br>
+        <span class="en">How to Raise When VCs Only Want AI: Lucra's Pitch Methodology</span>
+      </h3>
+      <div class="meta">
+        <a href="https://techcrunch.com/2026/05/25/the-pitch-trick-that-helped-an-esports-startup-raise-20m-when-vcs-only-wanted-ai/" target="_blank">TechCrunch · Julie Bort · 2026-05-25</a>
+      </div>
+      <div class="block">
+        <p>要點：(1) 以 AI 為開場——不是因為你做 AI，而是解釋你的業務如何受益於 AI 成功或失敗；(2) 任何場合的人際關係都可能成為你的主要投資人；(3) 在 AI 全面滲透的融資環境，非 AI 公司的 TAM 敘事要更大膽。</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <h3>VCs 如何用膨脹的「ARR」加冕 AI 新創：TechCrunch 深度調查<br>
+        <span class="en">How VCs and Founders Use Inflated 'ARR' to Crown AI Startups</span>
+      </h3>
+      <div class="meta">
+        <a href="https://techcrunch.com/2026/05/22/how-vcs-and-founders-use-inflated-arr-to-kingmake-ai-startups/" target="_blank">TechCrunch · Marina Temkin · 2026-05-22（本週持續熱議）</a>
+      </div>
+      <div class="block">
+        <p>深度調查 AI 新創如何以「tokens consumed × model price」等替代指標計算收入，或將 pilot 合約折算為年化金額，製造 ARR 幻覺；VC 如何在盡職調查中默許乃至鼓勵這種做法以維持估值。必讀，特別是對正在評估 AI 新創的投資人。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ════════════════════════════════════ FOOTER ════════════════════════════════════ -->
+<footer id="sources">
+  <h4>來源 / Sources</h4>
+  <div class="source-grid">
+    <a href="https://techcrunch.com/" target="_blank">TechCrunch</a>
+    <a href="https://news.crunchbase.com/" target="_blank">Crunchbase News</a>
+    <a href="https://www.producthunt.com/" target="_blank">Product Hunt</a>
+    <a href="https://www.moneycontrol.com/" target="_blank">Moneycontrol (India)</a>
+    <a href="https://entrackr.com/" target="_blank">Entrackr (India)</a>
+    <a href="https://www.nytimes.com/" target="_blank">New York Times (OpenRouter)</a>
+    <a href="https://fortune.com/" target="_blank">Fortune (ClickUp)</a>
+  </div>
+
+  <div class="disclaimer">
+    <strong>付費牆 / Paywalled Sources：</strong>The Information、Bloomberg Tech、WSJ Tech、FT Tech、PitchBook — 未能直接取用，相關數字引自公開報導轉述。<br><br>
+    本報告覆蓋期間：2026-05-25 ~ 2026-05-28 (UTC+8)。分析觀點為 AI 生成，不構成投資建議。資料以各媒體公開報導為準，估值 / ARR 等數字如原文標示 "reportedly" 或 "sources say" 亦依原文保留不確定性。
+  </div>
+</footer>
+
+</body>
+</html>

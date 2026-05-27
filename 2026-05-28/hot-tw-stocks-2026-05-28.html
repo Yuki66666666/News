@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔥 今日台股熱門焦點股 — 2026-05-28</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .header {
+    background: linear-gradient(135deg, #e63946 0%, #c1121f 100%);
+    color: #fff;
+    padding: 20px 24px 16px;
+  }
+  .header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+  .header .subtitle { font-size: 12px; opacity: 0.85; margin-top: 4px; }
+  .header .meta-row { display: flex; gap: 16px; margin-top: 10px; flex-wrap: wrap; }
+  .meta-badge {
+    background: rgba(255,255,255,0.2);
+    border-radius: 4px;
+    padding: 2px 10px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .notice-bar {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 8px 16px;
+    font-size: 12px;
+    color: #664d03;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 16px; }
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #e63946;
+    border-bottom: 2px solid #e63946;
+    padding-bottom: 4px;
+    margin: 20px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  /* Summary table */
+  .summary-table-wrap { overflow-x: auto; }
+  table.summary {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    font-size: 12.5px;
+  }
+  table.summary thead tr {
+    background: #2b2d42;
+    color: #fff;
+  }
+  table.summary thead th {
+    padding: 8px 10px;
+    text-align: left;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+  table.summary tbody tr:nth-child(even) { background: #f9f9f9; }
+  table.summary tbody tr:hover { background: #fff0f1; }
+  table.summary tbody td {
+    padding: 7px 10px;
+    vertical-align: middle;
+  }
+  .code { font-weight: 700; color: #2b2d42; }
+  .up { color: #c1121f; font-weight: 700; }
+  .dn { color: #2c7a3a; font-weight: 700; }
+  .stars { color: #f4a261; letter-spacing: -1px; }
+  .badge {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .badge-red { background: #ffe5e5; color: #c1121f; }
+  .badge-blue { background: #e5eeff; color: #1a5276; }
+  .badge-green { background: #e5ffe9; color: #1a5e28; }
+  .badge-orange { background: #fff3e0; color: #e65100; }
+  .badge-purple { background: #f0e5ff; color: #4a235a; }
+  /* Deep-dive cards */
+  .stock-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .stock-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #2b2d42;
+    color: #fff;
+  }
+  .stock-code-big {
+    font-size: 18px;
+    font-weight: 800;
+    background: #e63946;
+    padding: 4px 10px;
+    border-radius: 6px;
+    min-width: 52px;
+    text-align: center;
+  }
+  .stock-name-big { font-size: 15px; font-weight: 700; }
+  .stock-name-en { font-size: 11px; opacity: 0.7; }
+  .stock-price-row { margin-left: auto; text-align: right; }
+  .price-main { font-size: 18px; font-weight: 800; color: #ff6b6b; }
+  .price-chg { font-size: 13px; color: #ff9e9e; }
+  .stock-card-body { padding: 14px 16px; }
+  .row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  @media (max-width: 600px) { .row-grid { grid-template-columns: 1fr; } }
+  .info-block { background: #f8f9fa; border-radius: 6px; padding: 10px 12px; }
+  .info-block h4 {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  .info-block p { font-size: 12.5px; line-height: 1.55; }
+  .info-block.full { grid-column: 1 / -1; }
+  .catalyst-flag {
+    display: inline-block;
+    background: #e63946;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+  }
+  .highlight { background: #fff3cd; padding: 0 3px; border-radius: 2px; }
+  /* Watch list */
+  .watch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+  .watch-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .watch-card .code { font-size: 13px; }
+  .watch-card .name { font-size: 12px; color: #555; }
+  .watch-card .reason { font-size: 11.5px; margin-top: 4px; color: #333; }
+  /* Caution */
+  .caution-card {
+    background: #fff8f0;
+    border: 1px solid #ffcc80;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+  }
+  .caution-card .label { font-size: 11px; font-weight: 700; color: #e65100; }
+  /* Market backdrop */
+  .backdrop-box {
+    background: #fff;
+    border-radius: 8px;
+    border-left: 5px solid #2b2d42;
+    padding: 14px 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .backdrop-stats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+  .stat-pill {
+    background: #f0f2f5;
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .stat-pill .label { font-size: 10px; color: #777; display: block; font-weight: 400; }
+  /* Footer */
+  .footer { font-size: 11px; color: #888; padding: 20px 0 8px; }
+  .footer a { color: #888; }
+  .source-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .source-link {
+    background: #f0f0f0;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 10.5px;
+    text-decoration: none;
+    color: #555;
+  }
+  .source-link:hover { background: #e0e0e0; }
+  .divider { border: none; border-top: 1px solid #e8e8e8; margin: 12px 0; }
+  .tag { display: inline-block; background: #e8f4fd; color: #1a5276; font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 3px; margin: 1px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>🔥 今日台股熱門焦點股 · Hot Taiwan Stocks of the Day</h1>
+  <div class="subtitle">2026 年 05 月 28 日（週四）· TWSE 正常交易日 09:00–13:30</div>
+  <div class="meta-row">
+    <span class="meta-badge">📅 交易日確認：正常</span>
+    <span class="meta-badge">📊 大盤背景：台指期夜盤 45,452 (+662pts)</span>
+    <span class="meta-badge">🎯 主題：Micron +19% 記憶體爆發 · COMPUTEX 黃仁勳旋風</span>
+  </div>
+</div>
+
+<div class="notice-bar">
+  ⚠️ 資料說明：因本報告生成時台股正交易中或剛收盤，部分盤後精確數字（如三大法人最終買賣超）標註「待確認」。所有價格/漲幅以 5/27 收盤 + 夜盤/盤前指標重建，不具投資建議功能。
+</div>
+
+<div class="container">
+
+  <!-- ===== SECTION 1: SUMMARY TABLE ===== -->
+  <div class="section-title">📊 熱門焦點 Top 7 — 今日一覽表</div>
+  <div class="summary-table-wrap">
+    <table class="summary">
+      <thead>
+        <tr>
+          <th>股號</th>
+          <th>公司</th>
+          <th>5/27 收盤</th>
+          <th>漲幅（前日）</th>
+          <th>成交量參考</th>
+          <th>三大法人</th>
+          <th>熱度</th>
+          <th>主要 Catalyst</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="code">2408</td>
+          <td><strong>南亞科</strong></td>
+          <td>312.0 元</td>
+          <td class="up">+2.80%</td>
+          <td>爆量（5/27 創高）</td>
+          <td><span class="badge badge-red">外+</span><span class="badge badge-blue">投+</span></td>
+          <td class="stars">★★★★★</td>
+          <td>美光 +19%、UBS 目標價翻3倍</td>
+        </tr>
+        <tr>
+          <td class="code">2344</td>
+          <td><strong>華邦電</strong></td>
+          <td>141.0 元（5/26 漲停）</td>
+          <td class="up">漲停 +10%</td>
+          <td>超爆量</td>
+          <td><span class="badge badge-red">外+</span><span class="badge badge-blue">投+</span></td>
+          <td class="stars">★★★★★</td>
+          <td>Micron 記憶體缺貨結構性爆發</td>
+        </tr>
+        <tr>
+          <td class="code">2303</td>
+          <td><strong>聯電</strong></td>
+          <td>143.5 元（5/27 漲停）</td>
+          <td class="up">+9.96%（漲停）</td>
+          <td>逾30萬張</td>
+          <td><span class="badge badge-red">外+</span><span class="badge badge-blue">投+</span></td>
+          <td class="stars">★★★★★</td>
+          <td>ADR +15.7%、25 年新高、下半年漲價</td>
+        </tr>
+        <tr>
+          <td class="code">2337</td>
+          <td><strong>旺宏</strong></td>
+          <td>待確認</td>
+          <td class="up">+5.25%（5/26）</td>
+          <td>高量</td>
+          <td><span class="badge badge-blue">投+</span></td>
+          <td class="stars">★★★★</td>
+          <td>記憶體族群輪漲 · NOR Flash 漲價</td>
+        </tr>
+        <tr>
+          <td class="code">3037</td>
+          <td><strong>欣興</strong></td>
+          <td>1,080 元</td>
+          <td class="up">千金股漲停（5/26）</td>
+          <td>高量</td>
+          <td><span class="badge badge-red">外+</span></td>
+          <td class="stars">★★★★</td>
+          <td>IC 載板首檔千金股 · ABF 超級缺貨</td>
+        </tr>
+        <tr>
+          <td class="code">2454</td>
+          <td><strong>聯發科</strong></td>
+          <td>4,295 元</td>
+          <td class="up">+1.18%（5/27 穩盤）</td>
+          <td>一線主力</td>
+          <td><span class="badge badge-red">外+</span></td>
+          <td class="stars">★★★★</td>
+          <td>天花板尚存、端側 AI 最大受益</td>
+        </tr>
+        <tr>
+          <td class="code">8046</td>
+          <td><strong>南電</strong></td>
+          <td>905 元</td>
+          <td class="up">+2.60%（5/27）</td>
+          <td>高量</td>
+          <td><span class="badge badge-red">外+</span></td>
+          <td class="stars">★★★</td>
+          <td>ABF 載板、CoWoS 封裝需求爆發</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== SECTION 2: DEEP DIVES ===== -->
+  <div class="section-title">🔍 個股深度解析 — Per-Ticker Deep Dive</div>
+
+  <!-- 2408 南亞科 -->
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-code-big">2408</div>
+      <div>
+        <div class="stock-name-big">南亞科技 / Nanya Technology</div>
+        <div class="stock-name-en">DRAM 本土第一 · 台塑集團</div>
+      </div>
+      <div class="stock-price-row">
+        <div class="price-main">312.0 元</div>
+        <div class="price-chg">5/27 收盤 +2.80%（+8.5 元）</div>
+      </div>
+    </div>
+    <div class="stock-card-body">
+      <div class="row-grid">
+        <div class="info-block">
+          <h4>📈 今日數據 / Today's Tape</h4>
+          <p>5/27 收盤 <strong>312.0 元</strong>，+2.80%（+8.5 元）。<br>
+          5/26 台指期夜盤暗示 5/28 開高機率極大；<br>
+          5/28 盤中預估挑戰 <strong>漲停 343 元</strong>（待確認）。<br>
+          成交量 5/27 逾 1 萬張，外資、投信雙買超。</p>
+        </div>
+        <div class="info-block">
+          <h4>🔥 為什麼今天熱 / Why It's Hot</h4>
+          <p><span class="catalyst-flag">催化劑</span><span class="tag">Micron +19%</span>
+          瑞銀（UBS）將美光目標價從 <strong>535 → 1,625 美元</strong>（翻 3 倍），美光股價 5/26 暴漲 19.29% 市值突破 1 兆美元。市場預期 AI 伺服器記憶體需求「結構性缺貨」持續，台系 DRAM 廠直接受益。南亞科 2026Q1 EPS 轉虧為盈，結束連 10 季虧損。</p>
+          <p style="margin-top:6px">Micron's +19% surge driven by UBS's target price upgrade to $1,625 reignited global memory stock rally. Nanya returned to profitability in Q1 2026 after 10 consecutive loss quarters — structural demand shift from AI servers making this more than a speculative trade.</p>
+        </div>
+        <div class="info-block">
+          <h4>💰 籌碼觀察 / Flow Watch</h4>
+          <p>外資 5/27 買超逾 <strong>萬張</strong>；投信連 2 週搶進，5月累計買超逾 4.7 萬張（含華邦電）。融資使用率持續增加。國巨（2327）5/26 遭處置，資金部分流向記憶體族群。</p>
+        </div>
+        <div class="info-block">
+          <h4>💬 社群聲量 / Retail Buzz</h4>
+          <p>PTT Stock 板：「南亞科打入輝達主記憶體供應鏈傳言，股票直接鎖死」。<br>
+          CMoney 熱搜排名前 3，今日群組頻繁提及「記憶體最後一段」、「進場還不晚」。<br>
+          Yahoo 股市關注人數單日激增。</p>
+        </div>
+        <div class="info-block full">
+          <h4>📖 炒作脈絡 / Narrative Context</h4>
+          <p>南亞科屬於台塑集團，長期被視為「台版美光替代品」。2023-2025 年在 DDR4 過剩週期中持續虧損。2026 年 AI 伺服器換 DDR5 需求爆發，加上全球三大廠（SK Hynix、三星、美光）集中轉產 HBM，導致 DDR4/DDR5 標準型產品供不應求。法人目標價已陸續調至 <strong>315 元以上</strong>，UBS 台版目標推升空間明顯。這是「基本面轉折 + 外部催化劑同時引爆」的經典 setup。</p>
+        </div>
+        <div class="info-block full">
+          <h4>🔭 後續觀察 / What to Watch Next</h4>
+          <p>① 5/28 盤中是否能維持漲停 / 量能能否延續超過 1.5 萬張<br>
+          ② 外資是否連 3 日買超（籌碼結構進一步健康化）<br>
+          ③ 南亞科法說會或重大訊息（若傳出實際量產 HBM 計畫則可能再噴）<br>
+          ④ 隔日沖主力佔比：若超過 20% 須警戒短線拉高出貨</p>
+        </div>
+      </div>
+      <div style="font-size:11px; color:#999; margin-top:4px">來源：
+        <a href="https://news.cnyes.com/news/id/6470767" target="_blank" style="color:#999">鉅亨 5/26 盤後</a> ·
+        <a href="https://ec.ltn.com.tw/article/breakingnews/5450740" target="_blank" style="color:#999">自由財經 美光 +19%</a> ·
+        <a href="https://tw.stock.yahoo.com/news/%E8%B3%87%E9%87%91%E5%9B%9E%E6%B5%81%E8%A8%98%E6%86%B6%E9%AB%94" target="_blank" style="color:#999">Yahoo 記憶體報導</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2344 華邦電 -->
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-code-big">2344</div>
+      <div>
+        <div class="stock-name-big">華邦電子 / Winbond Electronics</div>
+        <div class="stock-name-en">NOR Flash + DRAM · AI MCU 記憶體</div>
+      </div>
+      <div class="stock-price-row">
+        <div class="price-main">141.0 元（漲停）</div>
+        <div class="price-chg">5/26 漲停鎖死 · 5/27 仍強</div>
+      </div>
+    </div>
+    <div class="stock-card-body">
+      <div class="row-grid">
+        <div class="info-block">
+          <h4>📈 今日數據 / Today's Tape</h4>
+          <p>5/26 漲停 <strong>141 元（+10%）</strong>，買盤掛單逾 3.7 萬張，成交量當日逾 14.5 萬張（爆天量），創歷史新高。三大法人「連 3 買」，外資單日買超 <strong>6.78 億元</strong>（5/26）。5/27 仍維持高位。</p>
+        </div>
+        <div class="info-block">
+          <h4>🔥 為什麼今天熱 / Why It's Hot</h4>
+          <p><span class="catalyst-flag">催化劑</span><span class="tag">三星大單</span>
+          除美光行情外，傳聞三星欲補足記憶體缺口委由華邦代工，加上車用 MCU 記憶體下半年漲價預期，外資同步上調目標價至 <strong>177 元</strong>。<br>
+          Winbond is a major NOR Flash supplier for automotive/IoT; Samsung rumored sourcing gap drives incremental demand.</p>
+        </div>
+        <div class="info-block">
+          <h4>💰 籌碼觀察 / Flow Watch</h4>
+          <p>三大法人 5/26 合計買超逾 <strong>14.7 萬張</strong>（含南亞科、旺宏合計），其中華邦電獨占 <strong>6.78 億元</strong> 買超。融資使用率升至近 40%，需留意散戶擠壓空間。</p>
+        </div>
+        <div class="info-block">
+          <h4>💬 社群聲量 / Retail Buzz</h4>
+          <p>PTT 熱議「連拉 4 根」、「外資連 3 買」。Cmoney 熱搜排行第 1。有人在 PTT 分享「48 小時賺 143 萬 · 200 張漲停急下車」成為當日風雲貼文。</p>
+        </div>
+        <div class="info-block full">
+          <h4>📖 炒作脈絡 / Narrative Context</h4>
+          <p>華邦電是 NOR Flash 全球第三大廠，也生產低功耗 DRAM（PSRAM）供應 IoT/車用市場。AI 邊緣運算（Edge AI）對 NOR Flash 的需求在 2026 年呈爆發趨勢，而記憶體大廠把重心移到 HBM，讓 NOR Flash 供貨更加吃緊。Q1 EPS 2.25 元的亮眼成績為市場提供具體基本面錨點。</p>
+        </div>
+        <div class="info-block full">
+          <h4>🔭 後續觀察 / What to Watch Next</h4>
+          <p>① 外資是否第 4 日連買（若止步，可能短線出現技術修正）<br>
+          ② 5/28 盤中量能：需持續超過 10 萬張才能確認主力在場<br>
+          ③ 融資使用率：若快速攀至 50% 須留意爆倉風險<br>
+          ④ 目標價 177 元是否被進一步上調</p>
+        </div>
+      </div>
+      <div style="font-size:11px; color:#999; margin-top:4px">來源：
+        <a href="https://news.cnyes.com/news/id/6470767" target="_blank" style="color:#999">鉅亨盤後</a> ·
+        <a href="https://udn.com/news/story/7251/9529324" target="_blank" style="color:#999">聯合 記憶體AI時代</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2303 聯電 -->
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-code-big">2303</div>
+      <div>
+        <div class="stock-name-big">聯華電子 / UMC</div>
+        <div class="stock-name-en">晶圓代工二哥 · 成熟製程王者</div>
+      </div>
+      <div class="stock-price-row">
+        <div class="price-main">143.5 元</div>
+        <div class="price-chg">5/27 漲停 +9.96% · 25 年新高</div>
+      </div>
+    </div>
+    <div class="stock-card-body">
+      <div class="row-grid">
+        <div class="info-block">
+          <h4>📈 今日數據 / Today's Tape</h4>
+          <p>5/27 漲停收盤 <strong>143.5 元</strong>，1997 年 8 月以來首次站上 140 元，睽違 <strong>近 27 年新高</strong>。成交量超過 30 萬張，爆出巨量。ADR 前夜大漲 <strong>15.7%</strong>（22.08 美元）。台指期夜盤帶動 5/28 聯電開盤可能挑戰 150+ 元。</p>
+        </div>
+        <div class="info-block">
+          <h4>🔥 為什麼今天熱 / Why It's Hot</h4>
+          <p><span class="catalyst-flag">催化劑</span><span class="tag">ADR +15.7%</span>
+          多重利多共振：① 聯電宣佈下半年前景佳、明年全面漲價 ② 英特爾合作矽中介層（Silicon Interposer）搶 AI 算力市場 ③ 成熟製程供不應求，産能利用率回升至 <strong>92%+</strong>。ADR 暴漲是追空必須回補的信號。<br>
+          UMC's ADR +15.7% was a short-covering signal. The mature node pricing power narrative (first price hike in 4 years) drew institutional buyers.</p>
+        </div>
+        <div class="info-block">
+          <h4>💰 籌碼觀察 / Flow Watch</h4>
+          <p>外資 5/27 買超聯電逾 <strong>1 萬張以上</strong>；投信同步搶進。籌碼高度集中於外資法人，融資使用率相對健康（未過熱）。法人目標價陸續上調至 <strong>170–200 元</strong>。</p>
+        </div>
+        <div class="info-block">
+          <h4>💬 社群聲量 / Retail Buzz</h4>
+          <p>PTT 瘋傳「聯電再閃燈奔 25 年新高！網嗨：二哥沒有輸」。ETF 受惠股（00927 群益半導體收益等）爆量。Telegram 多個投顧群組當日第一隻推薦聯電。</p>
+        </div>
+        <div class="info-block full">
+          <h4>📖 炒作脈絡 / Narrative Context</h4>
+          <p>聯電長期被視為台積電「影子股」，成熟製程（28nm/40nm）一直供不應求卻未漲價。2026 年 Q2 起聯電首度正式對外宣告漲價計畫，引發市場重新評估 PE 倍數。與英特爾聯合開發「矽中介層」技術則讓外界相信聯電能在 AI 封裝中分一杯羹（Chiplet 邏輯）。歷史上每次聯電宣布漲價週期，往往帶來持續半年以上的股價多頭行情。</p>
+        </div>
+        <div class="info-block full">
+          <h4>🔭 後續觀察 / What to Watch Next</h4>
+          <p>① 5/28 是否再度挑戰或突破漲停（150+ 元）<br>
+          ② 外資是否持續買超 — ADR 方向是領先指標<br>
+          ③ 上游矽晶圓廠（環球晶）是否同步受惠<br>
+          ④ ETF（00927 等）換股效應：若成分股比例提升，被動買盤自動流入</p>
+        </div>
+      </div>
+      <div style="font-size:11px; color:#999; margin-top:4px">來源：
+        <a href="https://ec.ltn.com.tw/article/breakingnews/5450740" target="_blank" style="color:#999">自由財經 聯電 ADR +15.7%</a> ·
+        <a href="https://udn.com/news/story/7251/9529324" target="_blank" style="color:#999">聯合 AI時代找到新位置</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2337 旺宏 -->
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-code-big">2337</div>
+      <div>
+        <div class="stock-name-big">旺宏電子 / Macronix</div>
+        <div class="stock-name-en">NOR Flash 龍頭 · 車用/工業儲存</div>
+      </div>
+      <div class="stock-price-row">
+        <div class="price-main">待確認</div>
+        <div class="price-chg">5/26 +5.25% · 5/27 續強</div>
+      </div>
+    </div>
+    <div class="stock-card-body">
+      <div class="row-grid">
+        <div class="info-block">
+          <h4>📈 今日數據 / Today's Tape</h4>
+          <p>5/26 上漲 5.25%，5/27 隨記憶體族群續強。夜盤指引下 5/28 預期再度測試前波高點。成交量呈現逐步放大趨勢（週均量的 2-3 倍）。</p>
+        </div>
+        <div class="info-block">
+          <h4>🔥 為什麼今天熱 / Why It's Hot</h4>
+          <p><span class="catalyst-flag">催化劑</span><span class="tag">NOR Flash 漲價</span>
+          旺宏是 NOR Flash 全球龍頭，Q1 2026 EPS 達 <strong>8.41 元</strong>，創下近幾年新高。車用 MCU 市場 NOR Flash 下半年漲價預期明確。記憶體族群輪動，旺宏被當作「補漲股」追買。</p>
+        </div>
+        <div class="info-block">
+          <h4>💰 籌碼觀察 / Flow Watch</h4>
+          <p>投信連續買超，外資方向偏多但量不如南亞科、華邦電。融資小增，整體籌碼偏向法人自營為主。</p>
+        </div>
+        <div class="info-block">
+          <h4>💬 社群聲量 / Retail Buzz</h4>
+          <p>CMoney 熱搜排前 5；PTT 有討論「旺宏 Q1 EPS 8.41 元太強」，認為本益比仍偏低。Threads 台股帳號有分析師指「NOR Flash 比 DRAM 更好做，毛利率更高」。</p>
+        </div>
+        <div class="info-block full">
+          <h4>📖 炒作脈絡 / Narrative Context</h4>
+          <p>旺宏是台股少見的「NOR Flash 純廠」，不像南亞科、華邦電也做 DRAM，受益於汽車電動化帶動 MCU 記憶體需求的結構升級。近兩季 EPS 均超越市場預期。歷史上旺宏往往在記憶體多頭末段才起跑，但動能延續性也較強（因為車用客戶換廠周期長、需求穩定）。</p>
+        </div>
+        <div class="info-block full">
+          <h4>🔭 後續觀察 / What to Watch Next</h4>
+          <p>① 是否跟上南亞科、華邦電漲停腳步（若 5/28 漲停代表族群輪動擴散）<br>
+          ② 車用客戶訂單能見度（下半年業績指引）<br>
+          ③ 與南亞科相比是否出現「追價偏好轉移」</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3037 欣興 -->
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-code-big">3037</div>
+      <div>
+        <div class="stock-name-big">欣興電子 / Unimicron Technology</div>
+        <div class="stock-name-en">IC 載板龍頭 · ABF 基板 · 千金股新貴</div>
+      </div>
+      <div class="stock-price-row">
+        <div class="price-main">1,080 元</div>
+        <div class="price-chg">5/27 −0.46% · 5/26 千金股漲停</div>
+      </div>
+    </div>
+    <div class="stock-card-body">
+      <div class="row-grid">
+        <div class="info-block">
+          <h4>📈 今日數據 / Today's Tape</h4>
+          <p>5/26 盤中站上 <strong>1,085 元創新高</strong>，成為首檔「IC 載板千金股」，並收漲停。5/27 微幅回落至 1,080 元（-0.46%），夜盤強勢帶動 5/28 再度測試高點。</p>
+        </div>
+        <div class="info-block">
+          <h4>🔥 為什麼今天熱 / Why It's Hot</h4>
+          <p><span class="catalyst-flag">催化劑</span><span class="tag">ABF 缺貨</span>
+          AI 算力爆發引爆 ABF 載板「超級大缺貨」，鉅亨熱 AI 人氣排行第 1 就是「AI算力引爆ABF載板超級大缺貨！材料龍頭開漲」。欣興是最大受益廠，MSCI 成分股名單調整生效（5/29 後被動買盤流入）也是利多。<br>
+          Unimicron became the first IC substrate "golden stock" (&gt;NT$1,000). ABF supply squeeze from AI GPU demand driving multi-year order visibility.</p>
+        </div>
+        <div class="info-block">
+          <h4>💰 籌碼觀察 / Flow Watch</h4>
+          <p>外資近期為主要買方。MSCI 增列小型股成分（5/29 生效）帶來被動基金買盤。欣興訂單能見度至 <strong>2028 年</strong>（含 CoWoS/SoIC 相關），法人目標價普遍上修。</p>
+        </div>
+        <div class="info-block">
+          <h4>💬 社群聲量 / Retail Buzz</h4>
+          <p>PTT 熱文「PCB 強勢撐盤！欣興、景碩、臻鼎都飆新高」。投顧頻道多提「欣興是下一檔萬元股候選人」，YouTube 直播大量關注。</p>
+        </div>
+        <div class="info-block full">
+          <h4>📖 炒作脈絡 / Narrative Context</h4>
+          <p>欣興是 ABF 載板的台灣龍頭廠，服務 Intel、AMD、NVIDIA GPU 等高階客戶。AI 伺服器用 GPU 每顆需要 2-4 倍 ABF 面積，全球供給在 2025-2027 年皆顯著低於需求。2026 年 COMPUTEX 黃仁勳預告「下半年台灣很忙」，對欣興這類關鍵供應鏈廠商是直接利多。MSCI 指數效應（5/29 收盤後）為額外被動買盤催化劑。</p>
+        </div>
+        <div class="info-block full">
+          <h4>🔭 後續觀察 / What to Watch Next</h4>
+          <p>① 5/29 MSCI 生效後是否出現「利多出盡」反轉（需觀察量能方向）<br>
+          ② 欣興是否因短線過熱遭 TWSE 「注意股」通報（連漲停次數累積）<br>
+          ③ 亞泰金屬（6727）等 ABF 設備廠是否同步帶動</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2454 聯發科 -->
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="stock-code-big">2454</div>
+      <div>
+        <div class="stock-name-big">聯發科 / MediaTek</div>
+        <div class="stock-name-en">IC 設計龍頭 · AI 端側最大受益者</div>
+      </div>
+      <div class="stock-price-row">
+        <div class="price-main">4,295 元</div>
+        <div class="price-chg">5/27 +1.18% · 5/25 漲停 4,245 元</div>
+      </div>
+    </div>
+    <div class="stock-card-body">
+      <div class="row-grid">
+        <div class="info-block">
+          <h4>📈 今日數據 / Today's Tape</h4>
+          <p>5/25 漲停鎖死 <strong>4,245 元</strong>（+385 元），突破 4,000 整數關，創歷史新高。5/26–27 高位穩盤，外資小幅賣超但收盤仍維持強勢。成為「史上最大市值處置股」（被 TWSE 列為注意股後仍續漲）。</p>
+        </div>
+        <div class="info-block">
+          <h4>🔥 為什麼今天熱 / Why It's Hot</h4>
+          <p><span class="catalyst-flag">催化劑</span><span class="tag">端側 AI</span>
+          摩根士丹利喊出目標價 <strong>5,088 元</strong>，是台股最高目標價之一。高通、聯發科「端側 AI 最大受益者」敘事被華爾街採納。5/25 跳空漲停 + 日 K 缺口 310 點是強勢突破信號。<br>
+          Morgan Stanley's $5,088 target and "on-device AI" narrative made MediaTek the darling of the week, despite its "処置股" trading restriction.</p>
+        </div>
+        <div class="info-block">
+          <h4>💰 籌碼觀察 / Flow Watch</h4>
+          <p>被 TWSE 列為 <strong>史上最大市值處置股</strong>（市值逾 6 兆元），意味著交易受限（可能僅限現股）。外資近來站在賣方，但國內法人逢低補貨。處置股效應短線壓制量能，但長線多頭框架未變。</p>
+        </div>
+        <div class="info-block">
+          <h4>💬 社群聲量 / Retail Buzz</h4>
+          <p>PTT、Dcard 瘋傳「有錢買不到！聯發科秒鎖漲停噴天價」；YouTube 投顧頻道討論度為近一個月最高。散戶分析師警示「近 4,000 元高買需留意逃命線」。</p>
+        </div>
+        <div class="info-block full">
+          <h4>📖 炒作脈絡 / Narrative Context</h4>
+          <p>聯發科是台灣市值僅次於台積電的企業（已超越 6 兆台幣）。AI 手機晶片（Dimensity 9400 系列）打入三星、OPPO 等旗艦機，端側 AI 推論成本遠低於雲端，ChatGPT Mobile 爆量使用增強市場對端側 AI 的信心。2026 年聯發科首次挑戰 4,000 元整數關口，突破後正式進入「萬元股競賽圈」視野。</p>
+        </div>
+        <div class="info-block full">
+          <h4>🔭 後續觀察 / What to Watch Next</h4>
+          <p>① 處置股期間（通常 10 個交易日）是否出現假突破後回測<br>
+          ② 高通（Qualcomm）ADR 是否同步強勁（端側 AI 族群確認訊號）<br>
+          ③ 目標 5,088 元達到需要多久 — 外資買超恢復是前提</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 3: WATCHLIST ===== -->
+  <div class="section-title">👀 次熱觀察 / Watch List</div>
+  <div class="watch-grid">
+    <div class="watch-card">
+      <div class="code">2308 台達電</div>
+      <div class="name">Delta Electronics</div>
+      <div class="reason">5/27 收 2,520 元（歷史天價），五個交易日大漲 31.6%。重電/AI 伺服器電源供應器雙輪驅動，黃仁勳「下半年台灣很忙」直接點名相關族群。法人目標 3,000+ 元。</div>
+    </div>
+    <div class="watch-card">
+      <div class="code">6442 光聖</div>
+      <div class="name">GigOptix / 矽光子概念</div>
+      <div class="reason">5/26 漲停 2,265 元，矽光子 + CPO 概念旗手。AI 光通訊需求爆發，市場題材熱，但需確認訂單落地。</div>
+    </div>
+    <div class="watch-card">
+      <div class="code">6727 亞泰金屬</div>
+      <div class="name">ABF 含浸設備</div>
+      <div class="reason">訂單排到 2028 年，5/26 盤中 697 元創天價（收 651 元）。AI 算力拉動 ABF 設備廠。成交量小，妖股特性強，注意流動性風險。</div>
+    </div>
+    <div class="watch-card">
+      <div class="code">3189 景碩</div>
+      <div class="name">IC 載板 ABF</div>
+      <div class="reason">5/25 漲停，5/27 收 702 元 +0.86%。ABF 載板族群次強，欣興漲停拉高景碩預期。法人買超持續。</div>
+    </div>
+    <div class="watch-card">
+      <div class="code">7769 穎崴</div>
+      <div class="name">Yeong Way 測試介面廠</div>
+      <div class="reason">高盛目標價 1.5 萬元，訂單排到半年後。5/27 股東會行情，「萬元股競賽」新成員，成交量仍小。</div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 4: CAUTION ===== -->
+  <div class="section-title">⚠️ 異常注意 / Caution List</div>
+  <div class="caution-card">
+    <div class="label">🚨 處置股注意</div>
+    <p style="font-size:12.5px; margin-top:4px"><strong>聯發科（2454）</strong> — 被 TWSE 列為史上最大市值處置股，交易受限（撮合頻率降低、融資限制）。非資訊性利空，但短線流動性受壓。</p>
+  </div>
+  <div class="caution-card">
+    <div class="label">🚨 處置股注意</div>
+    <p style="font-size:12.5px; margin-top:4px"><strong>國巨（2327）</strong> — 5/26 因遭處置，收跌 4.34% 至 661 元（5/27 回升至 701 元 +6.05%）。近期股價振幅劇烈，散戶追高需謹慎。</p>
+  </div>
+  <div class="caution-card">
+    <div class="label">⚡ 高速炒作風險</div>
+    <p style="font-size:12.5px; margin-top:4px"><strong>記憶體族群（南亞科/華邦電）</strong> — 三日累計漲幅超過 20%，融資使用率快速攀升，隔日沖主力需監控。若美光股價出現技術回調，台系記憶體股可能跟跌。不宜高追，需設好停損。</p>
+  </div>
+
+  <!-- ===== SECTION 5: MARKET BACKDROP ===== -->
+  <div class="section-title">🌐 大盤背景 / Market Backdrop</div>
+  <div class="backdrop-box">
+    <p style="font-size:13px; font-weight:600">TAIEX 加權指數走勢（近 5 日）</p>
+    <div class="backdrop-stats">
+      <div class="stat-pill"><span class="label">5/22</span>42,981 (+547)</div>
+      <div class="stat-pill"><span class="label">5/23</span>42,783 (-198)</div>
+      <div class="stat-pill"><span class="label">5/25</span>43,644 ▲ (+1,376 史上第5大)</div>
+      <div class="stat-pill"><span class="label">5/26</span>43,525 ▼ (-119 高位震盪)</div>
+      <div class="stat-pill"><span class="label">5/27</span>44,256 ▲ (+731 再創歷史高)</div>
+      <div class="stat-pill"><span class="label">5/28 夜盤</span>45,452 ▲ (+662 指引 45K+)</div>
+    </div>
+    <hr class="divider">
+    <p style="font-size:12.5px; margin-top:6px">
+      <strong>主要 catalyst：</strong>COMPUTEX 2026 黃仁勳訪台、美伊戰事可望停火 60 天（WTI/Brent 油價回落）、美光 +19%（UBS 目標價 $1,625）、費城半導體指數單日大漲 5.53% 創 12,876 歷史高點。
+    </p>
+    <p style="font-size:12.5px; margin-top:6px">
+      <strong>外資動向（5/27）：</strong>買超 381.2 億元，本月累計買超逾 700 億元，為 2026 年迄今最大月份。台幣 31.459 元，升值 1.1 分。成交值 1 兆 5,568 億元（近期最大量）。台灣股市總市值已達 4.95 兆美元，躍升全球第五大。
+    </p>
+    <p style="font-size:12.5px; margin-top:6px; color:#c1121f; font-weight:600">
+      ⚡ 5/28 開盤關注：台指期夜盤 45,452（+662），預期指數挑戰 45,000 整數關口，記憶體/AI 載板/聯電有望帶量突破。短線乖離達近 3 年高峰，高檔震盪風險同步提升。
+    </p>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">
+    <div>⚠️ 免責聲明：本報告為市場資訊整理，不構成投資建議。所有數字須以 TWSE 官方收盤資料為準。</div>
+    <div style="margin-top:6px; font-weight:600">📚 資料來源 / Sources</div>
+    <div class="source-list">
+      <a href="https://news.cnyes.com/news/id/6469948" target="_blank" class="source-link">鉅亨 5/25 盤後</a>
+      <a href="https://news.cnyes.com/news/id/6470767" target="_blank" class="source-link">鉅亨 5/26 盤後</a>
+      <a href="https://udn.com/news/story/7251/9529752" target="_blank" class="source-link">聯合 5/27 夜盤</a>
+      <a href="https://udn.com/news/story/7251/9529324" target="_blank" class="source-link">聯合 聯電AI新位置</a>
+      <a href="https://ec.ltn.com.tw/article/breakingnews/5450740" target="_blank" class="source-link">自由 美光+19%</a>
+      <a href="https://udn.com/news/story/7251/9527910" target="_blank" class="source-link">聯合 費半+5.5%</a>
+      <a href="https://tw.stock.yahoo.com/news/%E7%9B%A4%E5%BE%8C%E7%84%A6%E9%BB%9E-%E5%8F%B0%E8%82%A1%E7%AA%81%E7%A0%B444000%E9%BB%9E" target="_blank" class="source-link">Yahoo 5/26 盤後焦點</a>
+      <a href="https://www.twse.com.tw/zh/trading/historical/mi-index.html" target="_blank" class="source-link">TWSE 每日收盤</a>
+      <a href="https://www.twse.com.tw/zh/trading/foreign/t86.html" target="_blank" class="source-link">TWSE 三大法人</a>
+      <a href="https://www.ptt.cc/bbs/Stock/index.html" target="_blank" class="source-link">PTT Stock 板</a>
+      <a href="https://www.cmoney.tw/forum/stock/rank" target="_blank" class="source-link">CMoney 熱搜</a>
+      <a href="https://invest.cnyes.com/twstock/rank" target="_blank" class="source-link">Anue 排行</a>
+      <a href="https://tw.stock.yahoo.com/rank/change-up" target="_blank" class="source-link">Yahoo 漲幅排行</a>
+    </div>
+    <div style="margin-top:10px; color:#bbb">Generated: 2026-05-28 · hot-tw-stocks · Powered by Anthropic Claude</div>
+  </div>
+
+</div>
+</body>
+</html>

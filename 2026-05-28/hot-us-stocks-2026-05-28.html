@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔥 Hot US Stocks — May 27, 2026 (Trading Session)</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --card2: #20232f;
+    --border: #2e3148;
+    --accent: #7c6af7;
+    --accent2: #4fc9e8;
+    --green: #22c55e;
+    --red: #ef4444;
+    --orange: #f97316;
+    --yellow: #eab308;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --tag-bg: #2d2f45;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; padding: 24px; max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.75rem; font-weight: 800; background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 4px; }
+  .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 24px; }
+  h2 { font-size: 1.1rem; font-weight: 700; color: var(--accent2); margin: 28px 0 12px; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+  h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+  .card:hover { border-color: var(--accent); transition: border-color 0.2s; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  th { background: var(--card2); color: var(--muted); font-weight: 600; padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  .up { color: var(--green); font-weight: 700; }
+  .dn { color: var(--red); font-weight: 700; }
+  .neut { color: var(--yellow); font-weight: 700; }
+  .ticker { font-weight: 800; font-size: 1.05rem; color: var(--accent2); }
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--accent); font-size: 0.75rem; padding: 2px 8px; border-radius: 20px; margin: 2px; }
+  .tag-red { background: #3a1f1f; color: var(--red); }
+  .tag-green { background: #1a3a2a; color: var(--green); }
+  .tag-orange { background: #3a2a1a; color: var(--orange); }
+  .stars { color: var(--yellow); font-size: 1rem; }
+  .section-label { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px; }
+  .para-zh { color: #c4cde0; margin-bottom: 8px; font-size: 0.9rem; }
+  .para-en { color: var(--muted); font-size: 0.88rem; margin-bottom: 12px; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 700; }
+  .badge-gain { background: #1a3a2a; color: var(--green); }
+  .badge-loss { background: #3a1f1f; color: var(--red); }
+  .source-list { font-size: 0.78rem; color: var(--muted); }
+  .source-list a { color: var(--accent); text-decoration: none; }
+  .source-list a:hover { text-decoration: underline; }
+  .market-bg { background: linear-gradient(135deg, #1a1d27, #1a2035); }
+  .highlight-box { background: var(--card2); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 8px 8px 0; margin: 10px 0; font-size: 0.88rem; }
+  .watch-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .watch-item:last-child { border-bottom: none; }
+  .watch-ticker { font-weight: 800; color: var(--accent2); min-width: 70px; font-size: 1rem; }
+  footer { margin-top: 32px; color: var(--muted); font-size: 0.78rem; border-top: 1px solid var(--border); padding-top: 16px; }
+</style>
+</head>
+<body>
+
+<h1>🔥 Hot US Stocks of the Day</h1>
+<p class="subtitle">交易日：2026 年 5 月 27 日 (週三) | US Session Close · 整理時間：2026-05-28 Asia/Taipei | 非投資建議</p>
+
+<!-- MARKET BACKDROP -->
+<h2>📊 大盤背景 Market Backdrop</h2>
+<div class="card market-bg">
+  <p class="para-zh">
+    美股 5 月 27 日全天震盪，三大指數走勢分歧。道瓊強勢上漲近 300 點創新高，主要受消費必需品與零售股（P&G、Nike、Home Depot）撐盤；S&P 500 收 7,546 點（+0.36%）。Nasdaq 受半導體拖累全天上下震盪（幾乎持平），核心壓力來自 QCOM 大跌 7–10%。WTI 原油大跌 6% 至 $88.3/桶——市場押注美伊核協議即將落地，但白宮否認，使能源股與通膨預期雙雙波動。VIX 約 17，整體恐慌指數溫和。
+  </p>
+  <p class="para-en">
+    Markets gyrated May 27: Dow +~300pts to new ATH led by consumer staples/retail; S&P 500 closed ~7,546 (+0.36%). Nasdaq nearly flat as semiconductor selloff (QCOM -7–10%, NVDA -2.6%, AMD -2.8%) offset tech strength. WTI crude -6% to $88.3/bbl on Iran peace-deal optimism (White House denied draft). VIX ~17. Six of 11 S&P sectors closed green; Energy and Semis were notable laggards.
+  </p>
+  <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
+    <span class="badge badge-gain">SPX +0.36%</span>
+    <span class="badge badge-gain">DJIA ~+300pt ATH</span>
+    <span class="badge badge-loss">Nasdaq ≈ Flat</span>
+    <span class="badge badge-loss">SOX / SMH -2%+</span>
+    <span class="badge badge-loss">WTI -6% ~$88.3</span>
+    <span class="badge">VIX ~17</span>
+  </div>
+</div>
+
+<!-- SUMMARY TABLE -->
+<h2>⚡ 今日熱門股總表 Hot 5 Summary Table</h2>
+<div class="card" style="overflow-x:auto;">
+  <table>
+    <thead>
+      <tr>
+        <th>Ticker</th>
+        <th>Company</th>
+        <th>Close (est.)</th>
+        <th>% Move</th>
+        <th>Options / Flow</th>
+        <th>Buzz</th>
+        <th>Catalyst</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="ticker">QCOM</span></td>
+        <td>Qualcomm</td>
+        <td>~$162</td>
+        <td><span class="dn">-7~10%</span></td>
+        <td>IV spike; puts heavy</td>
+        <td><span class="stars">★★★★</span></td>
+        <td>Q3 EPS guidance 衰退 + Apple modem risk</td>
+      </tr>
+      <tr>
+        <td><span class="ticker">RKLB</span></td>
+        <td>Rocket Lab</td>
+        <td>~$143–155</td>
+        <td><span class="up">+5–7%</span></td>
+        <td>Unusual call buildup; RSI 71</td>
+        <td><span class="stars">★★★★</span></td>
+        <td>$816M SDA contract + SpaceX IPO 光環</td>
+      </tr>
+      <tr>
+        <td><span class="ticker">BB</span></td>
+        <td>BlackBerry</td>
+        <td>待確認</td>
+        <td><span class="up">+18%+</span></td>
+        <td>WSB mentions +653%; call活躍</td>
+        <td><span class="stars">★★★★★</span></td>
+        <td>CIBC升評 + 回購 + FedRAMP + QNX robotics</td>
+      </tr>
+      <tr>
+        <td><span class="ticker">APGE</span></td>
+        <td>Apogee Therapeutics</td>
+        <td>~$86.50</td>
+        <td><span class="up">+4.5%</span></td>
+        <td>Pre-mkt +16%; options active</td>
+        <td><span class="stars">★★★</span></td>
+        <td>Phase 2 zumilokibart EASI-75 = 65.9% + $1.3B Blackstone deal</td>
+      </tr>
+      <tr>
+        <td><span class="ticker">GME</span></td>
+        <td>GameStop</td>
+        <td>~$21.71</td>
+        <td><span class="dn">-4%</span></td>
+        <td>WSB mentions +147%/24h</td>
+        <td><span class="stars">★★★★</span></td>
+        <td>eBay 收購遭拒 + Michael Burry 清倉</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- TICKER 1: QCOM -->
+<h2>🔴 熱門股 #1 — $QCOM Qualcomm / 高通</h2>
+<div class="card">
+  <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+    <span class="ticker">$QCOM</span>
+    <span class="badge badge-loss">-7~10% RTH</span>
+    <span class="tag tag-red">半導體領跌</span>
+    <span class="tag tag-red">Q3 Guidance Miss</span>
+    <span class="tag tag-red">Apple Modem Risk</span>
+  </div>
+
+  <div class="section-label">Tape（盤面數據）</div>
+  <div class="highlight-box">Close ~$162（-7.03%，部分來源指最大跌幅接近 -10%）· 全日最高至最低跌幅逾 10% · 前市段上漲後急轉直下</div>
+  <hr class="divider">
+
+  <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+  <p class="para-zh">高通 Q2 財報雖然超出預期，但<strong>Q3 EPS 指引顯示季度環比衰退</strong>，讓市場大失所望。更深層的恐懼是 Apple 正在加速內部 modem 自研進程，Qualcomm 可能在 2027–2028 年大幅失去蘋果手機訂單。儘管公司宣布與 ByteDance（TikTok 母公司）合作供應 AI 晶片，短暫提振情緒，但最終無法抵銷指引下修的賣壓。QCOM 成為當日帶動費城半導體指數大跌的主要元兇，拖累 NVDA、AMD 一起走低。</p>
+  <p class="para-en">Despite a Q2 revenue/EPS beat, Qualcomm's Q3 guidance implied a sequential step-down in EPS, triggering a "sell the guidance" reaction. The underlying fear: Apple is accelerating in-house modem development (A-series chips), threatening a major revenue cliff by 2027-28. A brief pre-market bounce on a reported ByteDance AI chip supply deal faded quickly. QCOM led the Philadelphia Semiconductor Index lower, dragging NVDA (-2.6%) and AMD (-2.8%) with it.</p>
+  <hr class="divider">
+
+  <div class="section-label">Options & Flow</div>
+  <p class="para-zh">IV 急升、Put 買盤明顯增加；日內大跌觸發部分 gamma 負反饋加速賣壓。具體 OI 數據待確認。</p>
+  <p class="para-en">IV spiked; put-heavy flow on the day. Negative gamma feedback likely amplified the selloff through delta-hedging. Specific block details unconfirmed.</p>
+  <hr class="divider">
+
+  <div class="section-label">Retail Buzz</div>
+  <p class="para-zh">Seeking Alpha 標記「Qualcomm tumbles, leading semiconductor and AI stocks lower」，Reddit r/stocks 和 r/investing 大量討論是否逢低買入，但多數留言偏謹慎，擔心 Apple modem 長期衝擊。</p>
+  <hr class="divider">
+
+  <div class="section-label">炒作脈絡 / Narrative</div>
+  <p class="para-zh">QCOM 今年已跌約 19%，本次 -7% 為近期最大單日跌幅。市場越來越難以「忽略」Apple modem 威脅與手機市場復甦不及預期的雙重風險。即使 AI 邊緣推論晶片有新合約，也暫時無法填補潛在的 Apple 訂單缺口。</p>
+  <hr class="divider">
+
+  <div class="section-label">後續觀察 / What to watch next</div>
+  <p class="para-zh">關注 1) Apple WWDC 2026 是否提及自研 modem 路線圖；2) 分析師是否下調目標價；3) 費城半導體指數整體是否繼續受壓或反彈。</p>
+  <div class="source-list" style="margin-top:10px;">
+    <strong>Sources:</strong>
+    <a href="https://www.tradingkey.com/news/market-movers/261931375-market-movers-qcom-20260527">TradingKey QCOM -7.03%</a> ·
+    <a href="https://www.gurufocus.com/news/8885734/qualcomm-qcom-faces-nearly-10-drop-amid-semiconductor-sector-decline">GuruFocus QCOM -10%</a> ·
+    <a href="https://seekingalpha.com/news/4591313-qualcomm-tumbles-leading-semiconductor-and-ai-stocks-lower">Seeking Alpha</a> ·
+    <a href="https://www.thestreet.com/latest-news/stock-market-today-dow-jones-sp-500-nasdaq-updates-may-27-2026">TheStreet May 27</a>
+  </div>
+</div>
+
+<!-- TICKER 2: RKLB -->
+<h2>🚀 熱門股 #2 — $RKLB Rocket Lab / 火箭實驗室</h2>
+<div class="card">
+  <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+    <span class="ticker">$RKLB</span>
+    <span class="badge badge-gain">+5–7% RTH</span>
+    <span class="tag tag-green">$816M 國防合約</span>
+    <span class="tag tag-green">SpaceX IPO Halo</span>
+    <span class="tag">RSI 71 超買注意</span>
+  </div>
+
+  <div class="section-label">Tape（盤面數據）</div>
+  <div class="highlight-box">RTH Close 約 +5.37%；日內區間 $137.91–$155.24；前市最高漲幅逾 +7%。過去三週從 $80 飆升至 $145+ 區域，近乎翻倍。</div>
+  <hr class="divider">
+
+  <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+  <p class="para-zh">Rocket Lab 通過了美國太空發展局（SDA）追蹤層 Tranche 3 飛彈星座的系統需求審查（System Requirements Review），確認其解決方案符合 SDA 操作需求，並獲得 <strong>$8.16 億美元合約</strong>。這是近年來火箭實驗室最大單筆國防合同，強化「太空防衛基礎建設供應商」定位。加上 SpaceX 近期提交 S-1 上市文件，帶動整個商業太空產業板塊情緒高漲，RKLB 直接受益。</p>
+  <p class="para-en">Rocket Lab passed the SDA's System Requirements Review for its Tracking Layer Tranche 3 missile defense constellation, locking in an $816M contract. Combined with SpaceX's S-1 filing electrifying the commercial space sector, RKLB benefited from powerful thematic tailwinds. The company also disclosed Q1 2026 revenue of $200.3M (+63.5% YoY) and a record $2.2B backlog.</p>
+  <hr class="divider">
+
+  <div class="section-label">Options & Flow</div>
+  <p class="para-zh">日內出現不尋常 call 期權累積，RSI-14 達 71.33，進入技術超買區間。期權市場明顯偏多，IV 隨股價急漲而升高。</p>
+  <p class="para-en">Unusual call buildup detected; RSI-14 at 71.33 entering overbought territory. Elevated IV with bullish options skew. Specific block data unconfirmed.</p>
+  <hr class="divider">
+
+  <div class="section-label">Retail Buzz</div>
+  <p class="para-zh">Reddit r/WallStreetBets 與 r/stocks 均有熱烈討論，WSB 成員辯論「SpaceX IPO 光環能撐多久」；StockTwits 呈現強烈看多情緒。WSB 有留言稱「RKLB is the SpaceX of the public market」。New Street Research 給予買入評級，加速情緒發酵。</p>
+  <hr class="divider">
+
+  <div class="section-label">炒作脈絡 / Narrative</div>
+  <p class="para-zh">RKLB 過去三週近乎翻倍（$80→$145+），動能已充分釋放但趨勢仍在。公司基本面明顯改善（Q1 revenue +63.5%、$2.2B backlog），但估值極度拉伸，伴隨高 IV 任何負面消息都可能觸發快速回調。</p>
+  <hr class="divider">
+
+  <div class="section-label">後續觀察 / What to watch next</div>
+  <p class="para-zh">1) SDA Tranche 3 執行進度與後續交付里程碑；2) SpaceX IPO 時程確認是否持續帶動板塊；3) RSI 是否從超買回落形成賣壓；4) 競爭者 Northrop Grumman、L3 Harris 等是否搶標後續太空防衛合約。</p>
+  <div class="source-list" style="margin-top:10px;">
+    <strong>Sources:</strong>
+    <a href="https://stocktwits.com/news-articles/markets/equity/rklb-stock-takes-off-after-rocket-lab-s-defense-solution-passes-sda-s-requirements-everything-to-know-about-its-latest-816-m-award/cZgga5yRerc">StockTwits RKLB $816M SDA</a> ·
+    <a href="https://www.timothysykes.com/news/rocket-lab-corporation-rklb-news-2026_05_27/">TimothySykes RKLB</a> ·
+    <a href="https://en.cryptonomist.ch/2026/05/27/rklb-stock-holds-a-strong-uptrend-as-rsi-hits-71-and-volatility-jumps/">Cryptonomist RKLB RSI</a>
+  </div>
+</div>
+
+<!-- TICKER 3: BB -->
+<h2>🎮 熱門股 #3 — $BB BlackBerry / 黑莓</h2>
+<div class="card">
+  <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+    <span class="ticker">$BB</span>
+    <span class="badge badge-gain">+18%+ RTH</span>
+    <span class="tag tag-green">WSB Mentions +653%</span>
+    <span class="tag tag-green">CIBC 升評至 $8.50</span>
+    <span class="tag tag-green">回購 + FedRAMP</span>
+  </div>
+
+  <div class="section-label">Tape（盤面數據）</div>
+  <div class="highlight-box">Close 待確認；盤中漲幅超過 18%，為近期波動最大的一次。52 週高點在 $7+ 區間，此次突破若成立則為重要技術意義。</div>
+  <hr class="divider">
+
+  <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+  <p class="para-zh">黑莓迎來多重催化劑共振：1) <strong>CIBC 升評</strong>，目標價從 $6 上調至 $8.50（Outperform）；2) 宣布<strong>新一輪股份回購計劃</strong>，可回購最多 2,680 萬股，顯示管理層對股價低估的信心；3) AtHoc 平台取得 <strong>FedRAMP Class D（最高安全級別）再認證</strong>，為市場上唯一達到此標準的關鍵事件管理雲端平台；4) QNX 正深入佈局機器人與 Physical AI，展示與 Intel 和 NVIDIA 硬體的聯合 Demo。季報顯示毛利率高達 76.2%，現金 $2.89 億，公司財務健康度已顯著改善。</p>
+  <p class="para-en">A rare multi-catalyst day for BB: CIBC raised target to $8.50 (Outperform) following ~18% stock surge; share buyback announcement (up to 26.8M shares); AtHoc's FedRAMP High re-certification (sole critical event platform at this security tier); and QNX's robotics/Physical AI showcase with Intel/NVIDIA hardware. Q1 revenue $156M with 76.2% gross margin and $289.4M cash provides fundamental support for the buyback stance. Transformation narrative regaining traction.</p>
+  <hr class="divider">
+
+  <div class="section-label">Options & Flow</div>
+  <p class="para-zh">WSB 提及次數在 24 小時內暴增 653%，為全市場提及率增幅最高。期權市場 call 端活躍，散戶動能明顯介入。</p>
+  <p class="para-en">WSB mention surge of +653% in 24 hours — top Reddit mention spike of the day. Active call-side options participation; retail momentum clearly engaged. Specific OI/block data unconfirmed.</p>
+  <hr class="divider">
+
+  <div class="section-label">Retail Buzz</div>
+  <p class="para-zh">WSB 上不少老會員回憶 2021 年軋空行情，討論 BB 是否再度成為「逼空候選人」。多數理性分析指出，此次上漲有基本面支撐（FedRAMP、回購、升評），並非純粹 meme 炒作，但也提醒股本仍大、short squeeze 需要更高 short interest。</p>
+  <hr class="divider">
+
+  <div class="section-label">炒作脈絡 / Narrative</div>
+  <p class="para-zh">BB 已從 2021 年的 meme 股轉型為實質軟體公司（QNX 嵌入式作業系統、AtHoc 政府通訊平台），但市場長期低估其轉型成果。此次多重催化劑讓「被遺忘的轉型股」重新進入市場視野，機構（CIBC 升評）與散戶（WSB 蜂擁）同步介入。</p>
+  <hr class="divider">
+
+  <div class="section-label">後續觀察 / What to watch next</div>
+  <p class="para-zh">1) 是否有其他機構分析師跟進升評；2) 回購實際執行節奏；3) QNX robotics 客戶公告；4) 短期技術面 $8.50 目標是否形成阻力。若無持續催化劑，18% 一日漲幅後散戶獲利了結賣壓需留意。</p>
+  <div class="source-list" style="margin-top:10px;">
+    <strong>Sources:</strong>
+    <a href="https://stockstotrade.com/news/blackberry-limited-bb-news-2026_05_26/">StocksToTrade CIBC升評</a> ·
+    <a href="https://www.tipranks.com/news/catalyst/why-blackberry-stock-is-suddenly-surging-higher">TipRanks BB surging</a> ·
+    <a href="https://altindex.com/wallstreetbets">AltIndex WSB mentions</a>
+  </div>
+</div>
+
+<!-- TICKER 4: APGE -->
+<h2>🧬 熱門股 #4 — $APGE Apogee Therapeutics</h2>
+<div class="card">
+  <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+    <span class="ticker">$APGE</span>
+    <span class="badge badge-gain">+4.5% RTH (Volatile)</span>
+    <span class="tag tag-green">Phase 2 Trial Beat</span>
+    <span class="tag tag-orange">$1.3B Blackstone Deal</span>
+    <span class="tag">Pre-mkt +16% → 波動劇烈</span>
+  </div>
+
+  <div class="section-label">Tape（盤面數據）</div>
+  <div class="highlight-box">RTH Close ~$86.50（+4.46%）。前市段曾飆升 +16%，隨後融資條款引發疑慮，前市轉跌 -12%，最終收斂至 +4-5%。極高的日內波動率。</div>
+  <hr class="divider">
+
+  <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+  <p class="para-zh">Apogee Therapeutics 在 5 月 27 日宣布其 Phase 2 APEX 試驗 Part B 16 週數據：<strong>中劑量 zumilokibart 達到 EASI-75 65.9%（安慰劑校正後 41.9%）</strong>，達成主要及次要端點，顯示在異位性皮膚炎（AD）治療中有顯著療效。公司同步宣布與 <strong>Blackstone Life Sciences 簽訂最高 13 億美元戰略融資合作</strong>（含 $8 億版權融資 + $5 億優先債），資本為非稀釋性。依據此劑量優化結果，公司計劃 2026 下半年啟動 Phase 3 試驗。</p>
+  <p class="para-en">Apogee announced positive 16-week Part B data from its Phase 2 APEX trial of zumilokibart in moderate-to-severe atopic dermatitis: 65.9% EASI-75 at mid-dose (41.9% placebo-adjusted), hitting primary and secondary endpoints. Simultaneously announced a $1.3B strategic financing collaboration with Blackstone Life Sciences ($800M royalty + $500M senior debt, non-dilutive). Phase 3 initiation planned for H2 2026. Pre-market +16% before the full data/financing details triggered some profit-taking.</p>
+  <hr class="divider">
+
+  <div class="section-label">Options & Flow</div>
+  <p class="para-zh">前市期權活動異常活躍。前一交易日即有不尋常 call 建倉（部分知情交易嫌疑）。數據公布後 IV 先升後回落。</p>
+  <hr class="divider">
+
+  <div class="section-label">Retail Buzz</div>
+  <p class="para-zh">生技圈 Twitter/X 大量討論 EASI-75 數據是否足以與 dupilumab（Dupixent）競爭；Blackstone 融資結構獲好評（非稀釋性），但部分投資者擔心版權融資的長期成本。r/biotech 帖子討論 zumilokibart 的「pipeline-in-a-product」潛力（AD、氣喘、EoE 三適應症）。</p>
+  <hr class="divider">
+
+  <div class="section-label">炒作脈絡 / Narrative</div>
+  <p class="para-zh">異位性皮膚炎（AD）市場已有 Sanofi/Regeneron 的 Dupixent 每年逾百億美元，zumilokibart 若 Phase 3 成功可能挑戰其地位。今天的波動（前市 +16% → 轉跌 → 收 +4.5%）反映市場對「資金條件與數據解讀」仍在拉鋸。</p>
+  <hr class="divider">
+
+  <div class="section-label">後續觀察 / What to watch next</div>
+  <p class="para-zh">1) Phase 3 APEX 試驗正式啟動公告；2) 氣喘與 EoE 適應症下一個試驗里程碑；3) Blackstone 融資細部條款是否進一步釋出；4) 分析師目標價更新。</p>
+  <div class="source-list" style="margin-top:10px;">
+    <strong>Sources:</strong>
+    <a href="https://www.stocktitan.net/news/APGE/apogee-therapeutics-announces-positive-16-week-part-b-induction-dose-jrx5oi8z65oa.html">StockTitan APGE Phase 2</a> ·
+    <a href="https://www.stocktitan.net/news/APGE/apogee-therapeutics-announces-1-3-billion-strategic-financing-irgez7xca2h5.html">StockTitan Blackstone</a> ·
+    <a href="https://finance.yahoo.com/sectors/healthcare/articles/apogee-therapeutics-shares-surge-following-120643886.html">Yahoo Finance APGE surge</a>
+  </div>
+</div>
+
+<!-- TICKER 5: GME -->
+<h2>🎮 熱門股 #5 — $GME GameStop</h2>
+<div class="card">
+  <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+    <span class="ticker">$GME</span>
+    <span class="badge badge-loss">-4% (Pre-mkt)</span>
+    <span class="tag tag-red">eBay 收購提案遭拒</span>
+    <span class="tag tag-red">Michael Burry 清倉</span>
+    <span class="tag">WSB Mentions +147%</span>
+  </div>
+
+  <div class="section-label">Tape（盤面數據）</div>
+  <div class="highlight-box">Close $21.71（前市 -4.1%）；日內區間 $21.49–$21.88；52 週區間 $19.93–$35.81。WSB 24 小時提及量暴增 147%。</div>
+  <hr class="divider">
+
+  <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+  <p class="para-zh">GameStop 持續成為話題，主要源自兩個方向相反的消息：一方面，公司執行長 Ryan Cohen 於 5 月提出以每股 $125 現金加股票收購 eBay（溢價 46%），企圖打造電商帝國；但 eBay 董事會於 5 月 12 日正式拒絕，稱其「既不可信也不具吸引力」，並質疑融資可行性。另一方面，<strong>Michael Burry 宣布已清倉全部 GME 持股</strong>，時機點恰在 eBay 收購案公開後。市場視此為強烈負面信號，散戶與空頭對峙加劇。</p>
+  <p class="para-en">Two conflicting storylines kept GME in focus: 1) Ryan Cohen's proposed $56B eBay acquisition ($125/share, 46% premium) was formally rejected by eBay's board as "neither credible nor attractive" — raising questions about GME's strategic direction under Cohen. 2) Michael Burry reportedly exited his entire GME position after the eBay bid became public, widely seen as a vote of no-confidence. Retail traders flooded WSB (+147% mentions) debating whether this is "the end of the Cohen era" or a buying opportunity near 52-week lows.</p>
+  <hr class="divider">
+
+  <div class="section-label">Options & Flow</div>
+  <p class="para-zh">GME 期權市場因 meme 歷史背景長期維持偏高 IV；此次大量 put 活動反映空頭加碼。Short interest 水位待確認，但市場並未出現明顯 squeeze 跡象。</p>
+  <hr class="divider">
+
+  <div class="section-label">Retail Buzz</div>
+  <p class="para-zh">WSB 討論熱度極高，分裂為兩派：「Cohen 瘋了（買 eBay？）」vs「這是下一步轉型」。一則典型帖標題為 "Ryan Cohen just pulled the craziest move in retail history"（留言幾百條）。Burry 清倉後，長期 GME 持有者（原 apes）普遍感到動搖。</p>
+  <hr class="divider">
+
+  <div class="section-label">炒作脈絡 / Narrative</div>
+  <p class="para-zh">GME 現在已是持股逾 $40 億現金的持股公司，Cohen 積極尋找收購標的，但 eBay 案的失敗讓市場質疑其眼光和執行力。Power Packs 電商平台收藏品銷售年增 35% 是實質進展，但規模太小。Burry 離場令 GME 的「smart money」支持大幅削弱。</p>
+  <hr class="divider">
+
+  <div class="section-label">後續觀察 / What to watch next</div>
+  <p class="para-zh">1) Ryan Cohen 下一個收購目標是否曝光；2) GME 財報數據——現金 burn rate 是否健康；3) Short interest 是否因 Burry 離場而降低 squeeze 想象空間；4) 股價是否跌破 52 週低點 $19.93 形成新的技術支撐測試。</p>
+  <div class="source-list" style="margin-top:10px;">
+    <strong>Sources:</strong>
+    <a href="https://www.prnewswire.com/news-releases/ebay-rejects-unsolicited-proposal-from-gamestop-302769000.html">PR Newswire: eBay Rejects GME</a> ·
+    <a href="https://www.gurufocus.com/news/8850964/ebay-rejects-gamestops-56-billion-acquisition-offer-gme-stock-drops">GuruFocus GME drops</a> ·
+    <a href="https://finance.yahoo.com/markets/stocks/articles/gamestop-corp-gme-michael-burry-195906698.html">Yahoo Finance Burry GME</a>
+  </div>
+</div>
+
+<!-- WATCH LIST -->
+<h2>👀 次熱觀察名單 Watch List</h2>
+<div class="card">
+  <div class="watch-item">
+    <div class="watch-ticker">$NVDA</div>
+    <div>
+      <span class="badge badge-loss">-2.6%</span>
+      <span class="tag">Q1 FY27 Beat but Sell-the-News</span>
+      <p style="margin-top:6px; font-size:0.88rem; color:var(--muted);">5 月 20 日 Q1 FY27 財報收入 $816 億（YoY +85%），超出預期，但仍「賣在好消息上」。5 月 27 日受 QCOM 拖累再度下跌至 ~$213。分析師目標價普遍上調（最高 $413）。連續四季財報後股價下跌的模式延續，但長期看多情緒不變。</p>
+    </div>
+  </div>
+  <div class="watch-item">
+    <div class="watch-ticker">$AMD</div>
+    <div>
+      <span class="badge badge-loss">-2.8%</span>
+      <span class="tag">QCOM 拖累</span>
+      <p style="margin-top:6px; font-size:0.88rem; color:var(--muted);">隨 QCOM 大跌被動下拉，並無獨立負面 catalyst。WSB 上有討論，但多屬板塊情緒洩壓。</p>
+    </div>
+  </div>
+  <div class="watch-item">
+    <div class="watch-ticker">$ARXS</div>
+    <div>
+      <span class="badge">待確認 Earnings</span>
+      <span class="tag tag-orange">Unusual Calls 55:1</span>
+      <p style="margin-top:6px; font-size:0.88rem; color:var(--muted);">Arxis 於 5 月 27 日收盤後發布 Q1 2026 財報；盤中出現 55:1 call/put 的異常期權比例，大量鎖定 6 月 18 日到期 $45 call。航空電子元件商，本季財報結果截稿前未知，為財報驚喜/雷暴候選。</p>
+    </div>
+  </div>
+  <div class="watch-item">
+    <div class="watch-ticker">能源股 XLE</div>
+    <div>
+      <span class="badge badge-loss">-2%+</span>
+      <span class="tag tag-red">WTI -6%</span>
+      <p style="margin-top:6px; font-size:0.88rem; color:var(--muted);">美伊和談消息帶動原油暴跌 6% 至 $88.3，XLE 與上游勘探商（CVX、OXY 等）跟跌。短期若和談落空（白宮否認草案），油價可能反彈，能源股需密切追蹤地緣進展。</p>
+    </div>
+  </div>
+</div>
+
+<!-- HALTS & WEIRDNESS -->
+<h2>⚠️ 異常事件 Halts & Weirdness</h2>
+<div class="card">
+  <p class="para-zh">本次整理未發現 5 月 27 日有重大 LULD 停牌或 SEC 交易暫停事件。值得注意的是 WTI 原油單日 -6% 觸發衍生品市場的連鎖反應，以及 <strong>Iran 和談謠言 → 白宮否認</strong> 這一「假新聞誘導 → 快速反轉」的市場操作模式再度出現（5 月 21 日有類似情況）。投資者需留意不實報導導致的短暫價格異常。</p>
+  <p class="para-en">No major LULD halts or SEC suspensions confirmed for May 27. Notable: the recurring "Iran peace deal rumor → White House denial" whipsaw pattern (similar event May 21) continued to create sharp intraday reversals in oil, safe havens, and energy stocks. Caution warranted against trading unverified geopolitical headlines.</p>
+</div>
+
+<!-- FOOTER / SOURCES -->
+<footer>
+  <p><strong>所有數據來源 / All Sources Consulted:</strong></p>
+  <div class="source-list" style="margin-top:8px; line-height:2;">
+    <a href="https://www.thestreet.com/latest-news/stock-market-today-dow-jones-sp-500-nasdaq-updates-may-27-2026">TheStreet Market Today May 27</a> ·
+    <a href="https://finance.yahoo.com/markets/stocks/gainers/">Yahoo Finance Gainers</a> ·
+    <a href="https://altindex.com/wallstreetbets">AltIndex WSB Tracker</a> ·
+    <a href="https://altindex.com/reddit-stocks">AltIndex Reddit Stocks</a> ·
+    <a href="https://www.tradingkey.com/news/market-movers/261931375-market-movers-qcom-20260527">TradingKey QCOM</a> ·
+    <a href="https://www.gurufocus.com/news/8885734/qualcomm-qcom-faces-nearly-10-drop-amid-semiconductor-sector-decline">GuruFocus QCOM</a> ·
+    <a href="https://seekingalpha.com/news/4591313-qualcomm-tumbles-leading-semiconductor-and-ai-stocks-lower">Seeking Alpha QCOM</a> ·
+    <a href="https://stocktwits.com/news-articles/markets/equity/rklb-stock-takes-off-after-rocket-lab-s-defense-solution-passes-sda-s-requirements-everything-to-know-about-its-latest-816-m-award/cZgga5yRerc">StockTwits RKLB SDA $816M</a> ·
+    <a href="https://www.timothysykes.com/news/rocket-lab-corporation-rklb-news-2026_05_27/">TimothySykes RKLB</a> ·
+    <a href="https://en.cryptonomist.ch/2026/05/27/rklb-stock-holds-a-strong-uptrend-as-rsi-hits-71-and-volatility-jumps/">Cryptonomist RKLB RSI</a> ·
+    <a href="https://stockstotrade.com/news/blackberry-limited-bb-news-2026_05_26/">StocksToTrade BB</a> ·
+    <a href="https://www.tipranks.com/news/catalyst/why-blackberry-stock-is-suddenly-surging-higher">TipRanks BB</a> ·
+    <a href="https://www.timothysykes.com/news/blackberry-limited-bb-news-2026_05_26-2/">TimothySykes BB QNX</a> ·
+    <a href="https://www.stocktitan.net/news/APGE/apogee-therapeutics-announces-positive-16-week-part-b-induction-dose-jrx5oi8z65oa.html">StockTitan APGE Phase 2</a> ·
+    <a href="https://www.stocktitan.net/news/APGE/apogee-therapeutics-announces-1-3-billion-strategic-financing-irgez7xca2h5.html">StockTitan APGE Blackstone</a> ·
+    <a href="https://www.prnewswire.com/news-releases/ebay-rejects-unsolicited-proposal-from-gamestop-302769000.html">PR Newswire eBay Rejects GME</a> ·
+    <a href="https://www.gurufocus.com/news/8850964/ebay-rejects-gamestops-56-billion-acquisition-offer-gme-stock-drops">GuruFocus GME-eBay</a> ·
+    <a href="https://finance.yahoo.com/markets/stocks/articles/gamestop-corp-gme-michael-burry-195906698.html">Yahoo Finance Burry GME</a> ·
+    <a href="https://www.cnbc.com/2026/05/22/oil-prices-today-trump-iran-strait-of-hormuz-uranium-.html">CNBC Oil Iran Deal</a> ·
+    <a href="https://thehill.com/policy/energy-environment/5893863-iran-war-potential-peace-deal-oil-gas-price-drop/">The Hill Iran Oil</a> ·
+    <a href="https://www.cnbc.com/2026/05/20/nvidia-nvda-earnings-report-q1-2027.html">CNBC Nvidia Q1 Earnings</a> ·
+    <a href="https://www.investing.com/analysis/markets-whipsaw-as-nvidia-iran-headlines-and-oil-volatility-drive-uncertainty-200680759">Investing.com Market Whipsaw</a> ·
+    <a href="https://www.stocktitan.net/news/ARXS/arxis-schedules-first-quarter-2026-earnings-release-and-2g97tqv7ikys.html">StockTitan ARXS Earnings</a> ·
+    <a href="https://www.benzinga.com/calendars/unusual-options-activity">Benzinga Unusual Options</a>
+  </div>
+  <p style="margin-top:16px; color:#64748b;">⚠️ 本報告僅供資訊參考，不構成投資建議。所有數字以原始來源為準，部分資料為估算值（標有「待確認」）。This report is for informational purposes only and does not constitute investment advice.</p>
+  <p style="margin-top:6px; color:#475569;">Generated: 2026-05-28 | Trading session: 2026-05-27 US RTH Close | Data sources: public web, financial news sites</p>
+</footer>
+
+</body>
+</html>

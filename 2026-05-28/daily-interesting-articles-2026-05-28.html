@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日有趣文章日報 — 2026-05-28</title>
+  <style>
+    :root {
+      --bg: #fafaf7;
+      --card: #ffffff;
+      --accent: #2563eb;
+      --accent-light: #dbeafe;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --tag-ai: #7c3aed;
+      --tag-startup: #0891b2;
+      --tag-vc: #059669;
+      --tag-macro: #d97706;
+      --tag-product: #db2777;
+      --editor: #dc2626;
+      --track-a: #1d4ed8;
+      --track-b: #7c3aed;
+      --badge: #f1f5f9;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    header {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: white;
+      padding: 2.5rem 2rem 2rem;
+    }
+    header .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 0.4rem; }
+    header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem; }
+    header .sub { color: #94a3b8; font-size: 0.9rem; }
+    header .meta { display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap; }
+    header .meta span { font-size: 0.82rem; color: #cbd5e1; }
+    .container { max-width: 860px; margin: 0 auto; padding: 2rem 1.25rem; }
+
+    /* Track headers */
+    .track-header {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      border-radius: 10px;
+      margin: 2.5rem 0 1.25rem;
+      font-weight: 700; font-size: 1.05rem;
+    }
+    .track-a { background: #eff6ff; color: var(--track-a); border-left: 4px solid var(--track-a); }
+    .track-b { background: #f5f3ff; color: var(--track-b); border-left: 4px solid var(--track-b); }
+    .track-header .track-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.7; }
+
+    /* Section label */
+    .section-label {
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted); font-weight: 600;
+      margin: 1.75rem 0 0.6rem; padding-left: 0.25rem;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      transition: box-shadow 0.15s;
+    }
+    .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+    .card.editor { border-left: 4px solid var(--editor); background: #fff9f9; }
+
+    /* Card header */
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+    .card-title { font-size: 1.02rem; font-weight: 700; line-height: 1.4; }
+    .card-title a { color: var(--text); text-decoration: none; }
+    .card-title a:hover { color: var(--accent); }
+    .badges { display: flex; gap: 0.4rem; flex-wrap: wrap; flex-shrink: 0; }
+    .badge {
+      font-size: 0.72rem; font-weight: 600; padding: 0.2rem 0.55rem;
+      border-radius: 20px; white-space: nowrap;
+    }
+    .badge-read { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+    .badge-editor { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+    .badge-new { background: #fef9c3; color: #92400e; border: 1px solid #fde68a; }
+    .badge-tag { background: #f8fafc; color: #475569; border: 1px solid #e2e8f0; }
+
+    /* Domain tag pills */
+    .domain-pill {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      padding: 0.15rem 0.5rem; border-radius: 4px; margin-right: 0.4rem;
+      vertical-align: middle; letter-spacing: 0.03em;
+    }
+    .pill-ai { background: #ede9fe; color: var(--tag-ai); }
+    .pill-startup { background: #e0f2fe; color: var(--tag-startup); }
+    .pill-vc { background: #dcfce7; color: var(--tag-vc); }
+    .pill-macro { background: #fef3c7; color: var(--tag-macro); }
+    .pill-product { background: #fce7f3; color: var(--tag-product); }
+
+    /* Source line */
+    .source-line {
+      font-size: 0.8rem; color: var(--muted);
+      margin-bottom: 0.9rem;
+      display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center;
+    }
+    .source-line a { color: var(--accent); text-decoration: none; }
+    .source-line a:hover { text-decoration: underline; }
+    .source-sep { color: #cbd5e1; }
+
+    /* Field labels */
+    .field { margin-bottom: 0.85rem; }
+    .field-label {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.25rem;
+    }
+    .field-text { font-size: 0.9rem; color: #334155; line-height: 1.65; }
+    .field-text em { color: var(--muted); font-style: normal; }
+
+    /* Highlight box */
+    .highlight {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      padding: 0.6rem 0.9rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.88rem; color: #1e3a8a; line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.25rem;
+      text-align: center;
+      font-size: 0.8rem; color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    .toc { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
+    .toc h3 { font-size: 0.85rem; font-weight: 700; color: var(--muted); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em; }
+    .toc ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem; }
+    .toc li { font-size: 0.82rem; }
+    .toc a { color: var(--accent); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+    @media (max-width: 600px) { .toc ul { grid-template-columns: 1fr; } header h1 { font-size: 1.4rem; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container" style="padding-top:0;padding-bottom:0;">
+    <div class="label">今日有趣文章日報 · Daily Interesting Articles</div>
+    <h1>📚 今日精選好文 — 2026-05-28</h1>
+    <p class="sub">Track A: 長文精選 / Longform Essays &nbsp;·&nbsp; Track B: 思想領袖觀點 / Thought Leaders</p>
+    <div class="meta">
+      <span>📅 2026 年 5 月 28 日（週四）</span>
+      <span>📰 9 篇精選</span>
+      <span>🌐 來源：HN · Quanta · Substack · Paul Graham · Owl Posting · Medium</span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- TOC -->
+  <div class="toc">
+    <h3>目錄 / Contents</h3>
+    <ul>
+      <li><a href="#editor">⭐ 編輯精選</a></li>
+      <li><a href="#sci">🔬 科技與 AI</a></li>
+      <li><a href="#math">🔢 科學與研究</a></li>
+      <li><a href="#biz">💼 商業與社會</a></li>
+      <li><a href="#culture">🌍 文化與社會</a></li>
+      <li><a href="#oddity">🎲 奇文與偏門</a></li>
+      <li><a href="#leaders">🧠 思想領袖觀點</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================== TRACK A ============================== -->
+  <div class="track-header track-a">
+    <span>Track A</span>
+    <span>長文精選 / Longform Essays</span>
+    <span class="track-label">質勝於新 · Quality over recency</span>
+  </div>
+
+  <!-- EDITOR'S PICK -->
+  <div class="section-label" id="editor">⭐ 編輯精選 / Editor's Pick of the Day</div>
+
+  <div class="card editor" id="tigit">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://www.owlposting.com/p/the-ballad-of-tigit" target="_blank">
+          TIGIT 的悲歌 / The Ballad of TIGIT
+        </a>
+      </div>
+      <div class="badges">
+        <span class="badge badge-editor">編輯精選</span>
+        <span class="badge badge-read">⏱ 12 min</span>
+        <span class="badge badge-new">🔥 HN 93pt</span>
+      </div>
+    </div>
+    <div class="source-line">
+      <span>Owl Posting (Abhishaike Mahajan)</span>
+      <span class="source-sep">·</span>
+      <span>2026-05-26</span>
+      <span class="source-sep">·</span>
+      <a href="https://www.owlposting.com/p/the-ballad-of-tigit" target="_blank">owlposting.com →</a>
+    </div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-text">這篇文章幾乎是一部完整的悲劇史詩：用電影敘事手法，完整還原了整個製藥業如何花費 30 億美元、動員 49,000 名病患，集體押注一個「看起來極其合理卻全部失敗」的癌症免疫療法靶點。沒有說教，沒有廢話，讀完之後對藥物開發的殘酷現實有了全新認識。This is one of the best science-narrative long reads of 2026 so far — a gripping post-mortem of an entire drug class that consumed $3B and 49k patients.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-text">
+        TIGIT 是繼 Keytruda 後免疫腫瘤學界最被看好的靶點。自 2014 年 Roche 發現並驗證後，幾乎每家大藥廠都砸重金加入競賽：Merck、BMS、Novartis、Gilead、GSK 分別以億美元級別押注。理論無懈可擊——TIGIT 同時調控兩道「免疫煞車」，理應比 Keytruda 更有效。但從 2022 年起，一個接一個三期臨床試驗失敗，包括 Roche 的旗艦試驗、Merck 的整個 vibostolimab 計畫、Gilead/Arcus 的「Fc-silent」假說測試，最終 2025–2026 年間幾乎全面崩盤。BMJ 腫瘤學分析將此命名為「herding（從眾效應）」——49,000 名病患參與試驗，成本逾 30 億美元，原因之一只是因為競爭對手也這樣做。<br><br>
+        <em>TIGIT was the golden child of translational biology — human genetics support, clean immunology, druggable geometry, commercial precedent, early clinical signal. It simply did not work.</em>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Key takeaway</div>
+      <div class="highlight">「不是每個煞車都連著輪子。」Keytruda 教會藥業界免疫系統有煞車；TIGIT 教的是代價更慘烈的教訓：不是每個煞車都值得踩。即使理論嚴謹、數據支持、人才齊備，藥物開發仍可能全面失敗。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-text">製藥業如何在「跟隨市場訊號」與「獨立科學判斷」之間找到更好的平衡？為什麼臨床試驗系統沒有更早發現 Fc-region 副作用會傷害 T 細胞？</div>
+    </div>
+  </div>
+
+  <!-- TECH & AI -->
+  <div class="section-label" id="sci">🤖 科技與 AI / Tech & AI</div>
+
+  <div class="card" id="boringlang">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://jry.io/writing/use-boring-languages-with-llms/" target="_blank">
+          用「無聊的語言」配合 LLM / Use Boring Languages with LLMs
+        </a>
+      </div>
+      <div class="badges">
+        <span class="badge badge-read">⏱ 8 min</span>
+        <span class="badge badge-new">🔥 HN 174pt</span>
+      </div>
+    </div>
+    <div class="source-line">
+      <span>jry.io</span>
+      <span class="source-sep">·</span>
+      <span>2026-05-27</span>
+      <span class="source-sep">·</span>
+      <a href="https://jry.io/writing/use-boring-languages-with-llms/" target="_blank">jry.io →</a>
+    </div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-text">這是一篇在 AI 代碼生成熱潮中逆流而行的文章：作者用紮實的實戰數據說明，當 LLM 是你的主力開發工具時，選擇訓練語料多、生態豐富、語法嚴格的「無聊」主流語言（Python、TypeScript、Go）遠比選擇「有趣」語言（Rust、Haskell、Zig）更有效率。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-text">
+        LLM 在受歡迎的語言上訓練數據量龐大，錯誤更少、自動完成更準確、除錯更快。作者認為，當前 AI 輔助開發最大的效益不是語言特性，而是語言的「可預測性」與「文件豐富程度」。用 Zig 搭配 LLM 就像讓一個英語母語者翻譯馬耳他語文件——技術上可行，但充滿摩擦。Go、Python、TypeScript 則是 LLM 的母語。<br><br>
+        <em>The most boring language with the most training data is the most productive language in 2026.</em>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Key takeaway</div>
+      <div class="highlight">AI 時代的語言選擇邏輯已翻轉：過去選語言看「語言特性」，現在要看「LLM 訓練語料密度」。Boring is the new fast.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-text">這個邏輯是否會加速語言生態的「馬太效應」，讓主流語言更主流、小語言逐漸消亡？還是說 LLM 最終會把各語言的訓練語料都補齊？</div>
+    </div>
+  </div>
+
+  <div class="card" id="gitbook">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://www.djspeckhals.com/posts/2026-05-22-how-i-bypassed-adobe-and-microsoft-to-build-a-git-tracked-book-production-pipeline/" target="_blank">
+          用 Git 管版本、拒絕 Adobe 和 Word：一個作家的書籍排版革命 / I Bypassed Adobe and Microsoft to Build a Git-Tracked Book Production Pipeline
+        </a>
+      </div>
+      <div class="badges">
+        <span class="badge badge-read">⏱ 10 min</span>
+        <span class="badge badge-new">🔥 HN 163pt</span>
+      </div>
+    </div>
+    <div class="source-line">
+      <span>djspeckhals.com (D.J. Speckhals)</span>
+      <span class="source-sep">·</span>
+      <span>2026-05-22</span>
+      <span class="source-sep">·</span>
+      <a href="https://www.djspeckhals.com/posts/2026-05-22-how-i-bypassed-adobe-and-microsoft-to-build-a-git-tracked-book-production-pipeline/" target="_blank">djspeckhals.com →</a>
+    </div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-text">一個自費出版的小說家，用軟體工程師思維重建了完整的書籍製作流程：ODT → LaTeX → PDF + Standard Ebooks → EPUB，完全開源、Git 版本控制、跨平台、排版品質比肩專業 InDesign。這不是「又一篇生產力文章」，而是一個匠人對工具哲學的完整闡述。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-text">
+        作者從 Word + InDesign + Calibre 的傳統流程，因不滿跨平台限制、二進位格式無法 diff、每次改稿都要手動同步多個工具而決定重建。最終方案：LibreOffice ODT 作為單一 source of truth，Python 腳本轉換為 XHTML（供 Standard Ebooks 生成 EPUB）與 LaTeX（生成印刷用 PDF），整個流程 Git 管控，任何改動一行指令重新生成所有格式。LaTeX 排版品質通過 `microtype` 套件已達 InDesign 水準。
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Key takeaway</div>
+      <div class="highlight">「讀者不在乎你的工具流程，但作為一個同時是工程師的作家，我可以讓兩件事都令我滿意。」— 這是一篇關於「個人工具選擇自主性」的宣言。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-text">出版業的工具鏈有多少是真正的技術必要，有多少只是慣性？Standard Ebooks 的嚴格 lint 規範是否代表了電子書品質的未來標準？</div>
+    </div>
+  </div>
+
+  <!-- SCIENCE & RESEARCH -->
+  <div class="section-label" id="math">🔬 科學與研究 / Science & Research</div>
+
+  <div class="card" id="scholze">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://www.quantamagazine.org/two-researchers-are-rebuilding-mathematics-from-the-ground-up-20260520/" target="_blank">
+          從零重建數學：Scholze 與 Clausen 的瘋狂計畫 / Two Researchers Are Rebuilding Mathematics From the Ground Up
+        </a>
+      </div>
+      <div class="badges">
+        <span class="badge badge-read">⏱ 15 min</span>
+        <span class="badge badge-tag">數學基礎</span>
+      </div>
+    </div>
+    <div class="source-line">
+      <span>Quanta Magazine</span>
+      <span class="source-sep">·</span>
+      <span>2026-05-20</span>
+      <span class="source-sep">·</span>
+      <a href="https://www.quantamagazine.org/two-researchers-are-rebuilding-mathematics-from-the-ground-up-20260520/" target="_blank">quantamagazine.org →</a>
+    </div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-text">Peter Scholze 已是當代最具影響力的數學家之一（Fields Medal 2018），但他和 Dustin Clausen 正在做一件幾乎前所未有的事：用全新的「凝聚數學（Condensed Mathematics）」概念替換拓樸學最基本的基礎，以此理解為什麼數字會以特定方式運作。Quanta 的敘述兼顧深度與可讀性，是今年最好的數學長文之一。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-text">
+        傳統拓樸學的核心概念「拓樸空間」在與代數幾何結合時會產生技術上的不相容性，導致過去幾十年的補丁式修補。Scholze 和 Clausen 提出以「凝聚集（condensed sets）」取代「拓樸空間」作為基礎概念，讓分析學、拓樸學、代數幾何在同一框架下自然融合。目標是最終解釋為什麼 p-進數（p-adic numbers）和實數看起來如此不同卻又有這麼多相似之處——這是現代數論的核心謎題。<br><br>
+        <em>By replacing topology's most fundamental concept, they hope to explain why numbers behave the way they do.</em>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Key takeaway</div>
+      <div class="highlight">數學的「基礎工程」從未停歇：即使是我們最熟悉的概念，也可能只是過渡性的腳手架。當工具本身成為瓶頸，最有創造力的數學家會選擇重建工具。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-text">如果凝聚數學成功，哪些現有定理需要「翻譯」成新語言？這種底層替換對 AI 輔助數學證明（如 Lean、Mathlib）意味著什麼？</div>
+    </div>
+  </div>
+
+  <!-- CULTURE & SOCIETY -->
+  <div class="section-label" id="biz">💼 商業與社會 / Business & Society</div>
+
+  <div class="card" id="wikipedia">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://medium.com/@jakeorlowitz/wikipedia-is-doing-the-capitalist-thing-56a393232943" target="_blank">
+          大科技的反勞工劇本已殺到維基媒體 / Big Tech's Anti-Labor Playbook Has Come for Wikipedia
+        </a>
+      </div>
+      <div class="badges">
+        <span class="badge badge-read">⏱ 9 min</span>
+        <span class="badge badge-new">🔥 HN 296pt</span>
+      </div>
+    </div>
+    <div class="source-line">
+      <span>Medium (Jake Orlowitz, Wikipedia Library 創辦人)</span>
+      <span class="source-sep">·</span>
+      <span>2026-05 月</span>
+      <span class="source-sep">·</span>
+      <a href="https://medium.com/@jakeorlowitz/wikipedia-is-doing-the-capitalist-thing-56a393232943" target="_blank">medium.com →</a>
+    </div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-text">作者是 Wikipedia Library 計畫創辦人，內行人視角，不是媒體轉述。文章清楚展示：即使是非營利機構，當面對 AI 轉型壓力、領導層更換、成本控制時，同樣會採用矽谷的「裁掉懂系統的工程師 + 打壓工會」劇本。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-text">
+        2026 年 1 月 20 日，Wikimedia 基金會新 CEO Bernadette Meehan 上任。四個月內：MediaWiki 首席開發者被解僱、服務社群的團隊被解散、工會進入公開對抗。Orlowitz 指出這是標準的科技反勞工劇本——Twitter、Meta、Salesforce、Google 都用過。問題在於：Wikimedia 二十年來向捐款人承諾的正是「我們不像其他科技公司」。當這個承諾被打破，受損的不只是員工，而是整個開放知識生態系的信任基礎。<br><br>
+        <em>When the Wikimedia Foundation starts optimizing workers as costs, it destroys the very promise it made to donors for twenty years.</em>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Key takeaway</div>
+      <div class="highlight">「非營利」標籤並不能免疫組織政治的重力。只要承受外部壓力（AI 轉型成本、捐款競爭），非營利組織就會複製營利組織的最壞行為。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-text">Wikimedia 的使命與管理結構之間的矛盾是否已到無法修補的臨界點？開放知識計畫的可持續性，是否需要完全重新設計治理模型？</div>
+    </div>
+  </div>
+
+  <div class="section-label" id="culture">🌍 文化與社會 / Culture & Society</div>
+
+  <div class="card" id="datacenters">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://www.niemanlab.org/2026/05/erin-brockovich-made-a-map-to-track-data-centers-around-the-country/" target="_blank">
+          Erin Brockovich 在追蹤資料中心污染 / Erin Brockovich Made a Map to Track Data Centers Around the Country
+        </a>
+      </div>
+      <div class="badges">
+        <span class="badge badge-read">⏱ 6 min</span>
+        <span class="badge badge-tag">環境 × AI</span>
+      </div>
+    </div>
+    <div class="source-line">
+      <span>Nieman Lab</span>
+      <span class="source-sep">·</span>
+      <span>2026-05-28</span>
+      <span class="source-sep">·</span>
+      <a href="https://www.niemanlab.org/2026/05/erin-brockovich-made-a-map-to-track-data-centers-around-the-country/" target="_blank">niemanlab.org →</a>
+    </div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-text">AI 資料中心的環境影響長期是技術圈的盲點。Erin Brockovich（《永不妥協》原型人物）親自建立地圖資料庫追蹤全美資料中心的水源使用、電力消耗與社區影響，把科技產業的「隱性基礎設施」攤開在公眾視野。這個切角既獨特又重要。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-text">
+        隨著 AI 熱潮驅動資料中心建設爆炸式成長，這些設施的用水量（冷卻系統）和用電量正在重塑地方社區的環境風險。Brockovich 的地圖計畫試圖讓市民能夠查詢自己所在地區的資料中心分布，並追蹤相關的環保申報記錄——把大型科技基礎設施的外部成本變得可見。
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Key takeaway</div>
+      <div class="highlight">AI 的成本不只是算法和晶片：它是具體的水、電與土地，落在真實的社區身上。環境問責的下一個戰場，就是資料中心。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-text">資料中心的環境監管框架是否足夠？AI 公司如何在「算力擴張」與「環境責任」之間取得真正的平衡，而不只是漂綠？</div>
+    </div>
+  </div>
+
+  <!-- CURIOSITIES -->
+  <div class="section-label" id="oddity">🎲 奇文與偏門 / Curiosities</div>
+
+  <div class="card" id="pgwealth">
+    <div class="card-header">
+      <div class="card-title">
+        <a href="https://paulgraham.com/winc.html" target="_blank">
+          財富稅與所得稅之間的換算率 / How to Convert Between Wealth and Income Tax
+        </a>
+      </div>
+      <div class="badges">
+        <span class="badge badge-read">⏱ 5 min</span>
+        <span class="badge badge-new">🆕 May 2026</span>
+      </div>
+    </div>
+    <div class="source-line">
+      <span>paulgraham.com (Paul Graham)</span>
+      <span class="source-sep">·</span>
+      <span>2026-05</span>
+      <span class="source-sep">·</span>
+      <a href="https://paulgraham.com/winc.html" target="_blank">paulgraham.com →</a>
+    </div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-text">Paul Graham 最新文章，典型的「你從來沒想過問這個問題，但答案讓你從此改變觀點」風格。一篇 5 分鐘的文章，把財稅辯論中最被忽視的換算邏輯說清楚，讓人讀完之後再也無法用「只是 1% 財富稅」這種措辭看待政策辯論。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-text">
+        Graham 論證：財富稅和所得稅之間有一個固定換算率，約等於「資本無風險報酬率的倒數」。假設無風險報酬率為 5%，則 1% 財富稅等效於 20% 所得稅。換言之，政客口中「僅僅 1%」的財富稅，其實相當於要求在全球所得稅最高的丹麥（60.5%）之上再疊加 20 個百分點。這不是觀點，是數學。<br><br>
+        <em>Each 1% of wealth tax is equivalent to 20% of income tax — by the math of compounding returns.</em>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Key takeaway</div>
+      <div class="highlight">「從他們談論財富稅的方式就可以知道，大多數政治人物根本不知道這個換算率的存在。」— PG。一個簡單的數學框架，卻揭示了稅制辯論中驚人的資訊不對稱。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-text">如果這個換算率廣為人知，財富稅政策的民意支持度會如何改變？有沒有使用場景，讓財富稅在這個換算邏輯下仍然比所得稅更公平？</div>
+    </div>
+  </div>
+
+  <!-- ============================== TRACK B ============================== -->
+  <div class="track-header track-b">
+    <span>Track B</span>
+    <span>思想領袖觀點 / Thought Leaders</span>
+    <span class="track-label">他們自己的文字，不是媒體報導 · Their own words only</span>
+  </div>
+
+  <div class="section-label" id="leaders">🧠 思想領袖今日觀點</div>
+
+  <!-- Ethan Mollick -->
+  <div class="card" id="mollick">
+    <div class="card-header">
+      <div class="card-title">
+        <span class="domain-pill pill-ai">[AI]</span>
+        <a href="https://www.oneusefulthing.org/p/choosing-to-stay-human" target="_blank">
+          Ethan Mollick — 選擇保持人類 / Choosing to Stay Human
+        </a>
+      </div>
+      <div class="badges">
+        <span class="badge badge-read">⏱ 10 min</span>
+        <span class="badge badge-new">🔥 2026-05-26</span>
+      </div>
+    </div>
+    <div class="source-line">
+      <span>One Useful Thing (Substack)</span>
+      <span class="source-sep">·</span>
+      <span>Ethan Mollick, Wharton 教授</span>
+      <span class="source-sep">·</span>
+      <a href="https://www.oneusefulthing.org/p/choosing-to-stay-human" target="_blank">oneusefulthing.org →</a>
+    </div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-text">Mollick 是少數同時在做 AI 實驗、發表同儕審查研究、又能寫出清晰實用文章的學者。這篇不是「AI 恐慌文」也不是「AI 萬能文」，而是基於真實實驗數據，對「何時用 AI 會傷害你的認知能力、何時會增強它」給出精確答案。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Core insight</div>
+      <div class="field-text">
+        Mollick 引用兩個來自同一研究團隊的對照實驗：在土耳其，直接讓 ChatGPT 做數學作業的學生考試表現反而低於不用 AI 的同學；而在台北，以 AI 作為「出題者與個人化輔導者」而非「解答機」的學生，期末成績提高了 0.15 個標準差，相當於 6–9 個月的額外學習。兩個實驗的差異只在於「AI 替你想」還是「AI 逼你想」。<br><br>
+        他同時引用 BCG 顧問實驗：使用 GPT-4 的顧問在大多數任務表現優異，但在 AI「已知無法解決的問題」上，有 AI 輔助的顧問反而更容易接受錯誤答案（「認知繳械 cognitive surrender」）。<br><br>
+        結論：問題不在使用或不使用 AI，而在「有沒有刻意選擇哪些認知工作要保留給自己」。現在正是預設值被設定的時刻——被 AI 公司設計為「無摩擦使用」，也被雇主和教育系統隨意採納——而我們很少有意識地問：「這個認知能力，我要不要保留？」
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-text">一旦一個世代的工作者和學生建立了「AI 預設依賴」的習慣，有沒有可能逆轉？誰有責任和能力設計出「強迫思考」的 AI 交互模式？</div>
+    </div>
+  </div>
+
+  <!-- Paul Graham (Track B mention) -->
+  <div class="card" id="pg-tb">
+    <div class="card-header">
+      <div class="card-title">
+        <span class="domain-pill pill-macro">[總經]</span>
+        <a href="https://paulgraham.com/winc.html" target="_blank">
+          Paul Graham — 財富稅換算率的政治盲點 / Wealth Tax Conversion Rate
+        </a>
+      </div>
+      <div class="badges">
+        <span class="badge badge-read">⏱ 5 min</span>
+        <span class="badge badge-new">🆕 最新</span>
+      </div>
+    </div>
+    <div class="source-line">
+      <span>paulgraham.com</span>
+      <span class="source-sep">·</span>
+      <span>2026-05</span>
+      <span class="source-sep">·</span>
+      <a href="https://paulgraham.com/winc.html" target="_blank">paulgraham.com →</a>
+    </div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-text">PG 最新文章（同時列於 Track A 奇文欄）在思想領袖視角更值得關注的是他的論述策略：用最簡單的算術建立不可反駁的論點，然後讓讀者自己推導政策含義。這是典型的「讓讀者覺得自己想清楚了」的 PG 式說服。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Core insight</div>
+      <div class="field-text">
+        財富稅與所得稅並不是兩種「感覺上差不多」的稅制，而是有精確的數學換算關係（1% 財富稅 ≈ 20% 所得稅，以無風險利率 5% 計算）。PG 認為，幾乎沒有政治人物知道這個換算率——這解釋了為什麼財富稅的政策辯論充斥著數量級上的誤解。他的樂觀結論是：這個道理「不難懂，只要意識到問題存在」，因此可以被教育普及。
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-text">若把這個換算邏輯帶入台灣的房產稅與資本利得稅辯論，會得出什麼結論？「政治人物不懂數學」是民主政策失靈的根源之一嗎？</div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <div style="max-width:860px;margin:0 auto;">
+    <p style="margin-bottom:0.5rem; font-weight:600; color:#334155;">來源 / Sources</p>
+    <p style="margin-bottom:1rem;">
+      <a href="https://news.ycombinator.com/" target="_blank">Hacker News</a> ·
+      <a href="https://www.quantamagazine.org/" target="_blank">Quanta Magazine</a> ·
+      <a href="https://www.oneusefulthing.org/" target="_blank">One Useful Thing</a> ·
+      <a href="https://paulgraham.com/" target="_blank">paulgraham.com</a> ·
+      <a href="https://www.owlposting.com/" target="_blank">Owl Posting</a> ·
+      <a href="https://www.niemanlab.org/" target="_blank">Nieman Lab</a> ·
+      <a href="https://medium.com/@jakeorlowitz" target="_blank">Medium / Jake Orlowitz</a>
+    </p>
+    <p style="color:#94a3b8;">
+      付費牆 / Paywalled sources: The Atlantic, Bloomberg, The Economist — 標題可見，全文受限。<br>
+      生成時間 Generated: 2026-05-28 · 9 篇精選 · Track A × 6 · Track B × 2 + cross-ref × 1
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

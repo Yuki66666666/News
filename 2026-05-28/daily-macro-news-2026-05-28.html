@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>總經新聞日報 — 2026-05-28</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #222636;
+      --border: #2e3348;
+      --accent: #5b8dee;
+      --accent2: #e8a838;
+      --green: #3ecf8e;
+      --red: #f06565;
+      --text: #e2e5f0;
+      --muted: #8b91a8;
+      --tag-bg: #2a2f45;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      padding: 0 0 60px;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 32px 20px;
+    }
+    header h1 { font-size: 1.55rem; font-weight: 700; color: var(--text); }
+    header .subtitle { font-size: 0.88rem; color: var(--muted); margin-top: 4px; }
+    header .datebadge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 2px 10px;
+      margin-right: 8px;
+    }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 24px 0 32px;
+    }
+    .toc h2 { font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 10px; }
+    .toc ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+    .toc ul li a {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--accent);
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .toc ul li a:hover { background: var(--border); }
+    section.region { margin-bottom: 40px; }
+    .region-header {
+      display: flex; align-items: center; gap: 12px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    .region-flag { font-size: 1.5rem; }
+    .region-title { font-size: 1.2rem; font-weight: 700; }
+    .region-title span { color: var(--muted); font-weight: 400; font-size: 0.95rem; margin-left: 6px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+    }
+    .card h3 {
+      font-size: 1.0rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.45;
+    }
+    .card h3 .sep { color: var(--muted); margin: 0 6px; }
+    .meta { font-size: 0.78rem; color: var(--muted); margin-bottom: 10px; }
+    .meta a { color: var(--accent); text-decoration: none; }
+    .meta a:hover { text-decoration: underline; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--accent2);
+      margin: 12px 0 4px;
+    }
+    .section-label.ctx { color: var(--green); }
+    .section-label.imp { color: #b07cf7; }
+    .card p { font-size: 0.92rem; color: var(--text); }
+    .data-row {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin: 8px 0 12px;
+    }
+    .data-chip {
+      background: var(--tag-bg);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      font-family: "SF Mono", "Consolas", monospace;
+    }
+    .data-chip .label { color: var(--muted); }
+    .data-chip .val { color: var(--text); font-weight: 600; margin-left: 4px; }
+    .data-chip .val.up { color: var(--red); }
+    .data-chip .val.down { color: var(--green); }
+    footer {
+      margin-top: 50px;
+      border-top: 1px solid var(--border);
+      padding: 24px 20px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 10px; }
+    .disclaimer {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin: 24px 0 0;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>📊 總經新聞日報 Daily Macro Briefing</h1>
+    <div class="subtitle">
+      <span class="datebadge">2026-05-28</span>
+      Asia/Taipei &nbsp;·&nbsp; 涵蓋全球 / 美國 / 台灣 / 日本 / 韓國 / 歐洲 / 東南亞
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <nav class="toc">
+    <h2>本期目錄 Contents</h2>
+    <ul>
+      <li><a href="#global">🌐 全球 Global</a></li>
+      <li><a href="#us">🇺🇸 美國 United States</a></li>
+      <li><a href="#tw">🇹🇼 台灣 Taiwan</a></li>
+      <li><a href="#jp">🇯🇵 日本 Japan</a></li>
+      <li><a href="#kr">🇰🇷 韓國 Korea</a></li>
+      <li><a href="#eu">🇪🇺 歐洲 Europe</a></li>
+      <li><a href="#sea">🌏 東南亞 Southeast Asia</a></li>
+      <li><a href="#fx">💱 大宗商品 &amp; FX</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== GLOBAL ===================== -->
+  <section class="region" id="global">
+    <div class="region-header">
+      <span class="region-flag">🌐</span>
+      <div class="region-title">全球 <span>/ Global</span></div>
+    </div>
+
+    <div class="card">
+      <h3>IMF 下調全球成長至 3.1%，中東戰事成最大風險<span class="sep">/</span>IMF Cuts 2026 Global Growth Forecast to 3.1% as Middle East Conflict Weighs</h3>
+      <div class="meta">來源 / Source: <a href="https://www.imf.org/en/publications/weo/issues/2026/04/14/world-economic-outlook-april-2026" target="_blank">IMF World Economic Outlook, April 2026</a></div>
+      <div class="section-label">核心事實 / Facts</div>
+      <div class="data-row">
+        <div class="data-chip"><span class="label">2026 Global GDP</span><span class="val up">3.1%</span></div>
+        <div class="data-chip"><span class="label">2027 Global GDP</span><span class="val">3.2%</span></div>
+        <div class="data-chip"><span class="label">前次預測 Jan</span><span class="val">未公布確切數字</span></div>
+      </div>
+      <p>IMF 在 4 月春季年會發布《世界經濟展望》，將 2026 年全球 GDP 增速下修至 3.1%，主因中東衝突對油價與供應鏈造成壓力。通膨預計短期內因能源上行而小幅回升，2027 年才重啟下行。</p>
+      <div class="section-label ctx">背景脈絡 / Context</div>
+      <p>自 2025 年底伊朗衝突升溫以來，布蘭特原油一度飆破 $110/桶，全球通膨路徑被迫重寫。本輪衝擊與 2022 年俄烏戰爭類似，但地理位置更靠近霍爾木茲海峽這一全球原油命脈。新興市場與開發中國家承壓尤烈，因其財政緩衝薄弱。</p>
+      <div class="section-label imp">影響觀察 / Implications</div>
+      <p>若中東局勢稍緩（如近期美伊接觸信號），油價可能繼續修正、通膨緩和空間重開，主要央行的「高於預期持久」（higher-for-longer）壓力可望減輕。但若協議破裂，下行風險仍可觀。</p>
+    </div>
+
+    <div class="card">
+      <h3>油價五週新低：WTI 跌至 $88/桶，霍爾木茲重開預期升溫<span class="sep">/</span>WTI Crude Hits 5-Week Low at ~$88/bbl on Strait of Hormuz Reopening Hopes</h3>
+      <div class="meta">來源 / Source: <a href="https://oilprice.com/" target="_blank">OilPrice.com</a> · <a href="https://tradingeconomics.com/commodity/crude-oil" target="_blank">TradingEconomics</a> · 2026-05-27</div>
+      <div class="section-label">核心事實 / Facts</div>
+      <div class="data-row">
+        <div class="data-chip"><span class="label">WTI 2026-05-27</span><span class="val down">$88.3/bbl</span></div>
+        <div class="data-chip"><span class="label">前日跌幅</span><span class="val up">-6%</span></div>
+        <div class="data-chip"><span class="label">5 月跌幅</span><span class="val up">-16%</span></div>
+        <div class="data-chip"><span class="label">Gold</span><span class="val">$4,550/oz</span></div>
+      </div>
+      <p>伊朗國家電視台稱德黑蘭承諾在一個月內恢復霍爾木茲海峽商業航運至戰前水準，市場即時反應：WTI 單日暴跌 6%，5 月累計下跌逾 16%，創 3 月以來最大月跌幅。黃金同步因避險需求降溫跌至 $4,550 以下，但仍比衝突前高近 30%。</p>
+      <div class="section-label ctx">背景脈絡 / Context</div>
+      <p>伊朗局勢 3–4 月曾推升油價至 $110 以上，帶動全球通膨再燃。若海峽正式重開，今年 Q2 通膨衝擊將大幅縮減，為各大央行在 H2 降息提供空間。</p>
+      <div class="section-label imp">影響觀察 / Implications</div>
+      <p>能源價格若持續回落，美國 PCE、歐元區 HICP、日本 CPI 均可望在 Q3 明顯走軟，各國貨幣政策可望提前轉向寬鬆。新興市場油輸入大國如泰國、印尼可獲貿易條件改善。</p>
+    </div>
+  </section>
+
+  <!-- ===================== US ===================== -->
+  <section class="region" id="us">
+    <div class="region-header">
+      <span class="region-flag">🇺🇸</span>
+      <div class="region-title">美國 <span>/ United States</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Fed 維持利率不變，市場定價 2026 年降息機率僅 10.6%<span class="sep">/</span>Fed Holds Rates; Futures Price Only 10.6% Chance of a 2026 Cut</h3>
+      <div class="meta">來源 / Source: <a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm" target="_blank">Federal Reserve FOMC</a> · <a href="https://fredblog.stlouisfed.org/2026/03/fomc-summary-of-economic-projections-march-2026/" target="_blank">FRED Blog</a></div>
+      <div class="section-label">核心事實 / Facts</div>
+      <div class="data-row">
+        <div class="data-chip"><span class="label">Fed Funds Rate</span><span class="val">3.50–3.75%</span></div>
+        <div class="data-chip"><span class="label">降息機率 2026</span><span class="val">10.6%</span></div>
+        <div class="data-chip"><span class="label">維持不變</span><span class="val">74.5%</span></div>
+        <div class="data-chip"><span class="label">升息機率</span><span class="val up">14.9%</span></div>
+      </div>
+      <p>根據期貨市場定價，Fed 今年維持現行利率的機率高達 74.5%，降息機率僅 10.6%，反映中東衝突帶來的通膨上行風險蓋過了降息預期。FOMC 最近聲明措辭指出「中東情勢對前景帶來高度不確定性」，並強調雙重使命兩側風險均需審慎管理。</p>
+      <div class="section-label ctx">背景脈絡 / Context</div>
+      <p>前 Fed 主席 Powell 任期結束，市場關注 Kevin Warsh 接任後的政策風格。Warsh 被視為相對鷹派，市場已部分定價其上任後可能在通膨持續的情況下收緊信號。</p>
+      <div class="section-label imp">影響觀察 / Implications</div>
+      <p>利率高位維持對美元形成支撐，USD/JPY 已達 159 附近。美債殖利率高企亦壓縮風險資產估值空間，尤其對長存續期成長股不利。</p>
+    </div>
+
+    <div class="card">
+      <h3>美國 Q1 GDP 年化 2.0%，PCE 年增 3.5% 超標<span class="sep">/</span>US Q1 GDP Rebounds to 2.0% Annualized; PCE Inflation at 3.5% YoY</h3>
+      <div class="meta">來源 / Source: <a href="https://www.bea.gov/news" target="_blank">BEA</a> · <a href="https://www.spglobal.com/ratings/en/regulatory/article/economic-outlook-us-q2-2026-curb-your-enthusiasm-s101676533" target="_blank">S&P Global Q2 Outlook</a></div>
+      <div class="section-label">核心事實 / Facts</div>
+      <div class="data-row">
+        <div class="data-chip"><span class="label">Q1 GDP YoY</span><span class="val">2.0% 年化</span></div>
+        <div class="data-chip"><span class="label">前期 Q4 2025</span><span class="val">0.5%</span></div>
+        <div class="data-chip"><span class="label">PCE YoY Mar</span><span class="val up">3.5%</span></div>
+        <div class="data-chip"><span class="label">PCE 目標</span><span class="val">2.0%</span></div>
+      </div>
+      <p>Q1 2026 實質 GDP 年化增速反彈至 2.0%，從 2025Q4 的 0.5% 大幅改善。就業市場同步強勁，Q1 民間每月平均新增就業超過 2025 年月均的 2.5 倍。然而 PCE 通膨年增 3.5%（前期 2.4%），超標幅度顯著，使 Fed 難以轉向鴿派。</p>
+      <div class="section-label ctx">背景脈絡 / Context</div>
+      <p>成長與通膨同時走高的「滯脹前期」格局令決策者陷入兩難。FOMC 3 月預測核心通膨年底為 2.7%，但最新 PCE 數據顯示上行風險可能超過預期。</p>
+      <div class="section-label imp">影響觀察 / Implications</div>
+      <p>若油價因中東緩和持續下行，Q2 PCE 可望顯著改善，為 Fed H2 轉向創造窗口。反之若能源衝擊重燃，Fed 可能在 2026 年全程維持高利率甚至升息。</p>
+    </div>
+
+    <div class="card">
+      <h3>美國財政赤字 FY2026 至今達 $9550 億，每日利息 30 億美元<span class="sep">/</span>US FY2026 Deficit Hits $955B YTD; Treasury Paying $3B/Day in Interest</h3>
+      <div class="meta">來源 / Source: <a href="https://fortune.com/2026/05/11/us-treasury-debt-3-billion-daily-interest-39-trillion/" target="_blank">Fortune / CBO</a> · <a href="https://home.treasury.gov/news/press-releases/sb0486" target="_blank">Treasury TBAC</a></div>
+      <div class="section-label">核心事實 / Facts</div>
+      <div class="data-row">
+        <div class="data-chip"><span class="label">FY26 YTD 赤字</span><span class="val up">$9,550億</span></div>
+        <div class="data-chip"><span class="label">每日利息支出</span><span class="val up">$30億</span></div>
+        <div class="data-chip"><span class="label">全年赤字預測</span><span class="val up">$1.9兆</span></div>
+        <div class="data-chip"><span class="label">GDP 比率</span><span class="val up">5.8%</span></div>
+      </div>
+      <p>CBO 數據顯示美國 FY2026 前七個月（10月至4月）赤字達 $9,550 億，雖比 FY2025 同期少 $940 億，但全年赤字仍預估達 $1.9 兆（GDP 5.8%）。聯邦每天需支出近 30 億美元利息，預計 2036 年公債佔 GDP 將升至 120%。</p>
+      <div class="section-label ctx">背景脈絡 / Context</div>
+      <p>高債務疊加高利率環境，財政空間持續壓縮。國防支出因中東衝突進一步擴張，是赤字惡化的新變數。</p>
+      <div class="section-label imp">影響觀察 / Implications</div>
+      <p>龐大的債券供給壓力維持長端殖利率高位。10 年期美債若再度上攻 5%，對全球資產定價均有重大影響。</p>
+    </div>
+  </section>
+
+  <!-- ===================== TW ===================== -->
+  <section class="region" id="tw">
+    <div class="region-header">
+      <span class="region-flag">🇹🇼</span>
+      <div class="region-title">台灣 <span>/ Taiwan</span></div>
+    </div>
+
+    <div class="card">
+      <h3>台灣 Q1 GDP 年增 13.69%，近 40 年最強單季<span class="sep">/</span>Taiwan Q1 GDP Surges 13.69% YoY — Fastest Since 1987</h3>
+      <div class="meta">來源 / Source: <a href="https://topics.amcham.com.tw/2026/05/macroeconomic-brief-may-2026/" target="_blank">Taiwan Business TOPICS Macro Brief May 2026</a> · <a href="https://ws.ndc.gov.tw/Download.ashx?u=LzAwMS9hZG1pbmlzdHJhdG9yLzExL3JlbGZpbGUvNTgyMS80MDEwMC84MzBmMmM4Zi1lYjc0LTRiNjUtOWEzNy1kZjRkNTY3NjQxMzUucGRm&n=VGFpd2FuIEVjb25vbXkgaW4gYSBTbmFwc2hvdCgyMDI2LjUpZi5wZGY%3D&icon=.pdf" target="_blank">NDC Taiwan Economy Snapshot May 2026</a></div>
+      <div class="section-label">核心事實 / Facts</div>
+      <div class="data-row">
+        <div class="data-chip"><span class="label">Q1 GDP YoY</span><span class="val up">+13.69%</span></div>
+        <div class="data-chip"><span class="label">出口 Q1</span><span class="val up">+51.12% YoY</span></div>
+        <div class="data-chip"><span class="label">Q1 出口額</span><span class="val">US$1,957億</span></div>
+        <div class="data-chip"><span class="label">電子產品佔比</span><span class="val">78.5%</span></div>
+      </div>
+      <p>台灣 2026 Q1 GDP 年增 13.69%，創 1987 年以來最快單季增速，AI 基礎建設需求、先進半導體及高效能運算出口持續爆發是主要驅動力。電子及 ICT 產品佔 Q1 出口值 78.5%，出口額達 $1,957 億美元（年增 51.12%）。</p>
+      <div class="section-label ctx">背景脈絡 / Context</div>
+      <p>台灣受益於全球 AI 資本支出超級週期：輝達、AMD、谷歌等科技巨頭持續擴大 GPU/TPU 訂單，直接拉動台積電、CoWoS 先進封裝及相關供應鏈。出口進口價差（出口價 +12.7% vs 進口價 +8.5%）顯示台廠議價能力強勁。</p>
+      <div class="section-label imp">影響觀察 / Implications</div>
+      <p>成長動能強，但過度集中單一產業（AI 半導體）帶來週期風險。若全球科技資本支出降速，台灣出口恐急轉直下。</p>
+    </div>
+
+    <div class="card">
+      <h3>央行（CBC）維持貼現率 2.00%，兼顧出口競爭力<span class="sep">/</span>CBC Holds Discount Rate at 2.00%, Balancing Export Competitiveness</h3>
+      <div class="meta">來源 / Source: <a href="https://www.cbc.gov.tw/en/cp-448-190973-c2e5d-2.html" target="_blank">CBC Q1 2026 Monetary Policy Decision</a> · <a href="https://www.dbs.com.tw/corporate/aics/templatedata/article/generic/data/en/GR/052026/260511_taiwan.xml" target="_blank">DBS Taiwan Macro Note May 2026</a></div>
+      <div class="section-label">核心事實 / Facts</div>
+      <div class="data-row">
+        <div class="data-chip"><span class="label">貼現率</span><span class="val">2.00%</span></div>
+        <div class="data-chip"><span class="label">進口價 YoY</span><span class="val up">+8.53%</span></div>
+        <div class="data-chip"><span class="label">出口價 YoY</span><span class="val up">+12.70%</span></div>
+      </div>
+      <p>DBS 5 月分析指出，CBC 維持溫和緊縮立場，基準貼現率維持在 2.00%，優先照顧出口商競爭力。即便進口價格上行（USD 計價 +8.53%），出口價上行更快（+12.70%），貿易條件仍屬有利。</p>
+      <div class="section-label ctx">背景脈絡 / Context</div>
+      <p>台灣通膨相對溫和（家戶通膨未見失控），允許 CBC 走較歐美溫和的緊縮路線，同時維護台幣匯率穩定以支持出口商。</p>
+      <div class="section-label imp">影響觀察 / Implications</div>
+      <p>若油價持續回落，輸入性通膨壓力減輕，CBC 下半年有更多空間維持現行利率甚至釋放輕度寬鬆信號以支撐內需。</p>
+    </div>
+  </section>
+
+  <!-- ===================== JAPAN ===================== -->
+  <section class="region" id="jp">
+    <div class="region-header">
+      <span class="region-flag">🇯🇵</span>
+      <div class="region-title">日本 <span>/ Japan</span></div>
+    </div>
+
+    <div class="card">
+      <h3>日本 4 月核心通膨降至 1.4%，BOJ 升息路徑充滿不確定性<span class="sep">/</span>Japan April Core CPI Falls to 1.4%; BOJ Rate-Hike Timeline Clouded</h3>
+      <div class="meta">來源 / Source: <a href="https://invezz.com/news/2026/05/26/japan-inflation-gauge-hits-2-8-keeping-boj-on-rate-hike-watch/" target="_blank">Invezz / BOJ May 26</a> · <a href="https://www.cnbc.com/2026/05/22/japan-april-core-inflation-boj-rate-hike-outlook.html" target="_blank">CNBC May 22</a></div>
+      <div class="section-label">核心事實 / Facts</div>
+      <div class="data-row">
+        <div class="data-chip"><span class="label">4 月 Core CPI</span><span class="val down">1.4%</span></div>
+        <div class="data-chip"><span class="label">市場預期</span><span class="val">1.7%</span></div>
+        <div class="data-chip"><span class="label">前月</span><span class="val">1.8%</span></div>
+        <div class="data-chip"><span class="label">BOJ 政策利率</span><span class="val">0.75%</span></div>
+      </div>
+      <p>日本 4 月核心 CPI 年增 1.4%，大幅低於市場預期 1.7%，亦低於前月 1.8%，創四年多來最低水準。剔除食品和能源的「核心核心」通膨更從 2.4% 大降至 1.9%，使 BOJ 繼續升息的理由被削弱。同時某通膨觀察指標（含能源修正後）仍顯示 2.8% 走勢，BOJ 尚未鬆手。</p>
+      <div class="section-label ctx">背景脈絡 / Context</div>
+      <p>BOJ 4 月維持 0.75% 並以 6:3 分裂票決反對升息至 1%；它同時將通膨預測上修至 2.8%（主因能源）但下調 FY2026 GDP 成長至 0.5%。這是典型的「滯脹困境」——若升息可能壓垮本就脆弱的成長；若不升，日圓持續承壓（USD/JPY 已逼近 159）。</p>
+      <div class="section-label imp">影響觀察 / Implications</div>
+      <p>若油價因霍爾木茲緩和大幅回落，BOJ 的通膨壓力將緩解，可暫緩升息。但日圓若繼續走貶接近 160 甚至觸發當局干預閾值，則可能被迫在 7 月升息以捍衛匯率。</p>
+    </div>
+
+    <div class="card">
+      <h3>日本兩度干預，但美日利差達 300bp 施壓日圓<span class="sep">/</span>Japan Reportedly Intervened Twice, Yet 300bp US-Japan Rate Gap Keeps Yen Weak</h3>
+      <div class="meta">來源 / Source: <a href="https://www.cnbc.com/2026/05/07/japan-yen-intervention-boj-rate-gap-currency-pressure.html" target="_blank">CNBC May 7</a></div>
+      <div class="section-label">核心事實 / Facts</div>
+      <div class="data-row">
+        <div class="data-chip"><span class="label">USD/JPY</span><span class="val up">~159.01</span></div>
+        <div class="data-chip"><span class="label">美日利差</span><span class="val up">~300bp</span></div>
+        <div class="data-chip"><span class="label">Fed Funds</span><span class="val">3.50–3.75%</span></div>
+        <div class="data-chip"><span class="label">BOJ 政策利率</span><span class="val">0.75%</span></div>
+      </div>
+      <p>日本據報已在 5 月兩度進場干預，但 300bp 的美日利差驅使套利交易持續壓低日圓，USD/JPY 仍在 159 附近徘徊。市場繼續測試東京當局捍衛匯率的決心。</p>
+      <div class="section-label ctx">背景脈絡 / Context</div>
+      <p>2022–2024 年的教訓顯示，若未有實質利率政策配合，單靠干預難以長期支撐匯率。除非 BOJ 升息或 Fed 降息，否則日圓弱勢難以根本扭轉。</p>
+      <div class="section-label imp">影響觀察 / Implications</div>
+      <p>日圓貶值推高日本輸入性通膨（尤其能源），形成惡性循環。對亞洲區域匯率有外溢效應，鄰近央行如韓元、台幣需防範競貶。</p>
+    </div>
+  </section>
+
+  <!-- ===================== KOREA ===================== -->
+  <section class="region" id="kr">
+    <div class="region-header">
+      <span class="region-flag">🇰🇷</span>
+      <div class="region-title">韓國 <span>/ Korea</span></div>
+    </div>
+
+    <div class="card">
+      <h3>韓銀（BOK）今日料第 8 次維持利率 2.5%，新行長 Shin 首次主持會議<span class="sep">/</span>BOK Expected to Hold at 2.5% for 8th Time Today; Governor Shin's First Meeting</h3>
+      <div class="meta">來源 / Source: <a href="https://en.sedaily.com/finance/2026/05/24/bank-of-korea-likely-to-hold-rate-for-8th-time-us-april-pce" target="_blank">Seoul Economic Daily May 24</a> · <a href="https://www.bloomberg.com/news/articles/2026-05-26/bank-of-korea-seen-favoring-hawkish-hold-as-inflation-risks-grow" target="_blank">Bloomberg May 26</a></div>
+      <div class="section-label">核心事實 / Facts</div>
+      <div class="data-row">
+        <div class="data-chip"><span class="label">BOK 基準利率</span><span class="val">2.5%</span></div>
+        <div class="data-chip"><span class="label">23 位經濟學家預測</span><span class="val">22/23 維持</span></div>
+        <div class="data-chip"><span class="label">3 月 CPI</span><span class="val up">2.2% YoY</span></div>
+        <div class="data-chip"><span class="label">目標</span><span class="val">2.0%</span></div>
+      </div>
+      <p>韓銀今日（5 月 28 日）召開利率決策會議，23 位受訪經濟學家中 22 位預測維持 2.5% 不變，為連續第 8 次按兵不動。這也是新任行長 Shin Hyun Song 上任後首次主持的政策會議，市場關注其是否釋放鷹派信號。3 月 CPI 2.2%，超越 2% 目標，中東油價衝擊使通膨上行風險升高。</p>
+      <div class="section-label ctx">背景脈絡 / Context</div>
+      <p>韓元走弱（韓元兌美元貶值，受美日利差帶動的亞幣整體壓力影響）與住宅市場問題讓降息窗口關閉，反而有升息討論。BOK 一位官員在 5 月初已公開表示「是時候考慮升息了」。</p>
+      <div class="section-label imp">影響觀察 / Implications</div>
+      <p>市場預測 BOK 最快 7 月升息一碼，年底前再升一碼達 3%，使韓國成為亞洲區率先重啟升息的主要央行之一。此路徑若成真，韓元獲支撐但消費及房地產市場承壓。</p>
+    </div>
+  </section>
+
+  <!-- ===================== EUROPE ===================== -->
+  <section class="region" id="eu">
+    <div class="region-header">
+      <span class="region-flag">🇪🇺</span>
+      <div class="region-title">歐洲 <span>/ Europe</span></div>
+    </div>
+
+    <div class="card">
+      <h3>歐元區 4 月通膨升至 3.0%，創 2023 年以來最高；ECB 轉向鷹派<span class="sep">/</span>Eurozone April CPI Hits 3.0% — Highest Since Sept 2023; ECB Tilts Hawkish</h3>
+      <div class="meta">來源 / Source: <a href="https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260430~81b7179e6f.en.html" target="_blank">ECB Monetary Policy Decision April 30</a> · <a href="https://notayesmanseconomics.wordpress.com/2026/05/21/the-ecb-faces-another-growth-slowdown-in-the-euro-area-as-inflation-rises/" target="_blank">ECB Macro Analysis May 21</a></div>
+      <div class="section-label">核心事實 / Facts</div>
+      <div class="data-row">
+        <div class="data-chip"><span class="label">4 月 CPI YoY</span><span class="val up">3.0%</span></div>
+        <div class="data-chip"><span class="label">目標</span><span class="val">2.0%</span></div>
+        <div class="data-chip"><span class="label">能源價格 YoY</span><span class="val up">+10.8%</span></div>
+        <div class="data-chip"><span class="label">核心 CPI</span><span class="val up">2.2%</span></div>
+      </div>
+      <p>歐元區 4 月 HICP 年增 3.0%，超越 ECB 2% 目標達 100bp，為 2023 年 9 月以來最高，能源價格年增 10.8% 是最大拉力。核心通膨則微降至 2.2%（前期 2.3%），顯示能源以外的物價壓力相對溫和。</p>
+      <div class="section-label ctx">背景脈絡 / Context</div>
+      <p>ECB 4 月 30 日決策維持三項利率不變，但市場普遍預期 6 月會議將升息 25bp。ECB 3 月預測 2026 年歐元區 GDP 增速僅 1.0%，疊加通膨走高，形成典型「溫水中的鷹派困境」。</p>
+      <div class="section-label imp">影響觀察 / Implications</div>
+      <p>若 6 月 ECB 升息，歐元兌美元可望獲得支撐，但對南歐（義大利、希臘）等財政較脆弱國家的政府融資成本有負面影響。英國 BoE 面臨類似兩難，尚未公布最新決策。</p>
+    </div>
+
+    <div class="card">
+      <h3>歐元區 Q1 GDP 環比 0.2%，增速延續放緩<span class="sep">/</span>Eurozone Q1 2026 GDP Slows to 0.2% QoQ, Growth Momentum Stalls</h3>
+      <div class="meta">來源 / Source: <a href="https://ec.europa.eu/eurostat/" target="_blank">Eurostat Flash GDP</a> · <a href="https://www.ecb.europa.eu/press/projections/html/ecb.projections202603_ecbstaff~ebe291cd3d.en.html" target="_blank">ECB Staff Projections March 2026</a></div>
+      <div class="section-label">核心事實 / Facts</div>
+      <div class="data-row">
+        <div class="data-chip"><span class="label">Q1 GDP QoQ</span><span class="val down">+0.2%</span></div>
+        <div class="data-chip"><span class="label">Q4 2025</span><span class="val">+0.3%</span></div>
+        <div class="data-chip"><span class="label">2026 全年預測</span><span class="val">1.0%</span></div>
+      </div>
+      <p>Eurostat 閃估顯示歐元區 Q1 GDP 季增 0.2%，較前季 0.3% 再度放緩，ECB 員工預測 2026 年全年 GDP 為 1.0%。中東衝突帶來的能源成本上升與外部需求疲軟為主要拖累。</p>
+      <div class="section-label ctx">背景脈絡 / Context</div>
+      <p>德國、法國需求依然低迷，南歐雖靠旅遊支撐，但能源進口國的成本壓力廣泛存在。</p>
+      <div class="section-label imp">影響觀察 / Implications</div>
+      <p>歐元區若在油價緩和後通膨回落，ECB 可在年底前停止升息，2027 年才考慮降息；但若通膨黏性超預期，將面臨衰退與物價雙重壓力。</p>
+    </div>
+  </section>
+
+  <!-- ===================== SEA ===================== -->
+  <section class="region" id="sea">
+    <div class="region-header">
+      <span class="region-flag">🌏</span>
+      <div class="region-title">東南亞 <span>/ Southeast Asia</span></div>
+    </div>
+
+    <div class="card">
+      <h3>東南亞 2026 年增速料放緩至 4.2%，泰國僅 1.3%<span class="sep">/</span>Southeast Asia 2026 Growth Seen Slowing to 4.2%; Thailand at Just 1.3%</h3>
+      <div class="meta">來源 / Source: <a href="https://thediplomat.com/2026/04/southeast-asian-economies-growth-to-slow-in-2026-world-bank-says/" target="_blank">The Diplomat / World Bank April 2026</a> · <a href="https://asia.nikkei.com/economy/vietnam-thailand-to-suffer-most-among-asean-5-in-2026-world-bank" target="_blank">Nikkei Asia</a></div>
+      <div class="section-label">核心事實 / Facts</div>
+      <div class="data-row">
+        <div class="data-chip"><span class="label">ASEAN 2026 成長</span><span class="val down">4.2%</span></div>
+        <div class="data-chip"><span class="label">前期 2025</span><span class="val">5.0%</span></div>
+        <div class="data-chip"><span class="label">泰國 2026</span><span class="val up">1.3%</span></div>
+        <div class="data-chip"><span class="label">印尼 2026</span><span class="val">4.7%</span></div>
+      </div>
+      <p>世界銀行預測東南亞五國整體 2026 年增速從 2025 年 5.0% 下滑至 4.2%，中東戰事帶動能源成本上升是主因。泰國（高家庭債務 + 政治不穩）與越南（製造業訂單外溢受限）受衝擊最深。印尼得益於韌性內需，預計維持 4.7% 成長。</p>
+      <div class="section-label ctx">背景脈絡 / Context</div>
+      <p>東南亞在「中美脫鉤」供應鏈重組中受益，但石油淨進口國（泰國、越南、菲律賓）面臨能源進口成本大幅上升。新加坡受惠於 FDI 流入，2025 年固定資產投資承諾成長 5.3%，相對具有抵禦力。</p>
+      <div class="section-label imp">影響觀察 / Implications</div>
+      <p>油價若因中東緩和延續下跌，能源淨進口國通膨將快速下滑，為央行提供降息空間以提振需求。相反，若緊張再度升溫，該地區電流帳赤字將惡化，匯率壓力加大。</p>
+    </div>
+
+    <div class="card">
+      <h3>新加坡 FDI 流入強勁，ADB 調升亞洲整體展望<span class="sep">/</span>Singapore FDI Inflows Surge; ADB Sees Resilient Asia Despite Headwinds</h3>
+      <div class="meta">來源 / Source: <a href="https://www.adb.org/outlook/editions/april-2026" target="_blank">ADB Asian Development Outlook April 2026</a></div>
+      <div class="section-label">核心事實 / Facts</div>
+      <div class="data-row">
+        <div class="data-chip"><span class="label">新加坡 FDI Q4</span><span class="val up">S$586億</span></div>
+        <div class="data-chip"><span class="label">FDI 固資承諾成長</span><span class="val up">+5.3% YoY</span></div>
+        <div class="data-chip"><span class="label">ASEAN-5 GDP 2026</span><span class="val">4.7%</span></div>
+      </div>
+      <p>亞洲開發銀行 4 月展望報告指出，儘管面臨外部逆風（能源衝擊、全球需求放緩），亞洲整體成長韌性仍相對強勁，受益於區域內需與製造業重組。新加坡吸引大量科技與數據中心 FDI，仍是東南亞投資吸引力中心。</p>
+      <div class="section-label ctx">背景脈絡 / Context</div>
+      <p>AI 資料中心投資潮流向東南亞延伸，新加坡、馬來西亞（Johor）成為主要受益地點。這為相關電力、建築、金融服務供應鏈帶來持續訂單。</p>
+      <div class="section-label imp">影響觀察 / Implications</div>
+      <p>FDI 流入支撐新加坡元匯率，同時帶動馬來西亞令吉、印尼盾走強。數據中心電力消耗增加，對馬來西亞等能源出口國有正面貿易效應。</p>
+    </div>
+  </section>
+
+  <!-- ===================== FX & Commodities ===================== -->
+  <section class="region" id="fx">
+    <div class="region-header">
+      <span class="region-flag">💱</span>
+      <div class="region-title">大宗商品 &amp; FX <span>/ Commodities &amp; Currencies</span></div>
+    </div>
+
+    <div class="card">
+      <h3>WTI 原油 $88 / 黃金 $4,550 / USD/JPY 159 — 三大資產週期摘要<span class="sep">/</span>WTI $88, Gold $4,550, USD/JPY 159 — Cross-Asset Snapshot</h3>
+      <div class="meta">來源 / Source: <a href="https://oilprice.com/" target="_blank">OilPrice.com</a> · <a href="https://tradingeconomics.com/commodity/gold" target="_blank">TradingEconomics Gold</a> · <a href="https://www.reuters.com/markets/currencies/" target="_blank">Reuters Currencies</a> · 2026-05-27/28</div>
+      <div class="section-label">核心事實 / Facts</div>
+      <div class="data-row">
+        <div class="data-chip"><span class="label">WTI 原油</span><span class="val down">$88.3/bbl</span></div>
+        <div class="data-chip"><span class="label">月跌幅</span><span class="val up">-16%</span></div>
+        <div class="data-chip"><span class="label">Gold</span><span class="val">$4,550/oz</span></div>
+        <div class="data-chip"><span class="label">USD/JPY</span><span class="val up">159.01</span></div>
+      </div>
+      <p>伊朗表示將在一個月內恢復霍爾木茲海峽至戰前通航水準，油價在 5 月已累計重挫 16%，從 3–4 月逾 $110 高峰快速回落。黃金雖較衝突前高近 30%，但近日隨避險需求降溫回落至 $4,550。USD/JPY 維持 159 高位，映照美日利差格局未變。</p>
+      <div class="section-label ctx">背景脈絡 / Context</div>
+      <p>商品市場「戰爭溢價」正在快速消退，但須留意：(1) 任何協議破裂可能瞬間逆轉；(2) 即便海峽重開，OPEC+ 生產政策仍是供給端關鍵變數。</p>
+      <div class="section-label imp">影響觀察 / Implications</div>
+      <p>油價持續下行 → 全球通膨路徑下修 → 各大央行「高位持久」壓力減輕 → 市場可能提前 price-in 降息預期，推升風險資產。但需求側疲弱（歐元區 1.0% 增速）的拖累不可忽視，此降通膨未必是「好消息式降通膨」。</p>
+    </div>
+  </section>
+
+  <div class="disclaimer">
+    ⚠️ 本報告為資訊整理，不構成任何投資建議。所有「影響觀察」為分析性判斷，非事實陳述。數據來源截至 2026-05-28 Asia/Taipei 編輯時間。
+    This briefing is for informational purposes only and does not constitute investment advice. All "Implications" are analytical, not factual statements.
+  </div>
+
+  <footer>
+    <strong>數據來源 / Sources</strong>
+    <ul>
+      <li><a href="https://www.imf.org/en/publications/weo/issues/2026/04/14/world-economic-outlook-april-2026" target="_blank">IMF WEO April 2026</a></li>
+      <li><a href="https://oilprice.com/" target="_blank">OilPrice.com</a></li>
+      <li><a href="https://tradingeconomics.com/commodity/crude-oil" target="_blank">TradingEconomics – Crude Oil</a></li>
+      <li><a href="https://tradingeconomics.com/commodity/gold" target="_blank">TradingEconomics – Gold</a></li>
+      <li><a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm" target="_blank">Federal Reserve FOMC</a></li>
+      <li><a href="https://fredblog.stlouisfed.org/2026/03/fomc-summary-of-economic-projections-march-2026/" target="_blank">FRED Blog – FOMC SEP</a></li>
+      <li><a href="https://www.bea.gov/news" target="_blank">BEA</a></li>
+      <li><a href="https://fortune.com/2026/05/11/us-treasury-debt-3-billion-daily-interest-39-trillion/" target="_blank">Fortune / CBO – US Debt</a></li>
+      <li><a href="https://home.treasury.gov/news/press-releases/sb0486" target="_blank">Treasury TBAC Q2 2026</a></li>
+      <li><a href="https://www.spglobal.com/ratings/en/regulatory/article/economic-outlook-us-q2-2026-curb-your-enthusiasm-s101676533" target="_blank">S&P Global US Q2 Outlook</a></li>
+      <li><a href="https://topics.amcham.com.tw/2026/05/macroeconomic-brief-may-2026/" target="_blank">Taiwan Business TOPICS Macro Brief</a></li>
+      <li><a href="https://ws.ndc.gov.tw/Download.ashx?u=LzAwMS9hZG1pbmlzdHJhdG9yLzExL3JlbGZpbGUvNTgyMS80MDEwMC84MzBmMmM4Zi1lYjc0LTRiNjUtOWEzNy1kZjRkNTY3NjQxMzUucGRm&n=VGFpd2FuIEVjb25vbXkgaW4gYSBTbmFwc2hvdCgyMDI2LjUpZi5wZGY%3D&icon=.pdf" target="_blank">NDC Taiwan Economy Snapshot May 2026</a></li>
+      <li><a href="https://www.cbc.gov.tw/en/cp-448-190973-c2e5d-2.html" target="_blank">CBC Q1 2026 Monetary Policy</a></li>
+      <li><a href="https://www.dbs.com.tw/corporate/aics/templatedata/article/generic/data/en/GR/052026/260511_taiwan.xml" target="_blank">DBS Taiwan Macro Note May 2026</a></li>
+      <li><a href="https://invezz.com/news/2026/05/26/japan-inflation-gauge-hits-2-8-keeping-boj-on-rate-hike-watch/" target="_blank">Invezz – Japan CPI May 26</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/22/japan-april-core-inflation-boj-rate-hike-outlook.html" target="_blank">CNBC – Japan Core CPI May 22</a></li>
+      <li><a href="https://www.cnbc.com/2026/04/28/bank-of-japan-keeps-policy-rate-steady-cpi-iran-war-gdp.html" target="_blank">CNBC – BOJ April Decision</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/07/japan-yen-intervention-boj-rate-gap-currency-pressure.html" target="_blank">CNBC – Japan Yen Intervention May 7</a></li>
+      <li><a href="https://en.sedaily.com/finance/2026/05/24/bank-of-korea-likely-to-hold-rate-for-8th-time-us-april-pce" target="_blank">Seoul Economic Daily – BOK May 24</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-05-26/bank-of-korea-seen-favoring-hawkish-hold-as-inflation-risks-grow" target="_blank">Bloomberg – BOK May 26</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-05-04/top-bank-of-korea-official-says-it-s-time-to-consider-rate-hike" target="_blank">Bloomberg – BOK Rate Hike Signal</a></li>
+      <li><a href="https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260430~81b7179e6f.en.html" target="_blank">ECB Monetary Policy April 30</a></li>
+      <li><a href="https://www.ecb.europa.eu/press/projections/html/ecb.projections202603_ecbstaff~ebe291cd3d.en.html" target="_blank">ECB Staff Projections March 2026</a></li>
+      <li><a href="https://notayesmanseconomics.wordpress.com/2026/05/21/the-ecb-faces-another-growth-slowdown-in-the-euro-area-as-inflation-rises/" target="_blank">ECB Macro Analysis May 21</a></li>
+      <li><a href="https://thediplomat.com/2026/04/southeast-asian-economies-growth-to-slow-in-2026-world-bank-says/" target="_blank">The Diplomat / World Bank – SEA</a></li>
+      <li><a href="https://asia.nikkei.com/economy/vietnam-thailand-to-suffer-most-among-asean-5-in-2026-world-bank" target="_blank">Nikkei Asia – SEA Growth</a></li>
+      <li><a href="https://www.adb.org/outlook/editions/april-2026" target="_blank">ADB Asian Development Outlook April 2026</a></li>
+      <li><a href="https://www.reuters.com/markets/currencies/" target="_blank">Reuters Currencies</a></li>
+    </ul>
+  </footer>
+
+</div>
+</body>
+</html>
