@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日有趣文章日報 · 2026-05-29</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3352;
+      --accent: #7c8dfc;
+      --accent2: #56cfb2;
+      --accent3: #f9a86c;
+      --accent4: #e07de0;
+      --text: #e8eaf6;
+      --text-muted: #8892b0;
+      --tag-bg: #252a42;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 24px 16px 60px;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 40px 0 32px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 36px;
+    }
+    header .date-badge {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      margin-bottom: 14px;
+    }
+    header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    header p.subtitle {
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    /* Track headers */
+    .track-header {
+      margin: 48px 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .track-header .track-pill {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .track-a .track-pill { background: rgba(124,141,252,.15); color: var(--accent); border: 1px solid rgba(124,141,252,.3); }
+    .track-b .track-pill { background: rgba(86,207,178,.15); color: var(--accent2); border: 1px solid rgba(86,207,178,.3); }
+    .track-header h2 {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    /* Section label */
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 36px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-label::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      margin-bottom: 18px;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(124,141,252,.2);
+    }
+
+    /* Editor's pick special card */
+    .card.editors-pick {
+      background: linear-gradient(135deg, #1a1d27 0%, #1e2038 100%);
+      border-color: var(--accent);
+      border-width: 1.5px;
+    }
+    .editors-pick-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(124,141,252,.12);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(124,141,252,.3);
+      margin-bottom: 12px;
+    }
+
+    /* Card internals */
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .card-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .card-title a:hover { color: var(--accent); }
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .meta-source {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .read-badge {
+      font-size: 11px;
+      background: var(--tag-bg);
+      color: var(--accent3);
+      border: 1px solid rgba(249,168,108,.25);
+      border-radius: 20px;
+      padding: 2px 9px;
+      font-weight: 600;
+    }
+    .domain-tag {
+      font-size: 11px;
+      background: rgba(86,207,178,.12);
+      color: var(--accent2);
+      border: 1px solid rgba(86,207,178,.3);
+      border-radius: 20px;
+      padding: 2px 9px;
+      font-weight: 700;
+    }
+
+    .card-section {
+      margin-top: 12px;
+    }
+    .card-section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .card-section p {
+      font-size: 14px;
+      color: #c5cae9;
+      line-height: 1.7;
+    }
+    .highlight-box {
+      background: var(--surface2);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 10px 14px;
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .questions-box {
+      background: rgba(249,168,108,.06);
+      border: 1px solid rgba(249,168,108,.18);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-top: 10px;
+      font-size: 13px;
+      color: #f9c89e;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.9;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .paywalled {
+      color: #f87171;
+      font-size: 11px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="date-badge">2026-05-29 · Asia/Taipei</div>
+    <h1>今日有趣文章日報<br><span style="font-weight:400; color:var(--text-muted); font-size:20px;">Daily Interesting Articles</span></h1>
+    <p class="subtitle">精選 Hacker News 高分文章、思想領袖長文與各界深度好文 · 跨科技、商業、科學、文化、哲學</p>
+  </header>
+
+  <!-- ====== TRACK A ====== -->
+  <div class="track-header track-a">
+    <div class="track-pill">Track A</div>
+    <h2>長文精選 · Longform Essays</h2>
+  </div>
+
+  <!-- EDITOR'S PICK -->
+  <div class="section-label">編輯精選 · Editor's Pick of the Day</div>
+
+  <div class="card editors-pick">
+    <div class="editors-pick-badge">★ 今日必讀</div>
+    <div class="card-title">
+      <a href="http://paulgraham.com/brandage.html" target="_blank">品牌時代 · The Brand Age</a>
+    </div>
+    <div class="card-meta">
+      <span class="meta-source">paulgraham.com · Paul Graham · 2026-03 · HN 468pts</span>
+      <span class="read-badge">~22 min</span>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-label">為什麼值得讀 · Why it stands out</div>
+      <p>PG 用瑞士製錶業在 1970 年代的「石英危機」出發，構建了一套完整的理論：技術讓產品之間的實質差異消失，品牌就是殘存的唯一武器。這套邏輯不只適用手錶——它解釋了當今幾乎所有「奢侈品」、「生活方式」行銷的本質。文字功力與論點密度均為 PG 近年最佳。</p>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">摘要 · Summary</div>
+      <p>The Swiss watch industry was decimated three ways in the 1970s: Japanese competition, a collapsing exchange-rate advantage, and quartz movements that made precision timekeeping a commodity. Surviving makers like Patek Philippe and Audemars Piguet responded not by making better watches but by making watches that <em>looked</em> expensive — bigger, louder, and instantly recognizable. PG argues this pivot from "golden age" craftsmanship to pure brand is not a watch-industry quirk but a general law: technology destroys substantive differences between products, and brand fills the vacuum. The essay traces how Patek learned to manufacture artificial scarcity, and why the current era of watchmaking is essentially the careful management of an asset bubble.<br><br>
+      瑞士製錶業 1970 年代三重打擊後的應對，正是技術抹平實質差異後「品牌」成為唯一競爭軸的完美案例研究。PG 藉此提醒：追隨品牌邏輯最終是一場與「好設計」相反的賽局——品牌要求獨特，設計追求收斂；跑錯方向的代價是整個行業只剩下表演。</p>
+    </div>
+    <div class="highlight-box">「Branding is centrifugal; design is centripetal.」— Paul Graham</div>
+    <div class="questions-box">
+      引發的問題：AI 時代，當知識工作的輸出也逐漸被商品化，哪些領域會迎來「品牌時代」？哪些能靠工藝倖存？
+    </div>
+  </div>
+
+  <!-- TECH & AI -->
+  <div class="section-label">科技與 AI · Tech &amp; AI</div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://sockpuppet.org/blog/2026/05/12/emacsification/" target="_blank">軟體的 Emacs 化 · The Emacsification of Software</a>
+    </div>
+    <div class="card-meta">
+      <span class="meta-source">sockpuppet.org · Thomas Ptacek (Quarrelsome) · 2026-05-12 · HN 276pts</span>
+      <span class="read-badge">~10 min</span>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">為什麼值得讀 · Why it stands out</div>
+      <p>資深安全研究員 tqbf 用「自己在 30 分鐘內用 Claude 做出一個比 App Store 所有 Markdown 瀏覽器都好的 App」這個具體案例，提出一個有說服力的新框架：AI 代理不是在改良「商業軟體」，而是在催化一種類似 Emacs 的「個人軟體文化」。</p>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">摘要 · Summary</div>
+      <p>Ptacek argues that the real effect of AI coding agents isn't the death of Electron or the rise of 10× engineers — it's the Emacsification of software: a world where personal, hyper-specific tools get built, used briefly, and passed on as ideas (not code). Just as Emacs lifers scratch itches with elisp and share the concept rather than the package, AI agents now let any developer extrude their own native-UI tools in minutes. The result is a cambrian explosion of bespoke software, its value residing in the prompt and the idea, not the repository.<br><br>
+      AI 讓「個人軟體」不再是專職程式設計師的特權。每個人都能快速做出只服務自己的工具——但作者強調，Emacs 文化的精髓是分享想法，不是分享程式碼。</p>
+    </div>
+    <div class="highlight-box">「You want the prompts more than you want the source code.」</div>
+    <div class="questions-box">
+      引發的問題：當軟體開發從「建造」變成「配置」，版權與開源生態系的意義會如何演變？
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://acko.net/blog/the-l-in-llm-stands-for-lying/" target="_blank">LLM 裡的 L 代表謊言 · The L in "LLM" Stands for Lying</a>
+    </div>
+    <div class="card-meta">
+      <span class="meta-source">acko.net · Steven Wittens · 2026-03-04 · HN 654pts (best 48h)</span>
+      <span class="read-badge">~18 min</span>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">為什麼值得讀 · Why it stands out</div>
+      <p>這篇文章不是反 AI 情緒文，而是一位真正懂工程的開發者系統性地提出：LLM 輸出的本質是「偽造品」（forgery）。論述嚴謹、類比精準（法國 Brie 起司的地理標示法、MC Escher 的版畫），是 HN 近 48 小時最多討論的文章之一。</p>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">摘要 · Summary</div>
+      <p>Wittens reframes the AI debate: the missing word in all the discourse about helpfulness, creativity, and productivity is <em>forgery</em>. LLMs let individuals produce imitations of their own potential output (or someone else's) faster than they could make the authentic thing. Like AOP cheese or currency counterfeiting, authenticity only becomes a legal/ethical issue when a forgery is passed off as the genuine article. In code, the damage manifests as "vibe-coded" PRs that maintainers can't review or correct — and in a broader sense as an epistemic problem: LLMs cannot attribute their sources, by design, making them constitutionally unreliable. His proposed fix: require correct source attribution during inference.<br><br>
+      Wittens 的核心論點：LLM 的輸出不是創作，是模仿的偽造品。問題不在用 AI，而在把 AI 輸出當成本人的真實工作產出時，整個鑑別體系會失效。</p>
+    </div>
+    <div class="questions-box">
+      引發的問題：如果「加上來源引用」是讓 LLM 可信的必要條件，這對目前的訓練架構與商業模式意味著什麼？
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://laurent.le-brun.eu/blog/a-history-of-ides-at-google" target="_blank">Google 內部 IDE 的歷史 · A History of IDEs at Google</a>
+    </div>
+    <div class="card-meta">
+      <span class="meta-source">laurent.le-brun.eu · Laurent Le Brun (前 Google 工程師) · 2026-05-09 · HN 351pts</span>
+      <span class="read-badge">~12 min</span>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">為什麼值得讀 · Why it stands out</div>
+      <p>在 Google 工作 12 年、主導開發者工具的工程師親述：為什麼 Google 花了 10 年時間才從「每人用自己的 IDE」走向「80% 工程師用同一套 Cider V」？這是一篇不可多得的內部視角，既有工程決策，也有組織文化。</p>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">摘要 · Summary</div>
+      <p>Le Brun traces Google's IDE evolution: from a fragmented ecosystem (everyone's free choice, per Jeff Dean's blessing in 2011) → Cider, a web-based cloud IDE born from the need to handle a monorepo too big for local indexing → Cider V, a VSCode-fronted successor that hit 80% adoption by 2023. Key insight: standardizing tooling wasn't about mandating preference — it was about unlocking leverage. Once most engineers shared a platform, 100 internal extensions emerged, enabling scenarios previously infeasible. AI features (code completion, ML-assisted code review) became much more impactful on a single unified surface.<br><br>
+      標準化工具的真正價值不在統一，而在「槓桿」：一個工具做的改動能影響全公司，投入與回報比例才合理。</p>
+    </div>
+    <div class="questions-box">
+      引發的問題：隨著 AI 代理更深度整合進 IDE，標準化開發環境的壓力是否會在每家公司重演 Google 的故事？
+    </div>
+  </div>
+
+  <!-- BUSINESS & ECONOMICS -->
+  <div class="section-label">商業與經濟 · Business &amp; Economics</div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://ogirardot.writizzy.com/p/good-software-knows-when-to-stop" target="_blank">好軟體知道什麼時候停下來 · Good Software Knows When to Stop</a>
+    </div>
+    <div class="card-meta">
+      <span class="meta-source">ogirardot.writizzy.com · Olivier Girardot · 2026-03-05 · HN 530pts (best 48h)</span>
+      <span class="read-badge">~7 min</span>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">為什麼值得讀 · Why it stands out</div>
+      <p>文章以一段令人發笑的諷刺性 ASCII art（假設 <code>ls</code> 命令被「AI 化」並開始要求你付費訂閱）開場，精準戳中當下所有東西都在貼 AI 標籤的荒謬。論點直接引用 37signals 產品哲學，不賣弄，論述明快。</p>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">摘要 · Summary</div>
+      <p>Girardot argues that good software has a clearly defined scope — and sticking to it is harder than it sounds. In an era when Minio rebrands to "AIStor" and Oracle calls itself an "AI Database," the real value of software that <em>doesn't</em> creep in scope is underrated. He calls back to the 37signals philosophy: constraints are advantages, say no by default, scratch your own itch. The piece is partly a product design essay and partly a meditation on what it means for software to know its place.<br><br>
+      軟體範圍蔓延（scope creep）從來不只是工程問題，更是產品誠實問題。知道自己解決什麼、不解決什麼，是最被低估的競爭優勢。</p>
+    </div>
+    <div class="questions-box">
+      引發的問題：在「AI-first everything」的浪潮下，「刻意不加 AI 功能」是否會成為一種可辨識的品牌定位？
+    </div>
+  </div>
+
+  <!-- SCIENCE & RESEARCH -->
+  <div class="section-label">科學與研究 · Science &amp; Research</div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.researchsquare.com/article/rs-6079807/v1" target="_blank">全球暖化已顯著加速 · Global Warming Has Accelerated Significantly</a>
+    </div>
+    <div class="card-meta">
+      <span class="meta-source">Research Square (preprint) · Stefan Rahmstorf, Grant Foster · 2026-04 · HN 983pts (best 48h)</span>
+      <span class="read-badge">~8 min</span>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">為什麼值得讀 · Why it stands out</div>
+      <p>氣候科學家 Rahmstorf 和 Foster 解決了一個方法論難題：過去研究說「暖化加速還沒達到統計顯著性」，但那是因為沒排除 El Niño、火山噴發和太陽活動的噪音。排除這三個自然變率因子後，答案變了。</p>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">摘要 · Summary</div>
+      <p>Using adjusted temperature data that accounts for three natural variability factors — El Niño/La Niña cycles, volcanic aerosols, and solar variation — the authors show that after 2015, the underlying rate of global warming has been significantly faster than in any previous 10-year period since 1945. Earlier analyses that found no statistically significant acceleration were measuring the wrong signal: they were dominated by natural variability noise. Once that noise is filtered out, the acceleration is unambiguous.<br><br>
+      這項研究的意義在於方法改進，而非推翻舊有結論：當你控制了噪音，訊號出來了。2015 年後的暖化速率，超越了 1945 年以來的任何十年期。</p>
+    </div>
+    <div class="questions-box">
+      引發的問題：如果這套「排除自然變率後再估算」的方法學成為氣候科學標準，現有的減碳時間表是否需要重新校準？
+    </div>
+  </div>
+
+  <!-- PSYCHOLOGY & BEHAVIOR -->
+  <div class="section-label">心理與行為 · Psychology &amp; Behavior</div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://news.cornell.edu/stories/2026/03/workers-who-love-synergizing-paradigms-might-be-bad-their-jobs" target="_blank">愛說「協同典範」的員工，可能是最差的決策者 · Workers Who Love 'Synergizing Paradigms' Might Be Bad at Their Jobs</a>
+    </div>
+    <div class="card-meta">
+      <span class="meta-source">Cornell Chronicle · Shane Littrell, Cornell University · 2026-03-02 · HN 515pts (best 48h)</span>
+      <span class="read-badge">~6 min</span>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">為什麼值得讀 · Why it stands out</div>
+      <p>這項研究不是常見的「企業用語很煩」吐槽——而是以 1,000 名職場工作者為樣本，建構出一套可量測的「公司廢話接受度量表」（CBSR），並找到了它與分析思維能力的顯著負相關。有真實數據、有機制解釋，且結論令人不安地具有實用性。</p>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">摘要 · Summary</div>
+      <p>Cognitive psychologist Shane Littrell built a "corporate bullshit generator" and a validated Corporate Bullshit Receptivity Scale (CBSR). The results: workers most susceptible to empty jargon like "actualize a renewed level of cradle-to-grave credentialing" consistently scored lower on analytic thinking, cognitive reflection, and workplace decision-making tests. Worse, they rated jargon-heavy managers as more charismatic and "visionary" — creating a feedback loop where BS-receptive employees elevate BS-generating leaders. The study also found that BS-susceptible workers are more likely to spread the jargon themselves.<br><br>
+      最讓人膽寒的發現：容易被廢話打動的員工，也更容易傳播廢話、提拔說廢話的主管。這不是個人特質，而是組織負向循環的起點。</p>
+    </div>
+    <div class="highlight-box">「A higher level of corporate BS in an organization acts more like a clogged toilet of inefficiency.」— Littrell</div>
+    <div class="questions-box">
+      引發的問題：如果 CBSR 分數可預測決策能力，你會在招聘流程中加入這個測量嗎？你自己的分數是多少？
+    </div>
+  </div>
+
+  <!-- SCIENCE (second) -->
+  <div class="section-label">科學 · 思考工具 · Thinking Tools</div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://dynomight.net/lifespan/" target="_blank">人類壽命的遺傳率：當你重新定義「遺傳率」，答案就不同了 · Heritability of Life Span Is ~50% When Heritability Is Redefined</a>
+    </div>
+    <div class="card-meta">
+      <span class="meta-source">dynomight.net · Dynomight · 2026-02 · HN 92pts</span>
+      <span class="read-badge">~14 min</span>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">為什麼值得讀 · Why it stands out</div>
+      <p>Dynomight 是少數能把統計學寫得既嚴謹又有趣的匿名作者。這篇文章選了一篇 Science 頂刊論文，然後花大量篇幅解釋為什麼「50% 遺傳率」這個標題是誤導的——但不是因為論文有錯，而是因為科學寫作慣例掩蓋了方法論前提。是訓練科學批判思維的上乘材料。</p>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">摘要 · Summary</div>
+      <p>A recent Science paper claimed human lifespan is ~50% heritable, up from the traditional twin-study estimate of 23–35%. Dynomight patiently explains what actually happened: the paper built a mathematical model of a hypothetical world where nobody dies from accidents, murder, or non-aging-related disease — and then computed heritability in <em>that</em> simulated world. Of course heritability goes up when you remove non-genetic randomness; that's a tautology. The real finding is narrower: if extrinsic mortality falls to modern levels, simulated heritability is closer to 35–45%, not 50%. The essay is also a pointed critique of how Science journal writing systematically obscures methodology.<br><br>
+      「遺傳率」不是宇宙常數，它是觀測統計量，隨環境而變。說「遺傳率是 50%」等於說「在我假設的那個世界裡是 50%」——值得記住的不是數字，而是這個思維陷阱本身。</p>
+    </div>
+    <div class="questions-box">
+      引發的問題：有多少你認為了解的「遺傳率」數字，其實依賴了類似「重新定義問題」的隱藏前提？
+    </div>
+  </div>
+
+  <!-- CURIOSITIES -->
+  <div class="section-label">奇文與偏門 · Curiosities</div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://ardoedo.it/kempelen/" target="_blank">我在爸爸的舊書裡發現的象棋謎題 · Chess Puzzle I Found in My Dad's Old Book</a>
+    </div>
+    <div class="card-meta">
+      <span class="meta-source">ardoedo.it · Ariel Doedo · HN 146pts</span>
+      <span class="read-badge">~5 min (互動)</span>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">為什麼值得讀 · Why it stands out</div>
+      <p>這是一個互動式網頁，展示作者在父親舊書中找到的一道 18 世紀象棋謎題，連結到匈牙利發明家 Wolfgang von Kempelen 的故事——他也是著名的「土耳其棋手」機械傀儡（一個騙局式下棋機器）的創造者。謎題本身、歷史連結與製作質感都令人愉快。</p>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">摘要 · Summary</div>
+      <p>一個極簡的互動網頁將謎題、歷史與個人記憶融為一體。Von Kempelen 是 18 世紀最精彩的「人機介面」騙局主角，這個謎題是他留下的真實印記。帶著茶或咖啡、打開網頁，輕輕鬆鬆十分鐘的智識愉快。</p>
+    </div>
+  </div>
+
+  <!-- ====== TRACK B ====== -->
+  <div class="track-header track-b" style="margin-top:56px;">
+    <div class="track-pill">Track B</div>
+    <h2>思想領袖觀點 · Thought Leaders</h2>
+  </div>
+
+  <div class="section-label">思想領袖今日觀點 · Thought Leader Picks</div>
+
+  <!-- Anthropic Economic Research -->
+  <div class="card">
+    <div class="card-meta" style="margin-bottom:6px;">
+      <span class="domain-tag">[總經/AI]</span>
+    </div>
+    <div class="card-title">
+      <a href="https://www.anthropic.com/research/labor-market-impacts" target="_blank">Anthropic 研究團隊 — AI 對勞動市場的影響：新指標與初步證據</a>
+    </div>
+    <div class="card-meta">
+      <span class="meta-source">anthropic.com/research · Maxim Massenkoff & Peter McCrory · 2026-03-05 · HN 313pts</span>
+      <span class="read-badge">~20 min</span>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">為什麼值得讀 · Why it stands out</div>
+      <p>這是 Anthropic 自己的研究員用 Anthropic 的使用數據，去評估 Claude 對就業市場的衝擊——等於球員兼裁判，但方法論誠實度意外地高：他們直接說「目前沒有發現顯著的失業率上升」，同時也找到了一個不安的信號：22–25 歲年輕人進入高 AI 暴露職業的比率在 2024 年開始下滑。</p>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">核心觀點 · Core Insight</div>
+      <p>研究引入一個新指標「觀察暴露度」（observed exposure），結合理論可行性與實際使用數據，加權「自動化」vs「輔助」用途。關鍵發現：（1）AI 距離理論上的最大能力還很遠，電腦程式設計師有 75% 任務覆蓋，但整體覆蓋率仍很低；（2）最暴露的職業主要是女性、高教育程度、高薪資的白領工作者，而非藍領；（3）整體失業率未見異常，但年輕人（22–25 歲）進入高暴露職業的求職速率已出現統計上約顯著的 14% 下降。</p>
+    </div>
+    <div class="questions-okay" style="background:rgba(249,168,108,.06);border:1px solid rgba(249,168,108,.18);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:13px;color:#f9c89e;">
+      引發的問題：如果最先受衝擊的是「高薪、高教育」的白領，傳統的「AI 淘汰低技能工作」論述需要全面修正嗎？
+    </div>
+  </div>
+
+  <!-- Paul Graham already covered in editor's pick, so use Cornell study as Track B psychology -->
+  <div class="card">
+    <div class="card-meta" style="margin-bottom:6px;">
+      <span class="domain-tag">[創業/產品]</span>
+    </div>
+    <div class="card-title">
+      <a href="https://ogirardot.writizzy.com/p/good-software-knows-when-to-stop" target="_blank">Olivier Girardot — 「不做」是最難的產品決策</a>
+    </div>
+    <div class="card-meta">
+      <span class="meta-source">ogirardot.writizzy.com · 2026-03-05</span>
+      <span class="read-badge">~7 min</span>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">為什麼值得讀</div>
+      <p>作者曾任 Lyft 及多個 data infra 公司的工程師，長期觀察 B2B 軟體如何在「AI-washing」壓力下失去產品靈魂。這篇文章寫的是產品哲學，但實際上也是一封給整個產業的警示信。</p>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">核心觀點 · Core Insight</div>
+      <p>真正成功的軟體往往有強烈的否定清單：它知道自己<strong>不</strong>解決什麼。37signals 的核心哲學 — 限制是優勢，預設說不，先做核心介面 — 在今天的 AI 浪潮中更顯珍貴。當 Minio 改名為 AIStor、Oracle 稱自己是 AI 資料庫，知道「我就是做一件事、做好它」的工具，反而形成更清晰的品牌護城河。</p>
+    </div>
+    <div class="questions-okay" style="background:rgba(249,168,108,.06);border:1px solid rgba(249,168,108,.18);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:13px;color:#f9c89e;">
+      引發的問題：你手邊有哪些工具，因為它「就只做一件事」而成為不可替代的部分？
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-meta" style="margin-bottom:6px;">
+      <span class="domain-tag">[AI/產品]</span>
+    </div>
+    <div class="card-title">
+      <a href="https://grith.ai/blog/clinejection-when-your-ai-tool-installs-another" target="_blank">Grith AI 研究 — 一個 GitHub Issue 標題讓 4,000 台開發者機器被感染</a>
+    </div>
+    <div class="card-meta">
+      <span class="meta-source">grith.ai · 2026-05 · HN 603pts (best 48h)</span>
+      <span class="read-badge">~10 min</span>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">為什麼值得讀</div>
+      <p>這篇是 2026 年最重要的 AI 安全案例研究之一。攻擊者只需把惡意程式碼嵌入 GitHub issue 的標題，當開發者用 AI 助手（如 Cline）閱讀這個 issue 時，AI 代理就自動執行了惡意指令，在機器上安裝了另一個工具。這是「AI 代理 + prompt injection」攻擊的真實世界首批大規模案例。</p>
+    </div>
+    <div class="card-section">
+      <div class="card-section-label">核心觀點 · Core Insight</div>
+      <p>當 AI 代理被授權執行任意程式碼，任何進入其上下文的「可信輸入」（如 GitHub issue、電子郵件、文件）都可能成為攻擊面。傳統安全的「信任邊界」在 AI 代理環境下徹底崩潰。文章也記錄了 Cline 因應的 patch，但指出根本問題仍未解決：代理的「意圖」與「行動」之間幾乎沒有隔離。</p>
+    </div>
+    <div class="questions-okay" style="background:rgba(249,168,108,.06);border:1px solid rgba(249,168,108,.18);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:13px;color:#f9c89e;">
+      引發的問題：如果 AI 代理的安全模型本質上依賴「沙盒」而非「信任」，現有的 MCP 和代理框架的設計是否需要根本性重構？
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>今日資料來源 / Sources</strong></p>
+    <p>
+      <a href="https://news.ycombinator.com/news" target="_blank">Hacker News (top)</a> ·
+      <a href="https://news.ycombinator.com/best" target="_blank">HN Best (48h)</a> ·
+      <a href="https://paulgraham.com/articles.html" target="_blank">Paul Graham Essays</a> ·
+      <a href="https://www.anthropic.com/research" target="_blank">Anthropic Research</a> ·
+      <a href="https://dynomight.net" target="_blank">Dynomight</a> ·
+      <a href="https://sockpuppet.org" target="_blank">Quarrelsome</a> ·
+      <a href="https://acko.net" target="_blank">Acko.net</a>
+    </p>
+    <br/>
+    <p class="paywalled">付費牆 / Paywalled or failed：WSJ（法官關稅退款報導）、Bloomberg Businessweek、The Atlantic、The New Yorker、Stratechery — 標題可見但內文受限</p>
+    <br/>
+    <p style="color:var(--text-muted); font-size:11px;">Generated 2026-05-29 · daily-interesting-articles skill · Claude Sonnet 4.6</p>
+  </footer>
+
+</div>
+</body>
+</html>

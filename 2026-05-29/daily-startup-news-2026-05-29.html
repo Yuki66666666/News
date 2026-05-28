@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新創日報 / Daily Startup News — 2026-05-29</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3250;
+      --accent: #6c8ef7;
+      --accent2: #a78bfa;
+      --green: #34d399;
+      --red: #f87171;
+      --yellow: #fbbf24;
+      --orange: #fb923c;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --tag-bg: #1e2a45;
+      --tag-color: #7dd3fc;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 24px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header .date-tag {
+      font-size: 12px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    header .subtitle {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+    .section {
+      margin-top: 40px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .section-header h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .section-header .emoji {
+      font-size: 20px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .card h3 .en {
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .meta a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .meta a:hover { text-decoration: underline; }
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--tag-color);
+      border-radius: 4px;
+      font-size: 11px;
+      padding: 2px 7px;
+      font-weight: 600;
+    }
+    .tag.green { background: #0d2e20; color: var(--green); }
+    .tag.red { background: #2e1515; color: var(--red); }
+    .tag.yellow { background: #2e2208; color: var(--yellow); }
+    .tag.orange { background: #2e1f0a; color: var(--orange); }
+    .tag.purple { background: #1e1535; color: var(--accent2); }
+    .label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent2);
+      margin-top: 10px;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    p { margin-bottom: 6px; color: var(--muted); font-size: 14px; }
+    strong { color: var(--text); }
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 10px 0;
+    }
+    .stat {
+      background: var(--surface2);
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 13px;
+    }
+    .stat .val { font-weight: 700; color: var(--green); font-size: 16px; display: block; }
+    .stat .lbl { color: var(--muted); font-size: 11px; }
+    .highlight-box {
+      background: linear-gradient(135deg, #1a2540, #1a1d27);
+      border: 1px solid #2e3250;
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .highlight-box p { color: var(--text); font-size: 14px; }
+    footer {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 24px 40px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    .disclaimer { color: #64748b; margin-top: 10px; font-size: 11px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="date-tag">2026 年 5 月 29 日 · Asia/Taipei</div>
+  <h1>新創日報 / Daily Startup News</h1>
+  <div class="subtitle">募資 · 發表 · 收購 · 人事 · 裁員 · IPO — 雙語每日簡報</div>
+</header>
+
+<main>
+
+  <!-- ─── 1. TOP STORIES ─── -->
+  <section class="section">
+    <div class="section-header">
+      <span class="emoji">🔥</span>
+      <h2>頭條 / Top Stories</h2>
+    </div>
+
+    <div class="highlight-box">
+      <p><strong>Cognition（Devin 的母公司）完成 $10 億 Series D，估值 $260 億，ARR 飆至 $4.92 億</strong>——八個月前估值還在 $102 億，現在翻了 2.5 倍。AI 自主程式工程師正式進入「獨角鯨」等級。</p>
+      <p style="margin-top:6px;color:#94a3b8;font-size:13px;">Cognition (maker of Devin) closes $1B Series D at $26B post-money. ARR jumped from $37M to $492M in 12 months — one of the fastest revenue ramps in enterprise AI history.</p>
+    </div>
+
+    <div class="highlight-box">
+      <p><strong>ClickUp 裁員 22%（約 290 人），同步部署 3,000 個 AI Agent，CEO 稱此為「AI 優先組織重建」</strong>——首位主動公開宣告「以 Agent 替代人力」的大型 SaaS 創辦人，留任員工最高可領 $100 萬年薪。</p>
+      <p style="margin-top:6px;color:#94a3b8;font-size:13px;">ClickUp cuts 22% of staff, deploys 3,000 AI agents, and introduces $1M salary bands for remaining "100x" contributors — the clearest public case of agent-as-headcount-replacement in SaaS so far.</p>
+    </div>
+
+    <div class="highlight-box">
+      <p><strong>SpaceX 正式遞交 S-1，目標估值 $1.75 兆，預計 6 月 8 日啟動路演</strong>——若成功上市，將成為美國史上最大 IPO，超越 Saudi Aramco。Elon 持股 42%，控制 85% 投票權。</p>
+      <p style="margin-top:6px;color:#94a3b8;font-size:13px;">SpaceX files S-1 targeting $1.75T valuation, roadshow starting June 8. Starlink generated $11.4B revenue in 2025. If priced at target, largest IPO in American history.</p>
+    </div>
+  </section>
+
+  <!-- ─── 2. FUNDING ROUNDS ─── -->
+  <section class="section">
+    <div class="section-header">
+      <span class="emoji">💰</span>
+      <h2>募資 / Funding Rounds</h2>
+    </div>
+
+    <!-- Cognition -->
+    <div class="card">
+      <h3>Cognition AI 完成 $10 億 Series D，估值 $260 億 <span class="en">/ Cognition Closes $1B Series D at $26B Valuation</span></h3>
+      <div class="meta">
+        <span class="tag green">Series D · Late Stage</span>
+        <span class="tag">AI / Dev Tools</span>
+        <a href="https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/" target="_blank">TechCrunch · 2026-05-27 ↗</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><span class="val">$1B</span><span class="lbl">本輪募資</span></div>
+        <div class="stat"><span class="val">$26B</span><span class="lbl">Post-money 估值</span></div>
+        <div class="stat"><span class="val">$492M</span><span class="lbl">ARR（年化）</span></div>
+        <div class="stat"><span class="val">$2.5B+</span><span class="lbl">累計募資</span></div>
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>Lead investors：<strong>Lux Capital、General Catalyst、8VC</strong>。New entrants：Ribbit Capital、Atreides、Layer Global。既有股東：Elad Gil、Soma Capital、Founders Fund 等跟投。2025 年 9 月以 $102 億估值募得 $4 億，此次在 8 個月內估值再翻 2.5 倍。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>Cognition 的 <strong>Devin</strong> 是首個商業化自主程式 AI Agent，客戶包括 Goldman Sachs、Mercedes-Benz、美國政府。ARR 從 12 個月前的 $3,700 萬成長至 $4.92 億，年增 13 倍。公司 90% 自身程式碼由旗下 AI 撰寫。</p>
+      <div class="label">影響觀察 / Implications</div>
+      <p>Cognition 的 ARR 軌跡驗證「AI 替代開發者」市場真實存在，直接壓縮 GitHub Copilot、Cursor、Replit 的估值溢價空間。對於 Andreessen Horowitz 等錯過此輪的基金而言，下一個機會窗口在於 AI Agent 下游工具（測試、安全、合規）。</p>
+    </div>
+
+    <!-- OpenRouter -->
+    <div class="card">
+      <h3>OpenRouter 完成 $1.13 億 Series B，估值翻倍至 $13 億 <span class="en">/ OpenRouter Raises $113M Series B at $1.3B Valuation</span></h3>
+      <div class="meta">
+        <span class="tag green">Series B</span>
+        <span class="tag">AI Infrastructure</span>
+        <a href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" target="_blank">TechCrunch · 2026-05-26 ↗</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><span class="val">$113M</span><span class="lbl">本輪募資</span></div>
+        <div class="stat"><span class="val">$1.3B</span><span class="lbl">Post-money 估值</span></div>
+        <div class="stat"><span class="val">8M+</span><span class="lbl">用戶數</span></div>
+        <div class="stat"><span class="val">400+</span><span class="lbl">支援模型數</span></div>
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>Lead：<strong>CapitalG（Google Alphabet 旗下成長基金）</strong>。參與者：NVentures、ServiceNow Ventures、MongoDB Ventures、Snowflake Ventures、Databricks Ventures、a16z、Menlo Ventures。估值較一年前 $5.47 億翻倍。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>OpenRouter 是 AI 模型聚合路由平台，為企業提供 Anthropic、OpenAI、Google、DeepSeek 等 400+ 模型的統一 API，自動將任務路由至最具成本效益的模型。月處理 token 量達 100 兆（6 個月內成長 5 倍），年化 token 量超過 1 千兆（1 quadrillion）。</p>
+      <div class="label">影響觀察 / Implications</div>
+      <p>CapitalG 主導 + 四大雲端廠商策略投資，意味 OpenRouter 有機會成為企業 AI 採購的「中立 broker」。對 Anthropic、OpenAI 而言，這是增加觸達管道；對 OpenRouter 而言，是鎖定企業的進場券，但長期面臨各家模型提供商直接簽企業合約的競爭。</p>
+    </div>
+
+    <!-- Stord -->
+    <div class="card">
+      <h3>Stord 完成 $2.5 億 Series F，估值 $30 億，挑戰 Amazon 物流霸權 <span class="en">/ Stord Raises $250M Series F at $3B Valuation to Take On Amazon Fulfillment</span></h3>
+      <div class="meta">
+        <span class="tag green">Series F</span>
+        <span class="tag">Logistics / E-commerce</span>
+        <a href="https://techcrunch.com/2026/05/26/amazon-fulfillment-competitor-stord-raises-250m-at-3b-valuation/" target="_blank">TechCrunch · 2026-05-26 ↗</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><span class="val">$250M</span><span class="lbl">本輪募資</span></div>
+        <div class="stat"><span class="val">$3B</span><span class="lbl">Post-money 估值</span></div>
+        <div class="stat"><span class="val">$15B</span><span class="lbl">年化 GMV</span></div>
+        <div class="stat"><span class="val">1,000+</span><span class="lbl">品牌客戶數</span></div>
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>Lead：<strong>Strike Capital</strong>。參與：Kleiner Perkins、Founders Fund、Franklin Templeton、Baillie Gifford、G Squared、Bond、Lux。估值較 2025 年 $15 億翻倍。創辦人：Sean Henry、Jacob Boudreau（Georgia Tech 在學期間創立，2015 年）。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>Stord 為獨立品牌提供媲美 Amazon FBA 的倉儲與配送服務，並同步宣布成立 <strong>Stord Labs</strong>（亞特蘭大，Physical AI + 機器人研發中心）。公司將用 1,000 家客戶的實際運營資料訓練 AI 物流優化模型。</p>
+      <div class="label">影響觀察 / Implications</div>
+      <p>Stord Labs 的成立顯示物流新創開始進攻 AI 倉儲自動化，這是 Amazon 仍領先的領域。Founders Fund 跟投意義重大——代表矽谷 tier-1 基金看好非科技垂直領域的 Physical AI 機會。</p>
+    </div>
+
+    <!-- Thea Energy -->
+    <div class="card">
+      <h3>普林斯頓衍生核融合新創 Thea Energy 完成 $1 億 Series B <span class="en">/ Princeton Spinout Thea Energy Closes $100M Series B for Fusion Power</span></h3>
+      <div class="meta">
+        <span class="tag green">Series B</span>
+        <span class="tag purple">Fusion / Energy</span>
+        <a href="https://techcrunch.com/2026/05/27/with-a-new-100m-raise-princetons-thea-energy-is-now-a-top-funded-fusion-startup/" target="_blank">TechCrunch · 2026-05-27 ↗</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><span class="val">$100M</span><span class="lbl">本輪募資</span></div>
+        <div class="stat"><span class="val">$130M</span><span class="lbl">累計融資</span></div>
+        <div class="stat"><span class="val">2030</span><span class="lbl">示範爐目標年</span></div>
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>Lead：<strong>U.S. Innovative Technology Fund (USIT)</strong>。參與：General Innovation Capital Partners、Linse Capital、Calm Ventures、Climate Capital、Idemitsu Kosan（日本出光興産）等。2022 年從 Princeton Plasma Physics Laboratory 衍生，2024 年完成 $2,000 萬 Series A。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>Thea 採用模組化磁鐵設計（有別於競爭對手 Commonwealth Fusion 的高溫超導磁鐵路線），降低製造複雜度。本輪資金用於：(1) 新澤西州第二座磁鐵製造廠；(2) 示範裝置 <strong>Eos</strong> 建設（2030 目標完工）；(3) 商業電廠 <strong>Helios</strong>（2034 目標上線）。</p>
+      <div class="label">影響觀察 / Implications</div>
+      <p>日本出光興産入股說明亞洲能源企業開始佈局西方核融合技術。AI 資料中心對電力的超高需求使融合能源的商業時程壓縮至「可投資」範圍，這是 2026 年融合投資熱潮的核心驅動力。</p>
+    </div>
+
+    <!-- India: Skyroot -->
+    <div class="card">
+      <h3>印度首家太空獨角獸 Skyroot Aerospace 完成 $6,000 萬融資 <span class="en">/ Skyroot Aerospace Becomes India's First Spacetech Unicorn with $60M Raise</span></h3>
+      <div class="meta">
+        <span class="tag green">Late Stage</span>
+        <span class="tag">Space / India</span>
+        <a href="https://www.newskart.com/india-startup-funding-update-may-4-8-2026-rounds-investors-founders/" target="_blank">NewsKart · 2026-05-07 ↗</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><span class="val">$60M</span><span class="lbl">本輪募資</span></div>
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>投資方：<strong>Sherpalo Ventures、GIC（新加坡主權基金）、BlackRock</strong> 等。此輪使 Skyroot 估值超越 $10 億，成為印度首個太空科技獨角獸。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>Skyroot 正在籌備旗下 <strong>Vikram-1</strong> 火箭的軌道發射任務，距本輪公告僅數週。此前 Vikram-S 於 2022 年完成印度史上首次私人火箭升空。印度太空監管開放後，Skyroot 是最具執行力的民營業者。</p>
+      <div class="label">影響觀察 / Implications</div>
+      <p>GIC 入股顯示主權基金正在押注新興市場太空商業化。Skyroot 若軌道發射成功，將對 SpaceX 在新興市場的小衛星發射市場形成低成本競爭。</p>
+    </div>
+
+  </section>
+
+  <!-- ─── 3. LAUNCHES ─── -->
+  <section class="section">
+    <div class="section-header">
+      <span class="emoji">🚀</span>
+      <h2>新公司發表 / Launches &amp; Stealth-Out</h2>
+    </div>
+
+    <div class="card">
+      <h3>EU 選定 EQT 管理 €50 億 Scaleup Europe Fund，歐洲最大科技基金正式啟動 <span class="en">/ EU Picks EQT to Run €5B Scaleup Europe Fund, Europe's Largest Tech Fund</span></h3>
+      <div class="meta">
+        <span class="tag">Europe / Policy</span>
+        <a href="https://sifted.eu/articles/scale-up-fund-companies" target="_blank">Sifted · 2026-05 ↗</a>
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>歐盟委員會選定瑞典投資機構 <strong>EQT</strong> 管理 €50 億 Scaleup Europe Fund，目標是在歐洲建立一個可在後期持續支持高增長新創的機制，防止人才與公司外流至美國或亞洲。</p>
+      <div class="label">影響觀察 / Implications</div>
+      <p>此舉是歐盟「技術主權」戰略的重要一環。短期內將讓 Sifted 等歐洲媒體列出的 100+ 家潛在受益公司（深科技、工業 AI、太空）獲得更多晚期資金選項。</p>
+    </div>
+
+    <div class="card">
+      <h3>Product Hunt 五月月榜：Brew 領跑，AI Agent 類別爆發 <span class="en">/ Product Hunt May 2026 Leaderboard: Brew Tops Charts, AI Agents Surge</span></h3>
+      <div class="meta">
+        <span class="tag">Product Hunt</span>
+        <a href="https://www.producthunt.com/leaderboard/monthly/2026/5" target="_blank">Product Hunt · 2026-05 ↗</a>
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>五月月榜由 <strong>Brew</strong>（679,115 票）領跑，其次為 Unabyss、StoreClaw、PollyReach、Spellar 3.0、Fere AI、OpenHuman、Kilo Code v7 等。AI Agents 類別成長最快，以 ElevenLabs 和 Deepgram 為代表的語音 AI 工具在 5 月 28 日每日榜也持續出現。</p>
+    </div>
+  </section>
+
+  <!-- ─── 4. NOTABLE PRODUCT LAUNCHES ─── -->
+  <section class="section">
+    <div class="section-header">
+      <span class="emoji">📦</span>
+      <h2>產品大事 / Notable Product Launches</h2>
+    </div>
+
+    <div class="card">
+      <h3>Stord Labs 成立：物流業首個 Physical AI + 機器人研發中心 <span class="en">/ Stord Labs Launches: Logistics' First Physical AI &amp; Robotics R&amp;D Center</span></h3>
+      <div class="meta">
+        <span class="tag orange">Physical AI</span>
+        <span class="tag">Atlanta, GA</span>
+        <a href="https://theaiinsider.tech/2026/05/26/stord-announces-250m-series-f-funding-round-new-lab-to-focus-on-robotics-physical-ai-to-challenge-amazon/" target="_blank">AI Insider · 2026-05-26 ↗</a>
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>Stord 宣布在亞特蘭大成立 <strong>Stord Labs</strong>，以 1,000+ 客戶的倉儲運作資料訓練 Physical AI 模型，推進機器人倉儲自動化。</p>
+      <div class="label">影響觀察 / Implications</div>
+      <p>這是繼 OpenAI 硬體部門（Jony Ive/io）之後，又一個「AI 軟體公司轉向物理世界」的明確訊號。倉儲機器人市場目前由 Symbotic、Berkshire Grey（已被並購）主導，Stord 的資料優勢是差異化點。</p>
+    </div>
+  </section>
+
+  <!-- ─── 5. ACQUISITIONS ─── -->
+  <section class="section">
+    <div class="section-header">
+      <span class="emoji">🤝</span>
+      <h2>收購與整併 / Acquisitions &amp; Consolidation</h2>
+    </div>
+
+    <div class="card">
+      <h3>Mastercard 以最高 $18 億收購穩定幣新創 BVNK，創史上最大穩定幣併購 <span class="en">/ Mastercard Acquires Stablecoin Startup BVNK for Up to $1.8B — Largest Stablecoin Deal Ever</span></h3>
+      <div class="meta">
+        <span class="tag yellow">BigCo Acquires Startup</span>
+        <span class="tag">Fintech / Crypto</span>
+        <a href="https://fortune.com/2026/03/17/mastercard-bvnk-acquisition-stablecoins-1-8-billion/" target="_blank">Fortune · 2026-03-17 ↗</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><span class="val">$1.8B</span><span class="lbl">交易金額（含 contingent）</span></div>
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>Mastercard 以最高 $18 億（其中 $3 億為條件支付款）收購倫敦穩定幣新創 <strong>BVNK</strong>。BVNK 成立於 2021 年，最近一輪估值約 $7.5 億，服務覆蓋 130+ 國、支援所有主要區塊鏈網路。交易預計年底前完成。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>BVNK 曾與 Coinbase 洽談 $20 億收購但告吹；Mastercard 在宣布此交易後正式退出對 Zerohash 的投資計劃，顯示其「押注單一穩定幣軌道整合商」戰略。超越 Stripe 以 $11 億收購 Bridge（2025 年 2 月）的記錄。</p>
+      <div class="label">影響觀察 / Implications</div>
+      <p>傳統卡組織與加密基礎建設的整合加速，Visa 若未推出對等動作，將在穩定幣跨境支付市場被 Mastercard 甩開至少 12–18 個月。</p>
+    </div>
+
+    <div class="card">
+      <h3>Recharge 以 $1.05 億現金收購 YC 校友 Skio，征服訂閱電商市場 <span class="en">/ Recharge Acquires YC-Backed Skio for $105M Cash — Largest Private Subscription Commerce Exit</span></h3>
+      <div class="meta">
+        <span class="tag yellow">Startup Acquires Startup</span>
+        <span class="tag">E-commerce / SaaS</span>
+        <a href="https://techcrunch.com/2026/04/30/y-combinator-alum-skio-sells-for-105m-cash-only-raised-8m-founder-says/" target="_blank">TechCrunch · 2026-04-30 ↗</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><span class="val">$105M</span><span class="lbl">現金收購價</span></div>
+        <div class="stat"><span class="val">$32M</span><span class="lbl">Skio ARR</span></div>
+        <div class="stat"><span class="val">$8M</span><span class="lbl">Skio 累計融資</span></div>
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p><strong>Skio</strong>（YC W21，創辦人 Kennan Frost，前 Pinterest 工程師）被訂閱支付競爭對手 Recharge 以全現金 $1.05 億收購。Skio 無行銷無業務團隊，靠產品口碑達到 $3,200 萬 ARR，已處理 $40 億支付金額。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>合併後 Recharge+Skio 服務超過 20,000 家商家，年化 GMV 超過 $200 億。這是訂閱電商有史以來最大的私人收購案。Kennan Frost 離開後已創立新公司 <strong>Icon</strong>，主打 AI 廣告生成（AdMaker）。</p>
+      <div class="label">影響觀察 / Implications</div>
+      <p>「$800 萬融資 → $1.05 億退場」的資本效率故事，將再次點燃 bootstrapped/capital-efficient startup 敘事。對 YC 而言是一個典型 portfolio story，但也反映訂閱電商市場正快速集中。</p>
+    </div>
+
+    <div class="card">
+      <h3>Doctolib 收購英國醫療 SaaS Medicus，加速歐陸健康科技擴張 <span class="en">/ Doctolib Acquires UK Health SaaS Medicus to Expand European Footprint</span></h3>
+      <div class="meta">
+        <span class="tag yellow">Startup Acquires Startup</span>
+        <span class="tag">HealthTech / Europe</span>
+        <a href="https://www.quinnemanuel.com/the-firm/publications/mergers-acquisitions-update-may-2026/" target="_blank">Quinn Emanuel M&amp;A Update · 2026-05 ↗</a>
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>法國健康科技獨角獸 <strong>Doctolib</strong>（2023 年估值 $5.8 億）收購英國醫療工具開發商 <strong>Medicus</strong>，交易金額未揭露。Medicus 專為英國 NHS 市場提供臨床管理軟體。</p>
+      <div class="label">影響觀察 / Implications</div>
+      <p>Doctolib 從法國擴至英國，是歐洲健康科技整合浪潮的縮影。NHS 市場的數位化改革提供進場時機，但 UK 監管環境（ICO 資料保護規定）將是整合挑戰。</p>
+    </div>
+  </section>
+
+  <!-- ─── 6. PEOPLE MOVES ─── -->
+  <section class="section">
+    <div class="section-header">
+      <span class="emoji">👤</span>
+      <h2>人事 / People Moves</h2>
+    </div>
+
+    <div class="card">
+      <h3>Cognition CEO Scott Wu：打造「AI 主導軟體工程」組織的舵手 <span class="en">/ Cognition CEO Scott Wu Emerges as AI Software Engineering's Key Figure</span></h3>
+      <div class="meta">
+        <span class="tag">Founder / CEO</span>
+        <a href="https://chatforest.com/reviews/cognition-ai-devin-1-billion-round-26b-valuation-492m-arr-2026/" target="_blank">ChatForest · 2026-05 ↗</a>
+      </div>
+      <p>Cognition $10 億輪完成後，<strong>Scott Wu</strong>（前競技程式競賽世界排名第一）成為 AI Agent 賽道最受矚目的創辦人之一。其兄弟 Neal Wu 同為 Cognition 核心共同創辦人。此輪後 Scott Wu 預計在公開場合更活躍地定義「軟體工程的未來」話語權。</p>
+    </div>
+
+    <div class="card">
+      <h3>ClickUp CEO Zeb Evans：AI 重組的激進旗手 <span class="en">/ ClickUp CEO Zeb Evans Bets the Company on AI-First Org Redesign</span></h3>
+      <div class="meta">
+        <span class="tag">Founder / CEO</span>
+        <a href="https://techcrunch.com/2026/05/25/what-clickups-mass-layoff-tells-us-about-the-future-of-work/" target="_blank">TechCrunch · 2026-05-25 ↗</a>
+      </div>
+      <p><strong>Zeb Evans</strong> 將 ClickUp 290 人裁員定位為「我們別無選擇」，並親自向全員發信說明「AI-first 100x org」願景。若此模型奏效，Evans 將成為「後 AGI SaaS」組織設計的教科書案例；若失敗，則是一個昂貴的實驗。</p>
+    </div>
+  </section>
+
+  <!-- ─── 7. LAYOFFS & SHUTDOWNS ─── -->
+  <section class="section">
+    <div class="section-header">
+      <span class="emoji">⚠️</span>
+      <h2>裁員與停業 / Layoffs &amp; Shutdowns</h2>
+    </div>
+
+    <div class="card">
+      <h3>以色列網站建構平台 Wix 裁員 1,000 人（佔員工總數 20%），史上最大一次 <span class="en">/ Wix Cuts 1,000 Jobs (20% of Workforce) — Largest Layoff in Company History</span></h3>
+      <div class="meta">
+        <span class="tag red">Layoff</span>
+        <span class="tag">Israel / SaaS</span>
+        <a href="https://www.calcalistech.com/ctechnews/article/b1oebi11xge" target="_blank">Calcalist · 2026-05-25 ↗</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><span class="val">1,000</span><span class="lbl">裁員人數</span></div>
+        <div class="stat"><span class="val">20%</span><span class="lbl">佔員工比例</span></div>
+        <div class="stat"><span class="val">~4,200</span><span class="lbl">裁後剩餘人數</span></div>
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>Wix.com 於 5 月 25 日宣布裁員約 1,000 人，預計年底前完成。理由：(1) 謝克爾兌美元升值，以色列人力成本結構性壓力；(2) AI 工具大幅降低內部開發與設計工作量。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>Q1 財報令人失望，股價在財報後跌逾三分之一。CEO Avishai Abrahami 以「我們別無選擇」描述此決定。超過 60% 員工在以色列，謝克爾/美元匯率差異使成本結構惡化。</p>
+      <div class="label">影響觀察 / Implications</div>
+      <p>Wix 同時面臨 AI 網站建構工具（Webflow AI、Squarespace AI、Framer 等）和匯率雙重壓力，結構性問題未解。此波裁員是 2026 年以色列高科技史上最大單一事件之一，對當地生態影響深遠。</p>
+    </div>
+
+    <div class="card">
+      <h3>ClickUp 裁員 22%（~290 人）：AI-first 重組，留任員工可領百萬美元年薪 <span class="en">/ ClickUp Cuts 22% (~290 People), Deploys 3,000 AI Agents, Offers $1M Salary Bands</span></h3>
+      <div class="meta">
+        <span class="tag red">Layoff / Restructuring</span>
+        <span class="tag">Productivity SaaS</span>
+        <a href="https://thenextweb.com/news/clickup-layoffs-22-percent-ai-100x-org-million-salary" target="_blank">The Next Web · 2026-05-22 ↗</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><span class="val">290人</span><span class="lbl">裁員數（22%）</span></div>
+        <div class="stat"><span class="val">3,000</span><span class="lbl">AI Agent 部署數</span></div>
+        <div class="stat"><span class="val">$1M</span><span class="lbl">最高年薪上限</span></div>
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>ClickUp（估值 $40 億）於 5 月 22 日宣布裁減 1,300 員工中的 22%，現部署 3,000 個 AI agents（agent：人員 = 3:1）。剩餘員工分為三類：Builders、System Managers、Front-liners，均可憑「100x 貢獻」晉升百萬美元薪資帶。</p>
+      <div class="label">影響觀察 / Implications</div>
+      <p>這是 2026 年「AI 替代人力」最清晰的企業案例宣言。業界普遍視此為 SaaS 人力結構轉型的早期指標，預計將有更多公司跟進類似重組，但多數不會如此公開。</p>
+    </div>
+
+    <div class="card">
+      <h3>加密資料新創 Dune Analytics 裁員 25% <span class="en">/ Crypto Data Startup Dune Analytics Cuts 25% of Staff</span></h3>
+      <div class="meta">
+        <span class="tag red">Layoff</span>
+        <span class="tag">Crypto / Data</span>
+        <a href="https://news.crunchbase.com/startups/tech-layoffs/" target="_blank">Crunchbase News · 2026-05-15 ↗</a>
+      </div>
+      <p>Dune Analytics 於 5 月 15 日宣布裁員 25%，主因為加密市場情緒降溫及商業化進展慢於預期。Dune 是主要的鏈上資料分析平台（查詢以太坊等鏈的資料），峰值估值達 $10 億。</p>
+    </div>
+  </section>
+
+  <!-- ─── 8. IPO PIPELINE ─── -->
+  <section class="section">
+    <div class="section-header">
+      <span class="emoji">📈</span>
+      <h2>上市進程 / IPO Pipeline</h2>
+    </div>
+
+    <div class="card">
+      <h3>SpaceX 正式遞交 S-1，估值目標 $1.75 兆，預計成為史上最大 IPO <span class="en">/ SpaceX Files S-1 Targeting $1.75T Valuation — Potentially Largest IPO in History</span></h3>
+      <div class="meta">
+        <span class="tag purple">S-1 Filed</span>
+        <span class="tag">Space / Tech</span>
+        <a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm" target="_blank">SEC EDGAR · 2026-05-20 ↗</a>
+        <a href="https://techcrunch.com/2026/05/23/nuclear-startup-deep-fission-says-its-going-public-again-and-i-have-questions/" target="_blank">TechCrunch ↗</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><span class="val">$1.75T</span><span class="lbl">目標估值</span></div>
+        <div class="stat"><span class="val">$18.7B</span><span class="lbl">2025 營收</span></div>
+        <div class="stat"><span class="val">$11.4B</span><span class="lbl">Starlink 營收（61%）</span></div>
+        <div class="stat"><span class="val">$75B</span><span class="lbl">目標募資額</span></div>
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>SpaceX 於 5 月 20 日提交 S-1，代號 <strong>SPCX</strong>。Goldman Sachs 主導，零售投資者獲分配 30% 浮動股份（是一般大型 IPO 的 3 倍）。路演預計 6 月 8 日啟動。Elon Musk 持股 42%，投票權 85%。2026 Q1 淨虧損 $42.8 億（AI/xAI 部門虧損 $64 億）。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>Starlink 是獲利引擎（2025 年 operating profit $44 億），xAI 是大血包。S-1 風險因素長達 36 頁，點名 Elon 個人集中控制風險為最大不確定因子。估值若達成，將超越 Saudi Aramco IPO（$256 億募資，2019 年），成為有史以來最大 IPO。</p>
+      <div class="label">影響觀察 / Implications</div>
+      <p>SpaceX 上市對台灣及亞洲投資者意義重大：Starlink 衛星通訊與半導體供應鏈（衛星元件、地面站）直接相關。SpaceX IPO 若成功，將引發其他 pre-IPO 獨角獸（Stripe、Databricks）重新評估上市時機。</p>
+    </div>
+
+    <div class="card">
+      <h3>核能新創 Deep Fission 再次宣布上市計劃，募資目標 $1.57 億 <span class="en">/ Nuclear Startup Deep Fission Announces IPO Plans Again, Targeting $157M Raise</span></h3>
+      <div class="meta">
+        <span class="tag purple">IPO Filing</span>
+        <span class="tag">Nuclear / Energy</span>
+        <a href="https://techcrunch.com/2026/05/23/nuclear-startup-deep-fission-says-its-going-public-again-and-i-have-questions/" target="_blank">TechCrunch · 2026-05-23 ↗</a>
+      </div>
+      <p>Deep Fission 宣布以 $1.57 億目標再次尋求 IPO。TechCrunch 的報導帶有質疑語氣（「I have questions」），指出其財務健康狀況仍存在不確定性。核能領域在 AI 電力需求驅動下受關注度高，但商業前景尚需驗證。</p>
+    </div>
+  </section>
+
+  <!-- ─── 9. REGIONAL SPOTLIGHT ─── -->
+  <section class="section">
+    <div class="section-header">
+      <span class="emoji">🌏</span>
+      <h2>區域 / Regional Spotlight</h2>
+    </div>
+
+    <div class="card">
+      <h3>歐洲：Lexroom（米蘭）完成 $5,000 萬 Series B，小型律師事務所 AI 工具 <span class="en">/ Europe: Lexroom (Milan) Raises $50M Series B for Small Law Firm AI Tools</span></h3>
+      <div class="meta">
+        <span class="tag green">Series B</span>
+        <span class="tag">LegalTech / Europe</span>
+        <a href="https://sifted.eu/articles/sifted-100-southern-europe-2026" target="_blank">Sifted · 2026-05 ↗</a>
+      </div>
+      <p>義大利 <strong>Lexroom</strong> 完成 $5,000 萬 Series B，為小型律師事務所和企業法務部門提供 AI 自動化工具。南歐最快成長新創 Sifted 100 榜單中，Lexroom 與 Milan 飯店分租平台 Hotiday 同列前茅。</p>
+    </div>
+
+    <div class="card">
+      <h3>印度：Rapido 完成 $2.4 億融資，挑戰 Ola 與 Uber <span class="en">/ India: Rapido Raises $240M to Challenge Ola &amp; Uber</span></h3>
+      <div class="meta">
+        <span class="tag green">Growth Stage</span>
+        <span class="tag">Mobility / India</span>
+        <a href="https://www.newskart.com/india-startup-funding-update-may-11-to-may-15-2026-key-deals-investors-and-founders-to-watch/" target="_blank">NewsKart · 2026-05-11 ↗</a>
+      </div>
+      <p>印度機車計程車平台 <strong>Rapido</strong> 完成 $2.4 億融資，主打「比 Ola/Uber 更便宜的二輪移動」在印度三四線城市快速擴張。2026 年印度新創募資 $73.6 億（截至 5 月），同比下降 12%，但頭部公司吸金能力不減。</p>
+    </div>
+
+    <div class="card">
+      <h3>台灣 / 中港：無重大新創獨立事件，但 AI 基礎建設投資仍活躍 <span class="en">/ Taiwan / Greater China: No Major Standalone Events; AI Infrastructure Investment Active</span></h3>
+      <div class="meta">
+        <span class="tag">Taiwan / China</span>
+      </div>
+      <p>本周台灣新創生態無重大獨立融資或退場事件見諸主流媒體。中國方面，36氪持續追蹤各地 AI 應用新創；但受到美中技術管制的持續影響，大型募資事件多見於不涉及美國投資者的本地政府基金支持案例。</p>
+    </div>
+  </section>
+
+  <!-- ─── 10. READS ─── -->
+  <section class="section">
+    <div class="section-header">
+      <span class="emoji">📖</span>
+      <h2>觀點 / Reads</h2>
+    </div>
+
+    <div class="card">
+      <h3>「What ClickUp's mass layoff tells us about the future of work」— TechCrunch</h3>
+      <div class="meta">
+        <a href="https://techcrunch.com/2026/05/25/what-clickups-mass-layoff-tells-us-about-the-future-of-work/" target="_blank">TechCrunch · 2026-05-25 ↗</a>
+      </div>
+      <p>深度分析 ClickUp 裁員事件，探討「AI Agent 替代人力」從假設到現實的轉型。作者認為，此事件是 SaaS 組織結構變革的「金絲雀時刻」——大量中層技術職位的消失只是開始，真正的衝擊將在 12–18 個月後顯現。<strong>推薦閱讀</strong>：了解 AI 時代組織設計的一手案例。</p>
+    </div>
+
+    <div class="card">
+      <h3>「Cognition AI's $1B round: the fastest ARR ramp in enterprise AI history?」— The Next Web</h3>
+      <div class="meta">
+        <a href="https://thenextweb.com/news/cognition-just-raised-1-billion-at-a-26-billion-valuation-and-90-of-its-own-code-is-written-by-its-ai" target="_blank">The Next Web · 2026-05-27 ↗</a>
+      </div>
+      <p>解析 Cognition 從 $3,700 萬到 $4.92 億 ARR 的 12 個月軌跡，以及「90% 程式碼由自家 AI 撰寫」的深層含義——這不只是行銷語言，而是驗證 AI coding agent 在生產環境大規模落地的最佳例證。</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><strong>資料來源 / Sources:</strong>
+    <a href="https://techcrunch.com/" target="_blank">TechCrunch</a> ·
+    <a href="https://news.crunchbase.com/" target="_blank">Crunchbase News</a> ·
+    <a href="https://thenextweb.com/" target="_blank">The Next Web</a> ·
+    <a href="https://www.bloomberg.com/technology" target="_blank">Bloomberg Tech</a> ·
+    <a href="https://fortune.com/section/term-sheet/" target="_blank">Fortune Term Sheet</a> ·
+    <a href="https://sifted.eu/" target="_blank">Sifted</a> ·
+    <a href="https://www.calcalistech.com/" target="_blank">Calcalist Tech</a> ·
+    <a href="https://www.axios.com/" target="_blank">Axios</a> ·
+    <a href="https://www.producthunt.com/" target="_blank">Product Hunt</a> ·
+    <a href="https://entrackr.com/" target="_blank">Entrackr</a> ·
+    <a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm" target="_blank">SEC EDGAR (SpaceX S-1)</a>
+  </p>
+  <p style="margin-top:8px;"><strong>付費牆 / Paywalled:</strong> The Information（未收錄）· Wall Street Journal Tech（部分受限）· Bloomberg（部分受限，使用摘要）</p>
+  <div class="disclaimer">本日報為資訊整理用途，不構成投資建議。All content for informational purposes only, not investment advice. 資料截止時間：2026-05-29 Asia/Taipei。</div>
+</footer>
+
+</body>
+</html>

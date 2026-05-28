@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日美股熱門焦點股 — May 28, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #23273a;
+    --border: #2e3348;
+    --accent: #4f8ef7;
+    --accent2: #f7c94f;
+    --green: #3dd68c;
+    --red: #f25c5c;
+    --yellow: #f7c94f;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.6; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header {
+    background: linear-gradient(135deg, #141828 0%, #1e2540 100%);
+    border-bottom: 2px solid var(--accent);
+    padding: 28px 32px 20px;
+  }
+  header h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; }
+  header .sub { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+  header .session-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+    font-weight: 600;
+  }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 24px 60px; }
+
+  /* backdrop notice */
+  .backdrop {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent2);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 28px;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .backdrop strong { color: var(--text); }
+
+  /* summary table */
+  .section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    margin-top: 36px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .summary-table-wrap { overflow-x: auto; margin-bottom: 36px; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.875rem; }
+  th {
+    background: var(--surface2);
+    color: var(--muted);
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .ticker { font-weight: 700; font-size: 1rem; color: var(--accent2); }
+  .up { color: var(--green); font-weight: 600; }
+  .dn { color: var(--red); font-weight: 600; }
+  .neutral { color: var(--muted); }
+  .buzz { letter-spacing: 1px; }
+
+  /* ticker cards */
+  .ticker-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ticker-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--accent);
+    border-radius: 12px 0 0 12px;
+  }
+  .ticker-card.red::before { background: var(--red); }
+  .ticker-card.yellow::before { background: var(--yellow); }
+  .ticker-card.purple::before { background: #b57af7; }
+  .ticker-card.teal::before { background: #4fd6c8; }
+
+  .card-header { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  .card-ticker { font-size: 1.5rem; font-weight: 800; color: var(--accent2); }
+  .card-name { font-size: 1rem; color: var(--muted); }
+  .card-pct { font-size: 1.1rem; font-weight: 700; }
+
+  .tape {
+    background: var(--surface2);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 16px;
+    font-family: 'Courier New', monospace;
+  }
+  .tape strong { color: var(--text); }
+
+  .field-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 14px;
+    margin-bottom: 5px;
+  }
+  .bilingual { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 680px) { .bilingual { grid-template-columns: 1fr; } }
+  .zh { color: var(--text); font-size: 0.9rem; }
+  .en { color: var(--muted); font-size: 0.88rem; }
+
+  p.content { font-size: 0.9rem; margin-bottom: 4px; }
+
+  /* watch list */
+  .watchlist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-bottom: 24px; }
+  .watch-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 0.85rem;
+  }
+  .watch-card .wt { font-size: 1rem; font-weight: 700; color: var(--accent2); }
+
+  /* sources */
+  .sources-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-top: 36px;
+  }
+  .sources-section ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 20px; padding-top: 8px; }
+  .sources-section li { font-size: 0.8rem; }
+
+  .disclaimer {
+    margin-top: 20px;
+    font-size: 0.75rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+  }
+
+  .halt-badge {
+    display: inline-block;
+    background: #ff4d4d22;
+    border: 1px solid var(--red);
+    color: var(--red);
+    font-size: 0.7rem;
+    padding: 1px 7px;
+    border-radius: 4px;
+    font-weight: 700;
+    margin-left: 6px;
+  }
+  .ah-badge {
+    display: inline-block;
+    background: #f7c94f22;
+    border: 1px solid var(--yellow);
+    color: var(--yellow);
+    font-size: 0.7rem;
+    padding: 1px 7px;
+    border-radius: 4px;
+    font-weight: 700;
+    margin-left: 6px;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>🔥 今日美股熱門焦點股 / Hot US Stocks of the Day</h1>
+  <div class="sub">
+    <span class="session-tag">US Session</span>
+    <strong>Thursday, May 28, 2026</strong> &nbsp;·&nbsp; NYSE/Nasdaq Regular Session (RTH 09:30–16:00 ET) + After Hours
+    &nbsp;·&nbsp; 資料截至台北時間 2026-05-29 凌晨
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Market backdrop -->
+  <div class="backdrop">
+    <strong>大盤背景 / Market Backdrop:</strong>
+    S&amp;P 500 收 <strong>7,520.36</strong> (+0.02%) · Nasdaq 收 <strong>26,674.73</strong> (+0.07%) · VIX <strong>~16.3</strong>（前收）
+    &nbsp;·&nbsp; 大盤近乎平盤，主要催化劑來自個股（財報季 + 量子計算概念）；地緣方面美伊延長停火60天提振早盤情緒。
+    整體氣氛：<span class="up">Retail Beat Day</span> — 零售財報大面積超預期，空間股因 SpaceX IPO 熱度延燒，量子股隨 IBM 公告補漲。
+  </div>
+
+  <!-- Summary Table -->
+  <div class="section-title">⚡ Hot 8 — Summary Table 今日焦點股概覽</div>
+  <div class="summary-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>Company</th>
+          <th>Close / AH</th>
+          <th>% RTH</th>
+          <th>Catalyst</th>
+          <th>Options / Flow</th>
+          <th>Buzz</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ticker">DLTR</td>
+          <td>Dollar Tree</td>
+          <td>~+18% premarket → RTH surge</td>
+          <td class="up">+17.6%</td>
+          <td>Q1 EPS $1.74 vs est $1.55 (+12%), 全年指引上調</td>
+          <td>IV 事前定價 ±10%；實際突破</td>
+          <td class="buzz">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="ticker">BBY</td>
+          <td>Best Buy</td>
+          <td>$73.57 (+~15%)</td>
+          <td class="up">+14–15%</td>
+          <td>Q1 FY27 EPS $1.28 beat, Rev $8.94B beat, comp +2%</td>
+          <td>大量 call 買盤；IV spike 事後壓縮</td>
+          <td class="buzz">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ticker">RKTO</td>
+          <td>Rocket One (前 HOTH)</td>
+          <td>+60% 盤前 → 開盤延續</td>
+          <td class="up">+~60%</td>
+          <td>更名 + Pivot 至 Space AI Chip；新 ticker RKTO 首日</td>
+          <td>成交量爆 30x+；大量短期 call</td>
+          <td class="buzz">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ticker">APPS</td>
+          <td>Digital Turbine</td>
+          <td>~+53% (5/27 AH → 5/28 RTH)</td>
+          <td class="up">+50–53%</td>
+          <td>Q4 FY26 EPS $0.16 beat ($0.09 est)；BofA 升評 Buy</td>
+          <td>Call 39,759 張 (33x avg)；6/16 $8 strike 熱點</td>
+          <td class="buzz">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ticker">DELL</td>
+          <td>Dell Technologies</td>
+          <td>$317.31 AH (−3.93%)</td>
+          <td class="up">+0% RTH (AH 回吐)</td>
+          <td>Q1 FY27 earnings after close；年初至今+140%；AI Server 指引 $50B</td>
+          <td>IV 定價 ±12%；選擇權大筆 call/put 兩面操作</td>
+          <td class="buzz">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ticker">IBM</td>
+          <td>IBM</td>
+          <td>+1.5% premarket → RTH +~2%</td>
+          <td class="up">+1.5–2%</td>
+          <td>宣布 $100 億量子計算投資 + $50 億 AI 開源軟體計畫</td>
+          <td>IONQ / RGTI / QBTS 連帶大漲</td>
+          <td class="buzz">★★★☆☆</td>
+        </tr>
+        <tr>
+          <td class="ticker">RKLB</td>
+          <td>Rocket Lab</td>
+          <td>$146 (+~3%，月漲 83%)</td>
+          <td class="up">+2.7%</td>
+          <td>SpaceX IPO 熱度延燒；DoD 飛彈防禦方案通過 SRR</td>
+          <td>WSB / StockTwits 高度討論；52-week high</td>
+          <td class="buzz">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ticker">MDB</td>
+          <td>MongoDB</td>
+          <td>AH 待確認 (±14.5% IV)</td>
+          <td>→ 盤後動向</td>
+          <td>Q1 FY27 EPS est $1.18，Rev est $663M；AI Atlas 消費成長</td>
+          <td>選擇權定價最寬兩年，call/put 雙邊活躍</td>
+          <td class="buzz">★★★☆☆</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Deep Dives -->
+  <div class="section-title">📋 Per-Ticker Deep Dive 個股深度解析</div>
+
+  <!-- DLTR -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <span class="card-ticker">$DLTR</span>
+      <span class="card-name">Dollar Tree, Inc. / 美元樹</span>
+      <span class="card-pct up">+17.6%</span>
+    </div>
+    <div class="tape">
+      <strong>Tape:</strong> RTH surge ~+17.6% · Q1 EPS $1.74 (beat est $1.55, +12.3%) · Revenue $5.0B, SSS +3.5% · FY26 EPS 指引上調至 $6.70–$7.10 · 盤前已跳漲 +18.4%
+    </div>
+
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="bilingual">
+      <div class="zh">Dollar Tree Q1 2026 全面超預期：EPS $1.74 比共識 $1.55 高出 12%，同店銷售成長 3.5%，毛利率擴大 120 bps，並回購 $5.95 億股票。全年指引上修反映管理層對消費韌性的信心。在一個「消費者受壓」的總經敘事下，這份結果形成強力反差，引發空頭回補＋機構買盤雙重拉升。</div>
+      <div class="en">Dollar Tree posted a clean beat across all key metrics: EPS $1.74 vs $1.55 est (+12%), SSS +3.5%, gross margin +120 bps, and a $595M buyback. Full-year EPS guidance raised to $6.70–$7.10. Result defied macro pessimism on US consumers and triggered short covering + institutional buying simultaneously.</div>
+    </div>
+
+    <div class="field-label">Options &amp; Flow</div>
+    <p class="content">事前 TipRanks 報導選擇權市場定價 ±10% 移動，實際結果突破此區間。RTH 開盤後大量 call 活動延續。空方 days-to-cover 待確認，但短線軋空成分明顯。</p>
+
+    <div class="field-label">Retail Buzz</div>
+    <p class="content">Reddit r/stocks 出現多篇帖子討論零售股「全面翻轉」敘事；StockTwits $DLTR 討論量急升；X 上零售分析師帳號大量轉發 CNBC / Bloomberg 報導。關鍵句："surprising execution from a beaten-up name"。</p>
+
+    <div class="field-label">後續觀察 / What to Watch Next</div>
+    <p class="content">① 是否能守住跳空缺口；② 後續幾週 r/Daytrading 是否維持動能；③ Family Dollar 分拆進程更新（<em>分析觀點，非事實</em>）；④ Q2 財報時間確認。</p>
+    <p class="content" style="margin-top:8px;font-size:0.8rem;color:var(--muted)">Sources: <a href="https://markets.financialcontent.com/stocks/article/stockstory-2026-5-28-dollar-tree-nasdaqdltr-reports-q1-cy2026-in-line-with-expectations-stock-jumps-104" target="_blank">FinancialContent</a> · <a href="https://www.stocktitan.net/news/DLTR/dollar-tree-inc-reports-first-quarter-pciw1yhjje7i.html" target="_blank">StockTitan</a> · <a href="https://www.investing.com/news/transcripts/earnings-call-transcript-dollar-tree-q1-2026-beats-eps-forecast-93CH-4714543" target="_blank">Investing.com Transcript</a> · <a href="https://www.tipranks.com/news/best-buy-kohls-and-dollar-tree-rally-as-strong-results-lift-retail-stocks" target="_blank">TipRanks</a></p>
+  </div>
+
+  <!-- BBY -->
+  <div class="ticker-card teal">
+    <div class="card-header">
+      <span class="card-ticker">$BBY</span>
+      <span class="card-name">Best Buy Co., Inc. / 百思買</span>
+      <span class="card-pct up">+14–15%</span>
+    </div>
+    <div class="tape">
+      <strong>Tape:</strong> Close ~$73.57 (+~15%) · Q1 FY27 EPS $1.28 (beat $1.23 est) · Revenue $8.94B (beat $8.83B est) · Comp sales +2.0% · FY27 Guidance maintained · 盤前跳漲 +10.4%
+    </div>
+
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="bilingual">
+      <div class="zh">Best Buy 交出近幾季最乾淨的一份財報：EPS、營收、同店銷售三指標全部超標。Comp sales +2.0% 終結連續多季衰退，遊戲、電腦、手機需求強勁。新 CEO 交接在即，業績先打了個漂亮的「迎新彈」。CNBC 稱此為「向機構說：零售科技電子消費有底」的訊號。</div>
+      <div class="en">Best Buy delivered its cleanest beat in several quarters — EPS, revenue, and comps all above estimates. The +2.0% comp-sales recovery ends a multi-quarter decline streak driven by gaming, computers, and phones. A leadership transition amplified market sensitivity; the beat read as "consumer electronics demand has floored." CNBC headlined it as a 15% surge.</div>
+    </div>
+
+    <div class="field-label">Options &amp; Flow</div>
+    <p class="content">盤前即見大量 call 買盤進場（待確認確切 OI）；開盤後 IV 快速壓縮，標準「sell the vol 事後」型態。機構 flow 明顯偏多方。</p>
+
+    <div class="field-label">Retail Buzz</div>
+    <p class="content">r/stocks 與 r/investing 均出現「BBY 終於要 reverse?」討論；StockTwits $BBY 訊息密度上升；X 上多位科技零售分析師高讚推文。</p>
+
+    <div class="field-label">後續觀察 / What to Watch Next</div>
+    <p class="content">① 新 CEO 上任後策略說明是否改變長期估值；② 能否穿越 $75–$80 阻力帶；③ 同業 Target / Walmart Q2 預熱訊號（<em>分析觀點</em>）。</p>
+    <p class="content" style="margin-top:8px;font-size:0.8rem;color:var(--muted)">Sources: <a href="https://www.cnbc.com/2026/05/28/best-buy-bby-q1-2027-earnings.html" target="_blank">CNBC</a> · <a href="https://www.gurufocus.com/news/8889073/best-buy-bby-surges-after-strong-q1-earnings-report" target="_blank">GuruFocus</a> · <a href="https://www.investing.com/news/stock-market-news/why-is-best-buy-stock-surging-today-93CH-4714469" target="_blank">Investing.com</a> · <a href="https://stockstory.org/us/stocks/nyse/bby/news/earnings/best-buy-nysebby-beats-q1-cy2026-sales-expectations-stock-soars" target="_blank">StockStory</a></p>
+  </div>
+
+  <!-- RKTO -->
+  <div class="ticker-card yellow">
+    <div class="card-header">
+      <span class="card-ticker">$RKTO</span>
+      <span class="card-name">Rocket One Inc. (前 Hoth Therapeutics $HOTH) / 火箭一號</span>
+      <span class="card-pct up">+~60%</span>
+      <span class="halt-badge">⚠ MEME ALERT</span>
+    </div>
+    <div class="tape">
+      <strong>Tape:</strong> Premarket +60%，正式以 RKTO 掛牌首日 · 前收 HOTH · 小市值股 (nano-cap) · 無實質營收 · 成交量 30x+ 平均
+    </div>
+
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="bilingual">
+      <div class="zh">原為小型生物科技公司 Hoth Therapeutics（無實質營收），5 月宣布更名為 Rocket One Inc. 並轉型為 Space AI Chip 公司，主攻低功耗奈磁 AI 晶片供衛星與國防使用，並加入 AMD AI Developer Program。5/27 收盤後更名生效，5/28 以 RKTO 新代號首日掛牌，盤前即跳漲 60%，完美搭上「SpaceX IPO 熱」+「AI 晶片概念」雙重敘事。</div>
+      <div class="en">Formerly Hoth Therapeutics (zero revenue biotech), the company rebranded to Rocket One Inc. and pivoted to space-AI nanomagnetic chip technology for satellites and defense. On May 27 the HOTH ticker was retired; RKTO began trading May 28. The debut +60% surge rides the SpaceX IPO euphoria + AI chip hype narrative simultaneously. Zero revenue — this is a pure narrative/ticker trade.</div>
+    </div>
+
+    <div class="field-label">Options &amp; Flow</div>
+    <p class="content">成交量爆量 30x+ 均量；短期 call 大量湧入（具體 OI 待確認）；高 IV、高 bid-ask spread 典型小市值軋空型態。需警惕快速拉高出貨風險。</p>
+
+    <div class="field-label">Retail Buzz</div>
+    <p class="content">Reddit r/wallstreetbets 及 r/Shortsqueeze 討論熱度迅速上升；X 上 $RKTO cashtag 刷屏，有人稱 "next RKLB" 但基本面天差地別。StockTwits 訊息激增。關鍵句引用："pure meme fuel, no revenue, all narrative"。</p>
+
+    <div class="field-label">⚠ 炒作脈絡警示 / Risk Context</div>
+    <p class="content">公司目前<strong>無實質營收</strong>，更名轉型為典型 biotech-to-hot-sector 換皮模式。AMD AI Developer Program 為開放申請計畫，進入門檻較低。此股具高度投機性質，與 Rocket Lab (RKLB) 業務無關。<em>僅作分析，非投資建議。</em></p>
+
+    <div class="field-label">後續觀察 / What to Watch Next</div>
+    <p class="content">① 成交量是否能持續 2–3 日；② 公司是否有後續技術實質進展公告；③ SEC 是否關注異常交易模式（<em>分析觀點</em>）。</p>
+    <p class="content" style="margin-top:8px;font-size:0.8rem;color:var(--muted)">Sources: <a href="https://money.usnews.com/investing/news/articles/2026-05-28/from-biotech-to-orbit-rocket-ones-ai-and-space-re-brand-sends-shares-flying" target="_blank">US News</a> · <a href="https://www.stocktitan.net/news/HOTH/hoth-therapeutics-becomes-rocket-one-inc-nasdaq-rkto-targeting-the-r2suai16td14.html" target="_blank">StockTitan</a> · <a href="https://www.benzinga.com/markets/equities/26/05/52830171/why-hoth-therapeutics-hoth-stock-is-surging-after-hours-today" target="_blank">Benzinga</a></p>
+  </div>
+
+  <!-- APPS -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <span class="card-ticker">$APPS</span>
+      <span class="card-name">Digital Turbine, Inc. / 數位渦輪</span>
+      <span class="card-pct up">+50–53%</span>
+    </div>
+    <div class="tape">
+      <strong>Tape:</strong> AH 5/27 → 5/28 RTH +53% · Q4 FY26 EPS $0.16 (beat $0.09 est, +78%) · Revenue $142.55M (beat $135.9M est) · FY26 Revenue $565M (+15% YoY) · FY27 Rev 指引 $630–$650M
+    </div>
+
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="bilingual">
+      <div class="zh">Digital Turbine Q4 FY26 EPS 以 78% 超預期幅度打爆共識，App Growth Platform 營收暴增 57% YoY 至 $52.1M，EBITDA +53%。更重要的是 BofA 當日升評為 Buy（由 Neutral），指出連續四季超預期、FY27 能見度提升。這是一個「基本面+分析師 catalyst 雙重觸發」的典型大漲設定。</div>
+      <div class="en">Digital Turbine's Q4 FY26 EPS blew out by 78% vs consensus; App Growth Platform revenue surged 57% YoY to $52.1M; EBITDA +53%. BofA upgraded to Buy the same day citing four consecutive beats and improved FY27 visibility. This is a textbook "earnings blowout + analyst upgrade" dual-catalyst surge setup.</div>
+    </div>
+
+    <div class="field-label">Options &amp; Flow</div>
+    <p class="content">Call 量 39,759 張（33x 均量）；6/16 到期 $8 strike 最熱，13,752 合約偏 buy-side；Barchart 異常期權活動榜單上榜。IV 急升後壓縮中。</p>
+
+    <div class="field-label">Retail Buzz</div>
+    <p class="content">Quiver Quantitative WSB tracker 顯示 APPS 討論量飆升；r/options 多篇貼文分析 call 買盤結構；StockTwits 頭條："On Track For Best Single-Day Gains In 11 Months"。</p>
+
+    <div class="field-label">後續觀察 / What to Watch Next</div>
+    <p class="content">① 短期是否能守住 $8 關口；② FY27 Q1 能否維持 App Growth Platform 的 57% 增速；③ 機構是否持續跟進 BofA 升評（<em>分析觀點</em>）。</p>
+    <p class="content" style="margin-top:8px;font-size:0.8rem;color:var(--muted)">Sources: <a href="https://www.quiverquant.com/news/DIGITAL+TURBINE+%28%24APPS%29+Releases+Q4+2026+Earnings%2C+Stock+Rises" target="_blank">Quiver Quant</a> · <a href="https://www.fool.com/investing/2026/05/27/why-digital-turbine-stock-is-rapidly-roaring-highe/" target="_blank">Motley Fool</a> · <a href="https://www.benzinga.com/markets/earnings/26/05/52794299/digital-turbine-stock-shoots-higher-after-q4-results-heres-why" target="_blank">Benzinga</a> · <a href="https://stocktwits.com/news-articles/markets/equity/why-is-apps-stock-soaring-today/cZggQr9RerQ" target="_blank">StockTwits</a> · <a href="https://www.barchart.com/options/unusual-activity" target="_blank">Barchart UOA</a></p>
+  </div>
+
+  <!-- DELL -->
+  <div class="ticker-card red">
+    <div class="card-header">
+      <span class="card-ticker">$DELL</span>
+      <span class="card-name">Dell Technologies, Inc. / 戴爾科技</span>
+      <span class="card-pct dn">AH −3.93%（RTH 前漲後跌）</span>
+      <span class="ah-badge">AH ACTIVE</span>
+    </div>
+    <div class="tape">
+      <strong>Tape:</strong> RTH 收盤（待確認，年初至今 +140%）· AH $317.31 (−$11.99, −3.93%) · Q1 FY27 Conference Call 4:30 PM ET · AI Server Rev 指引 ~$13B Q1；FY27 Rev $138–$142B，AI Rev ~$50B
+    </div>
+
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="bilingual">
+      <div class="zh">Dell 今年因 AI 伺服器需求爆發股價年初至今漲 140%，是 2026 最熱 AI infrastructure 標的之一。Dell Technologies World 活動期間股價單週再漲 24%，在本次 Q1 FY27 財報前估值已極度拉伸。選擇權市場定價 ±12% 移動，實際 AH 反應為「賣消息」— 跌約 4%，但這仍在 IV 定價區間內。AI revenue 能否達到 $13B 是核心觀察指標。</div>
+      <div class="en">Dell's +140% YTD run made it one of 2026's premier AI infrastructure plays. Another +24% single-week surge around Dell Technologies World left valuation stretched into earnings. Options priced ±12% move; AH reaction was a "sell-the-news" ~4% drop — within the implied range but indicating peak expectations. Q1 AI server revenue vs the $13B guidance is the key watch item.</div>
+    </div>
+
+    <div class="field-label">Options &amp; Flow</div>
+    <p class="content">事前 IV 定價 ±12.1%（遠高於歷史均值 ±4.6%）；選擇權雙邊大量；AH 跌幅溫和，多頭仍有機會若 Q1 實際數字超預期。具體 EPS 與 Revenue actual 數字截稿時待確認。</p>
+
+    <div class="field-label">Retail Buzz</div>
+    <p class="content">WSB 討論 "DELL is the AI infrastructure trade everyone owns"；r/investing 有多篇帖子辯論「stock up 140% 是否已 priced in」；StockTwits 大量討論 AI server 競爭（SuperMicro vs Dell）。</p>
+
+    <div class="field-label">後續觀察 / What to Watch Next</div>
+    <p class="content">① 明日開盤是否填補 AH 跌幅；② AI Server backlog 數字（具體訂單能見度）；③ 毛利率趨勢（AI server 通常毛利偏低）；④ 競爭者 SMCI / HPE 反應（<em>分析觀點</em>）。</p>
+    <p class="content" style="margin-top:8px;font-size:0.8rem;color:var(--muted)">Sources: <a href="https://www.marketbeat.com/earnings/reports/2026-5-28-dell-technologies-inc-stock/" target="_blank">MarketBeat</a> · <a href="https://www.trefis.com/articles/600479/how-will-dell-technologies-stock-react-to-its-upcoming-earnings/2026-05-27" target="_blank">Trefis</a> · <a href="https://www.tikr.com/blog/dell-technologies-stock-jumped-24-at-dell-technologies-world-2026-heres-what-it-means-for-investors" target="_blank">TIKR</a> · <a href="https://www.investing.com/news/stock-market-news/dell-stock-may-swing-11-after-may-28-earnings-release-93CH-4704545" target="_blank">Investing.com</a></p>
+  </div>
+
+  <!-- IBM Quantum -->
+  <div class="ticker-card purple">
+    <div class="card-header">
+      <span class="card-ticker">$IBM</span>
+      <span class="card-name">IBM (+ quantum pure-plays IONQ, RGTI, QBTS)</span>
+      <span class="card-pct up">IBM +1.5–2% · IONQ +5.69% · RGTI +7.39% · QBTS +7.31%</span>
+    </div>
+    <div class="tape">
+      <strong>Tape:</strong> IBM 宣布 $100 億量子計算五年投資計畫 + $50 億 AI 開源軟體；U.S. 政府 $200 億注資量子業，IBM 子公司 Anderson 獲約 $100 億 · Quantum Starling (200 logical qubits, 2029 目標)
+    </div>
+
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="bilingual">
+      <div class="zh">IBM 宣布兩大重磅計畫：① 未來五年投入 $100 億開發大型量子電腦，目標 2029 年達 200 logical qubit 的 Quantum Starling；② 政府聯手撥款中 IBM 子公司 Anderson 將建立美國首座量子晶片製造廠。此消息帶動量子純玩股 IONQ、RGTI、QBTS 全面上漲 5–7%，形成板塊聯動效應。</div>
+      <div class="en">IBM unveiled two landmark announcements: a $10B five-year quantum investment targeting a 200-logical-qubit Quantum Starling computer by 2029, and IBM's subsidiary Anderson will receive ~$10B from the U.S. government's $20B quantum investment package to build America's first dedicated quantum chip fab. This triggered a sector-wide lift: IONQ +5.69%, RGTI +7.39%, QBTS +7.31%.</div>
+    </div>
+
+    <div class="field-label">Options &amp; Flow</div>
+    <p class="content">IONQ、RGTI、QBTS 均見 call volume spike；IBM 本身 options 活動溫和。量子板塊 5/22 一週已漲 8–17%，今日再補漲顯示趨勢延續。需留意 insider selling $9.31 億的警示訊號（過去五年累計，非今日新聞）。</p>
+
+    <div class="field-label">Retail Buzz</div>
+    <p class="content">WSB 2026 index 中 PLTR 旁出現量子討論；r/investing 討論 "quantum vs AI which is the bigger long-term theme"；X 上財科技帳號大量轉發 IBM 量子投資新聞。</p>
+
+    <div class="field-label">後續觀察 / What to Watch Next</div>
+    <p class="content">① 政府 $200 億量子注資細節（各公司分配比例）；② Rigetti、D-Wave 是否有後續合作公告；③ IBM Quantum Starling 技術里程碑更新（<em>分析觀點</em>）。</p>
+    <p class="content" style="margin-top:8px;font-size:0.8rem;color:var(--muted)">Sources: <a href="https://seekingalpha.com/news/4597841-ibm-rises-as-it-unveils-10b-quantum-investment-5b-to-ai-linked-open-source-software" target="_blank">Seeking Alpha</a> · <a href="https://www.bnnbloomberg.ca/business/technology/2026/05/28/ibm-to-invest-us10-billion-for-large-scale-quantum-computer-by-2029/" target="_blank">BNN Bloomberg</a> · <a href="https://finance.yahoo.com/markets/stocks/articles/quantum-computing-stocks-ionq-rigetti-092600516.html" target="_blank">Yahoo Finance</a> · <a href="https://247wallst.com/investing/2026/05/22/rigetti-surges-17-quantum-computing-inc-soars-14-d-wave-pops-13-ionq-rises-8-the-quantum-bounce-becomes-a-rally/" target="_blank">247WallSt</a></p>
+  </div>
+
+  <!-- RKLB -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <span class="card-ticker">$RKLB</span>
+      <span class="card-name">Rocket Lab USA, Inc. / 火箭實驗室</span>
+      <span class="card-pct up">+2.7% (月漲 +83%)</span>
+    </div>
+    <div class="tape">
+      <strong>Tape:</strong> 5/28 交易區間 $142.37–$150.83，收 $146.26 (+2.7%) · 52-week high $151 · ASTS 同日 −3.47% (回調) · WSB 2026 Index 持股
+    </div>
+
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="bilingual">
+      <div class="zh">RKLB 是 2026 年美股空間概念最核心的標的：月漲 83%，SpaceX IPO 熱度（5/20 S-1 申請後）持續放大太空板塊估值想像。今日另一催化劑：RKLB 的飛彈防禦解決方案通過太空發展署 (SDA) 系統需求審查 (SRR)，為後續國防合約奠基。StockTwits 報導其 52 周新高。</div>
+      <div class="en">RKLB is the go-to space pure-play in 2026: +83% in May alone, riding SpaceX IPO euphoria (S-1 filed May 20). Today's additional catalyst: Rocket Lab's missile defense solution cleared the Space Development Agency's System Requirements Review (SRR), paving the way for defense contracts. Hit 52-week high of $151 during the session.</div>
+    </div>
+
+    <div class="field-label">Options &amp; Flow</div>
+    <p class="content">WSB 2026 Index 的核心持股之一；r/wallstreetbets 每日討論帖常見 RKLB；ASTS 同日小幅回調顯示空間板塊內部輪動分歧（ASTS 本月已漲 68%，BlueBird 衛星軌道問題仍存）。</p>
+
+    <div class="field-label">Retail Buzz</div>
+    <p class="content">StockTwits 報導 RKLB 跳至 52 周新高；WSB 熱帖 "RKLB, ASTS are crushing retail space trade on SpaceX IPO Buzz"；ApeWisdom 顯示 RKLB 連續多日 top 10 mentions。引用："The SpaceX pre-IPO wave is still the easiest tailwind in the market."</p>
+
+    <div class="field-label">後續觀察 / What to Watch Next</div>
+    <p class="content">① SpaceX SPCX IPO 預計 6 月中旬掛牌，上市前後 RKLB 是否見「賣消息」；② SDA 合約金額細節；③ Neutron 重型火箭進度（2026 H2 首飛預期）（<em>分析觀點</em>）。</p>
+    <p class="content" style="margin-top:8px;font-size:0.8rem;color:var(--muted)">Sources: <a href="https://finance.yahoo.com/markets/stocks/articles/rklb-asts-crushing-retail-space-053649773.html" target="_blank">Yahoo Finance</a> · <a href="https://stocktwits.com/news-articles/markets/equity/mu-f-rklb-stocks-jumped-to-52-week-highs-today/cZgich4ResR" target="_blank">StockTwits</a> · <a href="https://www.marketbeat.com/stock-ideas/5-space-stocks-already-climbing-ahead-of-the-spacex-ipo/" target="_blank">MarketBeat</a> · <a href="https://www.bloomberg.com/news/articles/2026-05-26/rocket-satellite-stocks-surge-anew-as-spacex-ipo-fuels-euphoria" target="_blank">Bloomberg</a></p>
+  </div>
+
+  <!-- MDB -->
+  <div class="ticker-card red">
+    <div class="card-header">
+      <span class="card-ticker">$MDB</span>
+      <span class="card-name">MongoDB, Inc. / 蒙哥資料庫</span>
+      <span class="card-pct neutral">AH Pending (RTH +28.6% 月漲)</span>
+      <span class="ah-badge">AH ACTIVE</span>
+    </div>
+    <div class="tape">
+      <strong>Tape:</strong> Q1 FY27 財報 5:00 PM ET 後發布 (截稿時 AH 尚未完整) · est EPS $1.18 (+18% YoY)，Rev $663.79M (+20.9% YoY) · Options 定價 ±14.5%（兩年最寬）· 月漲 +28.6%
+    </div>
+
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="bilingual">
+      <div class="zh">MongoDB 是 AI 時代 NoSQL 資料庫的代表性標的，Atlas cloud 服務的 AI 應用消費成長是本季焦點。過去四季 EPS 平均超預期 47.4%，本次選擇權定價 ±14.5% 為兩年最寬，代表市場預期結果高度不確定、有爆炸性機會。財報前一週 MDB 月漲 28.6%，已有「提前 front-run」嫌疑，若結果遜色將是雙重打擊。</div>
+      <div class="en">MongoDB is a proxy for the AI database layer — Atlas consumption tied to AI app development is the Q1 focus. Past four quarters averaged 47.4% EPS surprise. Options implied move of ±14.5% is the widest in two years, signaling market expects explosive potential in either direction. The stock's +28.6% pre-earnings rally raises "buy-the-rumor, sell-the-news" risk.</div>
+    </div>
+
+    <div class="field-label">Options &amp; Flow</div>
+    <p class="content">選擇權 call/put 雙邊活躍（IV spike，具體 OI 待查）；市場對 ±14.5% 的定價意味著 $326 股價上下 $47 的移動均在合理預期。過去四季均超預期，但 valuation 已大幅拉伸。</p>
+
+    <div class="field-label">Retail Buzz</div>
+    <p class="content">r/options 多篇討論 MDB earnings play strategies；r/stocks 討論 "is MDB the database for AI era"；WSB 偶有提及。財報前 TipRanks 報導「股票下跌」（front-run 後回調）顯示部分獲利了結。</p>
+
+    <div class="field-label">後續觀察 / What to Watch Next</div>
+    <p class="content">① Atlas 消費成長率是否超過 20%；② FY27 全年指引的 AI 相關應用數量；③ 盤後 IV 壓縮程度（已定價充分，方向比幅度更重要）（<em>分析觀點</em>）。<br><em>⚠ 截稿時財報細節尚未完全落地，請查閱最新盤後資料。</em></p>
+    <p class="content" style="margin-top:8px;font-size:0.8rem;color:var(--muted)">Sources: <a href="https://blog.mexc.com/finance/mdb-stock-analysis-mongodb-stock-buy-heading-into-may-28-earnings/" target="_blank">MEXC Blog</a> · <a href="https://www.gurufocus.com/news/8886502/mongodb-mdb-set-to-release-q1-earnings-with-strong-estimates" target="_blank">GuruFocus</a> · <a href="https://finance.yahoo.com/markets/stocks/articles/mongodb-report-q1-earnings-whats-155000512.html" target="_blank">Yahoo Finance</a> · <a href="https://www.tipranks.com/news/catalyst/why-mongodbs-stock-is-sinking-before-earnings" target="_blank">TipRanks</a></p>
+  </div>
+
+  <!-- Watch List -->
+  <div class="section-title">👀 Watch List 次熱觀察（未列入前八但值得注意）</div>
+  <div class="watchlist-grid">
+    <div class="watch-card">
+      <div class="wt">$OKTA</div>
+      <div style="color:var(--red);font-size:0.8rem;font-weight:600;">AH −0.74%（beat but sold）</div>
+      <div style="margin-top:6px;font-size:0.8rem;color:var(--muted)">EPS $0.90 beat $0.85；Rev $761M。財報超預期但 AH 小跌，「buy rumor sell news」型態。後續指引若守住可反彈。</div>
+    </div>
+    <div class="watch-card">
+      <div class="wt">$KSS</div>
+      <div style="color:var(--green);font-size:0.8rem;font-weight:600;">+13%+（best comp in 4 years）</div>
+      <div style="margin-top:6px;font-size:0.8rem;color:var(--muted)">Kohl's 四年來最佳同店銷售成長；維持全年指引。困境反轉 (turnaround) 故事受市場認可。</div>
+    </div>
+    <div class="watch-card">
+      <div class="wt">$ASTS</div>
+      <div style="color:var(--red);font-size:0.8rem;font-weight:600;">−3.47%（月漲 68% 後回調）</div>
+      <div style="margin-top:6px;font-size:0.8rem;color:var(--muted)">AST SpaceMobile BlueBird 軌道問題仍存；SpaceX IPO 熱度溢出效果減弱中。</div>
+    </div>
+    <div class="watch-card">
+      <div class="wt">$IONQ / $RGTI / $QBTS</div>
+      <div style="color:var(--green);font-size:0.8rem;font-weight:600;">各漲 5–7%</div>
+      <div style="margin-top:6px;font-size:0.8rem;color:var(--muted)">IBM $100 億量子投資帶動板塊再漲；insider selling $9.31 億警示仍在，高度投機。</div>
+    </div>
+    <div class="watch-card">
+      <div class="wt">$MU</div>
+      <div style="color:var(--green);font-size:0.8rem;font-weight:600;">52-week high</div>
+      <div style="margin-top:6px;font-size:0.8rem;color:var(--muted)">Barclays 目標價上調至 $1,175；12 個月漲 863%；AI HBM 記憶體需求持續拉升。</div>
+    </div>
+  </div>
+
+  <!-- Halts & Weirdness -->
+  <div class="section-title">⚠ Halts &amp; Weirdness 異常事件</div>
+  <div class="ticker-card yellow">
+    <p class="content"><strong>$RKTO (前 HOTH)</strong> — 此為 ticker 更名首日掛牌，非正常 LULD halt，但其 +60% 爆量行為具備「ticker 換名炒作」特徵，需特別警惕。類似歷史案例：多個 biotech 更名 AI/crypto 後迅速拉高出貨。目前無 SEC trading suspension 公告，但建議持續觀察。</p>
+    <p class="content" style="margin-top:8px;"><strong>$DELL</strong> — 財報後 AH 大幅活躍，但無異常 halt；±12% IV 定價區間內的正常反應。</p>
+    <p class="content" style="margin-top:8px;font-size:0.8rem;color:var(--muted)">NYSE Halts: <a href="https://www.nyse.com/trade-halt-current" target="_blank">nyse.com</a> · Nasdaq Halts: <a href="https://www.nasdaqtrader.com/Trader.aspx?id=tradehalts" target="_blank">nasdaqtrader.com</a></p>
+  </div>
+
+  <!-- Market Backdrop extended -->
+  <div class="section-title">📊 大盤背景 / Market Backdrop (Extended)</div>
+  <div class="backdrop" style="border-left-color:var(--green)">
+    <p><strong>S&amp;P 500</strong> 7,520.36 (+0.02%) &nbsp;·&nbsp; <strong>Nasdaq</strong> 26,674.73 (+0.07%) &nbsp;·&nbsp; <strong>VIX</strong> ~16.3（前收）</p>
+    <p style="margin-top:8px;">今日特色：指數幾乎平盤，但<strong>個股分化極大</strong>。零售類（BBY +15%、DLTR +18%、KSS +13%）成為最強板塊，提振消費信心敘事。AI 伺服器 / 科技仍是全年主軸但 DELL AH 回吐顯示「已充分定價」焦慮。空間板塊延燒但 ASTS 出現內部分化。量子計算板塊因 IBM 宣告再度活化。地緣利多：美伊延長停火 60 天，早盤提振整體情緒。</p>
+    <p style="margin-top:8px;">板塊輪動：零售 &gt;&gt; 量子 &gt;&gt; 空間 (輪動中) &gt;&gt; AI Infra (DELL 平轉 AH 弱)</p>
+  </div>
+
+  <!-- Sources -->
+  <div class="sources-section">
+    <div class="section-title" style="margin-top:0;border:none;padding-bottom:4px;">📎 數據來源 / All Sources Consulted</div>
+    <ul>
+      <li><a href="https://finance.yahoo.com/markets/stocks/most-active/" target="_blank">Yahoo Finance Most Active</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/gainers/" target="_blank">Yahoo Finance Gainers</a></li>
+      <li><a href="https://www.barchart.com/options/unusual-activity" target="_blank">Barchart Unusual Options Activity</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/28/best-buy-bby-q1-2027-earnings.html" target="_blank">CNBC — Best Buy Earnings</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-05-26/rocket-satellite-stocks-surge-anew-as-spacex-ipo-fuels-euphoria" target="_blank">Bloomberg — SpaceX IPO Space Stocks Surge</a></li>
+      <li><a href="https://www.bnnbloomberg.ca/business/technology/2026/05/28/ibm-to-invest-us10-billion-for-large-scale-quantum-computer-by-2029/" target="_blank">BNN Bloomberg — IBM Quantum $10B</a></li>
+      <li><a href="https://seekingalpha.com/news/4597841-ibm-rises-as-it-unveils-10b-quantum-investment-5b-to-ai-linked-open-source-software" target="_blank">Seeking Alpha — IBM Quantum</a></li>
+      <li><a href="https://www.fool.com/investing/2026/05/27/why-digital-turbine-stock-is-rapidly-roaring-highe/" target="_blank">Motley Fool — APPS Earnings</a></li>
+      <li><a href="https://www.benzinga.com/markets/earnings/26/05/52794299/digital-turbine-stock-shoots-higher-after-q4-results-heres-why" target="_blank">Benzinga — APPS Q4</a></li>
+      <li><a href="https://stocktwits.com/news-articles/markets/equity/why-is-apps-stock-soaring-today/cZggQr9RerQ" target="_blank">StockTwits — APPS 53% Surge</a></li>
+      <li><a href="https://money.usnews.com/investing/news/articles/2026-05-28/from-biotech-to-orbit-rocket-ones-ai-and-space-re-brand-sends-shares-flying" target="_blank">US News — RKTO Rebrand</a></li>
+      <li><a href="https://www.stocktitan.net/news/HOTH/hoth-therapeutics-becomes-rocket-one-inc-nasdaq-rkto-targeting-the-r2suai16td14.html" target="_blank">StockTitan — RKTO Ticker Change</a></li>
+      <li><a href="https://www.marketbeat.com/earnings/reports/2026-5-28-dell-technologies-inc-stock/" target="_blank">MarketBeat — DELL Q1 FY27</a></li>
+      <li><a href="https://www.tikr.com/blog/dell-technologies-stock-jumped-24-at-dell-technologies-world-2026-heres-what-it-means-for-investors" target="_blank">TIKR — Dell Technologies World +24%</a></li>
+      <li><a href="https://www.tipranks.com/news/best-buy-kohls-and-dollar-tree-rally-as-strong-results-lift-retail-stocks" target="_blank">TipRanks — Retail Earnings Rally</a></li>
+      <li><a href="https://www.gurufocus.com/news/8884867/digital-turbine-apps-surges-18-after-strong-fq4-earnings-and-positive-fy2027-guidance" target="_blank">GuruFocus — APPS Earnings</a></li>
+      <li><a href="https://247wallst.com/investing/2026/05/22/rigetti-surges-17-quantum-computing-inc-soars-14-d-wave-pops-13-ionq-rises-8-the-quantum-bounce-becomes-a-rally/" target="_blank">247WallSt — Quantum Rally</a></li>
+      <li><a href="https://www.reddit.com/r/wallstreetbets/" target="_blank">Reddit r/wallstreetbets</a></li>
+      <li><a href="https://stocktwits.com/rankings/trending" target="_blank">StockTwits Trending</a></li>
+      <li><a href="https://www.quiverquant.com/wallstreetbets/" target="_blank">Quiver Quantitative WSB</a></li>
+      <li><a href="https://apewisdom.io/" target="_blank">ApeWisdom WSB Mentions</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/rocket-satellite-shares-rally-premarket-103526213.html" target="_blank">Yahoo Finance — Rocket/Satellite Premarket Rally</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/28/kohls-kss-earnings-q1-2026.html" target="_blank">CNBC — Kohl's Earnings</a></li>
+      <li><a href="https://www.nasdaqtrader.com/Trader.aspx?id=tradehalts" target="_blank">Nasdaq Trading Halts</a></li>
+      <li><a href="https://efts.sec.gov/LATEST/search-index?q=&forms=8-K" target="_blank">SEC EDGAR 8-K</a></li>
+    </ul>
+  </div>
+
+  <div class="disclaimer">
+    ⚠ 本報告僅供資訊參考，不構成任何投資建議。所有數字以標注來源為準，盤後資料 (MDB、DELL) 截稿時尚未完全落地，請以最新行情為準。This report is for informational purposes only and does not constitute investment advice.
+    <br>Generated: 2026-05-29 by hot-us-stocks skill
+  </div>
+
+</div>
+</body>
+</html>

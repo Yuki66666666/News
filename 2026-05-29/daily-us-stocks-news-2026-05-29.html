@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美股日報 US Stocks Daily — 2026-05-28 (Trading Session)</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --card: #1a1d27;
+      --border: #2a2d3a;
+      --accent: #4f8ef7;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --tag-bg: #1e3a5f;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      padding: 24px 16px;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    header { margin-bottom: 28px; }
+    header h1 { font-size: 1.6rem; font-weight: 700; color: var(--accent); }
+    header .subtitle { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+    .trading-note {
+      background: #1a2540;
+      border-left: 4px solid var(--accent);
+      padding: 10px 16px;
+      border-radius: 4px;
+      margin-bottom: 24px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    /* Index Table */
+    .index-table { width: 100%; border-collapse: collapse; margin-bottom: 32px; font-size: 0.9rem; }
+    .index-table th {
+      background: var(--border);
+      color: var(--muted);
+      font-weight: 600;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    .index-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); }
+    .index-table tr:hover td { background: #1e2230; }
+    .up { color: var(--green); font-weight: 600; }
+    .down { color: var(--red); font-weight: 600; }
+    .flat { color: var(--yellow); }
+
+    /* Section */
+    .section { margin-bottom: 40px; }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    .section-title span { color: var(--muted); font-weight: 400; font-size: 0.95rem; }
+
+    /* News card */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 18px;
+    }
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+    .card .source {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .card .source a { color: var(--accent); text-decoration: none; }
+    .card .source a:hover { text-decoration: underline; }
+    .fact-block { margin-bottom: 8px; }
+    .fact-block strong { color: var(--yellow); }
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--accent);
+      font-size: 0.75rem;
+      border-radius: 4px;
+      padding: 2px 8px;
+      margin-right: 6px;
+      margin-bottom: 8px;
+    }
+    .tag.red { background: #3b1a1a; color: var(--red); }
+    .tag.green { background: #1a3b1e; color: var(--green); }
+    .tag.yellow { background: #3b2e1a; color: var(--yellow); }
+
+    /* Footer */
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    footer ul { list-style: none; padding: 0; }
+    footer li { margin-bottom: 4px; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>🇺🇸 美股日報 / US Stocks Daily</h1>
+    <div class="subtitle">交易日 Trading Session: <strong>2026-05-28 (Wednesday)</strong> · 生成時間 Generated: 2026-05-29 Asia/Taipei</div>
+  </header>
+
+  <div class="trading-note">
+    ⚠️ 注意：美國 5/26 (週一) 為陣亡將士紀念日 (Memorial Day) 休市。最近一個交易日為 <strong>2026-05-28 (週三)</strong>。<br>
+    Note: US markets were closed Mon May 26 (Memorial Day). Most recent session = Wednesday May 28, 2026.
+  </div>
+
+  <!-- Index Table -->
+  <table class="index-table">
+    <thead>
+      <tr>
+        <th>指數 / Index</th>
+        <th>收盤 Close</th>
+        <th>漲跌 Chg</th>
+        <th>%</th>
+        <th>備註</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>S&amp;P 500</td>
+        <td>~7,520 – 7,564*</td>
+        <td>+44</td>
+        <td class="up">+0.59%</td>
+        <td>新高附近 / Near record</td>
+      </tr>
+      <tr>
+        <td>Nasdaq Composite</td>
+        <td>~26,894*</td>
+        <td>+220</td>
+        <td class="up">+0.82%</td>
+        <td>SNOW 拉動科技 / SNOW led tech</td>
+      </tr>
+      <tr>
+        <td>Dow Jones (DJIA)</td>
+        <td>~50,705*</td>
+        <td>+61</td>
+        <td class="up">+0.12%</td>
+        <td>相對落後 / Lagging</td>
+      </tr>
+      <tr>
+        <td>Russell 2000</td>
+        <td>—</td>
+        <td>—</td>
+        <td class="up">+0.70%*</td>
+        <td>日內數據 / Intraday</td>
+      </tr>
+      <tr>
+        <td>VIX</td>
+        <td>16.33</td>
+        <td>−0.68</td>
+        <td class="down">−4.00%</td>
+        <td>恐慌降溫 / Fear receding</td>
+      </tr>
+      <tr>
+        <td>US 10Y Yield</td>
+        <td>~4.65%*</td>
+        <td>微降 slight drop</td>
+        <td class="flat">—</td>
+        <td>PCE 符合預期後回落 / Post-PCE ease</td>
+      </tr>
+      <tr>
+        <td>DXY (US Dollar)</td>
+        <td>—</td>
+        <td>—</td>
+        <td class="flat">—</td>
+        <td>未取得確認數據</td>
+      </tr>
+      <tr>
+        <td>WTI Crude Oil</td>
+        <td>~$88–90*</td>
+        <td>反彈 rebound</td>
+        <td class="up">+2%*</td>
+        <td>美伊談判訊號混亂 / US-Iran signals mixed</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.78rem; color: var(--muted); margin-bottom: 28px;">* 標示者為日內或多方數據估算值，非官方收盤；DXY 本日未取得完整數據。Marked values are estimates from intraday/multiple sources; official closes may differ slightly.</p>
+
+  <!-- Section 1: Top Stories -->
+  <div class="section">
+    <div class="section-title">1. 頭條 / Top Stories <span>· 今日市場最大推手</span></div>
+
+    <div class="card">
+      <span class="tag green">+37.6%</span><span class="tag">AI 雲端</span><span class="tag">Q1 財報</span>
+      <h3>Snowflake 暴漲 37% — AI 財報爆炸 + $60 億 AWS 大單 / Snowflake Surges 37% on Blowout Q1 + $6B AWS Deal</h3>
+      <div class="source">來源: <a href="https://www.cnbc.com/2026/05/28/snowflake-snow-software-stock-rally.html" target="_blank">CNBC</a> · <a href="https://www.fool.com/investing/2026/05/28/snowflake-stock-is-soaring-after-a-blowout-quarter-and-a-new-usd6-billion-aws-deal/" target="_blank">Motley Fool</a> · 2026-05-28</div>
+      <div class="fact-block">
+        <strong>核心事實 / Facts:</strong><br>
+        SNOW Q1 FY27 營收 $13.9 億 (vs 預期 $13.2 億，YoY +33%)；Non-GAAP EPS $0.39 (vs 預期 $0.32)。同步宣布與 Amazon Web Services 簽下史上最大合約：5 年 $60 億 Graviton + AI 運算採購，並收購企業 MCP 平台 Natoma。剩餘履約義務 backlog $92.1 億；NRR 126%。股價從 ~$173 單日跳漲至 ~$235–244。<br>
+        SNOW Q1 revenue $1.39B vs $1.32B est (+33% YoY); Non-GAAP EPS $0.39 vs $0.32 est. Announced $6B multi-year AWS AI deal and acquired Natoma (enterprise MCP platform). Remaining performance obligation $9.21B; NRR 126%.
+      </div>
+      <div class="fact-block">
+        <strong>背景脈絡 / Context:</strong><br>
+        SNOW 過去兩年因 AI 敘事轉型緩慢而被市場拋棄，股價一度腰斬。此次業績展示其 Cortex AI 服務正在規模化變現，AWS 大單則證明與 hyperscaler 的深度合作而非競爭的策略奏效。
+      </div>
+      <div class="fact-block">
+        <strong>影響觀察 / Implications:</strong><br>
+        帶動整個企業軟體族群反彈（Databricks、MongoDB 相關股受益）。ETF 如 WCLD, SKYY 受到 SNOW 大漲帶動。分析師指出下一個潛力受益股包括 Palantir、Elastic。
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag yellow">PCE 3.8%</span><span class="tag">通膨</span><span class="tag">Fed</span>
+      <h3>PCE 通膨 3.8% 創近三年高，市場卻撐住 / PCE Hits 3-Year High at 3.8%, Markets Hold Ground</h3>
+      <div class="source">來源: <a href="https://www.cnbc.com/2026/05/28/core-inflation-hit-an-annual-rate-of-3point3percent-in-april-as-expected-feds-preferred-gauge-shows-.html" target="_blank">CNBC</a> · <a href="https://www.benzinga.com/markets/macro-economic-events/26/05/52835775/us-pce-inflation-report-april-2026" target="_blank">Benzinga</a> · 2026-05-28</div>
+      <div class="fact-block">
+        <strong>核心事實 / Facts:</strong><br>
+        美國商務部公布 4 月 PCE 物價指數 YoY +3.8%（前值 3.5%），創 2023 年 5 月以來最高；核心 PCE YoY +3.3%（符合預期）、MoM +0.2%（低於預期 +0.3%）。月增減速是市場緩解緊張的關鍵。<br>
+        April headline PCE +3.8% YoY (vs 3.5% prior), highest since May 2023. Core PCE +3.3% YoY (in-line), +0.2% MoM (below 0.3% est). MoM deceleration prevented a panic selloff.
+      </div>
+      <div class="fact-block">
+        <strong>背景脈絡 / Context:</strong><br>
+        霍爾木茲海峽能源衝擊仍在消費籃中持續發酵，能源是推升 headline PCE 的主因。FOMC 目前利率維持 3.50–3.75%，市場定價 2026 全年維持不動概率高，一次降息的可能性仍存但空間大幅壓縮。Powell 任期已於 5/15 屆滿，新任主席效應值得持續追蹤。
+      </div>
+      <div class="fact-block">
+        <strong>影響觀察 / Implications:</strong><br>
+        10 年期公債殖利率 PCE 發布後小幅回落，整體利率敏感資產（REITs、公用事業）受短暫喘息。市場注意力轉向 6 月 FOMC 會議及新任 Fed 主席首次政策訊號。
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag yellow">地緣政治</span><span class="tag">能源</span>
+      <h3>美伊談判訊號混亂，油價劇烈波動 / US-Iran Signals Conflicted, Oil Volatile</h3>
+      <div class="source">來源: <a href="https://www.cnbc.com/2026/05/22/oil-prices-today-trump-iran-strait-of-hormuz-uranium-.html" target="_blank">CNBC</a> · <a href="https://www.bloomberg.com/news/articles/2026-05-27/latest-oil-market-news-and-analysis-for-may-28" target="_blank">Bloomberg</a> · 2026-05-28</div>
+      <div class="fact-block">
+        <strong>核心事實 / Facts:</strong><br>
+        伊朗媒體報導美伊已達成初步協議（包含 60 天停火延長、霍爾木茲開放通行），但白宮否認，Trump 表示「對談判不滿意」。WTI 在前一日跌逾 5% 後反彈至 $88–90，Brent 約 $92–94。<br>
+        Iran claimed a draft deal; White House denied. Trump said "not satisfied." WTI rebounded toward $88–90 (from -5% prior day). Hormuz shipping lanes remain source of market anxiety.
+      </div>
+      <div class="fact-block">
+        <strong>背景脈絡 / Context:</strong><br>
+        自 2026 年初衝突升溫以來，油價曾飆漲超過 76%，是 PCE 通膨的主要推手。每一次談判訊號都引發市場大幅搖擺。
+      </div>
+      <div class="fact-block">
+        <strong>影響觀察 / Implications:</strong><br>
+        能源類股 (XLE) 隨油價反彈，但全日走勢因訊號混亂而波動。若真正達成協議，將是通膨與市場的雙重利多；談判破裂則反之。
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: Earnings -->
+  <div class="section">
+    <div class="section-title">2. 財報 / Earnings of the Day <span>· Q1 FY27 season continues</span></div>
+
+    <div class="card">
+      <span class="tag green">+17.6%</span><span class="tag">消費零售</span>
+      <h3>Dollar Tree Q1 爆超預期，大漲 17.6% / Dollar Tree Beats and Raises, Soars 17.6%</h3>
+      <div class="source">來源: <a href="https://finance.yahoo.com/markets/stocks/articles/dollar-tree-q1-2026-earnings-132329259.html" target="_blank">Yahoo Finance</a> · <a href="https://247wallst.com/investing/2026/05/28/dollar-tree-soars-17-dollar-general-jumps-5-heres-why-discount-store-stocks-are-catching-a-bid/" target="_blank">24/7 Wall St.</a> · 2026-05-28</div>
+      <div class="fact-block">
+        <strong>核心事實 / Facts:</strong><br>
+        DLTR Q1 Adj. EPS $1.74（vs 預期 $1.55，YoY +38%）；營收 $50 億（YoY +7.2%）；同店銷售 +3.5%（客單價 +4.5%，客流 −1.0%）；全年 Adj. EPS 指引上調至 $6.70–7.10（中位數 $6.90 vs 預期 $6.67）。Dollar General (DG) 跟漲 5%。<br>
+        DLTR Q1 Adj. EPS $1.74 vs $1.55 est (+38% YoY); Revenue $5.0B (+7.2%); SSS +3.5%. FY guidance raised to $6.70–7.10 midpoint $6.90 vs $6.67 consensus.
+      </div>
+      <div class="fact-block">
+        <strong>背景脈絡 / Context:</strong><br>
+        通膨環境推動消費者往折扣零售消費降級，DLTR 受益於此結構性遷移。Family Dollar 整合進展優於預期亦增添投資人信心。
+      </div>
+      <div class="fact-block">
+        <strong>影響觀察 / Implications:</strong><br>
+        消費降級趨勢下，XRT、VDC 等零售 ETF 中折扣零售持倉受益；連帶帶動 Dollar General、Five Below 等同業。
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag green">+11.65%</span><span class="tag">消費電子</span>
+      <h3>Best Buy Q1 強勁財報，股價跳漲逾 11% / Best Buy Q1 Beats, Stock Jumps 11.65%</h3>
+      <div class="source">來源: <a href="https://corporate.bestbuy.com/2026/best-buy-reports-q1-fy27-results/" target="_blank">Best Buy IR</a> · <a href="https://www.gurufocus.com/news/8888839/best-buy-bby-reports-strong-q1-earnings-amid-leadership-transition" target="_blank">GuruFocus</a> · 2026-05-28</div>
+      <div class="fact-block">
+        <strong>核心事實 / Facts:</strong><br>
+        BBY Q1 FY27 Adj. EPS $1.28（vs 預期 $1.22）；營收 $89.4 億；淨利 $2.76 億。全年 EPS 指引 $6.30–6.60，營收 $412–421 億。遊戲主機、電腦、行動裝置需求強勁，MacBook Neo 新品上市助攻。<br>
+        BBY Q1 Adj. EPS $1.28 vs $1.22 est; Revenue $8.94B; Net profit $276M. FY guidance $6.30–6.60 EPS. Gaming consoles, computers, mobile drove growth.
+      </div>
+      <div class="fact-block">
+        <strong>背景脈絡 / Context:</strong><br>
+        BBY 正在進行領導層過渡，但業績展示底部韌性。MacBook Neo 超級週期及遊戲機換機潮是兩大近期消費催化劑。
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag green">+16%</span><span class="tag">生命科學</span>
+      <h3>Agilent Technologies Q2 超預期，上調全年展望 / Agilent Q2 Beats, Raises FY26 Guidance</h3>
+      <div class="source">來源: <a href="https://www.biospace.com/press-releases/agilent-reports-second-quarter-fiscal-year-2026-financial-results" target="_blank">BioSpace</a> · <a href="https://ca.finance.yahoo.com/news/agilent-technologies-inc-q2-2026-050120147.html" target="_blank">Yahoo Finance</a> · 2026-05-28</div>
+      <div class="fact-block">
+        <strong>核心事實 / Facts:</strong><br>
+        A Q2 FY26 營收 $18.3 億（YoY +10.0%，core +6.3%）；Non-GAAP EPS $1.49（vs 前年 $1.31）；營業利潤率 26.4%（YoY +130 bps）；全年 Non-GAAP EPS 上調至 $6.00–6.10。股價單日大漲約 16%。<br>
+        Agilent Q2 revenue $1.83B (+10.0% reported, +6.3% core); Non-GAAP EPS $1.49 vs $1.31 PY; Operating margin 26.4% (+130 bps). FY guide raised to $6.00–6.10 EPS.
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag red">−5%</span><span class="tag">EDA/半導體</span>
+      <h3>Synopsys 儘管超預期，股價仍跌 5% / Synopsys Beats Q2, But Drops 5% on Restructuring Drag</h3>
+      <div class="source">來源: TheStreet · 2026-05-28</div>
+      <div class="fact-block">
+        <strong>核心事實 / Facts:</strong><br>
+        SNPS Q2 EPS 超預期，但 GAAP EPS 受重組成本拖累；管理層保守措辭令市場失望，股價跌約 5%。<br>
+        SNPS beat Non-GAAP EPS but GAAP drag from restructuring. Conservative tone spooked investors. Stock fell ~5%.
+      </div>
+      <div class="fact-block">
+        <strong>背景脈絡 / Context:</strong><br>
+        EDA 市場需求雖受 AI 晶片設計潮推動，但 Synopsys 的 Ansys 收購整合成本仍在消化，疊加 China export 管制持續不確定性。
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: Single-stock Movers -->
+  <div class="section">
+    <div class="section-title">3. 個股大事 / Single-Stock Movers <span>· ±5% 以上大動個股</span></div>
+
+    <div class="card">
+      <span class="tag green">+13.8%</span><span class="tag">FinTech</span>
+      <h3>nCino Q1 超預期並上調全年展望 / nCino Beats Q1, Raises FY Guidance</h3>
+      <div class="source">來源: TheStreet · 2026-05-28</div>
+      <div class="fact-block">
+        <strong>核心事實 / Facts:</strong><br>
+        NCNO 雲端銀行軟體公司 Q1 獲利超預期並上調全年指引，股價跳漲 13.8%。受益於銀行業數位化加速以及 AI 驅動的貸款自動化需求。<br>
+        NCNO cloud banking beat Q1 estimates and raised FY guidance; +13.8%. Benefits from bank digitization and AI-driven lending automation.
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag green">+3.4%</span><span class="tag">電商</span>
+      <h3>Shopify 緩升 3.4%，前期財報餘熱持續 / Shopify +3.4% on Continued Post-Earnings Momentum</h3>
+      <div class="source">來源: <a href="https://www.tradingkey.com/news/market-movers/261934172-market-movers-shop-20260528" target="_blank">TradingKey</a> · 2026-05-28</div>
+      <div class="fact-block">
+        <strong>核心事實 / Facts:</strong><br>
+        SHOP 受惠於 Q1 成績超預期（EPS 和 GMV 均創記錄），前期財報餘温仍在帶動股價。GMV 創歷史新高。<br>
+        SHOP continued post-earnings drift +3.4%. Q1 beat on EPS, revenue, and record GMV all supporting the move.
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag red">−16%</span><span class="tag">房地產</span>
+      <h3>Essex Property Trust 暴跌 16% / Essex Property Trust Collapses 16%</h3>
+      <div class="source">來源: TheStreet · 2026-05-28</div>
+      <div class="fact-block">
+        <strong>核心事實 / Facts:</strong><br>
+        ESS 單日下跌約 16%，具體催化劑資料未完整取得，但與通膨高企、利率展望偏鷹派直接相關，REITs 族群整體承壓。<br>
+        ESS dropped ~16%. Likely pressured by elevated rates and PCE data, hitting rate-sensitive REIT sector broadly. Specific catalyst not fully confirmed.
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4: M&A -->
+  <div class="section">
+    <div class="section-title">4. 併購與 IPO / M&A and IPO</div>
+
+    <div class="card">
+      <span class="tag yellow">$850 億</span><span class="tag">鐵路</span><span class="tag">監管審查中</span>
+      <h3>Union Pacific / Norfolk Southern $850 億鐵路合併案面臨存廢考驗 / UP-NSC $85B Mega-Merger Under STB Scrutiny</h3>
+      <div class="source">來源: <a href="https://en.wikipedia.org/wiki/Proposed_merger_between_Union_Pacific_and_Norfolk_Southern" target="_blank">Wikipedia</a> · <a href="https://www.gpb.org/news/2026/04/30/union-pacific-argues-for-its-85b-acquisition-of-norfolk-southern-in-new-railroad" target="_blank">GPB</a> · 2026-05-28</div>
+      <div class="fact-block">
+        <strong>核心事實 / Facts:</strong><br>
+        UNP 提出以 1 股 UNP + $88.82 現金換購 NSC 每股，總交易價值約 $850 億。如獲批將創造首個美國跨大陸鐵路，網絡覆蓋 43 州超過 5 萬英里。2026/4/30 向 STB 提交修訂版申請（初版於 1 月被退回）。市場對審批前景存疑，NSC -5.2%、UNP -4.6%。<br>
+        UNP's $85B bid for NSC: 1 UNP share + $88.82 cash per NSC share. Would form first U.S. coast-to-coast freight rail. STB reviewing revised application filed Apr 30; initial bid rejected in January. Market skeptical: NSC -5.2%, UNP -4.6%.
+      </div>
+      <div class="fact-block">
+        <strong>背景脈絡 / Context:</strong><br>
+        預期年化節省 $35 億航運成本，並帶來 $27.5 億協同效益。但 STB 監管門檻極高，美國鐵路整合歷史上成功案例寥寥。
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 5: Analyst Calls -->
+  <div class="section">
+    <div class="section-title">5. 券商評等 / Analyst Calls</div>
+
+    <div class="card">
+      <span class="tag green">Upgrade</span><span class="tag">AI 基礎設施</span>
+      <h3>Lumentum (LITE) 獲升評，AI 光纖需求爆炸 / Lumentum Upgraded on AI Optical Infrastructure Surge</h3>
+      <div class="source">來源: <a href="https://seekingalpha.com/news/4598036-sa-analyst-upgrades-downgrades-nvda-txn-lite-zs" target="_blank">Seeking Alpha</a> · 2026-05-28</div>
+      <div class="fact-block">
+        <strong>核心事實 / Facts:</strong><br>
+        LITE 獲升評，理由包含：AI 資料中心光連接需求激增導致採購義務大幅上升、Nvidia $20 億投資注資後流動性改善，以及基本面轉強。Texas Instruments (TXN) 亦獲升評，AI 模擬晶片需求回升。<br>
+        LITE upgraded: surging AI datacenter optical purchase obligations, improved liquidity post-$2B Nvidia investment, improved fundamentals. TXN also upgraded on AI analog chip demand recovery.
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag red">Downgrade / Concern</span><span class="tag">半導體</span>
+      <h3>Nvidia 估值憂慮，部分分析師降評 / Nvidia Faces Valuation Caution from Analysts</h3>
+      <div class="source">來源: Seeking Alpha · 2026-05-28</div>
+      <div class="fact-block">
+        <strong>核心事實 / Facts:</strong><br>
+        部分賣方分析師以估值過高為由對 NVDA 發出謹慎或降評，但 AI 資本支出擴張趨勢並未改變，市場對此看法分歧。<br>
+        Some sell-side analysts flagged NVDA valuation concerns amid record highs. AI capex cycle intact but premium pricing is source of disagreement.
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 6: Fed & Rates -->
+  <div class="section">
+    <div class="section-title">6. Fed 與利率 / Fed &amp; Rates</div>
+
+    <div class="card">
+      <span class="tag yellow">FOMC Hold</span><span class="tag">Fed 3.50–3.75%</span>
+      <h3>Fed 維持利率不動，新主席首次訊號備受矚目 / Fed Holds, New Chair's First Signal Awaited</h3>
+      <div class="source">來源: <a href="https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260318.htm" target="_blank">Federal Reserve</a> · <a href="https://www.ishares.com/us/insights/fed-outlook-2026-interest-rate-forecast" target="_blank">iShares Fed Outlook</a></div>
+      <div class="fact-block">
+        <strong>核心事實 / Facts:</strong><br>
+        FOMC 最近一次會議（4/29）將聯邦基金利率維持在 3.50–3.75%。2026 全年市場定價維持不動概率極高，中位數預測僅有一次 25 bps 降息。4 月 PCE 3.8% headline（核心 3.3%）進一步壓縮降息空間。Powell 任期 5/15 屆滿，新任主席已就職，首次重大政策表態成為市場焦點。<br>
+        FOMC held 3.50–3.75% at Apr 29 meeting. Market prices near-zero cuts in 2026. April PCE 3.8% headline reduces easing room. Powell term expired May 15; new Fed Chair's first major signal closely watched.
+      </div>
+      <div class="fact-block">
+        <strong>背景脈絡 / Context:</strong><br>
+        核心 PCE MoM 降至 +0.2% 雖帶來小小安慰，但年率 3.3% 仍遠超 2% 目標，油價外生衝擊更讓 Fed 陷入「通膨鷹派、成長風險」的兩難困境。
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 7: Flows & Positioning -->
+  <div class="section">
+    <div class="section-title">7. 資金流向 / Flows &amp; Positioning</div>
+
+    <div class="card">
+      <span class="tag">軟體 ETF</span><span class="tag">資金輪動</span>
+      <h3>SNOW 大漲帶動雲端軟體 ETF 吸金 / SNOW Surge Spotlights Cloud Software ETF Flows</h3>
+      <div class="source">來源: <a href="https://seekingalpha.com/news/4597766-etfs-with-high-snowflake-exposure-in-spotlight-after-earnings-rally" target="_blank">Seeking Alpha</a> · 2026-05-28</div>
+      <div class="fact-block">
+        <strong>核心事實 / Facts:</strong><br>
+        SNOW 大漲後，持有其重倉的 ETF（WCLD、SKYY、IGV 等）進入市場聚光燈，法人關注雲端軟體比重偏低的情況是否將出現補倉行為。截至 5/20 當週，ETF 整體淨發行達 $325 億，但股票型基金當週呈現 $132.8 億淨流出，顯示 rotation 而非全面進場。<br>
+        SNOW-heavy ETFs (WCLD, SKYY, IGV) in focus post-rally. ETF net issuance $32.5B for week ended May 20, but equity funds saw $13.3B net outflows — rotation dynamics, not broad buying.
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 8: Sector Overview -->
+  <div class="section">
+    <div class="section-title">8. 類股輪動 / Sector Snapshot</div>
+
+    <div class="card">
+      <div class="fact-block">
+        <strong>領漲 / Leaders:</strong> 消費非必需品 Consumer Discretionary (+1.89%)、科技 (AI 軟體帶動)、折扣零售（DLTR +17.6% 帶動 DG +5%）<br>
+        <strong>領跌 / Laggards:</strong> 能源 Energy (−1.52% 受伊朗消息波動)、REITs (ESS −16%、利率敏感族群承壓)、鐵路 (UP −4.6%、NSC −5.2%)<br>
+        <strong>VIX:</strong> 16.33，下降 4%，市場整體情緒偏樂觀但未見極端 complacency。
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 9: Reads -->
+  <div class="section">
+    <div class="section-title">9. 觀點 / Reads &amp; Perspectives</div>
+
+    <div class="card">
+      <span class="tag">值得追蹤</span>
+      <h3>Snowflake 後時代：企業 AI 平台的大整合浪潮 / Post-SNOW: The Enterprise AI Platform Consolidation Wave</h3>
+      <div class="source">來源: <a href="https://www.fool.com/investing/2026/05/28/snowflake-soars-two-software-stocks-that-could-be//" target="_blank">Motley Fool</a> · 2026-05-28</div>
+      <div class="fact-block">
+        SNOW 的 $60 億 AWS 合約與 Natoma MCP 收購，標誌著企業 AI 基礎設施進入「平台整合」而非「百花齊放」的新階段。市場將重新評估誰能成為企業 AI 的核心中介層 — 數據雲（SNOW）、模型雲（OpenAI/Azure）、還是 hyperscaler 自建 stack。這是 2026 下半年最值得追蹤的軟體投資主題之一。<br>
+        SNOW's $6B AWS deal + Natoma MCP acquisition signals enterprise AI entering platform consolidation phase. The central question: who owns the AI middleware layer — data cloud (SNOW), model cloud (OpenAI/Azure), or hyperscaler-native stacks? One of the most important software investment themes for H2 2026.
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p style="margin-bottom: 12px;"><strong>數據來源 / Sources:</strong></p>
+    <ul>
+      <li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-may-28-2026" target="_blank">TheStreet — Stock Market Today May 28, 2026</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/28/snowflake-snow-software-stock-rally.html" target="_blank">CNBC — Snowflake +37% AI earnings rally</a></li>
+      <li><a href="https://www.fool.com/investing/2026/05/28/snowflake-stock-is-soaring-after-a-blowout-quarter-and-a-new-usd6-billion-aws-deal/" target="_blank">Motley Fool — Snowflake $6B AWS Deal</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/28/core-inflation-hit-an-annual-rate-of-3point3percent-in-april-as-expected-feds-preferred-gauge-shows-.html" target="_blank">CNBC — April PCE 3.3% core, 3.8% headline</a></li>
+      <li><a href="https://www.benzinga.com/markets/macro-economic-events/26/05/52835775/us-pce-inflation-report-april-2026" target="_blank">Benzinga — PCE 3.8% highest since May 2023</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/dollar-tree-q1-2026-earnings-132329259.html" target="_blank">Yahoo Finance — Dollar Tree Q1 2026 earnings</a></li>
+      <li><a href="https://247wallst.com/investing/2026/05/28/dollar-tree-soars-17-dollar-general-jumps-5-heres-why-discount-store-stocks-are-catching-a-bid/" target="_blank">24/7 Wall St. — Dollar Tree +17%, Dollar General +5%</a></li>
+      <li><a href="https://corporate.bestbuy.com/2026/best-buy-reports-q1-fy27-results/" target="_blank">Best Buy IR — Q1 FY27 Results</a></li>
+      <li><a href="https://www.biospace.com/press-releases/agilent-reports-second-quarter-fiscal-year-2026-financial-results" target="_blank">BioSpace — Agilent Q2 FY26 Results</a></li>
+      <li><a href="https://www.gpb.org/news/2026/04/30/union-pacific-argues-for-its-85b-acquisition-of-norfolk-southern-in-new-railroad" target="_blank">GPB — Union Pacific $85B Norfolk Southern merger</a></li>
+      <li><a href="https://seekingalpha.com/news/4598036-sa-analyst-upgrades-downgrades-nvda-txn-lite-zs" target="_blank">Seeking Alpha — Analyst upgrades/downgrades NVDA, TXN, LITE</a></li>
+      <li><a href="https://seekingalpha.com/news/4597766-etfs-with-high-snowflake-exposure-in-spotlight-after-earnings-rally" target="_blank">Seeking Alpha — SNOW ETF flows</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-05-27/latest-oil-market-news-and-analysis-for-may-28" target="_blank">Bloomberg — Oil market analysis May 28</a></li>
+      <li><a href="https://www.ishares.com/us/insights/fed-outlook-2026-interest-rate-forecast" target="_blank">iShares — Fed Outlook 2026</a></li>
+    </ul>
+    <p style="margin-top: 16px; color: #64748b;">⚠️ 本報告僅供資訊參考，不構成投資建議。數字標有 * 者為多來源估算，請以官方收盤為準。This report is for informational purposes only and does not constitute investment advice.</p>
+    <p style="margin-top: 8px; color: #64748b;">Generated by Claude (daily-us-stocks-news skill) · 2026-05-29 Asia/Taipei</p>
+  </footer>
+
+</div>
+</body>
+</html>
