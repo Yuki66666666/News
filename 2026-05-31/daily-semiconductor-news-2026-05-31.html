@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>半導體產業日報 · 2026-05-31</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --border: #2e3146;
+      --accent: #5b8dee;
+      --accent2: #e05b9e;
+      --text: #e2e5f0;
+      --muted: #8b91a8;
+      --tag-bg: #242740;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, "Segoe UI", "Noto Sans TC", sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      padding: 0 0 60px;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #12152b 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 24px 24px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    header .date {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 6px;
+    }
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      padding: 18px 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .toc a {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      padding: 4px 12px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .toc a:hover { background: #2e3560; }
+    main { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+    section { margin-top: 40px; }
+    section h2 {
+      border-left: 4px solid var(--accent);
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding-left: 12px;
+      margin-bottom: 20px;
+      color: #c9d4f5;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin-bottom: 18px;
+    }
+    .card h3 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      line-height: 1.45;
+      margin-bottom: 10px;
+      color: #d9e0ff;
+    }
+    .meta {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .meta a { color: var(--accent); text-decoration: none; }
+    .meta a:hover { text-decoration: underline; }
+    .label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    .l-facts { background: #1e3a5f; color: #7ecfff; }
+    .l-context { background: #1e2e1a; color: #7ec87e; }
+    .l-impl { background: #3a1e1e; color: #f07070; }
+    .block { margin-bottom: 10px; }
+    .block p { font-size: 0.88rem; color: var(--text); }
+    .highlight-box {
+      background: linear-gradient(135deg, #1c2040, #1a1d27);
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 18px;
+    }
+    .highlight-box .num {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .highlight-box .desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .top-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.78rem;
+      padding: 40px 16px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 50px;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.25rem; }
+      .top-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>半導體產業日報 / Daily Semiconductor Report</h1>
+  <div class="date">2026-05-31 (Asia/Taipei) &nbsp;·&nbsp; Sources: TrendForce, NVIDIA Newsroom, ASML, Reuters, Commercial Times</div>
+</header>
+
+<nav class="toc">
+  <a href="#top-stories">頭條</a>
+  <a href="#foundry">晶圓代工</a>
+  <a href="#ic-design">IC 設計</a>
+  <a href="#memory">記憶體</a>
+  <a href="#equipment">設備與材料</a>
+  <a href="#ai-chips">AI 晶片</a>
+  <a href="#geopolitics">地緣政治</a>
+  <a href="#deep-reads">觀點深讀</a>
+</nav>
+
+<main>
+
+<!-- ─── TOP STORIES ─── -->
+<section id="top-stories">
+  <h2>1. 頭條 / Top Stories</h2>
+
+  <!-- Key metrics row -->
+  <div class="top-row">
+    <div class="highlight-box">
+      <div class="num">$81.6B</div>
+      <div class="desc">NVIDIA Q1 FY27 營收 (YoY +85%)</div>
+    </div>
+    <div class="highlight-box">
+      <div class="num">+15%</div>
+      <div class="desc">TSMC 3nm 傳下半年調漲幅度</div>
+    </div>
+    <div class="highlight-box">
+      <div class="num">14 Gbps</div>
+      <div class="desc">Samsung HBM4E 穩定腳速 (可達 16 Gbps)</div>
+    </div>
+    <div class="highlight-box">
+      <div class="num">3.6 TB/s</div>
+      <div class="desc">Samsung HBM4E 每疊帶寬</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>NVIDIA 創 Q1 FY27 史上最高營收 $81.6B，Data Center 年增 92%；Q2 指引 $91B / NVIDIA Posts Record Q1 FY27 Revenue $81.6B, DC +92% YoY; Q2 Guide $91B</h3>
+    <div class="meta">
+      <strong>來源</strong>: <a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2027" target="_blank">NVIDIA Newsroom</a> · 2026-05-20
+    </div>
+    <div class="block">
+      <span class="label l-facts">核心事實</span>
+      <p>NVIDIA Q1 FY27（截至 2026-04-26）營收 $81.6B，QoQ +20%、YoY +85%。Data Center 營收 $75.2B（DC compute $60.4B / DC networking $14.8B，網路年增 199%）。GAAP 毛利率 74.9%。GAAP EPS $2.39。Q2 FY27 指引 $91B ± 2%，且明確不含中國 Data Center compute 營收。宣布追加 $80B 股票回購、季度股利從 $0.01 → $0.25 / 股。</p>
+    </div>
+    <div class="block">
+      <span class="label l-context">背景脈絡</span>
+      <p>Blackwell GPU 持續供不應求，NVIDIA 已發表 Vera Rubin 平台（含 Vera CPU 與 BlueField-4 STX）。公司改變財報分類框架，將 Data Center 拆為「Hyperscale」與「ACIE（AI Clouds / Industrial / Enterprise）」兩個子市場，Edge Computing 則含 PC、遊戲主機、機器人與車用。Q2 不含中國業務，顯示出口管制影響持續計入保守預測。</p>
+    </div>
+    <div class="block">
+      <span class="label l-impl">影響觀察</span>
+      <p>（分析）Data Center networking YoY +199% 顯示 InfiniBand / NVLink 叢集規模急速擴張，對 Mellanox / Lumentum / Coherent 等光通訊供應商是強力正訊號。Q2 指引排除中國，暗示若出口管制鬆綁存在顯著上行空間。TSMC 作為 Blackwell / Rubin 首要製程合作伙伴，將直接受益於 NVIDIA 需求持續向上。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Samsung 率先出貨業界首款 12 層 HBM4E 樣品，帶寬提升 20%+、容量 48GB / Samsung Ships World-First 12-Layer HBM4E Samples; +20% BW, 48 GB</h3>
+    <div class="meta">
+      <strong>來源</strong>: <a href="https://www.trendforce.com/news/2026/05/29/news-samsung-starts-shipping-industry-first-hbm4e-samples-three-months-after-hbm4-mass-production-performance-up-over-20/" target="_blank">TrendForce</a> · 2026-05-29
+    </div>
+    <div class="block">
+      <span class="label l-facts">核心事實</span>
+      <p>Samsung 開始向主要全球合作夥伴出貨業界首款 12 層 HBM4E 樣品。HBM4E 腳速 14 Gbps（峰值可達 16 Gbps）、帶寬 3.6 TB/s / 疊（vs HBM4 提升 20%+）、容量 48 GB（比前代 +30% 以上）；後續將擴展至 32 GB（8 層）與 64 GB（16 層）。與 HBM4 同樣採用 1c DRAM 製程 + 4nm 底部芯片。能源效率提升 16%、熱阻降低 14%+。Samsung 表示 HBM4 自 2 月開始量產出貨。SK hynix 原本預計 H2 開始 HBM4E 樣品出貨，開發進展比預期順利可能提前；Micron 則目標 2027 量產。</p>
+    </div>
+    <div class="block">
+      <span class="label l-context">背景脈絡</span>
+      <p>HBM 市場已進入 HBM4 時代，Samsung 在 HBM4 認證落後後（SK hynix 先取得 NVIDIA 認證），HBM4E 的率先出樣具有搶佔技術高地的戰略意義。HBM4 起，客戶定制化設計彈性（Custom Logic Die）與大規模供應能力成為關鍵差異化因素，Samsung 整合記憶體、晶圓代工與先進封裝的垂直優勢被市場看重。</p>
+    </div>
+    <div class="block">
+      <span class="label l-impl">影響觀察</span>
+      <p>（分析）若 Samsung HBM4E 通過主要 AI GPU 客戶（NVIDIA / AMD / Google）認證，可望打破 SK hynix 在高端 HBM 的市佔優勢。64 GB（16 層）將對應下一代超大容量 AI 加速器需求。Micron 目前在 HBM4E 時程相對保守（2027 量產），短期 Samsung vs SK hynix 競爭格局更值得追蹤。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOUNDRY ─── -->
+<section id="foundry">
+  <h2>2. 晶圓代工與封測 / Foundry &amp; Advanced Packaging</h2>
+
+  <div class="card">
+    <h3>TSMC 傳下半年 3nm 調漲最高 15%，2027 再漲 5–10%；Fab 18 月產能已達 16–17.5 萬片 / TSMC Said to Eye Up to 15% 3nm Hike in 2H26</h3>
+    <div class="meta">
+      <strong>來源</strong>: <a href="https://www.trendforce.com/news/2026/05/27/news-tsmc-reportedly-eyes-up-to-15-3nm-price-hike-in-2h26-further-5-10-seen-in-2027-amid-ai-asic-demand/" target="_blank">TrendForce</a> (引用商業時報) · 2026-05-27 ·
+      <em>消息來源為供應鏈傳聞，非官方確認</em>
+    </div>
+    <div class="block">
+      <span class="label l-facts">核心事實</span>
+      <p>據商業時報引述消息人士，TSMC 計畫在 2026H2 對 3nm 晶圓報價再漲最高 15%，2027 年進一步調漲 5–10%。Fab 18（3nm 主生產基地）月產能從 2026 年初約 13 萬片，增至 Q2 約 16–17.5 萬片，但 AI 需求成長仍遠超過供給。TSMC 在 4Q25 全球晶圓代工市場市佔率 70.4%（TrendForce）。TSMC 年度股東會 6 月 4 日召開，市場關注魏哲家主席對 AI 需求與先進製程的更新。</p>
+    </div>
+    <div class="block">
+      <span class="label l-context">背景脈絡</span>
+      <p>3nm 需求結構已從智慧手機 SoC 主導，轉向 NVIDIA、AMD、Google、AWS 及多家 CSP 自研 ASIC 的 AI server 週期。機構法人指出，3nm 是 AI 晶片最穩定量產節點，2nm 尚在良率爬坡初期，成本與稼動率均不如 3nm。海外建廠成本上升與先進製程折舊壓力，也強化了漲價的必要性。</p>
+    </div>
+    <div class="block">
+      <span class="label l-impl">影響觀察</span>
+      <p>（分析）3nm 漲價將直接推高 NVIDIA Blackwell / AMD MI 系列 / Broadcom ASIC 的 wafer cost，但 AI 下游需求強度目前對漲價並不敏感。對 TSMC 毛利率有正向支撐效應（資本市場視角）。三星代工若在 2nm 良率上無法突破，搶單窗口將持續縮窄。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>TSMC：能源效率正超越算力成為 AI 晶片設計首要限制；A14 製程預計算力 +20% / 功耗 -30% / TSMC: Energy Efficiency Overtaking Compute as AI Chip Priority; A14 Targets +20% Perf, -30% Power</h3>
+    <div class="meta">
+      <strong>來源</strong>: <a href="https://www.trendforce.com/news/2026/05/29/news-tsmc-says-energy-efficiency-is-emerging-as-a-higher-priority-than-computing-power-in-ai-chip-design/" target="_blank">TrendForce</a> (引用 Reuters) · 2026-05-29
+    </div>
+    <div class="block">
+      <span class="label l-facts">核心事實</span>
+      <p>TSMC 業務開發資深副總裁 Kevin Zhang 5 月 28 日於阿姆斯特丹一場研討會指出，客戶（從手機廠到 AI 資料中心業者）正越來越把「在最低額外耗電下提升效能」設為設計首要目標。TSMC A14 世代（預計 2028 年）目標比現有 N2 提供 20%+ 算力提升、降低最高 30% 功耗。A13 與 A12 節點（均預計 2029 年）不需要 High-NA EUV（根據 Tom's Hardware）。A16 量產則延後至 2027。</p>
+    </div>
+    <div class="block">
+      <span class="label l-context">背景脈絡</span>
+      <p>AI 資料中心電力消耗問題已成為系統瓶頸。Kevin Zhang 也對華為 Tau Scaling Law 表達看法：其底層概念（加速晶片內部資料移動）業界已存在多年，核心依賴 3D 堆疊等技術，TSMC 在 CoWoS、SoIC 及混合鍵合技術已深耕近十年。</p>
+    </div>
+    <div class="block">
+      <span class="label l-impl">影響觀察</span>
+      <p>（分析）A14 不採用 High-NA EUV 意味著 ASML High-NA 機台的 TAM 成長路徑放緩，但對 TSMC 資本支出節奏有正面影響（降低設備依賴）。能源效率優先的設計趨勢將加速先進封裝（3D IC、CoWoS-L/R）與矽光子需求，ASE / Amkor / AIXTRON 等封測與材料廠受益。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>聯發科 CEO 在股東會明確重申 TSMC 為最重要長期夥伴，三星訪台爭單傳聞落空 / MediaTek CEO Reaffirms TSMC Partnership; Samsung Taiwan Visit Fails to Shift Orders</h3>
+    <div class="meta">
+      <strong>來源</strong>: <a href="https://www.trendforce.com/news/2026/05/29/news-mediatek-ceo-reaffirms-tsmc-as-key-long-term-partner-amid-samsungs-reported-push-for-foundry-orders/" target="_blank">TrendForce</a> (引用 TechNews / 自由時報 / 商業時報) · 2026-05-29
+    </div>
+    <div class="block">
+      <span class="label l-facts">核心事實</span>
+      <p>三星會長李在鎔上週傳低調訪台、試圖透過「記憶體綁晶圓代工」（優先供貨高端記憶體換取 MediaTek 部分訂單）搶單，但聯發科 CEO 蔡力行在 5/29 股東會明確表示 TSMC 是「最重要、最長期」的晶圓代工夥伴，合作節點橫跨 12nm、7nm、6nm、5nm、2nm 乃至尚未量產的 1.4nm 世代。三星 2nm 良率傳約 55%，尚未達量產門檻；三星已取得特斯拉 AI6 晶片代工訂單，積極向 AMD 行銷 2nm。</p>
+    </div>
+    <div class="block">
+      <span class="label l-context">背景脈絡</span>
+      <p>聯發科已宣布以 TSMC N2P 製程完成旗艦 SoC 的 tape-out，預計 2026 年底量產，是首批 N2P 合作客戶之一。聯發科同時採取雙封裝策略：Google 第 8 代推論 TPU 封裝交予 Intel（EMIB），訓練 TPU 封裝保留 TSMC（CoWoS）。蔡力行在 400G SerDes 與 CPO 等次世代技術持續加碼投資，指向資料中心市場布局。</p>
+    </div>
+    <div class="block">
+      <span class="label l-impl">影響觀察</span>
+      <p>（分析）聯發科短期不太可能大規模轉向三星代工，但其「雙封裝策略」（Intel EMIB 與 TSMC CoWoS 並用）顯示在先進封裝層面已開始分散。若三星 2nm 良率持續改善，2027 年以後仍有可能在特定客製 ASIC 項目取得部分訂單。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── IC DESIGN ─── -->
+<section id="ic-design">
+  <h2>3. IC 設計 / Fabless &amp; IDM</h2>
+
+  <div class="card">
+    <h3>NVIDIA Jensen Huang：華為 Tau Scaling Law 是突破，但對 TSMC 不構成挑戰；華為 Kirin 2026 秋季傳採用 LogicFolding / Jensen Huang: Huawei Tau Law Breakthrough, No Threat to TSMC; Kirin 2026 May Use LogicFolding</h3>
+    <div class="meta">
+      <strong>來源</strong>: <a href="https://www.trendforce.com/news/2026/05/29/news-nvidia-jensen-huang-calls-huaweis-tau-scaling-law-a-breakthrough-but-sees-no-challenge-to-tsmc/" target="_blank">TrendForce</a> (引用 TechNews / Chosun Biz / SCMP / Mydrivers) · 2026-05-29
+    </div>
+    <div class="block">
+      <span class="label l-facts">核心事實</span>
+      <p>NVIDIA CEO Jensen Huang 5/28 訪台期間評論華為 Tau（τ）Scaling Law：認為是華為的突破，可透過 chiplet 堆疊與混合鍵合讓電晶體數量倍增甚至四倍，但強調 TSMC 在相關技術已深耕近十年，不構成挑戰。Chosun Biz：LogicFolding 核心是把電路堆疊為兩層以縮短走線、降低信號延遲，目標在不縮小電晶體尺寸下達到 2nm/1nm 級性能。Mydrivers 指出，華為秋季將推出的 Kirin 2026 傳可能是全球首款商用 LogicFolding 晶片。SCMP：華為目標 2031 年實現不依賴西方設備、達 1.4nm 等效性能。散熱與量產複雜度仍是重大瓶頸（Chosun Daily）。</p>
+    </div>
+    <div class="block">
+      <span class="label l-context">背景脈絡</span>
+      <p>華為在 Ascend 910C（以中芯 7nm 為基礎）之後，面臨無法進一步取得先進製程設備的困境，Tau Scaling Law（LogicFolding + 北京大學自研 EDA 工具）是繞過傳統微縮路徑的戰略替代方案。NVIDIA 自身的 Blackwell / Rubin 也大量仰賴 TSMC 的 CoWoS / SoIC 先進封裝，因此對「堆疊技術」並不陌生。</p>
+    </div>
+    <div class="block">
+      <span class="label l-impl">影響觀察</span>
+      <p>（分析）LogicFolding 若在商業晶片中驗證成功，對中國本土半導體自主化意義重大，但散熱、良率、EDA 工具成熟度仍是關鍵不確定因素，需持續追蹤 Kirin 2026 實測數據。對 ASML 出口管制的意義：若中國能在不仰賴 High-NA EUV 下實現效能躍升，短期歐美的管制壓力可能帶來「推動自主創新」的反效果論述。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>NVIDIA Q1 FY27 亮點：Vera Rubin 平台發表、Dynamo 1.0 量產、NemoClaw 發布；Q2 指引 $91B / NVIDIA Q1 FY27 Highlights: Vera Rubin, Dynamo 1.0 GA, NemoClaw Launch</h3>
+    <div class="meta">
+      <strong>來源</strong>: <a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2027" target="_blank">NVIDIA Newsroom</a> · 2026-05-20
+    </div>
+    <div class="block">
+      <span class="label l-facts">核心事實</span>
+      <p>本季重要產品動態：(1) Vera Rubin 平台（含 Vera CPU，全球首顆 Agentic AI 專用處理器）+ BlueField-4 STX；(2) NVIDIA Dynamo 1.0 正式量產，宣稱在 Blackwell GPU 上 generative/agentic 推論效能提升 7 倍；(3) NemoClaw（用於 OpenClaw agent 平台）及 NVLink Fusion 策略夥伴（含 Marvell）。Corning / Coherent / Lumentum 三家光通訊廠與 NVIDIA 建立多年戰略協議。Edge Computing 季營收 $6.4B，QoQ +10%、YoY +29%。</p>
+    </div>
+    <div class="block">
+      <span class="label l-context">背景脈絡</span>
+      <p>NVIDIA 正從「GPU 製造商」轉型為「AI 工廠全棧平台」提供者，Dynamo、NemoClaw、NVLink Fusion 均是軟體與生態系布局。Q2 不含中國 DC compute 收入的指引雖較保守，但 $91B 仍超越多數分析師預期，且已涵蓋 Vera Rubin 開始出貨的效益。</p>
+    </div>
+    <div class="block">
+      <span class="label l-impl">影響觀察</span>
+      <p>（分析）Corning / Lumentum 戰略協議直接指向 CPO（共封裝光學）供應鏈，AIXTRON 已拿到 Lumentum 的多份訂單（另見設備段）。Marvell NVLink Fusion 夥伴關係可能加速 Marvell 的 ASIC 業務拓展。NVIDIA 不再單靠 NVIDIA 自研芯片，而是試圖讓整個生態系都用 NVLink 互聯，鎖定客戶並形成更強的護城河。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MEMORY ─── -->
+<section id="memory">
+  <h2>4. 記憶體 / Memory (DRAM · HBM · NAND)</h2>
+
+  <div class="card">
+    <h3>HBM4E 三強進度：Samsung 先發樣品，SK hynix 開發提前，Micron 鎖定 2027 量產 / HBM4E Race: Samsung Leads Samples, SK hynix Ahead of Schedule, Micron Targets 2027</h3>
+    <div class="meta">
+      <strong>來源</strong>: TrendForce / Yonhap / Stock Analysis · 2026-05-29
+    </div>
+    <div class="block">
+      <span class="label l-facts">核心事實</span>
+      <p>Samsung：業界首家出貨 HBM4E 樣品（12 層、48 GB、3.6 TB/s、14 Gbps 穩定，16 Gbps 峰值）；HBM4 自 2026 年 2 月量產，在 SiP 測試階段通過頂級評估（11.7 Gbps 速度）。SK hynix：原計 H2 開始 HBM4E 樣品出貨，但開發進展優於預期，時程可能提前。Micron：HBM4E 將符合 JEDEC 標準，量產時程目標 2027 年（J.P. Morgan 技術媒體研討會）；同時預計與 TSMC 合作標準與客製邏輯底部芯片。</p>
+    </div>
+    <div class="block">
+      <span class="label l-context">背景脈絡</span>
+      <p>HBM 市場規模隨 AI GPU 需求急劇膨脹，HBM4 起底部芯片（Base Die）採用先進邏輯製程（4nm），技術門檻大幅提高。HBM 帶寬已成為 AI 訓練/推論性能的核心瓶頸之一，NVIDIA 下一代 Rubin GPU 對 HBM4/HBM4E 需求可觀。Micron 選擇與 TSMC 合作 Custom Logic Die，是異構整合走向成熟的重要信號。</p>
+    </div>
+    <div class="block">
+      <span class="label l-impl">影響觀察</span>
+      <p>（分析）Samsung 率先樣品出貨有利於爭奪 NVIDIA 認證首位，但 SK hynix 在 HBM4 量產良率與客戶關係上的優勢仍強。Micron 的 2027 量產目標若達成，意味著三大廠全面進入 HBM4E，屆時 AI GPU 的記憶體供應將相對寬鬆，對 HBM ASP 有下行壓力（中長期視角）。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Micron 市值破兆美元：跨美亞全球擴廠概覽 / Micron Hits $1T Market Cap: Global Fab Expansion Across US & Asia</h3>
+    <div class="meta">
+      <strong>來源</strong>: <a href="https://www.trendforce.com/news/2026/05/27/news-inside-microns-1-trillion-market-cap-leap-a-global-fab-expansion-overview-across-the-u-s-and-asia/" target="_blank">TrendForce</a> · 2026-05-27
+    </div>
+    <div class="block">
+      <span class="label l-facts">核心事實</span>
+      <p>Micron 近期股價上漲使市值突破 $1 兆美元門檻，全球擴廠計畫持續推進：美國（紐約州克萊、愛達荷州博伊西）、日本（廣島）、印度、以及持續深化與 TSMC 在 HBM 邏輯底部芯片的合作。CHIPS Act 補貼是推動美國本土投資的主要政策支柱。</p>
+    </div>
+    <div class="block">
+      <span class="label l-context">背景脈絡</span>
+      <p>Micron 過去數年以 HBM 後進者姿態追趕，透過 TSMC 合作製造 HBM 底部芯片（異包）策略彌補自身製程差距。AI 驅動的 HBM 需求讓 Micron 股價長期反彈。全球多地建廠分散供應鏈風險，同時符合各國補貼與在地化要求。</p>
+    </div>
+    <div class="block">
+      <span class="label l-impl">影響觀察</span>
+      <p>（分析）Micron 市值達 $1T 顯示市場對其 HBM4/4E 貢獻的高度預期。美亞多地建廠雖增加資本支出，但有助於分散地緣政治風險並鎖定政府補貼。長期若 Micron 良率追上 SK hynix，HBM 市場三足鼎立格局將更穩固，競爭有利於 AI 系統業者（降低成本）。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── EQUIPMENT ─── -->
+<section id="equipment">
+  <h2>5. 設備與材料 / Equipment &amp; Materials</h2>
+
+  <div class="card">
+    <h3>AIXTRON 獲 Lumentum 多批訂單，AI 光通訊熱潮帶動；ASML 最新消息：塔塔電子合作印度半導體生態 / AIXTRON Gets Multiple Orders from Lumentum on AI Optical Boom; ASML-Tata Electronics India Partnership</h3>
+    <div class="meta">
+      <strong>來源</strong>: TrendForce · 2026-05-29 ；<a href="https://www.asml.com/en/news/press-releases/2026/tata-electronics-and-asml-announce-strategic-partnership" target="_blank">ASML Newsroom</a> · 2026-05-16
+    </div>
+    <div class="block">
+      <span class="label l-facts">核心事實</span>
+      <p>AIXTRON（德國化合物半導體設備商）收到 Lumentum（光學元件廠）多份訂單，主要受 AI 光通訊基礎建設熱潮（矽光子、CPO 相關）驅動。ASML 方面，5 月 16 日宣布與塔塔電子建立戰略夥伴關係，推進印度半導體製造生態系發展。ASML 最新季報（Q1 2026）在其財報日誌中已登錄。</p>
+    </div>
+    <div class="block">
+      <span class="label l-context">背景脈絡</span>
+      <p>NVIDIA 與 Coherent / Corning / Lumentum 的多年戰略協議（見 Q1 FY27 亮點）形成直接的訂單拉力。印度方面，塔塔電子已是 Apple 供應鏈廠，ASML 的合作標誌著 ASML 服務範圍向印度延伸，但初期為較成熟製程設備（非 EUV）。</p>
+    </div>
+    <div class="block">
+      <span class="label l-impl">影響觀察</span>
+      <p>（分析）AI 光通訊（CPO、矽光子）需求正快速從設計階段轉向大量生產，AIXTRON（MOCVD 設備）、II-VI / Lumentum（光學元件）、Coherent 均在這個供應鏈中處於關鍵位置。印度半導體製造尚在早期，ASML 合作具有長期戰略布局意義，短期商業規模有限。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Intel 傳將在新墨西哥 Rio Rancho 建全球首條玻璃基板量產線；EMIB 贏得 AWS / Cisco 等客戶 / Intel Eyes World-First Glass Substrate Volume at Rio Rancho; EMIB Wins AWS, Cisco</h3>
+    <div class="meta">
+      <strong>來源</strong>: <a href="https://www.trendforce.com/news/2026/05/26/news-intel-reportedly-eyes-worlds-first-glass-substrate-output-at-rio-rancho-offers-silicon-photonics-to-customers/" target="_blank">TrendForce</a> (引用 Forbes / Wccftech) · 2026-05-26 ·
+      <em>部分為消息來源傳聞，非官方確認</em>
+    </div>
+    <div class="block">
+      <span class="label l-facts">核心事實</span>
+      <p>Forbes / Wccftech 報導：Intel Rio Rancho（新墨西哥州）廠區可能成為全球首條玻璃基板量產線，目前 Chandler（亞利桑那州）僅有試產線。Intel 也開始向外部代工客戶提供矽光子製造服務（Rio Rancho）。CPO 玻璃基板首批原型已亮相，商用化時程目標 2030 年。EMIB 客戶：Forbes 引述渠道消息，AWS 和 Cisco 是現有客戶，Apple / Google / Microsoft / NVIDIA / Tesla 傳在洽談。封裝廠 Amkor 在亞利桑那州擴產，可能支援 Intel 與 TSMC 本土封裝需求。玻璃基板競爭：SKC 旗下 Absolics 傳年底前商用量產（全球首批）、三星電機廠 Sejong 試產線已運行（目標 2027+ 量產）、中國 BOE 與美國 Corning 合作玻璃基板。</p>
+    </div>
+    <div class="block">
+      <span class="label l-context">背景脈絡</span>
+      <p>AI 超級週期導致 ABF 有機基板（Ajinomoto）短缺並漲價，推動業界尋找替代方案。玻璃基板因表面平整度高、熱膨脹係數接近矽、可實現更高密度走線而受到關注，預計可降低大型封裝的翹曲問題並提升良率。Intel Foundry 正積極以先進封裝（EMIB、Foveros）差異化，彌補製程節點追趕 TSMC 的不利局面。</p>
+    </div>
+    <div class="block">
+      <span class="label l-impl">影響觀察</span>
+      <p>（分析）玻璃基板若能在 2027–2030 期間商用化，對 ABF 基板廠（台灣南亞電路板、日本 Ibiden / Shinko）的長期市佔有替代威脅。Intel 若成功將玻璃基板 + 矽光子 + EMIB 綁為一體的先進封裝平台，有機會在 AI ASIC 客戶中建立差異化護城河（不與 TSMC 正面比拼製程節點）。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── AI CHIPS ─── -->
+<section id="ai-chips">
+  <h2>6. AI 晶片 / AI Accelerators &amp; Roadmaps</h2>
+
+  <div class="card">
+    <h3>推論經濟時代來臨：AI 晶片架構規則正在改寫；效率優先超越算力優先 / The Inference Economy Arrives: AI Chip Architecture Rules Being Rewritten</h3>
+    <div class="meta">
+      <strong>來源</strong>: <a href="https://insights.trendforce.com/p/ai-inference-chip-architecture" target="_blank">TrendForce Insights</a> · 2026-05-29
+    </div>
+    <div class="block">
+      <span class="label l-facts">核心事實</span>
+      <p>TrendForce 的 Substack 深度文指出：AI 推論需求的爆發正在重塑晶片架構選型邏輯。訓練 GPU（H100/Blackwell）專注大規模浮點運算，但推論端要求更低延遲、更高每瓦效能，促使各廠推出專屬推論晶片（NVIDIA 的推論優化 Blackwell、Google TPU v6、AWS Trainium2、Groq、Cerebras 等）。</p>
+    </div>
+    <div class="block">
+      <span class="label l-context">背景脈絡</span>
+      <p>隨著大型語言模型部署規模擴大，推論成本逐漸超越訓練成本，電費與晶片效率成為雲端業者最在意的 KPI。ARM 架構在邊緣推論節點的優勢（低功耗）持續擴大；RISC-V 在中國本土 AI 晶片設計中也加速滲透。</p>
+    </div>
+    <div class="block">
+      <span class="label l-impl">影響觀察</span>
+      <p>（分析）推論晶片市場的多元化對 NVIDIA 並非純粹利好—雲端業者自研 ASIC（Google TPU、AWS Trainium）使 NVIDIA 的 data center 訂單集中度面臨分散風險。但就目前看，NVIDIA Blackwell 的整體 TCO 與軟體生態仍有顯著優勢。長期，TSMC 3nm/2nm 製程滿載的最大受益方仍是 AI 推論 ASIC 廠商的持續代工需求。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>NVIDIA Vera Rubin 平台深度：Vera CPU + BlueField-4 STX + Dynamo 1.0 推論加速 7x / NVIDIA Vera Rubin Platform Deep Dive</h3>
+    <div class="meta">
+      <strong>來源</strong>: <a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2027" target="_blank">NVIDIA Newsroom</a> / NVIDIA Blog · 2026-05-20–28
+    </div>
+    <div class="block">
+      <span class="label l-facts">核心事實</span>
+      <p>Vera CPU 定位「全球首顆 Agentic AI 專用 CPU」，採 TSMC 先進製程；BlueField-4 STX 為加速儲存基礎設施。Dynamo 1.0 開源軟體已 GA，在 Blackwell GPU 上 generative + agentic 推論效能達 7 倍提升。NVIDIA 在 GTC Taipei（COMPUTEX 同期）於台北舉行特別活動，展示 Vera Rubin 生態。NVIDIA 同時宣布與 T-Mobile / Nokia 合作將物理 AI 整合到 AI-RAN 基礎設施。</p>
+    </div>
+    <div class="block">
+      <span class="label l-context">背景脈絡</span>
+      <p>Vera Rubin 架構以「Rubin GPU + Vera CPU + NVLink 高速互聯」為核心三角，針對 Agentic AI 工作流（agent 之間的協調、推論與決策）優化。NVIDIA 選擇台北 COMPUTEX 週發布這一系列，強化台灣供應鏈（TSMC、CoWoS 封裝廠）的戰略夥伴印象。</p>
+    </div>
+    <div class="block">
+      <span class="label l-impl">影響觀察</span>
+      <p>（分析）Vera CPU 的出現意味著 NVIDIA 開始「填滿」AI 系統的 CPU 空位，長期可能與 AMD（EPYC）/ ARM 伺服器 CPU 正面競爭。Dynamo 1.0 的 7 倍推論效能提升若屬實，將顯著降低雲端業者採用第三方推論加速器（Groq、Cerebras）的誘因。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GEOPOLITICS ─── -->
+<section id="geopolitics">
+  <h2>7. 地緣政治與政策 / Geopolitics &amp; Policy</h2>
+
+  <div class="card">
+    <h3>中國傳收緊 AI 人才出境管制（阿里、DeepSeek 等民企員工）；NVIDIA Q2 指引明確排除中國 DC Compute 業務 / China Said to Tighten Overseas Travel Rules for AI Talent; NVIDIA Excludes China DC Compute from Q2 Guide</h3>
+    <div class="meta">
+      <strong>來源</strong>: TrendForce (引用傳媒) · 2026-05-27；NVIDIA Newsroom · 2026-05-20
+    </div>
+    <div class="block">
+      <span class="label l-facts">核心事實</span>
+      <p>中國傳正加強對阿里巴巴、DeepSeek 等民間 AI 公司員工的海外出境管制規定。NVIDIA 在 Q2 FY27 指引中明確聲明「不假設任何來自中國的 Data Center compute 業務」，隱含出口管制影響持續。美國 BIS 對中國 AI 晶片出口限制（H20 等降規版 GPU）仍未鬆綁；NVIDIA Q1 FY27 財報中 H20 相關損失（charge）已歸零（前一季為 $4.5B）。</p>
+    </div>
+    <div class="block">
+      <span class="label l-context">背景脈絡</span>
+      <p>自 2022 年 CUDA Export Controls 以來，中國 AI 業者已形成以自研 Ascend 910C / 天數智芯等本土替代方案為主、兼用走私或許可灰色管道的複雜生態。DeepSeek R1 模型的崛起顯示即使在較低算力下，演算法優化仍能達到頂尖水準，強化了中國「算法自立」的信心。美國則持續強化出口管制並擴大友邦晶片供應鏈聯盟（ASML India、Tata Electronics 等）。</p>
+    </div>
+    <div class="block">
+      <span class="label l-impl">影響觀察</span>
+      <p>（分析）中國 AI 人才出境限制若屬實，顯示北京試圖防止核心 AI know-how 外流（反向出口管制）。對 NVIDIA 短期財務影響有限（已計入指引），但若管制鬆綁則有顯著上行空間。華為 Tau Scaling Law 的積極推進與中國 EDA 工具開發（北大 EDA for LogicFolding）均是這一政策環境下的自主替代方向。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>ASML 與塔塔電子建立戰略夥伴；全球晶片供應鏈多極化持續推進 / ASML-Tata Electronics Strategic Partnership; Global Chip Supply Chain Multipolarization Continues</h3>
+    <div class="meta">
+      <strong>來源</strong>: <a href="https://www.asml.com/en/news/press-releases/2026/tata-electronics-and-asml-announce-strategic-partnership" target="_blank">ASML 新聞稿</a> · 2026-05-16
+    </div>
+    <div class="block">
+      <span class="label l-facts">核心事實</span>
+      <p>ASML 與塔塔電子於 5 月 16 日正式宣布戰略夥伴關係，旨在推進印度半導體製造生態系建設。塔塔電子是印度首個大規模半導體製造商，與日本 Renesas / PSMC 合作，2024 年已於古吉拉特邦開工建設 28nm 晶圓廠。ASML 在歐洲方面，CEO Christophe Fouquet 5 月 5 日與歐洲科技業者聯署意見書，倡議歐洲晶片政策強化。</p>
+    </div>
+    <div class="block">
+      <span class="label l-context">背景脈絡</span>
+      <p>印度半導體製造從零開始，政府以 India Semiconductor Mission（ISM）吸引外資，並以補貼 50% 資本支出為誘因。塔塔電子廠初期目標 28nm 成熟製程，主要供應汽車、IoT 與消費電子市場。ASML 在印度目前只提供 DUV 而非 EUV（印度製程節點不需 EUV）。</p>
+    </div>
+    <div class="block">
+      <span class="label l-impl">影響觀察</span>
+      <p>（分析）印度半導體製造是十年以上的長期故事，短期無法動搖台韓在先進製程的地位。但對設備廠（ASML 的 DUV）、材料廠（矽晶圓、特氣）、以及台灣封測廠（在印度設 OSAT）而言，是可觀的潛在增量市場。地緣政治角度：印度作為美國/歐盟「可信賴供應鏈」夥伴，其半導體製造能力的提升符合分散中國依賴的政策意圖。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DEEP READS ─── -->
+<section id="deep-reads">
+  <h2>8. 觀點深讀 / Deep Reads</h2>
+
+  <div class="card">
+    <h3>The Inference Economy Arrives: AI Chip Rules Are Being Rewritten</h3>
+    <div class="meta">
+      <a href="https://insights.trendforce.com/p/ai-inference-chip-architecture" target="_blank">TrendForce Insights (Substack)</a> · 2026-05-29
+    </div>
+    <p style="font-size:0.87rem; color: var(--muted);">
+      深度探討 AI 從訓練轉向推論主導後，晶片架構（SIMD 向 sparse / mixed precision 演進）、封裝形態（整合 HBM 的推論加速卡）、以及商業模式（per-token pricing）的三重重構。值得追蹤的核心問題：NVIDIA Blackwell 能否同時最優化訓練與推論？還是推論端會形成獨立的非 NVIDIA 生態？
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Glass Substrates Are Breaking Through the AI Chip Packaging Bottleneck</h3>
+    <div class="meta">
+      <a href="https://insights.trendforce.com/p/glass-substrate-development" target="_blank">TrendForce Insights (Substack)</a>
+    </div>
+    <p style="font-size:0.87rem; color: var(--muted);">
+      詳解玻璃基板 vs 有機基板（ABF）的技術差異：CTE 匹配矽、翹曲率更低、走線精度更高。重點玩家：Intel（Rio Rancho 試產 → 量產），SKC Absolics（年底商用），三星電機（2027+），BOE + Corning（中國）。2030 年前後玻璃基板可能從先進 AI GPU 封裝切入，逐步替代 ABF。
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Huawei's Tau Scaling Law vs. Physical Scaling: A Genuine Alternative or Hype?</h3>
+    <div class="meta">
+      Reuters / SCMP / Chosun Biz 綜合 · 2026-05-26–29
+    </div>
+    <p style="font-size:0.87rem; color: var(--muted);">
+      三個值得持續追蹤的技術核心問題：(1) LogicFolding 的實際散熱挑戰有多嚴重？（Chosun Daily 指出增加後處理複雜度）；(2) 北大 EDA 工具的成熟度與商業可用性；(3) Kirin 2026 的實測性能若達到「3nm 等效」，將對 TSMC N3 客戶群的定價預期產生什麼影響？（迄今最強的反出口管制技術論述）
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>資料來源 / Sources</p>
+  <p style="margin-top:8px;">
+    <a href="https://www.trendforce.com/news/" target="_blank">TrendForce News</a> ·
+    <a href="https://nvidianews.nvidia.com/" target="_blank">NVIDIA Newsroom</a> ·
+    <a href="https://www.asml.com/en/news" target="_blank">ASML News</a> ·
+    <a href="https://insights.trendforce.com/" target="_blank">TrendForce Insights (Substack)</a> ·
+    Reuters · Commercial Times · Liberty Times · TechNews · Yonhap · SCMP · Forbes · Wccftech · Chosun Biz
+  </p>
+  <p style="margin-top: 12px; font-size:0.72rem;">
+    封鎖 / 付費牆來源：Reuters.com（403 封鎖）、Bloomberg Semiconductors（付費）、WSJ Tech（付費）、SemiAnalysis（付費）、The Information（付費）、DigiTimes（部分付費）。本報以可公開抓取之媒體為主。
+  </p>
+  <p style="margin-top:10px; color: #555;">Generated 2026-05-31 · daily-semiconductor-news-2026-05-31.html</p>
+</footer>
+
+</body>
+</html>

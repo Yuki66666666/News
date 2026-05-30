@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美股日報 US Stocks Daily — 2026-05-29 (交易日)</title>
+<style>
+  :root { color-scheme: light; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.65;
+    padding: 0 0 40px 0;
+  }
+  header {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 60%, #1a1a2e 100%);
+    color: #fff;
+    padding: 28px 32px 22px;
+  }
+  header h1 { font-size: 1.55rem; font-weight: 700; letter-spacing: -0.3px; }
+  header .sub { font-size: 0.82rem; color: #a8c8f8; margin-top: 4px; }
+  header .badge {
+    display: inline-block; background: #e94560; color: #fff;
+    font-size: 0.7rem; font-weight: 700; padding: 2px 8px;
+    border-radius: 12px; margin-left: 10px; vertical-align: middle; letter-spacing: 0.5px;
+  }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+  /* Index table */
+  .index-wrap { margin: 24px 0; overflow-x: auto; }
+  table.idx {
+    width: 100%; border-collapse: collapse;
+    background: #fff; border-radius: 10px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.07); overflow: hidden;
+  }
+  table.idx thead { background: #0f3460; color: #fff; }
+  table.idx th { padding: 10px 14px; font-size: 0.78rem; text-align: right; font-weight: 600; }
+  table.idx th:first-child { text-align: left; }
+  table.idx td { padding: 9px 14px; font-size: 0.84rem; text-align: right; border-bottom: 1px solid #f0f0f0; }
+  table.idx td:first-child { text-align: left; font-weight: 600; }
+  table.idx tr:last-child td { border-bottom: none; }
+  .up { color: #16a34a; font-weight: 600; }
+  .dn { color: #dc2626; font-weight: 600; }
+  .flat { color: #6b7280; }
+
+  /* Section cards */
+  .section {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+    margin: 20px 0; overflow: hidden;
+  }
+  .section-header {
+    background: #f1f5ff; border-bottom: 2px solid #e0e7ff;
+    padding: 13px 20px; display: flex; align-items: center; gap: 10px;
+  }
+  .section-header .icon { font-size: 1.1rem; }
+  .section-header h2 { font-size: 0.98rem; font-weight: 700; color: #1e3a8a; }
+  .section-header .en { font-size: 0.78rem; color: #6b7280; margin-left: 2px; }
+  .section-body { padding: 18px 20px; }
+
+  /* News items */
+  .news-item { margin-bottom: 22px; padding-bottom: 20px; border-bottom: 1px solid #f3f4f6; }
+  .news-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .news-item h3 { font-size: 0.97rem; font-weight: 700; color: #0f3460; margin-bottom: 4px; }
+  .source-line { font-size: 0.73rem; color: #9ca3af; margin-bottom: 8px; }
+  .source-line a { color: #6366f1; text-decoration: none; }
+  .source-line a:hover { text-decoration: underline; }
+  .label {
+    display: inline-block; font-size: 0.68rem; font-weight: 700;
+    padding: 1px 7px; border-radius: 4px; margin-right: 5px; vertical-align: middle;
+  }
+  .label-fact { background: #dbeafe; color: #1d4ed8; }
+  .label-ctx  { background: #fef3c7; color: #92400e; }
+  .label-impl { background: #d1fae5; color: #065f46; }
+  .fact-block, .ctx-block, .impl-block {
+    border-left: 3px solid #e5e7eb; padding: 6px 10px; margin: 6px 0;
+    font-size: 0.85rem; line-height: 1.6;
+  }
+  .fact-block { border-color: #3b82f6; background: #eff6ff; }
+  .ctx-block  { border-color: #f59e0b; background: #fffbeb; }
+  .impl-block { border-color: #10b981; background: #ecfdf5; }
+
+  /* Sector heatmap */
+  .heatmap { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .hm-cell {
+    padding: 7px 14px; border-radius: 6px; font-size: 0.78rem;
+    font-weight: 700; text-align: center; min-width: 90px;
+  }
+  .hm-pos1 { background: #bbf7d0; color: #14532d; }
+  .hm-pos2 { background: #d1fae5; color: #065f46; }
+  .hm-neg1 { background: #fee2e2; color: #991b1b; }
+  .hm-neg2 { background: #fecaca; color: #7f1d1d; }
+  .hm-flat { background: #f3f4f6; color: #4b5563; }
+
+  /* Tag chips */
+  .tag { display: inline-block; background: #e0e7ff; color: #3730a3; font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin: 2px 2px 2px 0; }
+
+  /* Reads */
+  .read-card { background: #f8faff; border: 1px solid #c7d2fe; border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; }
+  .read-card:last-child { margin-bottom: 0; }
+  .read-title { font-weight: 700; font-size: 0.88rem; color: #312e81; margin-bottom: 4px; }
+  .read-body { font-size: 0.82rem; color: #374151; }
+
+  /* FedWatch bar */
+  .fedwatch-bar { display: flex; gap: 0; border-radius: 8px; overflow: hidden; margin: 10px 0; height: 28px; }
+  .fw-seg { display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; color: #fff; transition: width 0.3s; }
+  .fw-hold { background: #6366f1; }
+  .fw-cut  { background: #10b981; }
+  .fw-hike { background: #ef4444; }
+
+  /* Footer */
+  footer {
+    margin: 30px 20px 0; padding: 14px 0 0;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.72rem; color: #9ca3af;
+  }
+  footer a { color: #6b7280; }
+  .disclaimer { background: #fef9c3; border: 1px solid #fde68a; border-radius: 6px; padding: 8px 12px; margin: 10px 0; font-size: 0.72rem; color: #78350f; }
+
+  @media (max-width: 600px) {
+    header { padding: 18px 16px 14px; }
+    .container { padding: 0 12px; }
+    .section-body { padding: 14px 14px; }
+    table.idx th, table.idx td { padding: 7px 8px; font-size: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>美股日報 US Stocks Daily <span class="badge">2026-05-31 發布</span></h1>
+    <div class="sub">交易日 Trading Session: 2026-05-29（週五）· 製作時間 Asia/Taipei 2026-05-31 · 資料截至 May 29 收盤</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ① 市場概況 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">📊</span>
+      <h2>① 市場概況 <span class="en">/ Market Overview</span></h2>
+    </div>
+    <div class="section-body">
+      <div class="index-wrap">
+        <table class="idx">
+          <thead>
+            <tr>
+              <th>指數 / Index</th>
+              <th>收盤 Close</th>
+              <th>漲跌 Chg</th>
+              <th>%</th>
+              <th>備註</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>S&amp;P 500 (SPX)</td><td>7,585.06</td><td class="up">+16.97</td><td class="up">+0.22%</td><td>連九週上漲 · 史上新高</td></tr>
+            <tr><td>Nasdaq Composite</td><td>26,972.62</td><td class="up">+54.00</td><td class="up">+0.20%</td><td>月漲 +8%，年度最佳月表現</td></tr>
+            <tr><td>Dow Jones (DJIA)</td><td>51,032.46</td><td class="up">+363.49</td><td class="up">+0.72%</td><td>首度收上 51,000 點</td></tr>
+            <tr><td>Russell 2000 (RUT)</td><td>2,919.34</td><td class="dn">−17.23</td><td class="dn">−0.59%</td><td>小型股相對落後</td></tr>
+            <tr><td>VIX</td><td>15.32</td><td class="dn">−0.42</td><td class="dn">−2.67%</td><td>低波動、市場情緒穩定</td></tr>
+            <tr><td>US 10Y Yield</td><td>4.44%</td><td class="dn">−0.03</td><td class="dn">−0.7%</td><td>三週低點，油價降息預期支撐</td></tr>
+            <tr><td>DXY (美元指數)</td><td>98.85</td><td class="dn">−0.12</td><td class="dn">−0.12%</td><td>弱勢美元助新興市場</td></tr>
+            <tr><td>WTI 原油</td><td>$87.20</td><td class="dn">−1.74</td><td class="dn">−2.0%</td><td>美伊停火談判壓低；月跌 ~17%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size:0.84rem; margin-top:10px;"><strong>產業板塊 Sector Heatmap（5/29 單日）：</strong></p>
+      <div class="heatmap">
+        <div class="hm-pos1">能源 Energy<br>+1.8%</div>
+        <div class="hm-pos1">工業 Industrials<br>+1.5%</div>
+        <div class="hm-pos2">科技 Technology<br>+0.6%</div>
+        <div class="hm-pos2">通訊 Comm Svcs<br>+0.5%</div>
+        <div class="hm-pos2">金融 Financials<br>+0.4%</div>
+        <div class="hm-flat">必選消費 Staples<br>±0.0%</div>
+        <div class="hm-neg1">非必選消費 Disc<br>−0.3%</div>
+        <div class="hm-neg2">醫療 Healthcare<br>−0.7%</div>
+      </div>
+
+      <p style="font-size:0.82rem; margin-top:12px; color:#374151;">
+        <strong>月績 May 2026：</strong>S&amp;P 500 月漲約 +5.5%，Nasdaq 月漲 +8%（年內最佳月份），Dow 月漲約 +4.2%。
+        美股連續九週收漲，為 2023 年以來最長連勝。主力驅動：AI 財報超預期浪潮 + 美伊停火降低油價能源成本。
+      </p>
+    </div>
+  </div>
+
+  <!-- ② 頭條 Top Stories -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🔥</span>
+      <h2>② 頭條 <span class="en">/ Top Stories</span></h2>
+    </div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <h3>美股九週連漲創 2023 年以來最長連勝；道瓊首收 51,000 點 / S&amp;P 500 Logs Ninth Straight Weekly Gain — Longest Since 2023; Dow Tops 51,000</h3>
+        <div class="source-line">來源: <a href="https://www.cnbc.com/2026/05/28/stock-market-today-live-updates.html" target="_blank">CNBC Markets Live</a> · <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-may-29-2026" target="_blank">TheStreet</a> · 2026-05-29</div>
+        <div class="fact-block"><span class="label label-fact">核心事實 Facts</span>S&amp;P 500 +0.22% 收 7,585，Nasdaq +0.20% 收 26,972，DJIA +0.72% 收 51,032（歷史首次收盤突破 5 萬 1 千點）。五月全月 S&amp;P 500 +5.5%、Nasdaq +8%。</div>
+        <div class="ctx-block"><span class="label label-ctx">背景脈絡 Context</span>此波強勢始於四月下旬 AI 財報季大規模超預期，加上 Trump 示意美伊談判進入「最後階段」，帶動油價急挫近 20%，給消費與物流業打了一針降成本的強心劑。連九週為標準普爾 500 指數自 2023 年 10-12 月以來最長周線連漲。</div>
+        <div class="impl-block"><span class="label label-impl">影響觀察 Implications</span>市場情緒從「謹慎樂觀」轉向「進攻性持倉」，VIX 降至 15 以下佐證。下週 Broadcom（AVGO）財報（6/3）是 AI 牛市成色的下一個重要檢驗點；若 AVGO 再次大超，預期將推動費城半導體指數再創新高。</div>
+      </div>
+
+      <div class="news-item">
+        <h3>美伊停火協議草簽，油價五月跌幅創六年最大 / US-Iran Ceasefire MOU Signed; Brent Posts Worst Monthly Loss Since Covid</h3>
+        <div class="source-line">來源: <a href="https://www.cnbc.com/2026/05/29/oil-prices-iran-ceasefire-us-trump-strait-hormuz-energy-costs.html" target="_blank">CNBC — Oil drops 20%</a> · <a href="https://www.cnbc.com/2026/05/29/oil-price-iran-deal-war-ceasefire-trump.html" target="_blank">CNBC — Brent monthly loss</a> · 2026-05-29</div>
+        <div class="fact-block"><span class="label label-fact">核心事實 Facts</span>WTI 月跌約 −17%，Brent 月跌約 −19%，為新冠疫情以來最大月跌幅。談判代表草簽 60 天停火 MOU，待 Trump 批准。5/29 WTI 收 $87.20（日跌 −2%），Brent 收 $93.71。</div>
+        <div class="ctx-block"><span class="label label-ctx">背景脈絡 Context</span>今年 4-5 月因伊朗封鎖霍爾木茲海峽威脅，油價一度飆至 2026 高點。隨和談展開，市場提前定價「伊朗石油回歸」預期，導致布蘭特從高點腰斬近 20%。能源公司股票短期承壓但因本週下跌有限，市場視之為對整體經濟正面訊號。</div>
+        <div class="impl-block"><span class="label label-impl">影響觀察 Implications</span>航空（UAL, DAL）、物流（UPS, FDX）、零售業者（AMZN, WMT）受益於運輸成本下滑；能源股（XLE）短期面臨獲利了結壓力。長期若協議破裂，油價可能快速反彈，仍是尾部風險。</div>
+      </div>
+
+      <div class="news-item">
+        <h3>四月核心 PCE 年增 3.3%，符合預期但為 2023 年 11 月以來最高 / April Core PCE +3.3% YoY — Highest Since Nov 2023, In-Line With Forecast</h3>
+        <div class="source-line">來源: <a href="https://www.cnbc.com/2026/05/28/core-inflation-hit-an-annual-rate-of-3point3percent-in-april-as-expected-feds-preferred-gauge-shows-.html" target="_blank">CNBC — Core PCE</a> · <a href="https://www.advisorperspectives.com/dshort/updates/2026/05/28/core-pce-inflation-at-3-3-in-april-highest-level-since-2023" target="_blank">Advisor Perspectives</a> · 2026-05-28</div>
+        <div class="fact-block"><span class="label label-fact">核心事實 Facts</span>四月核心 PCE 月增 +0.2%、年增 +3.3%（估 0.3% / 3.3%），整體 PCE 年增 3.8%（三年高點）。市場對 PCE 數據反應溫和，標普開盤幾乎不動。</div>
+        <div class="ctx-block"><span class="label label-ctx">背景脈絡 Context</span>Fed 於 4/29 會議維持目標利率區間 3.5%–3.75% 不變，並點出伊朗戰爭帶動的能源通膨為主要不確定性。CME FedWatch 顯示市場對年底降息的機率已降至僅 0.6%，升息機率約 39%，顯示「更長更高」預期重新定價。</div>
+        <div class="impl-block"><span class="label label-impl">影響觀察 Implications</span>通膨仍黏，但股市置之不理——因 AI 盈利增速遠超通膨侵蝕。油價若因停火持續下滑，5/6 月 PCE 有望回落，為 Fed 提供政策轉向空間。須留意：若 MOU 未獲 Trump 批准，能源通膨可能再度升溫。</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ③ 財報 Earnings -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">📋</span>
+      <h2>③ 財報 <span class="en">/ Earnings of the Day</span></h2>
+    </div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <h3>Dell 財報爆炸性大超預期：EPS +214% YoY，AI 伺服器業績驚人 / Dell Technologies (DELL) Q1 FY2027 Blowout: EPS +214% YoY, AI Server Revenue Set to Hit $60B FY</h3>
+        <div class="source-line">來源: <a href="https://www.fool.com/investing/2026/05/29/dell-just-blew-out-earnings-as-it-joins-the-ai-party-should-investors-buy-the-stock-after-its-221-run-this-year/" target="_blank">The Motley Fool</a> · <a href="https://www.sec.gov/Archives/edgar/data/0001571996/000157199626000021/exhibit991earnings8kq1fy27.htm" target="_blank">SEC 8-K</a> · 2026-05-28</div>
+        <div class="fact-block"><span class="label label-fact">核心事實 Facts</span>調整後 EPS $4.86（vs 估 $2.96，超估 +64%）；營收 $44B（vs 估 $35.7B，超估 +23%）。全年指引上調至 $167B 中值（年增 47%），AI 伺服器全年預期 $60B。DELL 本週累計漲逾 40%，年內漲幅達 +221%。</div>
+        <div class="ctx-block"><span class="label label-ctx">背景脈絡 Context</span>Dell 過去兩年因 PC 週期低迷被忽視，但 2025 年起 AI 伺服器訂單爆發式增長。客戶包含多家超大規模雲端廠商，訂單能見度長達 18 個月。公司近期宣布與 NVIDIA、AMD 深化 AI 伺服器整合，成為 AI 基礎設施的重要組裝方。</div>
+        <div class="impl-block"><span class="label label-impl">影響觀察 Implications</span>同業 HPE、Super Micro（SMCI）同步受惠情緒帶動；若 Broadcom 財報（6/3）確認超大規模 AI Capex 持續，整個 AI 基礎設施鏈有望再漲。注意 DELL 本週漲幅巨大，短期可能出現獲利了結。</div>
+        <span class="tag">AI 伺服器</span><span class="tag">DELL</span><span class="tag">財報大超</span><span class="tag">FY2027 指引</span>
+      </div>
+
+      <div class="news-item">
+        <h3>Snowflake Q1 FY2027：產品營收 $1.33B +34% YoY，NRR 126% / Snowflake (SNOW) Q1 FY2027: Product Revenue $1.33B +34% YoY, NRR 126%</h3>
+        <div class="source-line">來源: <a href="https://www.sec.gov/Archives/edgar/data/0001640147/000164014726000027/fy2027q1earnings.htm" target="_blank">SEC 8-K (SNOW Q1 FY2027)</a> · 2026-05-28</div>
+        <div class="fact-block"><span class="label label-fact">核心事實 Facts</span>產品營收 $1.33B（+34% YoY），總營收 $1.39B（+33% YoY），創季環比最大美元增長。Q1 百萬美元以上客戶 779 家（+29% YoY），RPO $9.21B（+38% YoY）。Q2 指引：產品營收 $1.415–$1.420B（+30% YoY）。SNOW 週漲逾 40%。</div>
+        <div class="ctx-block"><span class="label label-ctx">背景脈絡 Context</span>Snowflake 2025 年換帥（新 CEO Sridhar Ramaswamy）後積極轉向 AI 工作負載，推出 Cortex AI 平台，吸引企業將 AI/ML 工作流程整合至其數據倉儲。NRR 從前幾季的 127% 維持在 126%，顯示現有客戶持續擴量。</div>
+        <div class="impl-block"><span class="label label-impl">影響觀察 Implications</span>同業 Databricks（私有）、MongoDB（MDB）、Elastic（ESTC）受到正面情緒帶動。雲端數據平台需求持續強勁，暗示企業 AI 預算並未縮減。</div>
+        <span class="tag">SNOW</span><span class="tag">雲端數據</span><span class="tag">NRR 126%</span><span class="tag">AI 工作負載</span>
+      </div>
+
+      <div class="news-item">
+        <h3>NetApp Q4 FY2026 大超並大幅上調 FY2027 展望 / NetApp (NTAP) Q4 FY2026 Beat &amp; Raise: FY27 Revenue Guided $7.3–7.6B</h3>
+        <div class="source-line">來源: <a href="https://www.gurufocus.com/news/8891072/netapp-ntap-shares-surge-17-on-strong-earnings-and-positive-analyst-ratings" target="_blank">GuruFocus</a> · <a href="https://www.timothysykes.com/news/netapp-inc-ntap-news-2026_05_29-3/" target="_blank">TimothySykes</a> · 2026-05-29</div>
+        <div class="fact-block"><span class="label label-fact">核心事實 Facts</span>Q4 FY2026 營收 $1.95B（vs 估 $1.87B），Non-GAAP EPS $2.43（vs 估 $2.27）。FY2027 全年指引 $7.325–7.575B，Non-GAAP EPS $8.70–9.00。NTAP 5/29 收盤 $179.89（+26.33%，周漲累計約 17%），盤中高至 $192.83。</div>
+        <div class="ctx-block"><span class="label label-ctx">背景脈絡 Context</span>NetApp 拿下與 Google Cloud 的多年協議，全快閃儲存陣列（AFF）銷售量增 14% YoY，企業混合雲需求反映在強勁的產品組合上。先前市場擔憂 NetApp 面臨 Pure Storage 與 Dell 競爭壓力，但此次財報打消部分疑慮。</div>
+        <div class="impl-block"><span class="label label-impl">影響觀察 Implications</span>企業儲存設備需求確認與 AI 基礎設施投資同步擴張；Pure Storage（PSTG）等同業後續財報備受期待。</div>
+        <span class="tag">NTAP</span><span class="tag">混合雲儲存</span><span class="tag">Google Cloud</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ④ 個股大事 Single-stock Movers -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">⚡</span>
+      <h2>④ 個股大事 <span class="en">/ Single-Stock Movers</span></h2>
+    </div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <h3>Autodesk 財報超預期但宣布以 $36 億全現金收購 MaintainX，股價跌約 5–7% / Autodesk (ADSK) Beats Q1, But $3.6B All-Cash MaintainX Deal Spooks Investors; Stock Down ~5–7%</h3>
+        <div class="source-line">來源: <a href="https://seekingalpha.com/news/4598313-autodesk-falls-despite-q1-beat-analysts-mull-maintainx-acquisition" target="_blank">Seeking Alpha</a> · <a href="https://invezz.com/news/2026/05/29/autodesk-stock-falls-as-3-6b-maintainx-deal-worries-investors/" target="_blank">Invezz</a> · 2026-05-29</div>
+        <div class="fact-block"><span class="label label-fact">核心事實 Facts</span>ADSK Q1 財報超預期，但同步宣布以全現金 $3.6B 收購工廠設施管理 SaaS MaintainX（2026 年 ARR 逾 $1.35 億，成長 >50% YoY）。股價日跌約 4–7%，收盤於 $230 附近。此為 Autodesk 史上最大現金收購案。</div>
+        <div class="ctx-block"><span class="label label-ctx">背景脈絡 Context</span>Autodesk 本業為建築/工程/製造設計軟體（AutoCAD, Revit），此次收購跨入「設施營運管理（CMMS）」，創立新事業部 Autodesk Operations Solutions。市場擔心整合風險、現金消耗及 Autodesk 的核心 focus 是否分散。</div>
+        <div class="impl-block"><span class="label label-impl">影響觀察 Implications</span>若整合順利，ADSK 有望打入工業 4.0 整廠管理市場；但短期整合費用與現金壓力仍是空頭論點。競爭對手 ServiceMax（GE 旗下）、IBM Maximo 將受到直接衝擊。</div>
+        <span class="tag">ADSK</span><span class="tag">M&amp;A</span><span class="tag">MaintainX</span><span class="tag">CMMS</span>
+      </div>
+
+      <div class="news-item">
+        <h3>Coinbase 本月波動劇烈，Clarity Act 推動加密監管明朗化 / Coinbase (COIN) Volatile in May as Clarity Act Advances; Crypto Regulatory Clarity Drives Sentiment</h3>
+        <div class="source-line">來源: <a href="https://www.fxleaders.com/news/2026/05/15/coinbase-coin-stock-drops-from-419-to-212-crypto-market-crash-weak-q1-earnings-and-regulatory-hope-drive-volatility-in-2026/" target="_blank">FX Leaders</a> · <a href="https://www.coindesk.com/markets/2026/05/14/bitcoin-hits-usd82-000-coinbase-leads-crypto-stock-gains-as-clarity-act-advances" target="_blank">CoinDesk</a> · 2026-05</div>
+        <div class="fact-block"><span class="label label-fact">核心事實 Facts</span>COIN Q1 淨虧 $3.94 億，營收 $1.41B（vs 估 $1.48B，微幅不及）。年初至 5 月中旬，股價從 $419 高點跌至 $212，5/30 附近交易約 $188。參議院金融委員會 Clarity Act 推進後，COIN 單日曾大漲 +8%。</div>
+        <div class="ctx-block"><span class="label label-ctx">背景脈絡 Context</span>加密交易量在今年早些月份因比特幣從 $82,000 回落而萎縮，壓低 Coinbase 手續費收入。Clarity Act 若通過可提供美國加密資產明確法律框架，長期利多機構入場。27 位分析師共識「買進」，目標均價 $300。</div>
+        <div class="impl-block"><span class="label label-impl">影響觀察 Implications</span>加密監管明朗化為長線正催化劑；短期仍受制於加密市場交易量及宏觀風險偏好。</div>
+        <span class="tag">COIN</span><span class="tag">Clarity Act</span><span class="tag">加密監管</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ⑤ 併購與 IPO -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🤝</span>
+      <h2>⑤ 併購與 IPO <span class="en">/ M&amp;A and IPO</span></h2>
+    </div>
+    <div class="section-body">
+      <div class="news-item">
+        <h3>Autodesk 以 $36 億全現金收購 MaintainX（同上 ④ 詳述）/ Autodesk $3.6B All-Cash Acquisition of MaintainX (see ④)</h3>
+        <div class="source-line">來源: <a href="https://www.sec.gov/Archives/edgar/data/0000769397/000121390026062125/ea0292483-8k_autodesk.htm" target="_blank">SEC 8-K (ADSK)</a> · 2026-05-29</div>
+        <div class="fact-block"><span class="label label-fact">核心事實 Facts</span>收購金額 $3.6B 全現金，預計 2026 下半年完成。MaintainX 為私有公司，ARR $135M+，年增逾 50%。Autodesk 將成立「Autodesk Operations Solutions」新業務部門。</div>
+      </div>
+      <div class="news-item">
+        <h3>本週無重大 IPO 掛牌（5/26–5/29 美國市場）/ No Major IPO Debut This Holiday-Shortened Week</h3>
+        <div class="source-line">來源：市場資訊彙整 · 2026-05-29</div>
+        <div class="fact-block"><span class="label label-fact">核心事實 Facts</span>5/26（陣亡將士紀念日）美國休市，本週僅四個交易日，無重大 IPO 掛牌。下週 pipeline 持續觀望 AI 基礎設施及金融科技相關公司。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑥ 券商評等 Analyst Calls -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">📡</span>
+      <h2>⑥ 券商評等 <span class="en">/ Analyst Calls</span></h2>
+    </div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <h3>多家券商大幅上調 Dell 目標價：JPMorgan $280、Citi $290、Wells Fargo $270 / Multiple Firms Slash Dell Price Targets Higher: JPM $280, C $290, WFC $270</h3>
+        <div class="source-line">來源: <a href="https://finance.yahoo.com/markets/stocks/articles/best-buy-downgrade-dell-upgraded-134023510.html" target="_blank">Yahoo Finance — Analyst Calls</a> · <a href="https://www.investing.com/news/stock-market-news/why-is-dell-technologies-stock-surging-today-93CH-4706915" target="_blank">Investing.com</a> · 2026-05-29</div>
+        <div class="fact-block"><span class="label label-fact">核心事實 Facts</span>財報後各券商目標大調：JPMorgan 由 $205→$280（Overweight 維持）；Citi 由 $235→$290（買進）；Wells Fargo 由 $180→$270（Overweight）；Melius Research 上調至 $245；Goldman Sachs 上調至 $215。Morgan Stanley 先前已上調至 $170（維持 Sell）。</div>
+        <div class="impl-block"><span class="label label-impl">影響觀察 Implications</span>即使最樂觀目標價（$290）已在財報後股價附近，顯示多數賣方已「追著市場跑」而非引領。Morgan Stanley 的 Sell 評等為少數逆向觀點，值得追蹤。</div>
+        <span class="tag">DELL</span><span class="tag">目標價上調</span>
+      </div>
+
+      <div class="news-item">
+        <h3>UBS 下調 Best Buy 至中立；Goldman 本月稍早罕見「雙降」至賣出 / UBS Cuts Best Buy to Neutral; Goldman's Rare Double-Downgrade to Sell (Earlier in May)</h3>
+        <div class="source-line">來源: <a href="https://www.gurufocus.com/news/8891396/bby-downgraded-by-ubs-rating-changed-to-neutral" target="_blank">GuruFocus</a> · <a href="https://www.kavout.com/market-lens/why-did-goldman-sachs-double-downgrade-best-buy" target="_blank">Kavout — Goldman double downgrade</a> · 2026-05-29</div>
+        <div class="fact-block"><span class="label label-fact">核心事實 Facts</span>UBS 分析師 Michael Lasser 於 5/29 將 BBY 由 Buy 降至 Neutral，目標價微升至 $86（前 $85）。Goldman Sachs 月初將 BBY 從 Buy 一步驟直降 Sell（罕見跳過 Neutral），目標從 $76→$59，引用 DRAM/NAND 漲價侵蝕 PC/消費電子品類毛利。</div>
+        <div class="impl-block"><span class="label label-impl">影響觀察 Implications</span>消費電子零售壓力加劇；AI 記憶體需求帶動的晶片漲價，正以不對稱方式影響下游零售商。BBY 創 12 個月新低，短期難見轉機除非記憶體供需逆轉。</div>
+        <span class="tag">BBY</span><span class="tag">UBS 降評</span><span class="tag">Goldman 雙降</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ⑦ Fed 與利率 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🏦</span>
+      <h2>⑦ Fed 與利率 <span class="en">/ Fed &amp; Rates</span></h2>
+    </div>
+    <div class="section-body">
+
+      <p style="font-size:0.84rem; font-weight:700; margin-bottom:8px;">CME FedWatch — 2026 年底利率情境機率（截至 5/29）：</p>
+      <div class="fedwatch-bar" style="height:32px; border-radius:8px; overflow:hidden;">
+        <div class="fw-seg fw-hold" style="width:47.4%;">維持 47.4%</div>
+        <div class="fw-seg fw-hike" style="width:39.2%;">升息 39.2%</div>
+        <div class="fw-seg fw-cut" style="width:13.4%;">降息 13.4%</div>
+      </div>
+      <p style="font-size:0.72rem; color:#6b7280; margin-top:4px;">來源: <a href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank">CME FedWatch</a></p>
+
+      <div class="news-item" style="margin-top:14px;">
+        <h3>Fed 維持利率 3.5–3.75%；核心 PCE 升溫令降息預期幾近消滅 / Fed Holds at 3.5–3.75%; Hot PCE Kills Rate-Cut Hopes for 2026</h3>
+        <div class="source-line">來源: <a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm" target="_blank">Federal Reserve — April 29 FOMC Statement</a> · <a href="https://www.federalreserve.gov/monetarypolicy/fomcminutes20260429.htm" target="_blank">FOMC Minutes</a> · 2026-04-29</div>
+        <div class="fact-block"><span class="label label-fact">核心事實 Facts</span>聯準會 4/29 會議維持聯邦基金目標利率 3.50–3.75%。核心 PCE 4 月達 3.3%（2023 年以來最高），整體 PCE 3.8%。10 年期美債殖利率 5/29 收 4.44%（近三週低點），受美伊油價下跌帶動。降息可能性幾近消失，年底升息機率反升至約 39%。</div>
+        <div class="ctx-block"><span class="label label-ctx">背景脈絡 Context</span>Fed 面臨「能源帶動通膨 + AI 熱景氣」兩難局面：通膨黏著要求偏鷹立場，但若油價因停火持續下滑，7-9 月 PCE 讀數可能回落，為政策轉向鋪路。下一次 FOMC 會議約 6 月中旬，市場焦點在「信號」而非行動。</div>
+        <div class="impl-block"><span class="label label-impl">影響觀察 Implications</span>利率「更長更高」有利美元（短期弱因停火良性情緒），對 REITs、公用事業形成壓力，但科技成長股因獲利動能強而免疫。若 6 月 PCE 降至 3.0% 以下，Fed 轉向敘事將快速重燃。</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ⑧ 資金流向 Flows -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">💰</span>
+      <h2>⑧ 資金流向 <span class="en">/ Flows &amp; Positioning</span></h2>
+    </div>
+    <div class="section-body">
+      <div class="news-item">
+        <h3>AI ETF 大吸金；Nasdaq 月漲 8% 背後的資金結構 / AI ETFs See Strong Inflows; Nasdaq's 8% May Surge Driven by Earnings-Powered Rotation</h3>
+        <div class="source-line">來源: <a href="https://www.bbntimes.com/technology/nasdaq-composite-today-tech-index-caps-a-historic-8-monthly-surge-as-ai-earnings-revolution-reshapes-the-market" target="_blank">BBN Times — Nasdaq 8% surge</a> · <a href="https://etfdb.com/themes/artificial-intelligence-etfs/" target="_blank">ETF DB — AI ETFs</a> · 2026-05-29</div>
+        <div class="fact-block"><span class="label label-fact">核心事實 Facts</span>Roundhill Generative AI ETF（CHAT）年初至今漲 +41.7%，遠超 Invesco QQQ（+14.1%）。83% S&amp;P 500 公司 Q1 財報超預期（長期均值 67%），科技公司超預期幅度更大。本月大盤板塊漲跌分化：能源（受停火壓低油價）、工業、科技、通訊輪動領先；醫療、消費非必需落後。</div>
+        <div class="ctx-block"><span class="label label-ctx">Context</span>本輪上漲屬「盈利驅動型」多頭而非單純情緒炒作：半導體與 AI 應用公司的 EPS 超標幅度持續高於預期。散戶透過 AI ETF（CHAT、AIQ、ROBT 等）間接持有受惠股，資金流入仍強。</div>
+        <div class="impl-block"><span class="label label-impl">影響觀察 Implications</span>若 Broadcom（6/3）進一步確認 AI 超大規模 Capex 無懈，可能觸發 AI ETF 再一波資金追入。VIX 維持 15 以下代表賣出選擇權（Short Vol）策略仍具吸引力，但若地緣突發，波動率快速回升的尾部風險不可忽視。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑨ 觀點 Reads -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">📚</span>
+      <h2>⑨ 觀點 <span class="en">/ Reads Worth Bookmarking</span></h2>
+    </div>
+    <div class="section-body">
+      <div class="read-card">
+        <div class="read-title"><a href="https://www.fool.com/investing/2026/05/29/dell-just-blew-out-earnings-as-it-joins-the-ai-party-should-investors-buy-the-stock-after-its-221-run-this-year/" target="_blank">「Dell 年漲 221% 後 — 還該買嗎？」/ The Motley Fool</a></div>
+        <div class="read-body">剖析 Dell 以 AI 伺服器為核心的轉型邏輯，以及在漲幅驚人後估值是否已充分反映 AI Capex 超級週期。值得關注的問題：競爭對手 Super Micro 是否追上？Dell 毛利率能否隨 AI 伺服器佔比提升？</div>
+      </div>
+      <div class="read-card">
+        <div class="read-title"><a href="https://www.morningstar.com/economy/april-pce-report-seen-showing-energy-driven-inflation-rising-3-year-highs" target="_blank">「能源驅動通膨升至三年高點 — 但停火改變了方程式」/ Morningstar</a></div>
+        <div class="read-body">深度分析能源通膨與核心通膨分離趨勢：若美伊和談持續，WTI 下滑可能在 2-3 個月內使 PCE 讀數顯著回落，形成 Fed 的意外「自動降息」效應，市場或過度定價了年底升息機率。</div>
+      </div>
+      <div class="read-card">
+        <div class="read-title"><a href="https://www.fool.com/investing/2026/05/30/prediction-this-artificial-intelligence-ai-inferen-specialist-is-going-to-soar-after-june-3/" target="_blank">「6/3 Broadcom 財報後，哪家 AI 推論專家將暴漲？」/ The Motley Fool</a></div>
+        <div class="read-body">以 Broadcom 作為超大規模 AI Capex 的晴雨表，探討 AI 推論晶片需求從訓練轉向部署的結構性機會，點名潛在受惠的 AI 推論專用晶片業者。6/3 財報為本波 AI 行情的重要「壓力測試」。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 前瞻 Next Week Watch -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🔭</span>
+      <h2>下週關注 <span class="en">/ Next Week Watch (Week of June 2)</span></h2>
+    </div>
+    <div class="section-body">
+      <ul style="font-size:0.85rem; padding-left:18px; line-height:2;">
+        <li><strong>6/3（三）盤後</strong> — <strong>Broadcom（AVGO）Q2 FY2026 財報</strong>：Q2 指引 $22B 營收（+47% YoY），AI 晶片收入估 $10.7B（+140% YoY）。為本季最重要 AI 指標財報。</li>
+        <li><strong>6/5（五）</strong> — 美國 5 月非農就業報告（NFP）：前值低迷，若再度疲弱可能強化 Fed 偏鴿轉向論點。</li>
+        <li><strong>美伊 MOU 批准動態</strong>：Trump 尚未正式批准 60 天停火協議，一旦確認或否決，油價將劇烈反應，能源板塊與整體通膨預期連帶受影響。</li>
+        <li><strong>Coinbase 監管（Clarity Act）</strong>：參議院全院投票時程未定，若有進展 COIN 及整體加密板塊將反應。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    ⚠️ 本報告僅作資訊整理之用，不構成任何投資建議。所有數字均來自公開資料來源，請以各交易所及公司官方資訊為準。 This briefing is for informational purposes only and does not constitute investment advice. All figures are sourced from public information; please verify with official exchange and company filings.
+  </div>
+
+  <footer>
+    <strong>資料來源 Sources：</strong><br>
+    <a href="https://www.cnbc.com/2026/05/28/stock-market-today-live-updates.html" target="_blank">CNBC Live Updates</a> ·
+    <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-may-29-2026" target="_blank">TheStreet</a> ·
+    <a href="https://finance.yahoo.com/markets/live/dow-nasdaq-sp-gain-stock-market-today-friday-may-29-222720284.html" target="_blank">Yahoo Finance Markets</a> ·
+    <a href="https://www.cnbc.com/2026/05/29/oil-prices-iran-ceasefire-us-trump-strait-hormuz-energy-costs.html" target="_blank">CNBC Oil/Iran</a> ·
+    <a href="https://www.cnbc.com/2026/05/28/core-inflation-hit-an-annual-rate-of-3point3percent-in-april-as-expected-feds-preferred-gauge-shows-.html" target="_blank">CNBC PCE</a> ·
+    <a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm" target="_blank">Federal Reserve FOMC</a> ·
+    <a href="https://www.fool.com/investing/2026/05/29/dell-just-blew-out-earnings-as-it-joins-the-ai-party-should-investors-buy-the-stock-after-its-221-run-this-year/" target="_blank">Motley Fool — DELL</a> ·
+    <a href="https://www.sec.gov/Archives/edgar/data/0001640147/000164014726000027/fy2027q1earnings.htm" target="_blank">SEC — SNOW 8-K</a> ·
+    <a href="https://www.gurufocus.com/news/8891072/netapp-ntap-shares-surge-17-on-strong-earnings-and-positive-analyst-ratings" target="_blank">GuruFocus — NTAP</a> ·
+    <a href="https://seekingalpha.com/news/4598313-autodesk-falls-despite-q1-beat-analysts-mull-maintainx-acquisition" target="_blank">Seeking Alpha — ADSK</a> ·
+    <a href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank">CME FedWatch</a> ·
+    <a href="https://www.bbntimes.com/technology/nasdaq-composite-today-tech-index-caps-a-historic-8-monthly-surge-as-ai-earnings-revolution-reshapes-the-market" target="_blank">BBN Times — Nasdaq 8%</a> ·
+    <a href="https://stocktwits.com/news-articles/markets/equity/s-and-p-500-jumps-for-ninth-week-longest-since-2023-with-dell-leading-nasdaq-to-record-highs-while-positive-us-iran-ceasefire-bets-aid-dow-umg-coin-mnkd-astc-asts-in-focus/cZgjRJKReMz" target="_blank">StockTwits Weekly</a> ·
+    <a href="https://www.gurufocus.com/news/8891396/bby-downgraded-by-ubs-rating-changed-to-neutral" target="_blank">GuruFocus — BBY</a>
+    <br><br>
+    <em>製作：Claude (Anthropic) · 日期：2026-05-31 Asia/Taipei · 交易日：2026-05-29（週五收盤）</em>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日美股熱門焦點股 Hot US Stocks — 2026-05-30 Session</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3250;
+      --accent: #4f8ef7;
+      --accent2: #7c5cf7;
+      --green: #22c55e;
+      --red: #ef4444;
+      --orange: #f59e0b;
+      --text: #e4e8f0;
+      --muted: #8891a8;
+      --tag-bg: #252943;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      padding: 24px 16px 60px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* Header */
+    .header { margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+    .header h1 { font-size: 26px; font-weight: 700; letter-spacing: -.5px; }
+    .header h1 span { color: var(--accent); }
+    .header .meta { color: var(--muted); font-size: 13px; margin-top: 6px; }
+    .header .session-note {
+      background: var(--surface2);
+      border-left: 3px solid var(--accent);
+      padding: 8px 14px;
+      border-radius: 4px;
+      font-size: 13px;
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    /* Market backdrop */
+    .backdrop {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+    }
+    .backdrop h2 { font-size: 14px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 12px; }
+    .index-grid {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .index-pill {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 13px;
+    }
+    .index-pill .label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .4px; }
+    .index-pill .val { font-weight: 700; font-size: 16px; }
+    .index-pill .chg.pos { color: var(--green); }
+    .index-pill .chg.neg { color: var(--red); }
+
+    /* Section headers */
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin: 36px 0 16px;
+      font-size: 18px; font-weight: 700;
+    }
+    .section-header .badge {
+      background: var(--accent2);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    /* Summary table */
+    .table-wrap { overflow-x: auto; margin-bottom: 8px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th {
+      background: var(--surface2);
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: .5px;
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--surface); }
+    .ticker-cell { font-weight: 700; font-size: 14px; color: var(--accent); white-space: nowrap; }
+    .pos { color: var(--green); font-weight: 600; }
+    .neg { color: var(--red); font-weight: 600; }
+    .neutral { color: var(--orange); font-weight: 600; }
+    .stars { color: var(--orange); }
+    .catalyst-tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* Deep dive cards */
+    .ticker-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin-bottom: 20px;
+    }
+    .ticker-card:hover { border-color: var(--accent); }
+    .card-header {
+      display: flex; align-items: flex-start; gap: 14px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .card-ticker {
+      font-size: 24px; font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -.5px;
+    }
+    .card-name { font-size: 14px; color: var(--muted); margin-top: 2px; }
+    .tape-bar {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+    .tape-pill {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 10px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      color: var(--accent2);
+      margin: 16px 0 6px;
+    }
+    .bilingual-block { margin-bottom: 10px; }
+    .bilingual-block p { margin-bottom: 6px; }
+    .zh { color: var(--text); }
+    .en { color: var(--muted); font-style: italic; }
+    .bullet-list { list-style: none; padding: 0; }
+    .bullet-list li { padding: 3px 0 3px 14px; position: relative; font-size: 13px; }
+    .bullet-list li::before { content: "▸"; position: absolute; left: 0; color: var(--accent2); }
+    .quote-block {
+      border-left: 3px solid var(--accent2);
+      padding: 6px 12px;
+      margin: 8px 0;
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+      background: var(--surface2);
+      border-radius: 0 6px 6px 0;
+    }
+    .warning-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: rgba(239,68,68,.12);
+      border: 1px solid rgba(239,68,68,.3);
+      color: #fca5a5;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .sources-block {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .sources-block a { color: var(--accent); text-decoration: none; }
+    .sources-block a:hover { text-decoration: underline; }
+
+    /* Watchlist */
+    .watchlist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+    .watch-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+    }
+    .watch-ticker { font-size: 16px; font-weight: 700; color: var(--accent); }
+    .watch-name { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    .watch-note { font-size: 12px; }
+
+    /* Halts */
+    .halts-card {
+      background: rgba(239,68,68,.06);
+      border: 1px solid rgba(239,68,68,.2);
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-size: 13px;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 50px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .footer h3 { font-size: 13px; font-weight: 600; margin-bottom: 10px; color: var(--text); }
+    .source-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .source-links a {
+      color: var(--accent);
+      text-decoration: none;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 3px 8px;
+    }
+    .source-links a:hover { background: var(--surface); }
+    .disclaimer {
+      margin-top: 16px;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      .card-header { flex-direction: column; }
+      .index-grid { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>今日美股熱門焦點股 <span>Hot US Stocks of the Day</span></h1>
+    <div class="meta">交易日 Trading Session: <strong>2026-05-29 (Friday RTH)</strong> · 製作日 Report Date: 2026-05-31 (Taipei) · 資料截止 Data As-of: 2026-05-30 AH</div>
+    <div class="session-note">
+      ⚠ 今日為台灣時間 5/31 (六)。最近完整美股交易日為 2026-05-29 (週五)，以下數據以 5/29 RTH 收盤 + 5/29 盤後為主，並納入 5/30 延伸盤動態。
+      <br>Today is Saturday 5/31 Taipei. Most recent completed US session = Friday 2026-05-29 RTH. Data below covers that close + after-hours/premarket where available.
+    </div>
+  </div>
+
+  <!-- Market Backdrop -->
+  <div class="backdrop">
+    <h2>大盤背景 Market Backdrop — 2026-05-29 Close</h2>
+    <div class="index-grid">
+      <div class="index-pill">
+        <div class="label">S&P 500</div>
+        <div class="val">7,591</div>
+        <div class="chg pos">+0.36% ▲</div>
+      </div>
+      <div class="index-pill">
+        <div class="label">Dow Jones</div>
+        <div class="val">51,063</div>
+        <div class="chg pos">+0.78% ▲</div>
+      </div>
+      <div class="index-pill">
+        <div class="label">Nasdaq Comp.</div>
+        <div class="val">27,012</div>
+        <div class="chg pos">+0.35% ▲</div>
+      </div>
+      <div class="index-pill">
+        <div class="label">Russell 2000</div>
+        <div class="val">—</div>
+        <div class="chg neg">-0.94% ▼ (PM)</div>
+      </div>
+      <div class="index-pill">
+        <div class="label">VIX</div>
+        <div class="val">15.32</div>
+        <div class="chg pos">-2.67% ▼ 低波動</div>
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:13px; color:var(--muted);">
+      大盤延續 AI 基建熱情，指數創歷史新高。Dow 領漲主因 IBM 跳漲近 13%（量子 + AI 政府補貼）。SPX/NDX 溫和走高；Russell 2000 小跌，顯示風險偏好集中在大型科技及 AI 概念。原油走低（美伊 60 日停戰備忘錄），通膨預期下修，市場整體偏多但呈分化格局。
+      <br><em>Markets extended gains driven by AI infrastructure enthusiasm, posting fresh record highs. Dow led on IBM's +13% quantum/AI pop. Oil fell on US-Iran ceasefire extension. Risk appetite concentrated in large-cap AI names vs. broader small-cap underperformance.</em>
+    </p>
+  </div>
+
+  <!-- Summary Table -->
+  <div class="section-header">
+    <span>🔥 今日熱門焦點股 Top Hot Tickers</span>
+    <span class="badge">Hot 7</span>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>公司</th>
+          <th>Close (RTH)</th>
+          <th>% Move</th>
+          <th>Vol (M)</th>
+          <th>vs 30D Avg</th>
+          <th>Options</th>
+          <th>Buzz</th>
+          <th>Catalyst</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ticker-cell">DELL</td>
+          <td>Dell Technologies</td>
+          <td>$317.05 → $420.91</td>
+          <td class="pos">+32.8% (5/29) <br>+32.8% cont. 5/30</td>
+          <td>41.83M</td>
+          <td class="pos">~4.6×</td>
+          <td>C/P=2.8 · IV surge; TSLA-level call flow</td>
+          <td class="stars">★★★★★</td>
+          <td><span class="catalyst-tag">Earnings Blowout</span> <span class="catalyst-tag">AI Server +757%</span></td>
+        </tr>
+        <tr>
+          <td class="ticker-cell">REPL</td>
+          <td>Replimune Group</td>
+          <td>$8.89 (H $9.49 / L $4.75)</td>
+          <td class="pos">+75% (PM) → 待確認 RTH close</td>
+          <td>51.37M</td>
+          <td class="pos">~5.8×</td>
+          <td>大量 puts 轉 calls；21,047 puts (130× avg)</td>
+          <td class="stars">★★★★</td>
+          <td><span class="catalyst-tag">FDA BLA 重審</span> <span class="catalyst-tag">政治催化</span></td>
+        </tr>
+        <tr>
+          <td class="ticker-cell">IBM</td>
+          <td>Intl. Business Machines</td>
+          <td>待確認</td>
+          <td class="pos">+12.82%</td>
+          <td>待確認</td>
+          <td>待確認</td>
+          <td>—</td>
+          <td class="stars">★★★★</td>
+          <td><span class="catalyst-tag">量子 CHIPS Act $2B</span> <span class="catalyst-tag">AI Project Lightwell</span></td>
+        </tr>
+        <tr>
+          <td class="ticker-cell">ASTS</td>
+          <td>AST SpaceMobile</td>
+          <td>$111.73 → $113.41</td>
+          <td class="neg">-14.8%</td>
+          <td>54.95M</td>
+          <td class="neg">~2×</td>
+          <td>IV 上升；看跌期權增加</td>
+          <td class="stars">★★★★</td>
+          <td><span class="catalyst-tag">Blue Origin 爆炸</span> <span class="catalyst-tag">DB 下調評級</span></td>
+        </tr>
+        <tr>
+          <td class="ticker-cell">PRFX</td>
+          <td>PRF Technologies</td>
+          <td>$5+ (PM +234%)</td>
+          <td class="pos">+233.6% (5/29)</td>
+          <td>待確認高量</td>
+          <td class="pos">極高</td>
+          <td>低 float 高 SI%；squeeze 特徵</td>
+          <td class="stars">★★★</td>
+          <td><span class="catalyst-tag">DeepSolar AI 平台</span> <span class="catalyst-tag">臨床數據</span></td>
+        </tr>
+        <tr>
+          <td class="ticker-cell">MNTS</td>
+          <td>Momentus Inc.</td>
+          <td>~$16.85 (5/29)</td>
+          <td class="pos">月漲 +327% MTD</td>
+          <td>~15M</td>
+          <td class="pos">高</td>
+          <td>—</td>
+          <td class="stars">★★★</td>
+          <td><span class="catalyst-tag">$25M 私募</span> <span class="catalyst-tag">太空合約爆發</span></td>
+        </tr>
+        <tr>
+          <td class="ticker-cell">S</td>
+          <td>SentinelOne</td>
+          <td>~$14.69 (估)</td>
+          <td class="neg">-11% ~ -18%</td>
+          <td>待確認</td>
+          <td class="neg">高量拋售</td>
+          <td>IV 上升；put 流增</td>
+          <td class="stars">★★★</td>
+          <td><span class="catalyst-tag">Revenue Miss</span> <span class="catalyst-tag">裁員 8%</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===================== DEEP DIVES ===================== -->
+
+  <!-- DELL -->
+  <div class="ticker-card" id="DELL">
+    <div class="card-header">
+      <div>
+        <div class="card-ticker">$DELL — Dell Technologies</div>
+        <div class="card-name">NYSE: DELL · 資訊科技 / AI 伺服器</div>
+      </div>
+    </div>
+    <div class="tape-bar">
+      <span class="tape-pill">前收 $317.05 → 今收 ~$420.91</span>
+      <span class="tape-pill pos">+32.8% RTH 5/29</span>
+      <span class="tape-pill">H $437.50 / L $402.27 (5/30)</span>
+      <span class="tape-pill">Vol 41.83M (vs 10D avg 9.02M → 4.6×)</span>
+      <span class="tape-pill">Market Cap ~$273B</span>
+      <span class="tape-pill">YTD +290%</span>
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="bilingual-block">
+      <p class="zh">Dell 在 5/28 盤後發布 FY2027 Q1 財報，創下公司史上最強單季表現。營收 $438 億美元（年增 88%，大幅超越分析師預估的 $354 億），EPS $4.86（vs. 預估 $2.94，超出 65%）。核心驅動力為 AI 伺服器銷售暴增 757%，達 $161 億；季度 AI 訂單 $121 億，期末 AI backlog 達 $144 億。全年營收指引上修至 $1,650–$1,690 億（年增 47%），EPS 指引 $17.90（年增 74%）。這不是 beat-and-raise，而是 beat-and-guide-to-moonshot，市場給出 33% 的一天報酬。</p>
+      <p class="en">Dell's Q1 FY2027 was a historic blowout: revenue $43.84B (+88% YoY, vs. $35.43B est.), adj. EPS $4.86 (vs. $2.94 est.). The standout was AI-optimized server revenue up 757% to $16.1B, with $12.1B in new AI orders and a $14.4B backlog. Full-year guidance raised to $165–169B rev (+47% YoY) and $17.90 EPS (+74%). The market interpreted this as proof that AI infrastructure capex is accelerating, not peaking.</p>
+    </div>
+
+    <div class="section-label">Options & Flow</div>
+    <ul class="bullet-list">
+      <li>Options volume surged; call/put ratio skewed heavily bullish (C/P ~2.8×) around earnings.</li>
+      <li>TSLA/MSFT/META 並列大量 call 成交的同一天，DELL 也出現大量 call 掃單（具體 OI 數字待確認）。</li>
+      <li>IV 在財報前後大幅壓縮（IV crush），但因股價實現波動遠超隱含波動，買 call 者仍獲豐厚回報。</li>
+      <li>兩週 89% 的漲幅使 YTD 達 290%——gamma squeeze 特徵顯著。</li>
+    </ul>
+
+    <div class="section-label">Retail Buzz</div>
+    <div class="quote-block">"Dell just made Nvidia look modest" — WSB/X top reactions</div>
+    <ul class="bullet-list">
+      <li>WSB、X $DELL cashtag 均爆量；ApeWisdom 追蹤顯示 DELL 躍升 Reddit 科技股討論第一名。</li>
+      <li>StockTwits trending #1 AI 概念股，bullish/bearish 比例約 9:1。</li>
+      <li>媒體標題：「Dell 史上最強單日漲幅」「AI server 打通 Dell 任督二脈」。</li>
+    </ul>
+
+    <div class="section-label">炒作脈絡 / Narrative</div>
+    <p style="font-size:13px;">Dell 過去長期被視為低毛利 PC/server 硬體廠，估值壓縮。但 AI 基建需求使其 ISG（Infrastructure Solutions Group）的 AI server 部門成為全球最大 AI server 出貨商之一，直接受益於超大型 CSP 的資本支出飆升。本次財報打破「AI 受益者只有 NVDA/SMCI」的敘事，市場重新定價 Dell 的 AI 曝險倍數。同業 HPE、Super Micro (SMCI) 均同步走高受帶動。</p>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <ul class="bullet-list">
+      <li>能否守住 $400 整數關（gap fill 若發生，回測 $317 的可能性？）。</li>
+      <li>SMCI（Super Micro）財報是否也出現類似 AI server 爆發——peer rotation catalyst。</li>
+      <li>分析師評級上調潮：目標價上修至 $500+ 的報告是否持續推升動能。</li>
+      <li>AI backlog $144 億能否在下一季兌現（Revenue recognition lag 風險）。</li>
+    </ul>
+    <div class="sources-block">
+      Sources:
+      <a href="https://www.cnbc.com/2026/05/29/dell-stock-earnings-ai-servers.html">CNBC</a> ·
+      <a href="https://www.fool.com/investing/2026/05/29/why-dell-stock-skyrocketed-new-all-time-high-today/">Motley Fool</a> ·
+      <a href="https://finance.yahoo.com/markets/stocks/articles/dell-technologies-shares-surge-blowout-134400660.html">Yahoo Finance</a> ·
+      <a href="https://en.sedaily.com/news/2026/05/29/dell-stock-surges-39-percent-after-hours-on-ai-server-boom">Seoul Economic Daily</a> ·
+      <a href="https://www.fxleaders.com/news/2026/05/30/dell-technologies-dell-stock-parabolic-rise-290-ytd-surge-and-89-two-week-rally-explained/">FX Leaders</a>
+    </div>
+  </div>
+
+  <!-- REPL -->
+  <div class="ticker-card" id="REPL">
+    <div class="card-header">
+      <div>
+        <div class="card-ticker">$REPL — Replimune Group</div>
+        <div class="card-name">NASDAQ: REPL · 生物科技 / 腫瘤學 Oncology</div>
+      </div>
+    </div>
+    <div class="tape-bar">
+      <span class="tape-pill">5/30 Close ~$8.89</span>
+      <span class="tape-pill pos">H $9.49</span>
+      <span class="tape-pill neg">L $4.75</span>
+      <span class="tape-pill pos">PM 一度 +75%</span>
+      <span class="tape-pill">Vol 51.37M (vs avg 8.82M → 5.8×)</span>
+      <span class="tape-pill">5/5 前低 ~$3 → 目前 ~$9</span>
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="bilingual-block">
+      <p class="zh">Replimune 在 5 月初曾因 FDA 連續兩次拒絕其 RP1（vusolimogene oderparepvec）黑色素瘤 BLA（生物製劑許可申請）而股價崩至 $3 附近。但 5/29，公司宣布與 FDA 已就 BLA 重新提交路徑達成一致，FDA 承諾收到後將「緊急優先審查」。更重要的是，坊間傳聞川普政府計畫解任簽署拒絕信的 FDA 局長 Marty Makary，這被市場解讀為監管環境反轉的信號，加速 REPL 由空翻多的軋空行情。</p>
+      <p class="en">Replimune was left for dead in early May after a second FDA Complete Response Letter rejected RP1 for advanced melanoma. But on 5/29, the company announced FDA alignment on a BLA resubmission path, with FDA pledging to treat the resubmission as an "urgent matter." Rumors that FDA Commissioner Makary — who oversaw the rejection — may be fired added political fuel. REPL spiked from ~$3 to ~$9 in one of biotech's sharpest reversal moves of the year.</p>
+    </div>
+
+    <div class="section-label">Options & Flow / Short Squeeze</div>
+    <ul class="bullet-list">
+      <li>21,047 puts traded at 130× average (unusual put activity likely representing hedges unwinding or positioning for BLA resubmission downside).</li>
+      <li>Nutrien (NTR)同日也有大量 put 賣出，市場 put/call 情緒趨複雜——但 REPL 本身方向明顯偏多頭。</li>
+      <li>Short interest 在股價 $3 低點時極高；反彈的部分動能來自空頭回補（short squeeze）。</li>
+      <li>Vol 51M vs avg 8.82M = 5.8× — 明確的 squeeze 特徵。</li>
+    </ul>
+
+    <div class="section-label">Retail Buzz</div>
+    <ul class="bullet-list">
+      <li>r/Biotech 和 r/Shortsqueeze 均出現 REPL 熱門帖，討論 FDA 政治化與新局長人選影響。</li>
+      <li>X cashtag $REPL 出現大量 "back from the dead" 類敘述。</li>
+      <div class="quote-block">"FDA leadership change = new ruling = REPL back in play" — 典型 WSB 觀點</div>
+      <li>StockTwits 上 bullish sentiment 暴升，但也有大量警告：BLA 重審不等於最終核准。</li>
+    </ul>
+
+    <div class="section-label">炒作脈絡 / Narrative</div>
+    <p style="font-size:13px;">REPL 的故事結合了三層敘事：①科學催化（RP1 在 IGNYTE 試驗中有效，但被要求提供更多資料）；②政治催化（FDA 局長換人可能改變裁量方向）；③空頭炒作（5/5 暴跌後 SI% 極高，反彈時 squeeze 加速）。這三者疊加，造就超大幅度的單日波動。</p>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <ul class="bullet-list">
+      <li>Makary 是否真的被解任——此為最大催化劑或退潮因素。</li>
+      <li>BLA 重審時間表：FDA 承諾「緊急處理」但未給具體期限，日曆催化劑待定。</li>
+      <li>若股價無法守住 $7–8 整理，恐再測試前低；反之若突破 $10，可能啟動新一波 squeeze。</li>
+      <li>⚠ REPL 不是正常估值股——政治 + 監管敘事驅動，基本面投資者需謹慎。</li>
+    </ul>
+    <div class="sources-block">
+      Sources:
+      <a href="https://www.quiverquant.com/news/Replimune+Group,+Inc.+Announces+FDA+Alignment+on+Path+Forward+for+BLA+Resubmission+of+RP1+for+Advanced+Melanoma+Treatment">Quiver Quant</a> ·
+      <a href="https://www.stocktitan.net/news/REPL/replimune-announces-planned-rp1-bla-resubmission-following-myub58d7o6nz.html">StockTitan</a> ·
+      <a href="https://www.timothysykes.com/news/replimune-group-inc-repl-news-2026_05_29/">Timothy Sykes</a> ·
+      <a href="https://stockstotrade.com/news/replimune-group-inc-repl-news-2026_05_05/">StocksToTrade (5/5 crash context)</a> ·
+      <a href="https://www.sec.gov/Archives/edgar/data/0001737953/000110465926068002/tm2615980d1_ex99-1.htm">SEC 8-K</a>
+    </div>
+  </div>
+
+  <!-- IBM -->
+  <div class="ticker-card" id="IBM">
+    <div class="card-header">
+      <div>
+        <div class="card-ticker">$IBM — International Business Machines</div>
+        <div class="card-name">NYSE: IBM · 企業科技 / 量子運算 Quantum + AI</div>
+      </div>
+    </div>
+    <div class="tape-bar">
+      <span class="tape-pill pos">+12.82% 5/30</span>
+      <span class="tape-pill">Dow 指數 Top Gainer (+4.72% Dow 貢獻)</span>
+      <span class="tape-pill">收盤價待確認</span>
+      <span class="tape-pill">量子 + AI 政府資金</span>
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="bilingual-block">
+      <p class="zh">美國商務部與 IBM 簽署意向書，以 CHIPS 法案資金支持設立「Anderon」量子晶圓廠（300mm，位於紐約 Albany），政府提供 $10 億美元撥款 + 少數股權投資，IBM 自身配對 $10 億；總計 $20 億量子算力國家基礎設施計畫。同時，IBM 宣布「Project Lightwell」——與 Red Hat 合作的 $50 億 AI 驅動安全開放原始碼軟體計畫，針對大型企業與金融機構。雙重催化劑讓 IBM 單日大漲，也引發市場對 IBM 「由 legacy IT 轉型為量子 + AI 國家戰略資產」的重新定價。</p>
+      <p class="en">The U.S. Commerce Dept. signed a letter of intent with IBM for "Anderon," a 300mm quantum wafer foundry in Albany NY, backed by $1B CHIPS Act grants + minority equity + IBM's own $1B match. IBM also announced Project Lightwell — a $5B Red Hat-led AI security open-source initiative targeting enterprise/financial sectors. Combined, this repositions IBM as a strategic national quantum+AI asset, triggering a repricing from legacy-IT valuation to AI-platform multiple.</p>
+    </div>
+
+    <div class="section-label">炒作脈絡 / Narrative</div>
+    <p style="font-size:13px;">IBM 2026 年初以來因 AI 競爭疑慮股價承壓（backlog 雖達 30%+ 但股價持續滑落）。但量子政府補貼的加入，改變了基本面敘事框架：IBM 不再只是在和 Azure/AWS 競爭的 hybrid cloud 公司，而是美國量子算力版圖中不可替代的基礎設施廠商。這種「政府背書 + 長期壟斷地位」的故事對機構投資人極具吸引力。</p>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <ul class="bullet-list">
+      <li>Anderon 量子晶圓廠的正式合約簽署時間與 CHIPS 資金撥付進度。</li>
+      <li>Project Lightwell 的客戶簽約動態（大型金融機構 pilot 是否宣布）。</li>
+      <li>分析師對「量子算力商業化時間線」的評估分歧——$10B 5 年投資能否在 2029 前看到 fault-tolerant quantum 量產？</li>
+    </ul>
+    <div class="sources-block">
+      Sources:
+      <a href="https://www.timothysykes.com/news/internationalbusinessmachinescorporation-ibm-news-2026_05_30/">Timothy Sykes</a> ·
+      <a href="https://stockstotrade.com/news/internationalbusinessmachinescorporation-ibm-news-2026_05_29/">StocksToTrade</a>
+    </div>
+  </div>
+
+  <!-- ASTS -->
+  <div class="ticker-card" id="ASTS">
+    <div class="card-header">
+      <div>
+        <div class="card-ticker">$ASTS — AST SpaceMobile</div>
+        <div class="card-name">NASDAQ: ASTS · 太空 / 直連衛星通訊</div>
+      </div>
+    </div>
+    <div class="warning-tag">⚠ 大跌股 — 今日焦點跌幅</div>
+    <div class="tape-bar">
+      <span class="tape-pill neg">5/29 Close $113.41</span>
+      <span class="tape-pill neg">-14.79% (5/29)</span>
+      <span class="tape-pill">5/30: $105.37–$117.98 · Close $111.73</span>
+      <span class="tape-pill">Vol 54.95M (vs avg 27.77M → ~2×)</span>
+      <span class="tape-pill">2週前高 ~$130</span>
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="bilingual-block">
+      <p class="zh">Blue Origin 的 New Glenn 火箭在 5/28 於卡納維爾角預熱測試時發生爆炸（7 台 BE-4 引擎點火時底部爆炸），原本預計 6 月初部署亞馬遜 48 顆 Kuiper 衛星的任務因此被迫延期。雖然 New Glenn 不是 ASTS 下一次發射所用的火箭，但 ASTS CEO Abel Avellan 公開承諾的「今年部署約 45 顆衛星的多方發射策略」依賴多個發射夥伴。Blue Origin 故障引發市場質疑 ASTS 能否如期達成今年 45 顆衛星的節點目標，Deutsche Bank 隨即下調評級，股價盤中大跌 14%。</p>
+      <p class="en">Blue Origin's New Glenn rocket exploded during prelaunch hot-fire testing at Cape Canaveral on May 28, threatening its planned June satellite deployment. While ASTS's next launch uses a SpaceX Falcon 9, the broader multi-partner deployment strategy for ~45 satellites this year is now in question. Deutsche Bank downgraded ASTS on launch timeline uncertainty, sending shares down 14.8%. With a $1.2B backlog and Q1 revenue miss, the stock remains highly speculative.</p>
+    </div>
+
+    <div class="section-label">Options & Flow</div>
+    <ul class="bullet-list">
+      <li>IV 在跌後升高，反映後續不確定性。</li>
+      <li>前兩週 ASTS 連漲 10 天（+77.63%），大量 retail 買在高位——跌勢加速因有止損壓力。</li>
+      <li>Short interest 相對不高，下跌主要是 long 平倉（not a short attack）。</li>
+    </ul>
+
+    <div class="section-label">Retail Buzz</div>
+    <div class="quote-block">"ASTS is the definitive conviction play of WSB" — AltIndex WSB tracker</div>
+    <ul class="bullet-list">
+      <li>ASTS 仍是 WSB / r/stocks 上 2026 年 YTD 討論度最高的衛星股（+241% YTD 前高）。</li>
+      <li>爆炸新聞後 X 上出現「dip buyers vs. thesis broken」兩派激烈辯論。</li>
+      <li>StockTwits 上 bullish 仍佔多數，但 uncertainty ratio 明顯上升。</li>
+    </ul>
+
+    <div class="section-label">炒作脈絡 / Narrative</div>
+    <p style="font-size:13px;">ASTS 的故事建立在「衛星直連手機商業化 → 顛覆地面電信業者」的長期敘事上，但每一個里程碑（衛星部署 → 商轉 → 規模化）都面臨執行風險。Blue Origin 事故是典型的外生風險事件，本身不影響 ASTS 技術，但影響市場對「今年能否完成 45 顆衛星部署」的信心。關鍵觀察：下一次 SpaceX Falcon 9 搭載的 BlueBird 發射是否如期。</p>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <ul class="bullet-list">
+      <li>SpaceX Falcon 9 BlueBird 下一次發射日期確認。</li>
+      <li>Blue Origin 調查結果與 New Glenn 復飛時間表。</li>
+      <li>Q1 2026 財報細節（已有 revenue miss，但 $3.5B 現金、$1.2B backlog 仍為 bull 論點）。</li>
+      <li>Deutsche Bank 下調後，其他大行是否跟進評級動作。</li>
+    </ul>
+    <div class="sources-block">
+      Sources:
+      <a href="https://spaceflightnow.com/2026/05/29/blue-origins-new-glenn-rocket-explodes-during-prelaunch-testing-at-cape-canaveral/">Spaceflight Now</a> ·
+      <a href="https://finance.yahoo.com/markets/stocks/articles/asts-stock-slides-overnight-blue-025526006.html">Yahoo Finance</a> ·
+      <a href="https://www.fool.com/investing/2026/05/29/why-ast-spacemobile-stock-just-crashed/">Motley Fool</a> ·
+      <a href="https://www.fxleaders.com/news/2026/05/29/asts-falls-14-pre-market-as-blue-origin-explosion-threatens-satellite-deployment-timeline-despite-1-2b-backlog/">FX Leaders</a>
+    </div>
+  </div>
+
+  <!-- PRFX -->
+  <div class="ticker-card" id="PRFX">
+    <div class="card-header">
+      <div>
+        <div class="card-ticker">$PRFX — PRF Technologies Ltd.</div>
+        <div class="card-name">NASDAQ: PRFX · 小型股 / AI + 生物科技 Micro-cap momentum</div>
+      </div>
+    </div>
+    <div class="warning-tag">⚠ 超低流通量小型股 · 高風險高波動</div>
+    <div class="tape-bar">
+      <span class="tape-pill pos">5/29 盤前 +186%</span>
+      <span class="tape-pill pos">日內 +233.6%</span>
+      <span class="tape-pill">Float 極低</span>
+      <span class="tape-pill">SI% 10.4%</span>
+      <span class="tape-pill">Days-to-cover 1.0</span>
+      <span class="tape-pill">5/27 前收 ~$1.35 → spike $5+</span>
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="bilingual-block">
+      <p class="zh">PRF Technologies 在 5/28 盤後同時發布兩大催化劑：①臨床前豬模型數據顯示，止痛候選藥 PRF-110 術後 72 小時止痛效果可媲美已核准的 Zynrelef，且持效超過 72 小時；②AI 可再生能源平台 DeepSolar Predict 推進商業化，已加入 NVIDIA Connect 計畫並申請微氣候模型方法專利。雙催化劑疊加低流通量結構，引發盤前 +186% 暴衝，日內最終漲幅超 230%。</p>
+      <p class="en">PRF Technologies released dual catalysts after the close on 5/28: (1) Preclinical pig data showed its analgesic PRF-110 delivered 72-hour post-op pain relief comparable to approved Zynrelef, with sustained efficacy beyond 72 hours; (2) DeepSolar Predict AI renewable energy platform is advancing toward commercial launch, now in the NVIDIA Connect Program with a patent filed for proprietary micro-climate modeling. Low-float structure amplified the move to 230%+.</p>
+    </div>
+
+    <div class="section-label">Short Squeeze Dynamics</div>
+    <ul class="bullet-list">
+      <li>Short interest 10.4% of float (44.9% 較前期上升)，但 days-to-cover 僅 1 天——空頭規模相對有限。</li>
+      <li>主要驅動為 momentum traders 追低流通量股票的動能，而非純粹 squeeze。</li>
+      <li>類似 5/22 PCLA 的「低 float 動能交易」模式——注意！這類股票 fade 速度同樣快。</li>
+    </ul>
+
+    <div class="section-label">Retail Buzz</div>
+    <ul class="bullet-list">
+      <li>Benzinga 報導「PRFX +186% AH: Dual AI + Drug Catalysts」引發 retail 關注。</li>
+      <li>TipRanks、StocksToTrade 均列為「今日 penny stock 爆發」首位。</li>
+      <li>⚠ WSB 對 PRFX 反應謹慎：多數意見區分「炒作」與「真實 FDA 路徑」。</li>
+    </ul>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <ul class="bullet-list">
+      <li>PRF-110 是否進入 IND 申請 / Phase 1 — preclinical 數據距臨床核准仍非常遙遠。</li>
+      <li>DeepSolar Predict 的第一個商業合約簽署。</li>
+      <li>⚠ 低流通量股票在動能消退後通常暴跌，建議追高者設定嚴格停損。</li>
+    </ul>
+    <div class="sources-block">
+      Sources:
+      <a href="https://www.benzinga.com/markets/equities/26/05/52863586/prf-technologies-prfx-shares-surge-over-186-after-hours-heres-what-is-going-on">Benzinga</a> ·
+      <a href="https://www.tipranks.com/news/why-is-penny-stock-prf-technologies-prfx-up-today">TipRanks</a> ·
+      <a href="https://www.timothysykes.com/news/prf-technologies-ltd-prfx-news-2026_05_29/">Timothy Sykes</a> ·
+      <a href="https://www.stocktitan.net/sec-filings/PRFX/6-k-prf-technologies-ltd-current-report-foreign-issuer-2c392b52d5be.html">StockTitan (6-K filing)</a>
+    </div>
+  </div>
+
+  <!-- MNTS -->
+  <div class="ticker-card" id="MNTS">
+    <div class="card-header">
+      <div>
+        <div class="card-ticker">$MNTS — Momentus Inc.</div>
+        <div class="card-name">NASDAQ: MNTS · 太空基礎設施 / 微型衛星運輸</div>
+      </div>
+    </div>
+    <div class="tape-bar">
+      <span class="tape-pill pos">5/29 收 ~$16.85</span>
+      <span class="tape-pill pos">MTD +327%</span>
+      <span class="tape-pill pos">YTD +272%</span>
+      <span class="tape-pill">5/1 收 $4.57 → 5/26 $13.85</span>
+      <span class="tape-pill">$25M 私募 5/27</span>
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="bilingual-block">
+      <p class="zh">Momentus 是月漲 327% 的超級動能小型股，核心催化劑累積於整個 5 月：Q1 服務營收由 $0.3M 跳升至 $3.2M（Vigoride 7 任務，搭載 SpaceX Transporter-16，執行 10 個客戶有效載荷）；2026 全年營收指引 $10M（較 2025 的 $1.1M 成長 9 倍）；已清償全部可轉換債務；並於 5/27 宣布 $25M 私募（機構背書）。此外，與 DARPA、AFRL、Space Force SDA、NASA 的政府合約管道持續深化，使其成為「Golden Dome / 太空防衛」敘事的受益者。</p>
+      <p class="en">Momentus is a micro-cap space infrastructure company with a 327% MTD run driven by accumulating catalysts: Q1 service revenue surged from $0.3M to $3.2M via the Vigoride 7 mission (SpaceX Transporter-16, 10 payloads); 2026 full-year guidance raised to $10M (9× 2025); all convertible debt retired; and a $25M institutional private placement priced on 5/27. Government pipeline deepening across DARPA, AFRL, Space Force, and NASA positions MNTS in the "Golden Dome / space defense" narrative.</p>
+    </div>
+
+    <div class="section-label">炒作脈絡 / Narrative</div>
+    <p style="font-size:13px;">MNTS 正在講述與 ASTS 類似但更早期的故事——衛星轉移和最後一哩太空物流。市場在 2026 年對太空防衛概念給予超高估值倍數（類比 2020–21 meme 週期的 EV 與 SPAC 熱潮）。但 Vigoride 7 任務的成功讓 MNTS 從「概念股」升級為「有實際收入的小型太空公司」，這在估值上形成質變。MNTS 的最大風險仍是後續任務執行能否兌現 $10M 年收入指引。</p>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <ul class="bullet-list">
+      <li>Vigoride 8 任務（2027 年初）的 Preliminary Design Review 已通過——下一個里程碑是發射合約確認。</li>
+      <li>$25M 私募的稀釋效應是否在後續引發賣壓。</li>
+      <li>政府合約具體金額與期限的公告。</li>
+      <li>ASTS Blue Origin 爆炸事件是否波及市場對「太空執行風險」的整體情緒，進而影響 MNTS。</li>
+    </ul>
+    <div class="sources-block">
+      Sources:
+      <a href="https://www.benzinga.com/trading-ideas/movers/26/05/52819840/momentus-stock-vertical-heres-space-defense-story-behind-the-move">Benzinga</a> ·
+      <a href="https://www.timothysykes.com/news/momentus-inc-mnts-news-2026_05_27/">Timothy Sykes</a> ·
+      <a href="https://eciks.org/6043-51663-mnts-stock-surges-37-after-announcing-25m-private-placement">ECIKS</a> ·
+      <a href="https://investors.momentus.space/news-releases">Momentus IR</a>
+    </div>
+  </div>
+
+  <!-- SentinelOne -->
+  <div class="ticker-card" id="S">
+    <div class="card-header">
+      <div>
+        <div class="card-ticker">$S — SentinelOne</div>
+        <div class="card-name">NYSE: S · 網路安全 Cybersecurity / AI Security</div>
+      </div>
+    </div>
+    <div class="warning-tag">⚠ 今日焦點大跌股</div>
+    <div class="tape-bar">
+      <span class="tape-pill neg">-11% ~ -18% (報導範圍)</span>
+      <span class="tape-pill neg">估計收 ~$14.69</span>
+      <span class="tape-pill">前收 ~$18.56 (5/26)</span>
+      <span class="tape-pill">Q1 Revenue Miss</span>
+      <span class="tape-pill">裁員 8%</span>
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="bilingual-block">
+      <p class="zh">SentinelOne 於 5/29 盤前發布 FY2027 Q1 財報：EPS $0.04（超越預估 $0.02）但營收 $276.7M 微幅低於分析師共識 $277.3M；Q2 指引 $289–291M 也低於街道預估 $292M；全年指引 $1,195–$1,205M 低於分析師的 $1.21B。更大的衝擊來自同步宣布的「裁減 8% 全職員工、計提 $25M 一次性費用」重組計畫。儘管公司稱此舉旨在加速 AI 投資，市場解讀為防守性姿態，股價重挫 11–18%。</p>
+      <p class="en">SentinelOne's Q1 FY2027 missed on revenue ($276.7M vs. $277.3M est.) and offered soft Q2 guidance ($289-291M vs. $292M est.) and full-year outlook ($1.195-1.205B vs. $1.21B est.). Simultaneously, the company announced an 8% workforce reduction — ~$25M one-time charge — framed as AI reorientation. Market read this as defensive posturing in a competitive cybersecurity landscape (CrowdStrike, Microsoft Defender), sending shares down 11–18%.</p>
+    </div>
+
+    <div class="section-label">Options & Flow</div>
+    <ul class="bullet-list">
+      <li>財報前 IV 極高，財報後 put flow 大幅增加，但 IV crush 使部分 put 買家獲利有限。</li>
+      <li>10-day avg vol 7.72M——跌勢當日成交量估計遠超此值，顯示機構積極減倉。</li>
+    </ul>
+
+    <div class="section-label">炒作脈絡 / Narrative</div>
+    <p style="font-size:13px;">SentinelOne 是 2026 年網路安全投資的縮影：Agentforce（Salesforce）、Microsoft Defender、CrowdStrike 等競爭者均在搶佔 AI-native security 的份額，而 S 的增速放緩疊加裁員，讓市場擔心其能否維持差異化競爭地位。相較之下，Salesforce 同期財報超預期（Agentforce ARR $10 億），形成鮮明對比。</p>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <ul class="bullet-list">
+      <li>管理層裁員後的 AI 轉型具體路徑（新產品 roadmap 是否清晰）。</li>
+      <li>CrowdStrike 與微軟同期表現是否搶走 S 的客戶。</li>
+      <li>下季財報的 net retention rate (NRR) 是否出現加速或繼續下滑。</li>
+    </ul>
+    <div class="sources-block">
+      Sources:
+      <a href="https://www.cnbc.com/2026/05/29/sentinelone-s-stock-earnings-ai-layoffs.html">CNBC</a> ·
+      <a href="https://finance.yahoo.com/markets/stocks/articles/sentinelone-shares-slide-despite-earnings-152200552.html">Yahoo Finance</a> ·
+      <a href="https://www.fool.com/investing/2026/05/29/why-sentinelone-stock-sank-today/">Motley Fool</a> ·
+      <a href="https://www.timothysykes.com/news/sentinelone-inc-s-news-2026_05_29/">Timothy Sykes</a>
+    </div>
+  </div>
+
+  <!-- ===================== WATCHLIST ===================== -->
+  <div class="section-header">
+    <span>次熱觀察 Watchlist</span>
+    <span class="badge">Watch 4</span>
+  </div>
+  <div class="watchlist-grid">
+    <div class="watch-card">
+      <div class="watch-ticker">$CRM — Salesforce</div>
+      <div class="watch-name">AI Agent / Agentforce</div>
+      <div class="watch-note">Q1 FY2027 beat：Non-GAAP EPS $3.88 (+50% YoY)；Agentforce ARR 突破 $10 億；但全年 guidance 略保守。5/29 漲 4.19%（Dow 第 2 大貢獻），是 S 崩跌的正對照組。後續看 Agentforce 客戶滲透率加速。</div>
+    </div>
+    <div class="watch-card">
+      <div class="watch-ticker">$MSFT — Microsoft</div>
+      <div class="watch-name">AI+Cloud/ Copilot</div>
+      <div class="watch-note">5/29 +2.92%（Dow 第 3），$445 strike call（5/29 到期）成交 121,163 張，對應約 1,210 萬股。AI 軟體需求敘事持續加持，Anthropic 新投資輪再度吸引市場注意。</div>
+    </div>
+    <div class="watch-card">
+      <div class="watch-ticker">$PCLA — PicoCELA</div>
+      <div class="watch-name">無線網路 / 低流通量</div>
+      <div class="watch-note">MTD +407%，為 5 月最大漲幅股之一，但缺乏清晰基本面催化劑，主要為動能交易。注意爆量後快速 fade 風險，次熱觀察而非推薦追高。</div>
+    </div>
+    <div class="watch-card">
+      <div class="watch-ticker">$NTR — Nutrien</div>
+      <div class="watch-name">農業肥料 / Unusual Options</div>
+      <div class="watch-note">9,873 puts traded (23× avg)，有大塊賣出 61.00 puts 的中性偏多佈局。原油下跌帶動農業投入成本預期改善；美伊停戰備忘錄也降低地緣溢價。佈局特殊但方向性明確。</div>
+    </div>
+  </div>
+
+  <!-- ===================== HALTS & WEIRDNESS ===================== -->
+  <div class="section-header">
+    <span>異常事件 Halts &amp; Weirdness</span>
+    <span class="badge">Alert</span>
+  </div>
+  <div class="halts-card">
+    <ul class="bullet-list">
+      <li>
+        <strong>HOTH → RKTO (Rocket One)</strong>：Hoth Therapeutics 完成更名為 Rocket One，股票代號於 5/28 後切換為 RKTO。更名前股價在 5/27 暴漲 92%（$0.708 → $1.36），PM 進一步至 $2.00。這是典型的「ticker-change meme」操作——公司轉型「軌道經濟」概念吸引 retail 炒作，但業務轉型實質性待觀察。⚠ 謹防 RKTO 新代號的後續噴出與快速回吐。
+      </li>
+      <li style="margin-top:10px;">
+        <strong>Blue Origin New Glenn 爆炸</strong>：非股市 halt，但屬重大空間事件——直接衝擊 ASTS (-14.8%)、MNTS 動能，以及廣泛太空概念股情緒。SpaceX 相關（非上市）未受波及，或有資金輪轉至 SpaceX 相關 ETF。
+      </li>
+      <li style="margin-top:10px;">
+        <strong>PRFX 超大幅波動</strong>：低流通量股 +233%，注意是否符合 LULD 熔斷規則觸發暫停交易的情況。未見明確 halt 記錄，但日內振幅極端，請查閱 <a href="https://www.nasdaqtrader.com/Trader.aspx?id=tradehalts" style="color:var(--accent);">Nasdaq Trade Halts</a> 核實。
+      </li>
+    </ul>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <div class="footer">
+    <h3>所有參考來源 All Sources Consulted</h3>
+    <div class="source-links">
+      <a href="https://finance.yahoo.com/markets/stocks/gainers/">Yahoo Finance Gainers</a>
+      <a href="https://finance.yahoo.com/markets/stocks/most-active/">Yahoo Finance Most Active</a>
+      <a href="https://www.cnbc.com/2026/05/29/dell-stock-earnings-ai-servers.html">CNBC Dell Earnings</a>
+      <a href="https://www.cnbc.com/2026/05/29/sentinelone-s-stock-earnings-ai-layoffs.html">CNBC SentinelOne</a>
+      <a href="https://www.fool.com/coverage/stock-market-today/2026/05/29/stock-market-today-may-29-markets-extend-gains-as-dell-soars-33/">Motley Fool Market Today</a>
+      <a href="https://www.fool.com/investing/2026/05/29/why-ast-spacemobile-stock-just-crashed/">Motley Fool ASTS</a>
+      <a href="https://spaceflightnow.com/2026/05/29/blue-origins-new-glenn-rocket-explodes-during-prelaunch-testing-at-cape-canaveral/">Spaceflight Now</a>
+      <a href="https://www.barchart.com/options/unusual-activity">Barchart Unusual Options</a>
+      <a href="https://www.stockoptionschannel.com/article/202605/unusual-options-volume-today-tsla-msft-and-meta-lead-russell-3000-activity-META05292026note.htm/">StockOptionsChannel</a>
+      <a href="https://www.quiverquant.com/news/Replimune+Group,+Inc.+Announces+FDA+Alignment+on+Path+Forward+for+BLA+Resubmission+of+RP1+for+Advanced+Melanoma+Treatment">Quiver Quant REPL</a>
+      <a href="https://www.stocktitan.net/news/REPL/replimune-announces-planned-rp1-bla-resubmission-following-myub58d7o6nz.html">StockTitan REPL</a>
+      <a href="https://www.benzinga.com/markets/equities/26/05/52863586/prf-technologies-prfx-shares-surge-over-186-after-hours-heres-what-is-going-on">Benzinga PRFX</a>
+      <a href="https://www.benzinga.com/trading-ideas/movers/26/05/52819840/momentus-stock-vertical-heres-space-defense-story-behind-the-move">Benzinga MNTS</a>
+      <a href="https://www.timothysykes.com/news/internationalbusinessmachinescorporation-ibm-news-2026_05_30/">Timothy Sykes IBM</a>
+      <a href="https://fintel.io/ss/us/prfx">Fintel PRFX Short Interest</a>
+      <a href="https://www.stocktitan.net/rankings/stock-gains-monthly/2026/may">StockTitan Monthly Gainers May 2026</a>
+      <a href="https://altindex.com/wallstreetbets">AltIndex WSB Tracker</a>
+      <a href="https://stocktwits.com/rankings/trending">StockTwits Trending</a>
+      <a href="https://www.reddit.com/r/wallstreetbets/">Reddit WSB</a>
+      <a href="https://ts2.tech/en/hoth-therapeutics-stock-explodes-as-rocket-one-ticker-change-puts-tiny-biotech-into-space-ai-trade/">TS2 Space HOTH/RKTO</a>
+      <a href="https://www.gurufocus.com/news/8886210/salesforce-crm-reports-strong-q1-results-with-record-revenue">GuruFocus CRM</a>
+      <a href="https://www.fxleaders.com/news/2026/05/30/dell-technologies-dell-stock-parabolic-rise-290-ytd-surge-and-89-two-week-rally-explained/">FX Leaders DELL</a>
+      <a href="https://www.nasdaqtrader.com/Trader.aspx?id=tradehalts">Nasdaq Trade Halts</a>
+      <a href="https://www.sec.gov/Archives/edgar/data/0001737953/000110465926068002/tm2615980d1_ex99-1.htm">SEC EDGAR REPL 8-K</a>
+      <a href="https://phemex.com/academy/dell-stock-2026-ai-server-growth">Phemex DELL</a>
+    </div>
+    <div class="disclaimer">
+      ⚠ 本報告僅供資訊參考，不構成投資建議。所有價格、量能及 options 數字盡量引用公開來源，部分數據可能有延遲或尚待確認（標注「待確認」）。炒作股票具有高度投機風險，請自行承擔風險並諮詢持牌金融顧問。<br>
+      This report is for informational purposes only and does not constitute investment advice. All price, volume and options data sourced from publicly available information; some figures may be delayed or unconfirmed (marked "待確認"). Speculative stocks carry high risk. Do your own due diligence.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

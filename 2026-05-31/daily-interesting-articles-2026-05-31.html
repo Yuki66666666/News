@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日有趣文章日報 — 2026-05-31</title>
+  <style>
+    :root {
+      --bg: #0f0f13;
+      --surface: #18181f;
+      --card: #1e1e28;
+      --border: #2e2e3e;
+      --accent: #7c6af7;
+      --accent2: #4ec9b0;
+      --accent3: #f5a623;
+      --accent4: #e85d75;
+      --text: #e2e2ea;
+      --muted: #8888a4;
+      --tag-bg: #26263a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      padding: 0 0 60px;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1535 0%, #0f1a2e 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 36px 40px 28px;
+    }
+    header .date-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    header p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+    .track-header {
+      margin: 40px 0 20px;
+      padding: 16px 20px;
+      border-left: 4px solid var(--accent);
+      background: var(--surface);
+      border-radius: 0 8px 8px 0;
+    }
+    .track-header h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .track-header p { color: var(--muted); font-size: 13px; }
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 32px 0 12px;
+      padding-left: 2px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px 26px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+      flex: 1;
+    }
+    .read-badge {
+      background: var(--tag-bg);
+      color: var(--muted);
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+    .meta a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .meta a:hover { text-decoration: underline; }
+    .meta-sep { color: var(--border); }
+    .label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent2);
+      letter-spacing: 0.5px;
+      margin-bottom: 3px;
+      margin-top: 12px;
+      text-transform: uppercase;
+    }
+    .card p { color: var(--text); font-size: 14px; line-height: 1.7; }
+    .card p + p { margin-top: 8px; }
+    .takeaway {
+      background: #1b1b2e;
+      border-left: 3px solid var(--accent3);
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      margin-top: 12px;
+      font-size: 13.5px;
+      color: #d4c9ff;
+    }
+    .question {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .domain-tag {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      margin-right: 6px;
+    }
+    .editor-pick-banner {
+      background: linear-gradient(90deg, #2a2050 0%, #1e1e28 100%);
+      border: 1px solid #5a48c0;
+      border-radius: 10px;
+      padding: 6px 14px;
+      font-size: 11px;
+      color: #a89cff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+    footer {
+      margin-top: 50px;
+      padding: 24px 40px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+    footer a { color: var(--muted); }
+    .paywalled {
+      font-size: 11px;
+      color: var(--accent4);
+      background: #2a1a20;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="date-label">Daily Interesting Articles · 今日有趣文章日報</div>
+    <h1>2026 年 5 月 31 日 (週日)</h1>
+    <p>Track A：長文精選 8 篇 &nbsp;|&nbsp; Track B：思想領袖觀點 4 篇 &nbsp;|&nbsp; 來源涵蓋 Hacker News / Quanta / Aeon / Noahpinion / One Useful Thing / paulgraham.com</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ============================================================ TRACK A -->
+  <div class="track-header">
+    <h2>Track A — 長文精選 / Longform Essays</h2>
+    <p>質勝於量：5–8 篇你真的會想點開的文章，跨科技、科學、文化、哲學、商業。</p>
+  </div>
+
+  <!-- 1. Editor's Pick -->
+  <div class="section-label">編輯精選 / Editor's Pick of the Day</div>
+
+  <div class="card">
+    <div class="editor-pick-banner">★ 今日手遞 / Editor's Pick</div>
+    <div class="card-top">
+      <h3>品牌時代 / The Brand Age</h3>
+      <span class="read-badge">～20 min</span>
+    </div>
+    <div class="meta">
+      <span>paulgraham.com</span><span class="meta-sep">·</span>
+      <span>Paul Graham</span><span class="meta-sep">·</span>
+      <span>2026-03-??（本週 HN 最熱，468 分）</span><span class="meta-sep">·</span>
+      <a href="https://paulgraham.com/brandage.html" target="_blank">閱讀全文</a>
+    </div>
+
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <p>Paul Graham 以瑞士鐘錶業的「石英危機」為支點，撬開整個時代的商業邏輯——當技術抹平品質差異，剩下的就是品牌。這篇不是泛泛的品牌理論，而是一部細節豐富的商業史，讀完你會想把「Branding is centrifugal; design is centripetal」這句話印在牆上。</p>
+
+    <div class="label">摘要 / Summary</div>
+    <p>1970 年代，日本競爭、布雷頓森林協議崩潰與石英機芯三重打擊同時降臨瑞士鐘錶業。帕泰菲利浦、百達翡麗與愛彼等少數存活者的策略是：不再賣精確計時，改賣「身份象徵」。論文核心論點是：<em>技術自然地消除產品之間的實質差異，而品牌就是差異消失後剩下的東西</em>。品牌邏輯的必然結果是設計退化——品牌要求「辨識度」，而好設計追求「最佳解」，兩者注定衝突。文章末尾以「Follow the problems」收尾：找到黃金時代的方法不是去找黃金時代，而是跟著真正有趣的問題走。</p>
+    <p>In the 1970s, Japan's rising competition, the collapse of Bretton Woods, and quartz movements hit Swiss watchmakers simultaneously. Surviving firms transformed from precision-instrument makers into luxury brands. Graham's central thesis: <em>technology naturally erases substantive differences between products, and brand is what's left</em>. The inevitable result is bad design — branding demands distinctiveness, good design converges on right answers. The closing advice: follow interesting problems, and you'll accidentally find golden ages.</p>
+
+    <div class="takeaway">核心觀點：「Branding is centrifugal; design is centripetal.」品牌把設計拉離最佳解，而技術持續把競品拉回最佳解——這是一場永不停歇的拉鋸。</div>
+    <p class="question">引發的問題：AI 工具是否正在把軟體業推入自己的「品牌時代」——當所有人都用同樣的 LLM 生成程式，差異化靠什麼維持？</p>
+  </div>
+
+  <!-- 2. Tech & AI -->
+  <div class="section-label">科技與 AI / Tech & AI</div>
+
+  <div class="card">
+    <div class="card-top">
+      <h3>「LLM」裡的 L 代表說謊 / The L in "LLM" Stands for Lying</h3>
+      <span class="read-badge">～18 min</span>
+    </div>
+    <div class="meta">
+      <span>Acko.net</span><span class="meta-sep">·</span>
+      <span>Steven Wittens</span><span class="meta-sep">·</span>
+      <span>2026-03-04（本週 HN 第 7 名，654 分）</span><span class="meta-sep">·</span>
+      <a href="https://acko.net/blog/the-l-in-llm-stands-for-lying/" target="_blank">閱讀全文</a>
+    </div>
+
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <p>在 AI 必不可擋的「宿命論框架」氾濫之際，這篇用「偽造」（forgery）而非「工具」的框架重新定義 LLM，角度犀利且有哲學根基，不是情緒性反 AI，而是認真追問：如果 LLM 連來源都無法正確歸因，它在輸出什麼意義上可信？本週 HN 評論區少有的高品質論辯。</p>
+
+    <div class="label">摘要 / Summary</div>
+    <p>Wittens 的核心比喻：LLM 讓人得以製造自己潛在產出或他人產出的「仿品」。仿品本身合法，但當它被當作真品的替代物使用，問題就出現了。他援引法國 Brie 乳酪的原產地保護制度說明：消費者的個人判斷力不足以維持市場正常運作，社會需要系統性保障。他認為 LLM 的根本問題是<em>無法做到正確的來源歸因（attribution）</em>，hallucination 只是症狀。解方：LLM 輸出必須伴隨可驗證的來源，否則應被視為偽造品，直到被證明不是。</p>
+    <p>Wittens frames LLM output as "forgery" — an imitation of authentic output. His core demand: LLMs must do real source attribution, not citation role-play. Until they can, their output should be treated as a forgery unless proven otherwise. He also documents how AI-generated PRs are burning out open-source maintainers, and how "vibe-coding" deprives engineers of the chance to think through constraints.</p>
+
+    <div class="takeaway">核心觀點：「The solution is as obvious as it is elusive: LLMs must perform correct source attribution along with inference.」沒有可驗證的出處，AI 輸出在認識論上等同偽造品。</div>
+    <p class="question">引發的問題：當「仿品」的品質肉眼無法分辨時，開源社群、學術界、法律體系如何重建「真品」的信任基礎？</p>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <h3>好軟體知道什麼時候該停下來 / Good Software Knows When to Stop</h3>
+      <span class="read-badge">～10 min</span>
+    </div>
+    <div class="meta">
+      <span>Writizzy / Olivier Girardot's Ramblings</span><span class="meta-sep">·</span>
+      <span>Olivier Girardot</span><span class="meta-sep">·</span>
+      <span>2026（本週 HN 第 10 名，530 分）</span><span class="meta-sep">·</span>
+      <a href="https://ogirardot.writizzy.com/p/good-software-knows-when-to-stop" target="_blank">閱讀全文</a>
+    </div>
+
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <p>在「AI 什麼都能做」的氛圍裡，這篇反而呼籲軟體應該清楚知道自己<em>不</em>解決什麼問題。論點不複雜，但在當下切中要害：工具的邊界感是一種設計美德，而非缺陷。HN 評論區有大量工程師共鳴案例，值得一讀。</p>
+
+    <div class="label">摘要 / Summary</div>
+    <p>好軟體有清晰的問題邊界：它知道自己解決什麼，更知道什麼問題屬於別的工具。膨脹功能（feature bloat）往往源於不敢說「不」——對用戶請求、對競品功能、對內部壓力。作者認為「知道何時停手」是比「知道如何做」更難習得的工程直覺，也是最被低估的產品設計能力。</p>
+    <p>Good software defines its own boundary. Feature bloat comes from the inability to say no. Knowing <em>when to stop</em> — refusing user requests, ignoring competitor features — is harder and more valuable than knowing how to build.</p>
+
+    <div class="takeaway">核心觀點：工具的自我克制（restraint）是設計美德，不是能力不足。</div>
+    <p class="question">引發的問題：在 AI agent 時代，當工具的能力邊界幾近無限，「何時停手」的判斷要交給誰？</p>
+  </div>
+
+  <!-- 3. Business & Economics -->
+  <div class="section-label">商業與經濟 / Business & Economics</div>
+
+  <div class="card">
+    <div class="card-top">
+      <h3>Anthropic 勞動市場衝擊研究：AI 真正在取代誰？ / Labor Market Impacts of AI: A New Measure</h3>
+      <span class="read-badge">～15 min</span>
+    </div>
+    <div class="meta">
+      <span>Anthropic Research</span><span class="meta-sep">·</span>
+      <span>Maxim Massenkoff 等</span><span class="meta-sep">·</span>
+      <span>2026-05（HN 第 21 名，313 分）</span><span class="meta-sep">·</span>
+      <a href="https://www.anthropic.com/research/labor-market-impacts" target="_blank">閱讀全文</a>
+    </div>
+
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <p>這不是又一篇「AI 會搶走多少工作」的預測文，而是基於 Claude 真實企業使用數據的實證研究，是迄今最直接連結「LLM 實際被用來做什麼」與「就業市場影響」的研究之一。數據驅動，結論比市場上的末日論或烏托邦論都更細緻。</p>
+
+    <div class="label">摘要 / Summary</div>
+    <p>研究團隊建立了新的「AI 曝險指數」，衡量各職業有多少任務在實際 LLM 企業使用中被自動化。曝險最高的職業包括：電腦程式設計師、客服代表、財務分析師。關鍵發現：目前就業市場受影響的直接證據有限，但 22–25 歲、曝險高的年輕工作者就業率已下降 16%。這暗示衝擊是漸進且不均等的——年輕、剛進場的工作者首當其衝，資深工作者目前受保護。</p>
+    <p>The study builds an AI-exposure index from actual Claude enterprise usage. Most exposed: programmers, customer service reps, financial analysts. Net employment effect so far: limited — but a 16% employment drop for workers aged 22–25 in high-exposure jobs signals the disruption is real and age-skewed.</p>
+
+    <div class="takeaway">核心觀點：AI 的就業衝擊不是全面的，而是從職涯入口處開始侵蝕——年輕工作者最先感受到。</div>
+    <p class="question">引發的問題：如果入門級工作被 AI 取代，下一代勞工如何積累職場經驗、晉升到資深職位？</p>
+  </div>
+
+  <!-- 4. Science & Research -->
+  <div class="section-label">科學與研究 / Science & Research</div>
+
+  <div class="card">
+    <div class="card-top">
+      <h3>無需量子電腦，古典機器解開生命最複雜的化學謎題 / Key Chemistry Question Answered, No Quantum Computer Required</h3>
+      <span class="read-badge">～14 min</span>
+    </div>
+    <div class="meta">
+      <span>Quanta Magazine</span><span class="meta-sep">·</span>
+      <span>Kevin Hartnett</span><span class="meta-sep">·</span>
+      <span>2026-05-29</span><span class="meta-sep">·</span>
+      <a href="https://www.quantamagazine.org/key-chemistry-question-answered-no-quantum-computer-required-20260529/" target="_blank">閱讀全文</a>
+    </div>
+
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <p>固氮酶（nitrogenase）是地球生命的關鍵酶，也長期被視為量子電腦的最佳「殺手應用」試驗場。Caltech 的 Garnet Chan 團隊用純古典方法算出了它的基態能量——這一結果直接衝擊「必須等量子電腦才能解決複雜化學問題」的敘事，是本週最具論戰性的科學新聞。</p>
+
+    <div class="label">摘要 / Summary</div>
+    <p>固氮酶將大氣中的 N₂ 轉化為氨，使地球生命成為可能。其活性位點 FeMo-co 含七個鐵原子，電子相關性極高，長期被視為古典計算的禁區，並在 2017 年被 Microsoft 研究人員列為量子電腦的標誌性目標。Chan 團隊用兩種古典壓縮方法（密度矩陣重正化群 + 增量展開）算出基態能量，結果與實驗吻合。論點核心：<em>量子電腦必要性的敘事超越了實際證據</em>。但反方認為：這解決的只是靜止態，動態演化才是量子電腦的真正舞台。</p>
+    <p>Nitrogenase converts N₂ to ammonia, enabling life. Its active site FeMo-co has long been held as a benchmark for quantum computers. Chan's team cracked its ground-state energy with purely classical methods, challenging the quantum-advantage narrative for chemistry. The debate now shifts to dynamic simulation — where quantum machines may yet have their moment.</p>
+
+    <div class="takeaway">核心觀點：「Science is self-correcting, but the corrections do not receive the same attention as the initial claim.」量子電腦的化學優勢敘事或許建立在比實際更弱的基礎上。</div>
+    <p class="question">引發的問題：如果古典方法持續追上，量子電腦在化學模擬上的「必要性」窗口還有多大？</p>
+  </div>
+
+  <!-- 5. Psychology & Behavior -->
+  <div class="section-label">心理與行為 / Psychology & Behavior</div>
+
+  <div class="card">
+    <div class="card-top">
+      <h3>愛用企業黑話的員工，工作可能做得比較差 / Workers Who Love 'Synergizing Paradigms' Might Be Bad at Their Jobs</h3>
+      <span class="read-badge">～8 min</span>
+    </div>
+    <div class="meta">
+      <span>Cornell Chronicle / Personality and Individual Differences</span><span class="meta-sep">·</span>
+      <span>Shane Littrell (Cornell)</span><span class="meta-sep">·</span>
+      <span>2026-03（本週 HN 第 11 名，515 分）</span><span class="meta-sep">·</span>
+      <a href="https://news.cornell.edu/stories/2026/03/workers-who-love-synergizing-paradigms-might-be-bad-their-jobs" target="_blank">閱讀全文</a>
+    </div>
+
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <p>這是一項有紮實測量工具的實證研究，不是辦公室抱怨集。「企業廢話感受性量表」（Corporate Bullshit Receptivity Scale）跨四個研究、超過千名受試者，結論與直覺一致但因果方向有趣：到底是黑話讓人思考退化，還是思考弱的人更容易被黑話迷惑？</p>
+
+    <div class="label">摘要 / Summary</div>
+    <p>Cornell 研究者 Shane Littrell 建立「企業廢話感受性量表」，測量受試者對「synergize our core competencies」之類句子的正面反應程度。結果：對企業黑話愈感受性高者，在分析思考、認知反省、流體智力和職場決策品質上表現愈差。值得注意的是，他們同時傾向於把滿嘴黑話的主管評為更「有遠見」和「魅力十足」。年齡差異也出現：老員工更難理解黑話，但更願意開口澄清；年輕員工反而悶著頭不問。</p>
+    <p>Cornell's "Corporate Bullshit Receptivity Scale" across four studies with 1,000+ workers: higher receptivity to jargon predicts worse analytic thinking, cognitive reflection, fluid intelligence, and workplace decision-making. Jargon-prone managers were also rated as more charismatic by high-receptivity workers — a worrying feedback loop.</p>
+
+    <div class="takeaway">核心觀點：對「看起來有洞見但其實含糊」的語言的接受度，是認知品質的反向指標。</div>
+    <p class="question">引發的問題：AI 生成的文字往往極為流暢但語義空洞，這會不會放大整個社會對「企業廢話感受性」的問題？</p>
+  </div>
+
+  <!-- 6. History & Philosophy -->
+  <div class="section-label">歷史與哲學 / History & Philosophy</div>
+
+  <div class="card">
+    <div class="card-top">
+      <h3>歷史與哲學應該讓我們感到困惑與陌生 / History and Philosophy Should Make Us Feel Baffled and Strange</h3>
+      <span class="read-badge">～16 min</span>
+    </div>
+    <div class="meta">
+      <span>Aeon</span><span class="meta-sep">·</span>
+      <span>Marnie Hughes-Warrington（澳洲國立大學）</span><span class="meta-sep">·</span>
+      <span>2026</span><span class="meta-sep">·</span>
+      <a href="https://aeon.co/essays/history-and-philosophy-should-make-us-feel-baffled-and-strange" target="_blank">閱讀全文</a>
+    </div>
+
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <p>這篇以圖書館被洪水淹沒的個人記憶開場，卻是一篇橫跨亞里斯多德、Ibn Khaldun、海德格、Le Guin 的「驚奇感」（wonder）哲學史。它主張：我們對歷史與哲學學術化的需求，恰恰是讓它們失去驚奇感的元兇。文筆優美，論點激進。</p>
+
+    <div class="label">摘要 / Summary</div>
+    <p>Hughes-Warrington 認為歷史與哲學的根源是「驚奇」（wonder），但學術化過程——注腳、規訓、邊界管控——把驚奇驅逐出去了。她追溯亞里斯多德、中世紀基督教、伊斯蘭史學家、中國奇異史，指出「驚奇」一直是歷史書寫的共生雙胞胎，只是被壓制了。核心倫理立場借用 Ursula K. Le Guin：如果為了讓世界運轉而虐待一個孩子是可以的，那這個世界就不值得維持。<em>驚奇的倫理功能是把我們拉回對他者的開放</em>。</p>
+    <p>Wonder is the origin of both history and philosophy, but professionalization — footnotes, disciplinary borders, earnestness — expelled it. Hughes-Warrington traces wonder across Aristotle, Ibn Khaldun, Confucius, Tang dynasty "strange chronicles," and Heidegger to argue that reclaiming bafflement is an ethical act, not an intellectual regression.</p>
+
+    <div class="takeaway">核心觀點：「There is no ethics without the opening up to others granted by wonder.」驚奇不是孩子氣，而是倫理的前提條件。</div>
+    <p class="question">引發的問題：在 AI 把所有困惑都即時消解的時代，我們是否正在系統性地消除產生驚奇感的條件？</p>
+  </div>
+
+  <!-- 7. Curiosities -->
+  <div class="section-label">奇文與偏門 / Curiosities</div>
+
+  <div class="card">
+    <div class="card-top">
+      <h3>窮人版拍立得 / Poor Man's Polaroid</h3>
+      <span class="read-badge">～6 min</span>
+    </div>
+    <div class="meta">
+      <span>boxart.lt</span><span class="meta-sep">·</span>
+      <span>Boxart / Laurynas Žalgiris</span><span class="meta-sep">·</span>
+      <span>2026（HN 第 26 名，240 分）</span><span class="meta-sep">·</span>
+      <a href="https://boxart.lt/blog/poor_mans_polaroid?locale=en" target="_blank">閱讀全文</a>
+    </div>
+
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <p>一個人用熱感印表機、舊相機模組和一堆焊接，把「即時沖印」的體驗帶到了沒有 Polaroid 價格的世界。HN 評論區充滿各種 DIY 相機歷史的補充知識，是週日早上最讓人心情愉快的那種帖子。</p>
+
+    <div class="label">摘要 / Summary</div>
+    <p>作者自製了一台可以即時列印的底片感相機：用樹莓派 + 熱感印表機 + 廣角鏡頭模組，配上手工做的木殼，拍完按下按鈕，數秒後印出一張微縮的熱感相片。整個過程詳細記錄，零件清單附上，預算大約是一台真 Polaroid 的十分之一。</p>
+
+    <div class="takeaway">核心觀點：「即時」的魔法不在於貴，在於等待與顯現之間的儀式感。</div>
+    <p class="question">引發的問題：在每張照片都即時可得的手機時代，什麼讓「印出來」這個動作重新變得有意義？</p>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ============================================================ TRACK B -->
+  <div class="track-header" style="border-left-color: var(--accent2);">
+    <h2>Track B — 思想領袖觀點 / Thought Leader Picks</h2>
+    <p>他們自己寫的東西（非報導、非訪談）：blog、Substack、長推。本週 4 篇，皆過去 7 天內發表。</p>
+  </div>
+
+  <!-- TL 1 -->
+  <div class="card">
+    <div class="card-top">
+      <h3><span class="domain-tag">AI</span> Ethan Mollick — 選擇保持人性 / Choosing to Stay Human</h3>
+      <span class="read-badge">～14 min</span>
+    </div>
+    <div class="meta">
+      <span>One Useful Thing (Substack)</span><span class="meta-sep">·</span>
+      <span>2026-05-26</span><span class="meta-sep">·</span>
+      <a href="https://www.oneusefulthing.org/p/choosing-to-stay-human" target="_blank">閱讀全文</a>
+    </div>
+
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <p>Mollick 是世界上把 AI 與教育、認知科學研究結合得最紮實的人之一。這篇不是反 AI，而是基於多個嚴格 RCT 實驗，提出「刻意選擇何時用 AI」的框架。他直接引用自己合著的 BCG 顧問實驗與 Wharton 的「認知投降」研究，讓論點有根基。</p>
+
+    <div class="label">核心觀點 / Core Insight</div>
+    <p>Mollick 援引兩個對比鮮明的研究：土耳其高中生用 ChatGPT 做作業，雖然作業品質更好，但考試成績反而退步（AI 代替了思考）；台北十所高中的 Python 課，AI 客製化題目序列讓學生期末成績提升 0.15 個標準差，等同 6–9 個月的額外學習。關鍵差異：前者讓 AI 給答案，後者讓 AI 逼學生自己想。</p>
+    <p>他稱過度依賴 AI 為「認知投降」（cognitive surrender），並指出工具設計上的「無摩擦」正是問題所在——agent 系統讓你不需思考就能完成任務，學習的前提恰恰是要有摩擦。結論：<em>決定何時讓 AI 做、何時自己做，將是這個世代最重要的認知挑戰，而這個決定不能外包給 AI。</em></p>
+
+    <p class="question">引發的問題：如果「用 AI 的方式」比「用不用 AI」更重要，教育機構要如何建立「正確使用」的系統性約束，而不只是靠學生的自制力？</p>
+  </div>
+
+  <!-- TL 2 -->
+  <div class="card">
+    <div class="card-top">
+      <h3><span class="domain-tag">總經</span> Noah Smith — 你未來的工作是讓 AI 保持在軌道上 / Your Future Job Will Be to Keep AI on Task</h3>
+      <span class="read-badge">～12 min</span>
+    </div>
+    <div class="meta">
+      <span>Noahpinion (Substack)</span><span class="meta-sep">·</span>
+      <span>2026-05-27</span><span class="meta-sep">·</span>
+      <a href="https://www.noahpinion.blog/p/your-future-job-will-be-to-keep-ai" target="_blank">閱讀全文</a>
+      <span class="paywalled">部分付費牆</span>
+    </div>
+
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <p>Noah Smith 是少數能把嚴肅經濟學直覺轉化成讓人坐下來讀的散文的作者。這篇的論點反直覺：未來需求最大的人類工作，不是最聰明的技術工作，而是最「Lumbergh 式」的監督工作——確保 AI 達成我們真正想要的目標。</p>
+
+    <div class="label">核心觀點 / Core Insight</div>
+    <p>Smith 以《上班一條蟲》的 Bill Lumbergh 為比喻：這個被嘲笑為一無是處的中層主管，實際上是在（低效地）讓工程師的目標對齊公司目標。在 AI 代理越來越複雜的未來，<em>人類最有比較優勢的事情是「知道自己想要什麼」</em>——也就是 alignment work：確認 AI 輸出、防止 reward hacking、維持人類對複雜任務的控制。</p>
+    <p>目前最迫切的版本是「驗證 AI 輸出品質」——也就是抵抗 slop 的擴散。他指出超過三分之一的新網站已是 AI 生成，超過一半的網路流量已是 AI bot。在這個「slopocalypse」裡，人類判斷力的稀缺性反而上升。</p>
+
+    <p class="question">引發的問題：如果未來最有價值的人類工作是「監督 AI」，這份工作如何學習、如何定價、如何避免成為下一個被自動化的目標？</p>
+  </div>
+
+  <!-- TL 3 -->
+  <div class="card">
+    <div class="card-top">
+      <h3><span class="domain-tag">AI</span> Tyler Cowen — Robin：自動化整個科學實驗的多代理系統 / Robin (It's Happening)</h3>
+      <span class="read-badge">～5 min</span>
+    </div>
+    <div class="meta">
+      <span>Marginal Revolution</span><span class="meta-sep">·</span>
+      <span>2026-05-21</span><span class="meta-sep">·</span>
+      <a href="https://marginalrevolution.com/marginalrevolution/2026/05/robin-its-happening.html" target="_blank">閱讀全文</a>
+    </div>
+
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <p>Cowen 是少數能在第一時間識別「真正重要的科學進展」的公共知識分子，他的短評往往是長篇報導的最佳入口。Robin 是他罕見用「(It's Happening)」標題的帖子——通常這意味著他認為一個拐點到了。</p>
+
+    <div class="label">核心觀點 / Core Insight</div>
+    <p>Robin 是第一個能完整自動化「提出假設 → 設計實驗 → 解析結果 → 更新假設」整個循環的多代理系統，應用於實驗生物學。它已被用於識別乾性老年性黃斑部病變（dAMD，已開發世界主要失明原因）的潛在治療候選藥物。Cowen 的隱含論點：當 AI 能自己做科學，人類科學家的角色將根本性改變——從「做實驗者」變成「提問者與驗證者」。</p>
+
+    <p class="question">引發的問題：如果科學實驗可以完全自動化，那「科學理解」是否也需要人類主動參與才能成立？Robin 發現的藥物，我們能說我們「理解」它為什麼有效嗎？</p>
+  </div>
+
+  <!-- TL 4 -->
+  <div class="card">
+    <div class="card-top">
+      <h3><span class="domain-tag">總經</span> Noah Smith — 美國需要自由民族主義回歸 / America Needs Liberal Nationalism Back</h3>
+      <span class="read-badge">～10 min</span>
+    </div>
+    <div class="meta">
+      <span>Noahpinion (Substack)</span><span class="meta-sep">·</span>
+      <span>2026-05-29</span><span class="meta-sep">·</span>
+      <a href="https://www.noahpinion.blog/p/america-needs-liberal-nationalism" target="_blank">閱讀全文</a>
+    </div>
+
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <p>Smith 嘗試為「成本效益分析」的政策文化辯護，卻用了一個令許多讀者不舒服的框架：「自由民族主義」。這種刻意製造認知摩擦的論述策略，讓它成為本週最值得認真反駁（或接受）的政治文章。</p>
+
+    <div class="label">核心觀點 / Core Insight</div>
+    <p>Smith 認為 2016 年後，政策討論從「成本效益、公共利益、技術官僚」框架滑向「純意識形態」框架，第二個川普任期把這個趨勢推到極端——完全不在乎政策是否有效，只在乎是否符合意識形態。他的處方：恢復一種以「真正的公共利益」為核心的民族主義——不是排外的民族主義，而是「讓美國的事真的對美國人有好處」的治理文化。</p>
+
+    <p class="question">引發的問題：「自由民族主義」與技術官僚主義的結合，在缺乏共同身份認同的多元社會裡，還能運作嗎？</p>
+  </div>
+
+  <hr class="divider" />
+
+</div>
+
+<footer>
+  <div class="container">
+    <p>今日有趣文章日報 · 2026-05-31 · 由 Claude (Anthropic) 策展</p>
+    <p style="margin-top:6px;">來源：<a href="https://news.ycombinator.com/best" target="_blank">Hacker News Best</a> · <a href="https://www.quantamagazine.org/" target="_blank">Quanta Magazine</a> · <a href="https://aeon.co/essays" target="_blank">Aeon Essays</a> · <a href="https://paulgraham.com/articles.html" target="_blank">paulgraham.com</a> · <a href="https://www.oneusefulthing.org/" target="_blank">One Useful Thing</a> · <a href="https://www.noahpinion.blog/" target="_blank">Noahpinion</a> · <a href="https://marginalrevolution.com/" target="_blank">Marginal Revolution</a></p>
+    <p style="margin-top:6px; color: #555;">付費牆/無法完整存取：Noah Smith 部分文章（Noahpinion 訂閱制）</p>
+  </div>
+</footer>
+
+</body>
+</html>

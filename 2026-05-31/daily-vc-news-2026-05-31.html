@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日創投新聞日報 / Daily VC Briefing — 2026-05-31</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --accent: #6c8dfa;
+      --accent2: #a78bfa;
+      --text: #e2e8f0;
+      --muted: #8892a4;
+      --tag-ai: #1e3a5f;
+      --tag-ai-text: #93c5fd;
+      --tag-fund: #1e3a2f;
+      --tag-fund-text: #6ee7b7;
+      --tag-exit: #3a1e2f;
+      --tag-exit-text: #f9a8d4;
+      --tag-geo: #3a2d1e;
+      --tag-geo-text: #fcd34d;
+      --divider: #2e3347;
+      --link: #818cf8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      padding: 0 16px 64px;
+    }
+    header {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 40px 0 28px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .date-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+    h1 span { color: var(--accent2); }
+    .subtitle { color: var(--muted); margin-top: 6px; font-size: 14px; }
+    main { max-width: 820px; margin: 0 auto; }
+    section { margin-top: 40px; }
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--accent);
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+    }
+    .card-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.4;
+      flex: 1 1 100%;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 4px;
+      padding: 2px 7px;
+    }
+    .tag-ai   { background: var(--tag-ai);   color: var(--tag-ai-text); }
+    .tag-fund { background: var(--tag-fund); color: var(--tag-fund-text); }
+    .tag-exit { background: var(--tag-exit); color: var(--tag-exit-text); }
+    .tag-geo  { background: var(--tag-geo);  color: var(--tag-geo-text); }
+    .meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .meta a { color: var(--link); text-decoration: none; }
+    .meta a:hover { text-decoration: underline; }
+    .label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--accent2);
+      margin-top: 10px;
+      margin-bottom: 3px;
+    }
+    p { color: var(--text); margin-bottom: 6px; font-size: 14.5px; }
+    .highlight-box {
+      background: var(--surface2);
+      border-left: 3px solid var(--accent2);
+      border-radius: 0 6px 6px 0;
+      padding: 10px 14px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 10px 0 6px;
+    }
+    .stat {
+      background: var(--surface2);
+      border-radius: 6px;
+      padding: 8px 14px;
+      min-width: 120px;
+    }
+    .stat-num { font-size: 20px; font-weight: 700; color: #fff; }
+    .stat-label { font-size: 11px; color: var(--muted); margin-top: 1px; }
+    .read-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      color: var(--link);
+      text-decoration: none;
+      margin-top: 8px;
+    }
+    .read-link:hover { text-decoration: underline; }
+    footer {
+      max-width: 820px;
+      margin: 48px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--divider);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    footer a { color: var(--link); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .source-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .source-pill {
+      font-size: 11px;
+      background: var(--surface);
+      border: 1px solid var(--divider);
+      border-radius: 20px;
+      padding: 3px 10px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="date-label">2026 · 05 · 31 &nbsp;|&nbsp; Asia/Taipei &nbsp;|&nbsp; Weekly Friday Edition</div>
+  <h1>今日創投新聞日報<br/><span>Daily VC Briefing</span></h1>
+  <p class="subtitle">涵蓋基金募資、LP 動向、大型 round 領投者、退場、GP 人事、策略與區域動態<br/>Covering fund formation, LP activity, mega rounds, exits, GP moves, strategy & regional signals</p>
+</header>
+
+<main>
+
+<!-- ─── SECTION 1: TOP STORIES ─── -->
+<section>
+  <div class="section-title">01 · 頭條 / Top Stories</div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>Anthropic 完成史上最大 AI 私募輪：$650 億 Series H，估值 $9,650 億<br/>
+          Anthropic Closes Largest-Ever AI Private Round: $65B Series H at $965B Post-Money Valuation</h3>
+      <span class="tag tag-ai">AI 超大輪</span>
+    </div>
+    <div class="meta">
+      來源 / Source: <a href="https://www.anthropic.com/news/series-h" target="_blank">Anthropic (official)</a> · <a href="https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/" target="_blank">TechCrunch</a> · 2026-05-28
+    </div>
+
+    <div class="label">核心事實 / Facts</div>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-num">$65B</div><div class="stat-label">輪次規模 Round size</div></div>
+      <div class="stat"><div class="stat-num">$965B</div><div class="stat-label">投後估值 Post-money val.</div></div>
+      <div class="stat"><div class="stat-num">$47B</div><div class="stat-label">年化營收 Run-rate revenue</div></div>
+    </div>
+    <p>領投（共同）/ Co-leads：Altimeter Capital、Dragoneer、Greenoaks、Sequoia Capital。共同領投 II 線：Capital Group、Coatue、D1 Capital Partners、GIC、ICONIQ、XN。重要跟投：General Catalyst、Insight Partners、Jane Street、Lightspeed Venture Partners。超雲端戰略投資（$150 億）含 Amazon $50 億。</p>
+    <p>Co-leads: Altimeter Capital, Dragoneer, Greenoaks, Sequoia Capital. Tier-2 co-leads: Capital Group, Coatue, D1 Capital Partners, GIC (Singapore SWF), ICONIQ, XN. Notable participants: General Catalyst, Insight Partners, Jane Street, Lightspeed VP. Hyperscaler strategic ($15B total) includes $5B from Amazon.</p>
+
+    <div class="label">背景脈絡 / Context</div>
+    <p>Anthropic 於 2026 年 2 月完成 Series G 後，企業客戶的採用加速，過去三個月年化營收從約 $80 億飆升至 $470 億，增速超過同期 OpenAI。Sequoia 自 Series C 起持續加碼，GIC 入局象徵主權財富基金直接配置 frontier AI 的趨勢加速。這筆資金預計為 IPO 前最後一輪。</p>
+    <p>Since Series G (Feb 2026), enterprise adoption has accelerated sharply. Sequoia has participated in every round since Series C. GIC's entry marks SWF capital bypassing fund-of-funds to participate directly in frontier AI mega rounds. The company has signaled this is its final pre-IPO private raise.</p>
+
+    <div class="label">影響觀察 / Implications</div>
+    <div class="highlight-box">
+      （分析）Anthropic 超越 OpenAI 估值代表 frontier AI 的競爭格局重新洗牌。對 GP 而言：持有 Anthropic 股份的 Sequoia、General Catalyst 等基金將面臨 DPI 壓力——IPO 後能否順利退出成為 2026 年下半年的關鍵觀察點。對 LP 而言：SWF 直接入局壓縮了 fund-of-funds 的位子，也抬高了同等 AI 標的的競價門檻。<br/>
+      (Analysis) Anthropic surpassing OpenAI in valuation reorders frontier AI's competitive landscape. For GPs holding Anthropic shares (Sequoia, General Catalyst, Lightspeed), DPI realization via IPO has become a defining fund performance variable for H2 2026. For LPs, sovereign wealth's direct entry crowds out fund-of-funds allocations and raises the bar for comparable deal access.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>Cognition AI 完成 $10 億 Series D，Lux・General Catalyst・8VC 共同領投<br/>
+          Cognition AI Closes $1B Series D Led by Lux Capital, General Catalyst &amp; 8VC</h3>
+      <span class="tag tag-ai">AI 大輪</span>
+    </div>
+    <div class="meta">
+      來源 / Source: <a href="https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/" target="_blank">TechCrunch</a> · <a href="https://www.bloomberg.com/news/articles/2026-05-27/ai-coding-startup-cognition-raises-1-billion-at-26-billion-value" target="_blank">Bloomberg</a> · 2026-05-27
+    </div>
+
+    <div class="label">核心事實 / Facts</div>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-num">$1B</div><div class="stat-label">輪次規模 Round size</div></div>
+      <div class="stat"><div class="stat-num">$26B</div><div class="stat-label">投後估值 Post-money val.</div></div>
+      <div class="stat"><div class="stat-num">$492M</div><div class="stat-label">年化營收 Run-rate ARR</div></div>
+    </div>
+    <p>共同領投：Lux Capital、General Catalyst、8VC。跟投：Ribbit Capital、Atreides Management LP、Founders Fund（Peter Thiel）。估值較 8 個月前 Series C（$10.2 億）大幅上漲，企業使用量年初至今增長 10 倍以上。</p>
+    <p>Co-leads: Lux Capital, General Catalyst, 8VC. Participation: Ribbit Capital, Atreides, Founders Fund. Valuation jumped from $10.2B post (Series C, Sept 2025) in just 8 months. Enterprise usage grew 10x+ YTD; 90% of Cognition's own code is now written by Devin.</p>
+
+    <div class="label">背景脈絡 / Context</div>
+    <p>Lux Capital 近年在深度技術（量子、生物）佈局豐富；此次領投 AI coding agent 代表其向應用層 AI 靠攏。General Catalyst 同時是 Anthropic 跟投方，顯示頂級 VC 在 AI 價值鏈上採取「多邊押注」策略，希望同時吃到 foundation model 與 agent layer 的成長。</p>
+
+    <div class="label">影響觀察 / Implications</div>
+    <div class="highlight-box">
+      （分析）Cognition 的估值躍升（8 個月 2.5 倍）暗示 AI agent 類公司估值錨定已脫離傳統 SaaS 倍數框架，轉向類似 foundation model 的「能力敘事」定價。Lux 的入局也可能帶動其他 deeptech 基金加速部署 AI agent 賭注。<br/>
+      (Analysis) Cognition's 2.5x valuation jump in 8 months signals that AI agent companies are pricing on "capability narrative" rather than SaaS revenue multiples. Lux's pivot toward applied AI agents may prompt other science-first funds to accelerate AI agent deployment.
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 2: FUND FORMATION & LP ─── -->
+<section>
+  <div class="section-title">02 · 新基金與 LP 動向 / Fund Formation &amp; LP Activity</div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>Lansdowne Partners 啟動英國大學科技轉化 VC 基金，首關 €1.289 億（$1.5 億）<br/>
+          Lansdowne Partners Launches UK University IP-to-Global VC Fund, €128.9M First Close</h3>
+      <span class="tag tag-fund">新基金</span>
+      <span class="tag tag-geo">歐洲</span>
+    </div>
+    <div class="meta">
+      來源 / Source: <a href="https://www.eu-startups.com/2026/05/lansdowne-partners-unveils-new-vc-fund-to-turn-uk-university-ip-into-global-companies-hits-e128-9-million-first-close/" target="_blank">EU-Startups</a> · <a href="https://www.businesswire.com/news/home/20260514950424/en/Lansdowne-Partners-launches-VC-fund-to-scale-UK-innovation-to-global-commercial-success" target="_blank">BusinessWire</a> · 2026-05-14/19
+    </div>
+
+    <div class="label">核心事實 / Facts</div>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-num">€129M</div><div class="stat-label">首關規模 First close</div></div>
+      <div class="stat"><div class="stat-num">€200M</div><div class="stat-label">基金上限 Fund cap</div></div>
+      <div class="stat"><div class="stat-num">Dec 2026</div><div class="stat-label">預計末關 Final close</div></div>
+    </div>
+    <p>首關錨定 LP：British Business Bank、Aviva Investors、Lloyds Banking Group，以及 Lansdowne 自家投資人和 GP 自投。投資方向：醫療資料、量子計算、自然資本、先進材料、半導體、國防科技。定位為填補英國大學 IP 商業化（spin-out）從早期到全球擴張的缺口。</p>
+
+    <div class="label">背景脈絡 / Context</div>
+    <p>Lansdowne Partners 原以多空對沖基金著稱；此次跨入 VC 市場與英國政府「Spin-out Review」政策浪潮高度契合。British Business Bank 近年積極作為「催化型 LP」（catalytic capital），吸引機構共同投資。指示需求已超過 €200M 上限，顯示英國大學 spin-out 市場的 LP 需求壓力。</p>
+
+    <div class="label">影響觀察 / Implications</div>
+    <div class="highlight-box">
+      （分析）傳統公開市場對沖基金向 VC 轉型是 2024–2026 年歐洲的結構性趨勢（另見 Bridgepoint 等案例）。British Business Bank 的錨定角色凸顯「政策 LP」對歐洲創新生態的催化作用。若末關超額完成，可能帶動更多英國機構資產配置提高 VC 比重。<br/>
+      (Analysis) A traditional hedge fund's pivot to VC reflects structural capital reallocation in Europe. British Business Bank's catalytic LP role continues to crowd in institutional capital. Oversubscription signals unmet LP appetite for UK university spin-out exposure.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>Q1 2026 美國 VC 暨 PE 募資破紀錄：$800 億以上創新高<br/>
+          Q1 2026 US VC &amp; PE Fundraising Exceeds $80B — Record Quarter</h3>
+      <span class="tag tag-fund">市場趨勢</span>
+    </div>
+    <div class="meta">
+      來源 / Source: <a href="https://www.thevccorner.com/p/q1-2026-us-fund-activity-record-fundraising" target="_blank">The VC Corner</a> · 2026-Q1 recap
+    </div>
+
+    <div class="label">核心事實 / Facts</div>
+    <p>Q1 2026 美國 VC 暨 PE 募資合計超過 $800 億，創有紀錄以來單季最高水位。全年 88% 的創投資金流入 AI 相關或 AI 鄰接策略。AI 輪次平均規模年增逾一倍，但交易數量降至 2018 年以來最低，資本向頭部標的高度集中（Power Law 效應加劇）。</p>
+    <p>US VC+PE fundraising surpassed $80B in Q1 2026, the highest single quarter on record. 88% of all 2026 VC capital targets AI or AI-adjacent strategies. Average AI deal size doubled YoY while deal count hit its lowest since 2018 — capital is concentrating dramatically in fewer companies.</p>
+
+    <div class="label">影響觀察 / Implications</div>
+    <div class="highlight-box">
+      （分析）資金極度集中意味著中型基金（$200M–$500M）的 AI 案源愈來愈難搶到定價合理的輪次，被迫向更早期種子移動；或轉向非 AI 垂直（國防、生技）尋找競爭更少的 alpha。LP 在評估基金時需特別關注 GP 是否有真實 AI 案源差異化，而非單純打「AI 基金」名號。<br/>
+      (Analysis) Capital concentration forces mid-size funds ($200M–$500M) earlier in the stack or into non-AI verticals. LPs should scrutinize whether GPs claiming "AI focus" have genuine deal sourcing differentiation vs. narrative-driven positioning.
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 3: MEGA ROUNDS & LEAD INVESTORS ─── -->
+<section>
+  <div class="section-title">03 · 大型 Round 與領投者 / Mega Rounds &amp; Lead Investors</div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>（本週 GP 視角）Lux Capital 在 Cognition Series D 領投彰顯應用 AI 佈局轉向<br/>
+          Lux Capital's Co-Lead in Cognition Series D Marks Applied AI Pivot</h3>
+      <span class="tag tag-ai">領投分析</span>
+    </div>
+    <div class="meta">
+      來源 / Source: <a href="https://www.benzinga.com/markets/private-markets/26/05/52852956/cognition-raises-1-billion-at-26-billion-valuation-led-by-lux-general-catalyst-8vc" target="_blank">Benzinga</a> · 2026-05-27
+    </div>
+    <p>Lux Capital 以深度科學（量子、生物、航太）基金形象著稱；Cognition Series D 是 Lux 迄今在純 AI software agent 領域最大的已知押注。General Catalyst 同週也在 Anthropic Series H 中跟投，顯示其「portfolio of the future」策略同時佈局 model layer 與 agent layer。8VC（Joe Lonsdale 主導）延續其對 AI 在政府、企業流程自動化的押注。</p>
+    <p>Lux Capital — known for deep science bets — makes its largest disclosed AI software agent bet. General Catalyst appears in both Anthropic (H) and Cognition (D) this week, executing a deliberate model + agent layer dual-position. 8VC continues its enterprise/government AI automation thesis.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>本週其他重要 Round（GP 角度）<br/>
+          Other Notable Rounds This Week — Investor-Side View</h3>
+      <span class="tag tag-ai">大輪匯整</span>
+    </div>
+    <div class="meta">
+      來源 / Source: <a href="https://techstartups.com/2026/05/27/venture-capital-startup-funding-roundup-may-27-2026/" target="_blank">Tech Startups Roundup</a> · 2026-05-27/28
+    </div>
+    <p><strong>Armada</strong>（邊緣 AI 基礎設施）完成 $2.3 億 Series B，投前估值 $20 億，超額認購。（領投方未在本次搜尋中確認，待查）</p>
+    <p><strong>Capchase</strong>（中小企業非稀釋融資）完成 $2 億以上股權+債務融資，股權部分由 01 Advisors 領投，Caffeinated Capital、Thomvest Ventures 等跟投。</p>
+    <p>Armada (edge AI infrastructure): $230M Series B, $2B pre-money, oversubscribed. Lead investor not confirmed in available sources (undisclosed). Capchase: $200M+ equity + debt; equity led by 01 Advisors, with Caffeinated Capital, Thomvest Ventures, Scifi VC, Bling Capital, Invesco.</p>
+  </div>
+</section>
+
+<!-- ─── SECTION 4: EXITS & DPI ─── -->
+<section>
+  <div class="section-title">04 · 退場與 DPI / Exits &amp; DPI Events</div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>WilmerHale 2026 VC 報告：2025 年 VC 支持 M&A 超越 2021 紀錄，IPO 質量勝量<br/>
+          WilmerHale 2026 VC Report: 2025 VC-Backed M&A Surpassed 2021 Record; IPOs Favor Quality Over Volume</h3>
+      <span class="tag tag-exit">退場分析</span>
+    </div>
+    <div class="meta">
+      來源 / Source: <a href="https://www.wilmerhale.com/en/insights/publications/20260522-2026-ipo-venture-capital-and-manda-reports" target="_blank">WilmerHale</a> · 2026-05-22（報告發布日）
+    </div>
+
+    <div class="label">核心事實 / Facts</div>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-num">$301.6B</div><div class="stat-label">2025 VC 退場總值 Exit value</div></div>
+      <div class="stat"><div class="stat-num">85%</div><div class="stat-label">M&A 佔比 M&A share</div></div>
+      <div class="stat"><div class="stat-num">0.6x</div><div class="stat-num" style="font-size:12px;color:var(--muted)">2018 vintage DPI（歷史低點）</div></div>
+    </div>
+    <p>2025 年 VC 支持 M&A 交易價值突破 2021 年紀錄；IPO 僅 66 件但上市公司體量更大。Q1 2026 VC M&A 達 $566 億，為 2022 年以來第三高單季。IPO 市場動能延續，但 Anthropic $965B 估值的出現已讓市場開始計算哪些公司能在 2026 下半年上市。</p>
+
+    <div class="label">影響觀察 / Implications</div>
+    <div class="highlight-box">
+      （分析）2018 年 vintage 基金 DPI 僅 0.6x 是「DPI 荒漠」最清晰的量化信號，正推動 GP 加速尋求 M&A 退出（即使犧牲部分估值）、或走次級市場。Anthropic 若 2026 下半年 IPO，將是多年來第一個真正能改善頂級 VC 基金 DPI 的超大型 exit 事件。<br/>
+      (Analysis) 2018 vintage DPI at 0.6x is the clearest quantitative proof of the DPI drought, forcing GPs to accept M&A exits at sub-peak valuations or tap secondaries. An Anthropic IPO in H2 2026 could be the first DPI-restorative mega-exit for multiple top VC funds in years.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>次級市場成為主流退場工具：2025 年規模達 $1,060 億<br/>
+          Secondaries Mainstream: $106B Volume in 2025, Growing as Core VC Liquidity Tool</h3>
+      <span class="tag tag-exit">次級市場</span>
+    </div>
+    <div class="meta">
+      來源 / Source: <a href="https://news.crunchbase.com/venture/dpi-crunch-startup-funding-schroder-mgv/" target="_blank">Crunchbase News</a> · WEF Future of VC 2026 Report
+    </div>
+    <p>2025 年全球 VC 次級市場交易量達 $1,060 億，約占所有 VC 支持退場的三分之一。獨角獸市值中僅約 2% 在次級市場流通，顯示滲透率仍低但成長快速。2026 年次級市場基礎設施持續擴張，Continuation Funds 愈來愈多。</p>
+    <p>2025 global VC secondary volume reached $106B (~⅓ of all VC exits). Only ~2% of unicorn market cap trades on secondary. Continuation funds and LP-led secondaries growing as GP-preferred liquidity tools ahead of formal IPO or M&A.</p>
+  </div>
+</section>
+
+<!-- ─── SECTION 5: GP MOVES ─── -->
+<section>
+  <div class="section-title">05 · GP 人事 / GP Moves</div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>印度資深 GP 波浪式出走成立獨立基金（Peak XV / Sequoia India 系）<br/>
+          India GP Exodus: Senior Partners Leaving Peak XV / Sequoia India to Launch Independent Funds</h3>
+      <span class="tag tag-geo">India</span>
+    </div>
+    <div class="meta">
+      來源 / Source: <a href="https://www.entrepreneur.com/en-in/news-and-trends/shift-in-venture-capital-exits-track-records-and-the-solo/497334" target="_blank">Entrepreneur India</a>
+    </div>
+    <p>Shailesh Lakhani（前 Peak XV Partners MD）正籌備早期基金，可能與同樣離開 Peak XV 的 Harshjit Sethi 合夥。Ashish Dave（前 Mirae Asset Venture Investments 印度負責人）正洽談設立多階段成長基金。此現象反映大型亞洲 VC 體系下的 GP 天花板問題——資深合夥人在成熟平台難以獨立決策，因此出走建立獨立品牌。</p>
+    <p>Shailesh Lakhani (ex-Peak XV MD) setting up early-stage fund, potentially with ex-Peak XV MD Harshjit Sethi. Ashish Dave (ex-Mirae Asset India) exploring multi-stage growth fund. Pattern reflects ceiling dynamics inside large platform funds where senior GPs lack independent brand-building opportunities.</p>
+
+    <div class="highlight-box">
+      （分析）Peak XV（原 Sequoia India）的人才流失延續了 2024 年以來的趨勢，反映全球 VC 「去中心化」浪潮——Solo GP 與小型精品基金搶奪大平台培養出的人才。LP 在評估時需關注這些新基金的案源網絡是否真正獨立。<br/>
+      (Analysis) Peak XV talent attrition continues a 2024 trend of VC decentralization. LPs evaluating spinout GPs should scrutinize whether deal sourcing networks are truly independent of the parent institution.
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 6: STRATEGY & ECOSYSTEM ─── -->
+<section>
+  <div class="section-title">06 · 策略與生態 / Strategy &amp; Ecosystem Shifts</div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>國防科技 VC 創紀錄：Q1 2026 達 $198 億（262 件），已從「論文」走向「量產事實」<br/>
+          Defense Tech VC Sets Record: $19.8B Across 262 Deals in Q1 2026 — Thesis to Industrial Fact</h3>
+      <span class="tag tag-fund">國防科技</span>
+    </div>
+    <div class="meta">
+      來源 / Source: <a href="https://pitchbook.com/news/reports/q1-2026-defense-tech-vc-trends" target="_blank">PitchBook Q1 2026 Defense Tech VC Trends</a> · <a href="https://fnex.com/defence-tech-vc-2026/" target="_blank">FNEX</a>
+    </div>
+
+    <div class="label">核心事實 / Facts</div>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-num">$19.8B</div><div class="stat-label">Q1 2026 國防科技 VC</div></div>
+      <div class="stat"><div class="stat-num">262</div><div class="stat-label">件數 Deals</div></div>
+      <div class="stat"><div class="stat-num">+28.6%</div><div class="stat-label">QoQ 交易額成長</div></div>
+    </div>
+    <p>Q1 最大案：Saronic（自主水面載具）$18 億，投後估值 $93 億。Anduril 已拿下最高 $200 億的美軍合約框架，顯示 VC 支持的國防公司已真正進入大規模採購軌道。PitchBook 新報告（Q2 2026）聚焦哪些基金在資本疊加上佔據高點。</p>
+    <p>Quarter's largest: Saronic $1.8B at $9.3B post-money. Anduril's Army contract ceiling at $20B confirms venture-backed defense companies have entered large-scale procurement. Deal count fell while value rose 28.6% QoQ — capital consolidating in late-stage defense plays.</p>
+
+    <div class="label">影響觀察 / Implications</div>
+    <div class="highlight-box">
+      （分析）國防科技的 VC 資金集中在晚期輪次，意味著早期國防基金（如 Shield Capital、In-Q-Tel 生態圈）的「入場成本」正在下降，而大型綜合基金（a16z、General Catalyst）的 portfolio 公司已進入商業化快速道。台灣視角：海峽安全議題可能使台灣相關國防科技新創的外資募資受到更多關注。<br/>
+      (Analysis) Capital concentration in late-stage defense rounds lowers entry cost for early-stage defense specialists. For Taiwan: strait security dynamics may draw renewed VC attention to Taiwan-adjacent defense and dual-use startups.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>中國 VC 推出「平行基金」結構以吸引美國 LP，規避合規限制<br/>
+          China VC Firms Launch "Parallel Fund" Structures to Attract US LPs Amid Compliance Hurdles</h3>
+      <span class="tag tag-geo">中國</span>
+    </div>
+    <div class="meta">
+      來源 / Source: <a href="https://www.bloomberg.com/news/articles/2026-04-28/china-venture-capital-boosting-parallel-funds-for-us-investors" target="_blank">Bloomberg</a> · 2026-04-28
+    </div>
+    <p>中國早期基金正推出讓美國 LP 投資「非敏感領域」（消費、醫療、非 AI 軟體）的平行基金結構，以應對 CFIUS 及出口管制令美國資本猶豫的現實。此舉反映中美 VC 脫鉤中的「灰色地帶」——完全切割難以實現，但雙向資本流動大幅縮減。</p>
+    <p>Chinese early-stage funds are structuring parallel vehicles allowing US LPs to access non-sensitive sectors (consumer, healthcare, non-AI software) while side-stepping CFIUS/export control concerns. Reflects the "gray zone" of US-China VC decoupling — full decoupling not achieved, but bilateral capital flows sharply reduced.</p>
+  </div>
+</section>
+
+<!-- ─── SECTION 7: REGIONAL ─── -->
+<section>
+  <div class="section-title">07 · 區域動向 / Regional Highlights</div>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>區域速覽 / Regional Snapshot</h3>
+    </div>
+
+    <div class="label">🇺🇸 美國 / United States</div>
+    <p>AI mega rounds（Anthropic、Cognition）主導本週。國防科技 Q1 創紀錄。WilmerHale 報告確認 M&A 超越 2021 高峰，IPO 管道持續蓄能。次級市場成熟化持續進行。</p>
+    <p>AI mega rounds dominate. Defense tech Q1 record. WilmerHale confirms M&A surpassed 2021 peak. IPO pipeline building. Secondary market maturation accelerating.</p>
+
+    <div class="label">🇬🇧 歐洲 / Europe</div>
+    <p>Lansdowne Partners UK 大學 IP 基金首關 €1.289 億，目標 €2 億。歐洲 Q1 2026 新基金明顯向 deeptech、climate、defence 傾斜，British Business Bank 持續發揮「催化 LP」功能。</p>
+
+    <div class="label">🇨🇳 中國 / China</div>
+    <p>平行基金結構興起以保留美國 LP。國家創投引導基金框架下，至少 70% 資金導向種子/早期企業。中國科技 VC 整體在非 AI 賽道的對外吸引力有限，國內基金轉向國產替代主題。</p>
+
+    <div class="label">🇮🇳 印度 / India</div>
+    <p>Peak XV 系 GP 出走波浪，Solo GP 市場活絡。LP 對印度基金的需求穩定，但資金仍主要集中在少數平台型基金。</p>
+
+    <div class="label">🌏 東南亞 / Southeast Asia</div>
+    <p>本週無重大 GP 層級消息。整體募資環境相對安靜，但 LP 的 SEA 配置壓力仍高——部分 LP 開始評估直接進行 co-investment 以降低管理費。</p>
+
+    <div class="label">🇮🇱 以色列 / Israel</div>
+    <p>地緣政治仍影響部分 LP 對以色列基金的配置決策，但 AI 與網路安全賽道的吸引力維持強勁。本週無特定 GP 層級重大公告。</p>
+  </div>
+</section>
+
+<!-- ─── SECTION 8: READS ─── -->
+<section>
+  <div class="section-title">08 · 觀點閱讀 / Reads &amp; Thought Leadership</div>
+
+  <div class="card">
+    <div class="label">WEF 2026 年 VC 未來報告 / WEF "The Future of Venture Capital 2026"</div>
+    <p>世界經濟論壇報告指出：全球 VC 管理資產已達 $3.5 兆，支持超過 25 萬家公司，但正面臨「流動性迴圈放緩」與 AI 重構的雙重轉型壓力。報告重點建議：擴大次級市場基礎設施、建立更多主權與退休金 LP 直接投資通道、重新思考 10 年基金期限是否還適合當前周期。</p>
+    <a class="read-link" href="https://reports.weforum.org/docs/WEF_The_Future_of_Venture_Capital_2026.pdf" target="_blank">閱讀全文 →</a>
+
+    <div class="label" style="margin-top:16px">WilmerHale 2026 VC + IPO + M&amp;A 三份報告 / WilmerHale 2026 Tri-Report</div>
+    <p>2025 年 VC 交易價值飆至歷史次高，VC 支持 M&A 破 2021 紀錄，IPO 品質優先於數量。詳細拆解 SAFE 結構、估值回調、exit 路徑的最新市場條款變化。</p>
+    <a class="read-link" href="https://www.wilmerhale.com/en/insights/publications/20260522-2026-ipo-venture-capital-and-manda-reports" target="_blank">閱讀報告 →</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p><strong>來源 / Sources used this edition</strong></p>
+  <div class="source-grid">
+    <span class="source-pill"><a href="https://www.anthropic.com/news/series-h" target="_blank">Anthropic Official</a></span>
+    <span class="source-pill"><a href="https://techcrunch.com/category/venture/" target="_blank">TechCrunch Venture</a></span>
+    <span class="source-pill"><a href="https://www.bloomberg.com/news/articles/2026-05-27/ai-coding-startup-cognition-raises-1-billion-at-26-billion-value" target="_blank">Bloomberg</a></span>
+    <span class="source-pill"><a href="https://www.eu-startups.com/2026/05/lansdowne-partners-unveils-new-vc-fund-to-turn-uk-university-ip-into-global-companies-hits-e128-9-million-first-close/" target="_blank">EU-Startups</a></span>
+    <span class="source-pill"><a href="https://pitchbook.com/news/reports/q1-2026-defense-tech-vc-trends" target="_blank">PitchBook</a></span>
+    <span class="source-pill"><a href="https://news.crunchbase.com/venture/dpi-crunch-startup-funding-schroder-mgv/" target="_blank">Crunchbase News</a></span>
+    <span class="source-pill"><a href="https://www.wilmerhale.com/en/insights/publications/20260522-2026-ipo-venture-capital-and-manda-reports" target="_blank">WilmerHale</a></span>
+    <span class="source-pill"><a href="https://www.bloomberg.com/news/articles/2026-04-28/china-venture-capital-boosting-parallel-funds-for-us-investors" target="_blank">Bloomberg China VC</a></span>
+    <span class="source-pill"><a href="https://www.thevccorner.com/p/q1-2026-us-fund-activity-record-fundraising" target="_blank">The VC Corner</a></span>
+    <span class="source-pill"><a href="https://www.entrepreneur.com/en-in/news-and-trends/shift-in-venture-capital-exits-track-records-and-the-solo/497334" target="_blank">Entrepreneur India</a></span>
+    <span class="source-pill"><a href="https://reports.weforum.org/docs/WEF_The_Future_of_Venture_Capital_2026.pdf" target="_blank">WEF 2026 VC Report</a></span>
+    <span class="source-pill"><a href="https://www.benzinga.com/markets/private-markets/26/05/52852956/cognition-raises-1-billion-at-26-billion-valuation-led-by-lux-general-catalyst-8vc" target="_blank">Benzinga</a></span>
+  </div>
+  <p style="margin-top:16px;font-size:11px;">
+    注意 / Note：PitchBook、The Information、Bloomberg Terminal 部分內容為付費牆封鎖（paywalled）。本日報數字均引用自官方新聞稿、公開報導或免費摘要，未擅自引用付費牆後資料。部分 GP 人事動態因資訊未完整公開，以「未公開 / undisclosed」或「待確認」標示。<br/>
+    Paywalled sources: PitchBook full reports, The Information VC vertical, Bloomberg Terminal data were not directly accessible; figures sourced from official press releases and free summaries only. Some GP personnel details remain unconfirmed.
+  </p>
+  <p style="margin-top:10px;font-size:11px;color:#555;">Generated by Claude (daily-vc-news skill) · 2026-05-31 Asia/Taipei · Not investment advice.</p>
+</footer>
+
+</body>
+</html>
