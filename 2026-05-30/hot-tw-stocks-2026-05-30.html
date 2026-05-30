@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日台股熱門焦點股 Hot Taiwan Stocks — 2026/05/30</title>
+<style>
+  :root {
+    --red: #e03e3e;
+    --green: #1e8a4a;
+    --blue: #2563eb;
+    --yellow: #d97706;
+    --bg: #0f172a;
+    --card: #1e293b;
+    --border: #334155;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', 'Noto Sans TC', sans-serif; font-size: 15px; line-height: 1.7; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .header {
+    background: linear-gradient(135deg, #0c1c3a 0%, #1a3660 50%, #0f2952 100%);
+    border-bottom: 2px solid var(--blue);
+    padding: 28px 24px 20px;
+    text-align: center;
+  }
+  .header h1 { font-size: 1.8rem; font-weight: 700; color: #fff; letter-spacing: 0.5px; }
+  .header .subtitle { color: var(--muted); font-size: 0.88rem; margin-top: 6px; }
+  .header .session-note {
+    display: inline-block;
+    background: #1a3660;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 0.82rem;
+    color: var(--accent);
+    margin-top: 10px;
+  }
+
+  .container { max-width: 980px; margin: 0 auto; padding: 24px 16px; }
+
+  /* Summary Table */
+  .section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent);
+    border-left: 4px solid var(--accent);
+    padding-left: 12px;
+    margin: 32px 0 16px;
+  }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  th { background: #1e3a5f; color: var(--accent); padding: 10px 12px; text-align: left; border-bottom: 2px solid var(--border); white-space: nowrap; }
+  td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tr:hover td { background: rgba(56,189,248,0.05); }
+  .up { color: #f87171; font-weight: 700; }
+  .down { color: #4ade80; font-weight: 700; }
+  .stars { color: #fbbf24; letter-spacing: 2px; }
+  .tag {
+    display: inline-block;
+    background: #1e3a5f;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-size: 0.75rem;
+    color: var(--accent);
+    margin: 1px;
+  }
+  .tag.red { background: #3b1111; border-color: #e03e3e; color: #f87171; }
+  .tag.yellow { background: #3b2800; border-color: #d97706; color: #fbbf24; }
+  .tag.green { background: #0d3324; border-color: #1e8a4a; color: #4ade80; }
+  .tag.orange { background: #2d1500; border-color: #ea580c; color: #fb923c; }
+
+  /* Ticker deep dive */
+  .ticker-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ticker-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--red);
+  }
+  .ticker-card.neutral::before { background: var(--yellow); }
+  .ticker-card.caution::before { background: #6b7280; }
+  .ticker-card.watchlist::before { background: #7c3aed; }
+
+  .ticker-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .ticker-id { font-size: 1.3rem; font-weight: 800; color: #fff; }
+  .ticker-name { font-size: 1rem; font-weight: 600; color: var(--accent); }
+  .ticker-price { font-size: 1.5rem; font-weight: 800; }
+  .ticker-pct { font-size: 1rem; font-weight: 700; padding: 2px 10px; border-radius: 5px; }
+  .ticker-pct.up-bg { background: #3b1111; color: #f87171; }
+  .ticker-pct.down-bg { background: #0d3324; color: #4ade80; }
+
+  .field-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-top: 14px;
+    margin-bottom: 4px;
+  }
+  .field-content { font-size: 0.9rem; }
+
+  /* Market backdrop */
+  .market-backdrop {
+    background: linear-gradient(135deg, #0f2952 0%, #1e293b 100%);
+    border: 1px solid var(--blue);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+  }
+  .market-backdrop h3 { color: var(--accent); margin-bottom: 10px; font-size: 1rem; }
+  .market-stats { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 12px; }
+  .market-stat { background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 7px; padding: 10px 16px; min-width: 160px; }
+  .market-stat .stat-label { font-size: 0.75rem; color: var(--muted); }
+  .market-stat .stat-value { font-size: 1.1rem; font-weight: 700; margin-top: 2px; }
+
+  /* Sources */
+  .sources-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-top: 40px;
+    font-size: 0.82rem;
+  }
+  .sources-section h3 { color: var(--muted); margin-bottom: 10px; font-size: 0.9rem; }
+  .sources-section ul { list-style: none; columns: 2; }
+  .sources-section li { padding: 2px 0; }
+  @media (max-width: 600px) { .sources-section ul { columns: 1; } }
+
+  .disclaimer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.76rem;
+    margin-top: 24px;
+    padding-bottom: 32px;
+  }
+
+  .badge-caution {
+    display: inline-block;
+    background: #3b2800;
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-left: 6px;
+  }
+  .badge-dispose {
+    background: #3b1111;
+    border-color: #e03e3e;
+    color: #f87171;
+  }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 10px 0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>今日台股熱門焦點股 · Hot Taiwan Stocks</h1>
+  <div class="subtitle">深度炒作脈絡 · 量價籌碼 · 社群聲量 · 2026 年</div>
+  <div class="session-note">
+    ⚠️ 2026/05/30 (六) 為非交易日 — 以最近完成之交易日 <strong>2026/05/29 (五)</strong> 為準
+    <br>TWSE session used: 2026-05-29 · Last trading day of May
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- MARKET BACKDROP -->
+  <div class="section-title">大盤背景 / Market Backdrop</div>
+  <div class="market-backdrop">
+    <h3>2026/05/29 · 月線、週線同日收紅 · 台灣 AI 供應鏈全面噴發</h3>
+    <p>
+      台股在輝達執行長黃仁勳「第五度兆元宴」加持、鴻海股東會劉揚偉釋出下半年強勁展望，以及 COMPUTEX 2026（6/2–6/5）倒數效應下，全面噴出。加權指數大漲 <strong>1,096.50 點 (+2.51%)</strong>，收 <strong>44,732.94 點</strong>，再創收盤歷史新高，同時收月線大漲 <strong>5,806 點</strong>——史上最強五月。尾盤 MSCI 季度調整引爆 <strong>1.81 兆元天量</strong>。
+      <br><br>
+      三大法人同站買方：外資買超 <strong>803.55 億元</strong>（史上第四大），自營商 +154.26 億元，投信 +60.96 億元，合計 <strong>1,018.78 億元</strong>。台幣匯率在 AI 引資背景下維持強勢。
+    </p>
+    <div class="market-stats">
+      <div class="market-stat">
+        <div class="stat-label">加權指數 TAIEX</div>
+        <div class="stat-value up">44,732.94</div>
+      </div>
+      <div class="market-stat">
+        <div class="stat-label">漲點 / 漲幅</div>
+        <div class="stat-value up">+1,096.50 / +2.51%</div>
+      </div>
+      <div class="market-stat">
+        <div class="stat-label">成交金額</div>
+        <div class="stat-value">1.81 兆元</div>
+      </div>
+      <div class="market-stat">
+        <div class="stat-label">外資買超</div>
+        <div class="stat-value up">+803.55 億元</div>
+      </div>
+      <div class="market-stat">
+        <div class="stat-label">5月月漲幅</div>
+        <div class="stat-value up">+5,806 點 / +14.9%</div>
+      </div>
+      <div class="market-stat">
+        <div class="stat-label">市場廣度(股票)</div>
+        <div class="stat-value">上漲 805 / 漲停 42</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY TABLE -->
+  <div class="section-title">熱門焦點 Top 8 / Today's Hottest Names — 摘要表</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>股號</th>
+          <th>公司</th>
+          <th>收盤</th>
+          <th>漲跌%</th>
+          <th>成交額(億)</th>
+          <th>三大法人</th>
+          <th>熱度</th>
+          <th>主要 Catalyst</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>2317</strong></td>
+          <td>鴻海 <span class="tag red">漲停</span></td>
+          <td class="up">289</td>
+          <td class="up">+9.89%</td>
+          <td>818.78</td>
+          <td>外+8.03萬張</td>
+          <td class="stars">★★★★★</td>
+          <td>股東會 · AI伺服器 · 劉揚偉拚2股本</td>
+        </tr>
+        <tr>
+          <td><strong>2330</strong></td>
+          <td>台積電</td>
+          <td class="up">2,355</td>
+          <td class="up">+2.61%</td>
+          <td>2,109.92</td>
+          <td>外+1.32萬張</td>
+          <td class="stars">★★★★★</td>
+          <td>盤中創天價2375·指數核心</td>
+        </tr>
+        <tr>
+          <td><strong>2382</strong></td>
+          <td>廣達 <span class="tag red">漲停</span></td>
+          <td class="up">339</td>
+          <td class="up">+9.89%</td>
+          <td>待確認</td>
+          <td>投信+1.54萬張</td>
+          <td class="stars">★★★★</td>
+          <td>AI伺服器出貨·林百里「登梯向上」</td>
+        </tr>
+        <tr>
+          <td><strong>6669</strong></td>
+          <td>緯穎 <span class="tag red">漲停</span></td>
+          <td class="up">5,445</td>
+          <td class="up">+10.0%</td>
+          <td>待確認</td>
+          <td>待確認</td>
+          <td class="stars">★★★★</td>
+          <td>AI伺服器直供CSP·COMPUTEX前夕</td>
+        </tr>
+        <tr>
+          <td><strong>2327</strong></td>
+          <td>國巨* <span class="tag yellow">處置股</span></td>
+          <td class="up">~691</td>
+          <td class="up">+熱</td>
+          <td>待確認</td>
+          <td>待確認</td>
+          <td class="stars">★★★★</td>
+          <td>被動元件漲價·市值衝台股第九</td>
+        </tr>
+        <tr>
+          <td><strong>3481</strong></td>
+          <td>群創 <span class="tag red">漲停</span></td>
+          <td class="up">51</td>
+          <td class="up">+9.91%</td>
+          <td>待確認</td>
+          <td>外+16.32萬張</td>
+          <td class="stars">★★★★</td>
+          <td>外資大量掃貨·面板族群補漲</td>
+        </tr>
+        <tr>
+          <td><strong>6770</strong></td>
+          <td>力積電 <span class="tag red">漲停</span></td>
+          <td class="up">88.7</td>
+          <td class="up">+9.91%</td>
+          <td>待確認</td>
+          <td>外大買</td>
+          <td class="stars">★★★</td>
+          <td>DRAM/記憶體需求·AI伺服器拉貨</td>
+        </tr>
+        <tr>
+          <td><strong>2353</strong></td>
+          <td>宏碁 <span class="tag red">漲停</span></td>
+          <td class="up">35.2</td>
+          <td class="up">+10.0%</td>
+          <td>待確認</td>
+          <td>待確認</td>
+          <td class="stars">★★★</td>
+          <td>AI PC · NB族群 · COMPUTEX題材</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== DEEP DIVES ===== -->
+  <div class="section-title">熱門焦點股深度解析 / Deep Dives</div>
+
+  <!-- 2317 鴻海 -->
+  <div class="ticker-card">
+    <div class="ticker-header">
+      <span class="ticker-id">2317</span>
+      <span class="ticker-name">鴻海 / Hon Hai Precision</span>
+      <span class="ticker-price up">289 元</span>
+      <span class="ticker-pct up-bg">+9.89% 漲停</span>
+      <span class="stars">★★★★★</span>
+    </div>
+
+    <div class="field-label">今日數據 / Today's Tape</div>
+    <div class="field-content">
+      收盤 289 元 (+9.89%，漲停板) · 成交額 <strong>818.78 億元</strong> · 創 19 年收盤新高 · 外資買超 8.03 萬張（連 7 買）
+    </div>
+
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="field-content">
+      今日（5/29）鴻海舉行年度股東會，董事長劉揚偉在會中釋出三大利多：(1) CPO（共封裝光學）交換機力拚全球第一、明年出貨可望數倍成長；(2) CSP（雲端服務商）資本支出上看 1 兆美元；(3) 下半年展望「非常好」，目標拚 2 股本。三條主線完美踩在 AI 資料中心、網通交換機、高端整機交付三大題材上，讓鴻海從「低毛利代工」重新標上「AI 基礎建設整合商」標籤，資金一字排開搶進漲停。
+      <br><br>
+      Hon Hai held its annual shareholder meeting on 5/29. Chairman Liu Yang-wei declared plans to capture the global No.1 position in CPO switches, forecast next year's shipments to grow several-fold, and confirmed CSP capex headroom of up to $1 trillion USD — with "very strong" H2 outlook. The market repriced Hon Hai from a low-margin EMS play to an AI infrastructure integrator.
+    </div>
+
+    <div class="field-label">籌碼觀察 / Flow Watch</div>
+    <div class="field-content">
+      外資連 7 個交易日站在買方，5/29 單日買超 8.03 萬張。投信今日無明顯大量買超，顯示主要是外資與自營商主導。尾盤 MSCI 季度生效後成交量爆增，但鴻海仍守在漲停，代表買盤強度不容小覷。融資融券變化待確認。
+    </div>
+
+    <div class="field-label">社群聲量 / Retail Buzz</div>
+    <div class="field-content">
+      鉅亨網熱門新聞前三均與鴻海股東會相關。PTT Stock 板今日鴻海相關討論量創近期高峰，多為「劉董霸氣開示」、「漲停後還有沒有肉」兩類討論。CMoney 熱搜榜鴻海排名大幅上升。
+    </div>
+
+    <div class="field-label">炒作脈絡 / Narrative Context</div>
+    <div class="field-content">
+      鴻海此波從 4 月初約 190 元附近起漲，5/29 盤中觸及歷史高 289 元，2 個月漲幅逾 52%。主線從「貿易戰出走墨西哥」轉向「AI 伺服器整合商」，利基在於鴻海是少數同時具備伺服器、交換機、電源、機殼、ODM 與整廠解決方案能力的全球廠商，這讓它能享受「賣鏟子給 AI 淘金潮」的整條補給鏈溢價。
+    </div>
+
+    <div class="field-label">後續觀察 / What to Watch Next</div>
+    <div class="field-content">
+      (分析) 漲停後的鑰匙點：(1) 下周 COMPUTEX 開幕（6/2）期間劉揚偉或黃仁勳合影是否帶來額外話題；(2) 外資是否繼續連 8 買以上；(3) 股價能否突破 300 元整數關卡。需留意：股東會利多已出，短線追高風險升高，隔日沖籌碼可能造成回檔整理。
+    </div>
+
+    <div class="field-label">來源 / Sources</div>
+    <div class="field-content">
+      <a href="https://m.cnyes.com/news/id/6476350" target="_blank">鉅亨：台股盤後飆漲1096點</a> ·
+      <a href="https://m.cnyes.com/news/id/6477352" target="_blank">鉅亨：外資買超803億元</a> ·
+      <a href="https://vocus.cc/article/6a194288fd8978000191819b" target="_blank">Vocus 5/29盤後完整版</a>
+    </div>
+  </div>
+
+  <!-- 2330 台積電 -->
+  <div class="ticker-card neutral">
+    <div class="ticker-header">
+      <span class="ticker-id">2330</span>
+      <span class="ticker-name">台積電 / TSMC</span>
+      <span class="ticker-price up">2,355 元</span>
+      <span class="ticker-pct up-bg">+2.61%</span>
+      <span class="stars">★★★★★</span>
+    </div>
+
+    <div class="field-label">今日數據 / Today's Tape</div>
+    <div class="field-content">
+      收盤 2,355 元 (+2.61%) · 成交額 <strong>2,109.92 億元</strong>（單日最大成交額股王）· 盤中創歷史天價 2,375 元 · 外資由賣轉買 +1.32 萬張
+    </div>
+
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="field-content">
+      台積電今日不是漲最多的股票，但它是今天大盤能夠千點噴出的「核心主樑」。費半與美股 NASDAQ 昨夜偏多，黃仁勳抵台舉辦第五次兆元宴，AI 供應鏈全面點火，外資在連續賣超後今日回補 1.32 萬張，市場對台積電的 N3/N2 先進製程定價繼續上修。多家外資（瑞銀目標價 3,000 元、里昂調升聯發科至 5,922 元）在近期接連上調台積電展望。
+      <br><br>
+      TSMC was the anchoring power of today's +1,096-point index rally. NVIDIA's Huang Jen-hsun hosted his 5th "trillion dinner" in Taiwan ahead of COMPUTEX, reigniting AI supply chain sentiment. Foreign investors flipped from net sellers to +13,200 shares net bought. The intraday all-time high of NT$2,375 marks a fresh milestone.
+    </div>
+
+    <div class="field-label">籌碼觀察 / Flow Watch</div>
+    <div class="field-content">
+      外資由前幾日的賣超轉為買超 1.32 萬張。尾盤 MSCI 指數季度調整台積電成分股比重微調，帶出約 5 萬張大量最後一盤，但仍收在正漲。2,109.92 億元成交額是單日成交值最高個股，遠超其他個股。
+    </div>
+
+    <div class="field-label">社群聲量 / Retail Buzz</div>
+    <div class="field-content">
+      鉅亨網熱搜榜常態佔據前三。PTT Stock 板討論焦點：「外資回補 2330 代表多頭延續訊號」以及「MSCI 生效後 2330 表現力道如何」。法說提前卡位與 N2 製程良率均有散戶討論。
+    </div>
+
+    <div class="field-label">炒作脈絡 / Narrative Context</div>
+    <div class="field-content">
+      台積電本輪從 4 月初約 1,460 元起漲，最新盤中高點 2,375 元，漲幅逾 62%，屬 AI 全球資本支出外溢驅動的「基礎設施溢價」。Computex 主題強化，輝達次代 Vera Rubin GPU 採 TSMC CoWoS-R 封裝，2027 年需求能見度高。
+    </div>
+
+    <div class="field-label">後續觀察 / What to Watch Next</div>
+    <div class="field-content">
+      (分析) 2,400 元是下個心理整數關，能否突破取決於 COMPUTEX 週間有無更多訂單或產品訊息。MSCI 調整後的短線震盪為潛在賣壓；若週一開盤量縮守穩 2,300 元以上，多方架構延續。
+    </div>
+
+    <div class="field-label">來源 / Sources</div>
+    <div class="field-content">
+      <a href="https://m.cnyes.com/news/id/6476350" target="_blank">鉅亨：台股盤後1096點</a> ·
+      <a href="https://udn.com/news/story/7251/9527910" target="_blank">聯合：費半狂飆台積電聯發科台達電齊飆</a> ·
+      <a href="https://money.udn.com/money/story/5607/9524382" target="_blank">經濟日報：外資目標價震撼全市場</a>
+    </div>
+  </div>
+
+  <!-- 2382 廣達 / 6669 緯穎 -->
+  <div class="ticker-card">
+    <div class="ticker-header">
+      <span class="ticker-id">2382 / 6669</span>
+      <span class="ticker-name">廣達 / 緯穎 — AI 伺服器雙子星</span>
+      <span class="ticker-price up">廣達 339元 · 緯穎 5,445元</span>
+      <span class="ticker-pct up-bg">均 ≈+10% 漲停</span>
+      <span class="stars">★★★★</span>
+    </div>
+
+    <div class="field-label">今日數據 / Today's Tape</div>
+    <div class="field-content">
+      廣達 (2382)：339 元 (+9.89%，漲停) · 緯穎 (6669)：5,445 元 (+10.0%，漲停) · 成交額待確認
+    </div>
+
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="field-content">
+      廣達董事長林百里在近日的場合中表示 AI 市場「登梯向上」，並指 AI PC 與伺服器需求持續強勁。COMPUTEX 2026（6/2）倒數效應下，AI 伺服器組裝廠全面噴出——廣達是 NVIDIA GB200 NVLink 機架系統主要供應商；緯穎（6669）則是直供超大型 CSP（微軟、Google、Meta）的高端伺服器 ODM 廠，毛利率與獲利能見度均優於同業。兩檔在 COMPUTEX 前夕成為市場「卡位 AI 伺服器下半年出貨」的首選標的。
+      <br><br>
+      Quanta (2382) and Wiwynn (6669) both hit their daily upper limits as the market front-ran COMPUTEX 2026 AI server themes. Quanta supplies GB200 NVLink rack systems; Wiwynn ODMs directly for hyperscalers with above-average margins.
+    </div>
+
+    <div class="field-label">籌碼觀察 / Flow Watch</div>
+    <div class="field-content">
+      廣達：投信買超 1.54 萬張，外資買超數字待確認。緯穎：高價小型股，流通籌碼少，外資長期持有比重高，一旦動能啟動容易鎖漲停。兩檔均在 MSCI 調整日爆量收漲，籌碼結構偏健康。
+    </div>
+
+    <div class="field-label">社群聲量 / Retail Buzz</div>
+    <div class="field-content">
+      PTT 討論集中於「廣達 339 元後還追嗎？」及「緯穎千金再破新高」。CMoney 熱搜 AI 伺服器族群討論度飆升。投顧頻道在當日直播均以廣達/緯穎/鴻海為「下半年最強 AI 板塊」主角。
+    </div>
+
+    <div class="field-label">炒作脈絡 / Narrative Context</div>
+    <div class="field-content">
+      AI 伺服器組裝廠（廣達、緯穎、英業達、仁寶、緯創）這波行情以 NVIDIA Blackwell → Rubin 世代交替為主線，CSP 每季資本支出屢創新高直接轉化為訂單能見度，廠商毛利率在 AI 伺服器佔比拉高後明顯改善。緯穎目前股價已接近千金（5,445 元），本益比高但法人仍給高估值。
+    </div>
+
+    <div class="field-label">後續觀察 / What to Watch Next</div>
+    <div class="field-content">
+      (分析) 核心問題：COMPUTEX 開幕後是「利多出盡」還是「追高不歇」。歷史上大型 AI 展覽前一周台股常先噴後整理，COMPUTEX 期間若黃仁勳或 AMD Lisa Su 再放出新訂單訊息，AI 伺服器族群有可能二度噴出；若無新料，漲停後開盤需觀察換手承接力。
+    </div>
+
+    <div class="field-label">來源 / Sources</div>
+    <div class="field-content">
+      <a href="https://m.cnyes.com/news/id/6476350" target="_blank">鉅亨台股盤後</a> ·
+      <a href="https://tw.stock.yahoo.com/news/%E3%80%90computex-2026%E5%89%8D%E7%9E%BB2%E3%80%91%E9%BB%83%E4%BB%81%E5%8B%B3%E5%8A%A0%E6%8C%81%EF%BC%81computex%E6%A6%82%E5%BF%B5%E8%82%A1%E8%AA%B0%E6%9C%80%E6%9C%89%E6%88%B2%EF%BC%9F%E5%88%86%E6%9E%90%E5%B8%AB%E9%BB%9E%E5%90%8D%E3%80%8C%E8%80%81ai%E3%80%8D%E9%B4%BB%E6%B5%B7%E5%BB%A3%E9%81%94-20%E6%AA%94%E6%BD%9B%E5%8A%9B%E8%82%A1%E5%90%8D%E5%96%AE%E4%B8%80%E6%AC%A1%E7%9C%8B-044611196.html" target="_blank">Yahoo：COMPUTEX概念股 20檔</a>
+    </div>
+  </div>
+
+  <!-- 2327 國巨 -->
+  <div class="ticker-card neutral">
+    <div class="ticker-header">
+      <span class="ticker-id">2327</span>
+      <span class="ticker-name">國巨* / Yageo <span class="badge-caution badge-dispose">處置股 5/26–6/8</span></span>
+      <span class="ticker-price up">~691 元 (5/25)</span>
+      <span class="ticker-pct up-bg">5月漲幅 +118%</span>
+      <span class="stars">★★★★</span>
+    </div>
+
+    <div class="field-label">今日數據 / Today's Tape</div>
+    <div class="field-content">
+      注意：國巨自 5/26 起進入處置狀態（每 5 分鐘撮合一次），5/26 開盤跌至約 631 元，盤中跌幅收斂。5/25 收盤 691 元（漲停，分割後新高）。5月月漲幅 <strong>+118%</strong>，市值衝台股第九大（約 1.43 兆元）。
+    </div>
+
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="field-content">
+      被動元件（MLCC）漲價題材：全球 AI 伺服器、電動車、工業 5G 設備需求爆增，帶動被動元件供需趨緊，國巨作為全球前三大 MLCC 廠，預計 2026 年三波提價。股價從 5 月初 317 元飆至 691 元，不到一個月翻倍，導致被證交所列為「注意交易」並強制處置（分盤 5 分鐘撮合）。
+      <br><br>
+      Yageo surged +118% in May alone on MLCC price-hike expectations driven by AI server and EV demand. The Taiwan Stock Exchange placed it under surveillance (slow-auction mode every 5 minutes) from 5/26, which initially caused it to gap-down sharply before recovering.
+    </div>
+
+    <div class="field-label">籌碼觀察 / Flow Watch</div>
+    <div class="field-content">
+      處置生效後的 5/26，國巨早盤重挫，但族群中立隆電（2472）逆勢漲停，禾伸堂（3026）、信昌電（6173）也翻紅，顯示資金從國巨移出後快速輪動至二線被動元件。外資是否持續加碼待確認，主力分點異動需關注。
+    </div>
+
+    <div class="field-label">社群聲量 / Retail Buzz</div>
+    <div class="field-content">
+      PTT 被動元件討論度創近期新高，討論聚焦「國巨被關禁閉後怎麼辦」以及「立隆電接棒機會」。CMoney 熱搜被動元件族群持續飆升。法人目標價有達 500 元以上者，散戶情緒仍偏樂觀但開始出現分歧。
+    </div>
+
+    <div class="field-label">炒作脈絡 / Narrative Context</div>
+    <div class="field-content">
+      國巨 2018 年曾從 200 元飆至逾 1,300 元，「信陳董」成為市場口頭禪；此次再飆象徵市場對被動元件超級週期的信念回歸。但 2018 年後股價大幅回落，本輪是否具基本面支撐（非純題材）值得持續追蹤。短線處置股地位讓籌碼混亂，隔日沖風險偏高。
+    </div>
+
+    <div class="field-label">後續觀察 / What to Watch Next</div>
+    <div class="field-content">
+      (分析) 6/8 為處置結束日。處置期間關注：每日撮合時是否出現大量承接或倒貨；二線被動元件（立隆電、大毅、聚鼎）是否接棒延燒；公司若在 COMPUTEX 期間釋出產品或漲價消息，可能讓行情再度啟動。
+    </div>
+
+    <div class="field-label">來源 / Sources</div>
+    <div class="field-content">
+      <a href="https://finance.ettoday.net/news/3172150" target="_blank">ETtoday：國巨遭分盤處置</a> ·
+      <a href="https://money.udn.com/money/story/5607/9525874" target="_blank">經濟日報：國巨關禁閉</a> ·
+      <a href="https://udn.com/news/story/7251/9524856" target="_blank">聯合：市值衝台股第九</a>
+    </div>
+  </div>
+
+  <!-- 3481 群創 -->
+  <div class="ticker-card">
+    <div class="ticker-header">
+      <span class="ticker-id">3481</span>
+      <span class="ticker-name">群創 / Innolux <span class="tag red">漲停</span></span>
+      <span class="ticker-price up">51 元</span>
+      <span class="ticker-pct up-bg">+9.91%</span>
+      <span class="stars">★★★★</span>
+    </div>
+
+    <div class="field-label">今日數據 / Today's Tape</div>
+    <div class="field-content">
+      收盤 51 元 (+9.91%，漲停) · 外資買超 <strong>16.32 萬張</strong>（今日外資買超排行第一） · 友達 (2409) 亦同步漲停 23 元 (+8.49%)
+    </div>
+
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="field-content">
+      群創成為今日外資買超量最大個股（16.32 萬張），大幅超越第二名鴻海（8.03 萬張）。面板族群自 5 月中旬以來持續有資金流入，背景是全球面板報價回升、OLED IT 面板市場起飛以及 AI 伺服器週邊顯示器需求擴張。群創與友達雙雙連日強攻，5 月已連拉多根漲停，形成市場高關注的「面板雙虎」題材。
+      <br><br>
+      Innolux topped foreign institutional buying at 163,200 shares — the highest among all stocks on 5/29. Panel price recovery, AI-adjacent server display demand, and OLED IT panel growth drove both Innolux and AUO to simultaneous daily limits.
+    </div>
+
+    <div class="field-label">籌碼觀察 / Flow Watch</div>
+    <div class="field-content">
+      外資 16.32 萬張為今日外資加碼量第一，是明確的資金主力推動。投信方向待確認。今日成交量爆出，相較 5MA 大幅放量，量增漲停，短線籌碼集中度高。建議留意次日是否有隔日沖跑量行為。
+    </div>
+
+    <div class="field-label">社群聲量 / Retail Buzz</div>
+    <div class="field-content">
+      「面板雙虎」在 PTT 討論熱度持續，討論方向多為「外資連續掃貨、這波能漲到哪」以及「面板股基本面支撐」兩種論述。CMoney 群創熱搜大幅拉升。
+    </div>
+
+    <div class="field-label">炒作脈絡 / Narrative Context</div>
+    <div class="field-content">
+      群創股價自 4 月初約 25 元起漲，5/29 觸及 51 元，近兩個月漲幅逾 100%。這波由法人（特別是外資）主導，散戶追在後，所謂的「面板復甦 + AI 顯示器需求」為主要敘事。需注意：面板景氣復甦本身敘事周期已約 8 年一輪，上次高點（2021 年）後重挫，本輪是否有新結構改變值得留意。
+    </div>
+
+    <div class="field-label">後續觀察 / What to Watch Next</div>
+    <div class="field-content">
+      (分析) 量能是否延續為最關鍵指標。外資若隔日轉為賣超，短線資金容易出逃；若外資繼續站買方且股價守穩漲停後高點，下一壓力區在 55–60 元附近。友達同步走勢為重要參考。
+    </div>
+
+    <div class="field-label">來源 / Sources</div>
+    <div class="field-content">
+      <a href="https://m.cnyes.com/news/id/6477352" target="_blank">鉅亨：外資買超名單</a> ·
+      <a href="https://www.businesstoday.com.tw/article/category/183008/post/202605220011/" target="_blank">今周刊：群創股價目標價</a>
+    </div>
+  </div>
+
+  <!-- 6770 力積電 -->
+  <div class="ticker-card">
+    <div class="ticker-header">
+      <span class="ticker-id">6770</span>
+      <span class="ticker-name">力積電 / PSMC <span class="tag red">漲停</span></span>
+      <span class="ticker-price up">88.7 元</span>
+      <span class="ticker-pct up-bg">+9.91%</span>
+      <span class="stars">★★★</span>
+    </div>
+
+    <div class="field-label">今日數據 / Today's Tape</div>
+    <div class="field-content">
+      收盤 88.7 元 (+9.91%，漲停) · 外資大量買超（25 日：外資買超 7.01 萬張） · 和 DRAM 族群（華邦電 +9.72%、南亞科 +7.1%）同步強漲
+    </div>
+
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="field-content">
+      AI 伺服器記憶體需求強勁，美光 CEO 表示 HBM 新產能需等到 2028 年，短期缺口擴大；力積電主攻 DDR4/DDR5 及利基型 DRAM，受惠於整體記憶體漲價循環啟動。與前一日（5/25）外資大量掃貨形成連動，成為 DRAM 族群代表性跟漲股。COMPUTEX 前夕 AI 運算需求題材持續發酵，DRAM 是 AI 訓練與推論的直接耗材。
+      <br><br>
+      PSMC surged on DRAM supply-demand tightening expectations, with Micron's CEO flagging HBM capacity constraints until 2028. AI server DRAM demand (DDR5, HBM surrogate) made PSMC a prime beneficiary play.
+    </div>
+
+    <div class="field-label">籌碼觀察 / Flow Watch</div>
+    <div class="field-content">
+      5/25 外資買超 7.01 萬張（5月累計為外資大力加碼標的）。5/29 持續放量漲停。成交量相較 5 日均量明顯放大，短線籌碼集中度高。
+    </div>
+
+    <div class="field-label">社群聲量 / Retail Buzz</div>
+    <div class="field-content">
+      PTT 帶動「力積電接棒記憶體族群」討論；部分散戶擔憂追高後隔日沖風險。CMoney 記憶體概念股討論度升溫。
+    </div>
+
+    <div class="field-label">炒作脈絡 / Narrative Context</div>
+    <div class="field-content">
+      力積電屬利基型 DRAM 廠，不直接生產 HBM，但在記憶體景氣回升時常作為「洗碗工漲停」的跟漲代表。過去多次記憶體漲價週期，力積電均先大漲後震盪，需留意主力出貨風險。
+    </div>
+
+    <div class="field-label">後續觀察 / What to Watch Next</div>
+    <div class="field-content">
+      (分析) 漲停後首要觀察量能是否持續放大；若 DRAM 現貨或合約價在 6 月繼續上調，基本面支撐可期；若外資隔日轉賣或韓系 DRAM 廠股價回落，需留意連帶影響。
+    </div>
+
+    <div class="field-label">來源 / Sources</div>
+    <div class="field-content">
+      <a href="https://news.cnyes.com/news/id/6468850" target="_blank">鉅亨：AI記憶體缺貨延至2026年後</a> ·
+      <a href="https://m.cnyes.com/news/id/6476350" target="_blank">鉅亨台股盤後</a>
+    </div>
+  </div>
+
+  <!-- NB 族群 -->
+  <div class="ticker-card">
+    <div class="ticker-header">
+      <span class="ticker-id">2353 / 2357 / 2356 / 3231</span>
+      <span class="ticker-name">NB AI PC 族群：宏碁・華碩・英業達・緯創</span>
+      <span class="ticker-pct up-bg">均 ≈+10% 漲停</span>
+      <span class="stars">★★★</span>
+    </div>
+
+    <div class="field-label">今日數據 / Today's Tape</div>
+    <div class="field-content">
+      宏碁 35.2 元 (+10%)、華碩 761 元 (+9.97%)、英業達 70.2 元 (+9.86%)、緯創 158.5 元 (+9.69%)、技嘉 370 元 (+9.63%)、仁寶 36.7 元 (+9.55%) — 族群全員齊鳴漲停
+    </div>
+
+    <div class="field-label">為什麼今天熱 / Why It's Hot</div>
+    <div class="field-content">
+      COMPUTEX 2026（6/2 開幕）前夕，NB 及 AI PC 族群全面噴出。此次 COMPUTEX 特設機器人展館，黃仁勳的 Keynote 演講定 6/3，預計發布 Project DIGITS / AI PC 相關訊息。市場搶先卡位，NB 組裝廠因同時兼具 AI PC 與傳統 NB 的訂單彈性，成為最直接的展覽概念股。英業達、仁寶同日獲外資加碼，進一步推升漲停勢頭。
+      <br><br>
+      All major NB/AI-PC OEMs hit daily limits as COMPUTEX 2026 (June 2–5) approaches. The show features a dedicated robotics hall; Huang's keynote on June 3 is expected to cover AI PC roadmaps, making NB assemblers the most direct pre-show play.
+    </div>
+
+    <div class="field-label">籌碼觀察 / Flow Watch</div>
+    <div class="field-content">
+      英業達：外資賣超 1.45 萬張（5/25 資料），但投信買超 9,510 張抵消部分賣壓，5/29 仍漲停。仁寶：外資 5/29 買超 7.71 萬張（排名第三），投信賣超仁寶 9,778 張，法人方向分歧但買盤仍強。整體族群今日以漲停為主，換手量大。
+    </div>
+
+    <div class="field-label">社群聲量 / Retail Buzz</div>
+    <div class="field-content">
+      PTT 及 CMoney AI PC 相關討論量在 COMPUTEX 倒數一週內大幅飆升，討論焦點為「COMPUTEX 後行情還有多久」。YouTube 投顧頻道當日直播多以「NB 族群齊漲停」為主標題。
+    </div>
+
+    <div class="field-label">炒作脈絡 / Narrative Context</div>
+    <div class="field-content">
+      AI PC 概念在 2024–2025 年屢次炒作後回落，2026 年在 NVIDIA 推出 Project DIGITS（小型 AI 工作站）與 Microsoft CoPilot+ PC 浪潮下，再度成為市場題材。台廠在 NB 組裝具有壟斷性份額，若 AI PC 換機潮在 2026–2027 年啟動，基本面支撐相對明確。
+    </div>
+
+    <div class="field-label">後續觀察 / What to Watch Next</div>
+    <div class="field-content">
+      (分析) COMPUTEX 期間（6/2–6/5）將是最大考驗：若黃仁勳 Keynote 有新 AI PC 規格或台廠合作訂單披露，可能引發第二波；若僅確認已知訊息，短線「利多出盡」風險升高。NB 族群股價在 5 月已大幅墊高，追高需謹慎評估。
+    </div>
+
+    <div class="field-label">來源 / Sources</div>
+    <div class="field-content">
+      <a href="https://m.cnyes.com/news/id/6476350" target="_blank">鉅亨台股盤後</a> ·
+      <a href="https://news.tvbs.com.tw/money/3216695" target="_blank">TVBS：COMPUTEX概念股懶人包</a> ·
+      <a href="https://m.cnyes.com/news/id/6477352" target="_blank">鉅亨：外資買超名單</a>
+    </div>
+  </div>
+
+  <!-- WATCH LIST -->
+  <div class="section-title">次熱觀察 / Watch List — 3–5 檔差一點上榜</div>
+
+  <div class="ticker-card watchlist">
+    <div class="ticker-header">
+      <span class="ticker-id">2308</span>
+      <span class="ticker-name">台達電 / Delta Electronics</span>
+      <span class="ticker-price up">2,445 元</span>
+      <span class="ticker-pct up-bg">+2.30%</span>
+    </div>
+    <div class="field-content">
+      電源與散熱概念，AI 伺服器整條補給鏈的一環。今日漲幅不如其他漲停股，但連接 AI 供應鏈敘事最完整的高股價指標股之一。外資目標價上調至 3,000 元以上，後市仍有法人追捧。觀察重點：COMPUTEX 期間電源散熱模組訂單更新。
+    </div>
+  </div>
+
+  <div class="ticker-card watchlist">
+    <div class="ticker-header">
+      <span class="ticker-id">2344</span>
+      <span class="ticker-name">華邦電 / Winbond</span>
+      <span class="ticker-price up">158 元</span>
+      <span class="ticker-pct up-bg">+9.72%</span>
+    </div>
+    <div class="field-content">
+      DRAM 記憶體族群（NOR Flash / PSRAM），5/25 外資買超 7.2 萬張（最高之一），5/29 再拉至接近漲停。AI IoT 與 AIoT 裝置需求帶動，適合 NOR Flash 的嵌入式應用場景增多。
+    </div>
+  </div>
+
+  <div class="ticker-card watchlist">
+    <div class="ticker-header">
+      <span class="ticker-id">8099</span>
+      <span class="ticker-name">正文 / Gemtek</span>
+      <span class="ticker-price up">~49 元附近</span>
+      <span class="ticker-pct up-bg">本週+23%</span>
+    </div>
+    <div class="field-content">
+      光通訊概念，鉅亨「熱門股」欄目出現正文（光通訊展望佳兼直供轉型），週漲 23% 逼近 50 元。鑑於成交值不大，屬小型題材炒作，需留意散戶主導型股票特有的高波動風險。
+    </div>
+  </div>
+
+  <div class="ticker-card watchlist">
+    <div class="ticker-header">
+      <span class="ticker-id">2408</span>
+      <span class="ticker-name">南亞科 / Nanya Technology</span>
+      <span class="ticker-price up">347 元</span>
+      <span class="ticker-pct up-bg">+7.10%</span>
+    </div>
+    <div class="field-content">
+      DRAM 龍頭，今日跟漲 7.1% 但未至漲停，顯示市場對南亞科 DRAM 競爭力有保留（相較三星/美光/SK Hynix）。5 月整體走勢強，適合觀察作為 DRAM 景氣指標。
+    </div>
+  </div>
+
+  <!-- CAUTION LIST -->
+  <div class="section-title">異常注意 / Caution List</div>
+
+  <div class="ticker-card caution">
+    <div class="ticker-header">
+      <span class="ticker-id">2454</span>
+      <span class="ticker-name">聯發科 / MediaTek</span>
+      <span class="ticker-price down">4,310 元</span>
+      <span class="ticker-pct down-bg">-2.27%</span>
+      <span class="badge-caution">⚠️ 注意股</span>
+    </div>
+    <div class="field-content">
+      <strong>今日逆勢下跌，成為半導體族群「不同步」的代表。</strong> 5/29 收 4,310 元，跌幅 2.27%，成交額 966.80 億元（流動性仍高）。技術訊息面有 A14 測試片進度消息，但短線資金顯然在挑股票：市場把「AI 資本支出現金流」估值溢價給台積電（製程）和鴻海（整機），而對聯發科的 IC 設計角色更為挑剔（手機 SoC 週期、毛利率壓力）。聯電（2303）同日僅小漲 1.76%，呼應 IC 設計 + 成熟製程資金流向分歧。值得持續追蹤：聯發科若在 COMPUTEX 宣布 AI PC SoC 合作，可能觸發反彈。
+    </div>
+  </div>
+
+  <div class="ticker-card caution">
+    <div class="ticker-header">
+      <span class="ticker-id">2327</span>
+      <span class="ticker-name">國巨* / Yageo</span>
+      <span class="badge-caution badge-dispose">⚠️ 處置股 5/26–6/8</span>
+    </div>
+    <div class="field-content">
+      已在熱門股深度解析中說明。補充說明：5/26 為處置首日，早盤跳空重挫至 631 元（跌 8.68%），反映短線追漲散戶面臨流動性陷阱——處置股的 5 分鐘撮合制度會讓不願持股者難以快速出場。散戶若未持有，目前不宜追買。現有持股者需留意 6/8 處置結束後的「解禁大量」可能帶來的波動。
+    </div>
+  </div>
+
+  <div class="ticker-card caution">
+    <div class="ticker-header">
+      <span class="ticker-id">8046</span>
+      <span class="ticker-name">南電 / Nanya PCB</span>
+      <span class="badge-caution">⚠️ 大股東賣股 / 高股價波動</span>
+    </div>
+    <div class="field-content">
+      南電（ABF 載板龍頭）成為千金股後，大股東賣股消息於 5/30（週六新聞）傳出，早盤（5/25 附近）曾出現 -9% 殺盤並拖累欣興（3037）、景碩（3189）。目前南電股價約 907 元，仍強，但大股東持續減持為籌碼隱憂。欣興 1,045 元、景碩 700 元。ABF 載板族群整體題材仍強（外資密集上調目標價），但南電減持消息需持續追蹤。
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources-section">
+    <h3>參考來源 / All Sources Consulted</h3>
+    <ul>
+      <li><a href="https://m.cnyes.com/news/id/6476350" target="_blank">鉅亨：台股盤後飆漲1096點（5/29）</a></li>
+      <li><a href="https://m.cnyes.com/news/id/6477352" target="_blank">鉅亨：外資買超803億元（5/29）</a></li>
+      <li><a href="https://news.cnyes.com/news/id/6469948" target="_blank">鉅亨：台股創史上第5大漲點（5/25）</a></li>
+      <li><a href="https://news.cnyes.com/news/id/6470026" target="_blank">鉅亨：外資買超494億元（5/25）</a></li>
+      <li><a href="https://vocus.cc/article/6a194288fd8978000191819b" target="_blank">Vocus：5月29日AI攻頂完整版</a></li>
+      <li><a href="https://udn.com/news/story/7251/9527910" target="_blank">聯合新聞：費半狂飆引爆台股1200點</a></li>
+      <li><a href="https://money.udn.com/money/story/5607/9524382" target="_blank">經濟日報：外資目標價震撼全市場</a></li>
+      <li><a href="https://money.udn.com/money/story/5607/9525874" target="_blank">經濟日報：國巨關禁閉</a></li>
+      <li><a href="https://udn.com/news/story/7251/9524856" target="_blank">聯合新聞：國巨市值第九 明起關禁閉</a></li>
+      <li><a href="https://finance.ettoday.net/news/3172150" target="_blank">ETtoday：國巨遭分盤處置</a></li>
+      <li><a href="https://www.businesstoday.com.tw/article/category/183008/post/202605220011/" target="_blank">今周刊：群創49元聯電120元目標價</a></li>
+      <li><a href="https://news.tvbs.com.tw/money/3216695" target="_blank">TVBS：COMPUTEX 2026概念股懶人包</a></li>
+      <li><a href="https://tw.stock.yahoo.com/news/%E3%80%90computex-2026%E5%89%8D%E7%9E%BB2%E3%80%91%E9%BB%83%E4%BB%81%E5%8B%B3%E5%8A%A0%E6%8C%81%EF%BC%81computex%E6%A6%82%E5%BF%B5%E8%82%A1%E8%AA%B0%E6%9C%80%E6%9C%89%E6%88%B2%EF%BC%9F%E5%88%86%E6%9E%90%E5%B8%AB%E9%BB%9E%E5%90%8D%E3%80%8C%E8%80%81ai%E3%80%8D%E9%B4%BB%E6%B5%B7%E5%BB%A3%E9%81%94-20%E6%AA%94%E6%BD%9B%E5%8A%9B%E8%82%A1%E5%90%8D%E5%96%AE%E4%B8%80%E6%AC%A1%E7%9C%8B-044611196.html" target="_blank">Yahoo：COMPUTEX概念股20檔</a></li>
+      <li><a href="https://www.wantgoo.com/stock/ranking/top-gainer" target="_blank">玩股網：漲幅排行</a></li>
+      <li><a href="https://www.twse.com.tw/zh/trading/foreign/bfi82u.html" target="_blank">TWSE：三大法人買賣金額統計</a></li>
+      <li><a href="https://www.twse.com.tw/zh/trading/historical/mi-index.html" target="_blank">TWSE：每日收盤行情</a></li>
+      <li><a href="https://www.ptt.cc/bbs/Stock/index.html" target="_blank">PTT Stock 板</a></li>
+      <li><a href="https://www.cmoney.tw/finance/popular-rank" target="_blank">CMoney 熱搜排行</a></li>
+      <li><a href="https://www.sinotrade.com.tw/richclub/hotstock/" target="_blank">豐雲學堂：台股盤後分析</a></li>
+      <li><a href="https://www.wealth.com.tw/articles/2b36b545-c41d-42e9-965b-78f86ba28d35" target="_blank">財訊：ABF載板外資調升目標價</a></li>
+    </ul>
+  </div>
+
+  <div class="disclaimer">
+    本報告內容僅供資訊參考，不構成任何投資建議或買賣推薦。<br>
+    This report is for informational purposes only and does not constitute investment advice.<br>
+    生成時間 Generated: 2026-05-30 · 資料基準日: 2026-05-29 (最近完成交易日)
+  </div>
+
+</div>
+</body>
+</html>

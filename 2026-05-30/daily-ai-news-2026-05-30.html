@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 新聞日報 · 2026-05-30</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --accent: #1a1a2e;
+      --accent-light: #16213e;
+      --highlight: #0f3460;
+      --tag-bg: #e8f4fd;
+      --tag-color: #0f3460;
+      --border: #e0e0e0;
+      --text: #1a1a1a;
+      --muted: #666;
+      --bg: #ffffff;
+      --section-bg: #f8f9fa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    header {
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    header .label {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+    header .subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+    .toc {
+      background: var(--section-bg);
+      border-left: 4px solid var(--highlight);
+      border-radius: 4px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .toc h2 {
+      font-size: 0.85rem;
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .toc ol {
+      padding-left: 1.2rem;
+    }
+    .toc li {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.88rem;
+      margin-bottom: 0.2rem;
+    }
+    .toc a {
+      color: var(--highlight);
+      text-decoration: none;
+    }
+    .toc a:hover { text-decoration: underline; }
+    section {
+      margin-bottom: 3rem;
+    }
+    .section-header {
+      font-family: 'Arial', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.8rem;
+    }
+    .news-item {
+      margin-bottom: 2.4rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .news-item:last-child {
+      border-bottom: none;
+    }
+    .news-item h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-light);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+    .meta {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .meta a {
+      color: var(--highlight);
+      text-decoration: none;
+    }
+    .meta a:hover { text-decoration: underline; }
+    .label-block {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--highlight);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 0.8rem;
+      margin-bottom: 0.2rem;
+    }
+    p {
+      font-size: 0.96rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--tag-color);
+      font-family: 'Arial', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      margin-right: 0.4rem;
+      margin-bottom: 0.6rem;
+    }
+    footer {
+      margin-top: 3rem;
+      border-top: 2px solid var(--border);
+      padding-top: 1.5rem;
+    }
+    footer h2 {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
+    footer li {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      margin-bottom: 0.3rem;
+    }
+    footer a {
+      color: var(--highlight);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    footer a:hover { text-decoration: underline; }
+    .paywalled {
+      background: #fff8e1;
+      border-left: 3px solid #f9a825;
+      padding: 0.5rem 0.8rem;
+      border-radius: 3px;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      color: #5d4037;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="label">AI 新聞日報 · Daily AI Briefing</div>
+    <h1>今日 AI 產業縱覽</h1>
+    <div class="subtitle">2026 年 5 月 30 日（週六）· Asia/Taipei · 資料時效: 過去 48–72 小時</div>
+  </header>
+
+  <div class="toc">
+    <h2>目錄 Contents</h2>
+    <ol>
+      <li><a href="#top">頭條 / Top Stories</a></li>
+      <li><a href="#models">模型與研究 / Models &amp; Research</a></li>
+      <li><a href="#companies">公司動態 / Company Moves</a></li>
+      <li><a href="#products">產品與應用 / Products &amp; Applications</a></li>
+      <li><a href="#policy">政策與監管 / Policy &amp; Regulation</a></li>
+      <li><a href="#opinion">觀點與深度 / Opinion &amp; Deep Reads</a></li>
+    </ol>
+  </div>
+
+  <!-- ===== SECTION 1: TOP STORIES ===== -->
+  <section id="top">
+    <div class="section-header">1 · 頭條 / Top Stories</div>
+
+    <div class="news-item">
+      <span class="tag">頭條</span><span class="tag">融資</span>
+      <h3>Anthropic 完成第二輪 300 億美元融資，估值逾 9000 億美元，超越 OpenAI 成全球最高估值 AI 新創<br/>
+        <span style="font-weight:400;font-size:1rem;">Anthropic Closes Second $30B Round at $900B+ Valuation, Dethroning OpenAI as World's Most Valuable AI Startup</span>
+      </h3>
+      <div class="meta">
+        來源 / Source: <a href="https://www.bloomberg.com/news/articles/2026-05-12/anthropic-in-talks-to-raise-30-billion-at-900-billion-valuation" target="_blank">Bloomberg</a> · <a href="https://finance.yahoo.com/sectors/technology/articles/anthropic-set-close-30-billion-203545596.html" target="_blank">Yahoo Finance</a> · 2026-05-30（本輪本週收尾）
+      </div>
+      <div class="label-block">核心事實</div>
+      <p>Anthropic 本週完成其 2026 年第二輪 300 億美元融資，估值超過 9000 億美元（pre-money），正式超越 OpenAI 今年 3 月 8520 億美元的估值，成為全球身價最高的非上市 AI 公司。本輪由 Sequoia Capital、Dragoneer、Altimeter、Greenoaks 各出資約 20 億美元共同領投；Peter Thiel 的 Founders Fund、General Catalyst 等現有股東跟進。公司預期 Q2 季度營收達 109 億美元，年化營收有望在 6 月底突破 500 億美元。</p>
+      <p>Anthropic raised its second $30B round of 2026 at a $900B+ pre-money valuation, surpassing OpenAI's $852B March valuation. Sequoia, Dragoneer, Altimeter, and Greenoaks co-lead at ~$2B each. Anthropic projects Q2 revenue at $10.9B and annualized run-rate above $50B by end of June.</p>
+
+      <div class="label-block">背景脈絡</div>
+      <p>Anthropic 今年首輪融資同樣是 300 億美元，這意味著短短半年即吸引 600 億美元新資金——速度之快在 AI 圈前所未見。公司核心產品 Claude 系列在企業與開發者端口碑持續攀升，尤其在程式輔助、文件處理方面被認為具備與 GPT-5.5 旗鼓相當的實力，加上「憲政 AI（Constitutional AI）」的安全框架為其在企業採購評鑑中加分。本輪融資完成時，距 Anthropic 2021 年由 OpenAI 出走的核心成員創立、已有不到五年。</p>
+
+      <div class="label-block">影響觀察</div>
+      <p>估值超越 OpenAI 重塑了市場敘事：曾被視為「OpenAI 影子」的 Anthropic，如今已是正面競爭者。對 Google（持有 Anthropic 大量股份）而言，帳面收益可觀，但也意味著它同時在投資兩個最強的競爭對手。後續需關注：OpenAI 是否加速 IPO 時程以爭奪資本市場注意力？Anthropic 規模化後，安全文化能否維持？</p>
+    </div>
+
+    <div class="news-item">
+      <span class="tag">頭條</span><span class="tag">IPO</span>
+      <h3>OpenAI 秘密提交 S-1，目標九月上市、估值衝兆美元<br/>
+        <span style="font-weight:400;font-size:1rem;">OpenAI Files Confidential IPO S-1, Eyes September Listing at $1 Trillion Valuation</span>
+      </h3>
+      <div class="meta">
+        來源 / Source: <a href="https://aitoolsrecap.com/Blog/openai-ipo-2026-s1-filing-valuation-timeline" target="_blank">AI Tools Recap</a> · <a href="https://enterprisedna.co/resources/news/openai-ipo-confidential-filing-may-2026/" target="_blank">Enterprise DNA</a> · 2026-05-22 提交
+      </div>
+      <div class="label-block">核心事實</div>
+      <p>OpenAI 於 5 月 22 日秘密向美國 SEC 提交 IPO S-1 文件，由高盛與摩根士丹利主承銷，目標估值介於 8520 億至 1 兆美元，初步計劃 9 月公開上市。公司年化營收已達 250 億美元（約每月 20 億美元），但 Q1 2026 每賺 1 美元虧損 1.22 美元，仍為負利潤率企業。提交時機恰在陪審團裁定駁回 Elon Musk 對 OpenAI 訴訟兩天後。</p>
+      <p>OpenAI confidentially filed an S-1 with the SEC on May 22, led by Goldman Sachs and Morgan Stanley, targeting a September IPO at $852B–$1T valuation. Annualized revenue is $25B but the company loses $1.22 per $1 earned. The filing came two days after a jury dismissed Elon Musk's lawsuit—clearing the last major legal hurdle.</p>
+
+      <div class="label-block">背景脈絡</div>
+      <p>OpenAI 今年 3 月完成 1220 億美元的史上最大私募融資後，IPO 已被視為必然。公司招募了前 DocuSign CFO Cynthia Gaylor 擔任首位投資人關係長，並完成從非營利到「公益公司（PBC）」的架構轉型，掃除 IPO 的結構性障礙。Sam Altman 在內部以「9 月上市、2027 全年首個完整財年」作為 IPO 時程框架。</p>
+
+      <div class="label-block">影響觀察</div>
+      <p>若 OpenAI 順利上市，將創下科技史上最大 IPO 之一。但高虧損率與估值之間的落差，意味著散戶與機構投資人需要接受「增長期虧損」的論述框架——類似當年亞馬遜。更值得關注的是：IPO 後的財務透明度將首次讓市場看清 OpenAI 的算力成本結構，可能牽動整個 AI 基礎設施股的再定價。</p>
+    </div>
+
+    <div class="news-item">
+      <span class="tag">頭條</span><span class="tag">倫理</span>
+      <h3>教宗發布史上首份 AI 通諭《人之光輝》，Anthropic 共同創辦人與樞機主教同台<br/>
+        <span style="font-weight:400;font-size:1rem;">Pope Leo XIV Issues First Papal AI Encyclical "Magnifica Humanitas"; Anthropic Co-founder Joins Cardinals at Vatican Presentation</span>
+      </h3>
+      <div class="meta">
+        來源 / Source: <a href="https://www.vaticannews.va/en/pope/news/2026-05/pope-leo-xiv-encyclical-magnifica-humanitas-ai.html" target="_blank">Vatican News</a> · <a href="https://www.anthropic.com/news/chris-olah-pope-leo-encyclical" target="_blank">Anthropic</a> · 2026-05-25
+      </div>
+      <div class="label-block">核心事實</div>
+      <p>教宗良十四世（Pope Leo XIV）於 5 月 25 日正式發布題為《Magnifica humanitas》（人之光輝：論人工智能時代捍衛人格）的教宗通諭，共 82 頁。這是天主教會歷史上第一份以 AI 為主題的通諭，並由教宗親自主持梵蒂岡發布會，Anthropic 共同創辦人 Chris Olah 與樞機主教、神學家並排就座，場面罕見。通諭警告 AI 必須被「解除武裝」，尤其反對自主武器與權力集中。</p>
+      <p>Pope Leo XIV released the first-ever papal AI encyclical "Magnifica Humanitas" on May 25, co-presented with Anthropic's Chris Olah at the Vatican. The 82-page document warns AI must be "disarmed," opposes autonomous weapons and power concentration, and is signed 135 years after Rerum Novarum—the Church's landmark labor-rights encyclical.</p>
+
+      <div class="label-block">背景脈絡</div>
+      <p>良十四世選在《勞工通諭》（Rerum Novarum，1891）發布 135 周年正日簽署此文件，是刻意的歷史呼應——當年天主教會介入工業革命勞工問題，今日以相同姿態介入 AI。Anthropic 的 Chris Olah 因在「可解釋性（interpretability）」研究上的貢獻而受邀，顯示梵蒂岡選擇與「AI 安全」色彩最鮮明的公司建立對話。</p>
+
+      <div class="label-block">影響觀察</div>
+      <p>教廷擁有全球 13 億信眾，此通諭將 AI 倫理討論帶入非科技圈的巨大人口。對矽谷而言，與宗教機構的合作既是軟實力工具，也可能引發股東質疑。更值得觀察的是：通諭對「權力集中」的批判，是否會在歐美政策辯論中被監管者引用？</p>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 2: MODELS & RESEARCH ===== -->
+  <section id="models">
+    <div class="section-header">2 · 模型與研究 / Models &amp; Research</div>
+
+    <div class="news-item">
+      <span class="tag">模型</span><span class="tag">Google</span>
+      <h3>Google I/O 2026：Gemini 3.5 Flash 登場，Gemini Spark 全天候 Agent 首發<br/>
+        <span style="font-weight:400;font-size:1rem;">Google I/O 2026: Gemini 3.5 Flash Released, Always-On Agent "Gemini Spark" Debuts</span>
+      </h3>
+      <div class="meta">
+        來源 / Source: <a href="https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/" target="_blank">Google Blog — 100 I/O Announcements</a> · <a href="https://www.medianama.com/2026/05/223-major-products-google-announced-i-o-2026/" target="_blank">MediaNama</a> · 2026-05-20（I/O 週）
+      </div>
+      <div class="label-block">核心事實</div>
+      <p>Google I/O 2026 的核心主角是 Gemini 3.5 Flash：在 Antigravity（前稱 Firebase）平台上正式 GA，在程式與 Agent 基準測試中超越 Gemini 3.1 Pro，且以 Flash 等級的速度提供旗艦級智能。同場還宣布 Gemini Spark——一個在雲端虛擬機上持續運行的 24/7 Agent，即使手機或電腦關機仍能執行長時間任務。Google 同時提出 WebMCP 開放標準，允許開發者把網頁功能（JS 函式、HTML 表單）暴露給瀏覽器 Agent。</p>
+      <p>Gemini 3.5 Flash is now generally available on Antigravity, outperforming Gemini 3.1 Pro on coding and agentic benchmarks at Flash latency. Gemini Spark is a cloud-based 24/7 AI agent running even when devices are off. Google also proposed WebMCP—an open web standard exposing page tools to browser agents.</p>
+
+      <div class="label-block">背景脈絡</div>
+      <p>DeepMind CEO Demis Hassabis 在 I/O 後對 Axios 表示，目前這些 Agent 系統是「通往 AGI 的排練」——他將 AGI 時間線從 2030–2035 收窄至 2029–2030。Hassabis 形容現在處於「奇點山麓（foothills of the singularity）」，並呼籲政府加快 AI 安全測試。</p>
+
+      <div class="label-block">影響觀察</div>
+      <p>Gemini Spark 若真能做到「離線持續執行任務」，將是 Agent 體驗的重大升級，直接競爭 Anthropic 的 Computer Use 與 OpenAI 的 Operator。WebMCP 標準則是 Google 試圖主導 Agent/Web 介面規格的動作，若被主流瀏覽器採用，對整個 AI Agent 生態影響深遠。注意 Anthropic 和 OpenAI 是否跟進或推出自己的 Web 標準。</p>
+    </div>
+
+    <div class="news-item">
+      <span class="tag">模型</span><span class="tag">中國</span>
+      <h3>DeepSeek V4-Pro 與 V4-Flash 發布，聯手華為昇騰晶片突破算力封鎖<br/>
+        <span style="font-weight:400;font-size:1rem;">DeepSeek Launches V4-Pro and V4-Flash with Huawei Ascend 950 Chips, Challenging US Export Controls</span>
+      </h3>
+      <div class="meta">
+        來源 / Source: <a href="https://www.aljazeera.com/economy/2026/4/24/chinas-deepseek-unveils-latest-model-a-year-after-upending-global-tech" target="_blank">Al Jazeera</a> · <a href="https://www.cnn.com/2026/04/24/tech/chinas-ai-deepseek-v4-intl-hnk" target="_blank">CNN Business</a> · 2026-04-24（本週持續發酵）
+      </div>
+      <div class="label-block">核心事實</div>
+      <p>杭州深度求索（DeepSeek）於 4 月 24 日發布 V4-Pro 與 V4-Flash 預覽版，主打推理能力與 Agent 自主性大幅升級，可自主撰寫程式。關鍵技術細節：DeepSeek 明確宣告與華為合作，以華為「超節點（Supernode）」技術串聯大規模昇騰 950（Ascend 950）晶片集群提供算力，繞開美國對 Nvidia 高端 GPU 的出口管制。Stanford AI Index 2026 同期報告指出，中美 AI 性能差距「已實質縮小」。</p>
+      <p>DeepSeek released V4-Pro and V4-Flash previews on April 24, touting upgraded reasoning and agentic capabilities—and partnered with Huawei's "Supernode" Ascend 950 clusters as its compute backbone, sidestepping Nvidia export controls. Stanford AI Index 2026 confirmed China has "effectively closed" the AI performance gap.</p>
+
+      <div class="label-block">背景脈絡</div>
+      <p>去年初 DeepSeek V2/V3 以低成本高效能震撼市場，引發 Nvidia 單日市值蒸發逾 5000 億美元。如今 V4 系列的核心敘事從「便宜」升級為「不需美國晶片也能做前沿模型」，這對美國的科技出口管制邏輯是正面衝擊。</p>
+
+      <div class="label-block">影響觀察</div>
+      <p>DeepSeek-Huawei 合作是「晶片禁令失效」論最有力的案例之一。預期美國商務部將評估是否收緊對昇騰晶片的限制，或對 Huawei Supernode 技術施加新管制。對台積電與 NVIDIA 的長期需求影響仍待觀察，但短期內不影響美系資料中心訂單。</p>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 3: COMPANY MOVES ===== -->
+  <section id="companies">
+    <div class="section-header">3 · 公司動態 / Company Moves</div>
+
+    <div class="news-item">
+      <span class="tag">公司動態</span><span class="tag">併購</span>
+      <h3>五天四起併購：AI 整合浪潮加速，Google 以授權結構「收編」Contextual AI<br/>
+        <span style="font-weight:400;font-size:1rem;">Four AI Acquisitions in Five Days Signal Sector Consolidation Wave; Google Absorbs Contextual AI via $80-90M Licensing Deal</span>
+      </h3>
+      <div class="meta">
+        來源 / Source: <a href="https://www.startuphub.ai/ai-news/ai-news/2026/four-labs-four-acquisitions-ai-consolidation-may-2026" target="_blank">StartupHub.ai</a> · 2026-05-26 前後
+      </div>
+      <div class="label-block">核心事實</div>
+      <p>5 月下旬短短五天之內，AI 行業發生四起收購事件。其中最具代表性的是 Google DeepMind 以 8000–9000 萬美元「授權結構」整批引進 Contextual AI 全體團隊——此架構刻意迴避「併購」定義，以規避反壟斷審查。中國方面，中國國家發改委以「國家安全」為由，叫停 Meta 以 25 億美元收購中國 AI 新創 Manus 的計畫。</p>
+      <p>Five days in late May saw four major AI acquisitions. Google DeepMind absorbed the entire Contextual AI team via an $80-90M licensing structure designed to sidestep antitrust review. China's NDRC blocked Meta's $2.5B acquisition of Chinese AI startup Manus on national security grounds.</p>
+
+      <div class="label-block">背景脈絡</div>
+      <p>「授權結構收購」是矽谷繞開反壟斷的新模式，微軟-Inflection 案開創先例後，Google 在此快速跟進。Contextual AI 在企業 RAG（檢索增強生成）領域有強大技術積累，整合進 DeepMind 可強化 Google Cloud AI 的企業端能力。Meta-Manus 案則凸顯中美科技脫鉤在 AI 併購層面的新前線。</p>
+
+      <div class="label-block">影響觀察</div>
+      <p>「授權結構」的合規邊界正在被測試，FTC 與 DOJ 是否跟進展開調查是關鍵觀察點。若 Google 此模式不受挑戰，預期更多大廠仿效。Meta-Manus 被阻意味著西方資本收購中國 AI 資產的窗口正在關閉，迫使雙邊各自建立封閉生態。</p>
+    </div>
+
+    <div class="news-item">
+      <span class="tag">公司動態</span><span class="tag">GitHub</span>
+      <h3>GitHub Copilot 6 月起轉用量計費，推出「AI Credits」虛擬貨幣<br/>
+        <span style="font-weight:400;font-size:1rem;">GitHub Copilot Switches to Usage-Based Metered Billing on June 1, Introduces "GitHub AI Credits"</span>
+      </h3>
+      <div class="meta">
+        來源 / Source: <a href="https://llm-stats.com/ai-news" target="_blank">LLM Stats / LLM News</a> · 2026-05-30
+      </div>
+      <div class="label-block">核心事實</div>
+      <p>Microsoft 旗下 GitHub 宣布自 2026 年 6 月 1 日起，GitHub Copilot 由訂閱制（request-based）改為用量計費（usage-based metered billing），並引入名為「GitHub AI Credits」的虛擬貨幣作為計價單位。此舉被視為 Microsoft 將 Copilot 定位為「按需基礎設施」而非固定訂閱服務的重要轉型。</p>
+      <p>GitHub Copilot switches from request-based subscriptions to usage-based metered billing on June 1, 2026, introducing "GitHub AI Credits" as the billing unit—repositioning Copilot as on-demand AI infrastructure rather than a fixed subscription.</p>
+
+      <div class="label-block">背景脈絡</div>
+      <p>GitHub Copilot 是全球最廣泛部署的 AI 編程助理，擁有超過 200 萬付費用戶。用量計費的轉變與 OpenAI API 的 token 計費模式對齊，暗示後端成本結構的透明化，也為企業客戶提供更靈活的預算控制。</p>
+
+      <div class="label-block">影響觀察</div>
+      <p>對個人開發者而言，輕度用戶可能因此省錢，重度用戶則可能費用上升。企業端的 FinOps 團隊需要開始追蹤 AI 用量成本，這推動了一個新的「AI 成本可觀測性（AI cost observability）」工具市場。競爭對手 Cursor、Windsurf 等 IDE 或順勢以固定費率方案做出差異化。</p>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 4: PRODUCTS & APPLICATIONS ===== -->
+  <section id="products">
+    <div class="section-header">4 · 產品與應用 / Products &amp; Applications</div>
+
+    <div class="news-item">
+      <span class="tag">應用</span><span class="tag">電商</span>
+      <h3>AI Agent 購物元年：44% 企業電商已整合自主代理協議，詐欺防護嚴重落後<br/>
+        <span style="font-weight:400;font-size:1rem;">Agentic Commerce Goes Mainstream: 44% of Enterprise E-Commerce Already Integrating AI Agents, but Only 29% Feel Prepared for Fraud Risks</span>
+      </h3>
+      <div class="meta">
+        來源 / Source: <a href="https://www.fastcompany.com/91533534/shop-til-you-bot-google-openai-and-the-race-to-build-agentic-commerce" target="_blank">Fast Company</a> · <a href="https://commercetools.com/blog/ai-trends-shaping-agentic-commerce" target="_blank">Commercetools</a> · 2026-05-28
+      </div>
+      <div class="label-block">核心事實</div>
+      <p>最新調查顯示，44% 的企業電商已整合 AI Agent 自主購物協議，商家預計 AI 購物 Agent 三年內可佔交易量的 30%。ChatGPT、Google Gemini、Microsoft Copilot 和 Perplexity 的購物 Agent 均已完成「真實消費者的真實訂單」。但僅 29% 的商家表示對 AI 驅動購物的詐欺與安全風險「高度準備」，形成嚴峻的安全缺口。DuckDuckGo 單週 App 安裝量上漲 18%，原因是 Google 宣布搜尋結果將越來越多被 AI Agent 取代。</p>
+      <p>44% of enterprise e-commerce merchants have integrated agentic protocols; AI agents are projected to handle 30% of transactions within three years. Shopping agents on ChatGPT, Gemini, Copilot, and Perplexity are completing real purchases. But only 29% of merchants feel highly prepared for AI-driven fraud risks—and DuckDuckGo saw an 18% weekly install surge after Google announced AI agents would replace traditional search results.</p>
+
+      <div class="label-block">背景脈絡</div>
+      <p>Agentic commerce 的核心邏輯是：用戶給 AI 一個目標（「幫我找週五前能到的跑鞋，預算 150 美元以下」），Agent 自行完成比價、下單、付款的全流程。Coinbase 領導的 x402 支付協議在上線首幾個月已處理約 1.65 億筆 Agent 交易。</p>
+
+      <div class="label-block">影響觀察</div>
+      <p>安全缺口與採用速度之間的落差，為 Stripe、Adyen、Signifyd 等支付安全廠商創造市場機會。傳統搜尋廣告收入模式受衝擊，品牌需要思考「如何讓 AI Agent 優先選擇自己的商品」——這是下一代 SEO（Agent Engine Optimization）的起點。DuckDuckGo 的爆量成長也說明，部分用戶對 AI 完全接管搜尋感到不安。</p>
+    </div>
+
+    <div class="news-item">
+      <span class="tag">應用</span><span class="tag">台灣</span>
+      <h3>台灣 AI 榮景：Computex 前夕，MediaTek 漲停、AI 帶動股市創新高，但貧富分化加劇<br/>
+        <span style="font-weight:400;font-size:1rem;">Taiwan AI Boom: MediaTek Hits 10% Daily Limit Pre-Computex, Stock Market Records Highs—but Wealth Inequality Widens</span>
+      </h3>
+      <div class="meta">
+        來源 / Source: <a href="https://www.aljazeera.com/amp/news/2026/5/27/taiwans-economy-is-booming-thanks-to-ai-not-everyone-sees-the-benefits" target="_blank">Al Jazeera</a> · <a href="https://www.taipeitimes.com/News/front/archives/2026/05/05/2003856767" target="_blank">Taipei Times</a> · 2026-05-27
+      </div>
+      <div class="label-block">核心事實</div>
+      <p>台灣 Computex 科技博覽會將於 6 月 2–6 日登場，市場提前做多：聯發科（MediaTek）單日漲停 10%，三星因成功出貨業界首批 HBM4E AI 記憶體晶片樣品而大漲。台灣生產全球約 90% 的先進 AI 晶片。然而 Al Jazeera 報導，AI 榮景的財富效果高度集中在半導體從業者與股市投資人，一般民眾的生活成本壓力持續上升。</p>
+      <p>Taiwan's Computex (June 2-6) is sparking pre-show rallies; MediaTek hit the 10% daily limit, Samsung surged on first HBM4E AI memory shipments. Taiwan produces ~90% of the world's advanced AI chips. But wealth from the AI boom is heavily concentrated, with rising cost-of-living pressures for ordinary Taiwanese.</p>
+
+      <div class="label-block">背景脈絡</div>
+      <p>台灣半導體供應鏈幾乎是全球 AI 算力的唯一基礎——台積電的先進製程與 CoWoS 先進封裝均無可替代。Computex 今年預計 NVIDIA、AMD、Qualcomm 均會有重大發布，也是中美科技競爭地緣風險最密集的一週。</p>
+
+      <div class="label-block">影響觀察</div>
+      <p>台灣的地緣脆弱性（兩岸關係）與經濟過度集中風險（AI 占出口比重過高）是長期結構性問題，Computex 熱潮難以掩蓋。後續關注：NVIDIA Blackwell Next 架構是否在 Computex 現身，以及台積電 2nm 良率最新進展。</p>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 5: POLICY & REGULATION ===== -->
+  <section id="policy">
+    <div class="section-header">5 · 政策與監管 / Policy &amp; Regulation</div>
+
+    <div class="news-item">
+      <span class="tag">政策</span><span class="tag">美國</span>
+      <h3>川普 AI 安全行政令在簽署前夕夭折，Zuckerberg、Musk、Sacks 聯手叫停<br/>
+        <span style="font-weight:400;font-size:1rem;">Trump's AI Safety Executive Order Collapses Hours Before Signing as Zuckerberg, Musk, and Sacks Intervene</span>
+      </h3>
+      <div class="meta">
+        來源 / Source: <a href="https://www.axios.com/2026/05/21/trump-ai-executive-order-postponed-why" target="_blank">Axios</a> · <a href="https://www.npr.org/2026/05/22/nx-s1-5829908/trump-cancels-ai-executive-order-signing" target="_blank">NPR</a> · 2026-05-21–22
+      </div>
+      <div class="label-block">核心事實</div>
+      <p>川普政府原定本週簽署一道 AI 安全行政令，要求新 AI 模型在公開發布前必須通過政府安全評估（類似 FDA 審藥流程），但在簽署前數小時緊急叫停。Axios 報導，Meta CEO Mark Zuckerberg、xAI CEO Elon Musk 及 AI 顧問 David Sacks 均在周三夜間至周四晨間與川普通話表達反對，最終川普以「厭惡監管」為由撤回。</p>
+      <p>A White House executive order requiring pre-release government safety evaluations for AI models was cancelled hours before signing after Mark Zuckerberg, Elon Musk, and AI adviser David Sacks all called Trump to oppose it. The order would have introduced an FDA-like review process for AI models.</p>
+
+      <div class="label-block">背景脈絡</div>
+      <p>此行政令的起草據報是白宮內部「AI 安全派」推動，希望在 Anthropic 和 OpenAI 的施壓下建立最低安全護欄。但科技業巨頭「逕直打電話給總統」成功翻轉政策，顯示 2026 年美國 AI 監管場域中，產業遊說力量之強大。</p>
+
+      <div class="label-block">影響觀察</div>
+      <p>行政令被撤為美國科技公司提供短期喘息空間，但也讓美國在 AI 安全國際討論中（與歐盟 AI Act 相比）更缺乏話語權。下一步需關注：川普政府是否推出修改版、或直接以「創新優先」姿態全面退出 AI 安全框架。</p>
+    </div>
+
+    <div class="news-item">
+      <span class="tag">政策</span><span class="tag">歐盟</span>
+      <h3>歐盟 AI Act 首度修訂：高風險系統義務延至 2027 年 12 月，新增 CSAM 禁止條款<br/>
+        <span style="font-weight:400;font-size:1rem;">EU AI Act's First Amendment: High-Risk System Obligations Deferred to December 2027, New CSAM and Non-Consensual Intimate Image Prohibitions Added</span>
+      </h3>
+      <div class="meta">
+        來源 / Source: <a href="https://www.globalpolicywatch.com/2026/05/eu-ai-act-update-timeline-relief-targeted-simplification-and-new-prohibitions/" target="_blank">Global Policy Watch</a> · <a href="https://www.hklaw.com/en/insights/publications/2026/04/us-companies-face-eu-ai-acts-possible-august-2026-compliance-deadline" target="_blank">Holland &amp; Knight</a> · 2026-05-07
+      </div>
+      <div class="label-block">核心事實</div>
+      <p>歐盟理事會、歐洲議會與歐盟委員會於 5 月 7 日就《數位綜合法》（Digital Omnibus on AI）達成暫時協議，完成 AI Act 自 2024 年通過以來的首次修訂。主要變化：高風險 AI 系統（Annex III 條款）義務截止日由 2026 年 8 月 2 日延至 2027 年 12 月 2 日；新增禁止 AI 生成非合意性私密影像（deepfake）及兒少性剝削素材（CSAM）兩項強制禁令；同時放寬「安全組件（safety component）」的認定範圍。</p>
+      <p>The EU's first AI Act amendment (May 7) defers Annex III high-risk AI obligations from August 2026 to December 2027, adds mandatory prohibitions on AI-generated non-consensual intimate imagery and CSAM, and narrows the definition of "safety components" to exclude automation and efficiency tools.</p>
+
+      <div class="label-block">背景脈絡</div>
+      <p>2026 年 8 月原是美國企業必須達標的第一個 AI Act 合規節點，業界普遍認為準備時間不足。延期雖為企業爭取空間，但新增的 CSAM 禁令立即生效，顯示歐盟在內容安全上的底線不退讓。</p>
+
+      <div class="label-block">影響觀察</div>
+      <p>延期讓美國科技公司有 16 個月額外時間建立歐盟合規架構，也讓「如何定義高風險」的爭議繼續存在。CSAM 禁令的新增則為 AI 影像生成公司（Midjourney、Sora 等）帶來新的法律風險，歐盟成員國的執法態度值得追蹤。</p>
+    </div>
+  </section>
+
+  <!-- ===== SECTION 6: OPINION & DEEP READS ===== -->
+  <section id="opinion">
+    <div class="section-header">6 · 觀點與深度 / Opinion &amp; Deep Reads</div>
+
+    <div class="news-item">
+      <span class="tag">觀點</span>
+      <h3>Stanford AI Index 2026：中美 AI 差距「實質縮小」，全球工作年齡人口使用 AI 比率突破 17.8%<br/>
+        <span style="font-weight:400;font-size:1rem;">Stanford AI Index 2026: China Has "Effectively Closed" the AI Performance Gap; Global Working-Age AI Adoption Hits 17.8%</span>
+      </h3>
+      <div class="meta">
+        來源 / Source: <a href="https://press.airstreet.com/p/state-of-ai-may-2026" target="_blank">Air Street Press — State of AI May 2026</a> · <a href="https://blogs.microsoft.com/on-the-issues/2026/05/07/the-state-of-global-ai-diffusion-in-2026/" target="_blank">Microsoft — State of Global AI Diffusion 2026</a> · 2026-05-07
+      </div>
+      <div class="label-block">核心事實</div>
+      <p>Stanford AI Index 2026 報告確認：中國 AI 模型在多項主流基準測試中已達到「實質縮小差距」的程度，中文圈的 Qwen（數學推理）、DeepSeek（程式生成）、Kimi（Agent 框架）均已在真實應用中部署。全球層面，Microsoft 與 IDC 聯合報告指出，2026 年 Q1 全球工作年齡人口 AI 使用率從 16.3% 升至 17.8%，單季增加 1.5 個百分點，是有紀錄以來增速最快的一季。</p>
+      <p>Stanford AI Index 2026 confirms China has effectively closed the AI performance gap in math (Qwen), coding (DeepSeek), and agents (Kimi). Global AI adoption among working-age adults rose from 16.3% to 17.8% in Q1 2026—the fastest single-quarter jump on record.</p>
+
+      <div class="label-block">背景脈絡</div>
+      <p>「中美 AI 差距縮小」的敘事在一年前尚有爭議，但 2026 年已成共識。值得注意的是：差距縮小並非因為中國模型「追上」美國，而是雙方都在快速演進，中國在成本效率和特定垂直領域（如中文、代碼）的優勢持續強化。全球採用率的飛速提升則暗示 AI 正進入「基礎設施化」階段。</p>
+
+      <div class="label-block">影響觀察</div>
+      <p>採用率的快速成長對勞動市場的衝擊正在加速——各國政府應對 AI 引發的結構性就業變化的政策準備明顯落後。教宗通諭的警告、DeepMind CEO 的 AGI 2029 預測，以及採用率曲線，三者共同描繪了一個技術加速與社會準備嚴重錯位的時代。</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <h2>今日諮詢來源 / Sources Consulted</h2>
+    <ul>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-05-12/anthropic-in-talks-to-raise-30-billion-at-900-billion-valuation">Bloomberg — Anthropic $30B Funding Round</a></li>
+      <li><a href="https://finance.yahoo.com/sectors/technology/articles/anthropic-set-close-30-billion-203545596.html">Yahoo Finance — Anthropic closes $30B</a></li>
+      <li><a href="https://aitoolsrecap.com/Blog/openai-ipo-2026-s1-filing-valuation-timeline">AI Tools Recap — OpenAI IPO S-1 Filing</a></li>
+      <li><a href="https://enterprisedna.co/resources/news/openai-ipo-confidential-filing-may-2026/">Enterprise DNA — OpenAI IPO Confidential Filing</a></li>
+      <li><a href="https://www.vaticannews.va/en/pope/news/2026-05/pope-leo-xiv-encyclical-magnifica-humanitas-ai.html">Vatican News — Magnifica Humanitas Encyclical</a></li>
+      <li><a href="https://www.anthropic.com/news/chris-olah-pope-leo-encyclical">Anthropic — Chris Olah Pope Leo Encyclical</a></li>
+      <li><a href="https://religionnews.com/2026/05/22/why-anthropic-is-helping-unveil-the-popes-new-encyclical-on-ai/">Religion News Service — Vatican-Anthropic Relationship</a></li>
+      <li><a href="https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/">Google Blog — Google I/O 2026 100 Announcements</a></li>
+      <li><a href="https://www.medianama.com/2026/05/223-major-products-google-announced-i-o-2026/">MediaNama — Google I/O 2026 AI Announcements</a></li>
+      <li><a href="https://www.axios.com/2026/05/26/deepmind-ceo-demis-hassabis">Axios — DeepMind CEO AGI Timeline</a></li>
+      <li><a href="https://www.aljazeera.com/economy/2026/4/24/chinas-deepseek-unveils-latest-model-a-year-after-upending-global-tech">Al Jazeera — DeepSeek V4 Launch</a></li>
+      <li><a href="https://www.cnn.com/2026/04/24/tech/chinas-ai-deepseek-v4-intl-hnk">CNN Business — DeepSeek V4</a></li>
+      <li><a href="https://www.startuphub.ai/ai-news/ai-news/2026/four-labs-four-acquisitions-ai-consolidation-may-2026">StartupHub.ai — AI Consolidation Wave</a></li>
+      <li><a href="https://www.fastcompany.com/91533534/shop-til-you-bot-google-openai-and-the-race-to-build-agentic-commerce">Fast Company — Agentic Commerce Race</a></li>
+      <li><a href="https://www.aljazeera.com/amp/news/2026/5/27/taiwans-economy-is-booming-thanks-to-ai-not-everyone-sees-the-benefits">Al Jazeera — Taiwan AI Economy</a></li>
+      <li><a href="https://www.axios.com/2026/05/21/trump-ai-executive-order-postponed-why">Axios — Trump AI Executive Order Cancelled</a></li>
+      <li><a href="https://www.npr.org/2026/05/22/nx-s1-5829908/trump-cancels-ai-executive-order-signing">NPR — Trump AI Executive Order Cancelled</a></li>
+      <li><a href="https://www.globalpolicywatch.com/2026/05/eu-ai-act-update-timeline-relief-targeted-simplification-and-new-prohibitions/">Global Policy Watch — EU AI Act Amendment</a></li>
+      <li><a href="https://blogs.microsoft.com/on-the-issues/2026/05/07/the-state-of-global-ai-diffusion-in-2026/">Microsoft — State of Global AI Diffusion 2026</a></li>
+      <li><a href="https://press.airstreet.com/p/state-of-ai-may-2026">Air Street Press — State of AI May 2026</a></li>
+      <li><a href="https://llm-stats.com/ai-news">LLM Stats — AI News May 2026</a></li>
+    </ul>
+    <div class="paywalled" style="margin-top:1.2rem;">
+      付費牆 / 未能抓取完整內容的來源：The Information、Bloomberg (部分)、Financial Times、WSJ、Stratechery、Platformer、MIT Technology Review (部分)
+    </div>
+    <p style="font-family:'Arial',sans-serif;font-size:0.72rem;color:#999;margin-top:1.2rem;">
+      Generated by Claude (claude-sonnet-4-6) · 2026-05-30 · Asia/Taipei
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

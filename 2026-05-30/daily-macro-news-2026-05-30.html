@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日總經新聞日報 · Daily Macro Briefing — 2026-05-30</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #222535;
+    --border: #2e3247;
+    --accent: #5b8dee;
+    --accent2: #e87d3e;
+    --accent3: #56c490;
+    --accent4: #c97bd4;
+    --accent5: #e8c43e;
+    --accent6: #3ec4d8;
+    --accent7: #d45b7a;
+    --text: #e2e4ef;
+    --text-muted: #8b90a8;
+    --text-dim: #5a5f7a;
+    --tag-bg: #1f2338;
+    --warn: #e8c43e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Helvetica Neue", sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .header {
+    background: linear-gradient(135deg, #131628 0%, #1a1d2e 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 24px 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .header-tag {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .header .subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+  .header .date-badge {
+    display: inline-block;
+    margin-top: 12px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 20px 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+  .toc a {
+    text-decoration: none;
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    color: var(--text-muted);
+    transition: all 0.2s;
+  }
+  .toc a:hover { color: var(--text); border-color: var(--accent); }
+  .section {
+    margin-top: 40px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .section-header .section-en {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+  .item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .item:hover { border-color: #3e4460; }
+  .item-headline {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .item-headline .cn { color: #fff; }
+  .item-headline .en { color: var(--text-muted); font-weight: 500; }
+  .item-headline .divider { color: var(--text-dim); margin: 0 6px; }
+  .item-source {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .item-source a { color: var(--accent); text-decoration: none; }
+  .item-source a:hover { text-decoration: underline; }
+  .label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 2px 7px;
+    margin-bottom: 4px;
+  }
+  .label-facts { background: rgba(91,141,238,0.15); color: var(--accent); }
+  .label-context { background: rgba(86,196,144,0.15); color: var(--accent3); }
+  .label-implications { background: rgba(232,125,62,0.15); color: var(--accent2); }
+  .block {
+    margin-bottom: 12px;
+  }
+  .block p {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.75;
+    margin-top: 4px;
+  }
+  .numbers {
+    display: inline-flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 6px 0 4px;
+  }
+  .num-chip {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-family: "SF Mono", "Fira Code", monospace;
+  }
+  .num-chip .num-label { color: var(--text-dim); margin-right: 5px; }
+  .num-chip .num-value { color: var(--warn); font-weight: 700; }
+  .footer {
+    margin-top: 60px;
+    padding: 28px 0;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+  .footer h3 { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+  .footer a { color: var(--text-dim); text-decoration: none; }
+  .footer a:hover { color: var(--accent); }
+  .sources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 4px 16px;
+  }
+  .caveat {
+    margin-top: 18px;
+    padding: 12px 16px;
+    background: rgba(232,196,62,0.08);
+    border: 1px solid rgba(232,196,62,0.2);
+    border-radius: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-tag">Daily Macro Briefing</div>
+  <h1>今日總經新聞日報</h1>
+  <div class="subtitle">全球 · 美國 · 台灣 · 日本 · 韓國 · 歐洲 · 東南亞</div>
+  <div class="date-badge">2026-05-30 (Asia/Taipei) · 七大區域總覽</div>
+</div>
+
+<div class="toc">
+  <a href="#global">全球 / Global</a>
+  <a href="#us">美國 / United States</a>
+  <a href="#tw">台灣 / Taiwan</a>
+  <a href="#jp">日本 / Japan</a>
+  <a href="#kr">韓國 / Korea</a>
+  <a href="#eu">歐洲 / Europe</a>
+  <a href="#sea">東南亞 / Southeast Asia</a>
+</div>
+
+<div class="container">
+
+<!-- ===== GLOBAL ===== -->
+<section class="section" id="global">
+  <div class="section-header">
+    <div class="section-dot" style="background:#5b8dee;"></div>
+    <h2>全球 / Global <span class="section-en">— IMF · 多邊機構 · 大宗商品</span></h2>
+  </div>
+
+  <div class="item">
+    <div class="item-headline">
+      <span class="cn">中東戰事升溫衝擊能源價格，IMF、世銀、IEA 三方聯合回應全球能源經濟衝擊</span><span class="divider">/</span>
+      <span class="en">Middle East Conflict Drives Energy Spike; IMF-World Bank-IEA Coordination Escalates</span>
+    </div>
+    <div class="item-source">
+      來源 / Source: <a href="https://www.imf.org/en/news/articles/2026/04/13/pr26117-joint-statement-by-the-heads-iea-imf-wbg" target="_blank">IMF Joint Statement</a> · 2026-04-13 ·
+      <a href="https://www.imf.org/en/news/articles/2026/03/03/pr-26068-statement-on-middle-east" target="_blank">IMF Middle East Statement</a> · 2026-03-03
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>IMF、世界銀行集團（WBG）與國際能源署（IEA）三方首長自 4 月初起建立協調機制，每週召開會議，共同因應中東戰事引發的能源與糧食安全衝擊。IMF 3 月公開聲明指出，已觀察到「全球貿易與經濟活動中斷、能源價格飆升、金融市場劇烈波動」。具體數字（actual / consensus / prior）：能源價格波段漲幅暫未公布具體 IMF 官方數字，但 Fed 副主席 Jefferson 在 5 月 27 日演講中確認「美國汽油價格自衝突爆發以來大幅上漲，仍遠高於常態水準」。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>此波能源衝擊的背景是全球供應鏈自疫情後持續重組，以及多重貿易流動中斷（部分源於地緣政治、部分源於關稅升級）同步疊加。對於亞洲淨能源進口國（包括日本、韓國、台灣、東南亞多數國家）而言，輸入性通膨壓力尤為突出，使各央行在「穩通膨」與「防衰退」之間的政策空間更加受限。IMF 與 WFP 3 月聯合聲明也特別警示「糧食安全」面向，因能源成本上漲直接推高化肥與運輸成本。</p>
+    </div>
+    <div class="block">
+      <span class="label label-implications">影響觀察 / Implications</span>
+      <p>（分析，非事實）高油價為全球通膨路徑帶來上行不確定性，短期壓縮各主要央行降息空間，尤其是聯準會。新興市場貨幣面臨雙重壓力：能源進口成本上升 + 美元高利率環境下的資本外流風險。大宗商品出口國（如中東、俄羅斯、部分東南亞國家）短期財政受益，但全球需求若因能源衝擊走弱，長期出口訂單仍受威脅。</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-headline">
+      <span class="cn">全球貿易流動多重中斷持續，WTO 預警供應鏈重組加速</span><span class="divider">/</span>
+      <span class="en">Multiple Trade Disruptions Ongoing; Supply Chain Restructuring Accelerates</span>
+    </div>
+    <div class="item-source">
+      來源 / Source: <a href="https://www.federalreserve.gov/newsevents/speech/jefferson20260527a.htm" target="_blank">Fed Vice Chair Jefferson Speech</a> · 2026-05-27 · IMF / WTO 背景
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>Fed 副主席 Jefferson 在東京日銀演講明確點名三大全球主題：(1) 中東能源衝擊；(2) AI 技術快速進展對生產力與勞動市場的影響；(3) 疫情以來多次貿易流動中斷對全球供應與物價的影響。關稅升級（tariffs）被明確列為美國通膨「停滯（stalled）」的主要因素，並指通膨近月因關稅+能源衝擊「顯著走高（moved notably higher）」。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>這是 2026 年第一季以來，Fed 官員在正式演講中最清晰地將「關稅」列為通膨的獨立貢獻因子（而非僅作為「不確定性來源」）。這一措辭轉變意味著聯準會在評估後續降息時機時，需要同時監控貿易政策走向，而非純粹仰賴 CPI / PCE 數據。</p>
+    </div>
+    <div class="block">
+      <span class="label label-implications">影響觀察 / Implications</span>
+      <p>（分析）若後續月份關稅效應及能源衝擊雙雙「消退（wane）」（Jefferson 預期此為基準情境），通膨有望在 2026 年下半年回落，為降息打開窗口。但 Jefferson 坦言「風險偏上行（tilted to the upside）」，市場需對降息時程抱持較保守預期。</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== USA ===== -->
+<section class="section" id="us">
+  <div class="section-header">
+    <div class="section-dot" style="background:#e87d3e;"></div>
+    <h2>美國 / United States <span class="section-en">— Fed · FOMC · Treasury · BLS · BEA</span></h2>
+  </div>
+
+  <div class="item">
+    <div class="item-headline">
+      <span class="cn">Fed 副主席 Jefferson：FOMC 維持利率 3.5–3.75%，通膨風險偏上行，尚未預判下次決策</span><span class="divider">/</span>
+      <span class="en">Fed Vice Chair Jefferson: Rates Hold at 3.5–3.75%, Inflation Risks Tilted Upside; No Pre-Commitment on Next Move</span>
+    </div>
+    <div class="item-source">
+      來源 / Source: <a href="https://www.federalreserve.gov/newsevents/speech/jefferson20260527a.htm" target="_blank">Federal Reserve — Jefferson Speech</a> · 2026-05-27 · Bank of Japan Conference, Tokyo
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <div class="numbers">
+        <div class="num-chip"><span class="num-label">Fed Funds Target</span><span class="num-value">3.50–3.75%</span></div>
+        <div class="num-chip"><span class="num-label">FOMC Last Meeting</span><span class="num-value">2026-04-28/29</span></div>
+        <div class="num-chip"><span class="num-label">Inflation Target</span><span class="num-value">2.0%</span></div>
+      </div>
+      <p>FOMC 在 4 月 28–29 日會議決定維持利率目標區間於 3.5%–3.75%（4 月 20、29 日的貼現率會議紀要於 5 月 26 日公布）。副主席 Jefferson 於 5 月 27 日在東京日銀會議發表演講，確認此政策立場使 Fed「有充分空間根據數據與展望靈活回應」。他描述美國經濟近期成長「穩健（solid）」，但預期今年成長步伐「較為溫和（more modest pace）」，因家庭面臨高能源成本。勞動市場「廣泛穩定（broadly stable）」，招聘與裁員均處低位。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>新任 Fed 主席 Kevin Warsh 已於 5 月 22 日就任，並被 FOMC 一致推選為主席。與此同時，5 月 20 日公布的 FOMC 4 月會議紀要（4/28–29）提供了更多關於委員對當前風險評估的細節。通膨在 2025 年的「停滯（stalled）」主要源自關稅衝擊；2026 年以來，能源衝擊又帶來新的上行壓力，使整體通膨「顯著走高」。Jefferson 明確表態「堅定致力於讓通膨回歸 2% 目標」，措辭偏向鷹派審慎。</p>
+    </div>
+    <div class="block">
+      <span class="label label-implications">影響觀察 / Implications</span>
+      <p>（分析）Fed 處於「data-dependent hold」狀態，降息時機高度依賴能源價格路徑與關稅效應消退速度。若下半年這兩大因素同步退潮，市場定價的降息窗口可能在 Q3–Q4 開啟；若任一因素持續，降息將進一步推遲。對債市而言，短端利率溢價維持高位，長端仍受能源/通膨路徑不確定性影響，殖利率曲線維持較平。</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-headline">
+      <span class="cn">Fed 新主席 Kevin Warsh 就任，FOMC 一致選任，AI 與金融體系演講釋放信號</span><span class="divider">/</span>
+      <span class="en">Kevin Warsh Takes Oath as Fed Chair; FOMC Unanimously Elects; Cook Speech Targets AI-Finance Nexus</span>
+    </div>
+    <div class="item-source">
+      來源 / Source: <a href="https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm" target="_blank">Federal Reserve Press Release</a> · 2026-05-22 ·
+      <a href="https://www.federalreserve.gov/newsevents/speech/cook20260527a.htm" target="_blank">Governor Cook Speech on AI</a> · 2026-05-27
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>Kevin Warsh 於 2026 年 5 月 22 日正式宣誓就任聯準會主席兼理事，FOMC 同日一致票選其擔任主席。同一日，聯準會理事 Lisa D. Cook 發表演講，主題聚焦於「AI、經濟與金融體系」，釋放央行對 AI 影響生產力、勞動市場及金融風險的高度關注。Governor Waller 亦於 5 月 22 日發表經濟展望演講。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>Warsh 的就任標誌著 Fed 領導層的重大更替。Warsh 過去以對通膨高度警惕、對量化寬鬆持批評態度聞名，其任命對市場傳遞的政策信號值得持續觀察。此時點正逢 Fed 在能源與通膨壓力下維持利率不動，新主席的首次公開政策表態將是市場高度關注的觀察點。</p>
+    </div>
+    <div class="block">
+      <span class="label label-implications">影響觀察 / Implications</span>
+      <p>（分析）新主席的風格偏向規則導向（rules-based）貨幣政策，市場普遍預期在通膨未明確回落前，Warsh 主導的 FOMC 不會輕易轉向降息。對匯市而言，美元可能在 Warsh 就任初期維持相對強勢，尤其若其公開措辭確認偏鷹立場。</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-headline">
+      <span class="cn">美債殖利率接近高點，鉅亨熱搜「美債、殖利率」主題居首，半導體板塊承壓</span><span class="divider">/</span>
+      <span class="en">US Treasury Yields Near Highs; Semiconductor Sector Under Pressure From Rate Overhang</span>
+    </div>
+    <div class="item-source">
+      來源 / Source: <a href="https://news.cnyes.com/news/id/6463819" target="_blank">鉅亨網</a> · 2026-05-30 · 市場背景觀察
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>根據鉅亨網今日早盤報導，美債殖利率逼近高點，帶動半導體板塊賣壓，主要美股指數開低。殖利率具體點位（10Y UST）：精確 actual 數字未公布，依市場報導描述「接近近期高點（near recent highs）」。鉅亨網今日熱搜主題首位為「美債」、「殖利率」，顯示台灣投資者高度關注此風險。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>美股近期出現「百年罕見異象」：標普 500 指數整體走高，但市場廣度（market breadth）背離程度達 1928 年以來最嚴重（鉅亨網報導）。這意味著指數漲勢高度集中於少數大型科技股，若殖利率進一步走高壓縮估值倍數，廣度惡化可能快速轉化為指數回調。</p>
+    </div>
+    <div class="block">
+      <span class="label label-implications">影響觀察 / Implications</span>
+      <p>（分析）高殖利率環境對半導體等高資本支出、高估值板塊的壓力持續存在。市場廣度背離現象若持續加劇，是潛在系統性風險的早期訊號，需密切追蹤。對台灣而言，美元走強 + 美債殖利率高位將對新台幣匯率及外資流入形成雙向拉鋸。</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== TAIWAN ===== -->
+<section class="section" id="tw">
+  <div class="section-header">
+    <div class="section-dot" style="background:#56c490;"></div>
+    <h2>台灣 / Taiwan <span class="section-en">— 央行 · 主計總處 · 財政部 · 外匯存底</span></h2>
+  </div>
+
+  <div class="item">
+    <div class="item-headline">
+      <span class="cn">台灣央行發布第 20 期金融穩定報告，新台幣對美元收盤匯率 31.384</span><span class="divider">/</span>
+      <span class="en">CBC Releases 20th Financial Stability Report; TWD/USD Closes at 31.384</span>
+    </div>
+    <div class="item-source">
+      來源 / Source: <a href="https://www.cbc.gov.tw/tw/cp-302-191322-0bf1d-1.html" target="_blank">中央銀行新聞稿</a> · 2026-05-29
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <div class="numbers">
+        <div class="num-chip"><span class="num-label">新台幣/美元收盤</span><span class="num-value">31.384</span></div>
+        <div class="num-chip"><span class="num-label">外匯存底 (4月)</span><span class="num-value">USD 602.49B</span></div>
+        <div class="num-chip"><span class="num-label">M2 年增率 (5/22)</span><span class="num-value">6.45%</span></div>
+        <div class="num-chip"><span class="num-label">重貼現率</span><span class="num-value">2.00%</span></div>
+        <div class="num-chip"><span class="num-label">金融業隔夜拆款</span><span class="num-value">0.828%</span></div>
+      </div>
+      <p>台灣央行於 5 月 29 日發布第 20 期金融穩定報告，同日公布 4 月銀行衍生性金融商品交易量統計。台灣外匯存底 4 月餘額為 6,024.9 億美元，仍為全球前五大。M2 年增率 6.45%（截至 5 月 22 日），顯示流動性充裕。重貼現率維持 2.00%（上次調整：2024 年 3 月 22 日）。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>台灣央行最近一次理監事會（3 月 19 日）維持利率不變，下一次會議預計於 6 月召開。在美元走強、中東能源衝擊與全球貿易不確定性同步升高的背景下，台灣央行面臨維持新台幣適度穩定與支撐出口競爭力的雙重壓力。第 20 期金融穩定報告的核心觀察（具體細節待報告全文）將反映台灣銀行業、房地產貸款、外資流動等面向的系統性風險評估。</p>
+    </div>
+    <div class="block">
+      <span class="label label-implications">影響觀察 / Implications</span>
+      <p>（分析）新台幣匯率 31.384 相對今年整體走勢偏弱，反映美元強勢及台灣在能源進口方面的結構性需求。若美債殖利率維持高位，外資在台股的配置動能可能承壓，但台灣強勁的外匯存底仍為匯率提供重要緩衝。M2 年增率 6.45% 高於歷史均值，若後續通膨壓力升溫，不排除央行在 6 月會議微調政策信號。</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-headline">
+      <span class="cn">台灣央行 5 月底連續公開市場操作，6 月 9 日將標售 10 年期建設公債</span><span class="divider">/</span>
+      <span class="en">CBC Conducts Daily OMO Through May; 10Y Construction Bond Auction Scheduled June 9</span>
+    </div>
+    <div class="item-source">
+      來源 / Source: <a href="https://www.cbc.gov.tw/tw/np-1163-1.html" target="_blank">中央銀行公開市場操作</a> · 2026-05-29
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>央行 5 月 29 日執行公開市場操作及存單申購發行，延續自 5 月 27 日以來的連日操作節奏，顯示對短期流動性管理高度活躍。6 月 9 日將代財政部標售「115 年度甲類第 6 期 10 年期中央政府建設公債」（預告公告日：5 月 25 日）。5 月 26 日已完成 30 年期甲類第 5 期建設公債開標。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>台灣政府公債發行節奏加速，反映財政擴張需求，包括國防預算提升（對應地緣政治壓力）及基礎建設投資。央行持續透過公開市場操作精細管理流動性，避免市場利率大幅偏離目標。</p>
+    </div>
+    <div class="block">
+      <span class="label label-implications">影響觀察 / Implications</span>
+      <p>（分析）6 月 9 日 10 年期公債標售的得標利率將是台灣長端利率的重要市場信號，並可與同期美債殖利率對比，判斷利差變化對外資流動的潛在影響。</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== JAPAN ===== -->
+<section class="section" id="jp">
+  <div class="section-header">
+    <div class="section-dot" style="background:#c97bd4;"></div>
+    <h2>日本 / Japan <span class="section-en">— BOJ · 財務省 · 經產省 · 円相場</span></h2>
+  </div>
+
+  <div class="item">
+    <div class="item-headline">
+      <span class="cn">日銀維持隔夜利率目標 0.75%，補充存款利率不變，4 月底為下次政策會議</span><span class="divider">/</span>
+      <span class="en">BOJ Holds Overnight Rate Target at 0.75%; Complementary Deposit Rate Unchanged at 0.75%</span>
+    </div>
+    <div class="item-source">
+      來源 / Source: <a href="https://www.boj.or.jp/en/mopo/measures/mkt_ope/oth_a/index.htm" target="_blank">Bank of Japan</a> · 日銀官網 2026-05-30 確認數據
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <div class="numbers">
+        <div class="num-chip"><span class="num-label">無擔保隔夜拆款目標</span><span class="num-value">0.75%</span></div>
+        <div class="num-chip"><span class="num-label">補充存款利率</span><span class="num-value">0.75% (since 2025-12-22)</span></div>
+        <div class="num-chip"><span class="num-label">基本貸款利率</span><span class="num-value">1.00% (since 2025-12-22)</span></div>
+        <div class="num-chip"><span class="num-label">下次政策會議</span><span class="num-value">2026-04-27/28</span></div>
+      </div>
+      <p>日銀官網顯示，無擔保隔夜拆款利率目標維持「約 0.75%」，自 2025 年 12 月 22 日升息（+0.25bp）後持續不變。日銀 3 月 19 日理事會決定保持現行政策立場，概要意見（Summary of Opinions）於 3 月 30 日公布。下次政策會議原訂 4 月 27–28 日，5 月底最新進展尚待確認。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>日本作為淨能源進口國，中東油價上漲直接衝擊其製造業成本及貿易條件（trade terms）。日圓走弱對出口商有利，但同時加重進口能源成本，使整體通膨路徑複雜化。Fed 副主席 Jefferson 在東京演講時特別指出能源衝擊「對日本等淨能源進口國尤其具有挑戰性」，暗示日美在政策協調上高度關注此議題。日銀 4 月金融體系報告（Financial System Report）深入探討了私募基金（PE/PD）與 BDC 等新型金融工具的崛起，顯示日銀對非傳統融資渠道的系統性風險監控持續深化。</p>
+    </div>
+    <div class="block">
+      <span class="label label-implications">影響觀察 / Implications</span>
+      <p>（分析）日銀的下一步升息時機面臨更高的不確定性：若能源衝擊壓制實質工資成長與消費，升息空間縮小；若輸入性通膨持續，日銀則承受維持寬鬆的壓力（因繼續寬鬆會進一步推低日圓，加劇通膨）。日圓走勢是關鍵觀察指標，若美元/日圓再度試探 160 以上，市場可能重燃日銀「口頭干預」或實際干預的預期。</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-headline">
+      <span class="cn">日銀 × Fed 副主席 Tokyo 論壇：Fed 副主席 Jefferson 於日銀 IMES 研討會發表演講</span><span class="divider">/</span>
+      <span class="en">Fed-BOJ Policy Dialogue: VP Jefferson Keynotes BOJ-IMES Conference in Tokyo</span>
+    </div>
+    <div class="item-source">
+      來源 / Source: <a href="https://www.federalreserve.gov/newsevents/speech/jefferson20260527a.htm" target="_blank">Federal Reserve</a> · 2026-05-27 · 2026 BOJ-IMES Conference, Tokyo
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>Fed 副主席 Philip N. Jefferson 於 5 月 27 日在日銀貨幣經濟研究所（IMES）舉辦的 2026 年度研討會發表主題演講，內容聚焦「全球經濟發展與美國經濟」。這是 Fed 高層少見地在日銀場域公開評述美國政策立場，具有高度的日美央行溝通象徵意義。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>日銀與 Fed 每年透過 IMES 研討會維持高層學術交流，但 2026 年因能源衝擊與關稅環境，兩央行政策路徑出現明顯分歧（Fed 維持高利率、BOJ 緩步升息），使此次論壇的政策信號格外受關注。</p>
+    </div>
+    <div class="block">
+      <span class="label label-implications">影響觀察 / Implications</span>
+      <p>（分析）Jefferson 演講措辭確認 Fed 與 BOJ 當前處於罕見的同步「觀望（wait-and-see）」狀態，但觸發調整的因素不同。雙方對能源衝擊及 AI 影響的共同關注，可能促進央行間在通膨量測方法論（如核心 CPI 構成）上的進一步協調。</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== KOREA ===== -->
+<section class="section" id="kr">
+  <div class="section-header">
+    <div class="section-dot" style="background:#e8c43e;"></div>
+    <h2>韓國 / Korea <span class="section-en">— BOK · 財政部 · 韓元 · 地方選舉</span></h2>
+  </div>
+
+  <div class="item">
+    <div class="item-headline">
+      <span class="cn">韓元兌美元 1,520.85，「成長基金」4 天銷售一空，市場解讀財政刺激信心回升</span><span class="divider">/</span>
+      <span class="en">USD/KRW at 1,520.85; Korea Growth Fund Sells Out in 4 Days — Market Reads Fiscal Stimulus Confidence</span>
+    </div>
+    <div class="item-source">
+      來源 / Source: <a href="https://www.koreaherald.com/article/10760025" target="_blank">Korea Herald</a> · 2026-05-30 ·
+      <a href="https://www.koreaherald.com/Business" target="_blank">Korea Herald Business</a> · 即時匯率數據
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <div class="numbers">
+        <div class="num-chip"><span class="num-label">USD/KRW</span><span class="num-value">1,520.85</span></div>
+        <div class="num-chip"><span class="num-label">EUR/KRW</span><span class="num-value">1,754.48</span></div>
+        <div class="num-chip"><span class="num-label">JPY(100)/KRW</span><span class="num-value">945.56</span></div>
+        <div class="num-chip"><span class="num-label">KOSPI</span><span class="num-value">8,476 (+290.86)</span></div>
+        <div class="num-chip"><span class="num-label">KOSDAQ</span><span class="num-value">1,075 (+29.56)</span></div>
+      </div>
+      <p>韓國「成長基金（Growth Fund）」於 4 天內銷售一空，Korea Herald 報導市場對此解讀為韓國投資者對政府財政刺激工具恢復信心的明確訊號（具體基金規模及細節：報導未披露，標記「未公布」）。KOSPI 今日大漲逾 290 點，顯示股市對財政支持預期有積極回應。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>韓國今日（5 月 30 日）正進行第九屆全國地方選舉的提前投票（4 p.m. 止投票率達 20.94%，高於上屆同期），6 月 3 日為正式投票日。選舉背景下，財政議題高度政治化，各黨對成長基金、社會支出及半導體產業補貼的立場有明顯分歧。韓元維持相對弱勢（USD/KRW 1,520），反映能源進口成本壓力及全球風險情緒。Samsung 與 SK hynix 近期對 Anthropic（Claude AI 開發商）的策略性投資，顯示韓國半導體巨頭積極佈局 AI 生態鏈。</p>
+    </div>
+    <div class="block">
+      <span class="label label-implications">影響觀察 / Implications</span>
+      <p>（分析）地方選舉結果將影響韓國後續財政政策走向。若執政黨表現強勢，財政刺激力度可能加大，為 KOSPI 提供進一步支撐；若反對黨獲多，財政政策的可預期性將下降。半導體出口是韓國 GDP 最重要的單一驅動力，Samsung 罷工事件（近日見諸報導，美光股價連帶受壓）對記憶體供應鏈的衝擊仍需持續追蹤。</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-headline">
+      <span class="cn">Seoul 서소문 高架橋崩塌，KTX 服務中斷四天後恢復，基礎建設風險引發討論</span><span class="divider">/</span>
+      <span class="en">Seoul Seosomun Overpass Collapse Disrupts KTX for 4 Days; Infrastructure Risk Debate Heats Up</span>
+    </div>
+    <div class="item-source">
+      來源 / Source: <a href="https://www.koreaherald.com/article/10760009" target="_blank">Korea Herald</a> · 2026-05-30
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>首爾西小門高架橋崩塌事故導致 KTX 及通勤鐵路中斷四天，5 月 30 日（週六）開始恢復服務，週日預計全面正常化。首爾市政府辦公室及建商已遭警方搜查。此事件對首爾都會圈物流與通勤造成短期衝擊，並引發外界對韓國基礎建設老化問題的廣泛討論。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>基礎建設事故直接影響韓國政府的財政支出優先序（infrastructure vs. 社會福利 vs. 國防），並可能在選前成為重要政治議題。</p>
+    </div>
+    <div class="block">
+      <span class="label label-implications">影響觀察 / Implications</span>
+      <p>（分析）若後續調查顯示存在系統性維護不足問題，韓國基礎建設支出預算可能在選後增加，對相關建材及工程板塊形成正面題材，但同時增加財政壓力。</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== EUROPE ===== -->
+<section class="section" id="eu">
+  <div class="section-header">
+    <div class="section-dot" style="background:#3ec4d8;"></div>
+    <h2>歐洲 / Europe <span class="section-en">— ECB · BoE · Eurostat · Bundesbank</span></h2>
+  </div>
+
+  <div class="item">
+    <div class="item-headline">
+      <span class="cn">ECB 政策展望：中東能源衝擊為歐元區通膨帶來新上行風險，希臘財稅改革成功案例獲 IMF 肯定</span><span class="divider">/</span>
+      <span class="en">ECB Watch: Middle East Energy Shock Adds Upside Inflation Risk to Eurozone; IMF Highlights Greece Tax Reform</span>
+    </div>
+    <div class="item-source">
+      來源 / Source: <a href="https://www.ecb.europa.eu/press/html/index.en.html" target="_blank">ECB Press Publications</a> (accessed 2026-05-30) ·
+      <a href="https://www.imf.org/en/news/articles/2026/05/14/cf-how-tax-administration-supported-greeces-economic-recovery" target="_blank">IMF Country Focus — Greece</a> · 2026-05-14
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>ECB 官網 Publications by Date 顯示近期最新發布截至 2026 年 5 月（具體發布標題因網頁為動態載入，詳細文件標題未能完全提取）。ECB 目前政策目標維持 2% 通膨，並處於「數據依賴（data-dependent）」降息路徑。歐元兌韓元（EUR/KRW 1,754.48，反映歐元近期相對強勢）。IMF 5 月 14 日公布希臘財稅改革成功案例，強調稅務行政現代化是希臘經濟復甦的核心支柱，政策建議適用於其他財政壓力較大的歐元區成員國。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>歐元區面臨與美國類似但更複雜的通膨路徑：中東能源衝擊對歐洲衝擊更深（歐洲淨進口依賴度更高、天然氣市場更脆弱）。與此同時，歐元區核心通膨過去半年已見降溫，使 ECB 在「能源漲價」與「核心通膨回落」之間面臨困難的政策抉擇。德國財政「Schuldenbremse」（債務剎車）改革討論在能源衝擊背景下再度升溫。</p>
+    </div>
+    <div class="block">
+      <span class="label label-implications">影響觀察 / Implications</span>
+      <p>（分析）若中東局勢未明顯緩和，ECB 原定的漸進降息路徑可能被迫暫停或放緩。歐元強弱對歐元區出口競爭力影響顯著：若 ECB 比 Fed 更早降息，歐元可能走弱，反之亦然。對台灣而言，歐元區需求是台灣出口重要目的地之一，歐元區 PMI 及消費動能值得持續追蹤。</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== SOUTHEAST ASIA ===== -->
+<section class="section" id="sea">
+  <div class="section-header">
+    <div class="section-dot" style="background:#d45b7a;"></div>
+    <h2>東南亞 / Southeast Asia <span class="section-en">— ASEAN 央行 · 匯率 · 外資流向</span></h2>
+  </div>
+
+  <div class="item">
+    <div class="item-headline">
+      <span class="cn">泰國：美國關稅衝擊下 ASEAN 尋求強化對美經貿關係，泰國政府力推貿易政策重組</span><span class="divider">/</span>
+      <span class="en">Thailand & ASEAN Seek Stronger US Economic Ties Amid Tariff Shock; Thai PM Signals Policy Reset</span>
+    </div>
+    <div class="item-source">
+      來源 / Source: <a href="https://www.bangkokpost.com/business" target="_blank">Bangkok Post Business</a> · 2025-04-25 (最新可取得資料)
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <div class="numbers">
+        <div class="num-chip"><span class="num-label">USD/THB (買入)</span><span class="num-value">33.3701</span></div>
+        <div class="num-chip"><span class="num-label">USD/THB (賣出)</span><span class="num-value">33.6985</span></div>
+        <div class="num-chip"><span class="num-label">SET 指數</span><span class="num-value">1,159.00 (+12.14)</span></div>
+      </div>
+      <p>根據 Bangkok Post 最近一期報導（4 月 25 日），泰國前總理 Thaksin 釋放對美貿易「政策重組（policy reset）」信號，以換取美國關稅優惠談判空間。ASEAN 整體正尋求強化與美國的經貿連結，而馬來西亞已宣布下調成長預測、討論與美的「公平貿易」方案。美國對東南亞施加的高關稅（部分個案 37%+）衝擊對當地製造業出口造成相當壓力。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>東南亞在過去兩年承接了大量由中國轉移的製造產能（「China+1」效應），但現在面臨美國對其施加「反迴避（circumvention）」指控及高關稅的壓力，顯示東南亞的貿易轉移紅利正在縮小。泰銖相對穩定，泰國央行（BOT）面臨「低通膨、弱成長」環境，具備降息空間，但外資流動及匯率穩定考量限制了其行動力。</p>
+    </div>
+    <div class="block">
+      <span class="label label-implications">影響觀察 / Implications</span>
+      <p>（分析）ASEAN 與美國的貿易談判走向將是未來數月區域匯率最重要的政策變數之一。若達成部分優惠協議，馬幣（MYR）、泰銖（THB）及越南盾（VND）可能階段性走強，吸引外資重新流入東南亞製造業。新加坡作為東南亞金融中心，MAS 的匯率政策（以管理名目有效匯率為工具）對整體區域流動性具有指標意義。</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-headline">
+      <span class="cn">韓國參加 G7 巴黎數位部長會議，東南亞外資流向因美中競爭格局持續重組</span><span class="divider">/</span>
+      <span class="en">Korea Joins G7 Digital Ministers in Paris; Southeast Asia FDI Patterns Reshape Amid US-China Rivalry</span>
+    </div>
+    <div class="item-source">
+      來源 / Source: <a href="https://www.koreaherald.com/article/10759937" target="_blank">Korea Herald</a> · 2026-05-30 · Nikkei Asia Economy 背景
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實 / Facts</span>
+      <p>韓國出席 G7 巴黎數位部長會議（2026-05-30），議題涵蓋 AI 監管、數位基礎建設及供應鏈韌性。這是東亞國家持續融入西方主導多邊框架的一環。數位部長會議涉及的 AI 治理方向，將對東南亞科技產業的外資吸引力產生間接影響（特別是越南、馬來西亞、新加坡等地的 AI 數據中心投資熱潮）。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>美中科技競爭正加速東南亞在「數位基礎建設」的地緣角色分化：部分國家（越南、菲律賓）傾向美西方陣營；部分（馬來西亞、印尼）仍維持戰略模糊。新加坡在此格局中扮演「兩邊通吃」的樞紐角色，MAS 的穩健金融監管是其吸引外資的核心優勢。</p>
+    </div>
+    <div class="block">
+      <span class="label label-implications">影響觀察 / Implications</span>
+      <p>（分析）G7 數位部長會議若就 AI 晶片出口管制達成協調立場，可能進一步影響台積電、三星等廠商在東南亞的產能配置決策，以及東南亞各國吸引先進製造業投資的競爭格局。</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  <h3>數據來源 / Sources Consulted</h3>
+  <div class="sources-grid" style="margin-top:10px;">
+    <div><a href="https://www.federalreserve.gov/newsevents.htm" target="_blank">Federal Reserve — News &amp; Events</a></div>
+    <div><a href="https://www.federalreserve.gov/newsevents/speech/jefferson20260527a.htm" target="_blank">Fed VP Jefferson Speech (2026-05-27)</a></div>
+    <div><a href="https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm" target="_blank">Fed — Warsh Takes Oath (2026-05-22)</a></div>
+    <div><a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm" target="_blank">FOMC Calendar &amp; Minutes</a></div>
+    <div><a href="https://www.bea.gov/news" target="_blank">BEA — Bureau of Economic Analysis</a></div>
+    <div><a href="https://www.imf.org/en/News" target="_blank">IMF News</a></div>
+    <div><a href="https://www.imf.org/en/news/articles/2026/04/13/pr26117-joint-statement-by-the-heads-iea-imf-wbg" target="_blank">IMF-IEA-WBG Joint Statement (2026-04-13)</a></div>
+    <div><a href="https://www.imf.org/en/news/articles/2026/05/14/cf-how-tax-administration-supported-greeces-economic-recovery" target="_blank">IMF Country Focus — Greece</a></div>
+    <div><a href="https://www.cbc.gov.tw/tw/mp-1.html" target="_blank">台灣中央銀行</a></div>
+    <div><a href="https://www.cbc.gov.tw/tw/cp-302-191322-0bf1d-1.html" target="_blank">CBC — 第20期金融穩定報告</a></div>
+    <div><a href="https://www.boj.or.jp/en/index.htm" target="_blank">Bank of Japan</a></div>
+    <div><a href="https://www.boj.or.jp/en/research/brp/fsr/fsr260421.htm" target="_blank">BOJ Financial System Report (Apr 2026)</a></div>
+    <div><a href="https://www.bok.or.kr/eng/main/main.do" target="_blank">Bank of Korea</a></div>
+    <div><a href="https://www.koreaherald.com/Business" target="_blank">Korea Herald — Business</a></div>
+    <div><a href="https://www.koreaherald.com/article/10760025" target="_blank">Korea Growth Fund article</a></div>
+    <div><a href="https://www.ecb.europa.eu/press/html/index.en.html" target="_blank">ECB Press Publications</a></div>
+    <div><a href="https://www.bangkokpost.com/business" target="_blank">Bangkok Post Business</a></div>
+    <div><a href="https://news.cnyes.com/news/cat/wd_macro" target="_blank">鉅亨網 — 國際政經</a></div>
+    <div><a href="https://news.cnyes.com/news/id/6463819" target="_blank">鉅亨網 — 美股早盤 (2026-05-30)</a></div>
+  </div>
+
+  <div class="caveat">
+    <strong>注意 / Caveat</strong>：部分來源（Reuters Markets、Bloomberg Economics、Financial Times、WSJ Economy、Nikkei Asia Economy）因技術封鎖（HTTP 403 或 blocklist）無法直接存取，相關地區資訊依據可存取之官方央行、IMF、BEA 及 Korea Herald 等來源交叉補充。Bangkok Post 最新可取得資料為 2025-04-25，東南亞部分以背景分析為主，具體 2026-05-30 數據有限。如需更精確即時數字，建議直接查閱 FRED（fred.stlouisfed.org）及各央行官網統計資料庫。
+  </div>
+
+  <div style="margin-top:18px; color: var(--text-dim);">
+    生成時間 / Generated: 2026-05-30 (Asia/Taipei) · 本報告為資訊整理，不構成任何投資建議。
+  </div>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>

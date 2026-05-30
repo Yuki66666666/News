@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日新創新聞日報 / Daily Startup News — 2026-05-30</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3250;
+      --accent: #6c8ef5;
+      --accent2: #a78bfa;
+      --green: #34d399;
+      --yellow: #fbbf24;
+      --red: #f87171;
+      --text: #e2e8f0;
+      --muted: #8892b0;
+      --tag-bg: #1e2a4a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 24px 24px;
+      text-align: center;
+    }
+    header .label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    header h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    header .date {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    /* Section titles */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-title .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: var(--tag-bg);
+      font-size: 13px;
+    }
+
+    /* Card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin-bottom: 14px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .badge {
+      flex-shrink: 0;
+      margin-top: 2px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .badge-seed   { background: #1a3a2a; color: #34d399; }
+    .badge-seriesb { background: #1a2a4a; color: #60a5fa; }
+    .badge-seriesa { background: #1a2a4a; color: #93c5fd; }
+    .badge-seriesd { background: #1e1a4a; color: var(--accent2); }
+    .badge-seriesh { background: #3a1a2a; color: #f472b6; }
+    .badge-launch  { background: #1a2a1a; color: #86efac; }
+    .badge-product { background: #2a1a1a; color: #fca5a5; }
+    .badge-ipo     { background: #1a2a2a; color: #67e8f9; }
+    .badge-regional{ background: #2a1a2a; color: var(--accent2); }
+    .badge-read    { background: #1e1e1e; color: var(--yellow); }
+
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.45;
+    }
+    .card h3 a { color: #fff; }
+    .card h3 a:hover { color: var(--accent); }
+
+    .source-line {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .source-line a { color: var(--accent); font-size: 12px; }
+
+    .fact-block, .context-block, .implication-block {
+      margin-top: 10px;
+      font-size: 13.5px;
+      line-height: 1.7;
+    }
+    .block-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+    .fact-label       { color: var(--green); }
+    .context-label    { color: var(--accent); }
+    .implication-label{ color: var(--yellow); }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      background: var(--tag-bg);
+      color: var(--muted);
+      border-radius: 4px;
+      font-size: 11px;
+      margin: 2px 2px 0 0;
+    }
+
+    /* Top stories highlight */
+    .top-card {
+      background: linear-gradient(135deg, #1a1d27 60%, #1a2440);
+      border: 1px solid #2e4a8a;
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin-bottom: 14px;
+    }
+    .top-card:hover { border-color: var(--accent); }
+
+    /* Amount pill */
+    .amount {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      background: #1a3a4a;
+      color: #67e8f9;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* Summary table */
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+    .summary-table th {
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .summary-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #1a1d27;
+      vertical-align: top;
+    }
+    .summary-table tr:hover td { background: var(--surface2); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    footer strong { color: var(--text); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="label">Daily Briefing</div>
+  <h1>今日新創新聞日報<br><span style="font-size:18px;font-weight:600;color:var(--muted)">Daily Startup News</span></h1>
+  <div class="date">2026-05-30 &nbsp;|&nbsp; Asia/Taipei &nbsp;|&nbsp; 資料涵蓋 2026-05-27 ~ 2026-05-30</div>
+</header>
+
+<div class="container">
+
+  <!-- ===== 1. TOP STORIES ===== -->
+  <div class="section-title"><span class="icon">🔥</span> 頭條 / Top Stories</div>
+
+  <!-- Anthropic $65B -->
+  <div class="top-card">
+    <div class="card-header">
+      <span class="badge badge-seriesh">Series H</span>
+      <h3><a href="https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/" target="_blank">
+        Anthropic 完成 $650 億 Series H，估值逼近 $1 兆，IPO 倒數計時<br>
+        Anthropic Closes $65B Series H at $965B Post-Money Valuation, Likely Final Private Round Before IPO
+      </a></h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/" target="_blank">TechCrunch</a> · 2026-05-28
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">核心事實 / Facts</div>
+      Anthropic 宣布完成 Series H，融資規模 $650 億，post-money 估值 $965 億。由 Altimeter Capital、Dragoneer、Greenoaks、Sequoia Capital、Capital Group、Coatue、D1 Capital Partners 聯合領投；Baillie Gifford、Blackstone、Brookfield、D.E. Shaw、DST Global、Fidelity 等機構跟投；Samsung、SK Hynix、Micron 作為戰略基礎設施夥伴參與其中。其中 $150 億來自 Amazon（含 4 月已公告的 $50 億）等超大型雲端業者的先前承諾。Anthropic 目前年化收入突破 $470 億，本季有望首度實現運營獲利（WSJ 報導）。
+    </div>
+    <div class="context-block">
+      <div class="block-label context-label">背景脈絡 / Context</div>
+      Anthropic 成立於 2021 年，由前 OpenAI 核心成員 Dario 與 Daniela Amodei 創立，定位「安全第一」的 AI 實驗室。同日發布 Claude Opus 4.8，主打 agentic 任務與代碼能力。本輪融資創下史上最大私募 AI 輪之一，緊追 OpenAI 3 月完成的 $1,220 億輪（估值 $8,520 億）。SpaceX 正籌備逾 $750 億 IPO，目標估值 $2 兆，預計 6 月掛牌，此後 OpenAI 與 Anthropic 的 IPO 備受矚目。
+    </div>
+    <div class="implication-block">
+      <div class="block-label implication-label">影響觀察 / Implications</div>
+      AI 融資規模進入「準國家預算」等級，對其他 AI 新創的估值有正向示範效應，但也加劇 LP 對估值泡沫的疑慮。Anthropic 能否在 IPO 後維持 60x+ 的收入倍數，取決於 Claude Code 企業滲透率與 API 成長能否持續。
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">AI lab</span><span class="tag">IPO pipeline</span><span class="tag">mega-round</span>
+    </div>
+  </div>
+
+  <!-- Cognition $1B -->
+  <div class="top-card">
+    <div class="card-header">
+      <span class="badge badge-seriesb">Late Stage</span>
+      <h3><a href="https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/" target="_blank">
+        AI 程式開發公司 Cognition 完成 $10 億融資，估值 $250 億<br>
+        Cognition (Devin) Raises $1B at $25B Pre-Money Valuation
+      </a></h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/" target="_blank">TechCrunch</a> · 2026-05-27
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">核心事實 / Facts</div>
+      Cognition — AI 自主軟體工程師 Devin 的開發商 — 完成逾 $10 億融資，pre-money 估值 $250 億。由 Lux Capital 與 General Catalyst 領投，跟投方包括 Founders Fund、8VC、Ribbit Capital、Atreides、Layer Global。年化收入達 $4.92 億，企業端 Devin 使用量過去六個月月增 50%；客戶包含 Mercedes-Benz、NASA、Goldman Sachs、Santander。
+    </div>
+    <div class="context-block">
+      <div class="block-label context-label">背景脈絡 / Context</div>
+      8 個月前 Cognition 於 $102 億 post-money 完成 $4 億輪；本輪估值倍增以上。Cognition 去年收購 Windsurf 餘下資產，整合後在企業市場已與 Anthropic Claude Code、OpenAI Codex、Google Jules 直接競爭。
+    </div>
+    <div class="implication-block">
+      <div class="block-label implication-label">影響觀察 / Implications</div>
+      頂級 VC 願意以如此高估值支持獨立 AI coding 新創，說明資本市場仍相信此賽道不會被模型廠完全壟斷。但 $4.92 億 ARR 對應 $250 億 pre-money 意味 50x+ 倍數，IPO 前需要持續增長才能撐住。
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">AI coding</span><span class="tag">autonomous agent</span><span class="tag">enterprise</span>
+    </div>
+  </div>
+
+  <!-- Corgi $106M -->
+  <div class="top-card">
+    <div class="card-header">
+      <span class="badge badge-seriesb">Series B1</span>
+      <h3><a href="https://techcrunch.com/2026/05/28/corgi-announces-106m-raise-at-2-6b-valuation-three-weeks-after-160m-series-b/" target="_blank">
+        Insurtech 新創 Corgi 三週內兩度融資，估值從 $13 億飆至 $26 億<br>
+        Insurtech Corgi Doubles Valuation to $2.6B in Three Weeks with $106M Series B1
+      </a></h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://techcrunch.com/2026/05/28/corgi-announces-106m-raise-at-2-6b-valuation-three-weeks-after-160m-series-b/" target="_blank">TechCrunch</a> · 2026-05-28
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">核心事實 / Facts</div>
+      Corgi（2024 年創立，co-founders Emily Yuan & Nico Laqua）完成 $1.06 億 Series B1，post-money 估值 $26 億。僅三週前剛宣布 $1.6 億 Series B（估值 $13 億），四個月前完成 $1.08 億 Series A。本輪投資方包含 Kindred Ventures、Prime Capital、Leblon Capital、Alumni Ventures、Y Combinator，與 B 輪相同。累計融資 $3.78 億。
+    </div>
+    <div class="context-block">
+      <div class="block-label context-label">背景脈絡 / Context</div>
+      Corgi 提供新創專屬商業保險（含 tech、cyber、general liability、AI 責任險），客戶包括 Deel、Artisan 等。競品 Vouch（YC 背書）在同一賽道。三週雙輪、估值翻倍的操作在 LP 圈引發質疑：同一批投資人自行標高估值是否可信？
+    </div>
+    <div class="implication-block">
+      <div class="block-label implication-label">影響觀察 / Implications</div>
+      此案凸顯當前市場「內部加碼」(internal markup) 問題：若無真實流動性事件，LP 對「紙上估值」的信心正在下滑。Kindred 表示營收成長支持本次重新定價，但缺乏具體數字揭露。AI 責任險是真實新興需求，但融資結構值得持續觀察。
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">insurtech</span><span class="tag">AI liability</span><span class="tag">startup insurance</span>
+    </div>
+  </div>
+
+  <!-- ===== 2. FUNDING ROUNDS ===== -->
+  <div class="section-title"><span class="icon">💰</span> 募資 / Funding Rounds</div>
+
+  <!-- H1 $40M -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-seriesb">Strategic</span>
+      <h3><a href="https://techcrunch.com/2026/05/28/h1-secures-40m-from-cvs-proving-saas-startups-can-still-attract-investment/" target="_blank">
+        醫療資料平台 H1 獲 CVS 領投 $4,000 萬，獲利中的 SaaS 反擊 AI 威脅<br>
+        Healthcare Data Platform H1 Raises $40M Led by CVS Health Ventures
+      </a></h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://techcrunch.com/2026/05/28/h1-secures-40m-from-cvs-proving-saas-startups-can-still-attract-investment/" target="_blank">TechCrunch</a> · 2026-05-28
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">核心事實 / Facts</div>
+      H1（醫師資料平台，成立逾 9 年，CEO Ariel Katz）獲 CVS Health Ventures（CVS/Aetna 旗下 CVC）領投 $4,000 萬戰略輪。公司去年達到現金流與 EBITDA 雙獲利，2026 年預計成長超過 40%。最近一輪估值為 2021 年 $7.5 億（Altimeter 領投 $1 億輪），本輪估值 undisclosed。
+    </div>
+    <div class="context-block">
+      <div class="block-label context-label">背景脈絡 / Context</div>
+      H1 銷售全球醫師詳細資料予藥廠、醫療系統與保險公司。Katz 論點：純工作流程 SaaS 可被 AI 取代，但資料護城河難以複製。公司成長路徑包含收購競品（Veda）與互補業務（Ribbon, backed by a16z/General Catalyst）。
+    </div>
+    <div class="implication-block">
+      <div class="block-label implication-label">影響觀察 / Implications</div>
+      CVS 此輪是「戰略 + 財務」雙重佈局，可能為 H1 打開 Aetna 客戶管道。SaaS 公司的生存之道正在分化：純工作流程面臨 AI 威脅，資料壁壘型公司仍具吸引力。
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">healthtech</span><span class="tag">data platform</span><span class="tag">SaaS</span><span class="tag">CVC</span>
+    </div>
+  </div>
+
+  <!-- Triomics $22M -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-seriesb">Series B</span>
+      <h3><a href="https://techcrunch.com/2026/05/27/triomics-nabs-22m-to-bring-oncology-specific-ai-to-cancer-centers/" target="_blank">
+        腫瘤科 AI 新創 Triomics 完成 $2,200 萬 Series B，ARR 年增 10 倍<br>
+        Triomics Raises $22M Series B to Bring Oncology-Specific AI to Cancer Centers
+      </a></h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://techcrunch.com/2026/05/27/triomics-nabs-22m-to-bring-oncology-specific-ai-to-cancer-centers/" target="_blank">TechCrunch</a> · 2026-05-27
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">核心事實 / Facts</div>
+      Triomics（2021 年創立，co-founders Sarim Khan & Hrituraj Singh）獲 Battery Ventures 領投 $2,200 萬 Series B；跟投：Nexus Venture Partners、Lightspeed、Y Combinator。2024 年中完成 $1,500 萬 Series A。企業客戶過去一年增加 4 倍，ARR 成長 10 倍（金額 undisclosed）。客戶包含 Memorial Sloan Kettering（MSK）、Yale Cancer Center。
+    </div>
+    <div class="context-block">
+      <div class="block-label context-label">背景脈絡 / Context</div>
+      Triomics 的 AI 平台幫助腫瘤科醫師自動化臨床試驗配對、病歷摘要、腫瘤登記申報等資料密集任務。腫瘤病歷動輒千頁，LLM 能力提升讓其功能大幅擴張。主要競品：Abridge、Microsoft Nuance（AI 醫療謄寫）。
+    </div>
+    <div class="implication-block">
+      <div class="block-label implication-label">影響觀察 / Implications</div>
+      Vertical AI（垂直領域 AI）優於通用模型的論點在腫瘤科得到驗證：MSK 等頂尖機構選擇 oncology-specific 訓練模型，而非通用 GPT。此模式為其他垂直醫療 AI 新創提供參考。
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">healthtech</span><span class="tag">oncology</span><span class="tag">vertical AI</span><span class="tag">clinical trials</span>
+    </div>
+  </div>
+
+  <!-- SOND stealth $7M -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-seed">Seed</span>
+      <h3>
+        前 Bose 睡眠主管創立 SOND，攜 $700 萬出關<br>
+        SOND Sleep Tech Startup Founded by Bose's Former Head of Sleep Exits Stealth with $7M
+      </h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://techcrunch.com/2026/05/27/sond-a-sleep-tech-startup-from-boses-former-head-of-sleep-exits-stealth-with-7m/" target="_blank">TechCrunch</a> · 2026-05-27
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">核心事實 / Facts</div>
+      SOND 由前 Bose 睡眠部門負責人創立，完成 $700 萬種子輪（lead investor undisclosed），今日出關。產品方向：睡眠技術硬體。
+    </div>
+    <div class="implication-block">
+      <div class="block-label implication-label">影響觀察 / Implications</div>
+      睡眠健康與穿戴式硬體賽道持續吸引大廠離職創業；Oura 近期申請上市為此賽道注入信心。
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">hardware</span><span class="tag">sleep tech</span><span class="tag">stealth-out</span>
+    </div>
+  </div>
+
+  <!-- OpenRouter $1.3B -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-seriesb">Late Stage</span>
+      <h3>
+        AI 路由平台 OpenRouter 估值一年內翻倍至 $13 億<br>
+        OpenRouter More Than Doubles Valuation to $1.3B in a Year
+      </h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://techcrunch.com/2026/05/26/openrouter-more-than-doubles-valuation-to-1-3b-in-a-year/" target="_blank">TechCrunch</a> · 2026-05-26
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">核心事實 / Facts</div>
+      OpenRouter（AI 模型路由平台）最新估值達 $13 億，一年前估值 undisclosed 但已達獨角獸前段。輪次規模 undisclosed。OpenRouter 允許開發者以單一 API 調用多家 LLM 模型。
+    </div>
+    <div class="implication-block">
+      <div class="block-label implication-label">影響觀察 / Implications</div>
+      AI 基礎設施中間層（aggregation/routing）是低調但快速成長的賽道；LLM 模型激增讓路由工具需求持續攀升。
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">AI infra</span><span class="tag">LLM routing</span><span class="tag">developer tools</span>
+    </div>
+  </div>
+
+  <!-- Meadow $9M -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-seed">Seed</span>
+      <h3>
+        Stripe 前員工創辦線上喪葬規劃平台 Meadow，獲 $900 萬<br>
+        Meadow (Online Funeral Planning) Founded by Stripe Alum Raises $9M Seed
+      </h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://news.crunchbase.com/venture/stripe-alum-raises-online-funeral-planning-startup-meadow/" target="_blank">Crunchbase News</a> · 2026-03-18
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">核心事實 / Facts</div>
+      Meadow 由 Stripe 前員工創辦，提供線上喪葬規劃 SaaS，完成 $900 萬種子輪（lead investor undisclosed）。產品結合 fintech 與家庭生命規劃，解決傳統喪葬產業的資訊不透明問題。
+    </div>
+    <div class="implication-block">
+      <div class="block-label implication-label">影響觀察 / Implications</div>
+      Death-tech / end-of-life planning 在美正逐漸去污名化，大型保險與遺產規劃平台的整合商機浮現。
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">fintech</span><span class="tag">death-tech</span><span class="tag">SaaS</span>
+    </div>
+  </div>
+
+  <!-- ===== 3. LAUNCHES ===== -->
+  <div class="section-title"><span class="icon">🚀</span> 新公司發表 / Launches &amp; Stealth-Out</div>
+
+  <!-- Sesame iOS -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-launch">Public Launch</span>
+      <h3><a href="https://techcrunch.com/2026/05/28/sesame-the-conversational-ai-startup-from-oculus-founders-launches-its-ios-app/" target="_blank">
+        Oculus 創辦人打造的對話 AI Sesame 推出 iOS App，已超過百萬 Beta 用戶<br>
+        Sesame (from Oculus Founders) Launches iOS App for Conversational AI Agents
+      </a></h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://techcrunch.com/2026/05/28/sesame-the-conversational-ai-startup-from-oculus-founders-launches-its-ios-app/" target="_blank">TechCrunch</a> · 2026-05-28
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">核心事實 / Facts</div>
+      Sesame（由 Oculus 創辦人及前 Meta VR 核心成員創立，2025 年 10 月完成 $2.5 億 Series B，Sequoia 領投）今日推出 iOS App 公開預覽版，覆蓋 39 個國家，免費使用（短期內）。App 提供 4 位 AI agents（Maya、Miles、Simone、Charlie），各具獨特語音、個性與記憶，支援 incognito 模式。Beta 期間超過百萬用戶在數週內使用。
+    </div>
+    <div class="context-block">
+      <div class="block-label context-label">背景脈絡 / Context</div>
+      Sesame 的核心技術突破是讓 AI 在回答時能「邊說邊思考」——平行執行多個搜尋，邊說邊植入最新資訊，讓對話更像真人。Android 版預告中。2027 年計畫推出 AI 智慧眼鏡。
+    </div>
+    <div class="implication-block">
+      <div class="block-label implication-label">影響觀察 / Implications</div>
+      語音 AI agent 賽道大戰正式點燃：ChatGPT Advanced Voice、Hume、ElevenLabs Agents 皆是競品。硬體（智慧眼鏡）路線圖說明 Sesame 的目標是建立從軟體到終端設備的完整生態。
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">conversational AI</span><span class="tag">voice agent</span><span class="tag">iOS</span><span class="tag">Sequoia</span>
+    </div>
+  </div>
+
+  <!-- Bluesky long-form -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-product">Product</span>
+      <h3><a href="https://techcrunch.com/2026/05/28/bluesky-embraces-long-form-content-to-counter-x-articles/" target="_blank">
+        Bluesky 推出長文功能，直接對標 X Articles<br>
+        Bluesky Embraces Long-Form Content to Counter X Articles
+      </a></h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://techcrunch.com/2026/05/28/bluesky-embraces-long-form-content-to-counter-x-articles/" target="_blank">TechCrunch</a> · 2026-05-28
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">核心事實 / Facts</div>
+      Bluesky 推出長文功能，讓用戶可發布超過字元上限的文章，直接與 X（前 Twitter）的 Articles 功能競爭。Bluesky 目前仍私人公司，上一輪融資為 2024 年 $1,500 萬。
+    </div>
+    <div class="implication-block">
+      <div class="block-label implication-label">影響觀察 / Implications</div>
+      去中心化社群媒體平台正在系統性地縮小與 X 之間的功能差距，長文是內容創作者遷移的關鍵因素。
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">social media</span><span class="tag">decentralized</span><span class="tag">content</span>
+    </div>
+  </div>
+
+  <!-- ===== 4. NOTABLE PRODUCTS ===== -->
+  <div class="section-title"><span class="icon">📦</span> 產品大事 / Notable Product Launches</div>
+
+  <!-- Product Hunt Today -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-product">Product Hunt</span>
+      <h3>今日 Product Hunt 熱門 / Today's Top PH Launches (2026-05-30)</h3>
+    </div>
+    <div style="margin-top:8px">
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>排名</th>
+            <th>產品</th>
+            <th>定位</th>
+            <th>票數</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#1</td>
+            <td><strong>Ava 2.0</strong> (Artisan)</td>
+            <td>AI BDR — 自主運行外銷流程</td>
+            <td>293</td>
+          </tr>
+          <tr>
+            <td>#2</td>
+            <td><strong>/monitor by Firecrawl</strong></td>
+            <td>網頁變動偵測，通知 AI agent</td>
+            <td>248</td>
+          </tr>
+          <tr>
+            <td>#3</td>
+            <td><strong>Ava Studio</strong></td>
+            <td>AI 影音廣告創意團隊</td>
+            <td>207</td>
+          </tr>
+          <tr>
+            <td>#4</td>
+            <td><strong>Agent A by Ahrefs</strong></td>
+            <td>Ahrefs 資料驅動的 AI 行銷 agent</td>
+            <td>194</td>
+          </tr>
+          <tr>
+            <td>#5</td>
+            <td><strong>MCP Bridge by Appfactor</strong></td>
+            <td>將任何 API 接入任何 AI agent</td>
+            <td>176</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size:13px;color:var(--muted)">
+        <strong>觀察：</strong>今日 PH 榜單高度集中於 AI agent 基礎設施（MCP、工作流程自動化）與銷售 / 行銷 AI 工具。Artisan 的 Ava 2.0 蟬聯強勢，反映 AI BDR 市場加速。
+      </div>
+    </div>
+  </div>
+
+  <!-- Waymo new robotaxi -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-product">Product Launch</span>
+      <h3><a href="https://techcrunch.com/2026/05/28/waymos-newest-robotaxi-is-chinese-made-built-to-make-money-and-now-accepting-riders/" target="_blank">
+        Waymo 最新無人計程車由中國製造，已開始接單<br>
+        Waymo's Newest Robotaxi Is Chinese-Made, Built to Make Money, Now Accepting Riders
+      </a></h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://techcrunch.com/2026/05/28/waymos-newest-robotaxi-is-chinese-made-built-to-make-money-and-now-accepting-riders/" target="_blank">TechCrunch</a> · 2026-05-28
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">核心事實 / Facts</div>
+      Waymo 推出最新一代機器人計程車，車體由中國廠商製造（Zeekr），定位「可獲利」的商用車款，已在特定市場開放乘客預約。
+    </div>
+    <div class="implication-block">
+      <div class="block-label implication-label">影響觀察 / Implications</div>
+      Waymo 轉向低成本中國代工車體，顯示自動駕駛公司正從「技術展示」轉向「成本結構優化」；中美供應鏈合作在 AV 領域的政治敏感性值得關注。
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">autonomy</span><span class="tag">robotaxi</span><span class="tag">Waymo</span>
+    </div>
+  </div>
+
+  <!-- ===== 5. IPO PIPELINE ===== -->
+  <div class="section-title"><span class="icon">📈</span> 上市進程 / IPO Pipeline</div>
+
+  <!-- ClickHouse IPO -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-ipo">IPO prep</span>
+      <h3><a href="https://techcrunch.com/2026/05/27/clickhouse-triples-annualized-revenue-to-250m-charting-a-path-toward-an-ipo/" target="_blank">
+        ClickHouse 年化收入三倍增至 $2.5 億，明確計畫數年內 IPO<br>
+        ClickHouse Triples Annualized Revenue to $250M, Charting Path Toward IPO
+      </a></h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://techcrunch.com/2026/05/27/clickhouse-triples-annualized-revenue-to-250m-charting-a-path-toward-an-ipo/" target="_blank">TechCrunch</a> · 2026-05-27
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">核心事實 / Facts</div>
+      ClickHouse（資料庫服務商，源自 Yandex，2021 年獨立）年化收入突破 $2.5 億，過去一年三倍成長，預計年底達高九位數。2026 年 1 月估值 $150 億（Series D $4 億，Dragoneer 領投）。估值倍數逾 60x ARR。已聘前 Snowflake IR 主管為 CFO（上市籌備明確信號）。已完成 6 起收購，含 AI agent 追蹤工具 Langfuse。
+    </div>
+    <div class="context-block">
+      <div class="block-label context-label">背景脈絡 / Context</div>
+      ClickHouse 的 OLAP（線上分析處理）資料庫原生適合 AI agent 處理的大型資料集。競品 Snowflake 是最直接的參照系；ClickHouse 以開源戰略滲透市場後再轉化為雲服務收入。4,000+ 客戶包含 Anthropic、Meta、Capital One。
+    </div>
+    <div class="implication-block">
+      <div class="block-label implication-label">影響觀察 / Implications</div>
+      SpaceX 6 月上市有望打開 IPO 窗口，後續 Anthropic、OpenAI 的 IPO 計畫讓 AI 基礎設施股形成板塊效應。ClickHouse 的時機掌握若準確，估值倍數有機會在公開市場獲得支撐。
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">database</span><span class="tag">AI infra</span><span class="tag">IPO candidate</span><span class="tag">open source</span>
+    </div>
+  </div>
+
+  <!-- Oura IPO -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-ipo">S-1 Filed</span>
+      <h3>
+        智慧戒指 Oura 申請上市<br>
+        Smart Ring Maker Oura Files to Go Public
+      </h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://techcrunch.com/2026/05/22/smart-ring-maker-oura-files-to-go-public/" target="_blank">TechCrunch</a> · 2026-05-22
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">核心事實 / Facts</div>
+      Oura（芬蘭睡眠追蹤智慧戒指，估值 undisclosed in filing）已提交 IPO 申請文件。公司以訂閱制硬體為核心商業模式，近年快速擴張用戶基礎。
+    </div>
+    <div class="implication-block">
+      <div class="block-label implication-label">影響觀察 / Implications</div>
+      穿戴式健康硬體賽道繼 Apple Watch 後的獨立 IPO 稀缺，Oura 若成功上市將成為同賽道新創的重要估值參照。
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">wearable</span><span class="tag">health hardware</span><span class="tag">S-1</span>
+    </div>
+  </div>
+
+  <!-- Swarmer IPO -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-ipo">IPO Day</span>
+      <h3>
+        AI 無人機公司 Swarmer 掛牌首日股價暴漲 520%，帶動 Defense Tech IPO 浪潮<br>
+        Swarmer (AI Drone) Soars 520% on Nasdaq Debut, Paving Way for Defense Tech IPOs
+      </h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://news.crunchbase.com/public/potential-defense-tech-ipo-candidates-swmr/" target="_blank">Crunchbase News</a> · 近期
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">核心事實 / Facts</div>
+      AI 無人機公司 Swarmer 在 Nasdaq 掛牌首日暴漲 520%，成為近期最受矚目的 defense tech IPO。Crunchbase News 因此整理出 12 家潛在 defense tech IPO 候選公司。
+    </div>
+    <div class="implication-block">
+      <div class="block-label implication-label">影響觀察 / Implications</div>
+      Defense tech 估值倍數持續拉升，Anduril、Shield AI 等知名公司 IPO 時機可能提前。地緣政治環境持續為 defense 新創提供有利基本面。
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">defense tech</span><span class="tag">drone</span><span class="tag">IPO</span>
+    </div>
+  </div>
+
+  <!-- ===== 6. REGIONAL ===== -->
+  <div class="section-title"><span class="icon">🌏</span> 區域 / Regional Spotlight</div>
+
+  <!-- Paris AI hub -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-regional">Europe</span>
+      <h3><a href="https://techcrunch.com/2026/05/28/why-paris-may-be-the-most-important-ai-city-outside-silicon-valley/" target="_blank">
+        巴黎正成為矽谷以外最重要的 AI 城市<br>
+        Paris May Be the Most Important AI City Outside Silicon Valley
+      </a></h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://techcrunch.com/2026/05/28/why-paris-may-be-the-most-important-ai-city-outside-silicon-valley/" target="_blank">TechCrunch</a> · 2026-05-28
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">核心事實 / Facts</div>
+      法國透過大規模投資 AI 研究與基礎設施，加上 Mistral AI 等公司的崛起，巴黎已成為全球 AI 政策、企業部署與新創生態的重要匯聚點。VivaTech 2026（6 月 17-20 日，巴黎）舉辦 10 周年，TechCrunch 合作設立「VivaTech Innovation of the Year」，勝者獲 Disrupt 2026 展示資格。
+    </div>
+    <div class="implication-block">
+      <div class="block-label implication-label">影響觀察 / Implications</div>
+      歐洲新創生態正在成熟：創辦人越來越願意在本地擴張，而非立刻搬往美國。法國的主權 AI 路線（Mistral）為其他民主國家提供了一個可參考的非美模版。
+    </div>
+    <div style="margin-top:10px">
+      <span class="tag">Europe</span><span class="tag">France</span><span class="tag">Mistral AI</span><span class="tag">VivaTech</span>
+    </div>
+  </div>
+
+  <!-- ===== 7. READS ===== -->
+  <div class="section-title"><span class="icon">📖</span> 觀點 / Reads Worth Bookmarking</div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-read">Read</span>
+      <h3><a href="https://news.crunchbase.com/public/pwc-bellin-qa-2026-ipo-timing-secondary-boom/" target="_blank">
+        PwC 美國 IPO 主管：是什麼讓 2026 IPO 市場卡關？二級市場熱潮又代表什麼？<br>
+        PwC's US IPO Lead on the 2026 Outlook, IPO Timing, and the Secondary Boom
+      </a></h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://news.crunchbase.com/public/pwc-bellin-qa-2026-ipo-timing-secondary-boom/" target="_blank">Crunchbase News</a>
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">為何值得讀</div>
+      PwC 的 Mike Bellin 拆解 2026 IPO 市場的阻力（宏觀不確定性、估值期望落差）與催化劑（SpaceX 掛牌、AI unicorn queue）。二級市場成交量暴升說明大量資金在等待流動性，是判斷 IPO 視窗何時打開的重要先行指標。
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-read">Read</span>
+      <h3><a href="https://news.crunchbase.com/ma/data-small-midsized-venture-backed-startup-acquisitions/" target="_blank">
+        中小型新創併購量仍遠低於 2021 年高峰 — 哪些力量在壓制 M&amp;A？<br>
+        Small and Mid-Sized Startup Acquisitions Still Well Below the 2021 Peak
+      </a></h3>
+    </div>
+    <div class="source-line">
+      來源: <a href="https://news.crunchbase.com/ma/data-small-midsized-venture-backed-startup-acquisitions/" target="_blank">Crunchbase News</a>
+    </div>
+    <div class="fact-block">
+      <div class="block-label fact-label">為何值得讀</div>
+      數據顯示中小型 venture-backed 新創被收購數量仍大幅低於 2021 年峰值。高利率環境、大廠反壟斷審查壓力、以及估值期望落差共同抑制 M&A 活動。對於尋求退場的早期投資人而言，這是重要的現實校準。
+    </div>
+  </div>
+
+  <!-- ===== SUMMARY TABLE ===== -->
+  <div class="section-title"><span class="icon">📋</span> 今日募資速覽 / Funding Summary</div>
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>公司</th>
+        <th>輪次</th>
+        <th>金額</th>
+        <th>估值</th>
+        <th>領投</th>
+        <th>賽道</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Anthropic</strong></td>
+        <td>Series H</td>
+        <td>$65B</td>
+        <td>$965B (post)</td>
+        <td>Altimeter, Sequoia, Dragoneer...</td>
+        <td>AI lab</td>
+      </tr>
+      <tr>
+        <td><strong>Cognition (Devin)</strong></td>
+        <td>Late stage</td>
+        <td>$1B+</td>
+        <td>$25B (pre)</td>
+        <td>Lux Capital, General Catalyst</td>
+        <td>AI coding</td>
+      </tr>
+      <tr>
+        <td><strong>Corgi</strong></td>
+        <td>Series B1</td>
+        <td>$106M</td>
+        <td>$2.6B (post)</td>
+        <td>Kindred Ventures</td>
+        <td>Insurtech</td>
+      </tr>
+      <tr>
+        <td><strong>H1</strong></td>
+        <td>Strategic</td>
+        <td>$40M</td>
+        <td>undisclosed</td>
+        <td>CVS Health Ventures</td>
+        <td>Health data</td>
+      </tr>
+      <tr>
+        <td><strong>Triomics</strong></td>
+        <td>Series B</td>
+        <td>$22M</td>
+        <td>undisclosed</td>
+        <td>Battery Ventures</td>
+        <td>Oncology AI</td>
+      </tr>
+      <tr>
+        <td><strong>OpenRouter</strong></td>
+        <td>undisclosed</td>
+        <td>undisclosed</td>
+        <td>$1.3B</td>
+        <td>undisclosed</td>
+        <td>AI infra</td>
+      </tr>
+      <tr>
+        <td><strong>SOND</strong></td>
+        <td>Seed</td>
+        <td>$7M</td>
+        <td>undisclosed</td>
+        <td>undisclosed</td>
+        <td>Sleep tech</td>
+      </tr>
+      <tr>
+        <td><strong>Meadow</strong></td>
+        <td>Seed</td>
+        <td>$9M</td>
+        <td>undisclosed</td>
+        <td>undisclosed</td>
+        <td>Death-tech</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <div>今日新創新聞日報 / Daily Startup News — <strong>2026-05-30</strong></div>
+  <div style="margin-top:8px;color:var(--muted)">
+    來源 / Sources:
+    <a href="https://techcrunch.com" target="_blank">TechCrunch</a> ·
+    <a href="https://news.crunchbase.com" target="_blank">Crunchbase News</a> ·
+    <a href="https://www.producthunt.com" target="_blank">Product Hunt</a>
+  </div>
+  <div style="margin-top:6px;color:var(--muted);font-size:11px">
+    付費牆 / Paywalled sources: The Information, PitchBook, Bloomberg, WSJ (cited by secondary sources only)<br>
+    免責聲明：分析為作者觀點，非投資建議。
+  </div>
+</footer>
+
+</body>
+</html>

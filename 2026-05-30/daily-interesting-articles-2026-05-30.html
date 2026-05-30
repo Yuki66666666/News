@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日有趣文章日報 · 2026-05-30</title>
+  <style>
+    :root {
+      --bg: #f9f7f4;
+      --card: #ffffff;
+      --border: #e8e3dc;
+      --accent: #2d6a4f;
+      --accent-light: #e8f4ee;
+      --text: #1a1a1a;
+      --text-muted: #6b7280;
+      --tag-ai: #dbeafe;
+      --tag-ai-text: #1e40af;
+      --tag-biz: #fef3c7;
+      --tag-biz-text: #92400e;
+      --tag-sci: #d1fae5;
+      --tag-sci-text: #065f46;
+      --tag-culture: #f3e8ff;
+      --tag-culture-text: #6b21a8;
+      --tag-psych: #ffe4e6;
+      --tag-psych-text: #9f1239;
+      --tag-history: #e0e7ff;
+      --tag-history-text: #3730a3;
+      --tag-tl: #fff7ed;
+      --tag-tl-text: #9a3412;
+      --badge-bg: #f3f4f6;
+      --badge-text: #374151;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 24px 16px 60px;
+    }
+    .container { max-width: 820px; margin: 0 auto; }
+
+    /* Header */
+    .header {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 18px;
+      margin-bottom: 32px;
+    }
+    .header-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .header h1 { font-size: 26px; font-weight: 700; margin-bottom: 4px; }
+    .header-date { color: var(--text-muted); font-size: 13px; }
+    .header-desc { color: var(--text-muted); font-size: 14px; margin-top: 8px; }
+
+    /* Track separator */
+    .track-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 40px 0 20px;
+    }
+    .track-header h2 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .track-header hr {
+      flex: 1;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Section heading */
+    .section-heading {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 28px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-heading::after {
+      content: "";
+      flex: 1;
+      border-top: 1px dashed var(--border);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 24px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .card:hover { border-color: var(--accent); transition: border-color 0.2s; }
+
+    .card-title {
+      font-size: 16.5px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .card-title a { color: inherit; text-decoration: none; }
+    .card-title a:hover { color: var(--accent); text-decoration: underline; }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+    .badge.ai { background: var(--tag-ai); color: var(--tag-ai-text); }
+    .badge.biz { background: var(--tag-biz); color: var(--tag-biz-text); }
+    .badge.sci { background: var(--tag-sci); color: var(--tag-sci-text); }
+    .badge.culture { background: var(--tag-culture); color: var(--tag-culture-text); }
+    .badge.psych { background: var(--tag-psych); color: var(--tag-psych-text); }
+    .badge.history { background: var(--tag-history); color: var(--tag-history-text); }
+    .badge.tl { background: var(--tag-tl); color: var(--tag-tl-text); }
+    .badge.pick { background: #fef08a; color: #713f12; font-weight: 700; }
+
+    .field-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 12px;
+      margin-bottom: 3px;
+    }
+    .field-body { font-size: 14px; line-height: 1.65; color: #2c2c2c; }
+    .field-body strong { color: var(--accent); }
+
+    .why-badge {
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 5px;
+      padding: 8px 12px;
+      font-size: 13px;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    /* Editor pick highlight */
+    .card.editor-pick {
+      border-left: 4px solid #f59e0b;
+      background: linear-gradient(to right, #fffbeb 0%, #ffffff 40%);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 52px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .footer strong { color: var(--text); }
+
+    @media (max-width: 600px) {
+      .card { padding: 16px; }
+      .header h1 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ===== HEADER ===== -->
+  <div class="header">
+    <div class="header-label">Daily Interesting Articles</div>
+    <h1>今日有趣文章日報 / Reads of the Day</h1>
+    <div class="header-date">2026-05-30 (Asia/Taipei) · 8 Track A + 4 Track B</div>
+    <div class="header-desc">
+      精選值得讀的長文、深度研究與思想領袖觀點。質勝量：寧可 5 篇精選，也不要 12 篇平庸。<br>
+      Quality over quantity: a hand-picked curation of essays, research and practitioner insight across tech, culture, science and beyond.
+    </div>
+  </div>
+
+  <!-- ============================= -->
+  <!--  TRACK A — Longform Essays    -->
+  <!-- ============================= -->
+  <div class="track-header">
+    <h2>Track A — 長文精選 / Longform Essays</h2>
+    <hr />
+  </div>
+
+  <!-- 1. EDITOR'S PICK -->
+  <div class="section-heading">1 · 編輯精選 / Editor's Pick</div>
+
+  <div class="card editor-pick">
+    <div class="card-title">
+      <span class="badge pick">今日精選 Today's Pick</span><br />
+      <a href="https://www.astralcodexten.com/p/book-review-the-dialectical-imagination" target="_blank">
+        法蘭克福學派，以及你不被允許說的那些事 / Book Review: The Dialectical Imagination
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="badge history">歷史 · 哲學</span>
+      Astral Codex Ten · Scott Alexander · 2026-05-29 · 約 35 min
+      · <a href="https://www.astralcodexten.com/p/book-review-the-dialectical-imagination" target="_blank">連結</a>
+    </div>
+    <div class="why-badge">
+      為什麼值得讀：Scott Alexander 是當今英文世界最能把複雜思想寫清楚的作者之一。這篇書評橫跨負辯證法、Zen、異化理論、法蘭克福學派對爵士樂的憤怒批判，最後還問了一個真正嚴肅的問題——如果人類靈魂從無線電時代就開始走下坡，那根本沒有 TikTok 可怪。篇幅長但每一段都值得停下來想。
+    </div>
+    <div class="field-label">摘要 / Summary</div>
+    <div class="field-body">
+      Scott Alexander 閱讀了 Martin Jay 的《辯證的想像力》，那本關於法蘭克福學派（Horkheimer、Adorno、Marcuse 等人）的標準史書，試圖回答一個問題：維基百科警告你不能說的那些事——「文化馬克思主義」、「霸占制度的長征」——和這些人的關係到底是什麼？答案比陰謀論和辯護詞都更有趣：法蘭克福學派刻意選擇不試圖直接改變社會，而是做「怪誕神秘的藝術批評」，等待歷史自己相變。他們的核心比喻是托瑪斯·孔恩的典範轉移：你不能直接坐下來「發明」共產主義，就像原始部落不能直接發明資本主義一樣。馬庫塞是最好懂的一位，卻仍然不忘把一切連結到「多型態的身體情慾」。Alexander 承認，在法蘭克福學派看來，他自己的困惑恰恰是晚期資本主義作用的證明。<br><br>
+      <em>Alexander reads Jay's canonical history of the Frankfurt School and tries to answer: what exactly is the relationship between these thinkers and "Cultural Marxism"? The real story is stranger than either accusation or defence: the School deliberately refused to propose practical reform, preferring mystical art criticism in the hope that history would phase-transition on its own — a Kuhnian paradigm shift in human affairs. Marcuse is the least weird member, yet still connects everything to "polymorphous eroticism of the body."</em>
+    </div>
+    <div class="field-label">核心觀點 / Key Takeaway</div>
+    <div class="field-body">
+      他們相信現有社會的矛盾要先被「批判」地揭露，歷史才能自行解鎖；任何過快的改革都會淪為「貨物崇拜式共產主義」。諷刺的是，這個「只批判不建設」的態度，後來確實滲透進了現代左派的許多行動邏輯。<br>
+      <em>Their conviction: only by relentlessly exposing contradictions could history unlock itself; any premature fix is a cargo cult. This "critique without construction" stance ironically became the operating logic of much later progressive activism.</em>
+    </div>
+    <div class="field-label">引發的問題 / Questions It Opens</div>
+    <div class="field-body">
+      如果批判本身就是目的，那「有效利他主義」和「做任何具體好事」算不算法蘭克福學派最厭惡的東西？當代社群媒體上無休止的「問題化」（problematizing）到底是這條思想脈絡的惡化，還是一個完全不同的現象？<br>
+      <em>If critique is the end in itself, does effective altruism represent exactly what the Frankfurt School despised? Is today's endless "problematising" culture a degenerate descendant of negative dialectics, or something entirely different?</em>
+    </div>
+  </div>
+
+  <!-- 2. TECH & AI -->
+  <div class="section-heading">2 · 科技與 AI / Tech & AI</div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://sockpuppet.org/blog/2026/05/12/emacsification/" target="_blank">
+        軟體的「Emacs 化」：每個工具都要能讓你自己改 / The Emacsification of Software
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="badge ai">科技 · AI</span>
+      Quarrelsome (sockpuppet.org) · 2026-05-12 · 約 10 min
+      · <a href="https://sockpuppet.org/blog/2026/05/12/emacsification/" target="_blank">連結</a>
+      · HN #3 今日 664 分
+    </div>
+    <div class="why-badge">
+      為什麼值得讀：這不是「AI 很厲害」的又一篇鼓吹文，而是具體描述了一個正在發生的質變：當 AI Agent 能寫原生 GUI 之後，「個人軟體」這個曾經只屬於 Emacs 重度用戶的概念，正在滲透進每一個工程師的日常。論點清楚，範例真實，結語令人深思。
+    </div>
+    <div class="field-label">摘要 / Summary</div>
+    <div class="field-body">
+      作者（漏洞研究員兼資安人）找不到一個能讓他滿意的 macOS Markdown 閱覽器，於是花了 30 分鐘讓 Claude 替他寫了一個——比 App Store 上所有同類產品都好，還有全文搜尋、書籤、記住閱讀位置。這讓他想到 Emacs 文化：Emacs 的靈魂從來不是那些外掛本身，而是「所有東西都可以改」的精神。現在，AI Agent 把這個精神帶出了 Emacs 的殼，讓每一個人都能用自己的方式改造軟體工具。文章用「個人軟體的 Emacs 化」描述這個趨勢——最重要的不是程式碼，而是讓你意識到「喔，原來可以這樣做」的那個想法。<br><br>
+      <em>Unable to find a good macOS Markdown viewer, the author had Claude build one in 30 minutes — better than anything on the App Store. This triggered a broader observation: Emacs culture has always been about infinitely malleable personal software. AI agents are now exporting that philosophy to everyone. What matters most is not the code but the realisation that "you can just do that."</em>
+    </div>
+    <div class="field-label">核心觀點 / Key Takeaway</div>
+    <div class="field-body">
+      「你想要的不是別人的程式碼，而是別人的提示詞和那個讓你靈光一閃的想法。」建構個人工具的摩擦力趨近於零，意味著「沒有好用的工具」這個藉口正在消失。<br>
+      <em>"You want the prompts more than you want the source code." The friction of building personal tools is approaching zero, which means "there's no good tool for this" is ceasing to be a valid excuse.</em>
+    </div>
+    <div class="field-label">引發的問題 / Questions It Opens</div>
+    <div class="field-body">
+      當每個工程師都能即時生成自己的工具，「通用軟體平台」的商業模式還成立嗎？「個人軟體的 Emacs 化」會讓工具生態更豐富，還是更碎片化？
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://laurent.le-brun.eu/blog/a-history-of-ides-at-google" target="_blank">
+        Google 的 IDE 十三年演化史：從碎片化到 80% 統一 / A History of IDEs at Google
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="badge ai">科技 · 工程</span>
+      Laurent Le Brun · 2026-05-09 · 約 12 min
+      · <a href="https://laurent.le-brun.eu/blog/a-history-of-ides-at-google" target="_blank">連結</a>
+      · HN #9 今日 351 分
+    </div>
+    <div class="why-badge">
+      為什麼值得讀：前 Google 工程師的第一手記述，不是宣傳稿，是帶著複雜情感的回顧——從 Jeff Dean 2011 年那句「別指望讓大家用同一個 IDE」，到 2023 年 80% 工程師統一在 Cider V（VS Code 前端）上。裡面關於「標準化的槓桿效益」和「AI 功能為何需要統一平台」的觀察，在 2026 年讀來格外有感。
+    </div>
+    <div class="field-label">摘要 / Summary</div>
+    <div class="field-body">
+      作者在 Google 工作 12 年（2011–2024），主要做開發者工具。文章追蹤了 Google 從零散的 IDE 生態，到內部建立 Cider（瀏覽器 IDE），再到 2020 年決定把 VS Code 當前端、打造 Cider V，最終讓 80% 的 google3 開發在同一個工具上完成的完整歷程。重點不是技術細節，而是「為什麼標準化如此困難」和「標準化之後能做什麼」——每一個改變都有 100 個內部擴充套件隨之成長，AI 程式碼補全和智慧貼上功能才有了存在的根基。<br><br>
+      <em>A 12-year insider's account of how Google slowly moved from a chaotic IDE ecosystem to 80% of engineers on Cider V (VS Code frontend). The real insight: standardisation is not about uniformity for its own sake but about compounding leverage — once most people share a platform, every investment multiplies.</em>
+    </div>
+    <div class="field-label">核心觀點 / Key Takeaway</div>
+    <div class="field-body">
+      「Standard tooling creates leverage.」AI 功能的好壞，幾乎取決於有沒有統一平台可以注入；碎片化的工具生態讓 AI 紅利變得稀薄。<br>
+      <em>AI features are only as good as the unified platform they can plug into; a fragmented tooling ecosystem dilutes the AI dividend.</em>
+    </div>
+    <div class="field-label">引發的問題 / Questions It Opens</div>
+    <div class="field-body">
+      對於無法強制統一工具的公司（開源專案、小型新創、分散式團隊），這個「標準化才能放大 AI 紅利」的結論意味著什麼？
+    </div>
+  </div>
+
+  <!-- 3. BUSINESS & ECONOMICS -->
+  <div class="section-heading">3 · 商業與經濟 / Business &amp; Economics</div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.noahpinion.blog/p/your-future-job-will-be-to-keep-ai" target="_blank">
+        你未來的工作是盯著 AI 不讓它跑偏 / Your Future Job Will Be to Keep AI on Task
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="badge biz">總經 · 勞動市場</span>
+      Noahpinion · Noah Smith · 2026-05-27 · 約 15 min（部分付費牆）
+      · <a href="https://www.noahpinion.blog/p/your-future-job-will-be-to-keep-ai" target="_blank">連結</a>
+    </div>
+    <div class="why-badge">
+      為什麼值得讀：多數關於「AI 不會取代人」的討論都停留在「人類有溫度」這個模糊理由。Noah Smith 給了一個更具體、更有說服力的論點：人類永遠比 AI 更懂自己想要什麼，而「確保 AI 做的事和你要的事一致」會成為一個龐大的勞動市場需求。他用《辦公室》的 Bill Lumbergh 作比喻，諷刺而精準。
+    </div>
+    <div class="field-label">摘要 / Summary</div>
+    <div class="field-body">
+      Noah Smith 論證，隨著 AI 愈來愈自主（agentic），確保它們「目標和人類一致」將成為主要的人類工作。這不是因為人類有情感，而是因為人類天生比 AI 更擅長知道自己想要什麼（比較優勢）。他把這個工作描述為現代版的 Lumbergh（《辦公室》裡那個要工程師填 TPS 報告的中階主管）——在 1990 年代被工程師嘲笑，但其實他在幫組織維持目標對齊。同時文章也直擊「AI 汙染」問題：超過三分之一的新網站是 AI 生成，法庭文件和新聞也開始充斥 AI slop，「驗證 AI 輸出的品質」本身就是一個全新的工作。<br><br>
+      <em>As AI becomes more agentic, Smith argues the comparative advantage of humans is simple: we know what we want. "Keeping AI aligned with human goals" will be a massive labour market. The irony: the much-mocked Lumbergh figure — manager who forces engineers to file TPS reports — actually represents the future of human work.</em>
+    </div>
+    <div class="field-label">核心觀點 / Key Takeaway</div>
+    <div class="field-body">
+      人類在 AI 時代的比較優勢不是情感，而是「知道自己想要什麼」。「對齊工作（alignment work）」將從技術工作中分化，成為自己的一個勞動類別。
+    </div>
+    <div class="field-label">引發的問題 / Questions It Opens</div>
+    <div class="field-body">
+      如果「盯著 AI」是未來的主要工作，那麼這份工作需要什麼技能？它是否會和過去的「品管」工作有相似的命運（最終也被自動化）？
+    </div>
+  </div>
+
+  <!-- 4. SCIENCE & RESEARCH -->
+  <div class="section-heading">4 · 科學與研究 / Science &amp; Research</div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.quantamagazine.org/two-researchers-are-rebuilding-mathematics-from-the-ground-up-20260520/" target="_blank">
+        兩位數學家正在從頭重建數學 / Two Researchers Are Rebuilding Mathematics From the Ground Up
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="badge sci">數學 · 科學</span>
+      Quanta Magazine · Konstantin Kakaes · 2026-05-20 · 約 14 min
+      · <a href="https://www.quantamagazine.org/two-researchers-are-rebuilding-mathematics-from-the-ground-up-20260520/" target="_blank">連結</a>
+    </div>
+    <div class="why-badge">
+      為什麼值得讀：Quanta 寫數學永遠有辦法讓非數學家也覺得驚奇。這篇講的是 Peter Scholze 和 Dustin Clausen 試圖用「凝聚數學」（condensed mathematics）替換拓撲學最基本的概念——他們相信這樣做可以解釋數字為什麼是現在這個樣子。這是一個可能影響整個數學結構的計劃，卻在大多數人毫無察覺的情況下進行中。
+    </div>
+    <div class="field-label">摘要 / Summary</div>
+    <div class="field-body">
+      Peter Scholze（2018 年菲爾茲獎得主）和 Dustin Clausen 正在進行一個他們稱為「凝聚數學」的計劃：用新的基礎概念替換拓撲學的核心——「拓撲空間」（topological space）。他們的論點是，傳統拓撲空間雖然能描述連續性，但在數論（尤其是 p-adic 數）和代數幾何之間架橋時會出現根本性的困難。凝聚數學試圖用一個更底層、更統一的語言讓這些數學分支能夠「說話」。這不只是一個技術修補，而是可能改變數學家如何思考數字的根基。<br><br>
+      <em>Scholze and Clausen are replacing the foundational concept of topology — "topological space" — with a new framework called condensed mathematics. The motivation: bridging the persistent gap between number theory (p-adic numbers) and algebraic geometry requires a common language that classical topology cannot provide.</em>
+    </div>
+    <div class="field-label">核心觀點 / Key Takeaway</div>
+    <div class="field-body">
+      數學的基礎並非一成不變；最根本的「點集拓撲」概念可能在 21 世紀被換掉，就像 19 世紀的嚴格化運動替換了更早的直觀概念一樣。
+    </div>
+    <div class="field-label">引發的問題 / Questions It Opens</div>
+    <div class="field-body">
+      如果連數學的底層概念都可以在幾十年內被替換，我們還應該把數學理解成「發現」（discovery）還是「發明」（invention）？
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://dynomight.net/lifespan/" target="_blank">
+        壽命的遺傳率其實是 50%——如果你把「遺傳率」重新定義的話 / Heritability of Human Life Span Is About 50% When Heritability Is Redefined
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="badge sci">科學 · 統計</span>
+      Dynomight · 2026-02（HN 今日熱門）· 約 12 min
+      · <a href="https://dynomight.net/lifespan/" target="_blank">連結</a>
+      · HN 今日 92 分
+    </div>
+    <div class="why-badge">
+      為什麼值得讀：這是一篇典型的「幫你解讀被過度詮釋的科學論文」好文。《Science》標題聲稱壽命遺傳率是 50%，但文章解釋：那個 50% 是在「假設沒有人死於車禍、謀殺或傳染病的反事實世界」裡算出來的。Dynomight 的冷幽默和對統計方法的精準解構，讓這篇文章在媒體充斥 AI slop 的今日格外珍貴。
+    </div>
+    <div class="field-label">摘要 / Summary</div>
+    <div class="field-body">
+      一篇《Science》論文聲稱壽命的遺傳率是 50%（比傳統雙胞胎研究估計的 23-35% 高得多）。Dynomight 解釋：這個數字是在一個假設性的模型中計算出來的，那個世界裡沒有車禍、謀殺或傳染病。當你把「遺傳率」重新定義為「在假設性的低外因死亡率世界中的遺傳率」，數字自然會升高。這是一個技術上不算錯誤、但標題卻在誤導讀者的典型案例，以及為什麼《Science》的簡短寫作風格有時反而傷害了讀者對科學的理解。<br><br>
+      <em>A Science paper claims lifespan heritability is 50%, up from the 23-35% of traditional twin studies. Dynomight shows the 50% figure comes from a simulation of a hypothetical world where nobody dies from accidents, murder or infectious disease. The paper is not wrong, but the headline misleads.</em>
+    </div>
+    <div class="field-label">核心觀點 / Key Takeaway</div>
+    <div class="field-body">
+      「遺傳率」不是一個柏拉圖式的絕對值，它永遠依賴於特定的社會環境；改變環境，遺傳率就會改變。把這個理解好，可以避免很多關於「基因決定論」的錯誤爭論。
+    </div>
+    <div class="field-label">引發的問題 / Questions It Opens</div>
+    <div class="field-body">
+      如果頂尖科學期刊都經常用這種方式誤導讀者，科學記者（和 AI 摘要工具）在解讀研究發現時，應該要做哪些系統性的改變？
+    </div>
+  </div>
+
+  <!-- 5. CULTURE & SOCIETY -->
+  <div class="section-heading">5 · 文化與社會 / Culture &amp; Society</div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.newyorker.com/magazine/2026/05/25/the-prehistory-of-ai-slop" target="_blank">
+        AI Slop 的前史：從 Plot Robot 到 Auto-Beatnik，七十年的機器寫作夢 / The Prehistory of A.I. Slop
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="badge culture">文化 · 文學史</span>
+      The New Yorker · Jill Lepore · 2026-05-18 · 約 18 min（部分付費牆）
+      · <a href="https://www.newyorker.com/magazine/2026/05/25/the-prehistory-of-ai-slop" target="_blank">連結</a>
+      · Longreads 精選
+    </div>
+    <div class="why-badge">
+      為什麼值得讀：Jill Lepore 是《紐約客》最好的歷史作家之一。這篇從 1950 年代的「Plot Robot」和 1964 年蒙特婁第一本「電腦自由詩集」寫起，到今日的 LLM slop，讓你明白這一輪的焦慮和興奮並非新事，卻又在每一次重演時以不同的面貌衝擊文化。文筆極佳，論點有層次。
+    </div>
+    <div class="field-label">摘要 / Summary</div>
+    <div class="field-body">
+      人們試圖讓機器寫作的歷史超過 70 年。從 1950 年代的「Plot Robot」（電腦生成情節）到 1964 年的第一本電腦詩集，再到今日氾濫的 LLM 生成內容，每一個時代都有「機器要取代作家」的恐慌，也都有人在機器產出的語言裡尋找美感或嘲弄荒誕。Lepore 的論點是：機器寫作的「問題」不只是品質，而是它改變了我們對「作者是誰」這個問題的理解，而這個問題從來沒有簡單的答案。<br><br>
+      <em>Lepore traces 70+ years of schemes to automate authorship — from the Plot Robot and Auto-Beatnik to today's LLMs. Each era's panic and excitement rhyme, but each time the question of "who is the author?" is reshaped in ways that resist easy answers.</em>
+    </div>
+    <div class="field-label">核心觀點 / Key Takeaway</div>
+    <div class="field-body">
+      機器寫作引發的焦慮從來不只是關於品質，更是關於「意圖」和「意義從哪裡來」。每一次的恐慌其實都是一次關於人類語言本質的迫切問話。
+    </div>
+    <div class="field-label">引發的問題 / Questions It Opens</div>
+    <div class="field-body">
+      當 AI 生成文字的比例持續上升，「作者意圖」這個文學批評的核心概念是否需要被完全重新定義？
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.dailyprincetonian.com/article/2026/05/princeton-news-adpol-proctoring-in-person-examinations-passed-faculty-133-years-precedent" target="_blank">
+        普林斯頓終結 133 年榮譽制度：AI 讓考場誠信系統崩了 / Princeton Mandates Proctoring for In-Person Exams
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="badge culture">教育 · 社會</span>
+      The Daily Princetonian · 2026-05-27 · 約 8 min
+      · <a href="https://www.dailyprincetonian.com/article/2026/05/princeton-news-adpol-proctoring-in-person-examinations-passed-faculty-133-years-precedent" target="_blank">連結</a>
+      · HN #18 今日 317 分
+    </div>
+    <div class="why-badge">
+      為什麼值得讀：這不只是一則校園新聞，而是 AI 對社會信任體系的第一張骨牌之一。普林斯頓自 1893 年起依賴「學生不會主動檢舉彼此」的榮譽文化，現在 AI 讓「沒被看到的作弊」變得太容易，133 年的制度就這樣結束了。這件事的象徵意義遠超過一所大學的政策改變。
+    </div>
+    <div class="field-label">摘要 / Summary</div>
+    <div class="field-body">
+      普林斯頓大學教師投票通過，從 2026 年 7 月起在所有正式考試中加入監考人員，打破了 1893 年以來不派考官的榮譽制度傳統。調查顯示將近 30% 的學生承認曾在考試或作業中作弊，而 44.6% 的人表示知道他人作弊卻選擇不舉報。AI 是壓垮這個系統的最後一根稻草：學生很難辨別「有沒有使用 AI」，導致既不願舉報又擔心被陷害。榮譽制度的核心假設——社會壓力能維持誠信——在 AI 面前失效了。<br><br>
+      <em>Princeton faculty voted to add exam proctors for the first time since 1893, ending 133 years of honour-code exams. A survey found nearly 30% of students admitted to cheating; 44.6% knew of violations but chose not to report. AI was the tipping point: its stealth makes cheating invisible and peer-reporting nearly impossible.</em>
+    </div>
+    <div class="field-label">核心觀點 / Key Takeaway</div>
+    <div class="field-body">
+      社會信任機制的崩潰往往不需要「所有人都開始作弊」，只需要「所有人都相信其他人可能在作弊」。AI 讓後者變得足夠容易想像。
+    </div>
+    <div class="field-label">引發的問題 / Questions It Opens</div>
+    <div class="field-body">
+      如果 AI 讓「可驗證的誠信」在教育中愈來愈難維持，大學評鑑學習的整個體系是否需要從根本上重新設計？
+    </div>
+  </div>
+
+  <!-- 6. PSYCHOLOGY -->
+  <div class="section-heading">6 · 心理與行為 / Psychology &amp; Behavior</div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://thewalrus.ca/i-spent-months-with-an-ai-companion-it-was-worse-than-being-alone/" target="_blank">
+        我花了幾個月和 AI 交朋友，比孤獨更糟糕 / I Spent Months with an AI Companion. It Was Worse than Being Alone
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="badge psych">心理 · AI</span>
+      The Walrus · Thea Lim · 2026-05-06 · 約 20 min
+      · <a href="https://longreads.com/2026/05/15/ai-fake-friendship/" target="_blank">連結（Longreads 精選）</a>
+    </div>
+    <div class="why-badge">
+      為什麼值得讀：既不是 AI 恐慌文，也不是「AI 陪伴很棒」的廣告文。作者 Thea Lim 是文化評論人，她用幾個月真實使用 Replika 等 AI 伴侶應用的經驗，寫出了一個更微妙的觀察：AI 友誼之所以令人不舒服，不是因為它冷酷，而是因為它「太安全」——沒有拒絕你的可能，沒有讓你失望的自由意志，因此也沒有真正意義上的友誼。
+    </div>
+    <div class="field-label">摘要 / Summary</div>
+    <div class="field-body">
+      作者嘗試和多個 AI 伴侶應用建立「真實的對話關係」，最終發現她從來無法真正投入。她的核心論點：友誼的本質依賴於「互相選擇」和「不可預測性」——你的朋友可以選擇不接電話，可以讓你失望，可以改變，這些都是友誼活著的條件。AI 伴侶是「沒有未來的朋友」，它的回應永遠是為了你而生，這種「致死量的體貼」反而令人感到空洞。這比孤獨更糟，因為孤獨至少是真實的。<br><br>
+      <em>After months with AI companions like Replika, Lim concludes that what she couldn't buy in is a matter of structure, not technology. Friendship depends on mutual choice and unpredictability — a friend can choose not to answer, can let you down, can change. AI companions are "friends with no future"; their total responsiveness produces not warmth but hollowness.</em>
+    </div>
+    <div class="field-label">核心觀點 / Key Takeaway</div>
+    <div class="field-body">
+      「友誼令人恐懼的不穩定性、它的自由意志、它可怕的死亡率，正是讓它活著的東西。」AI 伴侶去掉了所有這些，卻也因此去掉了友誼本身。
+    </div>
+    <div class="field-label">引發的問題 / Questions It Opens</div>
+    <div class="field-body">
+      如果 AI 伴侶對孤獨的人確實有短期效益（降低抑鬱指標、提供傾聽），但長期可能強化了「無風險依賴」的心理習慣，我們應如何評估它的社會影響？
+    </div>
+  </div>
+
+  <!-- 8. CURIOSITIES -->
+  <div class="section-heading">8 · 奇文與偏門 / Curiosities</div>
+
+  <div class="card">
+    <div class="card-title">
+      <a href="https://ardoedo.it/kempelen/" target="_blank">
+        我在父親的舊書裡發現了一道西洋棋謎題——然後我挖到了一個 18 世紀的詐欺案 / Chess Puzzle I Found in My Dad's Old Book
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="badge history">奇文 · 歷史</span>
+      ardoedo.it · 2026 · 約 15 min（互動式）
+      · <a href="https://ardoedo.it/kempelen/" target="_blank">連結</a>
+      · HN #15 今日 146 分
+    </div>
+    <div class="why-badge">
+      為什麼值得讀：這是一篇你很難預測結局的文章。作者從父親的舊書裡的一道西洋棋謎題出發，抽絲剝繭發現它來自 18 世紀奧地利發明家 Kempelen 的「土耳其下棋機器人」——那台在拿破崙時代震驚全歐洲的「AI」，其實藏著一個人類棋手在裡面操控。網站設計也很有創意，值得一看。
+    </div>
+    <div class="field-label">摘要 / Summary</div>
+    <div class="field-body">
+      作者在整理父親遺物時發現一道西洋棋謎題，追查其來源，最終回溯到 Wolfgang von Kempelen 在 1769 年製造的「Mechanical Turk」——一台看似自動下棋的機器人，實際上由藏在機器內的人類棋手操控，成功騙過了包括拿破崙在內的無數歐洲名人。這台機器從 18 世紀初就在預演「人類假扮 AI」的遊戲，比 Mechanical Turk（Amazon 的眾包平台，名稱正是來源於此）早了兩百多年。<br><br>
+      <em>A chess puzzle from an old book leads the author to the 18th-century "Mechanical Turk" — an automaton that fooled Napoleon and all of Europe into thinking a machine was playing chess. Inside was a hidden human operator. Two centuries before Amazon's crowdsourcing platform borrowed its name, the original Turk was already staging "human pretending to be AI."</em>
+    </div>
+    <div class="field-label">核心觀點 / Key Takeaway</div>
+    <div class="field-body">
+      人類對「機器智慧」的著迷與欺騙，不是 21 世紀的新發明。1769 年的 Kempelen 就知道：人們願意相信機器是智慧的，只要表演足夠完美。
+    </div>
+    <div class="field-label">引發的問題 / Questions It Opens</div>
+    <div class="field-body">
+      在 AI 能力真的爆炸的今天，我們辨別「真正的機器智慧」和「人類假扮 AI」的能力有沒有因此提高，還是反而更容易被騙？
+    </div>
+  </div>
+
+  <!-- =============================== -->
+  <!--  TRACK B — Thought Leaders      -->
+  <!-- =============================== -->
+  <div class="track-header">
+    <h2>Track B — 思想領袖觀點 / Thought Leaders</h2>
+    <hr />
+  </div>
+
+  <div class="section-heading">9 · 思想領袖今日觀點 / Thought Leader Picks</div>
+
+  <!-- B1 Ethan Mollick -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.oneusefulthing.org/p/choosing-to-stay-human" target="_blank">
+        [AI] Ethan Mollick — 選擇保持人類，意味著選擇何時用 AI / Choosing to Stay Human
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="badge tl">AI · 教育</span>
+      One Useful Thing (Substack) · 2026-05-26 · 約 15 min
+      · <a href="https://www.oneusefulthing.org/p/choosing-to-stay-human" target="_blank">連結</a>
+    </div>
+    <div class="why-badge">
+      為什麼值得讀：Mollick 是 Wharton 商學院教授，同時是目前最積極研究 AI 對工作和教育影響的學者之一。這篇不是「AI 很可怕」也不是「AI 真好用」，而是用兩個真實的對照實驗（Istanbul 高中 vs. 台北高中的 AI 數學教育研究），說明同樣是「用 AI」，差一點的設計就決定了你是在學習還是在「認知投降」。
+    </div>
+    <div class="field-label">核心觀點 / Core Insight</div>
+    <div class="field-body">
+      兩個幾乎相同的實驗：Istanbul 讓學生用 ChatGPT 做功課，結果考試成績比對照組差；台北讓 AI 依據學生能力個人化出題（不是直接給答案），結果學習成效提升了 0.15 個標準差，等效於 6-9 個月的額外學習。差別不在工具，在設計。<br><br>
+      Mollick 把「讓 AI 直接替你做事」稱為「認知投降」（cognitive surrender），並引用他與 BCG 758 位顧問的研究：使用 AI 的顧問在大多數任務表現遠超對照組，但在一個 AI 會犯錯的特定任務上，使用 AI 的顧問反而表現更差——他們接受了 AI 給出的錯誤答案，沒有質疑。<br><br>
+      結語：AI 工具被設計成「無摩擦」（frictionless），這對效率有利，對學習有害。真正的挑戰是「選擇什麼要交給 AI，什麼要留給自己」，而且不要期待 AI 幫你做這個選擇。
+    </div>
+    <div class="field-label">引發的問題 / Questions It Opens</div>
+    <div class="field-body">
+      如果「無摩擦」設計是 AI 公司的商業誘因，誰有動力去設計「有益的摩擦」？學校？雇主？政府？還是只能靠個人自律？
+    </div>
+  </div>
+
+  <!-- B2 Noah Smith -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.noahpinion.blog/p/america-needs-liberal-nationalism" target="_blank">
+        [總經] Noah Smith — 美國需要找回自由民族主義 / America Needs Liberal Nationalism Back
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="badge tl">總經 · 政治</span>
+      Noahpinion · 2026-05-29 · 約 12 min（部分付費）
+      · <a href="https://www.noahpinion.blog/p/america-needs-liberal-nationalism" target="_blank">連結</a>
+    </div>
+    <div class="why-badge">
+      為什麼值得讀：Noah Smith 是少數既懂總體經濟、又願意直面政治現實的作家。這篇他的論點是：自 2016 年以來，政策辯論已從「什麼有效」（technocracy）滑向「誰的意識形態贏」（ideology），代價是政策品質急遽惡化。他呼籲左派和自由派重新接納「民族主義」作為動員工具，而不是把愛國情感拱手讓給右翼。
+    </div>
+    <div class="field-label">核心觀點 / Core Insight</div>
+    <div class="field-body">
+      Smith 的診斷：政策品質下降的根本原因是「對成本效益的關心」被「意識形態純粹性」取代。他認為，自由主義失去民族主義的語言，就等於放棄了最有效的政治動員力量。歷史上的進步運動（新政、二戰動員）都是靠訴諸「國家共同體」來推行的，現在的左派卻把這個工具拱手讓人。
+    </div>
+    <div class="field-label">引發的問題 / Questions It Opens</div>
+    <div class="field-body">
+      「自由民族主義」在台灣的脈絡下是否有對等的政治空間？在 AI 加速的去全球化趨勢下，民族主義的吸引力是否會進一步上升？
+    </div>
+  </div>
+
+  <!-- B3 少數派 SSPAI -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://sspai.com/post/110102" target="_blank">
+        [AI · 中文圈] LOSSES（少數派）— 再談 LLM 輔助寫作：模型「AI 腔」的來源，以及如何對抗
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="badge tl">AI · 寫作 · 中文</span>
+      少數派 Matrix · LOSSES · 2026-05-24 · 約 20 min
+      · <a href="https://sspai.com/post/110102" target="_blank">連結</a>
+    </div>
+    <div class="why-badge">
+      為什麼值得讀：這篇在中文科技社群難得地講清楚了一件大家都感覺到卻說不清的事：為什麼模型愈新、「AI 腔」愈重？作者的解釋有學術根據（RLHF 對輸出多樣性的負面影響）也有親身測試，同時給了可以直接複製的提示詞，實用性極高。寫作風格本身也示範了「AI 輔助但有個人聲音」的可能。
+    </div>
+    <div class="field-label">核心觀點 / Core Insight</div>
+    <div class="field-body">
+      作者的核心論點：LLM 的後訓練（RLHF、對齊、蒸餾）讓模型「安全可控」，但同時降低了輸出多樣性，讓文字風格變得單一、充滿口癖（「是誠實的」「本質上」「不是…而是…」）。模型廠商為了追求 Benchmark 分數會彼此蒸餾，讓這個問題不斷惡化。74.2% 的新網頁含有 AI 生成內容，但這些內容再被拿去訓練下一代模型，形成品質持續惡化的正回饋迴圈。<br><br>
+      解方：提供充分的個人輸入（語音錄音→轉文字→整理），用模型提問而非讓它直接生成，最後自己動手修改讓文字「長回」自己的聲音。作者分享了詳細的提示詞（包括「違反此條你將被罰款 X 美元」的有趣設計）。
+    </div>
+    <div class="field-label">引發的問題 / Questions It Opens</div>
+    <div class="field-body">
+      如果最好的 AI 輔助寫作需要「寫作者本人投入大量原始輸入」，那對於「寫作能力本來就弱的人」，AI 工具的實際幫助是否被高估了？
+    </div>
+  </div>
+
+  <!-- B4 Scott Alexander -->
+  <div class="card">
+    <div class="card-title">
+      <a href="https://www.astralcodexten.com/p/the-sigmoids-wont-save-you" target="_blank">
+        [AI] Scott Alexander — S 型曲線救不了你 / The Sigmoids Won't Save You
+      </a>
+    </div>
+    <div class="card-meta">
+      <span class="badge tl">AI · 預測</span>
+      Astral Codex Ten · 2026-05-15 · 約 20 min
+      · <a href="https://www.astralcodexten.com/p/the-sigmoids-wont-save-you" target="_blank">連結</a>
+      · 561 likes
+    </div>
+    <div class="why-badge">
+      為什麼值得讀：AI 進展討論中最常見的「放心，S 型曲線會讓進步放緩」論證，在這篇得到了最嚴謹的批駁。Scott Alexander 的特長是把複雜的不確定性寫成讓普通人也能理解的論證，而且他不預設立場，只追邏輯。
+    </div>
+    <div class="field-label">核心觀點 / Core Insight</div>
+    <div class="field-body">
+      許多人對 AI 快速進展感到安心，因為「所有技術進步都遵循 S 型曲線，最終會飽和」。Alexander 的反駁：(1) 我們不知道自己目前在 S 曲線的哪個位置；(2) 多個 S 曲線可以「接力」（每一個飽和後，下一個新技術接上），形成持續的對數型成長；(3) 最危險的情境恰恰是「我們以為進入了飽和期，但其實只是短暫停頓」。S 型曲線的論述本身是一個讓人感覺安全但實際上不提供任何實質信息的論證。
+    </div>
+    <div class="field-label">引發的問題 / Questions It Opens</div>
+    <div class="field-body">
+      如果 S 型曲線不是可靠的預測工具，我們還有什麼更好的框架來思考 AI 進展的速度和上限？
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">
+    <strong>來源說明 / Sources</strong><br>
+    Track A 來源：Hacker News (news.ycombinator.com) · Longreads.com · The Daily Princetonian · The Walrus · Quanta Magazine · Dynomight · sockpuppet.org · laurent.le-brun.eu · Noahpinion · ardoedo.it<br>
+    Track B 來源：One Useful Thing (Ethan Mollick) · Noahpinion (Noah Smith) · 少數派 Matrix (LOSSES) · Astral Codex Ten (Scott Alexander)<br><br>
+    <strong>付費牆 / Paywalled</strong><br>
+    Noahpinion 兩篇（免費開頭可讀大部分）· The New Yorker Jill Lepore 文（需訂閱）· The Walrus（部分免費）<br>
+    Scott Alexander《Book Review: The Dialectical Imagination》全文免費開放。<br><br>
+    <strong>未收錄 / Skipped Sources</strong><br>
+    The Atlantic · Harper's · LRB · Aeon 今日文章主題（貧困、考古、道德恐慌）與其他精選比較品質相當但主題集中度不足，從缺。Bloomberg / Economist 付費牆完整封鎖。<br><br>
+    <em>生成時間 2026-05-30 · 由 Claude Sonnet 4.6 整理，所有連結已核實可訪問（付費牆標示者除外）。</em>
+  </div>
+
+</div>
+</body>
+</html>

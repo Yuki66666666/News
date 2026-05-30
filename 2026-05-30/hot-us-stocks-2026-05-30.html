@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日美股熱門焦點股 — Hot US Stocks | 2026-05-29 (Session)</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --card: #1a1d27;
+      --card2: #20232e;
+      --border: #2d3147;
+      --accent: #4f8ef7;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+      --purple: #a78bfa;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --tag-bg: #1e2a45;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px 16px; }
+
+    /* Header */
+    header { text-align: center; padding: 32px 0 24px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+    header h1 { font-size: 1.9rem; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+    header .meta { color: var(--muted); font-size: 0.88rem; margin-top: 6px; }
+    header .session-tag { display: inline-block; background: var(--tag-bg); color: var(--accent); font-size: 0.8rem; padding: 3px 10px; border-radius: 20px; margin-top: 8px; }
+
+    /* Section headings */
+    .section-title { font-size: 1.25rem; font-weight: 700; color: var(--accent); border-left: 4px solid var(--accent); padding-left: 12px; margin: 36px 0 16px; }
+
+    /* Market backdrop pill row */
+    .backdrop-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .backdrop-pill { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 8px 14px; font-size: 0.85rem; }
+    .backdrop-pill .label { color: var(--muted); font-size: 0.75rem; display: block; }
+    .backdrop-pill .val { font-weight: 700; }
+    .up { color: var(--green); }
+    .down { color: var(--red); }
+
+    /* Summary table */
+    .table-wrap { overflow-x: auto; margin-bottom: 10px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+    thead th { background: var(--card2); color: var(--muted); text-align: left; padding: 10px 12px; border-bottom: 2px solid var(--border); white-space: nowrap; }
+    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr:hover { background: var(--card2); }
+    tbody td { padding: 10px 12px; vertical-align: top; }
+    .ticker-badge { font-weight: 700; font-size: 1rem; color: var(--accent); }
+    .buzz-stars { color: var(--yellow); letter-spacing: 1px; }
+    .tag { display: inline-block; font-size: 0.72rem; padding: 2px 7px; border-radius: 4px; margin: 1px 2px; }
+    .tag-earnings { background: #1e3a5f; color: #60a5fa; }
+    .tag-ai { background: #2d1b69; color: #a78bfa; }
+    .tag-volume { background: #1a3320; color: #4ade80; }
+    .tag-options { background: #3b1f1f; color: #f87171; }
+    .tag-meme { background: #3b2a0e; color: #fbbf24; }
+
+    /* Ticker cards */
+    .ticker-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; margin-bottom: 22px; }
+    .ticker-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+    .ticker-card h3 .sym { color: var(--accent); margin-right: 6px; }
+    .ticker-card h3 .zh { color: var(--muted); font-size: 0.9rem; font-weight: 400; }
+    .tape-row { background: var(--card2); border-radius: 8px; padding: 10px 14px; margin: 10px 0 14px; font-size: 0.85rem; color: var(--muted); }
+    .tape-row strong { color: var(--text); }
+    .section-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 14px 0 4px; }
+    .bi-block { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 10px; }
+    .bi-block .zh-col { background: #12182b; border-radius: 8px; padding: 10px 12px; font-size: 0.87rem; border-left: 3px solid var(--accent); }
+    .bi-block .en-col { background: #12182b; border-radius: 8px; padding: 10px 12px; font-size: 0.87rem; border-left: 3px solid var(--purple); }
+    @media (max-width: 680px) { .bi-block { grid-template-columns: 1fr; } }
+    .watch-next { font-size: 0.85rem; background: var(--card2); border-radius: 8px; padding: 10px 14px; color: var(--muted); margin-top: 10px; }
+    .watch-next span { color: var(--yellow); font-weight: 600; }
+    .sources-mini { font-size: 0.75rem; color: var(--muted); margin-top: 10px; }
+    .sources-mini a { color: #60a5fa; text-decoration: none; }
+    .sources-mini a:hover { text-decoration: underline; }
+
+    /* Watchlist & halts */
+    .watch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+    .watch-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+    .watch-card .sym { color: var(--accent); font-weight: 700; font-size: 1rem; }
+    .watch-card .desc { font-size: 0.83rem; color: var(--muted); margin-top: 4px; }
+
+    /* Footer */
+    footer { margin-top: 48px; border-top: 1px solid var(--border); padding-top: 20px; padding-bottom: 40px; font-size: 0.78rem; color: var(--muted); }
+    footer ul { list-style: none; columns: 2; gap: 12px; }
+    footer li { margin-bottom: 4px; }
+    footer a { color: #60a5fa; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .disclaimer { margin-top: 16px; font-style: italic; font-size: 0.75rem; color: #64748b; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1>🔥 今日美股熱門焦點股<br><span style="font-size:1.1rem;color:#e2e8f0;">Hot US Stocks of the Day</span></h1>
+    <div class="meta">資料日期 / Trading Session: <strong>2026-05-29 (Friday, US Eastern)</strong></div>
+    <div class="meta">報告生成 / Generated: 2026-05-30 (Asia/Taipei)</div>
+    <div class="session-tag">NYSE / NASDAQ 正式收盤 Regular Trading Hours Close</div>
+  </header>
+
+  <!-- ===== SECTION 4: MARKET BACKDROP ===== -->
+  <div class="section-title">大盤背景 / Market Backdrop</div>
+  <div class="backdrop-row">
+    <div class="backdrop-pill">
+      <span class="label">S&amp;P 500</span>
+      <span class="val up">7,580.06 ▲+0.22%</span>
+    </div>
+    <div class="backdrop-pill">
+      <span class="label">Nasdaq Composite</span>
+      <span class="val up">26,972.62 ▲+0.20%</span>
+    </div>
+    <div class="backdrop-pill">
+      <span class="label">Dow Jones</span>
+      <span class="val up">51,032.46 ▲+0.72%</span>
+    </div>
+    <div class="backdrop-pill">
+      <span class="label">Russell 2000</span>
+      <span class="val down">2,908.86 ▼−0.94%</span>
+    </div>
+    <div class="backdrop-pill">
+      <span class="label">VIX</span>
+      <span class="val up">15.74 ▼−3.4%</span>
+    </div>
+    <div class="backdrop-pill">
+      <span class="label">Core PCE (April)</span>
+      <span class="val">+0.2% MoM (cooler than expected)</span>
+    </div>
+    <div class="backdrop-pill">
+      <span class="label">Sector Winners</span>
+      <span class="val">Tech +1.3% · Healthcare +1.4% · ConsDisc +0.5%</span>
+    </div>
+    <div class="backdrop-pill">
+      <span class="label">Sector Losers</span>
+      <span class="val down">Utilities −1.1% · Small caps weak</span>
+    </div>
+  </div>
+  <p style="font-size:0.86rem;color:var(--muted);margin-bottom:8px;">
+    五月最後一個交易日（5/29），April Core PCE 比預期降溫（+0.2% MoM），提振市場對 Fed 降息期望，加上超強 AI 科技財報（Dell、Snowflake），帶動科技板塊顯著上漲。Dow 領漲但 Russell 2000 小跌，顯示資金集中在大型科技股。
+    <br>
+    The final trading day of May saw cooling PCE data reignite rate-cut hopes. AI infrastructure names (Dell, Snowflake) dominated headlines with blowout quarters, while retail (DLTR, KSS) delivered earnings surprises. Small caps underperformed as money rotated into large-cap tech.
+  </p>
+
+  <!-- ===== SECTION 1: HOT TICKERS SUMMARY TABLE ===== -->
+  <div class="section-title">今日最熱焦點股 / Hot 5 — Summary Table</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>Company / 中文名</th>
+          <th>Close</th>
+          <th>% Change</th>
+          <th>Vol</th>
+          <th>vs 30D Avg</th>
+          <th>Options Signal</th>
+          <th>Buzz ★</th>
+          <th>Catalyst</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="ticker-badge">DELL</span></td>
+          <td>Dell Technologies<br><span style="color:var(--muted);font-size:0.8rem;">戴爾科技</span></td>
+          <td><span class="up">$420.51</span></td>
+          <td><span class="up">▲+32.76%</span></td>
+          <td>~80M sh</td>
+          <td>~12× avg</td>
+          <td>Calls 3:1 · IV↑↑ · Susquehanna upgraded to Positive · PT $700</td>
+          <td><span class="buzz-stars">★★★★★</span></td>
+          <td><span class="tag tag-earnings">Earnings Blowout</span><span class="tag tag-ai">AI Servers</span></td>
+        </tr>
+        <tr>
+          <td><span class="ticker-badge">SNOW</span></td>
+          <td>Snowflake<br><span style="color:var(--muted);font-size:0.8rem;">雪花公司</span></td>
+          <td><span class="up">$239.20</span></td>
+          <td><span class="up">▲+36%</span></td>
+          <td>High</td>
+          <td>~8× avg</td>
+          <td>C/P &gt;2:1 · May 29 $250c vol 15,541 · IV surge</td>
+          <td><span class="buzz-stars">★★★★★</span></td>
+          <td><span class="tag tag-earnings">Beat+Raise</span><span class="tag tag-ai">$6B AWS Deal</span></td>
+        </tr>
+        <tr>
+          <td><span class="ticker-badge">DLTR</span></td>
+          <td>Dollar Tree<br><span style="color:var(--muted);font-size:0.8rem;">達樂樹</span></td>
+          <td><span class="up">~$116</span></td>
+          <td><span class="up">▲+17.9% (5/28)<br>▲+3.0% (5/29)</span></td>
+          <td>Elevated</td>
+          <td>~5× avg</td>
+          <td>Calls 3:2 · IV spike on 5/28 earnings</td>
+          <td><span class="buzz-stars">★★★★</span></td>
+          <td><span class="tag tag-earnings">EPS Beat $0.19</span><span class="tag tag-volume">Guidance ↑</span></td>
+        </tr>
+        <tr>
+          <td><span class="ticker-badge">KSS</span></td>
+          <td>Kohl's Corp<br><span style="color:var(--muted);font-size:0.8rem;">柯爾百貨</span></td>
+          <td><span class="up">~+20%</span></td>
+          <td><span class="up">▲+20% (5/28–29)</span></td>
+          <td>High</td>
+          <td>~7× avg</td>
+          <td>Bullish call sweep; high SI% short squeeze dynamics</td>
+          <td><span class="buzz-stars">★★★★</span></td>
+          <td><span class="tag tag-earnings">Surprise EPS Beat</span><span class="tag tag-meme">Short Squeeze?</span></td>
+        </tr>
+        <tr>
+          <td><span class="ticker-badge">BURL</span></td>
+          <td>Burlington Stores<br><span style="color:var(--muted);font-size:0.8rem;">伯靈頓</span></td>
+          <td><span class="down">$301.40</span></td>
+          <td><span class="down">▼−7.53%</span></td>
+          <td>Elevated</td>
+          <td>~4× avg</td>
+          <td>Puts 12:1 · July $260 put vol 8,087 · bearish flow</td>
+          <td><span class="buzz-stars">★★★★</span></td>
+          <td><span class="tag tag-earnings">Beat &amp; Raise but sold off</span><span class="tag tag-options">Put Dominated</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== SECTION 1: DEEP DIVES ===== -->
+  <div class="section-title">個股深度解析 / Per-Ticker Deep Dive</div>
+
+  <!-- DELL -->
+  <div class="ticker-card">
+    <h3><span class="sym">$DELL</span> Dell Technologies Inc. <span class="zh">/ 戴爾科技</span></h3>
+    <div class="tape-row">
+      <strong>Tape:</strong> Close $420.51 (<span class="up">▲+32.76%</span>) · Best single-day gain in company history since 2018 re-IPO · Volume ~80M sh (~12× 30D avg) · 52-week high · Pre-market ramp followed by sustained intraday momentum
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot Today</div>
+    <div class="bi-block">
+      <div class="zh-col">
+        戴爾昨晚（5/28 盤後）公布 Q1 FY27 財報，每股調整後 EPS $4.86 大幅超越預期 $2.94；營收近乎翻倍成長 88% YoY，AI 伺服器營收達 $161 億美元（YoY +757%），AI 訂單積壓高達 $513 億。公司同步大幅上調全年展望，AI 伺服器年營收目標提升至 $600 億，總年營收預估達 $1,670 億（舊預估 $1,401 億）。市場視此為「AI 基礎建設浪潮第二波」最強實物訂單確認，股價從 $316 一路衝破 $420，創歷史最大單日漲幅。
+      </div>
+      <div class="en-col">
+        Dell reported a historic blowout Q1 FY27 after-market on 5/28. Adj. EPS $4.86 vs $2.94 expected; revenue surged 88% YoY. AI server revenue hit $16.1B (up 757% YoY) with a $51.3B AI backlog. Full-year guidance raised to $167B revenue (prior: $140B) including $60B from AI servers — a massive reset of expectations. The stock printed its best day ever since returning to public markets in 2018, validating Dell as a core AI infrastructure play alongside SMCI and HPE.
+      </div>
+    </div>
+
+    <div class="section-label">Options &amp; Flow</div>
+    <p style="font-size:0.85rem;color:var(--muted);">
+      Calls dominated ~3:1. Multiple analysts rushed to upgrade: Susquehanna upgraded to Positive with a $700 PT (one of the highest on the Street); JPMorgan raised from $280→$500 (Overweight); Evercore raised to $450 (Outperform); Piper Sandler raised to $497; Wells Fargo raised to $505; Truist raised to $360. The avalanche of analyst upgrades accelerated FOMO buying. IV surged massively overnight; by the open, near-the-money calls were pricing in continuation. Large blocks of June/July calls were reported on unusual activity trackers.
+    </p>
+
+    <div class="section-label">Retail Buzz</div>
+    <p style="font-size:0.85rem;color:var(--muted);">
+      WSB threads titled "DELL to $500?" appeared within hours of the report. StockTwits showed DELL trending #1–2 all day. X cashtags flooded with "AI server supercycle" memes. The narrative: "If NVDA is the GPU, DELL is the rack — and nobody priced it right." Reddit r/stocks had multiple threads dissecting the $51B backlog as "multi-year revenue visibility."
+    </p>
+
+    <div class="section-label">炒作脈絡 / Narrative Context</div>
+    <p style="font-size:0.85rem;color:var(--muted);">
+      Dell spent most of 2024–2025 being dismissed as a "PC company" while SMCI and HPE got AI server credit. Q1 FY27 was the proof point the bulls needed. AI server margin expansion (not just revenue) drove the re-rate. Shares were up 234% YTD before this print. The $60B AI server guidance for FY27 makes DELL one of the single largest beneficiaries of the hyperscaler capex buildout cycle. Peer watch: HPE, SMCI.
+    </p>
+
+    <div class="watch-next"><span>後續觀察 / What to Watch:</span> Can DELL sustain above $400? Gap fill unlikely given fundamental re-rate. Watch HPE earnings for read-across. Gamma profile very extended — any macro risk-off could see violent reversal. Next major catalyst: Q2 FY27 earnings in ~3 months. Analyst consensus will reset sharply higher.</div>
+    <div class="sources-mini">Sources: <a href="https://www.cnbc.com/2026/05/29/dell-stock-earnings-ai-servers.html" target="_blank">CNBC</a> · <a href="https://www.bloomberg.com/news/articles/2026-05-28/dell-boosts-outlook-to-60-billion-in-ai-server-sales-this-year" target="_blank">Bloomberg</a> · <a href="https://finance.yahoo.com/quote/DELL/" target="_blank">Yahoo Finance</a> · <a href="https://www.benzinga.com/markets/tech/26/05/52787039/dell-shares-hit-new-52-week-high-as-ai-push-and-analyst-upgrades-fuel-rally" target="_blank">Benzinga</a> · <a href="https://www.marketbeat.com/instant-alerts/dell-technologies-nysedell-price-target-raised-to-45000-2026-05-29/" target="_blank">MarketBeat</a></div>
+  </div>
+
+  <!-- SNOW -->
+  <div class="ticker-card">
+    <h3><span class="sym">$SNOW</span> Snowflake Inc. <span class="zh">/ 雪花公司</span></h3>
+    <div class="tape-row">
+      <strong>Tape:</strong> Close ~$239.20 (<span class="up">▲+36%</span>, best day on record) · Volume very high · Opened at new YTD highs · Earnings reported 5/27 AH; stock ran 5/28–5/29 two-day continuation
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot Today</div>
+    <div class="bi-block">
+      <div class="zh-col">
+        雪花公司 Q1 FY26 財報超預期：調整後 EPS $0.39（預期 $0.14，大幅超出 178%），產品營收成長 34% YoY，超出指引 700 個基點。同步宣布五年 $60 億美元 AWS 合作協議（Snowflake 購買 AWS Graviton 算力與 AI 服務），主打「企業級 Agentic AI 建設」。Citi 目標價提至 $320，Morgan Stanley 升至 $335，38 位分析師共識為「買進」。股價創上市以來最大單日漲幅 36%。
+      </div>
+      <div class="en-col">
+        Snowflake delivered a blowout Q1: Adj. EPS $0.39 vs $0.14 expected (+178.6% beat); product revenue grew 34% YoY, beating guidance by 700bps. The company simultaneously announced a 5-year, $6B strategic collaboration with AWS to accelerate enterprise agentic AI — Snowflake commits $6B to buy Graviton compute and AI services. Citi raised PT to $320, Morgan Stanley to $335. The stock surged 36% in its best-ever single-session move. May 29 $250 call saw 15,541 contracts traded.
+      </div>
+    </div>
+
+    <div class="section-label">Options &amp; Flow</div>
+    <p style="font-size:0.85rem;color:var(--muted);">
+      Calls outpaced puts better than 2:1. The highest-volume contract was the May 29th $250 call at 15,541 contracts — an aggressive same-day strike that printed in-the-money on the surge. IV spiked enormously overnight on earnings, then began declining through the session (IV crush on the body of the move). Significant OI build at $260 and $270 June strikes indicating bulls betting on continuation. Short interest was moderate; not a squeeze story but a fundamental re-rate with options amplification.
+    </p>
+
+    <div class="section-label">Retail Buzz</div>
+    <p style="font-size:0.85rem;color:var(--muted);">
+      WSB and r/stocks lit up with Snowflake threads — narrative: "The cloud data warehouse war is over — SNOW won." StockTwits trending top 5 all day. X cashtags saw heavy volume referencing both the AWS deal and "AI data platform flywheel." Notable framing: "SNOW is the data layer of every AI app." Some retail traders who bought pre-earnings OTM calls reported huge gains.
+    </p>
+
+    <div class="section-label">炒作脈絡 / Narrative Context</div>
+    <p style="font-size:0.85rem;color:var(--muted);">
+      Snowflake stock had been rangebound and controversial through 2025 amid growth deceleration fears and CEO transition concerns. This quarter definitively re-established growth credibility. The AWS $6B commitment signals Snowflake is deepening infrastructure moat rather than being displaced by cloud-native SQL competitors. Peer spillover: Databricks (private), dbt Labs, Fivetran. Software re-rating wave: SNOW's surge lifted broader cloud software names.
+    </p>
+
+    <div class="watch-next"><span>後續觀察 / What to Watch:</span> Breakout above 52-week high territory — watch for new analyst price target upgrades. AWS deal monetization timeline. Whether the 34% product revenue growth can sustain next quarter. Potential gamma squeeze if $260 call OI is tested next week.</div>
+    <div class="sources-mini">Sources: <a href="https://www.cnbc.com/2026/05/28/snowflake-snow-software-stock-rally.html" target="_blank">CNBC</a> · <a href="https://finance.yahoo.com/markets/article/snowflake-stock-soars-on-growing-enterprise-ai-demand-aws-partnership-125150205.html" target="_blank">Yahoo Finance</a> · <a href="https://www.snowflake.com/en/news/press-releases/snowflake-expands-aws-collaboration-with-6b-commitment-to-accelerate-enterprise-agentic-ai-adoption/" target="_blank">Snowflake Press Release</a> · <a href="https://www.barchart.com/options/unusual-activity" target="_blank">Barchart Options</a></div>
+  </div>
+
+  <!-- DLTR -->
+  <div class="ticker-card">
+    <h3><span class="sym">$DLTR</span> Dollar Tree, Inc. <span class="zh">/ 達樂樹</span></h3>
+    <div class="tape-row">
+      <strong>Tape:</strong> 5/28 surge: +19.3% pre-market; +17.9% RTH close (~$113–116 range) · 5/29 continuation: +3.0% to ~$116.44 · Volume elevated both sessions · YTD had been down ~23% — massive short-covering event
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot Today</div>
+    <div class="bi-block">
+      <div class="zh-col">
+        Dollar Tree Q1 FY26：調整後 EPS $1.74，超出預期 $1.55（+12.6%）；營收 $49.76 億美元，YoY +7.25%，可比同店銷售成長 3.5%。全年 EPS 指引上調至 $6.70–7.10（原 $6.30–6.80）。股票 YTD 跌幅近 23%（關稅壓力、通膨、消費信心疑慮），空頭部位極重，業績超預期觸發「空頭回補+低估值修復」雙引擎。消費降級概念在關稅環境下再度受關注：折扣零售商受益於消費者降級轉向。
+      </div>
+      <div class="en-col">
+        Dollar Tree delivered Q1 FY26 adj. EPS of $1.74, beating $1.55 consensus by 12.6%. Revenue of $4.976B grew 7.25% YoY; comp-store sales +3.5%. Full-year EPS guidance raised to $6.70–$7.10. The stock had fallen ~23% YTD on tariff fears and consumer weakness concerns, creating heavy short interest. The beat triggered simultaneous short-covering and value-rerating. Discount retail benefiting from trade-down consumer behavior amid tariff-driven inflation is the macro thesis. Also: Dollar General (DG) jumped +5% on the coattail trade.
+      </div>
+    </div>
+
+    <div class="section-label">Options &amp; Flow</div>
+    <p style="font-size:0.85rem;color:var(--muted);">
+      Pre-earnings, options market implied a ~10% move (per TipRanks). Actual move was ~17.9% — well outside the expected range, causing severe pain for put sellers. Post-earnings 5/29 session: calls 3:2, May 29 $560 call (likely a data artifact or ITM strike) saw 575 contracts. Truist cut PT to $107 (from $142) but stock surged anyway — illustrating the power of short-covering. Barclays maintained Overweight, PT trimmed to $131 from $149. Wells Fargo kept Buy.
+    </p>
+
+    <div class="section-label">Retail Buzz</div>
+    <p style="font-size:0.85rem;color:var(--muted);">
+      StockTwits and Reddit r/stocks: multiple threads on "dollar stores winning the tariff trade." WSB less focused but mentioned in daily discussion as "trade-down play." Cashtag $DLTR volume spiked on X. Narrative: "If tariffs hurt real wages, discount retail wins — just like 2008." Also paired with $DG (Dollar General), $WMT (Walmart) in value-investing threads.
+    </p>
+
+    <div class="section-label">炒作脈絡 / Narrative Context</div>
+    <p style="font-size:0.85rem;color:var(--muted);">
+      DLTR has been a controversial name — in midst of multi-year turnaround after shedding Family Dollar (sold late 2024). The beat-and-raise on a standalone Dollar Tree basis validated the turnaround thesis. High short interest meant the upside surprise was violently amplified. Similar setup to DG's recovery pattern in late 2024. Consumer trade-down macro thesis (tariff inflation pushing shoppers toward discount channels) is structural.
+    </p>
+
+    <div class="watch-next"><span>後續觀察 / What to Watch:</span> Can DLTR reclaim $130+? Watch if short interest decreases significantly in next Ortex/S3 update. Key risk: if tariff pressures worsen wholesale costs in Q2. Peer DG earnings next week as confirmation signal. Gap fill to pre-YTD-sell-off levels (~$140) is on the table if macro cooperates.</div>
+    <div class="sources-mini">Sources: <a href="https://www.cnbc.com/2026/05/28/stocks-making-the-biggest-moves-premarket-snow-kss-dltr.html" target="_blank">CNBC Premarket</a> · <a href="https://finance.yahoo.com/markets/stocks/articles/dollar-tree-q1-2026-earnings-132329259.html" target="_blank">Yahoo Finance</a> · <a href="https://www.benzinga.com/movers" target="_blank">Benzinga</a> · <a href="https://247wallst.com/investing/2026/05/28/dollar-tree-soars-17-dollar-general-jumps-5-heres-why-discount-store-stocks-are-catching-a-bid/" target="_blank">24/7 Wall St.</a></div>
+  </div>
+
+  <!-- KSS -->
+  <div class="ticker-card">
+    <h3><span class="sym">$KSS</span> Kohl's Corporation <span class="zh">/ 柯爾百貨</span></h3>
+    <div class="tape-row">
+      <strong>Tape:</strong> Pre-market 5/28: +8% · RTH 5/28–29 total move: ~+20% · High short interest stock · Company reporting best comp sales in 4 years · Volume spiked ~7× 30D average
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot Today</div>
+    <div class="bi-block">
+      <div class="zh-col">
+        柯爾百貨 Q1 FY26：調整後 EPS -$0.13，優於預期 -$0.20；可比同店銷售數據為近四年最佳表現，CEO 稱公司「正敲響增長的門」。空頭部位極重（KSS 向來是高空頭比率股），業績超預期引發短回補急彈。全年展望維持不變（淨銷售 -2% to flat，EPS $1.00–1.60）。本週消費零售板塊整體受益於 PCE 降溫帶來的消費信心提升。
+      </div>
+      <div class="en-col">
+        Kohl's Q1 FY26 beat on EPS (-$0.13 vs -$0.20 expected) and delivered its best comparable-sales performance in four years. CEO Michael Bender called it "knocking on the door of growth." The stock has historically carried heavy short interest — the earnings surprise triggered violent short covering. Full-year guidance reaffirmed. The broader retail rally (DLTR +18%, KSS +20%) was amplified by May's PCE cooling data signaling resilient but not overheating consumer spending. KSS also benefits from the discount/value retail theme.
+      </div>
+    </div>
+
+    <div class="section-label">Options &amp; Flow</div>
+    <p style="font-size:0.85rem;color:var(--muted);">
+      Bullish call sweeps were reported in pre-market options flow. High short interest (KSS has been one of the most-shorted department store names) amplified the move — classic "beat + short squeeze" dynamic. Days-to-cover elevated; the forced covering added fuel to the rally beyond what fundamentals alone would explain. Specific OI data: 待確認 (check Fintel/Barchart for real-time figures).
+    </p>
+
+    <div class="section-label">Retail Buzz</div>
+    <p style="font-size:0.85rem;color:var(--muted);">
+      Reddit r/Shortsqueeze mentioned KSS in several threads during the week. WSB daily discussion had $KSS mentions spiking. X cashtag saw "department stores aren't dead" narrative. StockTwits most-active list included KSS. The short-squeeze narrative drew in retail momentum traders beyond the fundamental-driven move.
+    </p>
+
+    <div class="section-label">炒作脈絡 / Narrative Context</div>
+    <p style="font-size:0.85rem;color:var(--muted);">
+      KSS had been a perennial short target amid department store secular decline narrative. This quarter's comp-sales turnaround — best in 4 years — challenged the thesis. The move is similar in character to Macy's and JCPenney short-squeeze episodes. Risk: guidance still calls for flat-to-down annual sales, so bulls need continued execution to sustain gains. If Q2 disappoints, expect sharp reversal.
+    </p>
+
+    <div class="watch-next"><span>後續觀察 / What to Watch:</span> How much of the short interest has been covered? Next Ortex/S3 update will be key. KSS needs to sustain comp-sales improvement to justify the re-rate. Watch same-store sales comps next quarter. Peer: Macy's (M) as a read-across. Risk: tariff cost pass-through pressure on gross margins in H2.</div>
+    <div class="sources-mini">Sources: <a href="https://www.cnbc.com/2026/05/28/kohls-kss-earnings-q1-2026.html" target="_blank">CNBC</a> · <a href="https://www.gurufocus.com/news/8888613/kohls-kss-surprises-with-strong-q1-results-despite-soft-sales-guidance" target="_blank">GuruFocus</a> · <a href="https://www.gurufocus.com/news/8890346/kss-best-buy-and-dollar-tree-stocks-surge-amid-resilient-consumer-spending" target="_blank">GuruFocus — Consumer Surge</a> · <a href="https://www.reddit.com/r/Shortsqueeze/" target="_blank">Reddit r/Shortsqueeze</a></div>
+  </div>
+
+  <!-- BURL -->
+  <div class="ticker-card">
+    <h3><span class="sym">$BURL</span> Burlington Stores, Inc. <span class="zh">/ 伯靈頓折扣百貨</span></h3>
+    <div class="tape-row">
+      <strong>Tape:</strong> Close ~$301.40 (<span class="down">▼−7.53%</span>) · 報Beat &amp; Raise but sold off hard · Put options dominated ~12:1 · Volume elevated
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot Today</div>
+    <div class="bi-block">
+      <div class="zh-col">
+        Burlington Q1：調整後 EPS $2.10（預期 $1.78，超出 18%），營收 $28.56 億美元（超出預期 $27.99 億）；全年 EPS 指引上調至 $11.45–11.80（原 $10.95–11.45）。表面看是「雙超預期+上調指引」，卻大跌 7.5%——典型的「賣事實」（sell-the-news）加「空頭猛吃 put」現象。市場可能擔憂：指引上調幅度不夠大、關稅對進口商品成本壓力未充分反映、或前期漲幅已反映太多。
+      </div>
+      <div class="en-col">
+        Burlington reported a textbook "beat and raise" — Q1 adj. EPS $2.10 vs $1.78 est., revenue $2.856B vs $2.799B est., and raised FY26 EPS guidance to $11.45–$11.80. Yet the stock plunged ~7.5%. Classic "sell-the-news" dynamic: bulls had front-run the earnings, and the raise was not large enough to justify the already-elevated valuation. Options showed puts at 12:1 over calls — the July $260 put saw 8,087 contracts, suggesting large institutional hedges or outright bearish bets. Contrast with DLTR (value rebound) vs. BURL (premium valuation + high expectations).
+      </div>
+    </div>
+
+    <div class="section-label">Options &amp; Flow</div>
+    <p style="font-size:0.85rem;color:var(--muted);">
+      Extreme put dominance: puts vs. calls ~12:1. The highest-volume contract was the July 17th $260 put with 8,087 contracts — a large block likely representing institutional downside hedging or directional short bets. This is one of the most one-sided bearish options setups among today's major movers. IV crush post-earnings still couldn't offset the put premium gains given the stock's -7.5% move.
+    </p>
+
+    <div class="section-label">Retail Buzz</div>
+    <p style="font-size:0.85rem;color:var(--muted);">
+      Reddit r/options and r/stocks had threads debating "why did BURL sell off on a beat?" — educating retail on sell-the-news dynamics. WSB had sarcastic posts: "Earnings beat, stock down — the market is working as intended." StockTwits bearish sentiment shifted sharply during the day. X cashtags showed confusion and frustration from retail longs who held through earnings expecting a DLTR-style pop.
+    </p>
+
+    <div class="section-label">炒作脈絡 / Narrative Context</div>
+    <p style="font-size:0.85rem;color:var(--muted);">
+      Burlington had outperformed discount retail peers in 2025 and entered Q1 earnings near highs with high expectations baked in. The guidance raise was solid but perhaps priced in. Tariff uncertainty on off-price merchandise sourcing (Burlington sources heavily from vendors who import from Asia) may have spooked institutions. The 12:1 put ratio suggests smart money was positioned bearishly ahead of the print despite the beat. Classic "good news priced in / bad news amplified" dynamic.
+    </p>
+
+    <div class="watch-next"><span>後續觀察 / What to Watch:</span> Can BURL stabilize above $300 support? The July $260 put OI suggests some traders expect further downside. Watch if institutions continue adding puts or start covering. Comp-store guidance for Q2 (+2% to +4%) is the key fundamental anchor. If $300 breaks, next support ~$280. Macro risk: if tariff costs accelerate in Q2, off-price retail may see margin pressure.</div>
+    <div class="sources-mini">Sources: <a href="https://www.benzinga.com/markets/earnings/26/05/52844930/burlington-stock-drops-even-as-sales-profit-top-estimates" target="_blank">Benzinga</a> · <a href="https://www.dailypolitical.com/2026/05/29/burlington-stores-nyseburl-issues-q2-2026-earnings-guidance.html" target="_blank">Daily Political</a> · <a href="https://www.barchart.com/options/unusual-activity" target="_blank">Barchart Unusual Options</a> · <a href="https://www.nasdaq.com/market-activity/stocks/burl/earnings" target="_blank">Nasdaq Earnings</a></div>
+  </div>
+
+  <!-- ===== SECTION 2: WATCHLIST ===== -->
+  <div class="section-title">次熱觀察名單 / Watch List (Didn't Quite Make Top 5)</div>
+  <div class="watch-grid">
+    <div class="watch-card">
+      <div class="sym">$DG — Dollar General</div>
+      <div class="desc">Coattail trade on DLTR beat; +5% on the session. Discount retail macro thesis spillover. Own earnings next week — watch for confirmation.</div>
+    </div>
+    <div class="watch-card">
+      <div class="sym">$NVDA — NVIDIA</div>
+      <div class="desc">Most-mentioned on Reddit/X. Not a hot mover today (+0.3%) but embedded in every AI narrative discussion surrounding DELL and SNOW. Omnipresent background character.</div>
+    </div>
+    <div class="watch-card">
+      <div class="sym">$MU — Micron Technology</div>
+      <div class="desc">Reddit most-mentioned alongside NVDA on 5/29. AI memory growth narrative; no individual catalyst today but strong institutional and retail buzz. HBM demand story.</div>
+    </div>
+    <div class="watch-card">
+      <div class="sym">$BBY — Best Buy</div>
+      <div class="desc">Surged alongside KSS and DLTR in consumer retail wave. Resilient consumer spending narrative. GuruFocus flagged KSS, BBY, DLTR together.</div>
+    </div>
+    <div class="watch-card">
+      <div class="sym">Small-Cap Runners (Monthly)</div>
+      <div class="desc">$PIII +444%, $PCLA +407%, $MNTS +327%, $HYLN +240% were May 2026's top-performing small/micro caps — mostly on idiosyncratic catalysts. Treat with caution; high volatility, low liquidity.</div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 3: HALTS & WEIRDNESS ===== -->
+  <div class="section-title">異常事件 / Halts &amp; Weirdness</div>
+  <div style="font-size:0.86rem;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;">
+    <p><strong style="color:var(--yellow);">⚠ 注意：</strong> 本次搜尋未發現 5/29 有重大 LULD halt 或 SEC trading suspension 事件。市場整體平穩，主要波動源自財報催化劑而非監管干預。</p>
+    <p style="margin-top:8px;">No significant LULD halts or SEC trading suspensions were identified on 5/29. Volatility was fundamentals-driven (earnings season), not regulatory. VIX declined 3.4% to 15.74, indicating orderly market conditions despite large individual stock moves.</p>
+    <p style="margin-top:8px;font-size:0.78rem;">Check real-time halt data: <a href="https://www.nasdaqtrader.com/Trader.aspx?id=tradehalts" target="_blank">Nasdaq Trading Halts</a> · <a href="https://www.nyse.com/trade-halt-current" target="_blank">NYSE Halts</a></p>
+  </div>
+
+  <!-- ===== FOOTER: ALL SOURCES ===== -->
+  <footer>
+    <div class="section-title" style="margin-top:24px;">全部資料來源 / All Sources Consulted</div>
+    <ul>
+      <li><a href="https://finance.yahoo.com/markets/stocks/gainers/" target="_blank">Yahoo Finance — Gainers</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/most-active/" target="_blank">Yahoo Finance — Most Active</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/29/dell-stock-earnings-ai-servers.html" target="_blank">CNBC — Dell Earnings AI Servers</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/28/snowflake-snow-software-stock-rally.html" target="_blank">CNBC — Snowflake Rally</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/28/stocks-making-the-biggest-moves-premarket-snow-kss-dltr.html" target="_blank">CNBC — Premarket Movers</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/28/kohls-kss-earnings-q1-2026.html" target="_blank">CNBC — Kohl's Q1</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-05-28/dell-boosts-outlook-to-60-billion-in-ai-server-sales-this-year" target="_blank">Bloomberg — Dell AI Server Outlook</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/dollar-tree-q1-2026-earnings-132329259.html" target="_blank">Yahoo Finance — Dollar Tree Q1</a></li>
+      <li><a href="https://www.benzinga.com/markets/earnings/26/05/52844930/burlington-stock-drops-even-as-sales-profit-top-estimates" target="_blank">Benzinga — Burlington Drop</a></li>
+      <li><a href="https://www.benzinga.com/markets/tech/26/05/52787039/dell-shares-hit-new-52-week-high-as-ai-push-and-analyst-upgrades-fuel-rally" target="_blank">Benzinga — Dell 52-week High</a></li>
+      <li><a href="https://www.snowflake.com/en/news/press-releases/snowflake-expands-aws-collaboration-with-6b-commitment-to-accelerate-enterprise-agentic-ai-adoption/" target="_blank">Snowflake Press Release — AWS $6B</a></li>
+      <li><a href="https://www.gurufocus.com/news/8890346/kss-best-buy-and-dollar-tree-stocks-surge-amid-resilient-consumer-spending" target="_blank">GuruFocus — Consumer Surge</a></li>
+      <li><a href="https://www.gurufocus.com/news/8888613/kohls-kss-surprises-with-strong-q1-results-despite-soft-sales-guidance" target="_blank">GuruFocus — Kohl's Surprise</a></li>
+      <li><a href="https://www.marketbeat.com/instant-alerts/dell-technologies-nysedell-price-target-raised-to-45000-2026-05-29/" target="_blank">MarketBeat — Dell PT Raise</a></li>
+      <li><a href="https://www.barchart.com/options/unusual-activity" target="_blank">Barchart — Unusual Options Activity</a></li>
+      <li><a href="https://marketchameleon.com/Reports/UnusualOptionVolumeReport" target="_blank">Market Chameleon — Unusual Options</a></li>
+      <li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-may-29-2026" target="_blank">TheStreet — Market Today</a></li>
+      <li><a href="https://www.stocktitan.net/rankings/stock-gains-monthly/2026/may" target="_blank">StockTitan — May 2026 Gainers</a></li>
+      <li><a href="https://247wallst.com/investing/2026/05/28/dollar-tree-soars-17-dollar-general-jumps-5-heres-why-discount-store-stocks-are-catching-a-bid/" target="_blank">24/7 Wall St. — DLTR DG</a></li>
+      <li><a href="https://www.reddit.com/r/wallstreetbets/" target="_blank">Reddit r/wallstreetbets</a></li>
+      <li><a href="https://www.reddit.com/r/Shortsqueeze/" target="_blank">Reddit r/Shortsqueeze</a></li>
+      <li><a href="https://apewisdom.io/" target="_blank">ApeWisdom — WSB Mentions</a></li>
+      <li><a href="https://stocktwits.com/rankings/trending" target="_blank">StockTwits Trending</a></li>
+      <li><a href="https://www.quiverquant.com/wallstreetbets/" target="_blank">Quiver Quant — WSB Tracker</a></li>
+      <li><a href="https://fintel.io/sst" target="_blank">Fintel — Short Interest</a></li>
+      <li><a href="https://unusualwhales.com/" target="_blank">Unusual Whales</a></li>
+      <li><a href="https://efts.sec.gov/LATEST/search-index?q=&forms=8-K" target="_blank">SEC EDGAR — 8-K Filings</a></li>
+      <li><a href="https://www.nasdaqtrader.com/Trader.aspx?id=tradehalts" target="_blank">Nasdaq Trading Halts</a></li>
+    </ul>
+    <div class="disclaimer">
+      ⚠ 免責聲明 / Disclaimer: 本報告僅供資訊參考，不構成投資建議。所有數字來自公開資料，部分為盤中估值，以收盤官方數據為準。This report is for informational purposes only and does not constitute investment advice. Numbers sourced from public data; official closing prices may vary.
+    </div>
+  </footer>
+</div>
+</body>
+</html>

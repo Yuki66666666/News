@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美股日報 Daily US Stocks News — 2026-05-30</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #222536;
+      --border: #2e3250;
+      --accent: #4f8ef7;
+      --accent2: #34d399;
+      --red: #f87171;
+      --yellow: #fbbf24;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --up: #34d399;
+      --down: #f87171;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .header {
+      background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 32px 22px;
+    }
+    .header-top { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .header h1 { font-size: 22px; font-weight: 700; color: var(--accent); letter-spacing: -0.3px; }
+    .header .subtitle { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+    .session-badge {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .session-badge strong { color: var(--accent2); }
+    .main { max-width: 920px; margin: 0 auto; padding: 28px 20px 60px; }
+
+    /* Index Table */
+    .index-table-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 28px;
+      overflow-x: auto;
+    }
+    .index-table-wrap h2 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+    table { width: 100%; border-collapse: collapse; min-width: 560px; }
+    thead tr th {
+      text-align: left;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    tbody tr td {
+      padding: 9px 10px;
+      font-size: 14px;
+      border-bottom: 1px solid #1e2235;
+    }
+    tbody tr:last-child td { border-bottom: none; }
+    .index-name { font-weight: 600; color: var(--text); }
+    .index-close { font-variant-numeric: tabular-nums; }
+    .up { color: var(--up); font-weight: 600; }
+    .down { color: var(--down); font-weight: 600; }
+    .flat { color: var(--text-muted); }
+
+    /* Sections */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-title .icon {
+      font-size: 18px;
+    }
+    .section-title h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .section-title .zh { color: var(--accent); }
+    .section-title .en { color: var(--text-muted); font-size: 13px; font-weight: 500; }
+
+    /* Story card */
+    .story {
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid #1c1f30;
+    }
+    .story:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .story-headline {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .story-headline .zh { color: #c7d2fe; }
+    .story-headline .sep { color: var(--text-dim); margin: 0 6px; }
+    .story-meta {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+    .story-meta a { color: var(--accent); text-decoration: none; }
+    .story-meta a:hover { text-decoration: underline; }
+    .story-block { margin-bottom: 8px; }
+    .story-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 3px;
+    }
+    .story-body { font-size: 14px; color: var(--text); }
+    .story-body .en-note { color: var(--text-muted); font-size: 13px; }
+
+    /* Ticker pills */
+    .ticker-pill {
+      display: inline-block;
+      background: #252840;
+      border: 1px solid #3a3f6a;
+      border-radius: 5px;
+      padding: 1px 7px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-right: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+    .ticker-up { color: var(--up); border-color: #1f4a38; background: #0d2b1f; }
+    .ticker-down { color: var(--down); border-color: #4a2020; background: #2b0d0d; }
+
+    /* Alert box */
+    .alert {
+      background: #1a2235;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 10px 0;
+    }
+    .alert.warn { border-color: var(--yellow); background: #221e10; }
+    .alert.up { border-color: var(--up); background: #0d201a; }
+    .alert.red { border-color: var(--down); background: #201010; }
+
+    /* Sector grid */
+    .sector-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-bottom: 8px; }
+    .sector-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 13px;
+    }
+    .sector-name { font-weight: 600; color: var(--text); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .sector-perf { font-size: 15px; font-weight: 700; margin-top: 3px; }
+
+    /* Source footer */
+    .sources {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-top: 28px;
+    }
+    .sources h3 { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.07em; }
+    .sources ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+    .sources li { font-size: 12px; color: var(--text-dim); }
+    .sources a { color: var(--accent); text-decoration: none; }
+    .sources a:hover { text-decoration: underline; }
+
+    .disclaimer {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--text-dim);
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .divider { height: 1px; background: var(--border); margin: 8px 0 16px; }
+
+    @media (max-width: 600px) {
+      .header { padding: 18px 16px 16px; }
+      .main { padding: 16px 12px 40px; }
+      .section { padding: 16px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div>
+      <h1>美股日報 · Daily US Stocks News</h1>
+      <div class="subtitle">整理自多家財經媒體 · Compiled from multiple financial sources</div>
+    </div>
+    <div class="session-badge">
+      交易日 <strong>2026-05-29 (Thu)</strong><br/>
+      整理日 2026-05-30 (Fri, Taipei)
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- INDEX TABLE -->
+  <div class="index-table-wrap">
+    <h2>指數收盤 / Market Close — 2026-05-29</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>指數 / Index</th>
+          <th>收盤 Close</th>
+          <th>漲跌 Chg</th>
+          <th>%</th>
+          <th>備注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="index-name">S&amp;P 500</td>
+          <td class="index-close">7,510.11</td>
+          <td class="up">+36.64</td>
+          <td class="up">+0.49%</td>
+          <td style="color:var(--text-muted);font-size:13px;">新高附近 · Near record</td>
+        </tr>
+        <tr>
+          <td class="index-name">Nasdaq Comp.</td>
+          <td class="index-close">26,589.55</td>
+          <td class="up">+245.58</td>
+          <td class="up">+0.93%</td>
+          <td style="color:var(--text-muted);font-size:13px;">科技股領漲</td>
+        </tr>
+        <tr>
+          <td class="index-name">Nasdaq 100</td>
+          <td class="index-close">29,933.93</td>
+          <td class="up">+452.29</td>
+          <td class="up">+1.53%</td>
+          <td style="color:var(--text-muted);font-size:13px;">記憶體強勁拉動</td>
+        </tr>
+        <tr>
+          <td class="index-name">Dow Jones</td>
+          <td class="index-close">50,384.82</td>
+          <td class="down">−194.88</td>
+          <td class="down">−0.39%</td>
+          <td style="color:var(--text-muted);font-size:13px;">傳產拖累</td>
+        </tr>
+        <tr>
+          <td class="index-name">VIX</td>
+          <td class="index-close">17.03</td>
+          <td class="up">+0.44</td>
+          <td class="up">+2.65%</td>
+          <td style="color:var(--text-muted);font-size:13px;">恐慌指數小升</td>
+        </tr>
+        <tr>
+          <td class="index-name">US 10Y Yield</td>
+          <td class="index-close">4.506%</td>
+          <td class="up">−0.067</td>
+          <td class="up">−1.47%</td>
+          <td style="color:var(--text-muted);font-size:13px;">殖利率下行</td>
+        </tr>
+        <tr>
+          <td class="index-name">DXY (Dollar Index)</td>
+          <td class="index-close">99.14</td>
+          <td class="flat">−0.04</td>
+          <td class="flat">−0.04%</td>
+          <td style="color:var(--text-muted);font-size:13px;">美元走平</td>
+        </tr>
+        <tr>
+          <td class="index-name">WTI Crude</td>
+          <td class="index-close">~$61.18</td>
+          <td class="down">未取得RTH精確收盤</td>
+          <td class="down">—</td>
+          <td style="color:var(--text-muted);font-size:13px;">美伊停火消息壓油</td>
+        </tr>
+        <tr>
+          <td class="index-name">Gold</td>
+          <td class="index-close">4,515.32</td>
+          <td class="down">−41.08</td>
+          <td class="down">−0.90%</td>
+          <td style="color:var(--text-muted);font-size:13px;">避險需求降溫</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="alert" style="margin-top:12px;">注：WTI 收盤數據未完整取得，以盤中期貨報價估算。VIX 及 Gold 為 Investing.com 即時報價。</div>
+  </div>
+
+  <!-- SECTION 1: 市場概況 -->
+  <div class="section">
+    <div class="section-title">
+      <span class="icon">📊</span>
+      <div>
+        <div><span class="zh">市場概況</span> <span class="sep">/</span> <span class="en">Market Overview</span></div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">科技大漲、道瓊收黑——指數分歧走勢</span>
+        <span class="sep">/</span>
+        <span>Tech surges, Dow drags — divergent session</span>
+      </div>
+      <div class="story-meta">來源 / Source: Investing.com · Sherwood News · 2026-05-29</div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">
+          S&amp;P 500 小漲 0.49% 至 7,510，創下週期高點附近；Nasdaq 100 大漲 <strong>+1.53%</strong> 至 29,934，為當日最強主指。道瓊卻下跌 194 點（−0.39%），反映傳統產業個股疲弱。VIX 微升至 17.03（+2.65%）。10 年期殖利率下行至 4.506%，DXY 走平於 99.14。黃金跌 0.9% 至 4,515.32，反映風險情緒回溫。
+          <br/><span class="en-note">SPX +0.49% to 7,510 near cycle highs; NDX 100 surged +1.53% to 29,934; DJIA −0.39%; VIX edged up to 17.03; 10Y yield fell to 4.506%; gold −0.9% as risk sentiment improved.</span>
+        </div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">背景脈絡 / Context</div>
+        <div class="story-body">當日最大驅動力：記憶體股 MU 暴漲近 20%，拉動半導體、AI 供應鏈全面反彈。同時 Axios 報導美伊停火協議延長 60 天，地緣政治風險降溫，債券殖利率隨之下行，給高估值科技股提供支撐。傳產端（汽車零件、消費耐久財等）受中東不確定性及 Fed 維持利率壓力，表現落後。<br/><span class="en-note">Key drivers: MU +19%+ lifted semis/AI chain; US-Iran ceasefire extension (60 days per Axios) pushed yields lower and supported tech multiples. Industrials/consumer discretionary lagged.</span></div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">影響觀察 / Implications</div>
+        <div class="story-body">Nasdaq/S&amp;P 分化反映「市場是否全面性」的疑慮仍存：AI/半導體為漲勢主力，但其他板塊尚未跟進。若 Fed 維持高利率且傳產持續落後，下半年 EPS 廣度會是觀察焦點。注意：Sherwood News 報導「散戶個股選股今年大幅跑贏 Nasdaq」（摩根大通策略師）——集中押注 MU、AMD、NVDA 的散戶暫時領先。</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="story-label" style="color:var(--text-muted);font-size:11px;text-transform:uppercase;letter-spacing:0.07em;">板塊概況 / Sector Snapshot</div>
+      <div class="sector-grid" style="margin-top:10px;">
+        <div class="sector-card"><div class="sector-name">半導體 / Semis</div><div class="sector-perf up">+5~10%+</div></div>
+        <div class="sector-card"><div class="sector-name">科技 / Tech Broad</div><div class="sector-perf up">+1~2%</div></div>
+        <div class="sector-card"><div class="sector-name">零售 / Retail</div><div class="sector-perf up">+3~12%</div></div>
+        <div class="sector-card"><div class="sector-name">汽車零件 / Auto Parts</div><div class="sector-perf down">−5~10%</div></div>
+        <div class="sector-card"><div class="sector-name">金融軟體 / Fin SW</div><div class="sector-perf down">−4~5%</div></div>
+        <div class="sector-card"><div class="sector-name">能源 / Energy</div><div class="sector-perf flat">混合 Mixed</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: 頭條 -->
+  <div class="section">
+    <div class="section-title">
+      <span class="icon">🔔</span>
+      <div>
+        <div><span class="zh">頭條</span> <span class="sep">/</span> <span class="en">Top Stories</span></div>
+      </div>
+    </div>
+
+    <!-- Story A: US-Iran ceasefire -->
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">美伊停火延長 60 天，市場避險需求回落</span>
+        <span class="sep">/</span>
+        <span>US-Iran ceasefire extended 60 days, risk assets rally</span>
+      </div>
+      <div class="story-meta">來源 / Source: Sherwood News (citing Axios) · 2026-05-29 · <a href="https://sherwood.news/markets/market-wrap-2026-05-28-sp500-qqq/" target="_blank">連結</a></div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">
+          Axios 報導美國與伊朗已達成臨時協議，將現行停火延長 60 天，等待川普總統最終批准。此消息在盤中流傳後，油價下滑、殖利率走軟，科技股加速走高。S&amp;P 500 收盤創下新高附近。<br/>
+          <span class="en-note">Axios reported a tentative US-Iran deal extending the ceasefire by 60 days pending Trump's approval. Markets quickly priced out geopolitical risk premium — equities rallied, oil softened, yields fell.</span>
+        </div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">背景脈絡 / Context</div>
+        <div class="story-body">過去一週美伊緊張曾推升油價一度衝至 $120（根據 TradingView 歷史脈絡），後急速回落。停火消息消除了短期「油價通膨再起」的尾部風險，Fed 維持中性立場的概率上升，有利高估值成長股。<br/><span class="en-note">Oil had spiked above $120 during peak Iran tensions before pulling back sharply. This ceasefire news removes the near-term tail risk of supply disruption and stagflation, supporting Fed's wait-and-see posture.</span></div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">影響觀察 / Implications</div>
+        <div class="story-body">60 天後若談判破裂，市場可能重演快速波動。目前 WTI 已大幅回落，能源股財測需修正。地緣政治「暫時平靜」為本週末散戶持倉提供喘息空間。</div>
+      </div>
+    </div>
+
+    <!-- Story B: Micron -->
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">美光暴漲近 20%——記憶體超級周期再點火</span>
+        <span class="sep">/</span>
+        <span>Micron +19.36% — memory super-cycle re-ignites</span>
+      </div>
+      <div class="story-meta">來源 / Source: Investing.com · Sherwood News · 2026-05-29 · <a href="https://www.investing.com/equities/micron-tech" target="_blank">MU</a></div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">
+          <span class="ticker-pill ticker-up">MU +19.36%</span>
+          <span class="ticker-pill ticker-up">SNDK +9.12%</span>
+          <span class="ticker-pill ticker-up">WDC +9.18%</span>
+          <span class="ticker-pill ticker-up">ON +10.26%</span>
+          <span class="ticker-pill ticker-up">AMD +6.55%</span>
+          成交量：MU 達 5,280 萬股，為近期最高。<br/>
+          <span class="en-note">MU surged 19.36% on volume of 52.8M shares (well above average). Fellow memory/semis names SNDK, WDC, AMD, ON Semiconductor all raced higher in sympathy.</span>
+        </div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">背景脈絡 / Context</div>
+        <div class="story-body">AI 訓練需求的爆炸性增長正在拉動 HBM（高頻寬記憶體）供不應求。MU 在 HBM3E 領域與 SK Hynix 競爭，市場預期其下季度財報將大幅超預期。散戶對 MU 的集中押注（摩根大通散戶部位研究）也放大了當日漲幅。<br/><span class="en-note">AI infrastructure demand is driving HBM shortage; MU is a key HBM3E beneficiary alongside SK Hynix. JPMorgan data showed retail traders concentrated in MU, AMD, NVDA — amplifying the move. Memory cycle turning from oversupply to severe undersupply.</span></div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">影響觀察 / Implications</div>
+        <div class="story-body">記憶體本輪上漲若能持續，受益方包含：資料中心設備商、SMCI、NVDA 生態、台廠 SK Hynix ADR 等。Intel 小漲 2.18% 為後段班。AutoZone (AZO) 跌近 10.5% — 汽車零件股為本日最大輸家，反映消費者支出降溫。</div>
+      </div>
+    </div>
+
+    <!-- Story C: Dell -->
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">戴爾 Q1 財報爆表——AI 伺服器創收首度壓過傳統 PC</span>
+        <span class="sep">/</span>
+        <span>Dell blowout Q1: AI servers now bigger than its entire PC business</span>
+      </div>
+      <div class="story-meta">來源 / Source: Sherwood News · 2026-05-29 · <a href="https://sherwood.news/markets/dell-q1-2027-earnings-ai-boom-servers/" target="_blank">連結</a></div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">
+          Dell FY2027 Q1：<br/>
+          ・ 營收 <strong>$43.8B</strong>（vs 分析師預期 $35.5B，大超 23%）<br/>
+          ・ Adj. EPS <strong>$4.86</strong>（vs 預期 $2.99，大超 62%）<br/>
+          ・ 全年指引升至 <strong>~$167B</strong>（前指引 $140B；市場預估 $142B）<br/>
+          ・ 全年 Adj. EPS 中位數 <strong>$17.90</strong>（前 $12.90）<br/>
+          ・ AI 伺服器今年預計貢獻 <strong>約 $60B</strong>（前指引 $50B）<br/>
+          盤前另獲五角大廈 <strong>$9.7B</strong> 五年軟體授權合約（管理全軍 Microsoft 授權）。<br/>
+          <span class="en-note">Dell Q1 revenue of $43.8B demolished $35.5B estimates; adj. EPS $4.86 vs $2.99 est. Full-year guidance raised sharply to ~$167B. Pentagon contract worth $9.7B. Stock up 145%+ YTD before this report.</span>
+        </div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">背景脈絡 / Context</div>
+        <div class="story-body">Dell 的 AI 伺服器部門 2023 年底幾乎不存在，如今貢獻超過傳統 PC 事業整體營收。五角大廈合約是 Dell 與川普政府關係深化的又一例證（Michael Dell 去年底在白宮宣布 $6.25B 慈善承諾，川普公開喊買）。戴爾股今年累漲逾 145%。<br/><span class="en-note">AI server sales didn't exist for Dell until late 2023; now larger than its entire Client Solutions Group (PCs). Pentagon contract ties Dell to the Trump administration's defense tech ecosystem.</span></div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">影響觀察 / Implications</div>
+        <div class="story-body">此財報確認 AI 基礎設施支出並未放緩，對 NVDA、Intel、Broadcom 等 AI 伺服器供應商皆為正面訊號。但部分分析師提醒：$167B 全年指引隱含 H2 加速，需觀察 Q2 是否 follow through。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: 財報 -->
+  <div class="section">
+    <div class="section-title">
+      <span class="icon">📋</span>
+      <div>
+        <div><span class="zh">財報</span> <span class="sep">/</span> <span class="en">Earnings of the Day (2026-05-29)</span></div>
+      </div>
+    </div>
+
+    <!-- MongoDB -->
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">MongoDB — 先殺後漲，最終大漲 20%+</span>
+        <span class="sep">/</span>
+        <span>MongoDB Q1 beat: wild AH swing, ultimately +20%+</span>
+      </div>
+      <div class="story-meta">來源 / Source: Sherwood News · 2026-05-29 · <a href="https://sherwood.news/markets/mongodb-sees-knee-jerk-drubbing-then-massive-gains-after-impressive-q1-results-boost-to-full-year-guidance/" target="_blank">連結</a></div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">
+          MDB Q1 FY2027：<br/>
+          ・ 營收 <strong>$687.6M</strong>（vs 預期 $664.5M，超 3.5%）<br/>
+          ・ Adj. EPS <strong>$1.32</strong>（vs 預期 $1.19）<br/>
+          ・ 全年 Adj. EPS 指引 <strong>$5.95–$6.14</strong>（前 $5.75–$5.93；市場估 $5.88）<br/>
+          ・ 全年營收指引 <strong>$2.92B–$2.96B</strong>（前指引低 $600M；超市場估 $2.9B）<br/>
+          盤後先急殺 21%（算法或恐慌賣盤），7 分鐘後完全收復並多漲逾 20%，合計市值先跌 $5.6B 後漲 $12.6B。<br/>
+          <span class="en-note">MDB beat on revenue and EPS, raised full-year guidance. After-hours: -21% flash crash then +20%+ recovery in minutes — a vivid example of algo-driven overreaction.</span>
+        </div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">影響觀察 / Implications</div>
+        <div class="story-body">MongoDB 盤後劇烈波動顯示軟體股的「beat-and-raise 但反應遲緩」現象已多次出現。短線演算法誤判指引措辭，散戶反而撿到便宜。 MDB 今年 YTD 仍下跌，說明市場對 SaaS 估值仍謹慎。<br/><span class="en-note">Underscores algo-driven misreads in software earnings. Despite the eventual surge, MDB remains negative YTD, highlighting ongoing valuation skepticism for SaaS multiples.</span></div>
+      </div>
+    </div>
+
+    <!-- Costco -->
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">Costco Q3 — 營收略低預期，EPS 略超，股價平盤</span>
+        <span class="sep">/</span>
+        <span>Costco Q3: Revenue miss, EPS beat, shares flat AH</span>
+      </div>
+      <div class="story-meta">來源 / Source: Sherwood News · 2026-05-29 · <a href="https://sherwood.news/markets/costco-misses-out-on-the-retailer-rally-after-mixed-q3-report/" target="_blank">連結</a></div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">
+          COST Q3：<br/>
+          ・ 營收 <strong>$69.2B</strong>（vs 預期 $69.6B，輕微不達）<br/>
+          ・ Adj. EPS <strong>$4.93</strong>（vs 預期 $4.91，微超）<br/>
+          ・ 會員費 <strong>$1.37B</strong>（vs 預期 $1.35B，略超）<br/>
+          股價盤後近乎平盤。川普總統 Q1 個人信託買入 Costco 股票（SEC 5月8日公告）。<br/>
+          <span class="en-note">COST Q3: slight revenue miss ($69.2B vs $69.6B), thin EPS beat ($4.93 vs $4.91), membership fees beat. Shares flat AH. Notably, Trump's trust bought COST in Q1.</span>
+        </div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">影響觀察 / Implications</div>
+        <div class="story-body">對比 Best Buy、Dollar Tree、Kohl's 同日大漲，Costco 的平盤反應顯示市場認為其估值已充分反映。消費者花費較少可能受高氣價壓力轉移至 Costco 油站，部分抵消商品消費下滑。</div>
+      </div>
+    </div>
+
+    <!-- Retail Beat -->
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">零售業全面報喜——Best Buy、Dollar Tree、Kohl's 齊漲雙位數</span>
+        <span class="sep">/</span>
+        <span>Retail earnings sweep: BBY, DLTR, KSS all double-digit gains</span>
+      </div>
+      <div class="story-meta">來源 / Source: Sherwood News · 2026-05-29 · <a href="https://sherwood.news/markets/" target="_blank">連結</a></div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">
+          ・ <span class="ticker-pill ticker-up">BBY +雙位數%</span> Best Buy Q1：Adj. EPS $1.28（est. $1.23），營收 $8.94B（est. $8.82B），重申全年指引，Q2 可比銷售成長 +1%（受 Switch 2 發布加持）。CEO Corie Barry 10月交棒 Jason Bonfig。<br/>
+          ・ <span class="ticker-pill ticker-up">DLTR +雙位數%</span> Dollar Tree Q1：Adj. EPS $1.74（est. $1.55），可比銷售 +3.5%，毛利率擴張 120bps（運費降低、縮水減少），全年 EPS 指引升至 $6.70–$7.10（前 $6.50–$6.90）。同步與 DoorDash 達成 9,000 門市配送合作。<br/>
+          ・ <span class="ticker-pill ticker-up">KSS Kohl's</span> 亦大漲雙位數。<br/>
+          <span class="en-note">Retail had a strong day: BBY beat top and bottom line, DLTR delivered a massive EPS beat + raised guidance + DoorDash partnership. KSS also surged.</span>
+        </div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">影響觀察 / Implications</div>
+        <div class="story-body">低端消費（Dollar Tree）意外強勁，顯示美國低收入族群消費韌性尚存（可能也受益通膨壓力下的「降級消費」趨勢）。Best Buy 受惠 Switch 2 換機潮，Q2 可觀察電子產品零售景氣。與 TSCO Tractor Supply −5.8%、AZO −10.5% 對比，消費分化現象明顯。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: 個股大事 -->
+  <div class="section">
+    <div class="section-title">
+      <span class="icon">🎯</span>
+      <div>
+        <div><span class="zh">個股大事</span> <span class="sep">/</span> <span class="en">Single-Stock Movers</span></div>
+      </div>
+    </div>
+
+    <!-- Super Micro -->
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">Super Micro 大漲——協助台灣當局阻止晶片走私中國</span>
+        <span class="sep">/</span>
+        <span>Super Micro soars as it publicizes anti-smuggling cooperation with Taiwan</span>
+      </div>
+      <div class="story-meta">來源 / Source: Sherwood News · 2026-05-29 · <a href="https://sherwood.news/markets/super-micro-soars-on-heavy-call-volume-worked-with-taiwan-to-avoid-china-chip-smuggling/" target="_blank">連結</a></div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">
+          <span class="ticker-pill ticker-up">SMCI 大漲</span> 公司聲明稱「與台灣當局緊密合作」攔截違規轉售至中國的含 NVDA 晶片伺服器，協助逮捕 3 名嫌犯並查扣 50 台伺服器。選擇權 call 量達 392,857（20日均 214,893），put/call 比 0.16（遠低於均值 0.29）大幅看漲。<br/>
+          <span class="en-note">SMCI issued statement on Taiwan cooperation to prevent AI chip smuggling to China; 3 arrested, 50 servers seized. Massive bullish options flow: call/put ratio spiked sharply.</span>
+        </div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">背景脈絡 / Context</div>
+        <div class="story-body">3 月 SMCI 共同創辦人被美國聯邦檢察官起訴，涉嫌試圖走私價值 $2.5B 含 NVDA GPU 伺服器至中國。SMCI 股價當時大跌，此聲明試圖切割聯繫並重塑「合規合作者」形象。CEO 稱未感受到客戶流失，NVDA 晶片配額亦未減少。<br/><span class="en-note">SMCI's co-founder was charged in March for allegedly smuggling $2.5B of Nvidia GPU servers to China. Today's statement aimed to reframe SMCI as part of the solution. Oracle had reportedly canceled a ~$1B contract following those charges.</span></div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">影響觀察 / Implications</div>
+        <div class="story-body">若 SMCI 成功洗清嫌疑並重獲大客戶信任，基本面改善空間可觀。但司法程序尚未結束，共同創辦人案件懸而未決，法律尾部風險持續。</div>
+      </div>
+    </div>
+
+    <!-- IBM -->
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">IBM 承諾砸 $100 億追求量子運算「聖杯」，股價大漲</span>
+        <span class="sep">/</span>
+        <span>IBM rallies after $10 billion quantum computing commitment</span>
+      </div>
+      <div class="story-meta">來源 / Source: Sherwood News · 2026-05-29 · <a href="https://sherwood.news/markets/ibm-quantum-computing-10-billion-investment-government-support/" target="_blank">連結</a></div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">IBM 宣布未來數年投入 <strong>$100 億</strong>（$10B）發展量子運算，並稱「我們擁有的量子電腦數量超過業界所有其他廠商合計」。股票大漲。<br/><span class="en-note">IBM committed $10 billion to quantum computing, claiming to have more quantum computers than all other industry players combined. Stock surged.</span></div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">影響觀察 / Implications</div>
+        <div class="story-body">量子運算目前仍是「未來選擇權」，不影響近期 EPS。但政府支持（可能涉及國防/國安）提供資金確定性，量子概念股（如 IONQ、RGTI 等）可能受到帶動效應。</div>
+      </div>
+    </div>
+
+    <!-- Tesla -->
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">Tesla Robotaxi——訓練師揭露內幕：「你就是付我錢我也不坐」</span>
+        <span class="sep">/</span>
+        <span>Tesla Robotaxi insiders: "wouldn't ride in it if you f---ing paid me"</span>
+      </div>
+      <div class="story-meta">來源 / Source: Sherwood News (citing Reuters investigation) · 2026-05-29 · <a href="https://sherwood.news/tech/report-teslas-robotaxi-trainers-dont-think-its-ready-for-prime-time/" target="_blank">連結</a></div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">Reuters 深度調查採訪 9 名前 Tesla 數據標注員及 1 名前自動駕駛工程師，指控 Tesla 美化安全統計、車輛無法執行基本駕駛任務、且在幕後依賴高強度人工標注（恰是 Musk 公開嘲諷 Waymo 的方式）。Robotaxi 目前在德州 3 城共 30 輛無監督運行。<br/><span class="en-note">Reuters investigation via 9 former insiders: safety stats massaged, basic driving failures, labor-intensive localized training (the approach Musk mocks in Waymo). Only 30 unsupervised vehicles operating in 3 Texas cities.</span></div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">影響觀察 / Implications</div>
+        <div class="story-body">Tesla 市值的重要支撐之一是 Robotaxi/FSD 變現期待。若報導屬實，商業化時間表或需大幅延後。TSLA 當日股價 +1.49%（受整體市場帶動），但此調查報導長期看為負面催化。Waymo（Alphabet 旗下）可能受益於對比效應。</div>
+      </div>
+    </div>
+
+    <!-- AZO / AutoZone -->
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">AutoZone 重挫逾 10%——汽車零件需求降溫明顯</span>
+        <span class="sep">/</span>
+        <span>AutoZone crashes 10%+ — auto parts demand slowdown</span>
+      </div>
+      <div class="story-meta">來源 / Source: Investing.com · 2026-05-29</div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">
+          <span class="ticker-pill ticker-down">AZO −10.46%</span>
+          <span class="ticker-pill ticker-down">TSCO −5.79%</span>
+          <span class="ticker-pill ticker-down">ORLY −4.11%</span>
+          汽車零件與農牧用品零售商集體大跌。詳細財報數字未取得，但市場走勢顯示消費者在此類「必需性維修」支出出現明顯縮減。<br/>
+          <span class="en-note">AZO −10.46%, TSCO −5.79%, ORLY −4.11%. Detailed earnings not retrieved; but sector-wide selloff suggests consumer pullback in auto/home maintenance spending.</span>
+        </div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">影響觀察 / Implications</div>
+        <div class="story-body">汽車零件消費通常被視為「防禦性」板塊（人不買新車、就修舊車），今日大跌若確認是財報差，將引發對美國消費基礎的更廣泛疑慮。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: M&A / IPO -->
+  <div class="section">
+    <div class="section-title">
+      <span class="icon">🤝</span>
+      <div>
+        <div><span class="zh">併購與 IPO</span> <span class="sep">/</span> <span class="en">M&amp;A and IPO</span></div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">Anthropic 完成 $650 億融資，估值 $9,650 億美元，接近兆元獨角獸</span>
+        <span class="sep">/</span>
+        <span>Anthropic raises $65B at $965B valuation — nearing $1 trillion</span>
+      </div>
+      <div class="story-meta">來源 / Source: Sherwood News · 2026-05-29 · <a href="https://sherwood.news/tech/anthropic-raises-65-billion-at-a-965-billion-valuation-releases-a-more-honest-claude-opus-4-8/" target="_blank">連結</a></div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">Anthropic 完成 <strong>$650 億</strong>（$65B）融資，估值達 <strong>$9,650 億</strong>（$965B），超過 OpenAI 的 $8,500 億，並同步發布更「誠實」的 Claude Opus 4.8 模型。兩家公司都預期今年底前 IPO。<br/><span class="en-note">Anthropic raised $65B at $965B valuation, surpassing OpenAI's $850B. Both companies targeting IPO later in 2026. Simultaneously released Claude Opus 4.8 (marketed as more "honest").</span></div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">影響觀察 / Implications</div>
+        <div class="story-body">AI 獨角獸估值仍在快速膨脹。Anthropic vs. OpenAI 的 IPO 競爭可能引發 2026 年最受矚目的科技 IPO 之戰。NVDA、AWS、GCP 等 AI 基礎設施提供商是最直接受益方。股票市場方面，此估值確認私募端的 AI 熱潮持續，有助維持公開市場 AI 概念股溢價。</div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">美國無人機股大漲——政府採購協議傳聞，DJI 仍被封鎖</span>
+        <span class="sep">/</span>
+        <span>US drone stocks surge on government deal talks; DJI still banned</span>
+      </div>
+      <div class="story-meta">來源 / Source: Sherwood News · 2026-05-29 · <a href="https://sherwood.news/markets/us-drone-stocks-surge-on-talks-of-government-deal-while-banned-chinese-drone-maker-fights-to-clear-its-name/" target="_blank">連結</a></div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">川普政府傳出可能推出大規模美國本土無人機採購計畫，美國無人機概念股集體大漲。中國市場龍頭 DJI 仍在爭取從美國禁止名單除名。<br/><span class="en-note">Reports of Trump administration plan to boost domestic drone procurement lifted US drone stocks. DJI, the global market leader, remains banned from the US market and is fighting to clear its name.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: 券商評等 -->
+  <div class="section">
+    <div class="section-title">
+      <span class="icon">🔬</span>
+      <div>
+        <div><span class="zh">券商評等</span> <span class="sep">/</span> <span class="en">Analyst Calls</span></div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-headline">本週重要個股關注 / Key Stocks to Watch This Week</div>
+      <div class="story-meta">來源 / Source: Benzinga · 2026-05-10 (近期) · <a href="https://www.benzinga.com/markets/market-summary/26/05/52437847/top-us-stocks-to-watch-this-week-amat-cisco-nebius-and-circle" target="_blank">連結</a></div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">Benzinga 指本週券商關注名單包含：<span class="ticker-pill">AMAT</span> Applied Materials（半導體設備）、<span class="ticker-pill">CSCO</span> Cisco（網路/AI 基礎設施）、<span class="ticker-pill">NBIS</span> Nebius（AI 計算）、<span class="ticker-pill">Circle</span>（穩定幣 IPO 候選）。S&amp;P 500 上週已創歷史新高，接近 7,500 關鍵阻力後突破。<br/><span class="en-note">Watchlist includes AMAT, CSCO, NBIS, Circle. SPX closed above the 7,500 key resistance this week per Benzinga.</span></div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">影響觀察 / Implications</div>
+        <div class="story-body">AMAT 為 SMCI/NVDA AI 伺服器需求的上游受益方；CSCO 旗下 AI 網路需求有望受 Dell 訂單帶動；Nebius 為較小型 AI 計算概念股，受關注度上升反映市場開始挖掘 NVDA 以外的 AI 計算佈局。</div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">摩根大通：散戶選股 2026 跑贏所有基準，集中 MU、AMD、NVDA</span>
+        <span class="sep">/</span>
+        <span>JPMorgan: retail stock-picking trouncing benchmarks in 2026</span>
+      </div>
+      <div class="story-meta">來源 / Source: Sherwood News (JPMorgan strategist Arun Jain) · 2026-05-28 · <a href="https://sherwood.news/markets/retail-traders-outperforming-2026-jpmorgan-ai-boom/" target="_blank">連結</a></div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">JPMorgan 策略師 Arun Jain：散戶個股選股年初至今大幅跑贏 Nasdaq 100 及 S&amp;P 500（假設定期定額策略）。ETF 持股上則跑贏 S&amp;P 500 但略落後 Nasdaq 100。集中在 MU、AMD、NVDA 的單股持倉表現最佳。<br/><span class="en-note">JPMorgan's Jain: retail's single-stock picks significantly outperformed DCA into NDX/SPX this year, concentrated in MU, AMD, NVDA. ETF holdings beat SPX but slightly lagged NDX.</span></div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">影響觀察 / Implications</div>
+        <div class="story-body">散戶牛市信心強化可能推動更多資金流入科技/AI 個股，但也代表集中風險上升。若 AI 交易出現逆轉（如模型商品化、NVDA 競爭加劇），散戶部位首當其衝。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: Fed & Rates -->
+  <div class="section">
+    <div class="section-title">
+      <span class="icon">🏦</span>
+      <div>
+        <div><span class="zh">Fed 與利率</span> <span class="sep">/</span> <span class="en">Fed &amp; Rates</span></div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">Fed 按兵不動，但現裂痕——異議票數創 1992 年來最多</span>
+        <span class="sep">/</span>
+        <span>Fed holds rates but cracks emerge — 4 dissents, most since 1992</span>
+      </div>
+      <div class="story-meta">來源 / Source: 鉅亨網 · Sherwood News · 2026-05 · <a href="https://news.cnyes.com/news/id/6437522" target="_blank">連結</a></div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">Fed 最新決策會議按兵不動（維持利率不變），但出現 <strong>4 票異議</strong>，為 1992 年以來最高異議票數。據鉅亨網報導，鮑爾（Powell）選擇留任為理事。市場解讀此為「給準主席 Kevin Warsh 的警訊」。CME FedWatch 工具未能完整取得最新降息概率，但 10 年期殖利率當日下行 6.7bps 至 4.506%，反映市場認為高利率維持時間可能縮短。<br/><span class="en-note">Fed held rates; 4 dissents — most since 1992, signaling internal FOMC divisions. Powell reportedly staying on as governor. 10Y yield fell 6.7bps to 4.506%, suggesting market repricing of rate path.</span></div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">背景脈絡 / Context</div>
+        <div class="story-body">美伊停火延長降低油價通膨壓力，FOMC 鷹派聲音可能因此弱化。同期 Amazon Q1 AWS 大增 28%、Alphabet 淨利暴增 81%（鉅亨排行），資本市場對「軟著陸」敘事仍維持正面看法。<br/><span class="en-note">Iran ceasefire removes oil-driven inflation tail risk, potentially softening the hawkish FOMC minority. Amazon AWS +28% and Alphabet profit +81% YoY (from Cnyes ranking) support soft-landing narrative.</span></div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">影響觀察 / Implications</div>
+        <div class="story-body">4 票異議意味 FOMC 內部對「維持高利率」的共識在瓦解中。若下一份 PCE/CPI 數據溫和，市場可能提前押注 9 月降息。10Y 維持在 4.5% 附近仍壓抑未獲利成長股及長期限利率敏感資產，但方向已偏向走軟。注意：下一關鍵數據為 5 月非農就業（6 月初）。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8: 資金流向 -->
+  <div class="section">
+    <div class="section-title">
+      <span class="icon">💸</span>
+      <div>
+        <div><span class="zh">資金流向</span> <span class="sep">/</span> <span class="en">Flows &amp; Positioning</span></div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">散戶 ETF 持倉今年領先大盤，個股倉位集中 AI 半導體</span>
+        <span class="sep">/</span>
+        <span>Retail ETF and single-stock positioning concentrated in AI / semis</span>
+      </div>
+      <div class="story-block">
+        <div class="story-label">核心事實 / Facts</div>
+        <div class="story-body">
+          ETF 流量（Benzinga 近期數據）：<br/>
+          <span class="ticker-pill">SPY</span> $737.82 (+0.03%) · <span class="ticker-pill">QQQ</span> $712.00 (+0.11%) · <span class="ticker-pill">IWM</span> $284.10 (−0.02%) · <span class="ticker-pill">ARKK</span> $78.91 (−0.26%)<br/>
+          個股看漲情緒最強：MU call 量爆增、SMCI call/put 比 0.16（極度看多）。以太坊 ETF 連續 12 日流出，ETH 跌至 2 個月低點 $1,967。<br/>
+          <span class="en-note">ETF flows relatively quiet. Heavy bullish options in MU and SMCI (SMCI put/call=0.16, far below 0.29 avg). ETH spot ETF saw 12th straight outflow day (-$67.2M on Wed), ETH at 2-month low ~$1,967.</span>
+        </div>
+      </div>
+      <div class="story-block">
+        <div class="story-label">影響觀察 / Implications</div>
+        <div class="story-body">資金明顯集中於半導體/AI，ARKK（創新 ETF）下跌反映市場對「廣泛創新」的興趣不如集中 AI 玩法。以太幣持續資金流出需關注——若 $1,800 支撐失守，加密市場情緒可能傳導至科技高風險資產。Bitcoin 亦下探 6 週低點。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 9: 觀點 / Reads -->
+  <div class="section">
+    <div class="section-title">
+      <span class="icon">📖</span>
+      <div>
+        <div><span class="zh">觀點</span> <span class="sep">/</span> <span class="en">Reads</span></div>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">Google 員工靠內部資訊在 Polymarket 獲利 $120 萬被捕——預測市場首宗重大內線案</span>
+        <span class="sep">/</span>
+        <span>Google engineer charged with insider trading on Polymarket, $1.2M profit</span>
+      </div>
+      <div class="story-meta">來源 / Source: Sherwood News · 2026-05-29 · <a href="https://sherwood.news/markets/google-worker-charged-with-using-inside-info-made-1-2-million-on-polymarket/" target="_blank">連結</a></div>
+      <div class="story-body">
+        Michele Spagnuolo（Google 蘇黎世安全工程師）被控洗錢、商品詐欺、電信詐欺。帳號「AlphaRaccoon」據稱動用 Google 非公開搜尋數據，提前押注 2025 年 Google 年度熱搜第一名為說唱歌手 D4vd（市場當時賠率接近零）。此案為預測市場平台的第一起重大內線交易案例，引發法律界對「非傳統資訊市場」監管漏洞的廣泛討論。<br/>
+        <span class="en-note">First major insider trading case in prediction markets. Google engineer allegedly used confidential search data to bet on Google's year-end top search result. Raises regulatory questions about prediction markets and what constitutes "material non-public information" in novel venues.</span>
+      </div>
+    </div>
+
+    <div class="story">
+      <div class="story-headline">
+        <span class="zh">微軟將在 Build 大會推出新編碼 AI 模型，奪回被 Claude Code 搶走的市場</span>
+        <span class="sep">/</span>
+        <span>Microsoft to release new coding AI model next week at Build conference</span>
+      </div>
+      <div class="story-meta">來源 / Source: Sherwood News (citing The Information) · 2026-05-29 · <a href="https://sherwood.news/tech/report-microsoft-tries-to-get-back-in-the-ai-coding-game-with-new-model/" target="_blank">連結</a></div>
+      <div class="story-body">
+        Microsoft AI CEO Mustafa Suleiman 計畫在 Build 大會發布新一代 AI 編碼模型，試圖奪回被 Anthropic Claude Code、OpenAI Codex、Cursor 蠶食的市場。GitHub Copilot 曾是最早的 AI 編碼工具，卻成為最大的先行者優勢浪費案例之一。<span class="ticker-pill">MSFT</span> 當日 −0.99%，MSFT 股近期受 OpenAI 依賴度和市場份額流失雙重壓力。<br/>
+        <span class="en-note">Microsoft Build next week will feature a new coding model as Suleiman pushes to reduce reliance on OpenAI. GitHub Copilot had the biggest early-mover advantage in AI coding but lost it. MSFT −0.99% on the day.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h3>數據來源 / Sources Cited</h3>
+    <ul>
+      <li><a href="https://www.investing.com/indices/" target="_blank">Investing.com — Indices &amp; Markets</a></li>
+      <li><a href="https://sherwood.news/" target="_blank">Sherwood News</a></li>
+      <li><a href="https://news.cnyes.com/news/cat/wd_stock" target="_blank">鉅亨網 美股</a></li>
+      <li><a href="https://www.benzinga.com/markets" target="_blank">Benzinga Markets</a></li>
+      <li><a href="https://www.tradingview.com/news/" target="_blank">TradingView News</a></li>
+      <li><a href="https://www.bloomberg.com/markets" target="_blank">Bloomberg Markets</a></li>
+      <li><a href="https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics" target="_blank">US Treasury Yields</a></li>
+    </ul>
+    <div class="alert warn" style="margin-top:14px;">
+      <strong>資料限制 / Data Limitations：</strong>
+      Reuters Markets、MarketWatch、WSJ、Investors.com、IBD 等部分源因 403/封鎖無法存取。WTI 精確 RTH 收盤數字未能完整取得。
+      CME FedWatch 降息概率數字未能取得。所有數字以截至本文撰寫時最新可得資料為準，非官方收盤確認值。
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    本日報僅供資訊參考，不構成任何投資建議或買賣推薦。所有分析皆為事實陳述與觀察，投資人須自行判斷風險。<br/>
+    This briefing is for informational purposes only. Not investment advice.
+  </div>
+
+</div>
+</body>
+</html>

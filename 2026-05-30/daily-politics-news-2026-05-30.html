@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日政治新聞日報 · 2026-05-30</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --border: #2a2d3a;
+      --accent: #4f8ef7;
+      --accent2: #e05c5c;
+      --accent3: #54c08a;
+      --accent4: #e8a84a;
+      --text: #d4d8e8;
+      --muted: #7a7f96;
+      --heading: #eef0f8;
+      --tag-bg: #252838;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Helvetica Neue', Arial, 'Noto Sans TC', sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      padding: 0 0 60px;
+    }
+    header {
+      background: linear-gradient(135deg, #141728 0%, #1e2340 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 40px 22px;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--heading);
+      letter-spacing: 0.02em;
+    }
+    header .date-badge {
+      font-size: 0.78rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    header .subtitle {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-left: auto;
+    }
+    nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 40px;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: all 0.15s;
+    }
+    nav a:hover { color: var(--accent); border-color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 32px; }
+    .section {
+      margin-top: 44px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+    }
+    .section-icon { font-size: 1.2rem; }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--heading);
+    }
+    .section-en {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .story {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 26px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .story-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+    .story-title .divider {
+      color: var(--muted);
+      margin: 0 6px;
+      font-weight: 300;
+    }
+    .source-line {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .source-line a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .source-line a:hover { text-decoration: underline; }
+    .source-line .dot { color: var(--border); }
+    .label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      margin-right: 4px;
+    }
+    .label-facts { background: #1a3a5c; color: #7ab8f5; }
+    .label-context { background: #1e3a28; color: #6ecf97; }
+    .label-impl { background: #3a2a10; color: #e8a84a; }
+    .para-block { margin-bottom: 12px; }
+    .para-block p { color: var(--text); }
+    .top-badge {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      font-size: 0.68rem;
+      background: var(--accent2);
+      color: #fff;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+    .region-stripe {
+      width: 4px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      border-radius: 10px 0 0 10px;
+    }
+    .stripe-us { background: var(--accent); }
+    .stripe-cn { background: #e05c5c; }
+    .stripe-eu { background: #54c08a; }
+    .stripe-ap { background: #a57fe8; }
+    .stripe-me { background: #e8a84a; }
+    .stripe-top { background: var(--accent2); }
+    .stripe-op { background: var(--muted); }
+    footer {
+      margin-top: 56px;
+      border-top: 1px solid var(--border);
+      padding: 24px 40px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    footer strong { color: var(--text); }
+    .sources-list { margin-top: 10px; columns: 2; column-gap: 24px; }
+    .sources-list li { margin-bottom: 4px; }
+    .sources-list a { color: var(--accent); text-decoration: none; }
+    .sources-list a:hover { text-decoration: underline; }
+    .toc-note {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 20px;
+      margin: 24px 0 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    @media (max-width: 640px) {
+      header, nav { padding-left: 16px; padding-right: 16px; }
+      .container { padding: 0 14px; }
+      .story { padding: 16px 18px; }
+      footer { padding: 20px 16px; }
+      .sources-list { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>今日政治新聞日報</h1>
+  <span class="date-badge">2026-05-30 · Asia/Taipei</span>
+  <span class="subtitle">國際與兩岸政治 · 雙語深度摘要</span>
+</header>
+
+<nav>
+  <a href="#top">頭條</a>
+  <a href="#us">美國</a>
+  <a href="#cn">中國與兩岸</a>
+  <a href="#eu">歐洲</a>
+  <a href="#ap">亞太</a>
+  <a href="#me">中東與其他</a>
+  <a href="#op">觀點</a>
+</nav>
+
+<div class="container">
+
+  <!-- ──────────────────── TOP STORIES ──────────────────── -->
+  <section class="section" id="top">
+    <div class="section-header">
+      <span class="section-icon">🌐</span>
+      <div>
+        <div class="section-title">頭條</div>
+        <div class="section-en">Top Stories</div>
+      </div>
+    </div>
+
+    <!-- Story 1 -->
+    <div class="story" style="padding-left:30px">
+      <div class="region-stripe stripe-top"></div>
+      <div class="top-badge">HEAD</div>
+      <div class="story-title">
+        以色列總理指示軍隊佔領加薩 70% 土地，超出停火協議範圍
+        <span class="divider">/</span>
+        Netanyahu Orders IDF to Seize 70% of Gaza, Well Beyond Ceasefire Terms
+      </div>
+      <div class="source-line">
+        <span>Al Jazeera · Times of Israel · CNN</span>
+        <span class="dot">·</span>
+        2026-05-28/29
+        <span class="dot">·</span>
+        <a href="https://www.aljazeera.com/news/2026/5/28/israels-netanyahu-directs-army-to-seize-70-percent-of-gaza-strip" target="_blank">Al Jazeera</a>
+        &nbsp;
+        <a href="https://www.timesofisrael.com/netanyahu-says-he-told-idf-to-seize-70-of-gaza-strip-well-beyond-terms-of-truce/" target="_blank">Times of Israel</a>
+      </div>
+      <div class="para-block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>以色列總理班傑明·納坦雅胡於5月28日公開表示，他已下令以色列國防軍（IDF）將對加薩走廊的控制範圍擴展至70%，目前以軍已控制約60%。此舉明顯超出2025年10月美國斡旋停火所設定的「黃線」範圍。當被觀眾高喊「應佔領全部」時，納坦雅胡稱「依序進行，先從70%開始」。<br>
+        Israeli Prime Minister Benjamin Netanyahu stated on May 28 that he has directed the IDF to extend control over 70% of the Gaza Strip, up from the current 60%. The move goes well beyond the U.S.-brokered "ceasefire" line agreed in October 2025.</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>2025年10月的停火協議為雙方劃定了「黃線」分界，但以軍隨後已將控制範圍擴大11個百分點超過此線。加薩人道情況持續惡化，聯合國已將以色列列入「衝突中性暴力」黑名單。以色列與哈馬斯的談判陷入僵局，此次宣示被分析人士解讀為向國內極右翼選民表態，以及在核談判背景下向伊朗施壓的信號。</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）以色列持續擴大加薩控制區，將進一步複雜化美伊和談中的地區停火議題，並使國際社會對兩國方案的支持空間縮小。若美國最終批准伊朗和平協議，是否涵蓋加薩局勢仍是關鍵懸念。</p>
+      </div>
+    </div>
+
+    <!-- Story 2 -->
+    <div class="story" style="padding-left:30px">
+      <div class="region-stripe stripe-top"></div>
+      <div class="top-badge">HEAD</div>
+      <div class="story-title">
+        美伊談判達成臨時諒解備忘錄，川普尚未最終拍板
+        <span class="divider">/</span>
+        U.S.–Iran Negotiators Reach Tentative MOU; Trump Exits Situation Room Without Final Decision
+      </div>
+      <div class="source-line">
+        <span>Axios · PBS · CNBC · CNN</span>
+        <span class="dot">·</span>
+        2026-05-28/29
+        <span class="dot">·</span>
+        <a href="https://www.axios.com/2026/05/28/iran-peace-deal-trump-approval" target="_blank">Axios</a>
+        &nbsp;
+        <a href="https://www.cnbc.com/2026/05/29/trump-iran-deal-hormuz-nuclear-war.html" target="_blank">CNBC</a>
+      </div>
+      <div class="para-block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>美伊談判代表已擬定一份60天諒解備忘錄（MOU），內容包括：延長停火、30天內清除霍爾木茲海峽水雷、美國解除對伊朗港口封鎖，以及展開60天核問題談判。美國總統川普在5月29日召開白宮情報室會議後，未宣布最終決定即離場。伊朗外交部稱雙方仍「既近又遠」。<br>
+        U.S. and Iranian negotiators have drafted a 60-day MOU covering a ceasefire extension, Hormuz mine clearance, U.S. port blockade removal and nuclear talks. Trump left a Situation Room meeting on May 29 without announcing a final call.</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>美伊2026年衝突自年初以來持續，霍爾木茲海峽的封鎖已影響全球能源供應鏈。川普要求伊朗「永不擁有核武器」並立即開放霍爾木茲。關鍵分歧包括伊朗高濃縮鈾存量、凍結資產解凍，以及黎巴嫩衝突是否納入整體停火框架。</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）若MOU獲批，將是數十年來美伊關係最重大的外交突破，並直接影響油價與中東地區安全架構。但川普的猶豫也顯示國內強硬派仍有影響力。談判最終能否達成包含核不擴散約束的協議，將是2026年後半的核心地緣政治事件。</p>
+      </div>
+    </div>
+
+    <!-- Story 3 -->
+    <div class="story" style="padding-left:30px">
+      <div class="region-stripe stripe-top"></div>
+      <div class="top-badge">HEAD</div>
+      <div class="story-title">
+        新加坡香格里拉對話登場，赫格塞斯對中措辭趨緩、重申印太承諾
+        <span class="divider">/</span>
+        Shangri-La Dialogue Opens; Hegseth Softens China Tone, Reaffirms Indo-Pacific Deterrence
+      </div>
+      <div class="source-line">
+        <span>IISS · Bloomberg · Domino Theory · Global Times</span>
+        <span class="dot">·</span>
+        2026-05-29/30
+        <span class="dot">·</span>
+        <a href="https://www.iiss.org/events/shangri-la-dialogue/shangri-la-dialogue-2026/" target="_blank">IISS</a>
+        &nbsp;
+        <a href="https://dominotheory.com/pete-hegseth-strikes-a-milder-tone-on-china-and-taiwan-at-shangri-la-dialogue-this-year/" target="_blank">Domino Theory</a>
+      </div>
+      <div class="para-block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>第23屆香格里拉對話於5月29至31日在新加坡舉行，44國出席、逾54位部長級代表與會。美國國防部長彼特·赫格塞斯於5月30日發表演說，稱美中關係「是多年來最好的時刻」，並讚揚習川峰會「具歷史意義」，但仍強調「第一島鏈拒止性嚇阻」策略。越南國家主席蘇林發表開幕主題演講。<br>
+        The 23rd Shangri-La Dialogue opened May 29–31 in Singapore. U.S. Defense Secretary Hegseth told the forum US-China relations are "better than they've been in many years" while reaffirming "deterrence by denial" along the first island chain.</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>去年赫格塞斯在同一論壇中措辭強硬，明確表示若嚇阻失敗「美軍將戰而勝之」。今年的語氣轉變發生在習川北京峰會後，被觀察人士視為川普政府在美中貿易協議框架下對北京採取接觸路線的一部分。值得注意的是，赫格塞斯今年未在演說中提及台灣議題或南海，但仍表示對台立場「沒有改變」。</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）美方措辭的轉變讓亞洲盟友——尤其是日本、菲律賓——重新評估美國作為「安全提供者」的可靠性。本屆對話的主軸已從美中博弈轉向各國的「戰略對沖」，顯示亞洲正在尋求美國同盟以外的替代保障，這本身就是一個重大的戰略訊號。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ──────────────────── UNITED STATES ──────────────────── -->
+  <section class="section" id="us">
+    <div class="section-header">
+      <span class="section-icon">🇺🇸</span>
+      <div>
+        <div class="section-title">美國</div>
+        <div class="section-en">United States</div>
+      </div>
+    </div>
+
+    <!-- Story US-1 -->
+    <div class="story" style="padding-left:30px">
+      <div class="region-stripe stripe-us"></div>
+      <div class="story-title">
+        聯邦法官拒絕暫停川普郵寄投票行政命令，2026年期中選舉選制懸念持續
+        <span class="divider">/</span>
+        Federal Judge Declines to Block Trump's Mail-Voting Executive Order; Midterm Election Rules Remain Unsettled
+      </div>
+      <div class="source-line">
+        <span>Washington Post · The Hill · Votebeat</span>
+        <span class="dot">·</span>
+        2026-05-28
+        <span class="dot">·</span>
+        <a href="https://www.washingtonpost.com/politics/2026/05/28/trump-executive-order-mail-voting-stands-now-federal-court-rules/" target="_blank">Washington Post</a>
+        &nbsp;
+        <a href="https://thehill.com/homenews/administration/5898998-court-ruling-trump-mail-in-ballot-order/" target="_blank">The Hill</a>
+      </div>
+      <div class="para-block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>華盛頓特區聯邦法官卡爾·尼可斯裁定，時機尚未成熟，不適合臨時禁止川普2026年3月31日簽署的郵寄投票行政命令；但允許原告在聯邦機構開始執行後再次提起挑戰。目前郵政總局與社會安全局均尚未開始執行，稱仍在釐清命令內容。<br>
+        Federal Judge Carl Nichols ruled it is too early to block Trump's March 31 executive order on mail-ballot restrictions, but left the door open for future challenges once agencies act.</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>川普的行政命令授予郵政總局對郵寄選票的前所未有控制權，並要求建立三份潛在選民名單，但命令本身並未明確說明各名單之間的關係與執行機制。同期，最高法院在路易斯安那州選區重劃案（Louisiana v. Callais）中裁定現行地圖違憲，多州正加速重劃選區，期中初選已陷入混亂，耗費數百萬美元公帑。</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）2026年11月期中選舉規則的不確定性——包括郵寄投票限制與多州同步選區重劃——將對選民投票行為、各黨動員策略，以及眾議院席次版圖產生深遠影響。民主黨目前在法律戰線仍持有後手，但執行時程的壓縮對其不利。</p>
+      </div>
+    </div>
+
+    <!-- Story US-2 -->
+    <div class="story" style="padding-left:30px">
+      <div class="region-stripe stripe-us"></div>
+      <div class="story-title">
+        美軍東太平洋海上打擊已逾50次、近200人死亡，厄瓜多漁民控訴遭攻擊拘押
+        <span class="divider">/</span>
+        Over 50 U.S. Maritime Strikes in Eastern Pacific Kill ~200; Ecuadorian Fishermen Allege Attack and Detention
+      </div>
+      <div class="source-line">
+        <span>NPR · Dropsite News · UN High Commissioner</span>
+        <span class="dot">·</span>
+        2026-05-26
+        <span class="dot">·</span>
+        <a href="https://www.npr.org/2026/05/26/nx-s1-5835730/ecuadorian-fishermen-say-they-were-attacked-at-sea-in-by-a-u-s-vessel" target="_blank">NPR</a>
+      </div>
+      <div class="para-block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>自2026年初以來，美軍在東太平洋與加勒比海執行逾50次海上打擊行動，造成近200人死亡。厄瓜多漁船「La Fiorella」於1月20日遭美方攻擊，8名船員至今下落不明。3月兩起不同事件中，36名倖存漁民聲稱遭美軍拘押並運往薩爾瓦多後才獲釋返厄。川普政府稱行動合法，針對毒品走私集團，但未公開提供受害者身份等具體證據。<br>
+        Over 50 U.S. maritime strikes in the Eastern Pacific and Caribbean have killed ~200 people. Fishermen from Ecuador allege attacks, detention and torture by U.S. forces; the Trump administration says operations are lawful and targeting narco-traffickers.</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>此系列行動是川普政府毒品戰爭政策向海洋延伸的表現。聯合國人權事務高級專員福爾克爾·屠爾克（Volker Türk）已公開譴責，表示被打擊的目標「顯然未對他人生命構成迫切威脅」，不符國際法對使用致命武力的要求。</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）若倖存者的指控獲得進一步查證，此事件可能引發美國與拉丁美洲盟友（尤其是厄瓜多）的外交摩擦，並在美國國會引發跨黨派的程序審查壓力，亦有可能成為國際刑事法庭的關注議題。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ──────────────────── CHINA & CROSS-STRAIT ──────────────────── -->
+  <section class="section" id="cn">
+    <div class="section-header">
+      <span class="section-icon">🇹🇼</span>
+      <div>
+        <div class="section-title">中國與兩岸</div>
+        <div class="section-en">China &amp; Cross-Strait</div>
+      </div>
+    </div>
+
+    <!-- Story CN-1 -->
+    <div class="story" style="padding-left:30px">
+      <div class="region-stripe stripe-cn"></div>
+      <div class="story-title">
+        中共官員稱鄭麗文訪北京「指引方向」，中國海警船持續進入東沙限制海域
+        <span class="divider">/</span>
+        CCP Official Says KMT Chair Cheng's Xi Meeting "Points the Way"; China Coast Guard Escalates Near Pratas
+      </div>
+      <div class="source-line">
+        <span>AEI · Global Taiwan Institute · SCMP</span>
+        <span class="dot">·</span>
+        2026-05-22/29
+        <span class="dot">·</span>
+        <a href="https://www.aei.org/articles/china-taiwan-update-may-29-2026/" target="_blank">AEI China-Taiwan Update</a>
+        &nbsp;
+        <a href="https://globaltaiwan.org/2026/05/chinas-next-target/" target="_blank">Global Taiwan Institute</a>
+      </div>
+      <div class="para-block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>國台辦副主任潘顯章於5月22日表示，國民黨主席鄭麗文4月訪北京、會見習近平一事「指引了兩岸關係的方向」，具「深遠意義」。同期，中國海警船今年已6次進入東沙（普拉塔斯）島限制海域，頻率明顯高於往年。台灣方面派遣部長不管部長楊珍妮赴蘇州出席APEC部長會議（5月22至23日），為2016年以來最高層級的台灣官員以官方身份赴中。<br>
+        TAO's Pan Xianzhang said KMT Chair Cheng's April meeting with Xi "points the way" for cross-strait relations. China Coast Guard has entered Pratas restricted waters six times this year. Taiwan's highest-ranking official in years attended an APEC meeting on the mainland.</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>鄭麗文4月7至12日率國民黨代表團訪問南京、上海、北京，這是近十年來國共最高層級正式接觸。北京藉此推進以「反獨促統」為主軸的對台統戰工作，並有意將鄭麗文塑造為首選兩岸對話夥伴、邊緣化前國民黨主席馬英九。與此同時，路透社5月22日報導，儘管川普表示將與賴清德通話討論軍售，但迄今雙方尚未安排通話。</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）北京同步推進「柔性統戰」（拉攏在野黨）與「灰色地帶施壓」（東沙海警行動），兩軌並行呈現清晰的整合戰略。台灣執政的民進黨政府面臨內外夾擊；而川普在台灣軍售問題上的猶豫不決，為北京提供了額外的外交空間。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ──────────────────── EUROPE ──────────────────── -->
+  <section class="section" id="eu">
+    <div class="section-header">
+      <span class="section-icon">🇪🇺</span>
+      <div>
+        <div class="section-title">歐洲</div>
+        <div class="section-en">Europe</div>
+      </div>
+    </div>
+
+    <!-- Story EU-1 -->
+    <div class="story" style="padding-left:30px">
+      <div class="region-stripe stripe-eu"></div>
+      <div class="story-title">
+        俄羅斯無人機墜入羅馬尼亞公寓樓，北約要求加速反無人機援助
+        <span class="divider">/</span>
+        Russian Drone Crashes into Romanian Apartment Building; NATO Calls for Faster Anti-Drone Transfers
+      </div>
+      <div class="source-line">
+        <span>Al Jazeera · NBC News · New Statesman</span>
+        <span class="dot">·</span>
+        2026-05-29
+        <span class="dot">·</span>
+        <a href="https://www.aljazeera.com/news/2026/5/29/nato-states-slam-russia-after-drone-crashes-in-romania" target="_blank">Al Jazeera</a>
+        &nbsp;
+        <a href="https://www.nbcnews.com/world/ukraine/russian-drone-hits-romania-apartment-block-nato-ukraine-rcna347495" target="_blank">NBC News</a>
+      </div>
+      <div class="para-block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>俄羅斯5月29日發動大規模無人機攻擊烏克蘭，出動232架無人機及1枚彈道飛彈，其中一架無人機墜入羅馬尼亞東部加拉茨市一棟住宅樓屋頂，造成2人輕傷、引發火災，數名居民疏散。羅馬尼亞緊急出動F-16戰機與直升機攔截。北約秘書長馬克·呂特形容此事件是「俄羅斯魯莽行為」，對所有北約成員構成威脅。羅馬尼亞宣布驅逐俄羅斯駐康斯坦察總領事，並要求北約加快轉移反無人機能力。<br>
+        A Russian drone from a mass Ukraine strike crashed into an apartment in Galati, Romania, injuring two. NATO Secretary-General Rutte condemned "Russia's reckless behavior." Romania expelled Russia's consul in Constanta and demanded accelerated NATO anti-drone support.</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>這並非俄羅斯無人機首次進入北約成員國領空，但每次事件都重新引燃北約是否觸發《北大西洋公約》第五條的討論。羅馬尼亞與烏克蘭多瑙河段接壤，戰略位置使其自衝突伊始即面臨較高的溢出風險。北約各成員對提供烏克蘭防空支援的能力已接近極限，此次事件將加重成員國政府的採購壓力。</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）此事件強化了「烏克蘭戰爭正在地理意義上蔓延」的印象，對仍在觀望的歐洲右翼政府而言形成壓力。若類似事件反覆發生，北約可能被迫升高應對層級，超出當前的「外交抗議」模式。</p>
+      </div>
+    </div>
+
+    <!-- Story EU-2 -->
+    <div class="story" style="padding-left:30px">
+      <div class="region-stripe stripe-eu"></div>
+      <div class="story-title">
+        西班牙總理桑切斯周邊九起法律案件纏身，警方搜查社會黨總部
+        <span class="divider">/</span>
+        Nine Legal Cases Close In on Spanish PM Sánchez; Police Search PSOE Headquarters
+      </div>
+      <div class="source-line">
+        <span>Euronews · U.S. News · Washington Times</span>
+        <span class="dot">·</span>
+        2026-05-29/30
+        <span class="dot">·</span>
+        <a href="https://www.euronews.com/my-europe/2026/05/30/psoes-legal-storm-nine-cases-closing-in-on-spanish-pm-pedro-sanchez" target="_blank">Euronews</a>
+        &nbsp;
+        <a href="https://www.usnews.com/news/world/articles/2026-05-29/spains-sanchez-running-out-of-road-as-corruption-probes-stack-up" target="_blank">U.S. News</a>
+      </div>
+      <div class="para-block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>西班牙警察於5月27日搜查執政社會黨（PSOE）馬德里總部，涉及一項指控社會黨向一個旨在妨礙司法調查的網絡支付17.8萬歐元的案件。桑切斯任命的總檢察長阿爾瓦羅·加西亞·奧爾蒂斯（Álvaro García Ortiz）遭最高法院停職兩年、定罪後辭職，成為西班牙首位被定罪的總檢察長。桑切斯本人目前未遭起訴，但其妻、兄弟及多名親信均已成為司法調查對象。<br>
+        Spanish police searched PSOE headquarters over alleged payments to a network aimed at obstructing judicial probes. The attorney general Sánchez appointed was convicted and resigned. Sánchez himself has not been charged but multiple close associates face proceedings.</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>桑切斯以少數政府執政，依賴加泰隆尼亞獨立黨及其他少數黨支持。反對黨「人民黨」（PP）借助本系列醜聞持續施壓、要求不信任投票，但目前尚未取得足夠席次。歐洲觀察人士指出，西班牙司法系統長期與行政權存在結構性張力，此次事件部分折射出雙方的長期衝突。</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）多起案件同步進行，即使桑切斯本人不被起訴，也將持續削弱其執政合法性，並分散其處理經濟與歐盟事務的精力。若反對黨整合成功，西班牙可能在2026年底前提前大選。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ──────────────────── ASIA-PACIFIC ──────────────────── -->
+  <section class="section" id="ap">
+    <div class="section-header">
+      <span class="section-icon">🌏</span>
+      <div>
+        <div class="section-title">亞太</div>
+        <div class="section-en">Asia-Pacific</div>
+      </div>
+    </div>
+
+    <!-- Story AP-1 -->
+    <div class="story" style="padding-left:30px">
+      <div class="region-stripe stripe-ap"></div>
+      <div class="story-title">
+        南韓6月3日地方選舉在即，執政黨民調優勢顯著，前總統尹錫悅陰影仍在
+        <span class="divider">/</span>
+        South Korea Heads to June 3 Local Elections; Lee's Party Leads Polls; Yoon Conviction Looms Large
+      </div>
+      <div class="source-line">
+        <span>Japan Times · Korea Pro · The Diplomat</span>
+        <span class="dot">·</span>
+        2026-05-08/29
+        <span class="dot">·</span>
+        <a href="https://www.japantimes.co.jp/news/2026/05/08/asia-pacific/politics/south-korea-local-electons/" target="_blank">Japan Times</a>
+        &nbsp;
+        <a href="https://koreapro.org/2026/03/south-koreas-june-elections-will-test-lees-governing-power-nationwide/" target="_blank">Korea Pro</a>
+      </div>
+      <div class="para-block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>南韓將於6月3日舉行地方選舉，選出17個廣域市與道的市長和知事，是總統李在明去年掌權後首次全國性選票。韓國蓋洛普4月底調查顯示，執政民主黨支持率46%、在野人民力量黨21%、李在明滿意度64%。前總統尹錫悅因戒嚴叛亂罪於2月被判終身監禁，目前仍面臨至少7項後續審判。<br>
+        South Korea votes June 3 in local elections — the first nationwide vote since President Lee Jae-myung took power. The ruling DP leads at 46% vs the PPP's 21%, per Gallup Korea. Former president Yoon, convicted of insurrection in February, faces at least seven more trials.</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>尹錫悅2024年底宣布戒嚴、隨後被彈劾，引發南韓政治地震。李在明在補選中勝出並執政，但執政基礎仍待鞏固。本次地方選舉被視為李在明政府的首次民意測試，亦是人民力量黨能否從谷底復甦的重要信號。日韓關係近期持續改善——李在明與日本首相高市早苗在不足一年內已完成六次高峰會談，被分析人士視為兩國關係的歷史性轉折。</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）若民主黨在大多數廣域市拿下勝利，將為李在明鞏固政策主導權、推進財閥改革及對北政策奠定基礎。反之，人民力量黨若能守住首爾及若干大城市，則顯示保守派仍有翻身能量，可能提前引發政治攻防。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ──────────────────── MIDDLE EAST ──────────────────── -->
+  <section class="section" id="me">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <div>
+        <div class="section-title">中東與其他</div>
+        <div class="section-en">Middle East &amp; Elsewhere</div>
+      </div>
+    </div>
+
+    <!-- Story ME-1 (mirrors Top Story 1 with deeper detail) -->
+    <div class="story" style="padding-left:30px">
+      <div class="region-stripe stripe-me"></div>
+      <div class="story-title">
+        以色列擴大黎巴嫩攻勢、停火協議生效後最大規模空襲逾350死
+        <span class="divider">/</span>
+        Israel Launches Largest Airstrikes of Lebanon War After Ceasefire Dispute, Killing 350+
+      </div>
+      <div class="source-line">
+        <span>Wikipedia: 2026 Lebanon war · CNN · Democracy Now</span>
+        <span class="dot">·</span>
+        2026-05-late
+        <span class="dot">·</span>
+        <a href="https://en.wikipedia.org/wiki/2026_Lebanon_war" target="_blank">Wikipedia (2026 Lebanon war)</a>
+      </div>
+      <div class="para-block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>以色列向黎巴嫩南部及貝魯特發動停火宣布後最大規模的空襲，造成逾350人死亡。停火協議延長45天，但以色列總理納坦雅胡主張停火協議不適用於黎巴嫩，與伊朗及巴基斯坦調停人謝里夫的立場相左。聯合國已將以色列列入「武裝衝突中性暴力」黑名單。<br>
+        Israel launched its largest Lebanon airstrikes following ceasefire announcements, killing 350+. Netanyahu claims the ceasefire does not apply to Lebanon, contradicting Iran and Pakistani mediator Sharif. The UN added Israel to its "blacklist" for sexual violence in conflict.</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>黎巴嫩戰線與加薩、伊朗衝突形成相互連動的多前線格局。納坦雅胡政府的強硬立場部分受以色列極右聯合政府內部壓力驅動。伊朗與美國的臨時備忘錄若最終生效，理論上應包含黎巴嫩停火，但目前雙方對「停火範圍」的詮釋存在根本分歧。</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）以色列在加薩與黎巴嫩的雙線行動，正在以國與其傳統盟友（包括美國部分建制派）之間製造越來越大的裂痕。若美伊和平協議達成而以色列拒絕遵從，將是以美關係數十年來最大的公開分歧時刻。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ──────────────────── OPINION ──────────────────── -->
+  <section class="section" id="op">
+    <div class="section-header">
+      <span class="section-icon">✍️</span>
+      <div>
+        <div class="section-title">觀點</div>
+        <div class="section-en">Opinion Worth Reading</div>
+      </div>
+    </div>
+
+    <div class="story" style="padding-left:30px">
+      <div class="region-stripe stripe-op"></div>
+      <div class="story-title">
+        「印太戰略需要B計畫」——日本對美國同盟可靠性的重新校準
+        <span class="divider">/</span>
+        "Correcting Course in the Indo-Pacific" — Japan's Recalibration of U.S. Alliance Reliability
+      </div>
+      <div class="source-line">
+        <span>War on the Rocks · Nippon.com</span>
+        <span class="dot">·</span>
+        2026-05
+        <span class="dot">·</span>
+        <a href="https://warontherocks.com/correcting-course-in-the-indo-pacific/" target="_blank">War on the Rocks</a>
+        &nbsp;
+        <a href="https://www.nippon.com/en/in-depth/d01194/" target="_blank">Nippon.com</a>
+      </div>
+      <div class="para-block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>兩篇分析文章從不同角度探討：赫格塞斯在香格里拉對話軟化對中立場後，印太盟友如何重新評估美國保護傘的可靠性。日本智庫與政府官員越來越明確地討論「若美國不再提供安全保障，日本需要什麼樣的B計畫」。</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>香格里拉對話整體氛圍的轉變——從超級大國角力場到「戰略對沖市場」——折射出亞洲對美國承諾的集體焦慮。日本首相高市早苗政府正推進修憲強化自衛隊，本文分析此一動向背後的戰略邏輯。</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）若亞洲最強的美國盟友日本開始籌謀「B計畫」，將標誌二戰後美國主導的印太安全架構進入根本性鬆動。這不僅影響台灣問題的嚇阻穩定性，也將重塑日韓澳印四邊安全格局（Quad）的戰略意涵。</p>
+      </div>
+    </div>
+
+    <div class="story" style="padding-left:30px">
+      <div class="region-stripe stripe-op"></div>
+      <div class="story-title">
+        亞洲正在尋找美國保護傘的替代選項——香格里拉對話折射出的結構性變化
+        <span class="divider">/</span>
+        Asia Seeks Alternatives to the U.S. Shield — What the Shangri-La Dialogue Reveals
+      </div>
+      <div class="source-line">
+        <span>Asia Times</span>
+        <span class="dot">·</span>
+        2026-05-29
+        <span class="dot">·</span>
+        <a href="https://asiatimes.com/2026/05/shangri-la-dialogue-opens-as-asia-seeks-alternatives-to-us-shield/" target="_blank">Asia Times</a>
+      </div>
+      <div class="para-block">
+        <span class="label label-facts">核心事實 / Facts</span>
+        <p>Asia Times 分析指出，本屆香格里拉對話的性質已從「美中競爭展示台」轉型為「戰略對沖的高風險交易所」，中東衝突、大國摩擦與對美國安全保障的懷疑，驅動各國開始尋找多元化選項。</p>
+      </div>
+      <div class="para-block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>（分析）這篇觀察文章提供了一個評估亞洲政治氣候的整體框架：在美國「對中態度趨緩」與「印太承諾模糊化」的雙重背景下，過去被視為美國陣營定錨的國家，正在進行低調但系統性的外交再保險操作。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="toc-note">
+    本日報涵蓋時段：2026年5月28至30日（Asia/Taipei）。如報導涵蓋時段不足，視地區新聞量擴展至72小時以內。所有事實引自原始來源，觀點段落明確標註為分析，不代表本日報立場。
+  </div>
+
+</div>
+
+<!-- ──────────────────── FOOTER ──────────────────── -->
+<footer>
+  <strong>來源清單 / Sources</strong>
+  <ul class="sources-list">
+    <li><a href="https://www.aljazeera.com/news/2026/5/28/israels-netanyahu-directs-army-to-seize-70-percent-of-gaza-strip" target="_blank">Al Jazeera — Netanyahu orders IDF 70% Gaza</a></li>
+    <li><a href="https://www.timesofisrael.com/netanyahu-says-he-told-idf-to-seize-70-of-gaza-strip-well-beyond-terms-of-truce/" target="_blank">Times of Israel — Netanyahu 70% Gaza</a></li>
+    <li><a href="https://www.axios.com/2026/05/28/iran-peace-deal-trump-approval" target="_blank">Axios — US-Iran MOU awaiting Trump</a></li>
+    <li><a href="https://www.cnbc.com/2026/05/29/trump-iran-deal-hormuz-nuclear-war.html" target="_blank">CNBC — Trump Iran Situation Room</a></li>
+    <li><a href="https://www.iiss.org/events/shangri-la-dialogue/shangri-la-dialogue-2026/" target="_blank">IISS — Shangri-La Dialogue 2026</a></li>
+    <li><a href="https://dominotheory.com/pete-hegseth-strikes-a-milder-tone-on-china-and-taiwan-at-shangri-la-dialogue-this-year/" target="_blank">Domino Theory — Hegseth Shangri-La</a></li>
+    <li><a href="https://asiatimes.com/2026/05/shangri-la-dialogue-opens-as-asia-seeks-alternatives-to-us-shield/" target="_blank">Asia Times — Asia seeks alternatives</a></li>
+    <li><a href="https://www.washingtonpost.com/politics/2026/05/28/trump-executive-order-mail-voting-stands-now-federal-court-rules/" target="_blank">Washington Post — Mail voting EO ruling</a></li>
+    <li><a href="https://thehill.com/homenews/administration/5898998-court-ruling-trump-mail-in-ballot-order/" target="_blank">The Hill — Mail ballot court ruling</a></li>
+    <li><a href="https://www.npr.org/2026/05/26/nx-s1-5835730/ecuadorian-fishermen-say-they-were-attacked-at-sea-in-by-a-u-s-vessel" target="_blank">NPR — Ecuador fishermen US strikes</a></li>
+    <li><a href="https://www.aei.org/articles/china-taiwan-update-may-29-2026/" target="_blank">AEI — China-Taiwan Update May 29</a></li>
+    <li><a href="https://globaltaiwan.org/2026/05/chinas-next-target/" target="_blank">Global Taiwan Institute — Pratas/Dongsha</a></li>
+    <li><a href="https://www.aljazeera.com/news/2026/5/29/nato-states-slam-russia-after-drone-crashes-in-romania" target="_blank">Al Jazeera — Romania drone NATO</a></li>
+    <li><a href="https://www.nbcnews.com/world/ukraine/russian-drone-hits-romania-apartment-block-nato-ukraine-rcna347495" target="_blank">NBC News — Romania drone apartment</a></li>
+    <li><a href="https://www.euronews.com/my-europe/2026/05/30/psoes-legal-storm-nine-cases-closing-in-on-spanish-pm-pedro-sanchez" target="_blank">Euronews — Sanchez 9 legal cases</a></li>
+    <li><a href="https://www.japantimes.co.jp/news/2026/05/08/asia-pacific/politics/south-korea-local-electons/" target="_blank">Japan Times — South Korea local elections</a></li>
+    <li><a href="https://koreapro.org/2026/03/south-koreas-june-elections-will-test-lees-governing-power-nationwide/" target="_blank">Korea Pro — June 3 elections</a></li>
+    <li><a href="https://warontherocks.com/correcting-course-in-the-indo-pacific/" target="_blank">War on the Rocks — Indo-Pacific course correction</a></li>
+    <li><a href="https://www.nippon.com/en/in-depth/d01194/" target="_blank">Nippon.com — Japan Plan B diplomacy</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/2026_Lebanon_war" target="_blank">Wikipedia — 2026 Lebanon war</a></li>
+  </ul>
+  <p style="margin-top:16px; font-size:0.72rem;">
+    付費牆/無法存取來源（已跳過）：New York Times · Washington Post（部分深度報導）· Financial Times · The Economist · Foreign Affairs · Wall Street Journal · 端傳媒 · 明報
+  </p>
+</footer>
+
+</body>
+</html>
