@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日有趣文章日報 · 2026-06-02</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: #f8f7f4;
+    color: #1a1a1a;
+    line-height: 1.65;
+    font-size: 15px;
+  }
+  header {
+    background: #fff;
+    border-bottom: 3px solid #1a1a1a;
+    padding: 28px 40px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  header h1 {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #1a1a1a;
+  }
+  header .subtitle {
+    font-size: 13px;
+    color: #666;
+    margin-top: 4px;
+  }
+  .track-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #fff;
+    background: #1a1a1a;
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin-top: 8px;
+  }
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 36px 24px 64px;
+  }
+  .section-header {
+    border-top: 2px solid #1a1a1a;
+    margin-top: 48px;
+    padding-top: 14px;
+    margin-bottom: 28px;
+  }
+  .section-header:first-child { margin-top: 0; }
+  .section-header h2 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .section-header h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1a1a1a;
+  }
+  .card {
+    background: #fff;
+    border: 1.5px solid #e8e6e0;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 18px;
+    transition: border-color 0.15s;
+  }
+  .card:hover { border-color: #1a1a1a; }
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .badge-editor { background: #ffd700; color: #1a1a1a; }
+  .badge-tech { background: #e8f4fd; color: #1565c0; }
+  .badge-business { background: #e8f5e9; color: #2e7d32; }
+  .badge-science { background: #f3e5f5; color: #6a1b9a; }
+  .badge-culture { background: #fff3e0; color: #e65100; }
+  .badge-psychology { background: #fce4ec; color: #c62828; }
+  .badge-history { background: #e8eaf6; color: #283593; }
+  .badge-curiosity { background: #e0f7fa; color: #00695c; }
+  .badge-ai { background: #e3f2fd; color: #1976d2; }
+  .badge-startup { background: #f1f8e9; color: #558b2f; }
+  .badge-vc { background: #fff8e1; color: #f57f17; }
+  .badge-macro { background: #fafafa; color: #424242; border: 1px solid #e0e0e0; }
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.4;
+    flex: 1;
+  }
+  .card-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card-title a:hover { text-decoration: underline; }
+  .card-meta {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 14px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .card-meta a { color: #1565c0; text-decoration: none; }
+  .card-meta a:hover { text-decoration: underline; }
+  .read-time {
+    font-size: 11px;
+    font-weight: 600;
+    background: #f5f5f5;
+    padding: 2px 8px;
+    border-radius: 10px;
+    color: #555;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #999;
+    margin: 14px 0 6px;
+  }
+  .section-label.standout {
+    color: #1565c0;
+  }
+  p.body-text {
+    font-size: 14.5px;
+    color: #333;
+    margin-bottom: 12px;
+  }
+  .key-takeaway {
+    background: #f8f7f4;
+    border-left: 3px solid #1a1a1a;
+    padding: 10px 16px;
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .questions {
+    font-size: 13.5px;
+    color: #555;
+  }
+  .divider {
+    height: 1px;
+    background: #e8e6e0;
+    margin: 12px 0;
+  }
+  .tl-author-line {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  footer {
+    background: #1a1a1a;
+    color: #aaa;
+    font-size: 12px;
+    padding: 24px 40px;
+    margin-top: 48px;
+    line-height: 1.8;
+  }
+  footer a { color: #ccc; }
+  @media (max-width: 600px) {
+    header { padding: 20px 18px 14px; }
+    .container { padding: 24px 14px 48px; }
+    .card { padding: 18px 16px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>今日有趣文章日報 · Daily Interesting Articles</h1>
+  <div class="subtitle">2026-06-02 (Asia/Taipei) · 精選長文 &amp; 思想領袖觀點</div>
+  <div class="track-label">8 + 4 精選 · 跨科技 商業 科學 歷史 哲學</div>
+</header>
+
+<div class="container">
+
+  <!-- ===== TRACK A ===== -->
+  <div class="section-header">
+    <h2>Track A</h2>
+    <h3>長文精選 / Longform Essays</h3>
+  </div>
+
+  <!-- 1. EDITOR'S PICK -->
+  <div class="section-header" style="margin-top:0; border-top:none; padding-top:0;">
+    <h2 style="color:#b8860b;">★ 編輯精選 / Editor's Pick</h2>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-editor">編輯精選</span>
+      <div class="card-title">
+        <a href="https://www.construction-physics.com/p/where-are-the-economies-of-scale" target="_blank">
+          為什麼蓋房子永遠不會變便宜 / Where Are the Economies of Scale in Homebuilding?
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span>Construction Physics · Brian Potter</span>
+      <span>2026-05-28</span>
+      <span class="read-time">25 min</span>
+      <a href="https://www.construction-physics.com/p/where-are-the-economies-of-scale" target="_blank">原文連結</a>
+    </div>
+    <div class="section-label standout">為什麼值得讀 / Why it stands out</div>
+    <p class="body-text">這是 2026 年上半年最值得讀的一篇工業分析長文。作者 Brian Potter 用一個極其簡潔卻有力的框架——「輸出成本 vs 原料成本的比率」（Elon Musk 稱之為「白痴指數」）——解釋了為什麼住宅建設幾十年來從未真正「規模化降本」，而且幾乎不可能。這不只是工程問題，本質上是製造業哲學問題。</p>
+    <div class="section-label">摘要 / Summary</div>
+    <p class="body-text">
+      美國每年建造逾 130 萬棟新房，規模遠超大多數製造業；但即使 Lennar 年產 8 萬棟，其每棟毛利率和售價與只蓋 1,200 棟的小商幾乎相同。為什麼？Potter 引入「輸出-輸入成本比」概念：煉油廠是 1.2–1.3，BMW i3 車身各分組件平均 1.8，而傳統住宅建築已是約 2（勞工成本約占一半）。這個比率「本已很低」——等同於高度自動化工廠的效率——但它是靠人工現場拼裝達到的，而非機械化。一旦起點比率就低，規模化帶來的邊際節省空間極小：你沒有多少「傻瓜冗餘」可以消滅。
+    </p>
+    <p class="body-text">
+      Manufactured homes（工廠預製屋）也同樣如此：Clayton Homes 41 座工廠年產 4.9 萬棟，每座工廠規模卻和只造幾百棟的小廠差不多，幾乎沒有明顯的規模效益。運輸成本（「美元密度」太低）是部分原因，但根本原因是：把木材、石膏板、混凝土轉化為房屋所需的勞動量，原本就不多。
+    </p>
+    <div class="section-label">核心觀點 / Key takeaway</div>
+    <div class="key-takeaway">
+      住宅建築的「效率瓶頸」不在流程冗餘，而在於它早就以近乎最佳的成本結構在運作；規模化的杠杆點在原材料本身，而非裝配過程。
+    </div>
+    <div class="section-label">引發的問題 / Questions it opens</div>
+    <p class="questions">若唯一出路是壓低原材料成本或大幅減少用料，那 3D 列印建築和 CLT 木材是否真正改變了遊戲規則？AI 輔助設計能否找到「用更少料蓋同樣好的房」的路徑？</p>
+  </div>
+
+  <!-- 2. TECH & AI -->
+  <div class="section-header">
+    <h2>科技與 AI / Tech &amp; AI</h2>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-tech">科技</span>
+      <div class="card-title">
+        <a href="https://sockpuppet.org/blog/2026/05/12/emacsification/" target="_blank">
+          軟體的「Emacs 化」時代 / The Emacsification of Software
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span>Quarrelsome (Thomas Ptacek)</span>
+      <span>2026-05-12</span>
+      <span class="read-time">12 min</span>
+      <a href="https://sockpuppet.org/blog/2026/05/12/emacsification/" target="_blank">原文連結</a>
+    </div>
+    <div class="section-label standout">為什麼值得讀 / Why it stands out</div>
+    <p class="body-text">本文是 2026 年上半年 HN 討論度最高的「AI 改變開發者文化」論述。安全研究員 Thomas Ptacek 不談 AI 取代工程師，而是提出一個更有趣的框架：AI agent 正在把「Emacs 文化」外溢到所有軟體開發——個人化、高度客製、只為自己用的原生 GUI app，正在大規模冒出來。(276 points on HN)</p>
+    <div class="section-label">摘要 / Summary</div>
+    <p class="body-text">
+      Ptacek 花 30 分鐘讓 Claude 幫他造了一個 macOS 原生 Markdown 瀏覽器，比 App Store 上所有同類軟體都好。他由此提出：AI agent 讓原生 UI 開發門檻崩塌了。歷史上 Emacs 社群靠 elisp 為自己量身打造工具，但因 UX 往往難用、醜陋，這種文化從未蔓延。現在，agent 可以生成出色的 SwiftUI 程式碼——「個人軟體」不再只限於 TUI 破爛工具，而是美觀、功能完整的原生 app。他認為這不是「Electron 消亡」的故事，而是「一切都開始 Emacs 化」：個人化、可 fork、prompt 比 source code 更重要。
+    </p>
+    <div class="section-label">核心觀點 / Key takeaway</div>
+    <div class="key-takeaway">
+      AI 讓「為自己一個人用的好軟體」首次變得可行；分享的不是程式碼，而是 prompt 和想法。
+    </div>
+    <div class="section-label">引發的問題 / Questions it opens</div>
+    <p class="questions">當每個人都能為自己造工具，軟體產業的商業模式要如何回應？「開源生態」是否會被「prompt 生態」取代？</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-tech">科技</span>
+      <div class="card-title">
+        <a href="https://laurent.le-brun.eu/blog/a-history-of-ides-at-google" target="_blank">
+          Google IDE 演化史：從碎片化到 Cider V / A History of IDEs at Google
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span>Laurent Le Brun's Blog · Laurent Le Brun (前 Google TL)</span>
+      <span>2026-05-09</span>
+      <span class="read-time">18 min</span>
+      <a href="https://laurent.le-brun.eu/blog/a-history-of-ides-at-google" target="_blank">原文連結</a>
+    </div>
+    <div class="section-label standout">為什麼值得讀 / Why it stands out</div>
+    <p class="body-text">這是一篇罕見的「內部視角」工程史。前 Google 工程師 Laurent Le Brun 親歷 2011–2024 年 Google 內部 IDE 的演變——從 Jeff Dean 說「不可能統一」，到最終 80% 工程師用同一個工具——提供了大型組織如何說服數萬工程師改變習慣的第一手記錄。(351 points on HN)</p>
+    <div class="section-label">摘要 / Summary</div>
+    <p class="body-text">
+      2011 年時，Google 工程師可用任何 IDE，Google 也沒有統一意圖。約 2013 年，有人悄悄開始做 Cider，一個網頁 IDE，最初技術文件作者用來改 Markdown，後來加入 LSP 跨語言補全後爆炸式成長。2020 年 Le Brun 加入團隊時，決策是改用 VSCode 作為前端（Cider V）：繼承了成熟的擴充生態，省去重造前端的代價。花了兩年達到可接受狀態，2023 年底已有 80% Google 工程師主用 Cider V。統一帶來的意外回報是：公司得以在同一平台上鋪設 AI code review、Smart Paste、AI 補全等功能，槓桿極大。
+    </p>
+    <div class="section-label">核心觀點 / Key takeaway</div>
+    <div class="key-takeaway">
+      「標準化工具」的真正價值不在工具本身，而在它創造的平台效應——有了共同基礎，每一個 AI 功能才能觸達所有人。
+    </div>
+    <div class="section-label">引發的問題 / Questions it opens</div>
+    <p class="questions">若 AI coding agent 時代人人工具鏈再度碎片化，Google 式的平台效應是否會消失？VSCode 能否扮演新的「通用 Cider」？</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-tech">科技</span>
+      <div class="card-title">
+        <a href="https://www.xda-developers.com/linux-gaming-is-getting-faster-because-windows-apis-are-becoming-linux-kernel-features/" target="_blank">
+          Windows API 正在成為 Linux 核心功能 / Linux Gaming is Faster Because Windows APIs Are Becoming Linux Kernel Features
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span>XDA Developers · Ty Sherback</span>
+      <span>2026-05-10</span>
+      <span class="read-time">10 min</span>
+      <a href="https://www.xda-developers.com/linux-gaming-is-getting-faster-because-windows-apis-are-becoming-linux-kernel-features/" target="_blank">原文連結</a>
+    </div>
+    <div class="section-label standout">為什麼值得讀 / Why it stands out</div>
+    <p class="body-text">文章清楚解釋了一個反直覺的現象：為了讓 Windows 遊戲跑在 Linux 上更順，Linux 核心正在把 Windows 原有的執行緒同步機制（NTSYNC）直接實作進去。這是「Wine/Proton 時代」進入「核心時代」的里程碑。(664 points on HN)</p>
+    <div class="section-label">摘要 / Summary</div>
+    <p class="body-text">
+      2026 年 3 月，Linux 首次突破 Steam 5% 市佔（含 Steam Deck 推動）。過去改善都靠 Wine/Proton 的 userspace 工作；NTSYNC 代表新階段：Linux 核心直接原生實作了過去需要 fsync/esync 模擬的執行緒等待原語（synchronization primitives），讓 Wine 不再需要任何仿真。Valve 雖表示 fsync 已夠快，仍搭載 NTSYNC 進穩定版 SteamOS，原因是 fsync 仍是「繞道」，偶發的 deadlock 和細微行為差異難以修正；NTSYNC 從根源解決這些問題。這一模式（Windows 功能被 Linux 原生實作）不是第一次，也不會是最後一次。
+    </p>
+    <div class="section-label">核心觀點 / Key takeaway</div>
+    <div class="key-takeaway">
+      Linux 遊戲生態的進步已從「繞道」轉向「內化」——不是讓 Linux 假裝成 Windows，而是讓 Linux 核心真正懂得如何原生處理 Windows 應用的需求。
+    </div>
+    <div class="section-label">引發的問題 / Questions it opens</div>
+    <p class="questions">若這個趨勢持續，「Linux 電腦打遊戲不行」的刻板印象還能撐多久？Windows 是否有策略性理由讓這件事繼續發生？</p>
+  </div>
+
+  <!-- 3. BUSINESS & ECONOMICS -->
+  <div class="section-header">
+    <h2>商業與經濟 / Business &amp; Economics</h2>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-business">商業</span>
+      <div class="card-title">
+        <a href="https://www.piie.com/publications/policy-briefs/2026/where-ai-gdp-statistics" target="_blank">
+          AI 在 GDP 裡消失了：一個計量上的大問題 / Where is AI in GDP Statistics?
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span>PIIE (Peterson Institute) · Anton Korinek, Patrick McKelvey</span>
+      <span>2026-05-18</span>
+      <span class="read-time">14 min</span>
+      <a href="https://www.piie.com/publications/policy-briefs/2026/where-ai-gdp-statistics" target="_blank">原文連結</a>
+    </div>
+    <div class="section-label standout">為什麼值得讀 / Why it stands out</div>
+    <p class="body-text">這篇 Policy Brief 解釋了為何今天最重要的經濟現象（AI 高速擴張）在 GDP 統計裡幾乎是隱形的——這不是 AI 沒有實質貢獻，而是我們的統計框架根本沒有設計來捕捉這類爆炸性進步。</p>
+    <div class="section-label">摘要 / Summary</div>
+    <p class="body-text">
+      Korinek 等人提出「AI GDP」衛星帳戶框架。他們估算：2024–2025 年美國 AI 生產以品質調整後的實質成長率計算，每年超過 2,000%，驅動力來自算力擴張、硬體效率提升、以及最重要的演算法進步三力疊加。名義 AI GDP 約為 2025 年的 2,500 億美元，但品質調整後的實質成長達每年 2,600%。問題是：傳統 GDP 核算沒有捕捉到「品質」的爆炸性提升，只看到花了多少錢、用了多少算力，而非能力本身提升了多少。作者呼籲統計機構儘快建立 AI 專項衛星帳戶。
+    </p>
+    <div class="section-label">核心觀點 / Key takeaway</div>
+    <div class="key-takeaway">
+      我們或許正在漏計一場史無前例的生產力革命——不是因為革命沒發生，而是我們的尺子不對。
+    </div>
+    <div class="section-label">引發的問題 / Questions it opens</div>
+    <p class="questions">如果 AI 帶來的真實生產力提升被系統性低估，貨幣政策和財政政策的制定者正在做出錯誤的決策嗎？「Baumol 成本病」是否有了解方？</p>
+  </div>
+
+  <!-- 4. SCIENCE & RESEARCH -->
+  <div class="section-header">
+    <h2>科學與研究 / Science &amp; Research</h2>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-science">科學</span>
+      <div class="card-title">
+        <a href="https://dynomight.net/lifespan/" target="_blank">
+          「壽命遺傳率 50%」其實是什麼意思？/ Heritability of Human Life Span is ~50% When Heritability is Redefined
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span>Dynomight · dynomight</span>
+      <span>2026-02</span>
+      <span class="read-time">16 min</span>
+      <a href="https://dynomight.net/lifespan/" target="_blank">原文連結</a>
+    </div>
+    <div class="section-label standout">為什麼值得讀 / Why it stands out</div>
+    <p class="body-text">Dynomight 是網路上最好的「統計批判」寫手之一。這篇文章用輕鬆有力的文字，解剖了一篇發表於 Science 的「壽命遺傳率 50%」論文，說明結論本身沒問題，但媒體報導方式（和期刊本身的標題）製造了嚴重誤解。(92 points on HN)</p>
+    <div class="section-label">摘要 / Summary</div>
+    <p class="body-text">
+      傳統雙胞胎研究顯示壽命遺傳率約 23–35%。該 Science 論文建立了一個數學模型，模擬「假設沒有車禍、謀殺、藥物過量等外因死亡」的平行宇宙，在此模擬資料上計算遺傳率，得到 46–57%。Dynomight 的批評是：這不是「糾正了真實世界的偏誤」，而是「算了另一個世界的數字」。作者還發現，如果把現代外因死亡率代入模型的 x 軸，實際對應的遺傳率更接近 35–45%，遠非論文標題暗示的 50%。核心問題在 Science 一貫的「數學模糊寫法」：方法論說明支離破碎，難以重現。
+    </p>
+    <div class="section-label">核心觀點 / Key takeaway</div>
+    <div class="key-takeaway">
+      遺傳率是一個「觀測統計量」而非柏拉圖式的真理；在「另一個世界」裡算出的數字，不能宣稱修正了「這個世界」的偏誤。
+    </div>
+    <div class="section-label">引發的問題 / Questions it opens</div>
+    <p class="questions">頂級期刊的「為一般讀者而寫」的編輯取向，是否系統性地製造了比它防止的更多誤解？Science 的文章究竟是寫給誰看的？</p>
+  </div>
+
+  <!-- 5. HISTORY & PHILOSOPHY (from Aeon) -->
+  <div class="section-header">
+    <h2>歷史與哲學 / History &amp; Philosophy</h2>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-history">哲學</span>
+      <div class="card-title">
+        <a href="https://aeon.co/essays" target="_blank">
+          超越因果：數學如何橋接人文與科學之間的鴻溝 / Beyond Causality
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span>Aeon · Gordon Gillespie</span>
+      <span>本週精選</span>
+      <span class="read-time">20 min</span>
+      <a href="https://aeon.co/essays" target="_blank">原文連結（Aeon Essays）</a>
+    </div>
+    <div class="section-label standout">為什麼值得讀 / Why it stands out</div>
+    <p class="body-text">這是一篇試圖真正「解題」的哲學文章，而不只是重述 Snow 的「兩種文化」鴻溝。作者主張橋樑不是「科學普及」，而是數學——不是數學作為工具，而是數學作為一種思維語言。</p>
+    <div class="section-label">摘要 / Summary</div>
+    <p class="body-text">
+      Gillespie 認為人文與科學之所以對話困難，不在於資訊落差，而在於「因果推論」的框架本身太窄：科學的「因果機制」語言和人文的「意義詮釋」語言形成本質斷裂。他主張數學——尤其是拓樸學、圖論、範疇論等結構性數學——提供了一種超越因果的關係語言，能同時描述「物理關係」與「意義關係」，不強制規定方向與機制，卻能捕捉模式與對應。這不是一個已完成的計畫，而是一個嚴肅的起點。
+    </p>
+    <div class="section-label">核心觀點 / Key takeaway</div>
+    <div class="key-takeaway">
+      若想真正整合人文與科學，我們或許需要的不是更多跨領域對話，而是一種更根本的共同語言——而數學的結構性部分可能正是那種語言。
+    </div>
+    <div class="section-label">引發的問題 / Questions it opens</div>
+    <p class="questions">AI 的崛起（本質上是大規模統計/數學模型）是否正在意外地強迫人文學科接受一套數學框架？這是統一還是殖民？</p>
+  </div>
+
+  <!-- 6. CURIOSITIES -->
+  <div class="section-header">
+    <h2>奇文與偏門 / Curiosities</h2>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-curiosity">奇文</span>
+      <div class="card-title">
+        <a href="https://marginalrevolution.com/marginalrevolution/2026/05/how-to-improve-british-procurement.html" target="_blank">
+          倫敦地鐵旁搬來一家海狸，水患問題解決了 / How to Improve British Procurement (With Beavers)
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span>Marginal Revolution · Tyler Cowen</span>
+      <span>2026-05-30</span>
+      <span class="read-time">3 min</span>
+      <a href="https://marginalrevolution.com/marginalrevolution/2026/05/how-to-improve-british-procurement.html" target="_blank">原文連結</a>
+    </div>
+    <div class="section-label standout">為什麼值得讀 / Why it stands out</div>
+    <p class="body-text">今日最好的「奇文」：倫敦政府計畫花大錢挖蓄水庫來解決格林福德地鐵站的水患，結果……把一家五口海狸請來就搞定了。這是一則關於「官僚採購 vs 生態工程」的真實寓言。</p>
+    <div class="section-label">摘要 / Summary</div>
+    <p class="body-text">
+      倫敦格林福德地鐵站每逢大雨就淹水。保育人士說服政府讓他們把一個廢棄高爾夫球場改造成溼地保育區，並引進一家五口海狸。海狸幾週內築壩、造池，創造出能吸收洪水的人工溼地——此前政府原本打算挖大型水庫和堤防，費用高昂。結果：水患問題基本解決，政府省下大筆工程費，地鐵站沙包也收起來了。Tyler Cowen 的評語只是：「需要政府許可才能重新安置海狸嗎？」
+    </p>
+    <div class="section-label">核心觀點 / Key takeaway</div>
+    <div class="key-takeaway">
+      有時最有效的「工程方案」是把生態系統的自然功能還給它，成本幾乎為零。
+    </div>
+    <div class="section-label">引發的問題 / Questions it opens</div>
+    <p class="questions">有多少城市基礎設施問題的最便宜解法，其實是生態復育而非工程建設？我們只是因為機構偏好「大型建設計畫」而忽略了它們？</p>
+  </div>
+
+  <!-- ===== TRACK B ===== -->
+  <div class="section-header">
+    <h2>Track B</h2>
+    <h3>思想領袖觀點 / Thought Leaders</h3>
+  </div>
+
+  <!-- TL1: Tyler Cowen on Americans leaving the US -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-macro">[總經]</span>
+      <div class="card-title">
+        Tyler Cowen — 美國人大規模移居海外：新的「生活套利」時代
+      </div>
+    </div>
+    <div class="card-meta">
+      <span>Marginal Revolution · <a href="https://marginalrevolution.com/marginalrevolution/2026/05/lifestyle-and-living-standards-arbitrage.html" target="_blank">原文連結</a></span>
+      <span>2026-05-31</span>
+      <span class="read-time">5 min</span>
+    </div>
+    <div class="section-label standout">為什麼值得讀 / Why it stands out</div>
+    <p class="body-text">Cowen 是目前最敏銳的「趨勢觀察者」之一。他引用 WSJ 調查指出，數以百萬計的美國人正以前所未有的規模遷往葡萄牙、愛爾蘭、墨西哥、巴里島、阿爾巴尼亞——不再是富有的冒險者，而是普通人。這個趨勢對「美國在 AI 時代的人才集中度」意涵深遠。</p>
+    <div class="tl-author-line">核心觀點 / Core insight</div>
+    <p class="body-text">
+      這批移民不是因為政治庇護，而是純粹的「生活成本套利」：用美元或遠端收入在生活品質更高但成本更低的地方生活。里斯本、都柏林、曼谷周邊已出現「美國人社區」，部分城市甚至爆發當地人對仕紳化的抗議。Cowen 額外提出一個前瞻性想法：「我們尚未進入 AI 知識型美國人幫助外國完成本國 AI 轉型、被高薪聘僱的時代」——但那個時代快到了。
+    </p>
+    <div class="questions">若美國的 AI 人才外溢加速，誰會在這個趨勢中得益？哪些國家在搶人才戰中出手最快？</div>
+  </div>
+
+  <!-- TL2: Alex Tabarrok on AI prescription refills -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-ai">[AI]</span>
+      <div class="card-title">
+        Alex Tabarrok — AI 開處方初試啼聲：猶他州的第一份成績單
+      </div>
+    </div>
+    <div class="card-meta">
+      <span>Marginal Revolution · <a href="https://marginalrevolution.com/marginalrevolution/2026/05/doc-in-a-box.html" target="_blank">原文連結</a></span>
+      <span>2026-05-28</span>
+      <span class="read-time">4 min</span>
+    </div>
+    <div class="section-label standout">為什麼值得讀 / Why it stands out</div>
+    <p class="body-text">Tabarrok 是 GMU 的制度經濟學家，也是醫療規管批評者。這篇文章有真實數據：猶他州 AI 開藥試點（Doctronic）的第一份評估報告正式出爐，一個地方大咖在分析它的意義。</p>
+    <div class="tl-author-line">核心觀點 / Core insight</div>
+    <p class="body-text">
+      在 AI 建議續藥的 72% 案例中，97% 的案例至少有一位醫師同意。AI 主動升級轉人工的 28% 案例中，69% 醫師認為升級合理，31% 認為過度謹慎。總體上這是一個極具說服力的初步結果。Doctronic 的創辦人指出更核心的算盤：算力成本每 5 年降 10 倍，AI 問診今天幾美元，幾年後幾分錢——「工程問題有解，供給問題本質上解決了」。
+    </p>
+    <div class="questions">若 AI 醫師在常規情境下準確率可媲美人類，醫師執照制度的倫理基礎還成立嗎？下一個戰場是哪個科別？</div>
+  </div>
+
+  <!-- TL3: Fred Wilson on AI Transformation at USV -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-vc">[創投]</span>
+      <div class="card-title">
+        Fred Wilson (AVC) — USV 如何用 Claude Code + Tasklet 把公司「員工人數翻倍」
+      </div>
+    </div>
+    <div class="card-meta">
+      <span>AVC (avc.xyz) · <a href="https://avc.xyz/a-couple-of-ai-things" target="_blank">原文連結</a></span>
+      <span>2026-03-26</span>
+      <span class="read-time">5 min</span>
+    </div>
+    <div class="section-label standout">為什麼值得讀 / Why it stands out</div>
+    <p class="body-text">Fred Wilson 不常談操作細節，但這篇是少見的「我的基金正在這樣做」式第一手分享，而非泛泛而談。Union Square Ventures 在 6 個月內用 AI agent 讓整個公司的實際工作能力「倍增」——不靠新招人。</p>
+    <div class="tl-author-line">核心觀點 / Core insight</div>
+    <p class="body-text">
+      USV 請了 Spencer Yen 負責「AI Transformation」，6 個月後，Spencer 與兩位同事用 Claude Code 和 Tasklet（USV 自身投資組合公司）徹底重建了整個 USV 的工作系統。Wilson 說：「我們沒有多招任何人，但公司規模等於翻倍。」他補充了一個有趣的細節：他的太太用 Tasklet 的「Task Computer」自動登入 Instagram、從收藏清單抓取旅遊資訊，填入資料庫讓 AI agent 訂旅遊。「給不懂寫 API 的人的可程式電腦」——這是非技術人員的 AI agent 落地。
+    </p>
+    <div class="questions">創投的「AI 轉型」如果讓 2 人組 VC 能做 10 人組的工作，這是否會對整個 VC 產業的組織規模和費用結構造成壓縮？</div>
+  </div>
+
+  <!-- TL4: Tyler Cowen on AI GDP -->
+  <div class="card">
+    <div class="card-header">
+      <span class="badge badge-macro">[總經]</span>
+      <div class="card-title">
+        Tyler Cowen — AI GDP 每年成長 2,600%，但統計數字看不到
+      </div>
+    </div>
+    <div class="card-meta">
+      <span>Marginal Revolution · <a href="https://marginalrevolution.com/marginalrevolution/2026/05/ai-in-gdp.html" target="_blank">原文連結</a></span>
+      <span>2026-05-28</span>
+      <span class="read-time">3 min</span>
+    </div>
+    <div class="section-label standout">為什麼值得讀 / Why it stands out</div>
+    <p class="body-text">Cowen 引用了 Korinek &amp; McKelvey 的 PIIE 研究（本期 Track A 也收錄），並加上自己的框架延伸：這不只是「統計問題」，而是政策制定者正在用錯誤的數字做決策。他暗示這是一個比人們意識到的更嚴重的問題。</p>
+    <div class="tl-author-line">核心觀點 / Core insight</div>
+    <p class="body-text">
+      Cowen 以極簡方式轉述 Korinek 研究後指出：如果 AI 「品質調整後」的 GDP 以每年 2,600% 成長，那我們的總體經濟政策是否嚴重誤判了真實生產力狀況？若是，聯準會的利率模型、財政乘數估算、以及潛在 GDP 計算都可能系統性偏低。這個統計空白如果持續，將成為「政策空白」。
+    </p>
+    <div class="questions">如果 AI 生產力被系統性低估，正確的政策回應是什麼——更寬鬆的財政？更大膽的供給側投資？還是某種我們還沒想到的新框架？</div>
+  </div>
+
+</div>
+
+<footer>
+  <strong>數據來源 / Sources</strong><br>
+  Hacker News (top stories) · Marginal Revolution · Construction Physics (Substack) · Dynomight ·
+  Aeon Essays · PIIE Policy Briefs · AVC (Fred Wilson) · XDA Developers · Quarrelsome (Thomas Ptacek) ·
+  Laurent Le Brun's Blog<br><br>
+  <strong>付費牆 / Paywalled：</strong>WSJ (部分引用)、FT (部分引用)、Bloomberg Businessweek、The Atlantic、New Yorker 無法全文存取。The Browser 需訂閱。<br><br>
+  整理日期：2026-06-02 · 回溯窗口：約 7 天 · 本期共 8 篇長文 + 4 篇思想領袖觀點
+</footer>
+</body>
+</html>

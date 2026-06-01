@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hot US Stocks — June 2, 2026 (Session: June 1)</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d26;
+    --surface2: #22263a;
+    --border: #2e3248;
+    --text: #e8eaf0;
+    --muted: #8b90a8;
+    --green: #22c55e;
+    --red: #ef4444;
+    --amber: #f59e0b;
+    --blue: #60a5fa;
+    --purple: #a78bfa;
+    --cyan: #22d3ee;
+    --yellow: #fbbf24;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 0 0 60px 0;
+  }
+  .hero {
+    background: linear-gradient(135deg, #0f1117 0%, #1a1d26 50%, #0d1520 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 24px 24px;
+    text-align: center;
+  }
+  .hero h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; color: #fff; }
+  .hero .subtitle { color: var(--muted); font-size: 13px; margin-top: 6px; }
+  .session-badge {
+    display: inline-block;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: var(--blue);
+    margin-top: 10px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+  section { margin-top: 32px; }
+  h2 { font-size: 17px; font-weight: 700; color: var(--cyan); border-left: 3px solid var(--cyan); padding-left: 10px; margin-bottom: 16px; }
+  h3 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+
+  /* Summary Table */
+  .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; }
+  thead tr { background: var(--surface2); }
+  th { padding: 10px 12px; text-align: left; font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--border); }
+  tbody tr { background: var(--surface); border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--surface2); }
+  td { padding: 10px 12px; vertical-align: middle; }
+  .ticker-badge {
+    font-weight: 700;
+    font-size: 13px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 2px 8px;
+    font-family: monospace;
+    color: var(--yellow);
+  }
+  .pct.pos { color: var(--green); font-weight: 700; }
+  .pct.neg { color: var(--red); font-weight: 700; }
+  .buzz-stars { color: var(--amber); letter-spacing: 1px; }
+  .catalyst-pill {
+    display: inline-block;
+    font-size: 11px;
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-weight: 600;
+  }
+  .cat-ma { background: #1d2f50; color: var(--blue); }
+  .cat-upgrade { background: #1a2a1a; color: var(--green); }
+  .cat-product { background: #251d35; color: var(--purple); }
+  .cat-ipo { background: #2a1f10; color: var(--amber); }
+  .cat-losers { background: #2a1010; color: var(--red); }
+  .cat-contract { background: #1a2530; color: var(--cyan); }
+
+  /* Deep dive cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .card-ticker {
+    font-size: 22px;
+    font-weight: 800;
+    font-family: monospace;
+    color: var(--yellow);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 4px 14px;
+    white-space: nowrap;
+  }
+  .card-meta { flex: 1; min-width: 200px; }
+  .card-name { font-size: 15px; font-weight: 700; color: #fff; }
+  .card-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .card-tape {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding: 10px 14px;
+    background: var(--surface2);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .tape-item { display: flex; flex-direction: column; align-items: center; }
+  .tape-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .tape-val { font-weight: 700; font-size: 14px; }
+  .tape-val.pos { color: var(--green); }
+  .tape-val.neg { color: var(--red); }
+  .tape-val.neutral { color: var(--text); }
+  .tape-sep { width: 1px; background: var(--border); align-self: stretch; margin: 0 4px; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin: 14px 0 6px;
+  }
+  .why-hot { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 680px) { .why-hot { grid-template-columns: 1fr; } }
+  .why-block {
+    background: var(--surface2);
+    border-radius: 8px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .why-block .lang-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .options-box, .retail-box, .watch-box {
+    background: var(--surface2);
+    border-radius: 8px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .options-box { border-left: 3px solid var(--purple); }
+  .retail-box { border-left: 3px solid var(--amber); }
+  .watch-box { border-left: 3px solid var(--cyan); }
+  .quote { font-style: italic; color: var(--muted); }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .sources-block { font-size: 11px; color: var(--muted); margin-top: 10px; }
+  .sources-block a { color: var(--blue); font-size: 11px; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+  /* Watchlist */
+  .watchlist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .watch-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .watch-card .wt { font-size: 14px; font-weight: 700; font-family: monospace; color: var(--yellow); }
+  .watch-card .wn { font-size: 12px; color: var(--text); margin-top: 2px; }
+  .watch-card .wp { font-size: 13px; font-weight: 700; margin-top: 4px; }
+  .watch-card .wd { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  /* Backdrop */
+  .backdrop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .backdrop-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+  }
+  .backdrop-item .bi-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .backdrop-item .bi-val { font-size: 18px; font-weight: 800; margin-top: 2px; }
+  .backdrop-item .bi-chg { font-size: 12px; font-weight: 600; margin-top: 2px; }
+
+  /* Halts section */
+  .alert-box {
+    background: #1f1a0a;
+    border: 1px solid #5a3f10;
+    border-left: 4px solid var(--amber);
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 13px;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 48px;
+    padding: 20px 16px;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .footer h3 { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .footer-links a {
+    font-size: 11px;
+    color: var(--blue);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 8px;
+  }
+  .disclaimer {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 14px;
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="container">
+    <h1>🔥 Hot US Stocks of the Day</h1>
+    <div class="subtitle">今日美股熱門焦點股 — 最被市場爆炒的幾檔個股</div>
+    <div class="session-badge">Trading Session: Monday, June 1, 2026 (RTH) &nbsp;|&nbsp; Reported: June 2, 2026 (Asia/Taipei)</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- SUMMARY TABLE -->
+  <section>
+    <h2>📊 Summary Table — Today's Hot 7</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Ticker</th>
+            <th>Company</th>
+            <th>Close (RTH)</th>
+            <th>% Change</th>
+            <th>Catalyst</th>
+            <th>Options / Flow</th>
+            <th>Buzz ★</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="ticker-badge">ARM</span></td>
+            <td>Arm Holdings</td>
+            <td>~$353</td>
+            <td><span class="pct pos">+14–18%</span></td>
+            <td><span class="catalyst-pill cat-product">Nvidia RTX Spark</span></td>
+            <td>Unusual call sweep; IV+↑; multi-target raise</td>
+            <td><span class="buzz-stars">★★★★★</span></td>
+          </tr>
+          <tr>
+            <td><span class="ticker-badge">TMHC</span></td>
+            <td>Taylor Morrison Home</td>
+            <td>~$71.59</td>
+            <td><span class="pct pos">+22.4%</span></td>
+            <td><span class="catalyst-pill cat-ma">Berkshire $6.8B Acq.</span></td>
+            <td>Spread compressed to deal arb; low vol post-announcement</td>
+            <td><span class="buzz-stars">★★★★</span></td>
+          </tr>
+          <tr>
+            <td><span class="ticker-badge">MGM</span></td>
+            <td>MGM Resorts Intl</td>
+            <td>~$49.95</td>
+            <td><span class="pct pos">+13.8%</span></td>
+            <td><span class="catalyst-pill cat-ma">People Inc. $48.30/sh bid</span></td>
+            <td>Vol spike; call activity heavy; near-ATM spread</td>
+            <td><span class="buzz-stars">★★★★</span></td>
+          </tr>
+          <tr>
+            <td><span class="ticker-badge">IBM</span></td>
+            <td>Intl Business Machines</td>
+            <td>~$305 est.</td>
+            <td><span class="pct pos">+9–12%</span></td>
+            <td><span class="catalyst-pill cat-upgrade">Barclays OW · Quantum</span></td>
+            <td>Large OI build in call strikes; IV jumped premarket</td>
+            <td><span class="buzz-stars">★★★★</span></td>
+          </tr>
+          <tr>
+            <td><span class="ticker-badge">ZM</span></td>
+            <td>Zoom Communications</td>
+            <td>~$112.86</td>
+            <td><span class="pct pos">+11%</span></td>
+            <td><span class="catalyst-pill cat-ipo">Anthropic IPO filing</span></td>
+            <td>52-week high hit; call buying; no unusual block noted</td>
+            <td><span class="buzz-stars">★★★★</span></td>
+          </tr>
+          <tr>
+            <td><span class="ticker-badge">NOW</span></td>
+            <td>ServiceNow</td>
+            <td>~$136.54</td>
+            <td><span class="pct pos">+9.78%</span></td>
+            <td><span class="catalyst-pill cat-product">Software sector re-rate</span></td>
+            <td>XSW ETF +5.2%; elevated call/put; options volume elevated</td>
+            <td><span class="buzz-stars">★★★</span></td>
+          </tr>
+          <tr>
+            <td><span class="ticker-badge">QCOM</span></td>
+            <td>Qualcomm</td>
+            <td>待確認</td>
+            <td><span class="pct neg">−7.3%</span></td>
+            <td><span class="catalyst-pill cat-losers">Nvidia enters PC market</span></td>
+            <td>Put buying elevated; IV raised</td>
+            <td><span class="buzz-stars">★★★</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- DEEP DIVES -->
+  <section>
+    <h2>🔍 Deep Dives / 個股深度解析</h2>
+
+    <!-- ARM -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-ticker">$ARM</div>
+        <div class="card-meta">
+          <div class="card-name">Arm Holdings PLC / 安謀控股</div>
+          <div class="card-sub">NASDAQ · Semiconductor IP / Architecture</div>
+        </div>
+      </div>
+      <div class="card-tape">
+        <div class="tape-item"><div class="tape-label">Close (RTH)</div><div class="tape-val neutral">~$353</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">% Day</div><div class="tape-val pos">+14–18%</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">Day Range</div><div class="tape-val neutral">$337–$356</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">52wk High</div><div class="tape-val neutral">$326 (prev. record, broken today)</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">Short Float</div><div class="tape-val neutral">~10–14%</div></div>
+      </div>
+
+      <div class="section-label">為什麼今天熱 / Why Hot</div>
+      <div class="why-hot">
+        <div class="why-block">
+          <div class="lang-tag">中文</div>
+          Nvidia 在台灣 Computex 2026 發表 RTX Spark Superchip，這顆 AI PC 晶片的 CPU 核心基於 Arm 架構，與 MediaTek 合作設計，搭載 Microsoft Windows on Arm。由於每顆採用 Arm ISA 的晶片都需支付 royalty 給 ARM，一個全新 AI PC 大市場的誕生直接讓 ARM 的授權收入前景大幅改善。Jim Cramer 在 CNBC 稱此為「Amazing for Arm shareholders」。分析師目標價紛紛調升，Mizuho 上調至 $425，Wells Fargo 上調至 $410。
+        </div>
+        <div class="why-block">
+          <div class="lang-tag">English</div>
+          Nvidia's RTX Spark Superchip, unveiled at Computex Taipei 2026, runs on an Arm-based CPU core co-developed with MediaTek under Microsoft's Windows on Arm. Because ARM collects a royalty on every chip built to its ISA, winning the flagship AI-PC silicon slot with the world's most valuable chipmaker transforms ARM's licensing TAM. Multiple analysts raised targets intra-session. The stock broke its prior 52-week record of $326, triggering momentum and likely short-covering given ~10–14% short float.
+        </div>
+      </div>
+
+      <div class="section-label">Options &amp; Flow</div>
+      <div class="options-box">
+        Unusual call sweep activity reported at strikes $350–$380, multiple expiries including June and July monthlies. Mizuho PT $425 (from $360, Outperform maintained). Wells Fargo PT $410 (from $255, Overweight maintained). IV jumped sharply in premarket. With a ~10–14% short float, the move likely triggered a partial short squeeze on top of fundamental re-rating. Specific block sizes not publicly available — 待確認.
+      </div>
+
+      <div class="section-label">Retail Buzz</div>
+      <div class="retail-box">
+        X (cashtag $ARM) flooded with "Nvidia gave ARM the keys to the PC kingdom" narratives. Reddit r/WallStreetBets discussed the AI PC thesis; WSB mentions spiked. Jim Cramer on CNBC: <span class="quote">"This is amazing for Arm shareholders."</span> Retail heavily focused on ARM as the cleaner AI-PC play vs. playing NVDA directly.
+      </div>
+
+      <div class="section-label">炒作脈絡 / Narrative</div>
+      <p style="font-size:13px;">ARM has been in a multi-month downtrend from its 2025 highs above $300. The Computex catalyst snapped that narrative, reframing ARM from "priced-for-perfection AI hype" to "royalty compounder with a new secular TAM." Peer pattern: similar to how the first major Arm-based Mac announcement moved ARM-adjacent names.</p>
+
+      <div class="section-label">後續觀察 / What to Watch</div>
+      <div class="watch-box">
+        <strong>Gamma exposure:</strong> Heavy call OI near $350–$360 could create dealer hedging tailwind if RTH stays above. <strong>Peer rotation:</strong> MediaTek (2454.TW) and Cadence/Synopsys (EDA toolchain) could see spillover. <strong>Key risks:</strong> Microsoft could shift Windows-on-Arm roadmap; royalty rate renegotiation noise. <strong>Next catalyst:</strong> RTX Spark systems debut "this fall" — watch for OEM pre-order volume signals.
+      </div>
+
+      <div class="sources-block">Sources: <a href="https://www.cnbc.com/2026/05/31/nvidias-new-chip-to-power-fresh-line-of-windows-laptops-by-dell-hp.html">CNBC RTX Spark</a> · <a href="https://247wallst.com/investing/2026/06/01/arm-holdings-rockets-18-microsoft-dell-rise-on-rtx-spark-ai-pc-launch/">247WallSt</a> · <a href="https://invezz.com/en-ae/news/2026/06/01/arm-rises-on-nvidias-pc-chip-launch-cramer-says-amazing-for-arm-shareholders/">Invezz</a> · <a href="https://stocktwits.com/news-articles/markets/equity/arm-stock-nvidia-rtx-spark-analyst-upgrades-agentic-ai/cZ0gAC0ReHm">StockTwits News</a> · <a href="https://www.tradingkey.com/news/market-movers/261939233-market-movers-arm-20260601">TradingKey</a></div>
+    </div>
+
+    <!-- TMHC -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-ticker">$TMHC</div>
+        <div class="card-meta">
+          <div class="card-name">Taylor Morrison Home Corp / 泰勒莫里森房屋</div>
+          <div class="card-sub">NYSE · US Homebuilder</div>
+        </div>
+      </div>
+      <div class="card-tape">
+        <div class="tape-item"><div class="tape-label">Close (RTH)</div><div class="tape-val neutral">~$71.59</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">% Day</div><div class="tape-val pos">+22.4%</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">Prior Close</div><div class="tape-val neutral">$58.50 (May 29)</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">Deal Price</div><div class="tape-val pos">$72.50/sh cash</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">Deal Premium</div><div class="tape-val pos">+24% to prior close</div></div>
+      </div>
+
+      <div class="section-label">為什麼今天熱 / Why Hot</div>
+      <div class="why-hot">
+        <div class="why-block">
+          <div class="lang-tag">中文</div>
+          Berkshire Hathaway 宣布以 $72.50/股全現金收購 Taylor Morrison，總交易價值約 $68 億美元，企業價值達 $85 億。溢價 24%，Greg Abel 接掌 Berkshire 後第一筆重大收購案，也是市場對美國住宅市場信心的最強力信號。消息在 May 31 盤後/June 1 盤前曝光，TMHC 開盤即跳漲鎖定在接近 deal price 的位置，屬於標準 M&A 套利走法。
+        </div>
+        <div class="why-block">
+          <div class="lang-tag">English</div>
+          Berkshire Hathaway agreed to acquire Taylor Morrison for $72.50/share in cash (total equity ~$6.8B, enterprise value ~$8.5B), a 24% premium to the May 29 close. This is the first major deal under new CEO Greg Abel, serving as a vote of confidence in US housing. The stock jumped straight to near the deal price, compressing the spread to classic merger-arb territory. CEO Sheryl Palmer stays on.
+        </div>
+      </div>
+
+      <div class="section-label">Options &amp; Flow</div>
+      <div class="options-box">
+        Post-announcement, options activity shifted to deal-arb spread compression. Near-term OTM calls above $72.50 saw low interest as deal is all-cash with no premium expected beyond the announced price. Put activity minimal — deal certainty high given Berkshire's all-cash structure. Specific block data: 待確認. Deal expected to close H2 2026 pending regulatory approval.
+      </div>
+
+      <div class="section-label">Retail Buzz</div>
+      <div class="retail-box">
+        r/WallStreetBets discussed the homebuilder sector trade — which peers might be next Berkshire targets (e.g., MDC Holdings, Century Communities). X buzz focused on <span class="quote">"Buffett/Abel buying US housing is the ultimate macro endorsement."</span> Peer homebuilders (PHM, DHI, LEN) saw modest sympathy bid.
+      </div>
+
+      <div class="section-label">炒作脈絡 / Narrative</div>
+      <p style="font-size:13px;">Berkshire owns Clayton Homes (affordable housing), BH HomeServices (brokerage), and various building-materials subsidiaries. Adding Taylor Morrison fills the "production homebuilder" gap. Abel's first big strategic move signals his willingness to deploy capital — which itself is a market narrative (Berkshire cash deployment = macro confidence).</p>
+
+      <div class="section-label">後續觀察 / What to Watch</div>
+      <div class="watch-box">
+        The TMHC trade is now a pure M&A arb: stock at ~$71.59 vs. deal at $72.50 = ~$0.91 spread or ~1.3% risk-free over deal close (H2 2026). Watch for: DOJ/FTC review (unlikely issue), competing bids (very unlikely), or deal break risk. Sector play: check if PulteGroup (PHM), Century Communities (CCS), or Smith Douglas Homes (SDHC) see sustained bid.
+      </div>
+
+      <div class="sources-block">Sources: <a href="https://www.cnbc.com/2026/05/31/berkshire-hathaway-to-buy-us-homebuilder-taylor-morrison-for-8point5-billion.html">CNBC</a> · <a href="https://www.bloomberg.com/news/articles/2026-05-31/berkshire-hathaway-to-buy-taylor-morrison-for-6-8-billion">Bloomberg</a> · <a href="https://www.gurufocus.com/news/8894145/taylor-morrison-tmhc-sees-significant-224-surge">GuruFocus</a> · <a href="https://www.sec.gov/Archives/edgar/data/0001562476/000119312526249694/d111152d8k.htm">SEC 8-K</a></div>
+    </div>
+
+    <!-- MGM -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-ticker">$MGM</div>
+        <div class="card-meta">
+          <div class="card-name">MGM Resorts International / MGM 大酒店集團</div>
+          <div class="card-sub">NYSE · Gaming / Hospitality / Entertainment</div>
+        </div>
+      </div>
+      <div class="card-tape">
+        <div class="tape-item"><div class="tape-label">Close (RTH)</div><div class="tape-val neutral">~$49.95</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">% Day</div><div class="tape-val pos">+13.8%</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">Day Range</div><div class="tape-val neutral">$43.95–$50.50</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">Offer Price</div><div class="tape-val pos">$48.30/sh cash</div></td></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">Acquirer Stake</div><div class="tape-val neutral">26.1% (People Inc.)</div></div>
+      </div>
+
+      <div class="section-label">為什麼今天熱 / Why Hot</div>
+      <div class="why-hot">
+        <div class="why-block">
+          <div class="lang-tag">中文</div>
+          Barry Diller 旗下的 People Inc.（前身 IAC）提出以每股 $48.30 全現金收購 MGM 剩餘 74% 的股份，總估值約 $180–190 億美元。溢價幅度：30 日 VWAP 溢價 24.1%，90 日 VWAP 溢價 30%+，最近收盤溢價 10.6%。People Inc. 已持有 26.1%，Diller 本人在 MGM 董事會需要迴避。MGM 股價盤中最高觸及 $50.50，超出出價 $48.30，顯示市場認為後續有 competing bid 或更高出價的可能。
+        </div>
+        <div class="why-block">
+          <div class="lang-tag">English</div>
+          Barry Diller's People Inc. (formerly IAC) submitted a non-binding all-cash proposal at $48.30/share for the ~74% of MGM it doesn't already own, implying an ~$18–19B enterprise value. The stock actually traded above the offer price intraday ($50.50 high vs. $48.30 offer), signaling the market is pricing in either a higher revised bid or a competing offer. Diller recuses himself from the MGM board's deliberations. The deal would be funded via cash at People/MGM + debt + equity.
+        </div>
+      </div>
+
+      <div class="section-label">Options &amp; Flow</div>
+      <div class="options-box">
+        Call buying surged immediately after news broke (announcement made June 1, 2026 premarket). Near-the-money calls (strikes $48–$52, June/July expiry) saw heavy volume. Stock trading above offer indicates arb community believes the $48.30 is not final — typical for non-binding "best and final" openings. Volume 1.14M shares vs. 5.48M avg — actually below average, suggesting institutional arb positioning but not yet retail panic-buying. Note: the proposal is non-binding and MGM board must formally review it.
+      </div>
+
+      <div class="section-label">Retail Buzz</div>
+      <div class="retail-box">
+        X cashtag $MGM buzzed with comparisons to other gaming M&A. r/WallStreetBets discussed: <span class="quote">"Barry Diller knows Vegas better than Vegas knows itself."</span> StockTwits trending. Discussion centered on whether Wynn, Caesars (CZR), or Las Vegas Sands (LVS) could also receive bids.
+      </div>
+
+      <div class="section-label">炒作脈絡 / Narrative</div>
+      <p style="font-size:13px;">MGM has been under activist/consolidation speculation for years. People Inc. already owns 26.1% and Diller has long been seen as a strategic holder. Going above the $48.30 offer intraday is classic M&A speculation. Peers to watch: CZR, WYNN, LVS on any sector-wide bid premium thesis.</p>
+
+      <div class="section-label">後續觀察 / What to Watch</div>
+      <div class="watch-box">
+        The spread between $49.95 (close) and $48.30 (offer) is negative — market is pricing in deal sweetening. Watch for: MGM board response timeline, any competing bidder (Apollo, Blackstone both have gaming experience), and Diller's capital commitment details. If MGM board rejects at $48.30, stock could retrace to $44–45 range.
+      </div>
+
+      <div class="sources-block">Sources: <a href="https://www.cnbc.com/2026/06/01/mgm-resorts-barry-diller-people-bid.html">CNBC</a> · <a href="https://www.bloomberg.com/news/articles/2026-06-01/diller-preparing-18-billion-mgm-takeover-bid-ny-times-reports">Bloomberg</a> · <a href="https://deadline.com/2026/06/barry-diller-people-inc-bids-mgm-resorts-international-1236931883/">Deadline</a> · <a href="https://www.sec.gov/Archives/edgar/data/0000789570/000110465926068674/tm2616473d1_ex99-1.htm">SEC 13D/A</a></div>
+    </div>
+
+    <!-- IBM -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-ticker">$IBM</div>
+        <div class="card-meta">
+          <div class="card-name">International Business Machines / IBM</div>
+          <div class="card-sub">NYSE · Enterprise Software / Quantum Computing</div>
+        </div>
+      </div>
+      <div class="card-tape">
+        <div class="tape-item"><div class="tape-label">% Day (RTH)</div><div class="tape-val pos">+9–12%</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">Market Cap Add</div><div class="tape-val pos">+$24B est.</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">Barclays PT</div><div class="tape-val pos">$350 OW (bull: $449)</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">Close Price</div><div class="tape-val neutral">待確認 (est. ~$305)</div></div>
+      </div>
+
+      <div class="section-label">為什麼今天熱 / Why Hot</div>
+      <div class="why-hot">
+        <div class="why-block">
+          <div class="lang-tag">中文</div>
+          Barclays 首次以 Overweight 評級啟動覆蓋 IBM，目標價 $350，樂觀情境下可達 $449（比當前股價高 51%）。分析師 Raimo Lenschow 指出 IBM 的量子運算布局與 Nvidia 在 GPU 的策略高度相似：IBM 正在為未來十年量子計算爆發做完整生態系建設（hardware + software + cloud access）。近半數營收和多數利潤來自軟體，為大型監管行業提供黏著度高的基礎建設。
+        </div>
+        <div class="why-block">
+          <div class="lang-tag">English</div>
+          Barclays initiated IBM at Overweight, PT $350 (bull case $449, +51% upside). The core thesis: IBM's software-heavy mix (~50% revenue) creates a stable earnings compounder, with quantum computing as a free call option. Analyst Lenschow argued IBM is "mimicking Nvidia's playbook" — building the full quantum hardware + software + cloud stack. The initiation triggered momentum buying and some retail squeeze on news-day volume.
+        </div>
+      </div>
+
+      <div class="section-label">Options &amp; Flow</div>
+      <div class="options-box">
+        Large OI build in IBM call strikes above $290–$320 prior to the Barclays note (suggesting some front-running or coincidental positioning). IV jumped sharply at open. Multiple sources report a 7–12% intraday range. The stock added over $24B in market cap in a single session on an analyst initiation — unusual magnitude, suggesting either thin float near resistance or broad portfolio repositioning.
+      </div>
+
+      <div class="section-label">Retail Buzz</div>
+      <div class="retail-box">
+        StockTwits trending: $IBM with "Quantum Nvidia" comparisons going viral. Reddit r/stocks: enthusiastic discussion about IBM's quantum roadmap. X: Barclays note headline spread rapidly. <span class="quote">"IBM is finally getting the quantum narrative it deserves."</span> Note: one earlier search result mentioned a Trump video mention as partial catalyst — not confirmed as the primary driver.
+      </div>
+
+      <div class="section-label">炒作脈絡 / Narrative</div>
+      <p style="font-size:13px;">IBM has historically been the "value trap" of tech — slowly declining hardware revenue obscuring software and services growth. The Barclays framing of IBM as a "quantum option + software compounder" is a meaningful reframe. Peer: IonQ (IONQ) and Rigetti (RGTI) as pure-play quantum names may see spillover.</p>
+
+      <div class="section-label">後續觀察 / What to Watch</div>
+      <div class="watch-box">
+        Watch for: follow-on analyst upgrades from other banks (JPM, Goldman coverage?). IBM Q2 2026 earnings as next hard catalyst. Quantum computing commercial revenue timeline. Any Nvidia-IBM partnership announcements at future conferences. Risk: 50%+ upside targets in bull case often attract "sell the news" behavior after a +10% day.
+      </div>
+
+      <div class="sources-block">Sources: <a href="https://www.cnbc.com/2026/06/01/barclays-says-ibm-is-mimicking-nvidias-playbook-in-quantum-market.html">CNBC — Barclays note</a> · <a href="https://stocktwits.com/news-articles/markets/equity/ibm-stock-climbs-premarket-barclays-fresh-bull-call-highlights-quantum-potential/cZ0gVKaReHc">StockTwits News</a> · <a href="https://parameter.io/ibm-ibm-stock-soars-12-following-barclays-bullish-analyst-upgrade/">Parameter.io</a> · <a href="https://www.gurufocus.com/news/8893695/ibm-shares-jump-10-on-overweight-rating-and-strong-software-momentum">GuruFocus</a></div>
+    </div>
+
+    <!-- ZM -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-ticker">$ZM</div>
+        <div class="card-meta">
+          <div class="card-name">Zoom Communications, Inc. / 思科視訊會議</div>
+          <div class="card-sub">NASDAQ · Communications / AI Enterprise</div>
+        </div>
+      </div>
+      <div class="card-tape">
+        <div class="tape-item"><div class="tape-label">Close (RTH)</div><div class="tape-val neutral">~$112.86</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">% Day</div><div class="tape-val pos">+11%</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">52wk High</div><div class="tape-val pos">$113.77 (hit today)</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">Anthropic Stake</div><div class="tape-val pos">~$1B+ fair value</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">Cantor PT</div><div class="tape-val neutral">$104 (raised)</div></div>
+      </div>
+
+      <div class="section-label">為什麼今天熱 / Why Hot</div>
+      <div class="why-hot">
+        <div class="why-block">
+          <div class="lang-tag">中文</div>
+          Anthropic（Claude 的開發商）悄悄向 SEC 提交了 IPO 草案申請書，成為美股最重磅的潛在 IPO 之一。Zoom 在 2023 年以 $5100 萬元投資 Anthropic，最新估值顯示這筆投資市值已超過 $10 億美元，加上 2026 年初追加的 $4600 萬。分析師稱 Zoom 為「買 Anthropic 的側門」。此外 Zoom 也同步推出 ZoomMate AI 工作平台，雙重催化劑驅動股價突破 52 週高點。
+        </div>
+        <div class="why-block">
+          <div class="lang-tag">English</div>
+          Anthropic (maker of Claude) confidentially filed IPO registration paperwork with the SEC, immediately revaluing Zoom's $51M original investment (now worth $1B+) to market prices. Zoom's AI play is suddenly front-and-center. The stock hit a 52-week high of $113.77. Additionally, Zoom launched ZoomMate, an AI work surface turning conversations into tasks — a second catalyst on the same day. Net cash is 35% of market cap, making Anthropic stake a potentially massive embedded value unlock.
+        </div>
+      </div>
+
+      <div class="section-label">Options &amp; Flow</div>
+      <div class="options-box">
+        Call activity picked up on the 52-week high break — momentum traders bought calls as price crossed key resistance. No specific large block reported publicly. Cantor Fitzgerald raised PT to $104, noting growing AI adoption. IV moderate — move was news-driven, not squeeze dynamics. Short float not elevated.
+      </div>
+
+      <div class="section-label">Retail Buzz</div>
+      <div class="retail-box">
+        Reddit r/stocks and r/investing: <span class="quote">"Zoom just became the cheapest way to buy Anthropic."</span> X cashtag $ZM trending with "hidden Anthropic gem" framing. Motley Fool published a piece titled "Want to invest in Anthropic? Here's the sneaky stock to buy." — widely shared and driving retail discovery.
+      </div>
+
+      <div class="section-label">炒作脈絡 / Narrative</div>
+      <p style="font-size:13px;">Zoom has been a post-pandemic value stock, trading well below its 2020–2021 highs. The Anthropic angle turns it into an AI-adjacent name with embedded optionality. Comparable setups: Microsoft/OpenAI investment trade, Amazon/Anthropic investor value. Risk: Anthropic IPO timeline and valuation at listing may disappoint vs. private marks.</p>
+
+      <div class="section-label">後續觀察 / What to Watch</div>
+      <div class="watch-box">
+        Key: Anthropic's official IPO pricing and timing — any valuation above $40B+ would further revalue Zoom's stake. Watch Zoom Q2 earnings for ZoomMate adoption metrics. Competing comms platforms (MSFT Teams, GOOGL Meet) remain structural headwinds. Anthropic confidential filing → expect public S-1 within weeks to months.
+      </div>
+
+      <div class="sources-block">Sources: <a href="https://invezz.com/pk/news/2026/06/01/zoom-stock-jumps-as-anthropic-ipo-plans-boost-ai-investment-value/">Invezz</a> · <a href="https://www.cnbc.com/2026/01/26/zoom-anthropic-investment.html">CNBC — Anthropic stake</a> · <a href="https://www.fool.com/investing/2026/05/26/want-to-invest-in-anthropic-heres-the-sneaky-stock/">Motley Fool</a> · <a href="https://finance.yahoo.com/quote/ZM/">Yahoo Finance ZM</a></div>
+    </div>
+
+    <!-- NOW -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-ticker">$NOW</div>
+        <div class="card-meta">
+          <div class="card-name">ServiceNow, Inc. / 服務智能平台</div>
+          <div class="card-sub">NYSE · Enterprise Software / AI Workflow</div>
+        </div>
+      </div>
+      <div class="card-tape">
+        <div class="tape-item"><div class="tape-label">Close (RTH)</div><div class="tape-val neutral">$136.54</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">% Day</div><div class="tape-val pos">+9.78%</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">30D Performance</div><div class="tape-val pos">+39.92%</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">52wk Low</div><div class="tape-val neutral">$81.24 (Apr 10)</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">XSW ETF</div><div class="tape-val pos">+5.2% (best since 2001)</div></div>
+      </div>
+
+      <div class="section-label">為什麼今天熱 / Why Hot</div>
+      <div class="why-hot">
+        <div class="why-block">
+          <div class="lang-tag">中文</div>
+          軟體股（Enterprise Software）整體重新評價。Nvidia CEO Jensen Huang 在 Computex 明確表態 AI 對軟體公司是「千載難逢的機會」，打消市場對 AI 取代傳統 SaaS 的憂慮。iShares 軟體 ETF（XSW）單日大漲 5.2%，創 2001 年 10 月以來最佳月績效。ServiceNow 在本次反彈中以標桿地位引領整個板塊，Workday、Adobe、Salesforce 跟漲。ServiceNow 今年已從 4 月低點 $81 反彈超過 68%。
+        </div>
+        <div class="why-block">
+          <div class="lang-tag">English</div>
+          A sector-wide software re-rating drove NOW. Nvidia CEO Jensen Huang's Computex speech declaring AI a "once-in-a-lifetime opportunity for software companies" flipped the dominant AI-kills-SaaS narrative. The iShares Software ETF (XSW) rose 5.2%, its best monthly performance since October 2001. ServiceNow led the S&P 500 in premarket at +7.4%. Workday and Adobe also jumped 5–7%. NOW is still down 38.75% vs. a year ago — suggesting room if the re-rating continues.
+        </div>
+      </div>
+
+      <div class="section-label">Options &amp; Flow</div>
+      <div class="options-box">
+        Elevated call/put ratio across the software sector. XSW options volume surged. ServiceNow call OI at strikes $140–$160 (monthly and weekly) built up rapidly. Average monthly volume per MarketBeat: 31.11M shares/$3.1B avg — a high-liquidity name. No single unusual block confirmed publicly on June 1 specifically.
+      </div>
+
+      <div class="section-label">Retail Buzz</div>
+      <div class="retail-box">
+        Barron's on X: <span class="quote">"The Software Rally May Still Have Legs. Buy ServiceNow and Adobe."</span> WSB: focused more on NVDA/ARM but NOW mentioned as "the AI software trade." Institutional flow likely dominant here given stock's price level.
+      </div>
+
+      <div class="section-label">炒作脈絡 / Narrative</div>
+      <p style="font-size:13px;">ServiceNow has been in a brutal correction — down from $211 to $81 over 9 months. The May 2026 bounce (+36%) + June 1 +10% represents a large-scale mean-reversion + narrative shift. The key question: is this a dead-cat bounce or the start of a re-rating? The Trump White House reportedly used ServiceNow, Workday, Adobe, and Microsoft for $1M+ transactions — read as implicit government endorsement.</p>
+
+      <div class="section-label">後續觀察 / What to Watch</div>
+      <div class="watch-box">
+        NOW Q2 earnings as the real proof-of-thesis event. Adobe (ADBE) earnings read-through if it reports first. Watch XSW ETF flow as a sector indicator. Key resistance for NOW around $150–$160 (previous support). Risk: if earnings disappoint on AI monetization, the re-rating reverses fast.
+      </div>
+
+      <div class="sources-block">Sources: <a href="https://www.msn.com/en-us/money/savingandinvesting/servicenow-stock-soars-the-software-comeback-is-on/ar-AA24xXvF">MSN/MarketWatch — NOW</a> · <a href="https://news.futunn.com/en/post/73939061/servicenow-adobe-stocks-jump-as-nvidia-s-new-ai-chip">Futu News</a> · <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261939222-nvda-jensen-huang-champions-software-ecosystem-ai-opportunity-software-stocks-rally-pre-market-tradingkey">TradingKey</a> · <a href="https://x.com/barronsonline/status/2056770892420534354">Barron's X</a></div>
+    </div>
+
+    <!-- QCOM -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-ticker">$QCOM</div>
+        <div class="card-meta">
+          <div class="card-name">Qualcomm Inc. / 高通</div>
+          <div class="card-sub">NASDAQ · Mobile / PC Chips · Snapdragon</div>
+        </div>
+      </div>
+      <div class="card-tape">
+        <div class="tape-item"><div class="tape-label">% Day</div><div class="tape-val neg">−7.3%</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">Close</div><div class="tape-val neutral">待確認</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">Catalyst (neg)</div><div class="tape-val neg">Nvidia enters PC chip market</div></div>
+        <div class="tape-sep"></div>
+        <div class="tape-item"><div class="tape-label">YTD (context)</div><div class="tape-val neutral">AMD +130% / INTC +200% (prior to today)</div></div>
+      </div>
+
+      <div class="section-label">為什麼今天熱 (跌很慘) / Why Hot (as Loser)</div>
+      <div class="why-hot">
+        <div class="why-block">
+          <div class="lang-tag">中文</div>
+          Nvidia 直接殺進 Qualcomm 的核心市場：Windows on Arm PC 晶片。Qualcomm 的 Snapdragon X Elite 系列是目前主要的 Arm 架構 Windows 筆電晶片，Nvidia RTX Spark 一推出便成為其最強勁的直接競爭對手，且搭載 Nvidia GPU（GPU 是 AI PC 最關鍵的差異化優勢）。市場直接反映「Qualcomm PC 晶片市佔額即將被侵蝕」。此外 AMD 的弱勢營收展望也增添壓力，有報道指 Arm Holdings 可能取消與 Qualcomm 的重要授權協議。
+        </div>
+        <div class="why-block">
+          <div class="lang-tag">English</div>
+          Qualcomm's Snapdragon X Elite has been the dominant Windows-on-Arm PC chip. Nvidia's RTX Spark — which also runs on Arm, co-developed with MediaTek — enters directly into that market with an integrated Blackwell GPU advantage that Qualcomm cannot match. Markets are pricing in competitive erosion of Qualcomm's PC chip TAM. Additional headwind: reports of a potential ARM license cancellation, and AMD's weak guidance adding sector-wide pressure. QCOM had rallied sharply YTD — today was a partial giveback.
+        </div>
+      </div>
+
+      <div class="section-label">Options &amp; Flow</div>
+      <div class="options-box">
+        Put buying elevated — specifically near-term puts on news-day volume. Some call-selling observed. The −7.3% move is meaningful but not catastrophic; given QCOM's YTD gains, this may be profit-taking amplified by competitive narrative. Short interest data: 待確認 (prior reports suggest elevated positioning in QCOM puts from earlier in 2026).
+      </div>
+
+      <div class="section-label">Retail Buzz</div>
+      <div class="retail-box">
+        Reddit: QCOM discussed as "roadkill from the Nvidia PC war." X: $QCOM cashtags trending with bearish sentiment. <span class="quote">"Nvidia just declared war on Qualcomm's lunch."</span> Counter-thesis: QCOM still has dominant mobile SoC business unaffected by this announcement.
+      </div>
+
+      <div class="section-label">後續觀察 / What to Watch</div>
+      <div class="watch-box">
+        Key for recovery thesis: PC represents a small % of QCOM total revenue — mobile Snapdragon 8 Elite remains strong. Watch for: (1) ARM license renegotiation outcome, (2) Nvidia RTX Spark actual market adoption vs. Snapdragon X, (3) QCOM Q3 earnings beat on mobile. Intel (INTC) −3% and AMD −1% also weighed — but neither as severe as QCOM.
+      </div>
+
+      <div class="sources-block">Sources: <a href="https://finance.yahoo.com/sectors/technology/articles/intel-amd-qualcomm-shares-slide-152900311.html">Yahoo Finance</a> · <a href="https://www.tradingkey.com/news/market-movers/261939570-market-movers-qcom-20260601">TradingKey QCOM</a> · <a href="https://invezz.com/pk/news/2026/06/01/intel-amd-and-qualcomm-slide-as-nvidia-targets-ai-pc-market-with-rtx-spark-chip/">Invezz</a> · <a href="https://moneycheck.com/qualcomm-qcom-stock-plunges-10-as-nvidia-launches-rival-pc-chip/">MoneyCheck</a></div>
+    </div>
+
+  </section>
+
+  <!-- WATCHLIST -->
+  <section>
+    <h2>👀 Watch List / 次熱觀察</h2>
+    <div class="watchlist-grid">
+      <div class="watch-card">
+        <div class="wt">$NVDA</div>
+        <div class="wn">NVIDIA Corp.</div>
+        <div class="wp" style="color:var(--green)">+5.0% (RTH)</div>
+        <div class="wd">RTX Spark reveal at Computex 2026 drove 5% gain. The orchestrator of the entire day's AI-PC theme — not as "hot" because it's always in focus, but the catalyst master for ARM, DELL, NOW gains.</div>
+      </div>
+      <div class="watch-card">
+        <div class="wt">$DELL</div>
+        <div class="wn">Dell Technologies</div>
+        <div class="wp" style="color:var(--green)">+9.6% (RTH)</div>
+        <div class="wd">Named as a launch partner for RTX Spark AI PCs. Also came off a monster 40% earnings day in late May. Double catalyst — AI server demand + AI PC announcement.</div>
+      </div>
+      <div class="watch-card">
+        <div class="wt">$VSAT</div>
+        <div class="wn">Viasat Inc.</div>
+        <div class="wp" style="color:var(--green)">~+8–10%</div>
+        <div class="wd">Selected by Lockheed Martin to support NOAA's C-130J Hurricane Hunter satcom program. 1,000 aircraft milestone + prior Space Force contract built momentum. Satellite/defense comms name on a roll.</div>
+      </div>
+      <div class="watch-card">
+        <div class="wt">$ADBE</div>
+        <div class="wn">Adobe Inc.</div>
+        <div class="wp" style="color:var(--green)">+6% (RTH)</div>
+        <div class="wd">Rode the software sector re-rating wave. Still down significantly YTD. Upcoming earnings will be the test of whether the Jensen-Huang "AI is great for software" thesis holds in practice.</div>
+      </div>
+      <div class="watch-card">
+        <div class="wt">$WDAY</div>
+        <div class="wn">Workday Inc.</div>
+        <div class="wp" style="color:var(--green)">+5–7% (RTH)</div>
+        <div class="wd">Also part of the software sector re-rating. Trump administration reportedly using Workday for large government transactions — implicit endorsement narrative circulating on social media.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HALTS & WEIRDNESS -->
+  <section>
+    <h2>⚠️ Halts &amp; Weirdness / 異常事件</h2>
+    <div class="alert-box">
+      <strong>No confirmed LULD halts or SEC trading suspensions found for June 1, 2026.</strong><br><br>
+      Note on MGM ($MGM): Stock closed above the official acquisition offer price of $48.30 (closed ~$49.95), an unusual dynamic typically indicating either (a) market pricing in a competing/higher bid, or (b) the offer price may increase. Watch for MGM board official response and any Schedule 13E-3 filings on EDGAR. The proposal is non-binding as of June 1, 2026.<br><br>
+      <span style="color:var(--muted);font-size:12px;">Sources checked: <a href="https://www.nasdaqtrader.com/Trader.aspx?id=tradehalts">Nasdaq Trade Halts</a> · <a href="https://www.nyse.com/trade-halt-current">NYSE Halts</a> · <a href="https://efts.sec.gov/LATEST/search-index?q=&forms=8-K">SEC EDGAR 8-K</a></span>
+    </div>
+  </section>
+
+  <!-- MARKET BACKDROP -->
+  <section>
+    <h2>🌐 Market Backdrop / 大盤背景 (June 1, 2026 Close)</h2>
+    <div class="backdrop-grid">
+      <div class="backdrop-item">
+        <div class="bi-label">S&amp;P 500</div>
+        <div class="bi-val" style="color:var(--green)">7,613</div>
+        <div class="bi-chg" style="color:var(--green)">+0.44%</div>
+      </div>
+      <div class="backdrop-item">
+        <div class="bi-label">Nasdaq Comp.</div>
+        <div class="bi-val" style="color:var(--green)">27,159</div>
+        <div class="bi-chg" style="color:var(--green)">+0.69%</div>
+      </div>
+      <div class="backdrop-item">
+        <div class="bi-label">DJIA</div>
+        <div class="bi-val" style="color:var(--green)">51,049</div>
+        <div class="bi-chg" style="color:var(--green)">+0.03%</div>
+      </div>
+      <div class="backdrop-item">
+        <div class="bi-label">VIX</div>
+        <div class="bi-val" style="color:var(--amber)">15.75</div>
+        <div class="bi-chg" style="color:var(--amber)">+2.81%</div>
+      </div>
+      <div class="backdrop-item">
+        <div class="bi-label">Sector Winner</div>
+        <div class="bi-val" style="color:var(--green);font-size:14px">Tech / Software</div>
+        <div class="bi-chg" style="color:var(--green)">XSW +5.2%</div>
+      </div>
+      <div class="backdrop-item">
+        <div class="bi-label">Sector Context</div>
+        <div class="bi-val" style="color:var(--amber);font-size:14px">Oil ↑</div>
+        <div class="bi-chg" style="color:var(--muted)">Non-tech muted</div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:12px;padding:12px 14px;background:var(--surface);border:1px solid var(--border);border-radius:8px;">
+      A tale of two markets on June 1: Tech/software surged on Nvidia's Computex announcements while oil's rise created headwinds for the broader economy. The Dow's near-flat performance vs. Nasdaq's +0.69% reflects this bifurcation. The S&amp;P 500 hit a record on the first day of June. VIX ticked up slightly despite the rally — macro uncertainty from US-Iran peace talks and Middle East dynamics added a small risk premium. The key sub-narrative: the "AI is killing software" bear thesis got squarely refuted by Jensen Huang, triggering one of the software sector's best single-day performances in years.
+    </p>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="container">
+    <h3>Sources Consulted / 參考來源</h3>
+    <div class="footer-links">
+      <a href="https://www.cnbc.com/2026/06/01/stocks-making-the-biggest-moves-midday-mgm-zm-nvda-vsat-ibm.html">CNBC Midday Movers</a>
+      <a href="https://www.cnbc.com/2026/06/01/mgm-resorts-barry-diller-people-bid.html">CNBC MGM/Diller</a>
+      <a href="https://www.cnbc.com/2026/05/31/berkshire-hathaway-to-buy-us-homebuilder-taylor-morrison-for-8point5-billion.html">CNBC Berkshire/TMHC</a>
+      <a href="https://www.cnbc.com/2026/06/01/barclays-says-ibm-is-mimicking-nvidias-playbook-in-quantum-market.html">CNBC IBM/Barclays</a>
+      <a href="https://www.cnbc.com/2026/05/31/nvidias-new-chip-to-power-fresh-line-of-windows-laptops-by-dell-hp.html">CNBC Nvidia RTX Spark</a>
+      <a href="https://www.bloomberg.com/news/articles/2026-06-01/diller-preparing-18-billion-mgm-takeover-bid-ny-times-reports">Bloomberg MGM</a>
+      <a href="https://www.bloomberg.com/news/articles/2026-05-31/berkshire-hathaway-to-buy-taylor-morrison-for-6-8-billion">Bloomberg TMHC</a>
+      <a href="https://247wallst.com/investing/2026/06/01/arm-holdings-rockets-18-microsoft-dell-rise-on-rtx-spark-ai-pc-launch/">247WallSt ARM</a>
+      <a href="https://invezz.com/en-ae/news/2026/06/01/arm-rises-on-nvidias-pc-chip-launch-cramer-says-amazing-for-arm-shareholders/">Invezz ARM</a>
+      <a href="https://invezz.com/pk/news/2026/06/01/zoom-stock-jumps-as-anthropic-ipo-plans-boost-ai-investment-value/">Invezz ZM</a>
+      <a href="https://invezz.com/pk/news/2026/06/01/intel-amd-and-qualcomm-slide-as-nvidia-targets-ai-pc-market-with-rtx-spark-chip/">Invezz QCOM</a>
+      <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-01-2026">TheStreet Market Today</a>
+      <a href="https://finance.yahoo.com/markets/stocks/article/microsoft-dell-and-hp-stocks-rise-as-nvidia-announces-new-ai-chip-for-personal-computers-130915506.html">Yahoo Finance NVDA/DELL/HP</a>
+      <a href="https://www.tradingkey.com/news/market-movers/261939570-market-movers-qcom-20260601">TradingKey QCOM</a>
+      <a href="https://www.tradingkey.com/news/market-movers/261939233-market-movers-arm-20260601">TradingKey ARM</a>
+      <a href="https://www.gurufocus.com/news/8893695/ibm-shares-jump-10-on-overweight-rating-and-strong-software-momentum">GuruFocus IBM</a>
+      <a href="https://www.gurufocus.com/news/8892993/nvidia-enters-pc-processor-market-boosting-ai-pc-stocks">GuruFocus NVDA PC</a>
+      <a href="https://www.gurufocus.com/news/8894145/taylor-morrison-tmhc-sees-significant-224-surge">GuruFocus TMHC</a>
+      <a href="https://news.futunn.com/en/post/73939061/servicenow-adobe-stocks-jump-as-nvidia-s-new-ai-chip">Futu NOW/ADBE</a>
+      <a href="https://www.sec.gov/Archives/edgar/data/0000789570/000110465926068674/tm2616473d1_ex99-1.htm">SEC 13D/A MGM</a>
+      <a href="https://www.sec.gov/Archives/edgar/data/0001562476/000119312526249694/d111152d8k.htm">SEC 8-K TMHC</a>
+      <a href="https://deadline.com/2026/06/barry-diller-people-inc-bids-mgm-resorts-international-1236931883/">Deadline MGM</a>
+      <a href="https://coincentral.com/qualcomm-qcom-stock-plunges-10-as-nvidia-launches-rival-pc-chip/">CoinCentral QCOM</a>
+      <a href="https://parameter.io/ibm-ibm-stock-soars-12-following-barclays-bullish-analyst-upgrade/">Parameter.io IBM</a>
+      <a href="https://stocktwits.com/news-articles/markets/equity/arm-stock-nvidia-rtx-spark-analyst-upgrades-agentic-ai/cZ0gAC0ReHm">StockTwits ARM</a>
+      <a href="https://apewisdom.io/wallstreetbets/">ApeWisdom WSB</a>
+      <a href="https://www.quiverquant.com/wallstreetbets/">QuiverQuant WSB</a>
+      <a href="https://stocktwits.com/rankings/trending">StockTwits Trending</a>
+      <a href="https://finance.yahoo.com/markets/stocks/gainers/">Yahoo Finance Gainers</a>
+      <a href="https://finance.yahoo.com/markets/stocks/most-active/">Yahoo Finance Most Active</a>
+      <a href="https://www.barchart.com/options/unusual-activity">Barchart Unusual Options</a>
+      <a href="https://www.coincentral.com/arm-holdings-arm-stock-surges-14-after-nvidia-rtx-spark-superchip-reveal/">CoinCentral ARM</a>
+    </div>
+    <div class="disclaimer">
+      <strong>Disclaimer / 免責聲明：</strong> 本報告僅供資訊參考，不構成任何投資建議或買賣建議。所有價格、漲跌幅、期權數據均來源於公開報導，部分數字為估計或待確認值（已標注「待確認」）。過去績效不代表未來表現。本文作者/生成系統不持有上述任何標的部位。請自行查驗數據並諮詢合格財務顧問。This report is for informational purposes only and does not constitute investment advice. All figures sourced from public reporting; some are estimates or unconfirmed (marked 待確認). Past performance does not guarantee future results.
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

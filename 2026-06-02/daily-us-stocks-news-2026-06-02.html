@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美股日報 · US Stocks Daily — 2026-06-02</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: #f8f9fa;
+    color: #1a1a1a;
+    line-height: 1.65;
+    padding: 0 0 48px;
+  }
+  header {
+    background: linear-gradient(135deg, #0d1b2a 0%, #1b3a5c 100%);
+    color: #fff;
+    padding: 28px 32px 24px;
+  }
+  header h1 { font-size: 1.55rem; font-weight: 700; letter-spacing: -0.3px; }
+  header .sub { font-size: 0.85rem; color: #a8c4e0; margin-top: 4px; }
+  .badge {
+    display: inline-block;
+    background: #f59e0b;
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  .badge.red { background: #ef4444; color: #fff; }
+  .badge.green { background: #22c55e; color: #fff; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+  /* Index table */
+  .index-wrap { padding: 24px 32px; background: #fff; border-bottom: 1px solid #e2e8f0; }
+  .index-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .index-table th {
+    text-align: left; padding: 6px 12px; font-size: 0.72rem;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    color: #64748b; border-bottom: 2px solid #e2e8f0;
+  }
+  .index-table td { padding: 8px 12px; border-bottom: 1px solid #f1f5f9; }
+  .index-table tr:last-child td { border-bottom: none; }
+  .up { color: #16a34a; font-weight: 600; }
+  .down { color: #dc2626; font-weight: 600; }
+  .neutral { color: #64748b; }
+  .index-name { font-weight: 600; }
+
+  /* Sections */
+  .section { margin: 28px auto; max-width: 860px; padding: 0 20px; }
+  .section-title {
+    font-size: 1.05rem; font-weight: 700;
+    border-left: 4px solid #2563eb;
+    padding-left: 12px; margin-bottom: 18px;
+    color: #0f172a;
+  }
+
+  /* Story cards */
+  .card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.04);
+  }
+  .card h3 {
+    font-size: 0.98rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #0f172a;
+    line-height: 1.4;
+  }
+  .card .source {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-bottom: 10px;
+  }
+  .card .source a { color: #3b82f6; text-decoration: none; }
+  .card .source a:hover { text-decoration: underline; }
+  .label {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+  }
+  .label-fact { background: #dbeafe; color: #1d4ed8; }
+  .label-ctx  { background: #f0fdf4; color: #166534; }
+  .label-impl { background: #fef9c3; color: #854d0e; }
+
+  .fact-block  { background: #f0f7ff; border-left: 3px solid #3b82f6; padding: 8px 14px; border-radius: 0 6px 6px 0; margin: 8px 0; font-size: 0.875rem; }
+  .ctx-block   { background: #f0fdf4; border-left: 3px solid #22c55e; padding: 8px 14px; border-radius: 0 6px 6px 0; margin: 8px 0; font-size: 0.875rem; }
+  .impl-block  { background: #fffbeb; border-left: 3px solid #f59e0b; padding: 8px 14px; border-radius: 0 6px 6px 0; margin: 8px 0; font-size: 0.875rem; }
+
+  /* Sector heatmap row */
+  .heatmap { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .sector-chip {
+    font-size: 0.76rem; padding: 4px 11px; border-radius: 20px; font-weight: 600;
+  }
+  .s-up { background: #dcfce7; color: #15803d; }
+  .s-dn { background: #fee2e2; color: #b91c1c; }
+  .s-flat { background: #f1f5f9; color: #475569; }
+
+  /* Footer */
+  footer {
+    max-width: 860px; margin: 40px auto 0; padding: 0 20px;
+    font-size: 0.74rem; color: #94a3b8; border-top: 1px solid #e2e8f0; padding-top: 16px;
+  }
+  footer a { color: #3b82f6; text-decoration: none; }
+  footer ul { list-style: none; columns: 2; gap: 12px; }
+  footer li { margin-bottom: 4px; }
+
+  .disclaimer {
+    background: #fef3c7; border: 1px solid #fcd34d;
+    border-radius: 8px; padding: 10px 16px;
+    font-size: 0.78rem; color: #92400e;
+    max-width: 860px; margin: 24px auto 0;
+  }
+
+  .trading-note {
+    background: #eff6ff; border: 1px solid #93c5fd;
+    border-radius: 8px; padding: 10px 16px;
+    font-size: 0.8rem; color: #1e40af;
+    max-width: 860px; margin: 16px auto 0;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>美股日報 · US Stocks Daily <span class="badge">2026-06-02</span></h1>
+  <div class="sub">
+    交易日 / Trading Session: <strong>Monday, June 1, 2026 (RTH close)</strong> ·
+    Tuesday June 2 AH: PANW earnings · 資料截止 Asia/Taipei 上午
+  </div>
+</header>
+
+<!-- ===== INDEX TABLE ===== -->
+<div class="index-wrap">
+  <div class="container">
+    <table class="index-table">
+      <thead>
+        <tr>
+          <th>指數 / Index</th>
+          <th>收盤 Close</th>
+          <th>漲跌 Chg</th>
+          <th>%</th>
+          <th>備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="index-name">S&amp;P 500</td>
+          <td>~7,610</td>
+          <td class="up">+30</td>
+          <td class="up">+0.40%</td>
+          <td>新高 All-time high intraday</td>
+        </tr>
+        <tr>
+          <td class="index-name">Nasdaq Comp</td>
+          <td>~27,160</td>
+          <td class="up">+190</td>
+          <td class="up">+0.70%</td>
+          <td>新高 Record close</td>
+        </tr>
+        <tr>
+          <td class="index-name">Dow Jones</td>
+          <td>~50,900</td>
+          <td class="down">−133</td>
+          <td class="down">−0.26%</td>
+          <td>Tech-heavy split — Dow lagged</td>
+        </tr>
+        <tr>
+          <td class="index-name">Russell 2000</td>
+          <td>未取得收盤資料</td>
+          <td class="neutral">—</td>
+          <td class="neutral">—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td class="index-name">VIX</td>
+          <td>~14–15 est.</td>
+          <td class="neutral">—</td>
+          <td class="neutral">—</td>
+          <td>低波動環境 / Low vol regime</td>
+        </tr>
+        <tr>
+          <td class="index-name">US 10Y Yield</td>
+          <td>~4.51%</td>
+          <td class="neutral">—</td>
+          <td class="neutral">—</td>
+          <td>Fed hold priced; Apr CPI 3.8%</td>
+        </tr>
+        <tr>
+          <td class="index-name">DXY</td>
+          <td>~99 est.</td>
+          <td class="neutral">—</td>
+          <td class="neutral">—</td>
+          <td>USD 偏弱 / Softer dollar</td>
+        </tr>
+        <tr>
+          <td class="index-name">WTI Crude</td>
+          <td>$90.03</td>
+          <td class="up">+2%+</td>
+          <td class="up">+2.1%</td>
+          <td>US-Iran strikes escalate</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.72rem;color:#94a3b8;margin-top:8px;">
+      * 部分數值為 June 1 RTH 估算；精確收盤請核對 Yahoo Finance / CNBC Markets。WTI 數值來自 CNBC / The National News 即時報導。
+    </p>
+  </div>
+</div>
+
+<!-- ===== 1. MARKET OVERVIEW ===== -->
+<div class="section">
+  <div class="section-title">① 市場概況 / Market Overview</div>
+
+  <div class="card">
+    <h3>科技領漲、道瓊收黑 — S&amp;P 500 與 Nasdaq 創歷史新高 / Tech Leads, Dow Lags as S&amp;P 500 &amp; Nasdaq Hit Records</h3>
+    <div class="source">
+      來源 / Source:
+      <a href="https://www.cnbc.com/2026/05/31/stock-market-today-live-updates.html" target="_blank">CNBC Markets Live</a> ·
+      <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-01-2026" target="_blank">TheStreet</a> · 2026-06-01
+    </div>
+
+    <div class="fact-block">
+      <span class="label label-fact">核心事實 / Facts</span><br>
+      S&amp;P 500 +0.40%，Nasdaq +0.70%，兩指數均創盤中歷史新高。道瓊下跌 133 點（−0.26%），表現落後。S&amp;P 500 五月累漲 5.2%，連九周收紅。S&amp;P 500 companies reported ~29% annual EPS growth — the strongest in 4+ years, more than double March 31 analyst estimates.
+    </div>
+
+    <div class="ctx-block">
+      <span class="label label-ctx">背景脈絡 / Context</span><br>
+      市場六月開局強勁，延續五月強勢。科技股繼 Nvidia 宣布進入 PC 市場後帶動大盤；能源股因美伊衝突油價上漲而單獨受惠。道瓊成份股中工業、消費類股受制於通膨壓力（四月 CPI 3.8% y/y）而承壓，造成三大指數走勢分化。
+    </div>
+
+    <div class="impl-block">
+      <span class="label label-impl">影響觀察 / Implications</span><br>
+      Nasdaq / S&amp;P 雙雙創高，但道瓊落後，顯示市場輪動集中於少數科技巨頭。若本周 PANW（6/2 AH）、Broadcom（6/4 AH）財報持續超預期，科技股動能可能進一步延伸；若油價繼續攀升，通膨憂慮恐壓抑非科技類股。
+    </div>
+
+    <div style="margin-top:14px;">
+      <strong>板塊熱力圖 / Sector Heatmap (June 1 estimated)</strong>
+      <div class="heatmap" style="margin-top:8px;">
+        <span class="sector-chip s-up">科技 Tech +1.1%</span>
+        <span class="sector-chip s-up">能源 Energy +1.5%</span>
+        <span class="sector-chip s-flat">通訊 Comm +0.3%</span>
+        <span class="sector-chip s-dn">工業 Industrials −0.4%</span>
+        <span class="sector-chip s-dn">消費 Cons. Staples −0.6%</span>
+        <span class="sector-chip s-dn">金融 Financials −0.2%</span>
+        <span class="sector-chip s-dn">醫療 Healthcare −0.3%</span>
+        <span class="sector-chip s-flat">材料 Materials ~flat</span>
+      </div>
+      <p style="font-size:0.72rem;color:#94a3b8;margin-top:4px;">板塊數字為估算值，僅供參考 / Sector data estimated from available sources.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 2. TOP STORIES ===== -->
+<div class="section">
+  <div class="section-title">② 頭條 / Top Stories</div>
+
+  <!-- STORY 1: Nvidia PC chip -->
+  <div class="card">
+    <h3>Nvidia 強攻 PC 市場 — RTX Spark 超晶片震撼晶片格局，帶動 ARM、Dell、HP 大漲 / Nvidia Enters PC Market with RTX Spark, Sending ARM, Dell, HP Surging</h3>
+    <div class="source">
+      來源 / Source:
+      <a href="https://www.cnbc.com/2026/05/31/nvidias-new-chip-to-power-fresh-line-of-windows-laptops-by-dell-hp.html" target="_blank">CNBC</a> ·
+      <a href="https://www.bloomberg.com/news/articles/2026-06-01/nvidia-enters-windows-laptop-market-taking-on-intel-and-amd" target="_blank">Bloomberg</a> · 2026-06-01
+    </div>
+    <div class="fact-block">
+      <span class="label label-fact">核心事實 / Facts</span><br>
+      Nvidia（NVDA）執行長 Jensen Huang 在台北 Computex 2026 揭曉 <strong>RTX Spark 超晶片</strong>（20 核 Arm-based Grace N1X），整合 Blackwell GPU 架構、最高 128GB LPDDR5X 統一記憶體，支援 Windows on Arm。合作夥伴含 Dell、HP、Lenovo、Asus、MSI，逾 30 款筆電、10 款桌機預計秋季上市。
+      <br><br>
+      股價反應 / Price action：<strong>NVDA +6.1%</strong>，Dell +9.6%，HP +6.9%，Microsoft +2.3%；<strong>ARM Holdings +11–14%</strong>（各來源數字不一，盤中高點約 +17%）；<strong>Intel −4.1%</strong>。ARM 股價接近 52 周高 $356，年初至今漲幅逾 3 倍。
+    </div>
+    <div class="ctx-block">
+      <span class="label label-ctx">背景脈絡 / Context</span><br>
+      Intel 多年稱霸 PC 處理器市場；AMD 也在 x86 市場深耕。Nvidia 以 AI GPU 起家，此舉代表從資料中心向消費端延伸的戰略擴張。ARM 架構每顆 N1X 出貨均產生版稅收入，是 Arm 最直接的受益者。同步，Nvidia 也揭曉 <strong>Vera</strong>——首款獨立資料中心處理器，OpenAI、Anthropic、SpaceX 為初期客戶，瞄準 $2,000 億資料中心 CPU 市場，Q3 2026 上市。
+    </div>
+    <div class="impl-block">
+      <span class="label label-impl">影響觀察 / Implications</span><br>
+      短期：PC OEM（Dell、HP、Lenovo）受惠訂單前景；Intel 護城河再受侵蝕，AMD 也面臨壓力。中期：若 Windows on Arm 生態系加速成熟（軟體相容性改善），可能帶動 PC 換機潮，對 DRAM/NAND 廠商（Micron、SK Hynix）亦有正面效應。Arm 版稅模式能見度大幅提升，Mizuho 目標價升至 $425（前 $360），Wells Fargo 升至 $410（前 $255）。<br>
+      風險：秋季出貨時程能否兌現、Windows on Arm 軟體生態仍有隱憂。
+    </div>
+  </div>
+
+  <!-- STORY 2: US-Iran conflict & oil -->
+  <div class="card">
+    <h3>美伊衝突升溫、WTI 突破 $90 — 能源股受惠，通膨擔憂再起 / US-Iran Strikes Escalate; WTI Tops $90, Energy Stocks Rally, Inflation Fears Revive</h3>
+    <div class="source">
+      來源 / Source:
+      <a href="https://www.cnbc.com/2026/05/28/oil-prices-us-strikes-in-iran-revive-strait-of-hormuz-turmoil-fears.html" target="_blank">CNBC</a> ·
+      <a href="https://www.thenationalnews.com/business/energy/2026/06/01/oil-prices-surge-as-us-and-iran-launch-fresh-strikes/" target="_blank">The National News</a> · 2026-06-01
+    </div>
+    <div class="fact-block">
+      <span class="label label-fact">核心事實 / Facts</span><br>
+      美軍對伊朗指揮控制設施（含霍爾木茲海峽附近雷達與無人機基地）實施第二輪打擊，觸發市場避險情緒。<strong>WTI 原油 +2.1% 至 $90.03</strong>，Brent 升至 $93.6。馬拉松石油（MPC）+4%，埃克森美孚（XOM）+2%，雪佛龍（CVX）+2%。
+    </div>
+    <div class="ctx-block">
+      <span class="label label-ctx">背景脈絡 / Context</span><br>
+      WTI 在伊朗軍事行動尚未預期時（一月底）約為 $60/桶，三月隨局勢升溫跳升至平均 $91。四月 CPI 3.8% y/y，能源價格是主要推手。霍爾木茲海峽全球原油貿易約 20% 流量取決於此，任何封鎖風險均為市場重大尾部風險。
+    </div>
+    <div class="impl-block">
+      <span class="label label-impl">影響觀察 / Implications</span><br>
+      能源板塊成為「地緣政治對沖」，但整體市場受惠有限——油價上漲侵蝕消費端利潤，且可能推遲 Fed 降息時程。Fed 六月 16–17 FOMC 會議幾乎已確定按兵不動（市場隱含概率 >97%）。若衝突長期化，通膨韌性恐延續至 Q3，打壓估值較高的成長股。
+    </div>
+  </div>
+
+  <!-- STORY 3: ISM Manufacturing -->
+  <div class="card">
+    <h3>ISM 製造業 PMI 54 創四年新高 — 「再工業化」動能確認，但就業仍收縮 / ISM Manufacturing PMI Hits 54, 4-Year High — Reshoring Boom Confirmed, But Jobs Still Contracting</h3>
+    <div class="source">
+      來源 / Source:
+      <a href="https://www.prnewswire.com/news-releases/manufacturing-pmi-at-54-may-2026-ism-manufacturing-pmi-report-302786165.html" target="_blank">PR Newswire / ISM</a> ·
+      <a href="https://tradingeconomics.com/united-states/business-confidence" target="_blank">Trading Economics</a> · 2026-06-02 公布
+    </div>
+    <div class="fact-block">
+      <span class="label label-fact">核心事實 / Facts</span><br>
+      五月 ISM 製造業 PMI <strong>54.0</strong>（前值 52.7，預期 53.0）——四年多最高，整體經濟連續第 19 個月擴張。新訂單 56.8（前 54.1），生產 54.3（前 53.4），積壓訂單 52.2（前 51.4）。<strong>就業分項 48.6</strong> 仍在收縮區。物價指數 82.1（前 84.6）雖略降，仍顯著偏高——57% 受訪企業指出定價波動為主要困境，42% 點名伊朗衝突是不確定性來源。
+    </div>
+    <div class="ctx-block">
+      <span class="label label-ctx">背景脈絡 / Context</span><br>
+      「解放日」關稅（2025）實施一年後，美國製造業回流數據開始兌現。訂單和生產持續擴張，被視為關稅政策後的再工業化信號，對工業類股（Caterpillar、Deere）和機械板塊具有正面長期效應。
+    </div>
+    <div class="impl-block">
+      <span class="label label-impl">影響觀察 / Implications</span><br>
+      製造業活動強勁理論上支撐經濟，但就業收縮反映企業仍觀望；高物價指數意味通膨有黏性，Fed 難以在近期鬆口降息。對成長股（高估值科技）而言，「強經濟 + 高通膨 + 不降息」組合是一把雙面刃。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 3. EARNINGS ===== -->
+<div class="section">
+  <div class="section-title">③ 財報 / Earnings of the Day</div>
+
+  <div class="card">
+    <h3>Palo Alto Networks (PANW) — Q3 FY2026 財報於盤後公布 / Reports Q3 FY2026 After Bell</h3>
+    <div class="source">
+      來源 / Source:
+      <a href="https://www.stocktitan.net/news/PANW/palo-alto-networks-to-announce-fiscal-third-quarter-2026-financial-jndh4048uq7q.html" target="_blank">StockTitan</a> ·
+      <a href="https://www.marketbeat.com/earnings/reports/2026-6-2-palo-alto-networks-inc-stock/" target="_blank">MarketBeat</a> · 2026-06-02 AH
+    </div>
+    <div class="fact-block">
+      <span class="label label-fact">核心事實 / Facts</span><br>
+      <strong>時間：</strong>2026-06-02 盤後（美東時間 4:30 PM）。<br>
+      <strong>市場預期：</strong>Non-GAAP EPS 共識 ~$0.81，公司指引 $0.78–$0.80；營收共識 $2.94B（YoY +28–29%）。<br>
+      <strong>過去八季連續超預期。</strong> Q2 FY26：Non-GAAP EPS $1.03 vs 估值 $0.93（beat +10.8%），YoY +27%。<br>
+      <strong>盤前 / 收盤股價：</strong>PANW 近期交易於 $271–$273，年初至今漲幅 ~56%，大幅跑贏 S&amp;P 500 +11%。<br>
+      <strong>選擇權隱含波動（earnings move）：</strong>市場定價 ±8–9% 雙向波動。
+    </div>
+    <div class="ctx-block">
+      <span class="label label-ctx">背景脈絡 / Context</span><br>
+      PANW 以「平台化」策略（Platformization）整合安全產品，獲 NATO 簽訂重大防禦合約。Jefferies、Wedbush 等已將目標價調至 $300 以上。美伊衝突期間，企業網路安全預算加速上修，對 PANW 有結構性利多。
+    </div>
+    <div class="impl-block">
+      <span class="label label-impl">影響觀察 / Implications</span><br>
+      若 Q3 再度超預期（EPS 超 $0.85、全年指引上調），PANW 盤後或觸及 $290–$300 區間，同板塊的 CrowdStrike、Fortinet、Zscaler 也可能受惠拉升。反之，若只是「符合預期」但指引保守，高達 56% 的年初至今漲幅可能遭逢獲利了結壓力。<br>
+      <em>注：本文截稿時盤後結果尚未揭露，最終數字請核對官方財報。</em>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Donaldson Company (DCI) — Q3 FY2026 / Reports Q3</h3>
+    <div class="source">
+      來源 / Source:
+      <a href="https://news.alphastreet.com/donaldson-company-q3-2026-earnings-preview-june-2-street-expects-1-05-eps/" target="_blank">AlphaStreet</a> · 2026-06-02
+    </div>
+    <div class="fact-block">
+      <span class="label label-fact">核心事實 / Facts</span><br>
+      市場預期 EPS $1.05（YoY +6.1%，前年 $0.99），營收共識 $973.6M。工業過濾器與感測解決方案廠商，受惠再工業化趨勢。
+    </div>
+    <div class="ctx-block">
+      <span class="label label-ctx">背景脈絡 / Context</span><br>
+      製造業 PMI 54 強勁數據對 Donaldson 等工業零組件商是正面訊號；能源板塊資本支出上升也增加其過濾產品需求。
+    </div>
+    <div class="impl-block">
+      <span class="label label-impl">影響觀察 / Implications</span><br>
+      規模較小，市場關注度低於 PANW，但結果可作為工業板塊景氣的印證指標。
+    </div>
+  </div>
+
+  <div class="card" style="border-color:#dbeafe;background:#f8fbff;">
+    <h3>本周後續財報預告 / Upcoming Earnings This Week</h3>
+    <ul style="font-size:0.875rem;line-height:1.9;padding-left:20px;">
+      <li><strong>Broadcom (AVGO)</strong> — Q2 FY2026, 6/4 AH。EPS 共識 ~$2.40（+51% YoY），營收共識 ~$22B（+47% YoY）。AI 加速器需求為核心看點。</li>
+      <li><strong>Ciena (CIEN)</strong> — Q2 FY2026, 6/4 BMO。EPS 共識 $1.45，營收共識 $1.50B。光網路設備商，AI 資料中心互聯需求受益者。</li>
+      <li><strong>Toro Company (TTC)</strong> — Q2 FY2026, 6/4。EPS 共識 $1.50。</li>
+      <li><strong>Cooper Companies (COO)</strong> — Q2 FY2026, 6/4。EPS 共識 $1.10。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== 4. SINGLE STOCK MOVERS ===== -->
+<div class="section">
+  <div class="section-title">④ 個股大事 / Single-Stock Movers</div>
+
+  <div class="card">
+    <h3>Arm Holdings (ARM) +11–17% — Nvidia RTX Spark 直接版稅受益者 / Direct Royalty Beneficiary of Nvidia RTX Spark</h3>
+    <div class="source">
+      來源 / Source:
+      <a href="https://www.benzinga.com/trading-ideas/movers/26/06/52909159/arm-stock-pops-on-nvidia-pc-chip-launch-that-barely-mentioned-its-name" target="_blank">Benzinga</a> ·
+      <a href="https://coincentral.com/arm-holdings-arm-stock-surges-14-after-nvidia-rtx-spark-superchip-reveal/" target="_blank">CoinCentral</a> · 2026-06-01
+    </div>
+    <div class="fact-block">
+      <span class="label label-fact">核心事實 / Facts</span><br>
+      ARM 股價盤中飆升 17%，收盤約 +11–14%（各來源略有差異），交易於 ~$353，接近 52 周高 $356.45。年初至今漲幅超過 3 倍。Mizuho 目標價 $360→$425（Outperform），Wells Fargo $255→$410。
+    </div>
+    <div class="ctx-block">
+      <span class="label label-ctx">背景脈絡 / Context</span><br>
+      每顆 N1X CPU 出貨均向 Arm 繳版稅。同日 Nvidia 宣布 Vera 資料中心 CPU（OpenAI、Anthropic、SpaceX 為首批客戶），也是 Arm 架構，進一步擴大版稅收益能見度。此外，Nvidia 的 Grace Hopper / Grace Blackwell 系列 HPC 晶片亦皆採 Arm。
+    </div>
+    <div class="impl-block">
+      <span class="label label-impl">影響觀察 / Implications</span><br>
+      ARM 估值已高度定價樂觀情境（FY27 P/E 預估逾 60x），任何執行風險（出貨延遲、競爭對手反制）均可能造成巨幅回調。正向催化劑：蘋果、高通等大客戶授權合約更新談判若順利，可能驅動進一步上修。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Intel (INTC) −4.1% — PC 市場地盤遭 Nvidia 入侵 / Intel Falls as Nvidia Invades Its PC Turf</h3>
+    <div class="source">
+      來源 / Source:
+      <a href="https://www.gurufocus.com/news/8892974/nvidia-nvda-enters-pc-chip-market-challenging-intel-and-amd-dominance" target="_blank">GuruFocus</a> ·
+      <a href="https://www.fastcompany.com/91551586/chip-stocks-today-arm-rises-intel-falls-nvidia-ai-superchip-windows-pcs" target="_blank">Fast Company</a> · 2026-06-01
+    </div>
+    <div class="fact-block">
+      <span class="label label-fact">核心事實 / Facts</span><br>
+      INTC 單日跌幅 −4.1%。Intel 在 PC x86 處理器市場長達數十年的主導地位，正受到 Arm 生態（蘋果 M 系列、Qualcomm Snapdragon X、現在加上 Nvidia RTX Spark）的多方夾擊。
+    </div>
+    <div class="ctx-block">
+      <span class="label label-ctx">背景脈絡 / Context</span><br>
+      Intel 目前正執行「18A」先進製程轉型計畫，以期在 2026 底取得代工技術競爭力。核心業務（Client Computing Group）約占收入 50%，Nvidia 入局直接衝擊其最大市場。
+    </div>
+    <div class="impl-block">
+      <span class="label label-impl">影響觀察 / Implications</span><br>
+      短期：INTC 股價面臨持續賣壓，市場恐重新評估其 PC 端成長預測。中期：若 Windows on Arm 應用生態系加速成熟，可能加速 OEM 去 Intel 化。長期：Intel 代工業務能否形成護城河仍是關鍵。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Dell Technologies (DELL) +9.6% · HP Inc (HPQ) +6.9% — AI PC 訂單前景提振 / AI PC Order Outlook Buoys Hardware Names</h3>
+    <div class="source">
+      來源 / Source:
+      <a href="https://finance.yahoo.com/markets/stocks/article/microsoft-dell-and-hp-stocks-rise-as-nvidia-announces-new-ai-chip-for-personal-computers-130915506.html" target="_blank">Yahoo Finance</a> · 2026-06-01
+    </div>
+    <div class="fact-block">
+      <span class="label label-fact">核心事實 / Facts</span><br>
+      Dell +9.6%，HP Inc +6.9%，Microsoft +2.3%。兩家 OEM 均在 RTX Spark 首批合作夥伴名單中，逾 30 款筆電、10 款桌機預計秋季上市。
+    </div>
+    <div class="impl-block">
+      <span class="label label-impl">影響觀察 / Implications</span><br>
+      AI PC 換機週期若啟動，對 PC 硬體廠商是多年成長動力；記憶體（LPDDR5X 需求）對 Micron（MU）也有間接利多。需留意秋季出貨能否如期兌現。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>能源股全面開花 — Marathon Petroleum +4%、Exxon +2%、Chevron +2% / Energy Stocks Rally on Oil Spike</h3>
+    <div class="source">
+      來源 / Source:
+      <a href="https://www.cnbc.com/2026/05/31/stock-market-today-live-updates.html" target="_blank">CNBC</a> · 2026-06-01
+    </div>
+    <div class="fact-block">
+      <span class="label label-fact">核心事實 / Facts</span><br>
+      MPC +4%，XOM +2%，CVX +2%。WTI $90.03（+2.1%），Brent $93.6。能源為非科技板塊唯一顯著上漲者，年初至今板塊漲幅 +34.5%，為各板塊之冠。
+    </div>
+    <div class="ctx-block">
+      <span class="label label-ctx">背景脈絡 / Context</span><br>
+      美伊衝突持續是油價最重要的地緣政治溢價來源。油價每漲 $10，年化 CPI 約上升 0.3–0.5pp，增加 Fed 維持高利率的壓力。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 5. M&A / IPO ===== -->
+<div class="section">
+  <div class="section-title">⑤ 併購與 IPO / M&A and IPO</div>
+  <div class="card" style="border-color:#e2e8f0;">
+    <p style="color:#64748b;font-size:0.88rem;">本交易日未取得重大 M&A / IPO 新聞。週後段關注 Broadcom 財報中可能的收購訊號，以及 AI 基礎設施領域潛在整合動態。</p>
+    <p style="color:#64748b;font-size:0.88rem;margin-top:6px;">No major M&A or IPO events confirmed for this session. Watch Broadcom (6/4 AH) for any strategic acquisition signals in AI infrastructure.</p>
+  </div>
+</div>
+
+<!-- ===== 6. ANALYST CALLS ===== -->
+<div class="section">
+  <div class="section-title">⑥ 券商評等 / Analyst Calls</div>
+
+  <div class="card">
+    <h3>Mizuho 調高 ARM 目標價至 $425（前 $360）· Wells Fargo 調高至 $410（前 $255）</h3>
+    <div class="source">
+      來源 / Source:
+      <a href="https://www.investing.com/news/analyst-ratings/mizuho-raises-arm-holdings-stock-price-target-on-cpu-strength-93CH-4718894" target="_blank">Investing.com – Mizuho</a> ·
+      <a href="https://www.alphapilot.tech/discover/arm-shares-surge-11-as-nvidia-unveils-arm-based-rtx-spark-superchip-for-windows-pcs" target="_blank">AlphaPilot</a> · 2026-06-01
+    </div>
+    <div class="fact-block">
+      <span class="label label-fact">核心事實 / Facts</span><br>
+      Mizuho（分析師 Vijay Rakesh）：ARM 目標價 $360→<strong>$425</strong>，維持 Outperform，理由是 Cobalt、Axion、Graviton、Vera、Grace 等客戶 CPU 大量出貨，且預估自研 AGI CPU 與 ASIC 可能於 2027–2028 展開量產。<br>
+      Wells Fargo（分析師 Joseph Quatrochi）：ARM 目標價 $255→<strong>$410</strong>，大幅上調，強調資料中心與 PC 雙引擎版稅擴展。
+    </div>
+    <div class="impl-block">
+      <span class="label label-impl">影響觀察 / Implications</span><br>
+      兩家大型機構齊上調，為 ARM 股價提供基本面支撐。當前共識目標價中樞上移，若更多賣方跟進，短期可能進一步推高股價。但高估值（FY27 P/E 60x+）留存的安全邊際薄。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Marvell Technology (MRVL) — UBS 維持買進，目標價 $195→$230</h3>
+    <div class="source">
+      來源 / Source: UBS（分析師 Timothy Arcuri）via 公開報告 · 近期
+    </div>
+    <div class="fact-block">
+      <span class="label label-fact">核心事實 / Facts</span><br>
+      UBS 分析師 Timothy Arcuri 維持買進評級，將目標價從 $195 調升至 <strong>$230</strong>，理由為 AI 定制矽晶片（ASIC）訂單能見度佳，主要雲端客戶（Google、Amazon）訂單增長動能強勁。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 7. FED & RATES ===== -->
+<div class="section">
+  <div class="section-title">⑦ Fed 與利率 / Fed &amp; Rates</div>
+
+  <div class="card">
+    <h3>六月 FOMC 幾乎確定不動 — 四月 CPI 3.8% 使降息路徑更加崎嶇 / June FOMC Near-Certain Hold; April CPI 3.8% Complicates Easing Path</h3>
+    <div class="source">
+      來源 / Source:
+      <a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm" target="_blank">Federal Reserve</a> ·
+      <a href="https://polymarket.com/event/fed-rate-cut-by-629" target="_blank">Polymarket FedWatch</a> ·
+      <a href="https://www.thestreet.com/fed/another-fed-official-signals-strong-warning-that-2026-interest-rate-outlook-may-need-to-include-hikes" target="_blank">TheStreet</a>
+    </div>
+    <div class="fact-block">
+      <span class="label label-fact">核心事實 / Facts</span><br>
+      聯邦基金利率目前維持在 <strong>3.50–3.75%</strong>（2026 年四月 FOMC 確認）。六月 16–17 FOMC 會議維持不動的市場隱含概率 <strong>&gt;97%</strong>。2026 年 Fed 委員中位數預測僅一次降息 (25bp)。四月 CPI 3.8% y/y，受中東衝突推動能源价格上升影響。四月非農就業 +115,000（高於預期），失業率穩定在 4.3%。<br>
+      至少一位 Fed 官員發出「需討論升息」的罕見警告（TheStreet 報導）。
+    </div>
+    <div class="ctx-block">
+      <span class="label label-ctx">背景脈絡 / Context</span><br>
+      市場從年初預期「2026 年降息 2–3 次」轉向「幾乎不降息，甚至討論升息」，主因是能源驅動的通膨韌性。10 年期美債殖利率維持在 ~4.51%，反映高利率持久。
+    </div>
+    <div class="impl-block">
+      <span class="label label-impl">影響觀察 / Implications</span><br>
+      科技股（高 P/E）在利率不動的環境下估值被「壓縮力道限制」，但目前強勁業績成長（S&P 500 EPS +29% y/y）足以支撐。若通膨在六月以後出現黏性跡象（CPI 不降），市場恐面臨更激進重新定價。CME FedWatch 六月合約：幾乎 100% hold，九月約 55% hold。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 8. FLOWS & POSITIONING ===== -->
+<div class="section">
+  <div class="section-title">⑧ 資金流向 / Flows &amp; Positioning</div>
+
+  <div class="card">
+    <h3>ETF 全年吸金步調創紀錄 — 2026 有望突破 $2 兆 / ETF Inflows on Track for Record $2 Trillion in 2026</h3>
+    <div class="source">
+      來源 / Source:
+      <a href="https://www.ishares.com/us/insights/inside-the-market/2026-etf-market-trends-and-flows" target="_blank">iShares / BlackRock</a> ·
+      <a href="https://www.ssga.com/library-content/pdfs/etf/us/monthly-flash-flows.pdf" target="_blank">State Street ETF Flash Flows</a>
+    </div>
+    <div class="fact-block">
+      <span class="label label-fact">核心事實 / Facts</span><br>
+      2026 年 ETF 流入步調指向 <strong>$2 兆</strong>歷史新高。五月第三周（至 5/20）：長期基金與 ETF 合計流入 $151.8 億，其中 ETF 單周淨申購達 $325.4 億。機構端自 5/14 起有 $20 億流出，反映短線獲利了結壓力。
+    </div>
+    <div class="ctx-block">
+      <span class="label label-ctx">背景脈絡 / Context</span><br>
+      散戶偏好指數 / ETF 選擇權勝過個股選擇權，但比例已從高峰 1.5:1 回落至 1.3:1，顯示部分倉位已移回單股做多。六月季度選擇權到期（Quarterly Options Expiry）被視為重要轉折點，gamma 壓縮效應可能在到期前對大盤波動率產生壓制。
+    </div>
+    <div class="impl-block">
+      <span class="label label-impl">影響觀察 / Implications</span><br>
+      持續流入的被動資金（ETF）為大盤提供結構性買盤支撐，尤其利好市值加權指數中的大型科技股。注意六月到期後若 gamma 中性點移動，可能引發短暫波動擴大。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 9. READS ===== -->
+<div class="section">
+  <div class="section-title">⑨ 觀點 / Reads</div>
+
+  <div class="card">
+    <h3>「Wall Street 六月高點，但更大考驗在前方」/ "Wall Street Starts June at Record Highs — But Bigger Tests Lie Ahead"</h3>
+    <div class="source">
+      來源 / Source:
+      <a href="https://www.investing.com/analysis/wall-street-starts-june-at-record-highs--but-bigger-tests-lie-ahead-200681252" target="_blank">Investing.com Analysis</a>
+    </div>
+    <p style="font-size:0.88rem;margin-top:8px;line-height:1.7;">
+      Investing.com 分析指出，市場六月衝高背後有三個「待驗證」環節：① PANW、Broadcom 等科技財報能否持續超預期；② 美伊衝突若升溫至霍爾木茲封鎖，通膨尾部風險大增；③ Fed 六月不動已 price-in，市場下一個敏感點是 6 月底 PCE 數據——若 Core PCE 不降，「升息討論」可能從邊緣走向主流，壓縮科技股估值空間。<br><br>
+      The analysis highlights three "yet to be verified" pillars under the June rally: sustained earnings beats in tech; geopolitical containment in the Strait of Hormuz; and sticky inflation data (June PCE) remaining the key swing factor for whether rate-hike talk moves from fringe to mainstream.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Morgan Stanley：伊朗衝突油價情境分析 / Iran Conflict Oil Price Scenarios</h3>
+    <div class="source">
+      來源 / Source:
+      <a href="https://www.morganstanley.com/insights/articles/iran-war-oil-inflation-stock-market-2026" target="_blank">Morgan Stanley Insights</a>
+    </div>
+    <p style="font-size:0.88rem;margin-top:8px;line-height:1.7;">
+      Morgan Stanley 將情境分為三類：① 速戰速決（數周內停火）→ WTI 回落至 $75–$80，通膨壓力消退，Fed 可在 Q4 啟動降息；② 持久拉鋸（3–6 個月）→ WTI 維持 $90–$100，CPI 黏性延至 2026 底，Fed 全年按兵不動；③ 霍爾木茲封鎖（極端情境）→ WTI 飆破 $120，Fed 可能被迫升息，股市劇烈修正。<br><br>
+      目前市場定價接近情境①至②之間，反映「投資人樂觀賭速戰」的心態——一旦數據顯示升溫，情境切換可能極其急促。
+    </p>
+  </div>
+</div>
+
+<div class="trading-note container" style="max-width:860px;">
+  <strong>交易日說明 / Trading Session Note：</strong>本日報對應美東時間 2026-06-01（週一）收盤數據，即台北時間 2026-06-02 上午所能取得的最新完整交易日。六月 2 日盤後 PANW 財報結果因截稿前尚未公布，僅提供預期數字。所有索引數值如標注為估算值，請以 Yahoo Finance / CNBC 官方收盤資料為準。
+</div>
+
+<div class="disclaimer container" style="max-width:860px;margin-top:12px;">
+  本文為資訊整理，非投資建議。數字均標注來源，若有出入以原始來源為準。分析為筆者觀點，不構成買賣依據。
+  This briefing is for informational purposes only and does not constitute investment advice.
+</div>
+
+<footer class="container" style="max-width:860px;">
+  <p style="margin-bottom:10px;font-weight:600;font-size:0.8rem;">資料來源 / Sources</p>
+  <ul>
+    <li><a href="https://www.cnbc.com/2026/05/31/stock-market-today-live-updates.html" target="_blank">CNBC Markets Live – June 1 Recap</a></li>
+    <li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-01-2026" target="_blank">TheStreet – Stock Market Today June 1</a></li>
+    <li><a href="https://www.cnbc.com/2026/05/31/nvidias-new-chip-to-power-fresh-line-of-windows-laptops-by-dell-hp.html" target="_blank">CNBC – Nvidia RTX Spark PC Chip</a></li>
+    <li><a href="https://www.bloomberg.com/news/articles/2026-06-01/nvidia-enters-windows-laptop-market-taking-on-intel-and-amd" target="_blank">Bloomberg – Nvidia Enters PC Market</a></li>
+    <li><a href="https://www.thenationalnews.com/business/energy/2026/06/01/oil-prices-surge-as-us-and-iran-launch-fresh-strikes/" target="_blank">The National – US-Iran Strikes &amp; Oil</a></li>
+    <li><a href="https://www.prnewswire.com/news-releases/manufacturing-pmi-at-54-may-2026-ism-manufacturing-pmi-report-302786165.html" target="_blank">ISM – May 2026 Manufacturing PMI</a></li>
+    <li><a href="https://www.marketbeat.com/earnings/reports/2026-6-2-palo-alto-networks-inc-stock/" target="_blank">MarketBeat – PANW Q3 2026 Earnings</a></li>
+    <li><a href="https://news.alphastreet.com/donaldson-company-q3-2026-earnings-preview-june-2-street-expects-1-05-eps/" target="_blank">AlphaStreet – Donaldson Q3 Preview</a></li>
+    <li><a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm" target="_blank">Federal Reserve – FOMC Statement April 2026</a></li>
+    <li><a href="https://www.morganstanley.com/insights/articles/iran-war-oil-inflation-stock-market-2026" target="_blank">Morgan Stanley – Iran War Oil &amp; Inflation</a></li>
+    <li><a href="https://www.investing.com/analysis/wall-street-starts-june-at-record-highs--but-bigger-tests-lie-ahead-200681252" target="_blank">Investing.com – June Market Outlook</a></li>
+    <li><a href="https://www.ishares.com/us/insights/inside-the-market/2026-etf-market-trends-and-flows" target="_blank">iShares – 2026 ETF Flow Trends</a></li>
+    <li><a href="https://coincentral.com/arm-holdings-arm-stock-surges-14-after-nvidia-rtx-spark-superchip-reveal/" target="_blank">CoinCentral – ARM Stock Surge</a></li>
+    <li><a href="https://www.benzinga.com/trading-ideas/movers/26/06/52909159/arm-stock-pops-on-nvidia-pc-chip-launch-that-barely-mentioned-its-name" target="_blank">Benzinga – ARM Stock Movers</a></li>
+    <li><a href="https://www.investing.com/news/analyst-ratings/mizuho-raises-arm-holdings-stock-price-target-on-cpu-strength-93CH-4718894" target="_blank">Investing.com – Mizuho ARM Upgrade</a></li>
+  </ul>
+  <p style="margin-top:12px;">Generated: 2026-06-02 · Data: June 1 RTH close + AH previews · 製作工具: Claude AI (claude-sonnet-4-6)</p>
+</footer>
+
+</body>
+</html>

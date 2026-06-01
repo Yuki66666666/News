@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日新創新聞日報 · Daily Startup News — 2026-06-02</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #222536;
+      --border: #2e3148;
+      --accent: #7c6af7;
+      --accent2: #4fc4cf;
+      --text: #e8eaf0;
+      --muted: #8b90a8;
+      --tag-seed: #2a4a3e;
+      --tag-seed-text: #4dc49a;
+      --tag-series: #1e3a5f;
+      --tag-series-text: #5ab0ff;
+      --tag-late: #3d2060;
+      --tag-late-text: #bf7fff;
+      --tag-ipo: #3d2a00;
+      --tag-ipo-text: #ffc86b;
+      --tag-launch: #1e3030;
+      --tag-launch-text: #4cd4c4;
+      --tag-layoff: #3d1a1a;
+      --tag-layoff-text: #ff7070;
+      --tag-acq: #2a2a00;
+      --tag-acq-text: #e0d050;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #12102a 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 32px 22px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.3px;
+    }
+    header .sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .date-badge {
+      background: var(--accent);
+      color: #fff;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      align-self: center;
+    }
+    nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 32px;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 12px;
+      transition: background 0.15s, color 0.15s;
+    }
+    nav a:hover { background: var(--surface2); color: var(--text); }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 24px 60px;
+    }
+    section { margin-bottom: 48px; }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+      margin-bottom: 20px;
+      scroll-margin-top: 20px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+    }
+    .badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .badge.seed { background: var(--tag-seed); color: var(--tag-seed-text); }
+    .badge.series { background: var(--tag-series); color: var(--tag-series-text); }
+    .badge.late { background: var(--tag-late); color: var(--tag-late-text); }
+    .badge.ipo { background: var(--tag-ipo); color: var(--tag-ipo-text); }
+    .badge.launch { background: var(--tag-launch); color: var(--tag-launch-text); }
+    .badge.layoff { background: var(--tag-layoff); color: var(--tag-layoff-text); }
+    .badge.acq { background: var(--tag-acq); color: var(--tag-acq-text); }
+    .meta {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .meta a { color: var(--accent2); text-decoration: none; }
+    .meta a:hover { text-decoration: underline; }
+    .label {
+      font-size: 0.73rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+      margin-top: 12px;
+      margin-bottom: 3px;
+    }
+    p { color: #c8cbdc; font-size: 0.9rem; margin-bottom: 6px; }
+    .highlight {
+      background: var(--surface2);
+      border-left: 3px solid var(--accent);
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 12px;
+    }
+    .highlight p { color: var(--text); font-size: 0.88rem; }
+    .top-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .top-card {
+      background: linear-gradient(135deg, var(--surface2) 0%, #1a1e35 100%);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 18px;
+    }
+    .top-card .num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .top-card .label2 { font-size: 0.75rem; color: var(--muted); margin-top: 2px; margin-bottom: 8px; }
+    .top-card p { font-size: 0.85rem; }
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 24px 32px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    footer a { color: var(--accent2); text-decoration: none; }
+    @media (max-width: 600px) {
+      header, nav { padding-left: 16px; padding-right: 16px; }
+      main { padding: 20px 14px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>今日新創新聞日報 · Daily Startup News</h1>
+    <div class="sub">Funding · Launches · Acquisitions · IPO · Layoffs · People — 中英並陳</div>
+  </div>
+  <div class="date-badge">2026-06-02 · Asia/Taipei</div>
+</header>
+
+<nav>
+  <a href="#top">頭條</a>
+  <a href="#funding">募資</a>
+  <a href="#launches">新公司發表</a>
+  <a href="#product">產品大事</a>
+  <a href="#acquisition">收購</a>
+  <a href="#people">人事</a>
+  <a href="#layoffs">裁員停業</a>
+  <a href="#ipo">上市進程</a>
+  <a href="#regional">區域</a>
+  <a href="#reads">觀點</a>
+  <a href="#sources">來源</a>
+</nav>
+
+<main>
+
+  <!-- ── 1. TOP STORIES ── -->
+  <section id="top">
+    <div class="section-title">1 · 頭條 / Top Stories</div>
+
+    <div class="top-cards">
+      <div class="top-card">
+        <div class="num">$965B</div>
+        <div class="label2">Anthropic 最新估值 / Post-money valuation</div>
+        <p>AI 獨角獸巨頭 Anthropic 於 6/1 機密提交 S-1，正式啟動 IPO 流程，目標 10 月上市。先週剛關閉 $65B Series H，估值在四個月內從 $380B 翻近三倍。</p>
+      </div>
+      <div class="top-card">
+        <div class="num">$60B</div>
+        <div class="label2">SpaceX 擬收購 Cursor / Proposed acquisition</div>
+        <p>SpaceX 預計 6/12 在 Nasdaq 以 $1.75T 估值 IPO，上市後 30 天內以 $60B 股票收購 AI 程式編寫工具 Cursor，史上最大新創併購之一。</p>
+      </div>
+      <div class="top-card">
+        <div class="num">$26B</div>
+        <div class="label2">Cognition 最新估值 / Series D valuation</div>
+        <p>AI 程式設計代理 Devin 的開發商 Cognition 於 5/27 完成 $1B Series D，ARR 達 $492M，較八個月前 $10.2B 估值大幅躍升。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 2. FUNDING ── -->
+  <section id="funding">
+    <div class="section-title">2 · 募資 / Funding Rounds</div>
+
+    <!-- Anthropic -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Anthropic 完成 $65B Series H，機密提交 IPO S-1<br/>Anthropic Closes $65B Series H, Files Confidential S-1</h3>
+        <span class="badge late">Late Stage</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://fortune.com/2026/06/01/anthropic-confidentially-files-ipo-965-billion-valuation/" target="_blank">Fortune</a> &amp; <a href="https://www.cnbc.com/2026/06/01/anthropic-ipo-s1-prospectus.html" target="_blank">CNBC</a> · 2026-06-01
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>Anthropic 完成 $65B Series H，post-money 估值 $965B，由 Altimeter Capital、Dragoneer、Greenoaks、Sequoia 領投。Q1 2026 營收 $4.8B，Q2 2026 預估達 $10.9B（QoQ 翻倍），ARR run-rate 已超過 $47B。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>Anthropic 本輪距上一輪 Amazon $5B 注資僅數週，估值從 2 月的 $380B 爆炸式成長。Claude 持續吃掉企業 AI 市場份額，直接與 OpenAI 的 GPT-4o 正面交鋒。</p>
+      <div class="highlight">
+        <div class="label">影響觀察 / Implications</div>
+        <p>Anthropic 比 OpenAI 率先提交 S-1（OpenAI 預計 9 月上市），搶佔市場定價話語權。兩家同時衝 IPO 將是 2026 下半年最大金融事件，考驗公開市場對「負盈利 AI 基礎設施」的容忍度。</p>
+      </div>
+    </div>
+
+    <!-- Cognition -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Cognition（Devin）完成 $1B Series D，ARR 達 $492M<br/>Cognition Raises $1B Series D; Devin ARR Near $492M</h3>
+        <span class="badge late">Series D</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/" target="_blank">TechCrunch</a> &amp; <a href="https://winbuzzer.com/2026/05/30/cognition-raises-1b-as-devin-revenue-nears-492m-xcxwbn/" target="_blank">WinBuzzer</a> · 2026-05-27
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>Cognition 完成逾 $1B Series D，pre-money 估值 $25B（post-money $26B），由 Lux Capital、General Catalyst、8VC 領投，Ribbit Capital、Atreides、Layer Global 加入。ARR 接近 $492M，企業客戶含 Mercedes-Benz、NASA、Goldman Sachs、Santander，月增速 50%。Devin 已撰寫 Cognition 89% 的 codebase。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>八個月前 Series C 估值僅 $10.2B；此輪是 AI coding agent 賽道迄今最大單筆。與 GitHub Copilot、Windsurf（已被 OpenAI 收購）、Cursor 形成直接競爭。</p>
+      <div class="highlight">
+        <div class="label">影響觀察 / Implications</div>
+        <p>AI coding agent 正從「開發者工具」躍升為「企業 IT 外包替代品」，Mercedes-Benz 和 NASA 的客戶名單顯示市場比想像中早進入規模化部署。Cursor 若被 SpaceX 收購，Cognition 可能成為唯一頂級獨立 AI coding agent。</p>
+      </div>
+    </div>
+
+    <!-- Stord -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Stord 完成 $250M Series F，估值 $3B，挑戰亞馬遜物流<br/>Stord Raises $250M Series F at $3B Valuation, Takes On Amazon Fulfillment</h3>
+        <span class="badge series">Series F</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://www.axios.com/pro/supply-chain-deals/2026/05/26/stord-250m-3-billion-valuation-logistics" target="_blank">Axios</a> · 2026-05-26
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>電商物流平台 Stord 完成 $250M Series F，估值 $3B，由 Strike Capital 領投，Kleiner Perkins、Founders Fund、Franklin Templeton、Baillie Gifford 等跟投。累積融資超 $775M，估值一年翻倍。GMV 超 $15B，覆蓋近 100 個倉儲據點，包裹觸達近 20% 美國家庭（2024 年為 11.5%）。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>同步宣布成立 Stord Labs — 亞特蘭大 10,000 sqft 實體 AI / 機器人 R&D 中心。軟體業務 2025 年三倍增長，是 fulfillment 軟硬整合策略的關鍵佈局。</p>
+      <div class="highlight">
+        <div class="label">影響觀察 / Implications</div>
+        <p>Independent brand 電商物流是 Amazon 護城河最薄弱的破口；Stord 的「physical AI + 倉儲 SaaS」組合若驗證，有望成為 supply chain 賽道最具吸引力的 IPO 候選。</p>
+      </div>
+    </div>
+
+    <!-- Exa -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Exa 完成 $250M Series C，估值 $2.2B — AI 搜尋基礎設施<br/>Exa Closes $250M Series C at $2.2B — AI-Native Search Infrastructure</h3>
+        <span class="badge series">Series C</span>
+      </div>
+      <div class="meta">
+        來源：Crunchbase News · 2026-05-22
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>AI 搜尋基礎設施公司 Exa 完成 $250M Series C，估值 $2.2B，由 Andreessen Horowitz（a16z）領投。Exa 提供專為 AI agent 和 LLM 設計的搜尋 API，客戶涵蓋 OpenAI、Perplexity 等主要 AI 應用。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>隨著 AI agent 激增，傳統搜尋 API（如 Google Search API）無法滿足 LLM 需求，Exa 專注語義搜尋及 embedding-first 架構，填補基礎設施空缺。</p>
+      <div class="highlight">
+        <div class="label">影響觀察 / Implications</div>
+        <p>AI 搜尋基礎設施是 2026 年隱形爆發賽道：每個 AI agent 背後都需要搜尋層，Exa 的成長曲線將高度連動整體 agent 部署規模。</p>
+      </div>
+    </div>
+
+    <!-- Perceptic -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Perceptic 以 $12M 種子輪出脫隱身，前 Palantir 高管建構新藥 AI OS<br/>Perceptic Emerges from Stealth with $12M Seed — Ex-Palantir Team Builds Drug Discovery AI OS</h3>
+        <span class="badge seed">Seed</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://fortune.com/2026/05/26/exclusive-perceptic-a-startup-automating-drug-discovery-end-to-end-for-big-pharma-emerges-from-stealth-with-12-million-in-seed-funding/" target="_blank">Fortune</a> · 2026-05-26
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>倫敦新創 Perceptic 出脫隱身，由三位前 Palantir Life Sciences 主管（Tilman Flock、Zaki Trache、Martin Copes）共同創辦，完成 $12M 種子輪，由 Accel 領投，Air Street Capital、Elder Gull 跟投。已有多家頂級藥廠進入付費生產部署，公開可名的客戶為澳洲生技公司 CSL。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>Perceptic 定位為藥物研發全流程 AI OS，整合既有 AI 工具與藥廠內部數據，而非只解決研發流程中的單一問題節點，與 Recursion Pharmaceuticals、Insilico Medicine 競爭角度不同。</p>
+      <div class="highlight">
+        <div class="label">影響觀察 / Implications</div>
+        <p>前 Palantir 系創辦人的可信度 + 已有付費客戶是早期種子輪的強烈正面信號。若能證明「全流程 AI」相較「點解決方案」更受企業採購青睞，Perceptic 可能成為製藥 AI 賽道的下一個獨角獸。</p>
+      </div>
+    </div>
+
+    <!-- Ramp -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Ramp 洽談 $750M 新輪，估值目標逾 $40B<br/>Ramp in Talks for $750M at $40B+ Valuation</h3>
+        <span class="badge late">Late Stage</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://techcrunch.com/2026/05/07/ramp-in-talks-to-hit-40b-valuation-6-months-after-reaching-32b/" target="_blank">TechCrunch</a> · 2026-05-07
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>企業支出管理 fintech Ramp 正在洽談 $750M 新輪，pre-money 估值超 $40B。半年前（2025/11）$32B；一年前（2025/8）$22.5B。目前服務超過 50,000 家公司，ARR 已超過 $1B。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>Ramp 是少數非 AI infra 的 fintech 仍能以此速度持續升值的公司，核心論題是「AI-native 財務流程自動化」讓 CFO 辦公室無需大型團隊。</p>
+      <div class="highlight">
+        <div class="label">影響觀察 / Implications</div>
+        <p>Ramp 的估值軌跡幾乎是 2026 fintech 市場的縮影：AI 附加值能說服投資人繼續給出上輪倍數成長的估值。若確認融資，距 IPO 可能不遠。</p>
+      </div>
+    </div>
+
+    <!-- Pursuit -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Pursuit 完成 $22M Series A — 協助企業銷售政府市場<br/>Pursuit Raises $22M Series A — Helping Companies Sell to Government</h3>
+        <span class="badge series">Series A</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://techcrunch.com/2026/04/29/bill-gurley-jack-altman-back-startup-pursuit-which-helps-companies-sell-to-government/" target="_blank">TechCrunch</a> · 2026-04-29
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>Pursuit 完成 $22M Series A，由 Builders VC 的 Mike Rosengarten 領投，Bill Gurley（Benchmark）及 Jack Altman（Scale AI CEO 兄弟、前 Lattice CEO）加持。Pursuit 提供 SaaS 協助科技公司拿政府合約。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>GovTech 賽道因 DOGE 帶動聯邦採購流程重組，政府採購市場超過 $700B/年，但進入門檻高。投資人組合顯示市場對「AI + GovTech」組合有高度興趣。</p>
+      <div class="highlight">
+        <div class="label">影響觀察 / Implications</div>
+        <p>Bill Gurley 回歸早期投資舞台是值得注意的信號，顯示他仍在主動出手。GovTech 可能是 2026-2027 最被低估的 Series A 賽道。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── 3. LAUNCHES ── -->
+  <section id="launches">
+    <div class="section-title">3 · 新公司發表 / Launches &amp; Stealth-Out</div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Perceptic 出脫隱身：前 Palantir 高管打造製藥全流程 AI 平台<br/>Perceptic Exits Stealth: Ex-Palantir Execs Build End-to-End Drug Development AI Platform</h3>
+        <span class="badge launch">Stealth Exit</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://fortune.com/2026/05/26/exclusive-perceptic-a-startup-automating-drug-discovery-end-to-end-for-big-pharma-emerges-from-stealth-with-12-million-in-seed-funding/" target="_blank">Fortune</a> · 2026-05-26
+      </div>
+      <p>詳見上方募資段落。Perceptic 的出脫隱身是近期最值得關注的 B2B AI stealth exit：有三位前大廠高管、付費客戶、及頂級 VC 加持，而非單純的「pre-launch hype」。</p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Project Prometheus：Jeff Bezos 的 AI 製造業新創仍處隱身<br/>Project Prometheus: Jeff Bezos' Physical-World AI Startup Remains in Stealth</h3>
+        <span class="badge launch">Stealth</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://builtin.com/articles/what-is-project-prometheus" target="_blank">Built In</a> · 2026 持續追蹤
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>Project Prometheus 由 Jeff Bezos 與前 Google 高管 Vik Bajaj 於 2025/11 共同創辦，主攻「physical world AI」，目標自動化製造流程。仍在隱身狀態，無公開融資金額揭露。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>Bezos 在 Amazon、Blue Origin 之外的個人 AI 新創投注，方向對標 Figure、Physical Intelligence（PI）等 physical AI 玩家。</p>
+      <div class="highlight">
+        <div class="label">影響觀察 / Implications</div>
+        <p>一旦出脫隱身，Bezos 光環加持的 physical AI 公司估值將立刻進入獨角獸等級討論。時間點可能在 SpaceX IPO 帶動的媒體關注後，作為 AI 製造業的對位新聞。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── 4. PRODUCT ── -->
+  <section id="product">
+    <div class="section-title">4 · 產品大事 / Notable Product Launches</div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Stord Labs 開幕：10,000 平方英尺實體 AI + 機器人 R&D 中心<br/>Stord Labs Opens: 10,000 sq ft Physical AI &amp; Robotics R&D Center in Atlanta</h3>
+        <span class="badge launch">Lab Launch</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://theaiinsider.tech/2026/05/26/stord-announces-250m-series-f-funding-round-new-lab-to-focus-on-robotics-physical-ai-to-challenge-amazon/" target="_blank">The AI Insider</a> · 2026-05-26
+      </div>
+      <p>Stord 在亞特蘭大總部啟動 Stord Labs，這是其「物理 AI」研發的核心據點，使用來自 1,000+ 客戶的實際倉儲數據訓練 agentic AI 系統，並在部署至 100 個倉儲前先在 Lab 驗證。這是 product 層面的重大里程碑，顯示 Stord 從「platform provider」轉向「AI-native logistics OS」。</p>
+    </div>
+
+  </section>
+
+  <!-- ── 5. ACQUISITION ── -->
+  <section id="acquisition">
+    <div class="section-title">5 · 收購與整併 / Acquisitions &amp; Consolidation</div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>SpaceX 計劃以 $60B 收購 AI 程式工具 Cursor，IPO 上市後 30 天執行<br/>SpaceX Plans $60B Acquisition of AI Coding Tool Cursor, 30 Days Post-IPO</h3>
+        <span class="badge acq">Pending Acquisition</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://thenextweb.com/news/spacex-plans-to-buy-cursor-for-60-billion-once-its-record-ipo-wraps" target="_blank">The Next Web</a> &amp; <a href="https://www.bloomberg.com/news/articles/2026-05-19/spacex-is-said-to-plan-to-buy-startup-cursor-30-days-after-ipo" target="_blank">Bloomberg</a> · 2026-05-19
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>SpaceX 計劃以 $60B SPCX 股票收購 Cursor（AI coding assistant，逾 100 萬付費用戶），於 6/12 Nasdaq 上市後 30 天（約 7 月）完成。協議包含 $1.5B 終止費及 $8.5B 延遲服務費（若交易不成立）。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>SpaceX 在 2026/2 與 Elon Musk 的 xAI 合併後定位為「AI 服務與基礎設施公司」。Cursor 是 AI coding 賽道的現金牛（年成長驚人），與 Cognition（Devin）直接競爭。若收購完成，Cognition 成為唯一頂級獨立玩家，估值可能進一步拉升。</p>
+      <div class="highlight">
+        <div class="label">影響觀察 / Implications</div>
+        <p>$60B 是史上最大新創收購之一（大於 LinkedIn/Microsoft $26B）。此交易若完成，將把 AI coding agent 市場劃分為「Musk 帝國系 vs. 其他」，重塑開發者工具競爭格局。Cursor 競爭對手的創業公司（Windsurf 被 OpenAI 收購，Cognition 剛募完）在這個整合浪潮中需加速尋找護城河。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── 6. PEOPLE ── -->
+  <section id="people">
+    <div class="section-title">6 · 人事 / People Moves</div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Perceptic 三位前 Palantir Life Sciences 高管共同創辦，正在廣招 AI/ML 人才<br/>Perceptic Founded by Three Ex-Palantir Life Sciences Execs; Actively Hiring AI/ML Talent</h3>
+        <span class="badge launch">Founding Team</span>
+      </div>
+      <div class="meta">
+        來源：Fortune · 2026-05-26
+      </div>
+      <p>Tilman Flock（CEO）、Zaki Trache（CTO）、Martin Copes 三人均來自 Palantir Life Sciences，是業界少見的「從同一企業分裂出來」的創業組合。目前團隊約 20 人，獲得融資後將擴大 AI/ML 工程與藥物科學團隊。</p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Bill Gurley 出手 Pursuit Series A，重返早期創業投資舞台<br/>Bill Gurley Backs Pursuit Series A, Returns to Early-Stage Investing</h3>
+        <span class="badge launch">Investor Move</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://techcrunch.com/2026/04/29/bill-gurley-jack-altman-back-startup-pursuit-which-helps-companies-sell-to-government/" target="_blank">TechCrunch</a> · 2026-04-29
+      </div>
+      <p>Benchmark 傳奇合夥人 Bill Gurley 以個人身份投資 Pursuit，這是他近期少見的公開早期 backing，並與 Jack Altman（前 Lattice CEO，Scale AI CEO Eric Altman 之兄）共同加持。顯示頂級 GP 對 GovTech + AI 賽道的個人 conviction。</p>
+    </div>
+
+  </section>
+
+  <!-- ── 7. LAYOFFS ── -->
+  <section id="layoffs">
+    <div class="section-title">7 · 裁員與停業 / Layoffs &amp; Shutdowns</div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Picnic 機器人披薩公司關閉，$53M 募資後資金耗盡並清算資產<br/>Picnic Robotics Pizza Startup Shuts Down, Liquidates Assets After Raising $53M</h3>
+        <span class="badge layoff">Shutdown</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://www.geekwire.com/2026/robot-pizza-startup-runs-out-of-dough-picnic-shuts-down-sells-assets-to-mystery-buyer/" target="_blank">GeekWire</a> · 2026年5月
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>西雅圖機器人公司 Picnic（原 Vivid Robotics，後 Picnic Works）於 5/11 執行 General Assignment for the Benefit of Creditors（州法清算流程），由 CMBG Advisors 主持清算。共籌資約 $50-53M，投資方含 Paul Allen 的 Vulcan Capital。資產與 IP 已找到買家，但身份、金額、用途均未披露。</p>
+      <div class="label">背景脈絡 / Context</div>
+      <p>Picnic 的披薩自動化機器可讓一位員工每小時生產 100 個定制披薩，曾與 Domino's、Ethan Stowell Restaurants 合作。失敗關鍵是 2022-2023 年募資市場轉冷，資金斷鏈。</p>
+      <div class="highlight">
+        <div class="label">影響觀察 / Implications</div>
+        <p>Picnic 的案例是 2021-2022 年「free money era」創業公司的典型終局：技術有效但商業化節奏跟不上 burn rate，一旦資本市場轉向就難以為繼。Food robotics 賽道估值仍需回歸 unit economics 重新驗證。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>2026 年科技業裁員已達 148,092 人，全年或逾 370,000 人<br/>Tech Layoffs Hit 148,092 in 2026 YTD; Full Year May Exceed 370,000</h3>
+        <span class="badge layoff">Industry-Wide</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://www.techspot.com/news/112493-tech-layoffs-pass-100000-2026-tracker-points-ai.html" target="_blank">TechSpot</a> · TrueUp 追蹤
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>截至 2026/6/2，年初至今 354 家公司共裁員 148,092 人，平均每天 981 人。TrueUp 預測全年裁員或達 370,000，遠超 2024、2025 年。主要驅動力：企業以 AI 工具替換人力，同時大量招募 AI 工程師。Intuit 計劃 7/31 裁員 3,000 人（17% 員工），並關閉 Reno 和 Woodland Hills 兩個辦公室。</p>
+      <div class="highlight">
+        <div class="label">影響觀察 / Implications</div>
+        <p>「AI 取代中階功能性工作」從理論進入財報可見的現實。被裁員工大量轉向自身創業或加入早期 startup，形成另類的人才供給側效應——這反而是新創公司低成本招到高素質人才的時機。</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── 8. IPO ── -->
+  <section id="ipo">
+    <div class="section-title">8 · 上市進程 / IPO Pipeline</div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Anthropic 機密提交 S-1，目標 10 月上市，估值 $965B<br/>Anthropic Files Confidential S-1, Targets October IPO at $965B Valuation</h3>
+        <span class="badge ipo">IPO Filing</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://www.bloomberg.com/news/articles/2026-06-01/anthropic-files-confidentially-for-ipo-as-claude-demand-surges" target="_blank">Bloomberg</a> · 2026-06-01
+      </div>
+      <p>Anthropic 於 6/1 提交機密 S-1，成為全球估值最高的 AI 私人公司（$965B）公開市場首測。公開版 S-1 最早 7-8 月可見，若 10 月上市，將是有史以來規模最大的科技 IPO 之一。</p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>SpaceX 計劃 6/12 Nasdaq 上市（SPCX），目標募資 $75B，估值 $1.75T<br/>SpaceX Plans June 12 Nasdaq IPO (SPCX), Targeting $75B Raise at $1.75T Valuation</h3>
+        <span class="badge ipo">IPO</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://www.cnbc.com/2026/05/20/spacex-ipo-live-updates.html" target="_blank">CNBC</a> · 2026-05-20
+      </div>
+      <p>SpaceX 計劃 6/12 在 Nasdaq 以代號 SPCX 上市，估值 $1.75T，目標融資 $75B，將超越 Saudi Aramco IPO 成為史上最大 IPO。SpaceX 今年已與 xAI 合併，定位為「AI 服務與基礎設施公司」。上市後 30 天擬以 $60B 收購 Cursor（詳見收購段落）。</p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Quantinuum 上調 IPO 目標至 $1.46B，最高估值 $14.3B，6/5 Nasdaq 掛牌<br/>Quantinuum Upsizes IPO to $1.46B, Up to $14.3B Valuation; Lists June 5 on Nasdaq (QNT)</h3>
+        <span class="badge ipo">IPO</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://kfgo.com/2026/06/01/honeywells-quantinuum-eyes-14-3-billion-valuation-in-upsized-us-ipo/" target="_blank">KFGO / Bloomberg</a> · 2026-06-01
+      </div>
+      <p>Honeywell 旗下量子計算公司 Quantinuum 將在 6/5 以代號 QNT 在 Nasdaq 掛牌，發行 2,650 萬股，每股 $53-55，目標融資 $1.46B，估值最高達 $14.3B。全球量子計算業首個完整技術棧 IPO，超額認購達兩位數倍。美國政府亦注資 $1 億。2025 年營收 $30.9M，虧損 $192.6M。</p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Lime 提交 IPO 申請，揭露 going concern 疑慮，目標 6 月上市<br/>Lime Files for IPO Disclosing Going-Concern Doubt, Targets June Listing</h3>
+        <span class="badge ipo">IPO Filing</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://techcrunch.com/2026/05/08/lime-the-uber-backed-micromobility-company-files-for-ipo/" target="_blank">TechCrunch</a> · 2026-05-08
+      </div>
+      <p>Uber 持股的電動滑板車公司 Lime 於 5/8 提交 Nasdaq 上市申請（代號 LIME），2025 年營收 $886.7M（YoY +29%），淨虧損 $59.3M，但有三年連續正 FCF。S-1 揭露 $1B 流動負債，$846M 於 12 個月內到期，需 IPO 資金還債，否則有流動性危機風險。</p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>OpenAI 已機密提交 S-1，目標 9 月上市，估值 $1T+<br/>OpenAI Files Confidential S-1, Eyes September IPO at $1T+ Valuation</h3>
+        <span class="badge ipo">IPO Filing</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://www.cnbc.com/2026/05/20/openai-ipo-filing.html" target="_blank">CNBC</a> · 2026-05-20
+      </div>
+      <p>OpenAI 已於 5/22 機密提交 S-1（Goldman Sachs、Morgan Stanley 承銷），最早 9 月在公開市場亮相，估值預期超 $1T。目前私人投資者估值逾 $852B，累計融資超 $180B。公開 S-1 最早 7-8 月可見。</p>
+    </div>
+
+  </section>
+
+  <!-- ── 9. REGIONAL ── -->
+  <section id="regional">
+    <div class="section-title">9 · 區域 / Regional Spotlight</div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>台灣：2024 年新創募資突破 NT$1,000 億，目標 2027 年達 US$5B<br/>Taiwan: Startup Funding Surpassed NT$100B in 2024; Government Targets US$5B by 2027</h3>
+        <span class="badge series">Regional</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://www.taiwannews.com.tw/news/6294348" target="_blank">Taiwan News</a> · 2026-02-02
+      </div>
+      <div class="label">核心事實 / Facts</div>
+      <p>台灣 2024 年新創募資首度突破 NT$100 億（約 US$3.1B）門檻，StartupBlink 2026 排名全球第 20，較前年上升 5 名，共有 10,800 家新創及 3 隻獨角獸。AMD 宣布在台灣 AI 生態系投資逾 US$100 億，涵蓋 ASE、SPIL 等合作。Taiwania Capital CEE 基金將投入 US$2 億於台灣及中東歐。</p>
+      <div class="highlight">
+        <div class="label">影響觀察 / Implications</div>
+        <p>台灣優勢在半導體供應鏈與 AI 硬體，但軟體新創生態仍待深化。政府的 US$5B 目標若能實現，將使台灣成為亞洲 AI 創業的重要節點，而非只是晶片供應商。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>歐洲：中亞新創生態 VC 激增至 $320M，印度 2026 YTD 募資 $7.62B<br/>Europe-Adjacent: Central Asia VC Surges to $320M; India YTD Funding Hits $7.62B</h3>
+        <span class="badge series">Regional</span>
+      </div>
+      <div class="meta">
+        來源：Euronews · Tracxn India · 2026
+      </div>
+      <p>中亞（哈薩克、烏茲別克等）新創 VC 投資在 2025 年激增至 $320M，較前年大幅成長，能源、fintech、物流是主力賽道。印度 2026 年初至 5 月募資達 $7.62B（759 輪），醫療 AI 和 spacetech 是新興熱點：Arya.ag $80.3M Series D（農業 AI）、Even Healthcare $20M（醫院網絡）、TakeMe2Space $5M（太空科技）相繼完成融資。</p>
+    </div>
+
+  </section>
+
+  <!-- ── 10. READS ── -->
+  <section id="reads">
+    <div class="section-title">10 · 觀點 / Reads Worth Bookmarking</div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>TechCrunch Mobility：Lime IPO 是賭注，還是微移動最後一張牌？<br/>TechCrunch Mobility: Lime's IPO — A Gamble or Micromobility's Last Card?</h3>
+        <span class="badge launch">Essay</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://techcrunch.com/2026/05/10/techcrunch-mobility-limes-ipo-gamble/" target="_blank">TechCrunch</a> · 2026-05-10
+      </div>
+      <p>分析 Lime 在 going concern 疑慮下仍強行 IPO 的邏輯：這是一場「現在不上就沒機會」的豪賭。作者拆解 Lime 為何 FCF 正但債務危機同時存在，對任何準備 IPO 的創辦人都有高度參考價值。</p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Cognition 創辦人寫作：「當 AI 撰寫 89% 的程式碼時，公司的核心能力是什麼？」<br/>Cognition's Insight: "When AI Writes 89% of Your Code, What Is a Company's Core Competency?"</h3>
+        <span class="badge launch">Insight</span>
+      </div>
+      <div class="meta">
+        來源：<a href="https://entrepreneurloop.com/cognition-ai-funding-2026-1b-raise-26b-valuation/" target="_blank">EntrepreneurLoop</a> · 2026-05
+      </div>
+      <p>Cognition 宣布 89% 程式碼由 Devin 撰寫，這個數字不只是行銷素材，而是「軟體公司未來核心競爭力在哪裡」的根本叩問。當工程產能不再是瓶頸，產品直覺與商業判斷力成為新的護城河。</p>
+    </div>
+
+  </section>
+
+  <!-- ── SOURCES ── -->
+  <section id="sources">
+    <div class="section-title">來源索引 / Sources</div>
+    <div class="card" style="font-size:0.82rem; line-height:1.9;">
+      <ul style="list-style:none; padding:0; columns:2; column-gap:24px;">
+        <li><a href="https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/" style="color:var(--accent2)">TechCrunch — Cognition $1B</a></li>
+        <li><a href="https://fortune.com/2026/06/01/anthropic-confidentially-files-ipo-965-billion-valuation/" style="color:var(--accent2)">Fortune — Anthropic IPO Filing</a></li>
+        <li><a href="https://www.cnbc.com/2026/06/01/anthropic-ipo-s1-prospectus.html" style="color:var(--accent2)">CNBC — Anthropic S-1</a></li>
+        <li><a href="https://www.bloomberg.com/news/articles/2026-06-01/anthropic-files-confidentially-for-ipo-as-claude-demand-surges" style="color:var(--accent2)">Bloomberg — Anthropic IPO</a></li>
+        <li><a href="https://www.bloomberg.com/news/articles/2026-05-19/spacex-is-said-to-plan-to-buy-startup-cursor-30-days-after-ipo" style="color:var(--accent2)">Bloomberg — SpaceX / Cursor</a></li>
+        <li><a href="https://thenextweb.com/news/spacex-plans-to-buy-cursor-for-60-billion-once-its-record-ipo-wraps" style="color:var(--accent2)">The Next Web — SpaceX Cursor $60B</a></li>
+        <li><a href="https://www.cnbc.com/2026/05/20/spacex-ipo-live-updates.html" style="color:var(--accent2)">CNBC — SpaceX IPO</a></li>
+        <li><a href="https://www.axios.com/pro/supply-chain-deals/2026/05/26/stord-250m-3-billion-valuation-logistics" style="color:var(--accent2)">Axios — Stord $250M</a></li>
+        <li><a href="https://fortune.com/2026/05/26/exclusive-perceptic-a-startup-automating-drug-discovery-end-to-end-for-big-pharma-emerges-from-stealth-with-12-million-in-seed-funding/" style="color:var(--accent2)">Fortune — Perceptic Stealth Exit</a></li>
+        <li><a href="https://techcrunch.com/2026/05/07/ramp-in-talks-to-hit-40b-valuation-6-months-after-reaching-32b/" style="color:var(--accent2)">TechCrunch — Ramp $40B</a></li>
+        <li><a href="https://techcrunch.com/2026/04/29/bill-gurley-jack-altman-back-startup-pursuit-which-helps-companies-sell-to-government/" style="color:var(--accent2)">TechCrunch — Pursuit $22M</a></li>
+        <li><a href="https://kfgo.com/2026/06/01/honeywells-quantinuum-eyes-14-3-billion-valuation-in-upsized-us-ipo/" style="color:var(--accent2)">KFGO — Quantinuum IPO</a></li>
+        <li><a href="https://techcrunch.com/2026/05/08/lime-the-uber-backed-micromobility-company-files-for-ipo/" style="color:var(--accent2)">TechCrunch — Lime IPO</a></li>
+        <li><a href="https://www.cnbc.com/2026/05/20/openai-ipo-filing.html" style="color:var(--accent2)">CNBC — OpenAI IPO Filing</a></li>
+        <li><a href="https://www.geekwire.com/2026/robot-pizza-startup-runs-out-of-dough-picnic-shuts-down-sells-assets-to-mystery-buyer/" style="color:var(--accent2)">GeekWire — Picnic Shutdown</a></li>
+        <li><a href="https://www.techspot.com/news/112493-tech-layoffs-pass-100000-2026-tracker-points-ai.html" style="color:var(--accent2)">TechSpot — 2026 Tech Layoffs</a></li>
+        <li><a href="https://news.crunchbase.com/venture/biggest-funding-rounds-ai-autonomy-biotech-anthropic/" style="color:var(--accent2)">Crunchbase — Weekly Rounds</a></li>
+        <li><a href="https://www.taiwannews.com.tw/news/6294348" style="color:var(--accent2)">Taiwan News — NT$100B Milestone</a></li>
+        <li><a href="https://techcrunch.com/2026/04/01/startup-funding-shatters-all-records-in-q1/" style="color:var(--accent2)">TechCrunch — Q1 2026 Record</a></li>
+        <li><a href="https://winbuzzer.com/2026/05/30/cognition-raises-1b-as-devin-revenue-nears-492m-xcxwbn/" style="color:var(--accent2)">WinBuzzer — Cognition ARR $492M</a></li>
+      </ul>
+      <p style="margin-top:14px; color:var(--muted)">付費牆來源（無法全文存取）：The Information、Sifted、Bloomberg（部分）、Wall Street Journal、Financial Times。相關摘要已透過公開引用補足。</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  今日新創新聞日報 · Daily Startup News &nbsp;|&nbsp; 2026-06-02 · Asia/Taipei &nbsp;|&nbsp;
+  資料來源：TechCrunch · Bloomberg · Fortune · CNBC · Axios · GeekWire · Crunchbase News &amp; more &nbsp;|&nbsp;
+  分析為觀點，非投資建議 · Analysis is editorial opinion, not investment advice.
+</footer>
+
+</body>
+</html>
