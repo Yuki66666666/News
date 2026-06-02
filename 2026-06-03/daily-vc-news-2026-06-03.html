@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>創投新聞日報 / Daily VC News — 2026-06-03</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --accent: #6c6fe8;
+      --accent2: #4ecdc4;
+      --accent3: #f7b731;
+      --text: #e2e8f0;
+      --muted: #8892a4;
+      --border: #2d3148;
+      --tag-ai: #3a2f6b;
+      --tag-fund: #1a3a2f;
+      --tag-exit: #3a1a2f;
+      --tag-gp: #3a2a1a;
+      --tag-region: #1a2f3a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1d3a 0%, #0f1117 60%);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 2rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+    header .subtitle {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+    }
+    .date-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      margin-top: 0.5rem;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin: 2.5rem 0 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .section-header h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent2);
+    }
+    .section-icon { font-size: 1.2rem; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.2rem;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .card h3 .en { color: var(--accent2); font-weight: 500; }
+    .source-line {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+    .source-line a { color: var(--accent); text-decoration: none; }
+    .source-line a:hover { text-decoration: underline; }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.15rem 0.6rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .tag-fund { background: var(--tag-fund); color: #4ecdc4; }
+    .tag-ai { background: var(--tag-ai); color: #a78bfa; }
+    .tag-exit { background: var(--tag-exit); color: #f472b6; }
+    .tag-gp { background: var(--tag-gp); color: #f7b731; }
+    .tag-region { background: var(--tag-region); color: #60a5fa; }
+    .tag-lp { background: #2a1a3a; color: #e879f9; }
+    .tag-strategy { background: #1a2a1a; color: #86efac; }
+    .block-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent3);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 0.8rem;
+      margin-bottom: 0.2rem;
+    }
+    .block-content {
+      color: var(--text);
+      font-size: 0.92rem;
+      margin-bottom: 0.2rem;
+    }
+    .highlight-box {
+      background: var(--surface2);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 0.9rem 1.1rem;
+      margin-top: 1rem;
+      font-size: 0.92rem;
+    }
+    .highlight-box strong { color: var(--accent3); }
+    .number-callout {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.5rem 0;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    footer h4 { color: var(--text); margin-bottom: 0.6rem; font-size: 0.9rem; }
+    footer ul { list-style: none; padding: 0; }
+    footer ul li { margin-bottom: 0.25rem; }
+    footer ul li a { color: var(--accent); text-decoration: none; }
+    footer ul li a:hover { text-decoration: underline; }
+    .paywalled { color: #f87171; font-size: 0.78rem; }
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .toc h4 { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.7rem; }
+    .toc ol { padding-left: 1.2rem; }
+    .toc li { font-size: 0.88rem; color: var(--accent2); margin-bottom: 0.3rem; }
+    @media (max-width: 600px) {
+      header, main, footer { padding-left: 1rem; padding-right: 1rem; }
+      .card { padding: 1rem 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>💼 創投新聞日報 / Daily VC News</h1>
+  <div class="subtitle">Investor-side briefing — fund formation, LP moves, GP news, exits & strategy</div>
+  <span class="date-badge">2026-06-03 · Asia/Taipei</span>
+</header>
+
+<main>
+
+  <!-- TOC -->
+  <div class="toc">
+    <h4>目錄 / Contents</h4>
+    <ol>
+      <li>頭條 / Top Stories</li>
+      <li>新基金與 LP / Fund Formation &amp; LP Activity</li>
+      <li>大型 Round 與領投者 / Mega Rounds &amp; Lead Investors</li>
+      <li>退場 / Exits &amp; DPI Events</li>
+      <li>GP 人事 / GP Moves</li>
+      <li>策略與生態 / Strategy &amp; Ecosystem Shifts</li>
+      <li>區域 / Regional Highlights</li>
+      <li>觀點 / Reads</li>
+    </ol>
+  </div>
+
+  <!-- ===== SECTION 1: Top Stories ===== -->
+  <div class="section-header">
+    <span class="section-icon">🔥</span>
+    <h2>1. 頭條 / Top Stories</h2>
+  </div>
+
+  <div class="card">
+    <h3>
+      創投資本高度集中：Q1 2026 全球 75% VC 資金流向五家公司<br>
+      <span class="en">VC Concentration at Historic Extreme: 75% of Q1 2026 Dollars Into Five Companies</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://www.saastr.com/vc-in-2026-75-of-all-the-money-is-going-to-just-5-funds-and-just-5-startups/" target="_blank">SaaStr</a>
+      &amp; <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Crunchbase</a>
+      · 2026 Q1 資料
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-strategy">策略</span>
+      <span class="tag tag-ai">AI</span>
+    </div>
+    <div class="block-label">核心事實 / Facts</div>
+    <div class="block-content">
+      Q1 2026 全球創投投資額創史上最高單季紀錄，介於 $2,850 億至 $3,310 億美元之間。其中 <strong>$1,956 億美元</strong>流入五家公司：OpenAI ($1,220 億)、Anthropic ($306 億)、xAI ($200 億)、Waymo ($160 億)、Databricks ($70 億)。Mega round（$1 億以上）佔全部美元部署的 86%；全球 deal 數量較上季下跌 15%，約 7,000 筆，為 2016 年以來最低。
+    </div>
+    <div class="block-label">背景脈絡 / Context</div>
+    <div class="block-content">
+      Sapphire Ventures 的 2026 Software × AI 報告顯示，企業軟體在 2025 年已吸收全球 52% 的 VC 資金（$2,630 億），年增 64%。現有 80 家以上 AI 原生公司達到 $1 億+ ARR，前十大私有公司的估值合計超過所有純 B2B 上市公司的總和。進入 2026 年，「Ultra Round」（$100 億以上融資）已成常態。
+    </div>
+    <div class="block-label">影響觀察 / Implications</div>
+    <div class="block-content">
+      <strong>[分析]</strong> 對大多數 GP 而言，最關鍵的問題是：若自身基金無法取得上述五大公司的配額，如何在其餘的 25% 資金中找到定位？垂直 SaaS、市集、開發者工具若無強勁 AI 故事，吸引 LP 資金的難度顯著提高。這同時也對早期、獨立 VC 構成壓力——LP 持續集中配置至少數幾個能接觸到超大型 round 的 mega-fund。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      Robinhood 零售創投基金 IPO 模式：RVI 翻倍後籌備第二支上市基金<br>
+      <span class="en">Robinhood Retail Venture IPO Model: RVI Doubles, Second Fund (RVII) in Registration</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://techcrunch.com/2026/05/11/riding-an-ai-rally-robinhood-preps-second-retail-venture-ipo/" target="_blank">TechCrunch</a>
+      · 2026-05-11
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-exit">退場結構</span>
+      <span class="tag tag-strategy">策略創新</span>
+    </div>
+    <div class="block-label">核心事實 / Facts</div>
+    <div class="block-content">
+      Robinhood 已為旗下第二支創投基金（RVII）提交保密上市申請。第一支 RVI 於 2026 年 3 月以 $21 掛牌，迄今已翻倍至約 $43.69，吸引超過 15 萬名散戶投資人。RVII 策略範圍更廣，將納入成長期與早期新創（RVI 僅持有 10 家後期公司，包括 OpenAI、Stripe、Databricks）。此模式取消 carry，提供每日流動性。
+    </div>
+    <div class="block-label">背景脈絡 / Context</div>
+    <div class="block-content">
+      傳統封閉型 VC 基金將投資人資金鎖定 7–10 年。Robinhood 此舉是為「散戶化」私人市場的直接嘗試，與 ARK 式主動 ETF 有別，更接近 BDC（Business Development Company）概念但針對新創。對 GP 生態的長期影響：若此模式奏效，可能帶動其他券商推出類似產品，進一步分流 LP 配置。
+    </div>
+    <div class="block-label">影響觀察 / Implications</div>
+    <div class="block-content">
+      <strong>[分析]</strong> 若 RVII 成功上市，將打開一個新的 LP 類別（散戶）進入 VC 市場。傳統 endowment/sovereign wealth LP 的佔比相對稀釋。對 GP 而言，這既是潛在競爭（搶奪與 portfolio 公司的配額），也可能是流動性出口的新途徑。
+    </div>
+  </div>
+
+  <!-- ===== SECTION 2: Fund Formation & LP ===== -->
+  <div class="section-header">
+    <span class="section-icon">🏦</span>
+    <h2>2. 新基金與 LP / Fund Formation &amp; LP Activity</h2>
+  </div>
+
+  <div class="card">
+    <h3>
+      Eclipse Ventures 完成 $13 億 Physical AI 雙基金<br>
+      <span class="en">Eclipse Ventures Closes $1.3B Across Two Physical AI Funds</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://techcrunch.com/2026/04/07/vc-eclipse-has-a-new-1-3b-to-back-and-build-physical-ai-startups/" target="_blank">TechCrunch</a>
+      · 2026-04-07
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-fund">新基金</span>
+      <span class="tag tag-ai">AI / 實體</span>
+    </div>
+    <div class="block-label">核心事實 / Facts</div>
+    <div class="block-content">
+      Eclipse Ventures 募集 $13 億，分成兩支：早期孵化基金 $5.91 億（同時作為 co-founder）、成長期基金 $7.2 億，合計 AUM 達約 $100 億。投資領域：交通、能源、基礎設施、運算、國防。
+    </div>
+    <div class="block-label">背景脈絡 / Context</div>
+    <div class="block-content">
+      Eclipse 現有 portfolio 涵蓋 Arc（電動船）、Redwood Materials（電池回收）、Wayve（自駕）、Cerebras（AI 晶片）。此次募資為其迄今最大，且戰略上採「建造者」而非純「投資者」模式，主動孵化新創。此種 Venture Builder 結構在物理 AI 時代越來越普遍，因市場需要 GP 提供的不僅是資金，還包括技術人才與製造網絡。
+    </div>
+    <div class="block-label">影響觀察 / Implications</div>
+    <div class="block-content">
+      <strong>[分析]</strong> 傳統 GP 若只能提供資本將在 physical AI 競爭中處於劣勢；有 deep tech 建造能力的 VC（如 Eclipse、Playground Global）可能在 LP 選擇中佔更有利位置。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      Transition Ventures 完成 €1.28 億 Fund II，從氣候轉向 AI + 物理世界<br>
+      <span class="en">Transition Ventures Closes €128M Fund II — Pivots from Pure Climate to AI-Physical Intersection</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://www.bloomberg.com/news/articles/2026-05-27/climate-venture-firm-leaning-into-ai-with-new-150-million-fund" target="_blank">Bloomberg</a>
+      &amp; <a href="https://www.eu-startups.com/2026/05/transition-ventures-raises-e128-million-fund-ii-for-early-stage-companies-at-the-intersection-of-ai-and-the-physical-world/" target="_blank">EU-Startups</a>
+      · 2026-05-27
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-fund">新基金</span>
+      <span class="tag tag-strategy">策略轉型</span>
+    </div>
+    <div class="block-label">核心事實 / Facts</div>
+    <div class="block-content">
+      倫敦 Transition Ventures 完成 Fund II，規模 €1.28 億（約 $1.5 億），使 AUM 超過 €2.57 億。Fund I 與 Fund II 間隔不到兩年。新基金側重電力、AI、機器人、關鍵材料；不再純粹聚焦氣候科技。
+    </div>
+    <div class="block-label">背景脈絡 / Context</div>
+    <div class="block-content">
+      此次轉型反映 2026 年最具代表性的基金策略移動之一：氣候 VC 重新定位自己為「AI 物理基礎設施」投資者。根基仍是 Planetary Boundaries 框架（斯德哥爾摩韌性中心），但著力點從直接碳減排轉向降低 AI 與資料中心的碳排放、以及讓 AI 賦能工業系統。
+    </div>
+    <div class="block-label">影響觀察 / Implications</div>
+    <div class="block-content">
+      <strong>[分析]</strong> 此次超額認購（oversubscribed）顯示 LP 依然對 climate-adjacent AI 有高度興趣，但單純碳移除的投資故事已越來越難說服 LP。更廣泛趨勢：能源效率、電網基礎設施、關鍵礦物正成為 VC 的新「AI 基礎設施」賭注。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      Air Street Capital 完成 $2.32 億 Fund III，成為歐洲最大獨立 GP<br>
+      <span class="en">Air Street Capital Closes $232M Fund III — Largest Solo GP in Europe</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://techcrunch.com/2026/03/23/air-street-becomes-one-of-the-largest-solo-vcs-in-europe-with-232m-fund/" target="_blank">TechCrunch</a>
+      · 2026-03-23
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-fund">新基金</span>
+      <span class="tag tag-ai">AI / 國防</span>
+    </div>
+    <div class="block-label">核心事實 / Facts</div>
+    <div class="block-content">
+      Nathan Benaich 主持的 Air Street Capital 完成 Fund III，規模 $2.32 億，成為歐洲最大獨立 GP（Solo GP）創投基金。早期票卡 $50 萬至 $1,500 萬，部分成長期可達 $2,500 萬。投資範疇：AI 軟體、TechBio、物理系統、國防。Portfolio 含 Synthesia、Black Forest Labs、Profluent、Delian Alliance Industries、Poolside。
+    </div>
+    <div class="block-label">背景脈絡 / Context</div>
+    <div class="block-content">
+      Air Street 本質是 AI-first 主題基金，Nathan Benaich 同時出版《State of AI Report》，在產業擁有高知名度。Fund III 的規模幾乎是 2025 年歐洲平均 VC 基金的三倍。GP 的 solo 結構在歐洲仍屬罕見，此次成功閉募代表 LP 對「清楚主題 + 單一強 GP 決策者」的高接受度。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      BAI Capital $8 億基金首關 $6 億，聚焦亞洲成長與全球化<br>
+      <span class="en">BAI Capital $800M Fund First Close at $600M — Asia Growth &amp; Globalization Focus</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://www.prnewswire.com/news-releases/bai-capital-announces-first-close-of-new-us800-million-fund-continues-to-back-asia-growth-and-globalization-opportunities-302779175.html" target="_blank">PR Newswire</a>
+      · 2026-05-22
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-fund">新基金</span>
+      <span class="tag tag-region">亞洲</span>
+    </div>
+    <div class="block-label">核心事實 / Facts</div>
+    <div class="block-content">
+      BAI Capital 宣布其最新 USD 基金首次關帳，目標規模 $8 億，首關達 $6 億承諾資本，LP 包括機構投資人與家族辦公室。自 2008 年成立以來，已完成 22 次 IPO 及 51 次買賣方/次級市場退出。
+    </div>
+    <div class="block-label">背景脈絡 / Context</div>
+    <div class="block-content">
+      BAI Capital 長期聚焦科技、AI、金融服務、消費與娛樂，側重跨境擴張（中國公司全球化、東南亞成長）。在中國市場監管趨嚴、中美關係複雜的背景下，$8 億「跨境成長」基金能達到 $6 億首關，顯示 LP 對正規化管理的亞洲成長型基金仍有需求。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      歐洲 Q1 2026：41 支新基金共募 €80 億，EIF 啟動 €150 億 ETCI 2 規模基金<br>
+      <span class="en">Europe Q1 2026: 41 New Funds Raise €8B; EIF Launches €15B ETCI 2 Fund-of-Funds</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://blog.privateequitylist.com/new-vc-funds-europe-q1-2026-eu8b-raised-across-41-funds/" target="_blank">Private Equity List Blog</a>
+      &amp; <a href="https://www.vestbee.com/insights/articles/new-vc-funds-launched-in-q1-2026-to-invest-in-europe" target="_blank">Vestbee</a>
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-fund">新基金</span>
+      <span class="tag tag-region">歐洲</span>
+      <span class="tag tag-lp">LP</span>
+    </div>
+    <div class="block-label">核心事實 / Facts</div>
+    <div class="block-content">
+      2026 年 2 月至 5 月，歐洲共推出 41 支新創投基金，合計募資 €80 億。重要大型基金：Seaya Growth Tech Fund I（€10 億，西班牙 Applied AI / deeptech）、Kembara（€7.5 億首關，目標 €10 億，歐洲最大專屬 deeptech 成長基金）、Quantonation（€2.2 億，量子科技）、EIF/ETCI 2（€150 億，fund-of-funds，支持約 100 家成長期 VC）。AI 為主軸，24 支基金將 AI 列為核心策略，法國與英國各有 9 支。
+    </div>
+    <div class="block-label">影響觀察 / Implications</div>
+    <div class="block-content">
+      <strong>[分析]</strong> EIF ETCI 2 規模龐大，若能有效部署，可實質緩解歐洲長期存在的後期融資缺口（late-stage funding gap）。然而，fund-of-funds 效率較低，真正影響力取決於 GP 篩選品質。
+    </div>
+  </div>
+
+  <!-- ===== SECTION 3: Mega Rounds ===== -->
+  <div class="section-header">
+    <span class="section-icon">💰</span>
+    <h2>3. 大型 Round 與領投者 / Mega Rounds &amp; Lead Investors</h2>
+  </div>
+
+  <div class="card">
+    <h3>
+      Modal Labs $3.55 億 Series C：General Catalyst 主導，估值 $46.5 億<br>
+      <span class="en">Modal Labs $355M Series C Led by General Catalyst &amp; Redpoint — $4.65B Valuation</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://modal.com/blog/modal-series-c" target="_blank">Modal Blog</a>
+      &amp; <a href="https://techstartups.com/2026/05/21/modal-labs-raises-355m-quadrupling-valuation-to-4-65b-as-ai-infrastructure-demand-surges/" target="_blank">Tech Startups</a>
+      · 2026-05-21
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-ai">AI 基礎設施</span>
+      <span class="tag tag-fund">General Catalyst</span>
+    </div>
+    <div class="block-label">核心事實 / Facts</div>
+    <div class="block-content">
+      Serverless AI 基礎設施新創 Modal Labs 完成 $3.55 億 Series C，由 <strong>General Catalyst</strong> 與 <strong>Redpoint</strong> 共同領投，Bain Capital Ventures、Menlo Ventures、Accel 跟投，估值 $46.5 億（後估值）。ARR 達 $3 億，不到一年內從 $6,000 萬成長五倍。已突破 10 億 Sandbox 啟動量。
+    </div>
+    <div class="block-label">背景脈絡 / Context</div>
+    <div class="block-content">
+      Modal 的增速（ARR × 5 in <1 yr）反映 AI 推論基礎設施需求暴增。General Catalyst 在本輪之前已是 Modal 的主要支持者（2026 年 2 月在 $25 億估值時領投第一輪）。本次 Series C 讓 GC 繼續保持領投地位，防止其他 tier-1 基金（如 Sequoia、a16z）進入。
+    </div>
+    <div class="block-label">影響觀察 / Implications</div>
+    <div class="block-content">
+      <strong>[分析]</strong> GC 在 AI infra 的押注頻率加快，同時領投 Modal 也領投多家 healthcare AI 公司，顯示其策略是「在所有 AI 應用層的最底層基礎設施中取得份額」。Redpoint 的出現亦值得注意，近期在 AI 基礎設施領域頻繁搭配大型 VC 共同領投。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      DriveNets $4.1 億 Series D：Bessemer 領投，估值 $85 億，總融資突破 $10 億<br>
+      <span class="en">DriveNets $410M Series D Led by Bessemer — $8.5B Valuation, $1B+ Total Raised</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://www.prnewswire.com/news-releases/drivenets-secures-410m-series-d-to-meet-surging-demand-for-ethernet-fabric-in-large-scale-ai-deployments-302787577.html" target="_blank">PR Newswire</a>
+      &amp; <a href="https://www.calcalistech.com/ctechnews/article/zzhjwk3b8" target="_blank">Calcalist</a>
+      · 2026-06-01
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-ai">AI 網路</span>
+      <span class="tag tag-fund">Bessemer</span>
+      <span class="tag tag-region">以色列</span>
+    </div>
+    <div class="block-label">核心事實 / Facts</div>
+    <div class="block-content">
+      以色列網路公司 DriveNets 完成 $4.1 億 Series D，由 <strong>Bessemer Venture Partners</strong> 與 Atreides Management 領投，AMD、Red Dot Capital 新進，Pitango、D1 Capital 跟投。估值 $85 億，總融資突破 $10 億。公司自 2025 年起現金流正轉。
+    </div>
+    <div class="block-label">背景脈絡 / Context</div>
+    <div class="block-content">
+      DriveNets 的 Network Cloud 是全球最大電信商的網路記錄系統；其 Ethernet-based AI fabric 服務 foundation labs、hyperscalers 和 NeoClouds。Bessemer 長期是以色列科技最積極的外資 VC 之一，本輪是其迄今最大的以色列投資之一。AMD 加入顯示晶片廠商透過策略投資鞏固 AI 基礎設施生態系的意圖持續。
+    </div>
+  </div>
+
+  <!-- ===== SECTION 4: Exits & DPI ===== -->
+  <div class="section-header">
+    <span class="section-icon">🚪</span>
+    <h2>4. 退場 / Exits &amp; DPI Events</h2>
+  </div>
+
+  <div class="card">
+    <h3>
+      Q1 2026 退場回顧：M&amp;A 首季突破 $566 億，IPO 管道逐步恢復<br>
+      <span class="en">Q1 2026 Exit Recap: M&amp;A Exceeds $56.6B, IPO Pipeline Rebuilding</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://news.crunchbase.com/venture/biggest-funding-rounds-medical-devices-futuristic-ai-gadgets-frontier-labs-mirus/" target="_blank">Crunchbase News</a>
+      &amp; <a href="https://news.crunchbase.com/venture/2026-tech-startup-trends-ipo-ai-ma/" target="_blank">Crunchbase 2026 Trends</a>
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-exit">退場</span>
+    </div>
+    <div class="block-label">核心事實 / Facts</div>
+    <div class="block-content">
+      Q1 2026 創投支持的 M&amp;A 累計估值超過 <strong>$566 億</strong>，為 2022 年低谷後第三高的新創 M&amp;A 季度。全球 21 家創投支持公司估值超過 $10 億退場：13 家來自中國，4 家其他亞洲，4 家美國。Eli Lilly 以最高 $24 億收購 Orna Therapeutics（in-vivo 細胞工程）為近期代表案。
+    </div>
+    <div class="block-label">背景脈絡 / Context</div>
+    <div class="block-content">
+      AI acqui-hire 趨勢：不足 100 人的小型新創以 $1 億以上被大型科技公司收購，以換取人才與技術。2025 年 M&amp;A 總估值 $2,140 億（vs 2024 年 $1,120 億）。IPO 方面，Cerebras、若干核能與地熱公司已申報上市，Robinhood 第二支基金亦在推進。
+    </div>
+    <div class="block-label">影響觀察 / Implications</div>
+    <div class="block-content">
+      <strong>[分析]</strong> DPI 問題（實際回報）仍是 LP 最關心的議題。M&amp;A 的回溫對 2018–2021 年 vintage 的 VC 基金至關重要；這批基金的退場窗口若再不打開，LP 再配置意願將下滑。
+    </div>
+  </div>
+
+  <!-- ===== SECTION 5: GP Moves ===== -->
+  <div class="section-header">
+    <span class="section-icon">👤</span>
+    <h2>5. GP 人事 / GP Moves</h2>
+  </div>
+
+  <div class="card">
+    <h3>
+      Solo GP 崛起：歐洲首次出現規模逾 €1 億的獨立 GP 基金潮<br>
+      <span class="en">Solo GP Wave in Europe: First-Time Funds Over €100M Becoming Viable</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://sifted.eu/articles/first-time-european-vc-funds-2026" target="_blank">Sifted</a>
+      · 2026
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-gp">GP 人事</span>
+      <span class="tag tag-region">歐洲</span>
+    </div>
+    <div class="block-label">核心事實 / Facts</div>
+    <div class="block-content">
+      根據 Sifted 追蹤，2026 年歐洲已有多支 first-time VC 基金完成超過 €1 億規模的閉募，Air Street Capital Fund III（$2.32 億）是最突出案例。歐洲首創 VC 數量及其平均規模均在增加，EIF 積極作為 LP 支持新進 GP。
+    </div>
+    <div class="block-label">背景脈絡 / Context</div>
+    <div class="block-content">
+      過去歐洲 first-time GP 多止步於 €3,000 萬至 €5,000 萬規模。2026 年的突破反映：(1) AI 主題吸引力；(2) EIF 更積極作為 early LP；(3) 有產業背景（如 Air Street 的 State of AI Report）的 GP 能更快建立公信力。
+    </div>
+  </div>
+
+  <!-- ===== SECTION 6: Strategy & Ecosystem ===== -->
+  <div class="section-header">
+    <span class="section-icon">🧭</span>
+    <h2>6. 策略與生態 / Strategy &amp; Ecosystem Shifts</h2>
+  </div>
+
+  <div class="card">
+    <h3>
+      LP 對 VC 的忠誠度下降：大多數 LP 不打算削減 VC 配置，但正在重組關係<br>
+      <span class="en">LP Loyalty Shift: Most LPs Keeping VC Allocation, but Concentrating GP Relationships</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://pipelineroad.com/blog/institutional-allocation-trends-2026" target="_blank">Pipeline Road</a>
+      &amp; <a href="https://altss.com/blog/endowments-foundations-as-lps-2026" target="_blank">Altss.com</a>
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-lp">LP 動向</span>
+      <span class="tag tag-strategy">策略</span>
+    </div>
+    <div class="block-label">核心事實 / Facts</div>
+    <div class="block-content">
+      LP Perspectives 2026 報告顯示大多數 LP 無計劃削減 VC 配置，儘管大部分持倉表現低於基準。主權財富基金管理超過 $12 兆美元，PE 配置比例 10–20%，共同投資（co-invest）活動加速。2024 NACUBO 數據：$10 億以上 endowment 平均 VC 配置比例 9.8%；哈佛 41%、耶魯約 50% 在廣義 PE（含 VC）。
+    </div>
+    <div class="block-label">背景脈絡 / Context</div>
+    <div class="block-content">
+      LP 的實際行動是「減少 GP 關係數量，集中至表現最佳的少數 GP」。SWF 共投活動三倍增長（2025），基礎設施、私人信貸、AI 投資最快增長。Endowment 辦公室也在建立內部直投能力，希望以更低費用部署更多資本。
+    </div>
+    <div class="block-label">影響觀察 / Implications</div>
+    <div class="block-content">
+      <strong>[分析]</strong> 對中型 GP 而言，這是生存壓力：若無法進入 top-decile 回報群，或無差異化的主題，LP 將逐漸不再續投。合理預期是 2026–2027 年間部分規模 $2–5 億的 VC 基金將難以閉募下一支基金。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      AI 資本集中的另一面：86% 美元流向 Mega Round，早期 deal 量跌至十年低點<br>
+      <span class="en">AI Capital Concentration: 86% of Dollars in Mega Rounds; Early-Stage Deal Count at Decade Low</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://www.saastr.com/340-billion-in-vc-but-fewer-deals-than-any-year-this-decade-10-things/" target="_blank">SaaStr</a>
+      &amp; <a href="https://sapphireventures.com/blog/2026-softwares-ai-inflection-point/" target="_blank">Sapphire Ventures</a>
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-strategy">生態</span>
+      <span class="tag tag-ai">AI</span>
+    </div>
+    <div class="block-label">核心事實 / Facts</div>
+    <div class="block-content">
+      全球 2026 年 Q1：$3,400 億 VC，但 deal 數量為過去十年最低。$1 億以上 Mega Round 佔 86% 部署美元，但 deal 總筆數只佔約 14%。Enterprise software 佔 2025 年全球 VC 的 52%，AI 相關投資年增 146% 至 $1,360 億。
+    </div>
+    <div class="block-label">背景脈絡 / Context</div>
+    <div class="block-content">
+      「Ultra Round」（$100 億以上）在 2025–2026 年已不罕見。前十大私有 AI 公司估值合計超過所有純 B2B 上市公司。在 2025 年的 M&amp;A 40% 以上的企業軟體 VC 資金流向前 20 大 deal（十年前為 8%）。早期創業者在此環境中更難取得正常估值的 Seed/Series A。
+    </div>
+  </div>
+
+  <!-- ===== SECTION 7: Regional ===== -->
+  <div class="section-header">
+    <span class="section-icon">🌏</span>
+    <h2>7. 區域 / Regional Highlights</h2>
+  </div>
+
+  <div class="card">
+    <h3>
+      MENA：Khwarizmi Ventures Fund II 首關 $7,000 萬，目標 $1.2 億<br>
+      <span class="en">MENA: Khwarizmi Ventures Fund II $70M+ First Close, Targeting $120M</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://www.wamda.com/2026/05/khwarizmi-ventures-launches-fund-ii-70m-close-gcc-startups" target="_blank">Wamda</a>
+      · 2026-05
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-fund">新基金</span>
+      <span class="tag tag-region">MENA</span>
+    </div>
+    <div class="block-label">核心事實 / Facts</div>
+    <div class="block-content">
+      沙烏地 Khwarizmi Ventures 宣布 Fund II 首關，承諾資本超過 SAR 2.7 億（逾 $7,000 萬），LP 包括機構投資人與沙烏地頂級家族辦公室。SIC（沙烏地工業投資公司）亦確認策略性投資。目標總規模 $1–1.2 億。首投為 GCC 地區 Seed / Series A，票卡 $100 萬至 $500 萬，含後續加碼空間。
+    </div>
+    <div class="block-label">背景脈絡 / Context</div>
+    <div class="block-content">
+      Khwarizmi 成立於 2021 年，Fund I 已交出 5 個退場（含 Calo、Eyewa、Tamara）。在沙烏地 Vision 2030 的政策推動下，SIC 積極成為本地 VC 的 anchor LP，加速在地創投生態建立。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      亞太：韓國 deal 下半年回溫，東南亞交易量仍低迷<br>
+      <span class="en">Asia-Pacific: Korea Rebounds H2, Southeast Asia Deal Activity Below Prior Year</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://www.deloitte.com/ap/en/about/press-room/asia-pacific-private-equity-almanac-2026-shifting-investment-playbooks-for-uncertain-times.html" target="_blank">Deloitte APAC PE Almanac 2026</a>
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-region">亞洲</span>
+    </div>
+    <div class="block-label">核心事實 / Facts</div>
+    <div class="block-content">
+      韓國：因總統選舉後政治穩定，下半年 deal 價值從上半年 $67 億升至全年 $143 億，但仍低於 2024 年 $187 億。東南亞：buyout 投資跌至 $60 億以下，僅 2024 年的 65%。印度：被 J.P. Morgan 列為美國以外最具吸引力的進場機會。
+    </div>
+    <div class="block-label">背景脈絡 / Context</div>
+    <div class="block-content">
+      私募股權亞洲論壇定於 2026 年 6 月 23 日在新加坡舉行，議題包含 secondaries 崛起、新興市場機會、AI 對 PE 的影響。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      以色列科技：DriveNets 吸引 Bessemer 領投 $4.1 億，彰顯 Tel Aviv AI 基礎設施韌性<br>
+      <span class="en">Israel: DriveNets $410M From Bessemer Signals Resilience of Tel Aviv AI Infra Ecosystem</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://www.calcalistech.com/ctechnews/article/zzhjwk3b8" target="_blank">Calcalist Tech</a>
+      · 2026-06-01
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-region">以色列</span>
+      <span class="tag tag-ai">AI 基礎設施</span>
+    </div>
+    <div class="block-label">核心事實 / Facts</div>
+    <div class="block-content">
+      以色列科技在 2024–2025 年因地緣政治衝突受到衝擊，但 DriveNets 在 2026 年 6 月初完成 $4.1 億融資，估值達 $85 億，顯示頂尖以色列 B2B 基礎設施公司仍能吸引全球頂級 VC 資金。
+    </div>
+  </div>
+
+  <!-- ===== SECTION 8: Reads ===== -->
+  <div class="section-header">
+    <span class="section-icon">📖</span>
+    <h2>8. 觀點 / Reads</h2>
+  </div>
+
+  <div class="card">
+    <h3>
+      Sapphire Ventures：2026 年 AI 軟體拐點——Ultra Round、Enterprise 佔比、80+ $1 億 ARR AI 公司<br>
+      <span class="en">Sapphire Ventures: 2026 Software x AI — The Ultra Round is the New Normal</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://sapphireventures.com/blog/2026-softwares-ai-inflection-point/" target="_blank">Sapphire Ventures Blog</a>
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-strategy">觀點</span>
+    </div>
+    <div class="block-content">
+      Sapphire Ventures 的年度報告指出，2025 年史上最大的 10 筆 VC round 中，有 8 筆發生於 2025 至 2026 年初，包括 OpenAI $1,100 億、Anthropic $300 億、Waymo $160 億。「Ultra Round」已成常態，企業 AI 相關 VC 資金達 $1,360 億（年增 146%）。80 家以上 AI 原生公司已達 $1 億 ARR，前十大私有公司估值合計超越所有純 B2B 上市企業。
+    </div>
+    <div class="highlight-box">
+      <strong>關鍵引述：</strong> 「In 2025, 40%+ of enterprise software VC went to the top 20 deals. A decade ago, that number was 8%. AI changed everything.」— Sapphire Ventures (@SapphireVC)
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>
+      SaaStr：「$3,400 億 VC，但 deal 數量創十年新低」——數量與金額的分裂<br>
+      <span class="en">SaaStr: "$340B in VC, But Fewer Deals Than Any Year This Decade"</span>
+    </h3>
+    <div class="source-line">
+      來源：<a href="https://www.saastr.com/340-billion-in-vc-but-fewer-deals-than-any-year-this-decade-10-things/" target="_blank">SaaStr</a>
+    </div>
+    <div class="meta-row">
+      <span class="tag tag-strategy">觀點</span>
+    </div>
+    <div class="block-content">
+      Jason Lemkin 指出，VC 美元總量創史上新高，但投資筆數卻為十年最低。這意味著：對沒有 AI 故事的早期新創而言，融資環境極為嚴苛；而能進入 Mega Round 的公司則從未如此容易地拿到天量資金。文章提醒 GP 和 founder：若不是在競爭前五大 AI 基礎設施位置，必須重新思考估值與融資節奏策略。
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <h4>來源索引 / Sources</h4>
+  <ul>
+    <li><a href="https://www.saastr.com/vc-in-2026-75-of-all-the-money-is-going-to-just-5-funds-and-just-5-startups/" target="_blank">SaaStr — VC in 2026: 75% of Money to 5 Funds</a></li>
+    <li><a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/" target="_blank">Crunchbase — Q1 2026 Record Funding</a></li>
+    <li><a href="https://techcrunch.com/2026/05/11/riding-an-ai-rally-robinhood-preps-second-retail-venture-ipo/" target="_blank">TechCrunch — Robinhood RVII</a></li>
+    <li><a href="https://techcrunch.com/2026/04/07/vc-eclipse-has-a-new-1-3b-to-back-and-build-physical-ai-startups/" target="_blank">TechCrunch — Eclipse $1.3B Physical AI Fund</a></li>
+    <li><a href="https://www.bloomberg.com/news/articles/2026-05-27/climate-venture-firm-leaning-into-ai-with-new-150-million-fund" target="_blank">Bloomberg — Transition Ventures $150M Fund II <span class="paywalled">(可能 paywall)</span></a></li>
+    <li><a href="https://www.eu-startups.com/2026/05/transition-ventures-raises-e128-million-fund-ii-for-early-stage-companies-at-the-intersection-of-ai-and-the-physical-world/" target="_blank">EU-Startups — Transition Ventures Fund II</a></li>
+    <li><a href="https://techcrunch.com/2026/03/23/air-street-becomes-one-of-the-largest-solo-vcs-in-europe-with-232m-fund/" target="_blank">TechCrunch — Air Street Capital Fund III $232M</a></li>
+    <li><a href="https://www.prnewswire.com/news-releases/bai-capital-announces-first-close-of-new-us800-million-fund-continues-to-back-asia-growth-and-globalization-opportunities-302779175.html" target="_blank">PR Newswire — BAI Capital $800M Fund</a></li>
+    <li><a href="https://blog.privateequitylist.com/new-vc-funds-europe-q1-2026-eu8b-raised-across-41-funds/" target="_blank">PE List Blog — Europe Q1 2026 Funds</a></li>
+    <li><a href="https://modal.com/blog/modal-series-c" target="_blank">Modal Blog — Series C $355M</a></li>
+    <li><a href="https://www.prnewswire.com/news-releases/drivenets-secures-410m-series-d-to-meet-surging-demand-for-ethernet-fabric-in-large-scale-ai-deployments-302787577.html" target="_blank">PR Newswire — DriveNets $410M Series D</a></li>
+    <li><a href="https://www.calcalistech.com/ctechnews/article/zzhjwk3b8" target="_blank">Calcalist — DriveNets $8.5B Valuation</a></li>
+    <li><a href="https://www.wamda.com/2026/05/khwarizmi-ventures-launches-fund-ii-70m-close-gcc-startups" target="_blank">Wamda — Khwarizmi Ventures Fund II</a></li>
+    <li><a href="https://sapphireventures.com/blog/2026-softwares-ai-inflection-point/" target="_blank">Sapphire Ventures — 2026 Software x AI Report</a></li>
+    <li><a href="https://www.saastr.com/340-billion-in-vc-but-fewer-deals-than-any-year-this-decade-10-things/" target="_blank">SaaStr — $340B VC, Decade-Low Deal Count</a></li>
+    <li><a href="https://sifted.eu/articles/first-time-european-vc-funds-2026" target="_blank">Sifted — First-time European VC Funds 2026</a></li>
+    <li><a href="https://pipelineroad.com/blog/institutional-allocation-trends-2026" target="_blank">Pipeline Road — LP Allocation Trends 2026</a></li>
+    <li><a href="https://www.deloitte.com/ap/en/about/press-room/asia-pacific-private-equity-almanac-2026-shifting-investment-playbooks-for-uncertain-times.html" target="_blank">Deloitte — APAC PE Almanac 2026</a></li>
+  </ul>
+  <br>
+  <div><span class="paywalled">Paywall / 未能完整存取：</span> Bloomberg (Transition Ventures)、The Information、WSJ VC、Financial Times。PitchBook / Crunchbase Pro 數據部分引用公開摘要。</div>
+  <br>
+  <div style="color: var(--muted); font-size:0.78rem;">生成時間 Generated: 2026-06-03 · 本報告為資訊彙整，非投資建議。</div>
+</footer>
+
+</body>
+</html>

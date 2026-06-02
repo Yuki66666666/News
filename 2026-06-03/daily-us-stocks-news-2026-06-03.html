@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美股日報 / US Stocks Daily Briefing — 2026-06-02 (交易日)</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --accent: #4f8ef7;
+      --accent2: #7ed4a4;
+      --red: #f4645f;
+      --green: #4caf7d;
+      --yellow: #f0c040;
+      --text: #e8eaf0;
+      --muted: #8b8fa8;
+      --border: #2e3347;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      padding: 24px 16px 48px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    header h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+    }
+    header .sub {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 6px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .badge-rtx { background: #2a3a5c; color: var(--accent); }
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent2);
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title .icon { font-size: 1.2rem; }
+    /* Index Table */
+    .index-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+    .index-table th {
+      text-align: left;
+      color: var(--muted);
+      font-weight: 600;
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .index-table td {
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .index-table tr:last-child td { border-bottom: none; }
+    .up { color: var(--green); font-weight: 600; }
+    .dn { color: var(--red); font-weight: 600; }
+    .flat { color: var(--yellow); }
+    .index-name { font-weight: 600; color: var(--text); }
+    .index-level { font-family: 'Courier New', monospace; font-size: 0.95rem; }
+    /* Story cards */
+    .story-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+    }
+    .story-card:last-child { margin-bottom: 0; }
+    .story-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .story-source {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .story-source a { color: var(--accent); text-decoration: none; }
+    .story-source a:hover { text-decoration: underline; }
+    .label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .label-fact { background: #1a3a5c; color: #7ab8f5; }
+    .label-ctx  { background: #1a3a2c; color: #7ad4a0; }
+    .label-imp  { background: #3a2c1a; color: #f0b860; }
+    .fact-block, .ctx-block, .imp-block {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      border-left: 3px solid;
+    }
+    .fact-block { border-color: #4f8ef7; background: rgba(79,142,247,0.08); }
+    .ctx-block  { border-color: #4caf7d; background: rgba(76,175,125,0.08); }
+    .imp-block  { border-color: #f0c040; background: rgba(240,192,64,0.08); }
+    .ticker {
+      display: inline-block;
+      background: #2a3550;
+      color: var(--accent);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-family: monospace;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-right: 4px;
+    }
+    .move-up { color: var(--green); font-weight: 700; }
+    .move-dn { color: var(--red); font-weight: 700; }
+    /* Two-col layout for analyst calls */
+    .analyst-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 600px) { .analyst-grid { grid-template-columns: 1fr; } }
+    .analyst-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .analyst-action {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .downgrade { color: var(--red); }
+    .upgrade   { color: var(--green); }
+    .initiate  { color: var(--accent); }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .pill {
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+    }
+    .pill-up   { background: rgba(76,175,125,0.15); color: var(--green); border-color: var(--green); }
+    .pill-dn   { background: rgba(244,100,95,0.15); color: var(--red); border-color: var(--red); }
+    .pill-flat { background: rgba(240,192,64,0.12); color: var(--yellow); border-color: var(--yellow); }
+    hr.thin { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+    .note { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+    .data-caveat {
+      background: rgba(240,192,64,0.1);
+      border: 1px solid rgba(240,192,64,0.3);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.83rem;
+      color: var(--yellow);
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📈 美股日報 / US Stocks Daily Briefing</h1>
+  <div class="sub">
+    交易日 Trading Session: <strong>2026-06-02 (周二)</strong>
+    <span class="badge badge-rtx">RTH Close</span>
+    &nbsp;·&nbsp; 整理時間 Published: 2026-06-03 (Asia/Taipei)
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════
+     SECTION 1: Market Overview
+     ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title"><span class="icon">🌐</span> 市場概況 / Market Overview</div>
+
+  <div class="data-caveat">
+    ⚠️ 以下指數數據由多個新聞來源彙整；部分精確收盤價（VIX、DXY）當日即時資料未能完整取得，以已知資訊填寫並標注。<br>
+    Data sourced from CNBC, TheStreet, Yahoo Finance. Some figures (VIX, DXY) could not be confirmed at exact close — noted below.
+  </div>
+
+  <table class="index-table">
+    <thead>
+      <tr>
+        <th>指數 / Index</th>
+        <th>收盤 Close</th>
+        <th>漲跌 Chg</th>
+        <th>% Chg</th>
+        <th>備注</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="index-name">S&amp;P 500</td>
+        <td class="index-level">7,584.15</td>
+        <td class="up">+4.09</td>
+        <td class="up">+0.05%</td>
+        <td class="note">小幅收高；Alphabet 發行壓力與 AI 科技反彈相抵</td>
+      </tr>
+      <tr>
+        <td class="index-name">Nasdaq Composite</td>
+        <td class="index-level">—</td>
+        <td class="up">+0.17%</td>
+        <td class="up">+0.17%</td>
+        <td class="note">HPE / MRVL 帶動；GOOGL 稀釋疑慮壓抑</td>
+      </tr>
+      <tr>
+        <td class="index-name">Dow Jones (DJIA)</td>
+        <td class="index-level">—</td>
+        <td class="up">+0.19%</td>
+        <td class="up">+0.19%</td>
+        <td class="note">工業股支撐；能源回落小幅拖累</td>
+      </tr>
+      <tr>
+        <td class="index-name">Russell 2000</td>
+        <td class="index-level">2,899.19</td>
+        <td class="up">+0.93%</td>
+        <td class="up">+0.93%</td>
+        <td class="note">小型股跑贏；Alphabet 增資利好情緒</td>
+      </tr>
+      <tr>
+        <td class="index-name">VIX</td>
+        <td class="index-level">~14–16*</td>
+        <td class="flat">—</td>
+        <td class="flat">—</td>
+        <td class="note">*精確收盤未取得；5月底波動已明顯回落</td>
+      </tr>
+      <tr>
+        <td class="index-name">US 10Y Yield</td>
+        <td class="index-level">~4.4–4.6%*</td>
+        <td class="flat">—</td>
+        <td class="flat">—</td>
+        <td class="note">*Fed 維持利率 3.5–3.75%；長端仍受通膨預期支撐</td>
+      </tr>
+      <tr>
+        <td class="index-name">DXY (美元指數)</td>
+        <td class="index-level">—</td>
+        <td class="flat">—</td>
+        <td class="flat">—</td>
+        <td class="note">未取得當日收盤資料</td>
+      </tr>
+      <tr>
+        <td class="index-name">WTI Crude Oil</td>
+        <td class="index-level">~$91/bbl</td>
+        <td class="dn">~-1%</td>
+        <td class="dn">~-1%</td>
+        <td class="note">美伊停火延伸談判樂觀；前一日大漲 5.5% 後回吐</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pill-row">
+    <span class="pill pill-up">科技 Tech ↑</span>
+    <span class="pill pill-up">小型股 Small Cap ↑</span>
+    <span class="pill pill-dn">能源 Energy 小回落</span>
+    <span class="pill pill-dn">金融 Financials 弱</span>
+    <span class="pill pill-up">AI 基礎建設 AI Infra ↑</span>
+    <span class="pill pill-flat">油價 Oil 震盪</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 2: Top Stories
+     ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title"><span class="icon">🔥</span> 頭條 / Top Stories</div>
+
+  <!-- Story 1: Alphabet $80B -->
+  <div class="story-card">
+    <div class="story-title">
+      <span class="ticker">GOOGL</span>
+      Alphabet 宣布史上最大股票發行 800 億美元融資以押注 AI 基礎建設<br>
+      <span style="font-weight:400; font-size:0.95rem;">Alphabet Announces Record $80 Billion Equity Raise to Fund AI Infrastructure Buildout</span>
+    </div>
+    <div class="story-source">
+      來源: <a href="https://www.streetinsider.com/Corporate+News/Alphabet+plans+$80+billion+equity+raise+to+fund+AI+infrastructure+expansion/26584482.html" target="_blank">StreetInsider</a> ·
+      <a href="https://seekingalpha.com/article/4910900-alphabet-80-billion-equity-raise-explained" target="_blank">Seeking Alpha</a> ·
+      <a href="https://finance.yahoo.com/markets/stocks/articles/alphabet-wants-80-billion-ai-071606927.html" target="_blank">Yahoo Finance</a>
+      · 2026-06-01/02
+    </div>
+
+    <div class="label label-fact">核心事實 / Facts</div>
+    <div class="fact-block">
+      Alphabet 6/1 宣布總計 <strong>800 億美元</strong>股權融資：<br>
+      ① <strong>300 億美元</strong>公開發行（含 150 億美元強制可轉換優先股 + 150 億美元 A/C 類普通股）<br>
+      ② <strong>400 億美元</strong> ATM（在市發行）計畫，Q3 2026 啟動<br>
+      ③ 波克夏海瑟威 <strong>私下配售 100 億美元</strong>（A 類 $351.81/股；C 類 $348.20/股）<br>
+      2026 CapEx 目標上修至 <strong>1,800–1,900 億美元</strong>，2027 年「將大幅提升」。
+    </div>
+
+    <div class="label label-ctx">背景脈絡 / Context</div>
+    <div class="ctx-block">
+      Alphabet 是繼 Microsoft、Meta 之後，AI 軍備競賽中第三家宣布百億級融資的超大型科技公司。波克夏投資標誌市場認可度高，但 800 億美元規模創美企股票融資歷史紀錄，稀釋效應不可忽視。Jim Cramer 警告 GOOGL 或將成「拉鋸盤」（real slog）。
+    </div>
+
+    <div class="label label-imp">影響觀察 / Implications</div>
+    <div class="imp-block">
+      ▸ 短期：稀釋壓力 + 供給衝擊使 GOOGL 股價當日走弱；但波克夏背書提供下方支撐。<br>
+      ▸ 中期：資金流向 AI 算力（GPU、網路、冷卻）供應鏈，利好 NVDA、MRVL、CIEN 等。<br>
+      ▸ CapEx 1,800–1,900 億美元意味 2026 年 AI 基建支出超越 Amazon AWS 同期；觀察 Q2 財報利潤率壓縮程度。
+    </div>
+  </div>
+
+  <!-- Story 2: Jensen Huang + Marvell -->
+  <div class="story-card">
+    <div class="story-title">
+      <span class="ticker">MRVL</span>
+      Jensen Huang 在 Computex 台北稱 Marvell「下一家兆元公司」，股價飆漲逾 24%<br>
+      <span style="font-weight:400; font-size:0.95rem;">Jensen Huang Calls Marvell the "Next Trillion-Dollar Company" at Computex Taipei, Stock Surges 24%+</span>
+    </div>
+    <div class="story-source">
+      來源: <a href="https://www.cnbc.com/2026/06/02/jensen-huang-nvidia-marvell-technology-trillion-dollar-ai.html" target="_blank">CNBC</a> ·
+      <a href="https://finance.yahoo.com/markets/stocks/articles/marvell-shares-surge-nvidia-jensen-111417825.html" target="_blank">Yahoo Finance</a> ·
+      <a href="https://www.techloy.com/why-marvell-stock-jumped-24-after-jensen-huang-called-it-the-next-trillion-dollar-company/" target="_blank">Techloy</a>
+      · 2026-06-02
+    </div>
+
+    <div class="label label-fact">核心事實 / Facts</div>
+    <div class="fact-block">
+      NVIDIA CEO 黃仁勳在 Computex 2026 上與 Marvell CEO Matthew Murphy 同台，公開預言 MRVL 將成「下一家兆元市值公司」。<br>
+      MRVL 盤前飆升 <strong>+24%</strong>，股價逼近 $273，單日市值增加逾 <strong>470 億美元</strong>。<br>
+      截至發言前，Marvell 市值約 <strong>1,920 億美元</strong>，距兆元目標仍有 5 倍空間。
+    </div>
+
+    <div class="label label-ctx">背景脈絡 / Context</div>
+    <div class="ctx-block">
+      Marvell 的 AI 主力產品為<strong>光互連 / 定製 ASIC / 交換機</strong>，直接受益於超大型雲端資料中心的高速互連需求。黃仁勳的 Computex 演講歷來具有極強的市場催化效應（2023 年帶動 NVDA 翻倍、2024/25 年多次引燃 AI 供應鏈）。此次背書強度為近年最高。
+    </div>
+
+    <div class="label label-imp">影響觀察 / Implications</div>
+    <div class="imp-block">
+      ▸ Marvell 上漲同步帶動光通訊（CIEN、LITE）與定製 ASIC 族群（AVGO、INTC AI 部門）走強。<br>
+      ▸ 市場需觀察：Marvell 下一季財報（預計 8 月）AI 業務具體營收是否跟上估值預期。<br>
+      ▸ 注意：此次漲幅主要靠「黃仁勳背書」驅動，若後續無業績支撐，高 beta 回撤風險明顯。
+    </div>
+  </div>
+
+  <!-- Story 3: HPE AI Earnings -->
+  <div class="story-card">
+    <div class="story-title">
+      <span class="ticker">HPE</span>
+      HPE Q2 2026 財報大超：EPS $0.79 vs 預期 $0.53，AI 業務年增 23%，股價收盤漲逾 20%<br>
+      <span style="font-weight:400; font-size:0.95rem;">HPE Q2 2026 Blowout: EPS Crushes Est, AI/Cloud Revenue +23% YoY, Stock Rockets 20%+</span>
+    </div>
+    <div class="story-source">
+      來源: <a href="https://www.investing.com/news/transcripts/earnings-call-transcript-hpe-q2-2026-earnings-beat-expectations-stock-rises-93CH-4720619" target="_blank">Investing.com</a> ·
+      <a href="https://finance.yahoo.com/markets/stocks/articles/hewlett-packard-enterprise-co-hpe-050021719.html" target="_blank">Yahoo Finance</a> ·
+      <a href="https://www.marketbeat.com/earnings/reports/2026-6-1-hewlett-packard-enterprise-stock/" target="_blank">MarketBeat</a>
+      · 2026-06-01/02
+    </div>
+
+    <div class="label label-fact">核心事實 / Facts</div>
+    <div class="fact-block">
+      Q2 FY2026 業績：<br>
+      · 營收 <strong>$107 億</strong>（vs 預期 $97.6 億），年增 <strong>40%</strong><br>
+      · Non-GAAP EPS <strong>$0.79</strong>（vs 預期 $0.53），年增 <strong>108%</strong><br>
+      · Cloud &amp; AI 部門營收 <strong>年增 23%</strong>，AI 推論需求加速<br>
+      · 盤後股價上漲 <strong>+9.4%</strong>，隔日開盤延伸至 <strong>+20%+</strong>
+    </div>
+
+    <div class="label label-ctx">背景脈絡 / Context</div>
+    <div class="ctx-block">
+      HPE 的 AI 系統（Alletra MP 儲存、GreenLake 平台）正受益於企業 AI 基建採購潮。在 Dell、Supermicro 已展示強勁 AI 伺服器需求後，HPE 的業績進一步驗證 AI 硬體超級週期並非單一公司現象。
+    </div>
+
+    <div class="label label-imp">影響觀察 / Implications</div>
+    <div class="imp-block">
+      ▸ 利好企業 AI 基礎建設整體板塊：DELL、SMCI、NTAP 等同業跟漲。<br>
+      ▸ 毛利率提升顯示 AI 業務定價能力強；需觀察 Q3 guidance 能否維持高速成長。<br>
+      ▸ GreenLake 訂閱模式黏性高，若客戶採購鎖定周期延伸，後續季度能見度將提升。
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 3: Earnings
+     ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title"><span class="icon">📊</span> 財報 / Earnings of the Day</div>
+
+  <div class="story-card">
+    <div class="story-title">
+      <span class="ticker">VSCO</span> / <span class="ticker">VSXY</span>
+      Victoria's Secret Q1 2026：EPS $0.60 vs 預期 $0.30；營收 $15.6 億年增 15%，全年 guidance 大幅上調<br>
+      <span style="font-weight:400; font-size:0.95rem;">Victoria's Secret Q1 2026 Massive Beat; Raises FY2026 Guidance Significantly</span>
+    </div>
+    <div class="story-source">
+      來源: <a href="https://finance.yahoo.com/markets/stocks/articles/victorias-secret-q1-2026-earnings-113704350.html" target="_blank">Yahoo Finance</a> ·
+      <a href="https://www.stocktitan.net/news/VSCO/victoria-s-secret-co-reports-first-quarter-2026-73nczgypqqis.html" target="_blank">StockTitan</a>
+      · 2026-06-02
+    </div>
+
+    <div class="label label-fact">核心事實 / Facts</div>
+    <div class="fact-block">
+      · Non-GAAP EPS：<strong>$0.60</strong>（vs 預期 $0.30）✓ 大超<br>
+      · 營收：<strong>$15.6 億</strong>（vs 預期 $15.2 億），年增 <strong>15%</strong><br>
+      · 同店銷售成長 <strong>+13%</strong>（第四個連續正成長季）<br>
+      · 全年 2026 guidance：淨銷售 <strong>$70.3–71.3 億</strong>（前值 $68.5–69.5 億）<br>
+      · 調整後營業利益 guidance：<strong>$5.5–5.8 億</strong>（前值 $4.3–4.6 億，上調 28%+）
+    </div>
+
+    <div class="label label-ctx">背景脈絡 / Context</div>
+    <div class="ctx-block">
+      VS&Co 在前幾年品牌形象危機後進行大規模轉型，此次 Victoria's Secret、PINK、Beauty 三個品牌同步錄得雙位數成長，顯示消費者復甦信心與品牌重振奏效。與零售同業相比，表現突出。
+    </div>
+
+    <div class="label label-imp">影響觀察 / Implications</div>
+    <div class="imp-block">
+      ▸ 高端消費 / 品牌零售情緒受提振；TJX、LULU 等同業可能跟升。<br>
+      ▸ 全年 guidance 上調幅度遠超預期，分析師估值模型需大幅上修，預期短期有多家調升評等。
+    </div>
+  </div>
+
+  <hr class="thin" />
+
+  <div class="story-card">
+    <div class="story-title">
+      <span class="ticker">TXN</span>
+      Texas Instruments：AI 資料中心需求驅動類比晶片業績，股價單日+3.9%<br>
+      <span style="font-weight:400; font-size:0.95rem;">Texas Instruments Rides AI Data Center Demand; Analog Chips See Power &amp; Signal Boom</span>
+    </div>
+    <div class="story-source">
+      來源: <a href="https://www.tradingkey.com/news/market-movers/261941871-market-movers-txn-20260602" target="_blank">TradingKey</a> ·
+      <a href="https://www.cnbc.com/2026/04/23/texas-instruments-stock-soars-on-q1-earnings-as-ai-demand-jumps.html" target="_blank">CNBC</a>
+      · 2026-06-02
+    </div>
+
+    <div class="label label-fact">核心事實 / Facts</div>
+    <div class="fact-block">
+      · 6/2 單日漲幅 <strong>+3.9%</strong>；YTD 年初以來累計漲幅達 <strong>+75.7%</strong><br>
+      · Q1 2026 資料中心相關業務年增 <strong>90% YoY</strong><br>
+      · 類比晶片用於 AI 伺服器電源管理與訊號轉換，隨 AI 算力需求呈線性成長
+    </div>
+
+    <div class="label label-ctx">背景脈絡 / Context</div>
+    <div class="ctx-block">
+      TXN 並非傳統 AI 股，但受益於「算力基礎設施隱形受益者」邏輯——每片 GPU 都需要大量電源管理 IC。市場開始重新定價類比晶片在 AI 供應鏈的戰略地位。競爭對手 ADI 同樣受益。
+    </div>
+
+    <div class="label label-imp">影響觀察 / Implications</div>
+    <div class="imp-block">
+      ▸ 類比晶片板塊（ADI、MCHP、ON）聯動。<br>
+      ▸ TXN 的工廠在德州奧斯汀，受惠於美國製造補貼；需觀察關稅對 ASP 影響。
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 4: Single-Stock Movers
+     ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title"><span class="icon">🚀</span> 個股大事 / Single-Stock Movers</div>
+
+  <div class="story-card">
+    <div class="story-title">
+      <span class="ticker">GNRC</span> Generac +9%：鎖定超大型資料中心備用電源大單<br>
+      <span style="font-weight:400; font-size:0.95rem;">Generac +9%: Secures Hyperscale Data Center Backup Power Contract</span>
+    </div>
+    <div class="story-source">來源: TheStreet, Yahoo Finance · 2026-06-02</div>
+    <div class="fact-block">
+      Generac 宣布與一家超大型雲端運算業者簽約，供應大規模資料中心備用發電機網路。具體財務條款未披露，但市場視為公司轉型 AI 電力基礎建設的重要里程碑，股價單日 <span class="move-up">+9%</span>。
+    </div>
+    <div class="imp-block">
+      ▸ 資料中心電力需求是 2026 年重要投資主題；GNRC、CPRX、AGX 等電力基建族群受益。<br>
+      ▸ 需確認後續是否有更多合約揭露以支撐估值。
+    </div>
+  </div>
+
+  <hr class="thin" />
+
+  <div class="story-card">
+    <div class="story-title">
+      <span class="ticker">NU</span> Nu Holdings -4.5%：BofA 降評至 Underperform + CFO 離職<br>
+      <span style="font-weight:400; font-size:0.95rem;">Nu Holdings -4.5%: BofA Downgrades to Underperform, CFO Transition Unnerves Market</span>
+    </div>
+    <div class="story-source">
+      來源: <a href="https://www.investing.com/news/stock-market-news/nu-holdings-stock-falls-after-cfo-change-and-bofa-downgrade-93CH-4721480" target="_blank">Investing.com</a> ·
+      <a href="https://www.quiverquant.com/news/Nu+Holdings+slides+as+CFO+transition+sparks+downgrade-driven+selloff" target="_blank">Quiver Quantitative</a>
+      · 2026-06-02
+    </div>
+    <div class="fact-block">
+      CFO Guilherme Lago 卸任，7/13 由來自 Visa 北美的 Rob Livingston 接任。<br>
+      BofA 同步將 NU 降評至 Underperform，目標價從 $16 大砍至 <strong>$10</strong>（-37.5%）。<br>
+      股價收盤 <span class="move-dn">-4.5%</span>。
+    </div>
+    <div class="imp-block">
+      ▸ CFO 離職疊加大行降評，市場擔憂信用風險管理與費用控制連續性。<br>
+      ▸ 新興市場數位銀行板塊（STNE、PAGS）可能受到情緒拖累。
+    </div>
+  </div>
+
+  <hr class="thin" />
+
+  <div class="story-card">
+    <div class="story-title">
+      <span class="ticker">INTU</span> Intuit -6.9%：Goldman Sachs 罕見降至 Sell，目標價腰斬近半<br>
+      <span style="font-weight:400; font-size:0.95rem;">Intuit -6.9%: Goldman Sachs Rare Sell Downgrade, Price Target Slashed 47%</span>
+    </div>
+    <div class="story-source">
+      來源: <a href="https://www.gurufocus.com/news/8896109/intuit-intu-faces-downgrade-from-goldman-sachs-shares-drop-686" target="_blank">GuruFocus</a> ·
+      <a href="https://www.gurufocus.com/news/8895705/intu-downgraded-by-goldman-sachs-price-target-lowered-to-276" target="_blank">GuruFocus PT</a>
+      · 2026-06-02
+    </div>
+    <div class="fact-block">
+      Goldman Sachs 將 INTU 從 Neutral 降至 <strong>Sell</strong>（少見），目標價從 $519 砍至 <strong>$276</strong>（跌幅 46.8%）。<br>
+      股價當日重挫 <span class="move-dn">-6.86%</span>，盤前交易至 $329.48。
+    </div>
+    <div class="imp-block">
+      ▸ Goldman 認為 AI 稅務/財務軟體競爭加劇（可能指 AI-native 替代品）壓縮 INTU 定價能力與用戶黏性。<br>
+      ▸ TurboTax 與 QuickBooks 護城河是否能抵禦 AI 原生競品是未來關鍵觀察點。
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 5: M&A / IPO
+     ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title"><span class="icon">🤝</span> 併購與 IPO / M&amp;A and IPO</div>
+
+  <div class="story-card">
+    <div class="story-title">
+      <span class="ticker">GOOGL</span> 波克夏海瑟威私下配售 100 億美元 Alphabet 股份<br>
+      <span style="font-weight:400; font-size:0.95rem;">Berkshire Hathaway Takes $10B Private Placement in Alphabet — First Major Tech Bet in Years</span>
+    </div>
+    <div class="story-source">
+      來源: <a href="https://www.gurufocus.com/news/8894762/alphabet-inc-googl-raises-80-billion-in-equity-financing-for-ai-expansion" target="_blank">GuruFocus</a> ·
+      SEC EDGAR 424B5 · 2026-06-01
+    </div>
+    <div class="fact-block">
+      波克夏以 A 類 $351.81/股、C 類 $348.20/股價格取得合計 <strong>100 億美元</strong> Alphabet 股份（私下配售）。<br>
+      此為波克夏近年最大規模科技股直接投資。
+    </div>
+    <div class="imp-block">
+      ▸ 巴菲特/波克夏背書效應：短期為 GOOGL 股價提供下方支撐。<br>
+      ▸ 意味巴菲特認為 AI 超級週期具有長期投資價值——對整體科技估值具有情緒性正面影響。<br>
+      ▸ 注意：配售價格為議定價，非公開市場價；稀釋效應仍實質存在。
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 6: Analyst Calls
+     ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title"><span class="icon">🔍</span> 券商評等 / Analyst Calls</div>
+
+  <div class="analyst-grid">
+    <div class="analyst-card">
+      <div class="analyst-action downgrade">▼ 降評 Downgrade</div>
+      <strong><span class="ticker">INTU</span> Intuit</strong><br>
+      Goldman Sachs: Neutral → <strong>Sell</strong><br>
+      PT: $519 → <strong>$276</strong><br>
+      <span class="note">AI 競爭壓縮護城河</span>
+    </div>
+    <div class="analyst-card">
+      <div class="analyst-action downgrade">▼ 降評 Downgrade</div>
+      <strong><span class="ticker">NU</span> Nu Holdings</strong><br>
+      BofA Securities: Neutral → <strong>Underperform</strong><br>
+      PT: $16 → <strong>$10</strong><br>
+      <span class="note">CFO 離職 + 信用風險疑慮</span>
+    </div>
+    <div class="analyst-card">
+      <div class="analyst-action upgrade">▲ 隱含正面 Positive</div>
+      <strong><span class="ticker">MRVL</span> Marvell</strong><br>
+      Jensen Huang (NVIDIA): 口頭「兆元公司」背書<br>
+      <span class="note">Computex 現場點名，非正式評等但市場效應強烈</span>
+    </div>
+    <div class="analyst-card">
+      <div class="analyst-action upgrade">▲ 預期調升 Expected</div>
+      <strong><span class="ticker">VSCO</span> Victoria's Secret</strong><br>
+      財報大超 + guidance 上調 28%+<br>
+      <span class="note">多家分析師預計短期內調升評等與目標價</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 7: Fed & Rates
+     ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title"><span class="icon">🏛️</span> Fed 與利率 / Fed &amp; Rates</div>
+
+  <div class="story-card">
+    <div class="story-title">
+      Fed 維持利率 3.5–3.75%；下次 FOMC 為 6/16–17，市場靜待通膨數據<br>
+      <span style="font-weight:400; font-size:0.95rem;">Fed Holds Rates at 3.5–3.75%; Next FOMC June 16–17; Market Watches Inflation Print</span>
+    </div>
+    <div class="story-source">
+      來源: <a href="https://www.federalreserve.gov/monetarypolicy/fomcminutes20260429.htm" target="_blank">Federal Reserve FOMC Minutes (Apr 29)</a> ·
+      <a href="https://www.fxstreet.com/economic-calendar/event/fcfae951-09a7-449e-b6fe-525e1335aaba" target="_blank">FXStreet FOMC Calendar</a>
+    </div>
+
+    <div class="label label-fact">核心事實 / Facts</div>
+    <div class="fact-block">
+      · 4/29 FOMC 決議：聯邦基金利率維持 <strong>3.5–3.75%</strong> 不變<br>
+      · FOMC 聲明指出：就業成長放緩，通膨受全球能源價格上漲影響仍偏高<br>
+      · 下次 FOMC：<strong>2026/6/16–17</strong>（6/2 無 Fed 官員發言安排）<br>
+      · CME FedWatch 顯示：市場對 6 月降息機率依然偏低
+    </div>
+
+    <div class="label label-ctx">背景脈絡 / Context</div>
+    <div class="ctx-block">
+      美伊衝突導致油價在 4–5 月大幅上漲，延遲了 Fed 的降息路徑。市場正在重新定價「higher for longer」的可能性，特別是若 6 月 CPI 數據再度超預期。長端利率（10Y）維持高位對科技股的估值構成持續壓力，但 AI 盈利成長預期在一定程度上抵銷了這一影響。
+    </div>
+
+    <div class="label label-imp">影響觀察 / Implications</div>
+    <div class="imp-block">
+      ▸ 6/17 FOMC 決策前，每一份通膨數據（CPI、PCE）都將影響市場預期，波動風險偏高。<br>
+      ▸ 若油價因美伊和解而持續下行，通膨壓力緩解可能重啟降息預期，利好成長股。<br>
+      ▸ 金融股（銀行）在利率長高不降的環境下 NIM 受益，但信貸品質風險上升。
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 8: Flows & Positioning
+     ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title"><span class="icon">💹</span> 資金流向 / Flows &amp; Positioning</div>
+
+  <div class="story-card">
+    <div class="story-title">
+      ETF 全年流入有望突破 2 兆美元歷史紀錄；近週股票基金出現較大贖回<br>
+      <span style="font-weight:400; font-size:0.95rem;">ETF Inflows on Track for Record $2T in 2026; Recent Equity Fund Outflows Signal Rotation</span>
+    </div>
+    <div class="story-source">
+      來源: <a href="https://www.ishares.com/us/insights/inside-the-market/2026-etf-market-trends-and-flows" target="_blank">iShares / BlackRock</a> ·
+      <a href="https://www.ssga.com/library-content/pdfs/etf/us/monthly-flash-flows.pdf" target="_blank">State Street SPDR Flash Flows</a>
+      · Q1–Q2 2026
+    </div>
+
+    <div class="fact-block">
+      · 4 月股票 ETF 流入 <strong>1,390 億美元</strong>（史上第二高）<br>
+      · 全年 ETF 流入有望達 <strong>2 兆美元</strong>歷史紀錄<br>
+      · 但 5/20 當週股票基金錄得 <strong>-132.8 億美元</strong> 贖回（其中國內股票 -117.5 億美元）<br>
+      · 選擇權市場：機構對大盤 Call 的買入量（6 月 + 9 月到期）達到近年最高<br>
+      · 零售 vs 機構比率從 1.5:1 正常化回 1.3:1（回歸單一股票選擇權）
+    </div>
+
+    <div class="imp-block">
+      ▸ 短期贖回可能是獲利了結（S&P 500 5 月累計大漲後的結算壓力），而非轉向熊市。<br>
+      ▸ 機構 Call 買盤至 9 月到期顯示 Gamma 動能偏多，市場做多情緒尚未反轉。<br>
+      ▸ 能源 ETF（XLE）+ AI 主題 ETF（BOTZ、AIQ）為近期主要資金流入標的，值得追蹤。
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 9: Reads / Perspective
+     ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title"><span class="icon">📖</span> 觀點 / Reads &amp; Perspectives</div>
+
+  <div class="story-card">
+    <div class="story-title">
+      2026 年類股輪動：能源 +26%、科技 +33% 領漲，金融 -5% 殿後<br>
+      <span style="font-weight:400; font-size:0.95rem;">2026 Sector Rotation: Energy &amp; Industrials Outpace; Financials Lag; "Great Rotation" Narrative Builds</span>
+    </div>
+    <div class="story-source">
+      來源: <a href="https://www.morningstar.com/markets/is-stock-market-rotation-underway-these-sectors-are-outpacing-tech-2026" target="_blank">Morningstar</a> ·
+      <a href="https://www.investing.com/analysis/sector-rotation-intensifies-value-outperforms-growth-in-2026-market-split-200675093" target="_blank">Investing.com</a>
+    </div>
+
+    <div class="fact-block">
+      YTD 2026 各板塊表現（截至 6 月初）：<br>
+      · 科技 Technology：<span class="up">+32–33%</span>（AI 硬體 + 軟體雙驅動）<br>
+      · 能源 Energy：<span class="up">+26–27%</span>（地緣政治 + 油價高位）<br>
+      · 工業 Industrials：<span class="up">+12%</span>（AI 資料中心建設）<br>
+      · 材料 Materials：<span class="up">+13%</span>（銅、稀土需求）<br>
+      · 金融 Financials：<span class="dn">-5%</span>（信貸品質疑慮、利率壓縮 NIM）
+    </div>
+
+    <div class="ctx-block">
+      「大輪動」（Great Rotation）敘事在 2026 年以不同面貌呈現：科技股因 AI 盈利成長而避開了傳統防禦性輪動，但能源 + 工業 + 材料的強勁表現顯示市場開始重視「AI 物理基礎建設」的需求。Caterpillar（建機）、Exxon（能源）、Walmart（消費防禦）同步走強，反映深層的景氣敘事擴散。
+    </div>
+
+    <div class="imp-block">
+      ▸ 若美伊談判進展順利、油價回落，能源板塊的強勢可能放緩，資金或再度集中科技。<br>
+      ▸ 金融股的弱勢可能延續——高利率環境加劇中小企業貸款違約，需持續追蹤銀行壞帳數據。<br>
+      ▸ 「AI 物理基礎建設」（電力、冷卻、建材）作為 2026 年 H2 新主題值得關注。
+    </div>
+  </div>
+
+  <hr class="thin" />
+
+  <div class="story-card">
+    <div class="story-title">
+      美伊局勢：停火延伸談判進行中，油價從 2026 高點已回落 20%<br>
+      <span style="font-weight:400; font-size:0.95rem;">US-Iran Ceasefire Extension Negotiations Underway; Crude 20% Off 2026 Highs</span>
+    </div>
+    <div class="story-source">
+      來源: <a href="https://www.cnbc.com/2026/05/29/oil-prices-iran-ceasefire-us-trump-strait-hormuz-energy-costs.html" target="_blank">CNBC</a> ·
+      <a href="https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war" target="_blank">Wikipedia – Economic Impact 2026 Iran War</a>
+    </div>
+
+    <div class="fact-block">
+      · 美伊談判人員達成 60 天停火延伸 MOU（川普尚待簽署）<br>
+      · Brent 原油從 2026 年高點已回落約 <strong>20%</strong>，目前約 $93.71/桶<br>
+      · WTI 6/2 繼續下探 $91/桶（前一交易日大漲 5.5% 後回吐）<br>
+      · 霍爾木茲海峽航運仍無顯著改善，伊朗原油裝載量 5 月 &lt; 0.3 mbpd
+    </div>
+
+    <div class="imp-block">
+      ▸ 和平預期 → 油價中期下行 → 通膨壓力緩解 → Fed 可能重啟降息路徑（市場高度關注 Trump 最終簽署決定）。<br>
+      ▸ 若談判破裂，油價可能再度衝向 $100–110；能源股、防禦標的將再度受追捧。<br>
+      ▸ 近期油價 $90–100 「停火溢價」估計約 $10/桶；若情勢完全平息，低油價利好 Consumer &amp; Airlines 板塊。
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>
+    數據來源 Sources：
+    <a href="https://www.cnbc.com/markets/" target="_blank">CNBC</a> ·
+    <a href="https://finance.yahoo.com/" target="_blank">Yahoo Finance</a> ·
+    <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-02-2026" target="_blank">TheStreet</a> ·
+    <a href="https://www.streetinsider.com/" target="_blank">StreetInsider</a> ·
+    <a href="https://seekingalpha.com/" target="_blank">Seeking Alpha</a> ·
+    <a href="https://www.gurufocus.com/" target="_blank">GuruFocus</a> ·
+    <a href="https://www.investing.com/" target="_blank">Investing.com</a> ·
+    <a href="https://www.marketwatch.com/" target="_blank">MarketWatch</a> ·
+    <a href="https://www.morningstar.com/" target="_blank">Morningstar</a> ·
+    <a href="https://www.federalreserve.gov/" target="_blank">Federal Reserve</a> ·
+    <a href="https://efts.sec.gov/LATEST/search-index?q=&dateRange=custom&forms=8-K" target="_blank">SEC EDGAR</a>
+  </p>
+  <p style="margin-top:8px;">
+    ⚠️ 本報告僅供資訊參考，不構成投資建議。部分數據（VIX、DXY 精確收盤）因即時資料限制未能取得，已於表格中標注。<br>
+    This report is for informational purposes only and does not constitute investment advice.
+  </p>
+  <p style="margin-top:6px; font-size:0.72rem;">
+    Generated: 2026-06-03 | Trading Session: 2026-06-02 RTH | Claude Sonnet 4.6
+  </p>
+</footer>
+
+</body>
+</html>

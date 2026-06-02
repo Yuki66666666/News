@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新創新聞日報 / Daily Startup News — 2026-06-03</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --accent: #6c63ff;
+      --accent2: #00d4aa;
+      --accent3: #ff6b6b;
+      --accent4: #ffd166;
+      --text: #e8eaf0;
+      --muted: #8b8fa8;
+      --border: #2e3250;
+      --seed: #4caf50;
+      --seriesA: #2196f3;
+      --seriesB: #9c27b0;
+      --seriesC: #ff9800;
+      --late: #f44336;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', 'PingFang TC', 'Noto Sans TC', system-ui, sans-serif;
+      line-height: 1.7;
+      padding: 0 0 60px;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #22263a 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 24px 24px;
+      text-align: center;
+    }
+    header .label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    header .date {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    header .tagline {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+    .section {
+      margin-top: 36px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .section-header h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .section-header .icon {
+      font-size: 20px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent2);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .card .meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .card .meta a { color: var(--accent); text-decoration: none; }
+    .card .meta a:hover { text-decoration: underline; }
+    .card .block { margin-bottom: 10px; }
+    .card .block-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+    .card .block-body {
+      font-size: 13.5px;
+      color: var(--text);
+    }
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+    .tag-seed { background: rgba(76,175,80,0.2); color: #4caf50; }
+    .tag-seriesA { background: rgba(33,150,243,0.2); color: #2196f3; }
+    .tag-seriesB { background: rgba(156,39,176,0.2); color: #ce93d8; }
+    .tag-seriesC { background: rgba(255,152,0,0.2); color: #ffb74d; }
+    .tag-seriesD { background: rgba(244,67,54,0.2); color: #ef9a9a; }
+    .tag-seriesH { background: rgba(233,30,99,0.2); color: #f48fb1; }
+    .tag-ipo { background: rgba(108,99,255,0.2); color: #b39ddb; }
+    .tag-acq { background: rgba(0,212,170,0.2); color: #00d4aa; }
+    .tag-layoff { background: rgba(255,107,107,0.2); color: #ff6b6b; }
+    .tag-launch { background: rgba(255,209,102,0.2); color: #ffd166; }
+    .tag-pivot { background: rgba(255,160,0,0.2); color: #ffcc02; }
+    .highlight-box {
+      background: var(--surface2);
+      border-left: 3px solid var(--accent);
+      padding: 14px 16px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 16px;
+      font-size: 13.5px;
+    }
+    .highlight-box strong { color: var(--accent2); }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+    footer {
+      margin-top: 48px;
+      border-top: 1px solid var(--border);
+      padding: 24px 20px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    .amount { color: var(--accent4); font-weight: 700; }
+    .company { color: var(--accent2); font-weight: 600; }
+    .warning { color: var(--accent3); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="label">Daily Startup Briefing</div>
+  <h1>新創新聞日報</h1>
+  <div class="date">2026 年 6 月 3 日 (Asia/Taipei) &nbsp;·&nbsp; Wednesday</div>
+  <div class="tagline">Funding rounds · Launches · Acquisitions · Layoffs · IPO pipeline · Regional</div>
+</header>
+
+<div class="container">
+
+  <!-- ===== TOP STORIES ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🔥</span>
+      <h2>頭條 / Top Stories</h2>
+    </div>
+
+    <div class="highlight-box">
+      <strong>Anthropic 申請 IPO，劍指兆美元估值</strong> / <strong>Anthropic Files for IPO, Eyes Trillion-Dollar Debut</strong><br>
+      6 月 1 日 Anthropic 向 SEC 機密提交 S-1，最新估值 ~$965B，5 月年化營收約 $47B。若上市估值突破 $1T，將成為史上第二或第三大 IPO，僅次於 SpaceX 與沙特阿美。
+    </div>
+
+    <div class="highlight-box">
+      <strong>SpaceX 路演啟動，6/12 掛牌 Nasdaq，目標 $1.75T 估值</strong> / <strong>SpaceX Roadshow Kicks Off, Listing June 12 at $1.75T Valuation</strong><br>
+      史上最大 IPO 即將到來。SpaceX (SPCX) 計劃募資 ~$75B，由 Goldman Sachs 領銜承銷。路演今日 (6/3) 或本週啟動，定價排 6/11，6/12 開始交易。
+    </div>
+
+    <div class="highlight-box">
+      <strong>Fivetran + dbt Labs 合併完成，打造 AI 代理資料基礎設施</strong> / <strong>Fivetran + dbt Labs Merger Closes, Building the Data Layer for AI Agents</strong><br>
+      6 月 1 日兩家 unicorn 宣布全股票合併完成 (原定 2025 年 10 月宣布)，合計服務超過 10 萬個資料團隊。dbt Core v2.0 alpha 同步釋出，Fusion Engine 以 Apache 2.0 開源。
+    </div>
+  </div>
+
+  <!-- ===== FUNDING ROUNDS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">💰</span>
+      <h2>募資 / Funding Rounds</h2>
+    </div>
+
+    <!-- DriveNets -->
+    <div class="card">
+      <h3>DriveNets 完成 $410M Series D，AI 以太網路基礎設施估值達 $8.5B / DriveNets Closes $410M Series D at $8.5B Valuation for AI Ethernet Fabric</h3>
+      <div class="meta">
+        <span class="tag tag-seriesD">Series D</span>
+        來源: <a href="https://www.prnewswire.com/news-releases/drivenets-secures-410m-series-d-to-meet-surging-demand-for-ethernet-fabric-in-large-scale-ai-deployments-302787577.html" target="_blank">PR Newswire</a> · 2026-06-01 ·
+        <a href="https://www.calcalistech.com/ctechnews/article/zzhjwk3b8" target="_blank">Calcalist</a>
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          以色列 AI 網路新創 <span class="company">DriveNets</span> 完成 <span class="amount">$410M Series D</span>，post-money 估值 <span class="amount">$8.5B</span>，累計募資突破 $1B。由 Bessemer Venture Partners 與 Atreides Management 領投，新投資人包含 AMD 與 Red Dot Capital，現有股東 Pitango、D1 Capital Partners 跟投。公司已自 2025 年起現金流轉正。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="block-body">
+          DriveNets 建構基於乙太網路的 AI Fabric，支援 hyperscaler、foundation lab、NeoCloud 等異質多廠商 AI 叢集。公司已有超過 $1B 已確認訂單，此輪融資主要用於擴充庫存以應對 AI 基礎建設採購潮。競爭對手包含 Arista、Cisco 及 Nvidia 的 Spectrum-X。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="block-body">
+          AMD 參與投資意義重大，顯示晶片廠積極佈局網路層以補全 AI 硬體生態。以色列深科技新創在 AI infra 層的競爭力持續獲得國際 VC 青睞，本輪估值是 Calcalist 報導的以色列科技史上最高之一。
+        </div>
+      </div>
+    </div>
+
+    <!-- Exa -->
+    <div class="card">
+      <h3>Exa (前 Metaphor) 以 $2.2B 估值完成 $250M Series C，a16z 領投 / Exa Raises $250M Series C at $2.2B Valuation, Led by a16z</h3>
+      <div class="meta">
+        <span class="tag tag-seriesC">Series C</span>
+        來源: <a href="https://exa.ai/blog/announcing-series-c" target="_blank">Exa Blog</a> · 2026-05-20 ·
+        <a href="https://www.benzinga.com/markets/private-markets/26/05/52731056/ai-search-startup-exa-labs-raises-250m-at-2-2-billion-valuation-led-by-andreessen-horowitz" target="_blank">Benzinga</a>
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          <span class="company">Exa Labs</span> 完成 <span class="amount">$250M Series C</span>，估值 <span class="amount">$2.2B</span>，由 Andreessen Horowitz 領投，Benchmark、Lightspeed、YC 及多位 AI 創辦人 (Scott Wu、Igor Babuschkin) 參與。Exa 是專為 LLM 與 AI agent 打造的 AI-native 搜尋引擎與 web 資料檢索平台，客戶超過 5,000 家，包含 Cursor、Cognition、HubSpot。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="block-body">
+          Exa 上一輪 $85M 估值 $700M (2025 年秋)，本輪估值超過三倍。公司核心優勢是「meaning-based search」，針對 AI agent 需要大量即時 web 資料的場景 (RAG、real-time reasoning) 優化，區別於 Google/Bing。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="block-body">
+          AI agent 基礎設施需求持續爆發；搜尋 API 市場正從 SerpAPI 等傳統工具快速遷移到 AI-native 解決方案。Exa 的成長也對 Perplexity、Tavily、Brave Search API 形成直接競爭壓力。
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Labs -->
+    <div class="card">
+      <h3>Modal Labs 以 $4.65B 估值完成 $355M Series C，AI 雲端收入突破 $300M ARR / Modal Labs Raises $355M Series C at $4.65B, ARR Hits $300M</h3>
+      <div class="meta">
+        <span class="tag tag-seriesC">Series C</span>
+        來源: <a href="https://modal.com/blog/modal-series-c" target="_blank">Modal Blog</a> · 2026-05-21 ·
+        <a href="https://siliconangle.com/2026/05/21/serverless-ai-infrastructure-startup-modal-labs-seals-355m-funding-round/" target="_blank">SiliconAngle</a>
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          <span class="company">Modal Labs</span>（創辦人 Akshat Bubna、Erik Bernhardsson，2021 年成立）完成 <span class="amount">$355M Series C</span>，估值 <span class="amount">$4.65B</span>（自 Series B 的 $2.5B 起跳後分兩段定價）。General Catalyst 與 Redpoint 領投，Menlo、Bain Capital Ventures、Accel 新加入。ARR 已突破 <span class="amount">$300M</span>，自去年 9 月 $60M 成長 5 倍。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="block-body">
+          Modal 定位為「AI 生產雲端」，非單純 GPU 出租，提供包含 Sandboxes、任務佇列、Volumes 等 primitive，對應 AI 應用 inference、fine-tuning、batch job 等場景。目前已與 13 家 infra 夥伴整合（Series B 時只有 5 家）。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="block-body">
+          Modal 的高速成長驗證「serverless GPU」市場規模，對 AWS Lambda、Replicate、Baseten 等形成壓力。分兩段定價的結構也反映市場熱度：首段投資人認購完後需求仍未飽和、加碼第二段。
+        </div>
+      </div>
+    </div>
+
+    <!-- Tripo AI -->
+    <div class="card">
+      <h3>Tripo AI 完成近 $200M 募資，3D 世界模型研究加速 / Tripo AI Raises ~$200M to Advance 3D World-Model Research</h3>
+      <div class="meta">
+        <span class="tag tag-seriesC">Late Stage</span>
+        來源: <a href="https://techstartups.com/2026/06/01/venture-capital-startup-funding-roundup-june-1-2026/" target="_blank">Tech Startups</a> · 2026-06-01
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          <span class="company">Tripo AI</span> 宣布近 <span class="amount">$200M</span> 募資，用於 3D 生成模型與世界模型研究。具體 post-money 估值與領投方尚未完整揭露（undisclosed）。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="block-body">
+          3D 生成 AI 是 2026 年最熱門的細分賽道之一；Tripo AI 競爭對手包含 Meshy、Luma AI 的 Genie、以及 OpenAI 進軍 3D 生成的傳言。世界模型研究也吸引機器人學習領域投資人。
+        </div>
+      </div>
+    </div>
+
+    <!-- Waypoint Bio -->
+    <div class="card">
+      <h3>Waypoint Bio 完成 $20M Series A，AI 驅動實體腫瘤 CAR T 療法 / Waypoint Bio Closes $20M Series A for AI-Driven Solid Tumor CAR T</h3>
+      <div class="meta">
+        <span class="tag tag-seriesA">Series A</span>
+        來源: <a href="https://techstartups.com/2026/06/01/venture-capital-startup-funding-roundup-june-1-2026/" target="_blank">Tech Startups</a> · 2026-06-01
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          AI 生技新創 <span class="company">Waypoint Bio</span> 完成 <span class="amount">$20M Series A</span>，由 Amplify Partners 領投，General Catalyst、Time BioVentures、Mitsui Global Investments、Lux Capital 等參與。公司結合空間生物學、電腦視覺與池化篩選設計下一代 in vivo CAR T 療法，目標攻克實體腫瘤。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="block-body">
+          傳統 CAR T 在實體腫瘤效果有限，Waypoint Bio 試圖以 AI 分析空間組學數據加速設計迭代。Amplify Partners 以 infra 投資聞名，跨界生技顯示 AI-native biotech 吸引力已擴展到非傳統 life science 投資人。
+        </div>
+      </div>
+    </div>
+
+    <!-- Rovia India -->
+    <div class="card">
+      <h3>ProLearn 完成 Rs 30Cr 種子輪，BEENEXT 領投 AI 學習平台 / ProLearn Raises Rs 30Cr Pre-Seed, BEENEXT Leads AI-Native Learning Platform</h3>
+      <div class="meta">
+        <span class="tag tag-seed">Pre-Seed</span>
+        來源: <a href="https://yourstory.com/2026/06/startup-news-and-updates-daily-roundup-june-01-2026" target="_blank">YourStory</a> · 2026-06-01
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          印度 AI 學習平台 <span class="company">ProLearn</span> 完成 <span class="amount">Rs 30 Cr (~$3.6M)</span> 種子輪，BEENEXT 領投，Eximius Ventures、Antler 參與。定位為「AI-native」職業技能培訓平台。
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== LAUNCHES ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🚀</span>
+      <h2>新公司發表 / Launches &amp; Product Hunt</h2>
+    </div>
+
+    <div class="card">
+      <h3>dbt Core v2.0 Alpha 開源釋出，Fusion Engine 以 Apache 2.0 授權 / dbt Core v2.0 Alpha Released with Open-Source Fusion Engine (Apache 2.0)</h3>
+      <div class="meta">
+        <span class="tag tag-launch">Product Launch</span>
+        來源: <a href="https://www.getdbt.com/blog/fivetran-dbt-labs-complete-merger-to-create-the-data-infrastructure-for-trusted-ai-agents" target="_blank">dbt Labs Blog</a> · 2026-06-01
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          Fivetran + dbt Labs 合併完成同日，<span class="company">dbt Core v2.0 (alpha)</span> 同步釋出。Fusion Engine runtime 以 Apache 2.0 開源，顯著提升 dbt 執行效能，並在 agentic 開發工作流、智慧編排等新增多項功能。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="block-body">
+          開源 Fusion Engine 是一個防禦性策略，鞏固 dbt 在資料工程社群的核心地位，同時為合併後的商業產品版本建立更廣的採用基礎。對 Coalesce、SQLMesh 等競品帶來壓力。
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Product Hunt 本月熱門：Mina Meeting Assistant (29K 票)、Dune Keypad (22K 票) / PH June 2026 Top: Mina Meeting Assistant, Dune Keypad</h3>
+      <div class="meta">
+        <span class="tag tag-launch">Product Hunt</span>
+        來源: <a href="https://www.producthunt.com/products" target="_blank">Product Hunt</a> · 2026-06
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          6 月 Product Hunt 高票產品包含：<span class="company">Mina Meeting Assistant</span> (29,547 票)、<span class="company">Dune Keypad</span> (21,846 票)、<span class="company">Databox MCP</span> (21,539 票)、<span class="company">folk</span> (19,351 票)、<span class="company">Typeahead</span> (17,222 票)。注：6/3 當日具體 #1 尚待官方公告。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="block-body">
+          Databox MCP 進入前三顯示 MCP (Model Context Protocol) 整合已成為 SaaS 工具的行銷差異化要素。Meeting AI assistant 類別持續熱門，呼應企業生產力工具的 AI-first 轉型浪潮。
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== ACQUISITIONS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🤝</span>
+      <h2>收購與整併 / Acquisitions &amp; Consolidation</h2>
+    </div>
+
+    <div class="card">
+      <h3>G2 收購 Gartner 旗下 Capterra、Software Advice、GetApp，整併 B2B 軟體評論市場 / G2 Acquires Three Gartner Review Sites, Controlling >50% of Global Software Review Influence</h3>
+      <div class="meta">
+        <span class="tag tag-acq">Acquisition</span>
+        來源: <a href="https://company.g2.com/news/g2-acquires-capterra-software-advice-getapp" target="_blank">G2</a> ·
+        <a href="https://thenextweb.com/news/g2-bold-move-to-reshape-software-discovery-with-major-acquisition-from-gartner" target="_blank">The Next Web</a> · 2026-Q1
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          <span class="company">G2</span> 完成收購 Gartner 旗下三大 B2B 軟體評論平台：Capterra、Software Advice 與 GetApp。合併後四大平台覆蓋全球 2,000+ 軟體類別、6M+ 驗證評論，每年觸及 200M+ 軟體採購決策者，服務 10,000+ 軟體廠商。收購金額 undisclosed。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="block-body">
+          G2 已在 2025 年推出 G2.ai，允許採購者以自然語言搜尋軟體。本次收購讓 G2 控制全球軟體評論影響力 50% 以上，形成事實上的 gatekeeper 地位。市場已出現批評聲音，擔憂壟斷風險。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="block-body">
+          軟體行銷費用結構面臨重整：G2 + Capterra 過去都是獨立的必要渠道，合併後廠商議價空間縮小。監管審查風險值得關注，反壟斷問題可能在美國或歐盟被提出。
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Fivetran + dbt Labs 合併完成，資料工程雙龍頭合體 / Fivetran + dbt Labs Merger Closes: Data Engineering Powerhouse for AI Agents</h3>
+      <div class="meta">
+        <span class="tag tag-acq">Merger (All-Stock)</span>
+        來源: <a href="https://www.businesswire.com/news/home/20260601514374/en/Fivetran-dbt-Labs-Complete-Merger-to-Create-the-Data-Infrastructure-for-Trusted-AI-Agents" target="_blank">BusinessWire</a> · 2026-06-01
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          <span class="company">Fivetran</span>（資料搬運）+ <span class="company">dbt Labs</span>（資料轉換）全股票合併正式完成（2025-10-13 宣布）。CEO George Fraser 續任，Tristan Handy 擔任總裁。合計服務全球 100,000+ 資料團隊。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="block-body">
+          兩者合體覆蓋「從資料移動到轉換」的全鏈路，對 Databricks 的資料整合野心形成直接挑戰，也壓縮 Airbyte、Hightouch、Coalesce 等點解決方案的市場空間。開源 dbt Core v2.0 是防守技巧：確保社群不會因商業化擔憂而出走。
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== PEOPLE MOVES ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">👤</span>
+      <h2>人事 / People Moves</h2>
+    </div>
+
+    <div class="card">
+      <h3>ClickUp CEO Zeb Evans 宣告「100x Org」模型，縮編後以百萬年薪留才 / ClickUp CEO Declares "100x Org" — Million-Dollar Salary Bands for Remaining Staff</h3>
+      <div class="meta">
+        <span class="tag tag-pivot">AI Restructuring</span>
+        來源: <a href="https://techcrunch.com/2026/05/25/what-clickups-mass-layoff-tells-us-about-the-future-of-work/" target="_blank">TechCrunch</a> ·
+        <a href="https://thenextweb.com/news/clickup-layoffs-22-percent-ai-100x-org-million-salary" target="_blank">TNW</a> · 2026-05-22
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          <span class="company">ClickUp</span> CEO Zeb Evans 在裁員後公開宣布 "100x org" 模型：公司現運行約 3,000 個 AI agent（人員:agent = 1:3），並為留任員工設立最高 $1M/年 現金薪資等級，分為 Builder、System Manager、Front-liner 三種角色。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="block-body">
+          「AI agent 取代人」的論述首次以公開薪酬結構具體落地。若 ClickUp 的模型奏效，將對其他 SaaS 公司產生示範效應。但 $1M 薪酬等級是否真能兌現，需觀察後續財務表現。
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== LAYOFFS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">📉</span>
+      <h2>裁員與停業 / Layoffs &amp; Shutdowns</h2>
+    </div>
+
+    <div class="card">
+      <h3>ClickUp 裁員 22%（約 290 人），以 AI agent 替代人力工作流 / ClickUp Cuts 22% (~290 Staff), Deploying 3,000 AI Agents to Replace Workflows</h3>
+      <div class="meta">
+        <span class="tag tag-layoff">Layoff</span>
+        來源: <a href="https://thenextweb.com/news/clickup-layoffs-22-percent-ai-100x-org-million-salary" target="_blank">The Next Web</a> · 2026-05-22
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          <span class="company">ClickUp</span>（$4B 估值）裁員 22%，約 290 人，為 2026 年 AI 驅動裁員最具象徵性案例之一。同週 Meta 裁員 8,000 人、Oracle 裁員最多 30,000 人。
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Innovaccer 裁員 340 人，健康科技 unicorn 轉型 AI-Native 架構 / Innovaccer Lays Off 340 in AI-Native Pivot, Healthtech Unicorn's Third Restructuring</h3>
+      <div class="meta">
+        <span class="tag tag-layoff">Layoff</span>
+        來源: <a href="https://entrackr.com/news/innovaccer-lays-off-340-employees-amid-shift-to-ai-native-operations-11838352" target="_blank">Entrackr</a> · 2026-05-16
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          印度裔創辦人健康科技 unicorn <span class="company">Innovaccer</span>（估值 $3.45B，累計募資 ~$675M）裁員 340 人（跨印度與美國），為該公司四年內第三次裁員。CEO Abhinav Shashank 表示 AI 系統已自動化大量原需人工的工作流。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="block-body">
+          醫療 AI 領域的「AI-native」轉型不再只是口號，企業正以實際裁員兌現承諾。對醫療 IT 就業市場影響不小，尤其是資料整合與分析崗位。
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>2026 年科技裁員概況：355 起事件，14.8 萬人受影響 / 2026 Tech Layoff Tracker: 355 Events, 148K+ Impacted</h3>
+      <div class="meta">
+        <span class="tag tag-layoff">Tracker</span>
+        來源: <a href="https://www.trueup.io/layoffs" target="_blank">TrueUp</a> · <a href="https://layoffs.fyi/" target="_blank">Layoffs.fyi</a> · 截至 2026-06-02
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          截至 6 月初，2026 年已累計 355 起科技業裁員事件，受影響人數超過 <span class="amount">148,173 人</span>（約 975 人/天）。主要觸發因素：AI 自動化替代、盈利優先轉型、以及新一波重組。
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== IPO PIPELINE ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">📋</span>
+      <h2>上市進程 / IPO Pipeline</h2>
+    </div>
+
+    <div class="card">
+      <h3>Anthropic 機密提交 S-1，估值 ~$965B，目標兆美元上市 / Anthropic Files Confidential S-1, ~$965B Valuation, Eyes $1T IPO</h3>
+      <div class="meta">
+        <span class="tag tag-ipo">IPO Filing</span>
+        來源: <a href="https://www.anthropic.com/news/confidential-draft-s1-sec" target="_blank">Anthropic</a> ·
+        <a href="https://www.cnbc.com/2026/06/01/anthropic-ipo-s1-prospectus.html" target="_blank">CNBC</a> ·
+        <a href="https://www.nbcnews.com/business/corporations/anthropic-files-ipo-openai-rcna347897" target="_blank">NBC News</a> · 2026-06-01
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          <span class="company">Anthropic</span> 於 6/1 向 SEC 機密提交 S-1。最新 Series H 估值 ~<span class="amount">$965B</span>，5 月 ARR 達 <span class="amount">~$47B</span>（前一年同期 ~$10B）。定價、股數、日期均 TBD（待市場條件）。若 $1T 上市，將超越 Saudi Aramco 成為史上最大 IPO 之一。搶在 OpenAI 之前提交，兩家公司展開上市競速。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">背景脈絡 / Context</div>
+        <div class="block-body">
+          Anthropic 的收入軌跡令人驚嘆：ARR 一年 4.7 倍增長。此輪 IPO 時機選在 SpaceX 即將掛牌前夕，AI 投資人情緒最熱時入場，策略上合理。主要風險：AI 市場估值泡沫破裂、監管打壓、OpenAI 競爭。
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>SpaceX (SPCX) 6/12 掛牌 Nasdaq，路演啟動，$1.75T 估值 $75B 募資 / SpaceX Roadshow Live, Pricing June 11, Listing June 12 at $1.75T, Raising $75B</h3>
+      <div class="meta">
+        <span class="tag tag-ipo">IPO - Roadshow</span>
+        來源: <a href="https://www.cnbc.com/2026/05/20/spacex-ipo-live-updates.html" target="_blank">CNBC</a> ·
+        <a href="https://cryptonews.net/news/finance/32949207/" target="_blank">CryptoNews</a> · 2026-06
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          <span class="company">SpaceX</span> 目標 6/11 定價、6/12 開始交易，掛牌於 Nasdaq (SPCX)。計劃募資 ~<span class="amount">$75B</span>，估值 ~<span class="amount">$1.75T</span>，將成為史上最大 IPO（超越沙特阿美 $29.4B）。承銷商：Goldman Sachs 領銜，Morgan Stanley、BofA、Citi、JPMorgan 參與。2026 年 5 月 20 日正式提交 S-1。
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-label">影響觀察 / Implications</div>
+        <div class="block-body">
+          SpaceX IPO 是 2026 年最重大金融事件之一。若順利掛牌，Musk 個人財富將大幅重估，也為航太、衛星網路、國防科技類股注入估值錨。Starlink 的全球用戶增長是最大賣點，但持續虧損的 Starship 開發費用是主要風險揭露。
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Liftoff Mobile (LFTO) 本週定價，$399M IPO 重啟，AI 廣告科技 / Liftoff Mobile Reprices $399M IPO This Week, AI-Powered Mobile Ad-Tech</h3>
+      <div class="meta">
+        <span class="tag tag-ipo">IPO - Pricing</span>
+        來源: <a href="https://www.renaissancecapital.com/IPO-Center/News/119431/Advertising-mobile-app-software-Liftoff-Mobile-sets-terms-for-$399-million-" target="_blank">Renaissance Capital</a> · 2026-06
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          <span class="company">Liftoff Mobile</span>（Nasdaq: LFTO）計劃本週定價，提供 1,900 萬股，價格區間 $20–$22，目標募資 <span class="amount">$399M</span>，隱含估值接近 <span class="amount">$4B</span>。公司 TTM 收入 $741M（截至 2026/3）。注：此為重啟上市；早先因軟體板塊拋售而撤回。
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Lime (Neutron Holdings) 計劃 6 月掛牌，共享電動滑板車 IPO 重啟 / Lime to IPO This Month, Shared E-Scooter Startup Files S-1 Under Neutron Holdings</h3>
+      <div class="meta">
+        <span class="tag tag-ipo">IPO Filing</span>
+        來源: <a href="https://accessipos.com/upcoming-ipos/" target="_blank">AccessIPOs</a> · 2026-06
+      </div>
+      <div class="block">
+        <div class="block-label">核心事實 / Facts</div>
+        <div class="block-body">
+          <span class="company">Lime</span>（登記名：Neutron Holdings, Inc.）於 5/8 提交 S-1，目標 6 月掛牌。估值及定價範圍 TBD。為共享微行動工具最具代表性的 IPO，也是 Lyft、Bird 被收購浪潮後的倖存者。
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== REGIONAL ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🌏</span>
+      <h2>區域 / Regional Spotlight</h2>
+    </div>
+
+    <div class="card">
+      <h3>以色列深科技持續獲 VC 青睞：DriveNets $8.5B 估值創新高 / Israel Deeptech: DriveNets' $8.5B Valuation Marks New High for Israeli Tech</h3>
+      <div class="meta">
+        <span class="tag tag-seriesD">Israel</span>
+        來源: <a href="https://www.calcalistech.com/ctechnews/article/zzhjwk3b8" target="_blank">Calcalist</a> · 2026-06-01
+      </div>
+      <div class="block">
+        <div class="block-body">
+          DriveNets 的 $8.5B 估值被 Calcalist 報導為以色列科技史上最高之一。儘管地緣政治不確定性持續，以色列 AI infra、網路科技與 cyber 新創的全球吸引力依然強勁，本輪有 AMD 等美國戰略投資人加持。
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>印度新創 2026 年前五月募資 $7.62B，較去年下滑 8.9% / India Startup Funding: $7.62B in Jan–May 2026, Down 8.9% YoY</h3>
+      <div class="meta">
+        <span class="tag tag-seed">India</span>
+        來源: <a href="https://startuptalky.com/indian-startups-funding-investors-data-2026/" target="_blank">StartupTalky</a>
+      </div>
+      <div class="block">
+        <div class="block-body">
+          印度新創 1–5 月共完成 759 輪股權融資，總額 $7.62B，年減 8.9%。相較於全球 AI 驅動的募資熱潮，印度市場降溫明顯，但 AI-native 學習、農業科技等垂直領域仍有活躍早期輪次。
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>歐洲新創：London fintech 與 Munich deeptech 維持雙核心格局 / Europe: London Leads Fintech, Munich Anchors Deeptech in June 2026</h3>
+      <div class="meta">
+        <span class="tag tag-seed">Europe</span>
+        來源: <a href="https://blog.mean.ceo/european-startups-news-june-2026/" target="_blank">Mean CEO Blog</a> · 2026-06
+      </div>
+      <div class="block">
+        <div class="block-body">
+          歐洲新創資金持續流向 AI、fintech、deeptech、climate tech 與工業軟體。倫敦在 fintech 與全球創辦人吸引力上領先，慕尼黑則憑藉研究機構與工業連結鞏固 deeptech 地位。Sifted 持續追蹤中，具體輪次將於本週更新。
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== READS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">📚</span>
+      <h2>觀點 / Reads Worth Bookmarking</h2>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>ClickUp 大裁員告訴我們關於工作的未來 / What ClickUp's Mass Layoff Tells Us About the Future of Work</h3>
+        <div class="meta">
+          來源: <a href="https://techcrunch.com/2026/05/25/what-clickups-mass-layoff-tells-us-about-the-future-of-work/" target="_blank">TechCrunch</a> · 2026-05-25
+        </div>
+        <div class="block-body" style="font-size:13px; color: var(--muted);">
+          深度解析「AI-native org」模型的實際意涵：當 AI agent 比例超過員工，企業的組織設計、管理文化、招募標準將如何根本性改變。必讀給所有關心未來組織型態的創辦人與 VC。
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>G2 變得對軟體市場太強大了嗎？/ Is G2 Becoming Too Powerful for the Software Market?</h3>
+        <div class="meta">
+          來源: <a href="https://thenextweb.com/news/is-g2-becoming-too-powerful-for-the-software-market" target="_blank">The Next Web</a>
+        </div>
+        <div class="block-body" style="font-size:13px; color: var(--muted);">
+          收購 Capterra 三平台後，G2 控制全球軟體評論影響力超過 50%。本文分析平台壟斷在 B2B 軟體市場的特殊性，以及 SaaS 廠商在行銷支出上的議價能力萎縮問題。
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>來源 / Sources: TechCrunch · Crunchbase · Modal Blog · Exa Blog · Anthropic · CNBC · NBC News · The Register · BusinessWire · PR Newswire · Calcalist · TechStartups · YourStory · Entrackr · TNW · StartupTalky · Renaissance Capital · Product Hunt · Layoffs.fyi · TrueUp</p>
+    <p style="margin-top:8px;">生成時間 / Generated: 2026-06-03 (Asia/Taipei) &nbsp;·&nbsp; 僅供資訊參考，不構成投資建議。</p>
+    <p style="margin-top:8px; color: #555;">Paywalled / Limited: The Information · Bloomberg (some articles) · FT · WSJ · PitchBook · Fortune Term Sheet · Stratechery</p>
+  </div>
+</footer>
+
+</body>
+</html>

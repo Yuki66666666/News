@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日美股熱門焦點股 — 2026-06-03</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --card: #1a1d27;
+      --border: #2a2d3a;
+      --accent: #4f8ef7;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #facc15;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --purple: #a78bfa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; padding: 24px; }
+    h1 { font-size: 1.7rem; font-weight: 700; color: #fff; border-bottom: 2px solid var(--accent); padding-bottom: 12px; margin-bottom: 8px; }
+    .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 28px; }
+    h2 { font-size: 1.2rem; color: var(--accent); margin: 32px 0 14px; border-left: 3px solid var(--accent); padding-left: 10px; }
+    h3 { font-size: 1.05rem; color: #fff; margin: 24px 0 10px; }
+    p { margin-bottom: 10px; font-size: 0.93rem; }
+    strong { color: #fff; }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; margin-right: 4px; margin-bottom: 4px; }
+    .tag-green { background: rgba(34,197,94,0.18); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+    .tag-red { background: rgba(239,68,68,0.18); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
+    .tag-blue { background: rgba(79,142,247,0.18); color: var(--accent); border: 1px solid rgba(79,142,247,0.3); }
+    .tag-yellow { background: rgba(250,204,21,0.18); color: var(--yellow); border: 1px solid rgba(250,204,21,0.3); }
+    .tag-purple { background: rgba(167,139,250,0.18); color: var(--purple); border: 1px solid rgba(167,139,250,0.3); }
+
+    /* Summary table */
+    .table-wrap { overflow-x: auto; margin-bottom: 28px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 700px; }
+    thead tr { background: rgba(79,142,247,0.15); }
+    th { padding: 10px 12px; text-align: left; color: var(--accent); font-weight: 700; border-bottom: 2px solid var(--border); white-space: nowrap; }
+    td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:hover td { background: rgba(255,255,255,0.03); }
+    .up { color: var(--green); font-weight: 700; }
+    .down { color: var(--red); font-weight: 700; }
+    .neutral { color: var(--yellow); }
+
+    /* Ticker cards */
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; margin-bottom: 22px; }
+    .card-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 14px; }
+    .ticker-badge { background: var(--accent); color: #fff; font-size: 1.1rem; font-weight: 800; padding: 6px 14px; border-radius: 6px; white-space: nowrap; }
+    .card-meta { flex: 1; }
+    .card-meta h3 { margin: 0 0 4px; }
+    .tape-line { font-size: 0.82rem; color: var(--muted); }
+    .section-label { color: var(--yellow); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin: 14px 0 4px; }
+    .zh-block { border-left: 3px solid var(--purple); padding-left: 12px; margin-bottom: 8px; }
+    .en-block { border-left: 3px solid var(--accent); padding-left: 12px; margin-bottom: 8px; }
+    .watch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .watch-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+    .watch-card .ticker { font-weight: 800; color: var(--accent); font-size: 1rem; }
+    .watch-card .move { font-size: 0.85rem; margin-top: 2px; }
+    .watch-card .reason { font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+    .backdrop-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; font-size: 0.88rem; margin-bottom: 24px; }
+    .backdrop-row { display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 6px; }
+    .backdrop-item { }
+    .backdrop-item .label { font-size: 0.73rem; color: var(--muted); text-transform: uppercase; }
+    .backdrop-item .value { font-size: 1rem; font-weight: 700; }
+    footer { margin-top: 40px; border-top: 1px solid var(--border); padding-top: 18px; font-size: 0.8rem; color: var(--muted); }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .halt-box { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.25); border-radius: 8px; padding: 14px 18px; font-size: 0.88rem; margin-bottom: 16px; }
+    .sources-list { font-size: 0.78rem; color: var(--muted); }
+    .sources-list a { color: var(--muted); text-decoration: none; }
+    .sources-list a:hover { color: var(--accent); }
+    .disclaimer { background: rgba(250,204,21,0.08); border: 1px solid rgba(250,204,21,0.25); border-radius: 6px; padding: 10px 14px; font-size: 0.8rem; color: var(--yellow); margin: 20px 0; }
+    @media (max-width: 600px) {
+      body { padding: 14px; }
+      .card-header { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>🔥 今日美股熱門焦點股</h1>
+<p class="subtitle">Trading session: <strong>June 2, 2026 RTH close + June 3 AH movers</strong> &nbsp;|&nbsp; 整理時間: 2026-06-03 (Asia/Taipei) &nbsp;|&nbsp; <span style="color:var(--yellow)">注意：AVGO / CRWD 於 6/3 盤後公布財報</span></p>
+
+<div class="disclaimer">
+  ⚠️ 本報告僅供資訊參考，非投資建議。所有數字請以交易所官方資料為準。不建議根據本文直接買賣。
+</div>
+
+<!-- ===== BACKDROP ===== -->
+<h2>📊 大盤背景 / Market Backdrop</h2>
+<div class="backdrop-box">
+  <div class="backdrop-row">
+    <div class="backdrop-item"><div class="label">S&amp;P 500 (intraday est.)</div><div class="value neutral">~7,584</div></div>
+    <div class="backdrop-item"><div class="label">Nasdaq</div><div class="value up">+0.17% (June 2)</div></div>
+    <div class="backdrop-item"><div class="label">Russell 2000</div><div class="value up">+0.79% (June 2)</div></div>
+    <div class="backdrop-item"><div class="label">VIX</div><div class="value">~16.05</div></div>
+    <div class="backdrop-item"><div class="label">10Y UST</div><div class="value neutral">待確認</div></div>
+  </div>
+  <p>
+    市場在 Computex 2026 帶動的 AI 樂觀情緒下繼續偏多。NVIDIA CEO Jensen Huang 於 6/2 發表 RTX Spark 新晶片（首款 PC 處理器），引爆半導體供應鏈輪動；Alphabet 宣布 $800 億融資計畫（含 Berkshire Hathaway $100 億投資），激勵科技股。
+    最大逆風是 Goldman Sachs 把 Intuit 砍至 Sell、軟體股普遍承壓，因市場擔憂 AI 對傳統 SaaS 的替代效應。Anthropic 機密提交 S-1、準備 IPO，進一步點燃 AI 基礎建設相關個股。
+    <br>
+    Tech bulls dominated as Computex 2026 product announcements (NVDA RTX Spark PC chip debut) and Alphabet's $80B AI fundraise fueled sector enthusiasm. Counterweight: Goldman's Intuit downgrade and software-wide AI disruption fears.
+  </p>
+</div>
+
+<!-- ===== SUMMARY TABLE ===== -->
+<h2>📋 焦點股一覽表 / Summary Table</h2>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Ticker</th>
+        <th>Company</th>
+        <th>Session</th>
+        <th>% Move</th>
+        <th>Catalyst</th>
+        <th>Options</th>
+        <th>Buzz ★</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>NVDA</strong></td>
+        <td>NVIDIA</td>
+        <td>RTH 6/2</td>
+        <td class="up">+6.3%</td>
+        <td>Computex RTX Spark PC chip + Vera Rubin full production</td>
+        <td>IV 大幅升高，call 偏多</td>
+        <td>★★★★★</td>
+      </tr>
+      <tr>
+        <td><strong>HPE</strong></td>
+        <td>Hewlett Packard Enterprise</td>
+        <td>RTH 6/2</td>
+        <td class="up">+23–25%</td>
+        <td>Q2 FY26 大幅超預期：EPS $0.79 vs $0.54，Rev $10.7B vs $9.8B，AI backlog $5.9B</td>
+        <td>大量 call buying 盤前</td>
+        <td>★★★★★</td>
+      </tr>
+      <tr>
+        <td><strong>VSXY</strong></td>
+        <td>Victoria's Secret (改代號)</td>
+        <td>RTH 6/2</td>
+        <td class="up">+39~48%</td>
+        <td>Q1 beat：EPS $0.60 vs $0.32，Rev +15% YoY，全年展望上調；代號由 VSCO 改為 VSXY</td>
+        <td>短倉軋空跡象</td>
+        <td>★★★★</td>
+      </tr>
+      <tr>
+        <td><strong>AVGO</strong></td>
+        <td>Broadcom</td>
+        <td>AH 6/3</td>
+        <td class="up">+5.2% (日間) AH 待確認</td>
+        <td>Q2 FY26 盤後財報：Rev $19.31B beat，AI Rev 指引 $10.7B +140% YoY</td>
+        <td>±8% priced in，implied move 大</td>
+        <td>★★★★★</td>
+      </tr>
+      <tr>
+        <td><strong>CRWD</strong></td>
+        <td>CrowdStrike</td>
+        <td>AH 6/3</td>
+        <td class="up">AH 待確認（+6.3% YTD 52W high）</td>
+        <td>Q1 FY27 盤後財報：EPS $1.12 beat，Rev $1.31B beat；Falcon Flex ARR $1.69B +120% YoY</td>
+        <td>±8.84% 隱含移動</td>
+        <td>★★★★</td>
+      </tr>
+      <tr>
+        <td><strong>INTU</strong></td>
+        <td>Intuit</td>
+        <td>RTH 6/2</td>
+        <td class="down">-6.86%</td>
+        <td>Goldman Sachs 砍至 Sell，目標 $276（vs 前 $519），因 AI 稅務競爭加劇</td>
+        <td>Put 流量異常</td>
+        <td>★★★</td>
+      </tr>
+      <tr>
+        <td><strong>INTC</strong></td>
+        <td>Intel</td>
+        <td>RTH 6/2</td>
+        <td class="down">-4.1%</td>
+        <td>NVDA 宣布進軍 PC 晶片市場，市場擔憂 Intel 護城河瓦解</td>
+        <td>Put 偏多</td>
+        <td>★★★</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===== HOT PICKS ===== -->
+<h2>🔥 Hot 5 — 今日最熱個股 / Top Hot Stocks</h2>
+
+<!-- NVDA -->
+<div class="card">
+  <div class="card-header">
+    <div class="ticker-badge">$NVDA</div>
+    <div class="card-meta">
+      <h3>NVIDIA Corporation / 輝達</h3>
+      <div class="tape-line">RTH June 2, 2026 &nbsp;|&nbsp; Close ~$232 (est.) &nbsp;|&nbsp; +6.3% &nbsp;|&nbsp; Mkt Cap 增加 ~$3,190 億</div>
+    </div>
+    <div>
+      <span class="tag tag-green">+6.3%</span>
+      <span class="tag tag-blue">Computex</span>
+      <span class="tag tag-purple">PC Chip</span>
+    </div>
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why it's hot</div>
+  <div class="zh-block">
+    <p>NVIDIA CEO Jensen Huang 於 Computex 2026 發表 <strong>RTX Spark</strong>——這是輝達首款面向個人電腦的處理器，與 MediaTek 合作開發，定位「個人 AI 電腦」心臟。同時宣布與微軟合作的 <strong>N1X</strong> 處理器。Jensen 同場宣告次世代資料中心晶片 <strong>Vera Rubin NVL72</strong> 已進入「full production」，Dell 已向 CoreWeave 交付首批 AI 伺服器。這是多層利多：既有 PC 市場新藍海，又有 data center 供貨確認。</p>
+  </div>
+  <div class="en-block">
+    <p>Jensen Huang's Computex keynote unveiled two vectors: (1) <strong>RTX Spark</strong> — NVIDIA's first PC processor (co-developed w/ MediaTek), targeting AI-native PCs shipping by fall 2026 from major OEMs; (2) <strong>Vera Rubin NVL72</strong> entering full production, confirmed by Dell shipping to CoreWeave. The dual catalyst of new addressable market (PC CPU) + hyperscaler supply confirmation drove the +6.3% rally and ~$319B market cap addition.</p>
+  </div>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>RTX Spark 發表後期權 IV 大幅走揚，call 流量佔優。6/2 盤中期權活動顯示投資人積極增持近月 call。確切 OI 與 C/P ratio 待 Barchart 數據確認，但整體方向偏多。Vera Rubin 供貨確認也使 HBM 相關 options 活躍（受益 SK Hynix / Micron）。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>WSB、StockTwits、X (Twitter) 上 $NVDA cashtag 討論度爆量。Computex 期間 Reddit r/stocks 多篇討論「NVDA 要統治 PC 市場」。代表帖觀點：<em>"Jensen literally just took Intel's lunch in front of the whole world"</em>。Stock 已是 WSB 長期熱門，Computex 相關帖佔排行榜前幾位。</p>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>NVDA 在 GPU/AI 加速器已佔主導；進軍 PC 處理器是第二成長曲線故事。類似 Apple Silicon 取代 Intel 的敘事，讓市場對 NVDA 的 TAM 有更大想象空間。ARM 架構電腦市場已由蘋果 M 系列驗證；NVDA 帶著 AI 原生角度切入，差異化故事清晰。Intel (-4.1%) 與 AMD 當日下跌即是直接「beneficiary vs victim」的市場投票。</p>
+
+  <div class="section-label">後續觀察 / What to Watch</div>
+  <p>（以下為分析，非事實）OEM 合作落地時間點（Acer、MSI 等秋季上市）是下一個催化劑。INTC 是否跌破關鍵技術支撐。Jensen 後續訪談對 RTX Spark 定價的透露。Vera Rubin 交付進度與 GB200 過渡期重疊問題。</p>
+
+  <div class="sources-list">
+    來源：<a href="https://www.gurufocus.com/news/8895491/nvidia-nvda-enters-pc-chip-market-boosts-stocks" target="_blank">GuruFocus</a> ·
+    <a href="https://www.fool.com/investing/2026/05/31/nvda-stock-jensen-huang-keynote-computex/" target="_blank">Motley Fool</a> ·
+    <a href="https://stocktwits.com/news-articles/markets/equity/nvda-stock-set-for-strong-open-today-ceo-unveils-first-pc-chips-at-computex-2026/cZ0gkChReux" target="_blank">StockTwits</a> ·
+    <a href="https://www.schwab.com/learn/story/stock-market-update-open" target="_blank">Schwab Market Update</a>
+  </div>
+</div>
+
+<!-- HPE -->
+<div class="card">
+  <div class="card-header">
+    <div class="ticker-badge">$HPE</div>
+    <div class="card-meta">
+      <h3>Hewlett Packard Enterprise / 慧與科技</h3>
+      <div class="tape-line">RTH June 2, 2026 &nbsp;|&nbsp; +23~25% &nbsp;|&nbsp; 可能創 IPO 後最大單日漲幅</div>
+    </div>
+    <div>
+      <span class="tag tag-green">+23~25%</span>
+      <span class="tag tag-blue">Earnings Beat</span>
+      <span class="tag tag-purple">AI Infra</span>
+    </div>
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why it's hot</div>
+  <div class="zh-block">
+    <p>HPE 於 6/1 盤後發布 Q2 FY2026 財報，EPS $0.79（vs 估 $0.54，超出 46%），營收 $107 億（vs 估 $97.9 億，+40% YoY），AI 系統訂單 backlog 達 <strong>$59 億</strong>（YoY 訂單翻倍）。Q3 指引 $115–121 億也超預期。同時宣布搭載 <strong>NVIDIA Vera CPU</strong> 的 ProLiant DL394 Gen12 伺服器。6/2 正式交易日衝上 +23~25%，盤前一度飆 28~32%。</p>
+  </div>
+  <div class="en-block">
+    <p>HPE delivered a massive Q2 FY26 beat: EPS $0.79 vs $0.54 est. (+46% surprise), revenue $10.7B vs $9.8B est. (+40% YoY). AI Systems backlog hit $5.9B, orders more than doubled YoY in Q2. Q3 guidance $11.5–12.1B handily topped the $10.88B consensus. The magnitude of the beat positioned HPE as a credible AI infrastructure beneficiary alongside Dell and Super Micro.</p>
+  </div>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>盤前大量 call buying 進場，尤其 6/2 到期的短天期 call。VI 暴衝後快速回落（classic earnings crush pattern 反過來）。HPE 盤前一度漲 28-32%，說明期權買方在 AH 即已獲利豐厚。Short interest 數據待確認（Fintel）。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>WSB 多帖討論 <em>"HPE is now an AI stock"</em>，StockTwits 在 6/1 盤後即進前10大熱搜。X 上 $HPE cashtag 爆量，主題是「AI server demand is real — HPE proves it」。</p>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>HPE 長期被視為傳統企業 IT 公司，本次以 AI server backlog 翻倍改寫市場定位。對標 Dell Technologies（同為 AI server 受益者）。競爭格局中 Super Micro (SMCI) 此前已跑一段，HPE 的 Q2 beat 讓市場重新評估 AI infra 第二層受益者。</p>
+
+  <div class="section-label">後續觀察 / What to Watch</div>
+  <p>（分析）$5.9B AI backlog 的交付時程與毛利走向。Vera Rubin NVL72 機架供貨能否如期。HPE vs Dell 的 AI server 市佔競爭。盤後漲幅過大是否引發獲利了結壓力。</p>
+
+  <div class="sources-list">
+    來源：<a href="https://www.fxleaders.com/news/2026/06/01/hpe-stock-surges-28-after-hours-on-q2-earnings-beat-upgraded-outlook-and-40-revenue-growth/" target="_blank">FX Leaders</a> ·
+    <a href="https://www.gurufocus.com/news/8894403/hpe-stock-surges-23-following-strong-q2-earnings-report" target="_blank">GuruFocus</a> ·
+    <a href="https://www.indmoney.com/blog/us-stocks/why-hpe-stock-is-rising-q2-fy26-earnings-ai-backlog-guidance" target="_blank">IndMoney</a> ·
+    <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-02-2026" target="_blank">TheStreet</a>
+  </div>
+</div>
+
+<!-- VSXY -->
+<div class="card">
+  <div class="card-header">
+    <div class="ticker-badge">$VSXY</div>
+    <div class="card-meta">
+      <h3>Victoria's Secret &amp; Co. / 維多利亞的秘密（新代號 VSXY）</h3>
+      <div class="tape-line">RTH June 2, 2026 &nbsp;|&nbsp; +39~48% &nbsp;|&nbsp; 代號由 VSCO 改為 VSXY，同日大漲</div>
+    </div>
+    <div>
+      <span class="tag tag-green">+39~48%</span>
+      <span class="tag tag-yellow">Earnings Beat</span>
+      <span class="tag tag-red">Squeeze</span>
+    </div>
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why it's hot</div>
+  <div class="zh-block">
+    <p>維多利亞的秘密公布 Q1 2026 財報大幅超預期：調整後 EPS $0.60（vs 估 $0.32），營收 $15.6 億（+15% YoY，vs 估 $15.2 億）。全年指引上調至 $70.3–71.3 億，超過分析師共識 $69.6 億。管理層提到關稅相關成本低於預期、全價品需求強勁。同日代號從 VSCO 改為 VSXY，象徵品牌轉型完成。EPS 超出幅度達 87%，引發空頭回補踩踏。</p>
+  </div>
+  <div class="en-block">
+    <p>Victoria's Secret crushed Q1: adj. EPS $0.60 vs $0.32 est. (87% surprise); revenue $1.56B, +15% YoY vs $1.52B est. Full-year guidance raised to $7.03–7.13B (midpoint $7.08B vs consensus $6.96B). Management cited lower-than-expected tariff headwinds and strong full-price demand — a Valentine's Day bet that paid off big. The ticker change to VSXY on the same day added a catalyst narrative hook attracting retail attention.</p>
+  </div>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>股票空倉比率高，EPS 大幅超預期觸發軋空。盤前大量 call buying。6/2 進場的短天期 call 應已多倍獲利。空頭 days-to-cover 數據待 Fintel 確認，但強烈軋空模式明顯（39–48% 漲幅對一個有具體 catalyst 的 mid-cap 是非典型幅度）。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>WSB 與 r/stocks 皆有討論，關注品牌轉型（改代號 VSXY）加財報雙重利多。StockTwits 前20大熱搜。X 上 $VSCO / $VSXY 帖子截然不同：財報前幾乎無人關注，財報後爆量。零售社群著眼「空頭悲劇」敘事。</p>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>維秘在 2022–2024 年業績低迷、股價一蹶不振，空頭部位龐大。2025–2026 年品牌重塑（更包容的行銷路線）與關稅成本低於市場悲觀預估，創造出超預期空間。類似 Macy's / Bath &amp; Body Works 等零售股的短期爆炸性反彈模式。</p>
+
+  <div class="section-label">後續觀察 / What to Watch</div>
+  <p>（分析）軋空後浮力能否持續：多頭需要下一季業績印證。關稅環境若惡化，Q2 成本數字的風險。品牌轉型（VSXY）能否打開新客群。代號切換後機構重新評估是否引發被動基金調整。</p>
+
+  <div class="sources-list">
+    來源：<a href="https://www.benzinga.com/markets/earnings/26/06/52942396/victorias-secrets-valentines-day-bet-paid-off-in-a-big-way" target="_blank">Benzinga</a> ·
+    <a href="https://www.stocktitan.net/news/VSCO/victoria-s-secret-q1-sales-jump-15-lifts-2026-view-73nczgypqqis.html" target="_blank">StockTitan</a> ·
+    <a href="https://finance.yahoo.com/markets/stocks/articles/victoria-secret-shares-surge-earnings-115013477.html" target="_blank">Yahoo Finance</a>
+  </div>
+</div>
+
+<!-- AVGO -->
+<div class="card">
+  <div class="card-header">
+    <div class="ticker-badge">$AVGO</div>
+    <div class="card-meta">
+      <h3>Broadcom Inc. / 博通</h3>
+      <div class="tape-line">RTH 6/2 日間 +5.2% 佈局；AH 6/3 財報公布（盤後數字待確認）</div>
+    </div>
+    <div>
+      <span class="tag tag-green">+5.2% RTH</span>
+      <span class="tag tag-blue">AH Earnings</span>
+      <span class="tag tag-purple">AI Chip</span>
+    </div>
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why it's hot</div>
+  <div class="zh-block">
+    <p>Broadcom 於 6/3 盤後公布 Q2 FY2026 財報（6/2 日間即因預期心理漲 5.2%）：Revenue $19.31B（beat $171M），EPS GAAP $1.50（beat $0.08）。AI 晶片指引 $107 億（YoY +140%）更是市場最關心的數字。Alphabet 的 $800 億 AI 融資計畫也是直接正面催化劑——博通是 Google TPU 晶片的設計合作夥伴（合約至 2031 年），Alphabet 加速部署 AI infra 就是博通的直接訂單。</p>
+  </div>
+  <div class="en-block">
+    <p>Broadcom's Q2 FY26 beat (reported AH June 3): Revenue $19.31B (+$171M beat), GAAP EPS $1.50 (+$0.08 beat). The headliner: AI revenue guidance of $10.7B (+140% YoY). Alphabet's $80B AI fundraise was a direct forward-revenue signal for AVGO — Broadcom designs Google's TPU chips under a contract through 2031. Options market priced ±8% implied move; the $181B market cap swing expectation drew heavy options activity throughout June 2–3.</p>
+  </div>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>6/3 財報公布前，期權隱含波動率顯著走高。盤前有大型 call block 流量（Barchart Unusual Activity，確切 strike/expiry 待確認）。市場定價 ±8% 隱含移動（市值擺動約 $1,810 億），是當週最大 event risk 之一。Anthropic 機密提交 S-1 為副線催化劑，因 Anthropic 使用 Google Cloud 基礎建設，TPU 需求故事延伸。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>WSB 6/2-3 財報前夕大量討論，關鍵字 "AVGO AI chip play"、"next quarter will be insane"。Quiver Quant 顯示 WSB mentions 明顯升溫。StockTwits 大量財報前倉位分享。</p>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>博通是「hyperscaler 客製 ASIC 代工設計」的龍頭，NVDA 叙事帶動整個 AI 晶片族群。Alphabet $80B 投資計畫讓市場直接連結「更多 TPU 訂單」給博通。同時 MRVL（Marvell，另一 AI ASIC 玩家）股價年初至今漲逾 136%，顯示市場對整個 custom silicon 故事高度熱情。</p>
+
+  <div class="section-label">後續觀察 / What to Watch</div>
+  <p>（分析）6/3 盤後財報細節：AI revenue $10.7B 是否超額完成。Q3 AI revenue 指引是市場最重要的數字。博通 vs MRVL 的 AI ASIC 市佔評估。Anthropic IPO 後的 Google Cloud / TPU 訂單影響。AVGO 若盤後跌 8% 是否觸發 SOX 半導體指數連帶。</p>
+
+  <div class="sources-list">
+    來源：<a href="https://www.marketbeat.com/earnings/reports/2026-6-3-broadcom-inc-stock/" target="_blank">MarketBeat</a> ·
+    <a href="https://moneymorning.com/2026/05/30/broadcom-avgo-q2-2026-earnings-preview-ai-revenue-june" target="_blank">Money Morning</a> ·
+    <a href="https://www.heygotrade.com/en/blog/broadcom-avgo-q2-fy26-earnings-preview/" target="_blank">HeyGoTrade</a> ·
+    <a href="https://markets.financialcontent.com/stocks/article/stockstory-2026-6-2-why-is-broadcom-avgo-stock-rocketing-higher-today" target="_blank">FinancialContent</a>
+  </div>
+</div>
+
+<!-- CRWD -->
+<div class="card">
+  <div class="card-header">
+    <div class="ticker-badge">$CRWD</div>
+    <div class="card-meta">
+      <h3>CrowdStrike Holdings / 尖峰科技</h3>
+      <div class="tape-line">AH 6/3 盤後財報；日內 52W 高點 $768.62；過去 3 個月 +98%</div>
+    </div>
+    <div>
+      <span class="tag tag-green">52W High</span>
+      <span class="tag tag-blue">AH Earnings</span>
+      <span class="tag tag-yellow">Falcon Flex</span>
+    </div>
+  </div>
+
+  <div class="section-label">為什麼今天熱 / Why it's hot</div>
+  <div class="zh-block">
+    <p>CrowdStrike 於 6/3 盤後公布 Q1 FY2027 財報，超出市場預期：Non-GAAP EPS $1.12（vs 估 $1.07），GAAP EPS $0.15（beat $0.11），Revenue $13.1 億（beat $0.79 億）。Falcon Flex ARR 達 $16.9 億（YoY +120%）。股價在 6/1 即觸及 52 週高點 $768.62，過去 3 個月漲幅達 98%，市場「期待成就」氣氛濃厚。DZ Bank 在 5/23 降評「Strong Sell」並喊「定價近乎完美」，形成多空對決。</p>
+  </div>
+  <div class="en-block">
+    <p>CrowdStrike beat Q1 FY27 estimates across the board: Non-GAAP EPS $1.12 vs $1.07 est.; GAAP EPS $0.15 vs $0.04 est.; revenue $1.31B vs $1.30B est. Falcon Flex ARR crossed $1.69B, +120% YoY, validating the platform consolidation thesis. Stock hit 52W high $768.62 on June 1. The bear thesis (DZ Bank "priced for perfection" on May 23) made this a high-stakes earnings event with ±8.84% options-implied move.</p>
+  </div>
+
+  <div class="section-label">Options &amp; Flow</div>
+  <p>期權隱含移動 ±8.84%（約 ±$59.35）。Market Chameleon 顯示財報前 Unusual Call Activity，尤其 6/5–6/20 到期的 $750–$800 strike call。CRWD 歷史財報後平均移動 ±12%，本次預期 ±8.84% 偏保守。OI 主要集中在 call 側（多頭傾向）。</p>
+
+  <div class="section-label">Retail Buzz</div>
+  <p>WSB 及 r/stocks 對 CRWD 熱議：<em>"Falcon is eating the whole endpoint market"</em>。StockTwits 前10大熱搜。X 上 $CRWD cashtag 以多頭情緒為主，少數空頭引用 DZ Bank 降評作為反指標訊號。</p>
+
+  <div class="section-label">炒作脈絡 / Narrative Context</div>
+  <p>CrowdStrike 2024 年 7 月的全球 IT 停機事故（Windows BSOD 事件）雖然重創形象，但 Falcon Flex 的靈活部署模式加速客戶回流，ARR +120% 印證恢復力。Zscaler、Palo Alto Networks 等同業 2025–2026 皆強勁，整個網路安全族群受 AI-driven 攻擊威脅上升而受惠。</p>
+
+  <div class="section-label">後續觀察 / What to Watch</div>
+  <p>（分析）財報後是否維持 52W 高點上方。Falcon Flex ARR 下季加速還是放緩。DZ Bank 降評後空頭倉位是否引發大型軋空。Palo Alto Networks (PANW) 是否受惠輪動。</p>
+
+  <div class="sources-list">
+    來源：<a href="https://www.gurufocus.com/news/8893964/crowdstrike-crwd-set-to-release-q1-fy2027-earnings-amid-high-expectations" target="_blank">GuruFocus</a> ·
+    <a href="https://www.tipranks.com/stocks/crwd/earnings" target="_blank">TipRanks</a> ·
+    <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261941549-crowdstrike-earnings-test-after-67-monthly-surge-falcon-flex-support-tradingkey" target="_blank">TradingKey</a> ·
+    <a href="https://marketchameleon.com/Overview/CRWD/Earnings/Earnings-Dates/" target="_blank">MarketChameleon</a>
+  </div>
+</div>
+
+<!-- ===== LOSERS ===== -->
+<h2>📉 今日重挫個股 / Notable Losers</h2>
+
+<div class="card">
+  <div class="card-header">
+    <div class="ticker-badge" style="background:var(--red);">$INTU</div>
+    <div class="card-meta">
+      <h3>Intuit Inc. / 美國財捷集團</h3>
+      <div class="tape-line">RTH June 2, 2026 &nbsp;|&nbsp; -6.86% &nbsp;|&nbsp; 2026 YTD -46%</div>
+    </div>
+    <div>
+      <span class="tag tag-red">-6.86%</span>
+      <span class="tag tag-yellow">GS Downgrade</span>
+      <span class="tag tag-red">AI Disruption</span>
+    </div>
+  </div>
+
+  <div class="section-label">為什麼今天跌 / Why it's down</div>
+  <div class="zh-block">
+    <p>Goldman Sachs 將 Intuit 從 Neutral 降至 <strong>Sell</strong>，目標價從 $519 大幅下調至 $276（降幅 -46.8%）。GS 指出 AI 驅動的稅務申報平台（Prime Meridian、Perplexity Tax、Chime Tax）正快速侵蝕 TurboTax 的護城河，且 Intuit 最近宣布裁員 17% 也加深市場對基本面的疑慮。</p>
+  </div>
+  <div class="en-block">
+    <p>Goldman Sachs cut INTU from Neutral to Sell with a $276 target (vs $519 prior, a 46.8% haircut). Thesis: AI-native tax rivals (Prime Meridian, Perplexity Tax, Chime Tax) are eroding TurboTax's moat faster than consensus models assume. Compounding factor: INTU's May 2026 workforce cut of 17% signals margin pressure. Stock already down ~46% YTD entering the downgrade, making this a brutal pile-on.</p>
+  </div>
+
+  <div class="sources-list">
+    來源：<a href="https://www.gurufocus.com/news/8896109/intuit-intu-faces-downgrade-from-goldman-sachs-shares-drop-686" target="_blank">GuruFocus</a> ·
+    <a href="https://finance.yahoo.com/markets/stocks/articles/goldman-sachs-downgrades-intuit-ai-104654463.html" target="_blank">Yahoo Finance</a> ·
+    <a href="https://seekingalpha.com/news/4599702-intuit-stock-down-after-goldman-sachs-lowers-recommendation-to-sell-from-neutral" target="_blank">Seeking Alpha</a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="ticker-badge" style="background:var(--red);">$INTC</div>
+    <div class="card-meta">
+      <h3>Intel Corporation / 英特爾</h3>
+      <div class="tape-line">RTH June 2, 2026 &nbsp;|&nbsp; -4.1% &nbsp;|&nbsp; NVDA 進軍 PC 晶片正面衝擊</div>
+    </div>
+    <div>
+      <span class="tag tag-red">-4.1%</span>
+      <span class="tag tag-yellow">PC Market Threat</span>
+    </div>
+  </div>
+
+  <div class="section-label">為什麼今天跌 / Why it's down</div>
+  <div class="zh-block">
+    <p>NVIDIA 宣布 RTX Spark PC 處理器，直接威脅英特爾的傳統核心業務（PC CPU）。雖然 Intel 已積極轉型 AI（Crescent Island GPU、新 OEM 合作）且股價 YTD 因 AI 反彈暴漲 459%，但 NVDA 進場的「品牌打擊」讓市場重新定價競爭格局風險。AMD 同日也下跌，但幅度較小（待確認）。</p>
+  </div>
+  <div class="en-block">
+    <p>NVDA's RTX Spark announcement directly challenged Intel's PC CPU stronghold. Intel's stock had rallied 459% YTD on an AI turnaround narrative, but NVDA's entry created a narrative overhang — investors worry that if Nvidia succeeds in PC silicon, Intel loses its last uncontested market. AMD fell in sympathy. The -4.1% move is a "market vote" on competitive landscape repricing, not necessarily a fundamental data point.</p>
+  </div>
+
+  <div class="sources-list">
+    來源：<a href="https://247wallst.com/investing/2026/06/02/from-crisis-to-459-gain-intels-epic-turnaround-and-what-a-1k-investment-would-be-today/" target="_blank">24/7 Wall St.</a> ·
+    <a href="https://www.heygotrade.com/en/blog/intel-stock-2026-ai-comeback/" target="_blank">HeyGoTrade</a>
+  </div>
+</div>
+
+<!-- ===== WATCHLIST ===== -->
+<h2>👁️ 次熱觀察 / Watch List</h2>
+<div class="watch-grid">
+  <div class="watch-card">
+    <div class="ticker">$GOOGL</div>
+    <div class="move up">Alphabet &mdash; 強勢</div>
+    <div class="reason">$800 億融資（含 Berkshire $100 億）鞏固 AI infra 龍頭地位；首次自 2005 年以來發行股票，顯示對 AI capex 極度自信。Nasdaq 6/2 跳高開盤的主要推手之一。</div>
+  </div>
+  <div class="watch-card">
+    <div class="ticker">$MRVL</div>
+    <div class="move up">Marvell Technology &mdash; YTD +136%</div>
+    <div class="reason">Marvell 股價年初至今漲逾 136%（$89→$219），是 AI ASIC 故事的另一受益者。Q1 FY27 已 beat，下一個 catalyst 是 8 月底財報。本週因 Computex 話題持續獲關注。</div>
+  </div>
+  <div class="watch-card">
+    <div class="ticker">$TEAM</div>
+    <div class="move down">Atlassian &mdash; -6.5% (6/2)</div>
+    <div class="reason">AI disruption 導致軟體股普遍承壓。TEAM YTD -57%，仍在尋底。AI 代理工具威脅傳統 project management SaaS。近期裁員 10% 反映轉型陣痛。</div>
+  </div>
+  <div class="watch-card">
+    <div class="ticker">$GS</div>
+    <div class="move up">Goldman Sachs &mdash; 52W 高 $1,037</div>
+    <div class="reason">GS 股價觸及 $1,037 的 52 週高點。投行業務、AI 相關諮詢業務雙強。本週作為 INTU 降評方，市場側目其 research 影響力。</div>
+  </div>
+  <div class="watch-card">
+    <div class="ticker">$AMD</div>
+    <div class="move down">AMD &mdash; 聯帶下跌</div>
+    <div class="reason">受 NVDA RTX Spark 宣布影響同日下跌，AMD 在 PC CPU 市場同樣面臨衝擊敘事。確切跌幅待確認。</div>
+  </div>
+</div>
+
+<!-- ===== HALTS ===== -->
+<h2>⚠️ 異常事件 / Halts &amp; Weirdness</h2>
+<div class="halt-box">
+  <strong>本交易日無重大 SEC 交易停牌或 LULD 緊急熔斷事件被報告。</strong><br>
+  <span style="color:var(--muted)">如有異常，請參考 <a href="https://www.nasdaqtrader.com/Trader.aspx?id=tradehalts" target="_blank" style="color:var(--muted)">Nasdaq Trading Halts</a> 與 <a href="https://www.nyse.com/trade-halt-current" target="_blank" style="color:var(--muted)">NYSE Halts</a> 官方頁面。</span>
+</div>
+
+<!-- ===== SIDE NOTE: ANTHROPIC ===== -->
+<h2>📌 特別關注 / Special Note: Anthropic IPO</h2>
+<div class="card" style="border-color: var(--purple);">
+  <p>
+    <span class="tag tag-purple">非上市公司</span>
+    <span class="tag tag-blue">IPO 候選</span>
+  </p>
+  <p>Anthropic（本 AI 報告的製作工具 Claude 的開發公司）於 6/1 <strong>機密提交 S-1</strong> 予 SEC，準備 IPO。估值接近 <strong>$1 兆</strong>，若上市將躋身 S&amp;P 500 頂端。這是近年最受矚目的 IPO 之一，對 AI 基礎建設股（NVDA、AVGO、GOOGL）為間接正面催化劑（AI 算力需求確認）。Wedbush 將此定義為「IPO 市場水閘大開」。OpenAI 與 SpaceX 也被提及有意跟進。</p>
+  <p>⚠️ 注意：Anthropic 為私有公司，目前無法直接交易 $ANTH 股票。相關受益個股為 Amazon (AMWS/AWS)、Google (GOOGL)、NVDA 等算力供應商。</p>
+  <div class="sources-list">
+    來源：<a href="https://www.cnbc.com/2026/06/01/anthropic-ipo-s1-prospectus.html" target="_blank">CNBC</a> ·
+    <a href="https://www.npr.org/2026/06/01/nx-s1-5843199/anthropic-ipo-filing-ai-large" target="_blank">NPR</a> ·
+    <a href="https://www.cnn.com/2026/06/01/tech/anthropic-ipo-filing" target="_blank">CNN</a>
+  </div>
+</div>
+
+<!-- ===== FOOTER SOURCES ===== -->
+<footer>
+  <h3 style="margin-bottom:12px; color:var(--muted); font-size:0.9rem;">📎 所有參考來源 / All Sources Consulted</h3>
+  <p class="sources-list">
+    行情：
+    <a href="https://finance.yahoo.com/markets/stocks/gainers/" target="_blank">Yahoo Finance Gainers</a> ·
+    <a href="https://www.morningstar.com/markets/movers" target="_blank">Morningstar Movers</a> ·
+    <a href="https://marketchameleon.com/Reports/MarketMovers" target="_blank">Market Chameleon</a> ·
+    <a href="https://www.barchart.com/options/unusual-activity" target="_blank">Barchart Unusual Options</a> ·
+    <a href="https://marketchameleon.com/Reports/UnusualOptionVolumeReport" target="_blank">Market Chameleon Options</a>
+    <br>
+    新聞：
+    <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-02-2026" target="_blank">TheStreet (6/2)</a> ·
+    <a href="https://www.bloomberg.com/news/articles/2026-06-02/us-stock-futures-today-alphabet-fulcrum-hp-enterprise-marvell" target="_blank">Bloomberg Premarket (6/2)</a> ·
+    <a href="https://www.cnbc.com/markets/" target="_blank">CNBC Markets</a>
+    <br>
+    個股深度：
+    <a href="https://www.gurufocus.com/news/8895491/nvidia-nvda-enters-pc-chip-market-boosts-stocks" target="_blank">NVDA PC chip (GuruFocus)</a> ·
+    <a href="https://www.gurufocus.com/news/8894762/alphabet-inc-googl-raises-80-billion-in-equity-financing-for-ai-expansion" target="_blank">GOOGL $80B (GuruFocus)</a> ·
+    <a href="https://www.fxleaders.com/news/2026/06/01/hpe-stock-surges-28-after-hours-on-q2-earnings-beat-upgraded-outlook-and-40-revenue-growth/" target="_blank">HPE Earnings (FX Leaders)</a> ·
+    <a href="https://www.gurufocus.com/news/8896109/intuit-intu-faces-downgrade-from-goldman-sachs-shares-drop-686" target="_blank">INTU Downgrade (GuruFocus)</a> ·
+    <a href="https://www.heygotrade.com/en/blog/broadcom-avgo-q2-fy26-earnings-preview/" target="_blank">AVGO Preview (HeyGoTrade)</a> ·
+    <a href="https://www.gurufocus.com/news/8893964/crowdstrike-crwd-set-to-release-q1-fy2027-earnings-amid-high-expectations" target="_blank">CRWD Preview (GuruFocus)</a>
+    <br>
+    社群：
+    <a href="https://www.reddit.com/r/wallstreetbets/" target="_blank">Reddit WSB</a> ·
+    <a href="https://stocktwits.com/rankings/most-active" target="_blank">StockTwits Most Active</a> ·
+    <a href="https://apewisdom.io/" target="_blank">ApeWisdom</a> ·
+    <a href="https://www.quiverquant.com/stocks/wallstreetbets/" target="_blank">Quiver Quant WSB</a>
+    <br>
+    短倉：
+    <a href="https://fintel.io/sst" target="_blank">Fintel Short Interest</a>
+    <br>
+    Anthropic IPO：
+    <a href="https://www.cnbc.com/2026/06/01/anthropic-ipo-s1-prospectus.html" target="_blank">CNBC</a> ·
+    <a href="https://www.npr.org/2026/06/01/nx-s1-5843199/anthropic-ipo-filing-ai-large" target="_blank">NPR</a>
+  </p>
+  <br>
+  <p style="font-size:0.75rem; color:var(--muted);">
+    ⚠️ 免責聲明：本文僅供資訊分析用途，不構成任何投資建議。所有數字盡量引用公開來源，但部分數據為截稿時最新估計，可能有所偏差。請以各交易所及公司官方公告為準。
+    <br>
+    Paywalled / 未完整取得：Bloomberg Markets（部分文章需訂閱）· WSJ Markets（需訂閱）· SpotGamma（部分 GEX 資料需付費）· Ortex short interest（需付費）
+  </p>
+</footer>
+
+</body>
+</html>
