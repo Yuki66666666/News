@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hot US Stocks — June 5, 2026 (Trading Session: June 4, 2026)</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --card: #1a1d27;
+      --border: #2a2d3e;
+      --accent: #4f8ef7;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+      --purple: #a78bfa;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --tag-bg: #252840;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      padding: 24px 16px 60px;
+    }
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 18px;
+      margin-bottom: 28px;
+    }
+    .header h1 { font-size: 1.7rem; color: var(--accent); margin-bottom: 4px; }
+    .header .meta { color: var(--muted); font-size: 0.88rem; }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--purple);
+      margin: 32px 0 14px;
+      padding-left: 10px;
+      border-left: 3px solid var(--purple);
+    }
+    /* Summary Table */
+    .table-wrap { overflow-x: auto; margin-bottom: 10px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    th {
+      background: var(--tag-bg);
+      color: var(--muted);
+      font-weight: 600;
+      padding: 10px 12px;
+      text-align: left;
+      white-space: nowrap;
+    }
+    td {
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    tr:hover td { background: rgba(79,142,247,0.04); }
+    .up { color: var(--green); font-weight: 700; }
+    .dn { color: var(--red); font-weight: 700; }
+    .neutral { color: var(--yellow); }
+    .buzz { letter-spacing: 2px; }
+    /* Ticker cards */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 24px;
+      margin-bottom: 22px;
+    }
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .ticker-badge {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 4px 14px;
+      border-radius: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .ticker-badge.red { background: var(--red); }
+    .ticker-badge.green { background: var(--green); color: #000; }
+    .ticker-badge.yellow { background: var(--yellow); color: #000; }
+    .ticker-badge.purple { background: var(--purple); color: #000; }
+    .card-title { font-size: 1.05rem; font-weight: 700; }
+    .card-subtitle { color: var(--muted); font-size: 0.85rem; }
+    .tape {
+      background: rgba(0,0,0,0.25);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .block-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 14px;
+      margin-bottom: 5px;
+    }
+    p { margin-bottom: 8px; }
+    .zh { color: #c4b5fd; }
+    .en { color: var(--text); }
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.76rem;
+      padding: 2px 8px;
+      margin-right: 5px;
+      margin-bottom: 4px;
+      color: var(--muted);
+    }
+    .tag.hot { border-color: var(--red); color: var(--red); }
+    .tag.buy { border-color: var(--green); color: var(--green); }
+    .tag.warn { border-color: var(--yellow); color: var(--yellow); }
+    .watch-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+    .watch-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px;
+    }
+    .watch-card .wt { font-weight: 700; color: var(--accent); font-size: 1rem; }
+    .watch-card .wm { font-size: 0.82rem; color: var(--muted); margin-top: 3px; }
+    .backdrop {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 22px;
+    }
+    .halt-card {
+      background: rgba(239,68,68,0.07);
+      border: 1px solid rgba(239,68,68,0.3);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .footer a { color: var(--accent); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    .footer ul { list-style: none; padding: 0; columns: 2; }
+    .footer li { margin-bottom: 4px; }
+    .disclaimer {
+      margin-top: 18px;
+      padding: 12px 16px;
+      background: rgba(245,158,11,0.08);
+      border: 1px solid rgba(245,158,11,0.25);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: var(--yellow);
+    }
+    @media (max-width: 600px) {
+      .header h1 { font-size: 1.3rem; }
+      .card-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🔥 Hot US Stocks — 今日美股熱門焦點股</h1>
+  <div class="meta">
+    Trading Session: <strong>Thursday, June 4, 2026</strong> (RTH Close) &nbsp;|&nbsp;
+    Published: June 5, 2026 (Asia/Taipei) &nbsp;|&nbsp;
+    Data anchored to June 4, 2026 US Eastern close
+  </div>
+</div>
+
+<!-- ===================== SECTION 1: MARKET BACKDROP ===================== -->
+<div class="section-title">大盤背景 / Market Backdrop</div>
+<div class="backdrop">
+  <p><strong>Session Narrative:</strong> Thursday June 4 was a two-world day — mega-cap semi/cybersecurity names took a beating on earnings-driven "buy the rumour, sell the news" selling, while healthcare insurers, micro-cap spec plays, and defensive consumer stocks caught a bid.</p>
+  <p><strong>Index closes (RTH, June 3 reported; June 4 intraday context available):</strong></p>
+  <ul style="list-style:disc; padding-left:20px; margin-top:6px;">
+    <li><strong>S&amp;P 500 (SPX)</strong>: ~7,555 (est. –0.7% on June 3; June 4 session weighed further by AVGO/CRWD)</li>
+    <li><strong>Nasdaq 100 (NDX)</strong>: –0.9% June 3; continued pressure June 4 on semi/cybersec selloff</li>
+    <li><strong>Dow Jones (DJIA)</strong>: +1.08% June 4 — defensives and healthcare held the index up</li>
+    <li><strong>VIX</strong>: ~16–17 (elevated from ~16 base, spiked on AVGO/CRWD gap-down)</li>
+    <li><strong>10-Year Yield</strong>: Slipped slightly as oil pulled back on Israel–Lebanon ceasefire news</li>
+  </ul>
+  <p style="margin-top:10px;"><strong>Sector Winners:</strong> Healthcare (+UNH recovery), Consumer Staples, Energy (oil dip, but pipelines bid)<br>
+  <strong>Sector Losers:</strong> Semiconductors (AVGO –15%, MRVL faded from highs), Cybersecurity (CRWD –11%, PANW sympathy –5%)</p>
+  <p style="margin-top:8px;">Next key catalyst: <strong>May Nonfarm Payrolls</strong> (Friday June 5, 8:30 AM ET) — Street expects +85K, below prior +115K. Light print could amplify rotation out of high-beta.</p>
+</div>
+
+<!-- ===================== SECTION 2: SUMMARY TABLE ===================== -->
+<div class="section-title">🏆 Today's Hottest Names — 今日熱門總覽</div>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Ticker</th>
+        <th>Company</th>
+        <th>Move</th>
+        <th>Catalyst</th>
+        <th>Options</th>
+        <th>Buzz</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>AVGO</strong></td>
+        <td>Broadcom</td>
+        <td class="dn">–15%</td>
+        <td>Q2 earnings: AI guidance didn't raise $100B FY target</td>
+        <td>IV surge; put flow heavy</td>
+        <td class="buzz">★★★★★</td>
+        <td><span class="tag hot">Mega-cap collapse</span></td>
+      </tr>
+      <tr>
+        <td><strong>CRWD</strong></td>
+        <td>CrowdStrike</td>
+        <td class="dn">–11%</td>
+        <td>Q1 FY27: billings miss, in-line guidance, 65% YTD run-up</td>
+        <td>Calls unwound; elevated IV</td>
+        <td class="buzz">★★★★★</td>
+        <td><span class="tag hot">Post-earnings dump</span></td>
+      </tr>
+      <tr>
+        <td><strong>CIEN</strong></td>
+        <td>Ciena</td>
+        <td class="dn">–16%</td>
+        <td>Q2 FY26 beat on revenue +40% YoY but P/E ~399× too stretched</td>
+        <td>Put flow, IV spike pre-earnings</td>
+        <td class="buzz">★★★★</td>
+        <td><span class="tag hot">Earnings sell-off</span></td>
+      </tr>
+      <tr>
+        <td><strong>STI</strong></td>
+        <td>Solidion Technology</td>
+        <td class="up">+379%</td>
+        <td>Gen-ECB extreme-climate space battery platform unveiled</td>
+        <td>Low options liquidity; pure equity play</td>
+        <td class="buzz">★★★★</td>
+        <td><span class="tag hot">Micro-cap squeeze/hype</span></td>
+      </tr>
+      <tr>
+        <td><strong>ADCT</strong></td>
+        <td>ADC Therapeutics</td>
+        <td class="dn">–53%</td>
+        <td>LOTIS-5 Phase 3: 13.2% fatal AE rate vs 4.6% control</td>
+        <td>Deep puts; stock halted multiple times</td>
+        <td class="buzz">★★★★</td>
+        <td><span class="tag hot">Biotech safety crash</span></td>
+      </tr>
+      <tr>
+        <td><strong>RDW</strong></td>
+        <td>Redwire</td>
+        <td class="up">+17%</td>
+        <td>Astrobiome ISS greenhouse contract; short squeeze setup (18% SI)</td>
+        <td>Low option OI; short covering</td>
+        <td class="buzz">★★★★</td>
+        <td><span class="tag buy">Space + short squeeze</span></td>
+      </tr>
+      <tr>
+        <td><strong>UNH</strong></td>
+        <td>UnitedHealth</td>
+        <td class="up">+5.7%</td>
+        <td>BofA upgrade Neutral→Buy; PT $450; soft MCR trends</td>
+        <td>Call buying, upside flows</td>
+        <td class="buzz">★★★★</td>
+        <td><span class="tag buy">Mega-cap recovery</span></td>
+      </tr>
+      <tr>
+        <td><strong>PANW</strong></td>
+        <td>Palo Alto Networks</td>
+        <td class="dn">–5%</td>
+        <td>CRWD earnings sympathy; cybersec sector reset</td>
+        <td>Bearish flow; put build</td>
+        <td class="buzz">★★★</td>
+        <td><span class="tag warn">Sector spillover</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===================== SECTION 3: DEEP DIVES ===================== -->
+<div class="section-title">📋 Deep Dives — 個股深度分析</div>
+
+<!-- AVGO -->
+<div class="card">
+  <div class="card-header">
+    <div class="ticker-badge red">AVGO</div>
+    <div>
+      <div class="card-title">Broadcom Inc. / 博通</div>
+      <div class="card-subtitle">NASDAQ · Semiconductors / AI Networking</div>
+    </div>
+  </div>
+  <div class="tape">Tape (June 4): Close ~$184 (–15% from ~$217) · AH indicated ~$182 · Vol: ~150M sh (est. 5–6× 30D avg) · Range $180–$215 · Pre-market down ~15%</div>
+
+  <div class="block-label">為什麼今天熱 / Why it's hot today</div>
+  <p class="zh">博通 Q2 FY2026 財報在 6 月 3 日盤後公布：營收 $221.9B（年增 48%），AI 晶片收入 $108B 翻倍，表面上非常亮眼。但關鍵失誤在於執行長 Hock Tan 並未上調全年 AI 半導體銷售目標（維持 $1000 億美元），市場早已預期提高。這種「成績好但不夠驚艷」的結果讓估值過高的股價腰斬約 15%，是博通近年來最大單日跌幅之一。</p>
+  <p class="en">Broadcom reported a strong Q2: revenue $22.2B (+48% YoY), AI chip revenue $10.8B (>2× YoY). But the critical disappointment was CEO Hock Tan holding the FY2026 AI revenue target steady at $100B rather than raising it — Wall Street had priced in an increase. The result: a classic "buy the rumour, sell the news" unwind with ~$50B market cap evaporating in a single session.</p>
+
+  <div class="block-label">Options &amp; Flow</div>
+  <p>Put flow dominated post-earnings AH on June 3 and into June 4 open. IV spiked sharply pre-earnings (typical AVGO pattern) and compressed after the move. Largest OI build concentrated at $180–$200 strikes. The put/call ratio flipped heavily bearish in first hour of RTH June 4. Short interest on AVGO is historically low (~1–2%), so the decline was pure long liquidation and stop-loss cascades rather than short attack.</p>
+
+  <div class="block-label">Retail Buzz</div>
+  <p>WSB daily thread: multiple posts titled "AVGO took me to the woodshed" and "held through earnings like an idiot." Top WSB narrative: "fundamentals are strong, but you can't hold into earnings when stock is up 80% YTD." StockTwits $AVGO: mixed — some dip-buyers emerged intraday citing "still the best AI networking play." X cashtag $AVGO trending all morning.</p>
+
+  <div class="block-label">炒作脈絡 / Narrative Context</div>
+  <p>AVGO had rallied ~80% YTD into earnings, pricing near-perfection. The $100B AI revenue target set in early 2025 hadn't been officially raised, leaving the market with a "what's the next growth beat" problem. Peers MRVL surged +33% the day before on Jensen Huang comments — setting an unfairly high bar for Broadcom. Semi index (SOX) down ~2–3% in sympathy.</p>
+
+  <div class="block-label">後續觀察 / What to Watch Next</div>
+  <p><span class="tag warn">Watch:</span> $180 support level (prior breakout point). Analyst target revisions likely lower. VMware integration story still intact. Next catalyst: Q3 guidance cadence, any off-cycle AI revenue update. Gap fill to ~$195 possible if market stabilizes post-NFP Friday.</p>
+
+  <div style="margin-top:10px; font-size:0.8rem; color:var(--muted);">
+    Sources:
+    <a href="https://www.cnbc.com/2026/06/03/broadcom-avgo-earnings-report-q2-2026.html" target="_blank">CNBC AVGO Q2 earnings</a> ·
+    <a href="https://www.stocktitan.net/news/AVGO/broadcom-inc-announces-second-quarter-fiscal-year-2026-financial-if4yrbje8hq6.html" target="_blank">StockTitan</a> ·
+    <a href="https://www.gurufocus.com/news/8901119/broadcom-avgo-falls-despite-record-earnings-report" target="_blank">GuruFocus</a> ·
+    <a href="https://seekingalpha.com/news/4600547-biggest-stock-movers-thursday-crwd-avgo-and-more" target="_blank">Seeking Alpha movers</a>
+  </div>
+</div>
+
+<!-- CRWD -->
+<div class="card">
+  <div class="card-header">
+    <div class="ticker-badge red">CRWD</div>
+    <div>
+      <div class="card-title">CrowdStrike Holdings / 卡羅斯特萊克</div>
+      <div class="card-subtitle">NASDAQ · Cybersecurity / AI-native EDR</div>
+    </div>
+  </div>
+  <div class="tape">Tape (June 4): Close ~$669 (–10.5% from $747.61) · Pre-AH low ~$664 · Vol: ~25M sh (est. 3–4× 30D avg) · Range $660–$750 · Q1 FY27 reported after June 3 close</div>
+
+  <div class="block-label">為什麼今天熱 / Why it's hot today</div>
+  <p class="zh">CrowdStrike Q1 FY2027 財報整體優於預期：營收 $13.9B（YoY +26%），ARR 達 $55B 創新高。但有兩個致命傷：① 計費額（billings）僅年增 18%，遠低於市場預期的 20%+；② 指引雖然上調，但幅度低於牛市的期望。加上股價今年漲了 65%，估值嚴重透支，獲利了結潮不可避免。</p>
+  <p class="en">CrowdStrike posted solid Q1 FY2027 results: $1.39B revenue (+26% YoY), ARR of $5.5B. But two things spooked investors: (1) billings grew only 18% to $1.35B, below the ~20%+ consensus; and (2) guidance, while raised, was below the most optimistic street models. With CRWD up 65% YTD and trading at ~$747 vs. average analyst target of ~$564, profit-taking was inevitable. Announced a 4-for-1 stock split — positive optics but not a driver.</p>
+
+  <div class="block-label">Options &amp; Flow</div>
+  <p>Significant call open interest at $700–$750 strikes heading into earnings — those became underwater fast. IV collapsed post-earnings (volatility crush). Put buying accelerated in the morning session as stop-losses triggered below $700. CRWD's 4-for-1 split announcement slightly softened the sell pressure mid-session. Options market implied ~±8% move pre-earnings; actual was –10.5%.</p>
+
+  <div class="block-label">Retail Buzz</div>
+  <p>WSB reaction was split: some "I diamond-handed CRWD into earnings and got rekt," others calling it a buy-the-dip. Most notable thread: "CRWD billings miss is not as bad as it looks — ARR is the right metric." StockTwits: heavily bearish tone in morning, turned neutral by afternoon. X: $CRWD trending #3 on finance feeds by 10 AM ET.</p>
+
+  <div class="block-label">炒作脈絡 / Narrative Context</div>
+  <p>The July 2024 global outage saga is largely in the rearview mirror — CRWD had recovered fully and then some. The 65% YTD run meant the stock needed near-perfect numbers to hold. Billings deceleration is a leading indicator that deal velocity may be moderating. Palo Alto Networks (PANW) fell in sympathy ~5% as investors repriced the entire cybersecurity premium cohort.</p>
+
+  <div class="block-label">後續觀察 / What to Watch Next</div>
+  <p><span class="tag warn">Watch:</span> $640–$650 key support zone. PANW reports later in June — could confirm or refute the "sector slowdown" thesis. Split record date TBD — mechanical buying may return near ex-date. Net Revenue Retention (NRR) print next quarter will be the real tell on churn risk.</p>
+
+  <div style="margin-top:10px; font-size:0.8rem; color:var(--muted);">
+    Sources:
+    <a href="https://www.fxleaders.com/news/2026/06/04/crowdstrike-falls-11-after-earnings-despite-ai-boom-5-5b-arr-and-60-ytd-rally/" target="_blank">FX Leaders CRWD</a> ·
+    <a href="https://www.techtimes.com/articles/317702/20260603/crowdstrike-earnings-beat-sends-shares-down-9-billings-miss-overshadows-record-arr.htm" target="_blank">TechTimes</a> ·
+    <a href="https://247wallst.com/investing/2026/06/04/crowdstrike-sinks-9-as-earnings-beat-falls-short-of-lofty-expectations-weighing-on-palo-alto-networks/" target="_blank">24/7 Wall St.</a> ·
+    <a href="https://www.ebc.com/forex/crwd-crowdstrike-stock-split-4-for-1-q1-earnings-2026" target="_blank">EBC Financial (split)</a>
+  </div>
+</div>
+
+<!-- CIEN -->
+<div class="card">
+  <div class="card-header">
+    <div class="ticker-badge red">CIEN</div>
+    <div>
+      <div class="card-title">Ciena Corporation / 竦那光網</div>
+      <div class="card-subtitle">NYSE · Optical Networking / AI Infrastructure</div>
+    </div>
+  </div>
+  <div class="tape">Tape (June 4): Pre-market ~$548 (–16% from ~$653 close); RTH close TBC · Vol: heavy (est. 5–8× 30D avg) · Q2 FY2026 reported before market open June 4</div>
+
+  <div class="block-label">為什麼今天熱 / Why it's hot today</div>
+  <p class="zh">Ciena 報出一季漂亮的財報：Q2 FY2026 營收 $15.7B（YoY +40% 創紀錄），EPS $1.64 大幅超預期 $1.40，全年展望上調至 $63B。但股價重挫約 16%，原因在於本益比高達 399 倍，任何「已預期的好消息」都不足以支撐現有估值。CEO Gary Smith 在一週前出售了 $167 萬股票，加深市場疑慮。</p>
+  <p class="en">Ciena posted record Q2 FY2026: revenue $1.57B (+40% YoY), adj. EPS $1.64 vs. $1.40 expected — a big beat. Management also raised full-year revenue guidance to $6.3B. But the stock fell ~16% pre-market. Why? A trailing P/E of ~399× means the stock was priced for perfection many quarters ahead. Any "in line with high expectations" print becomes a sell event. CEO Gary Smith's $1.67M insider sale just days before earnings didn't help sentiment.</p>
+
+  <div class="block-label">Options &amp; Flow</div>
+  <p>Options implied a ~13% move ahead of earnings (Bloomberg data). Actual realized ~16% downside exceeded that, suggesting positioning was tilted bullish (net call overweight) into the print. Put buying accelerated in pre-market. Morgan Stanley maintained a $405 price target; stock opened below $550, making that target look distant.</p>
+
+  <div class="block-label">Retail Buzz</div>
+  <p>Limited retail buzz relative to institutional names — CIEN is primarily an institutional/options-focused name. StockTwits: sentiment rapidly turned bearish. r/investing: "how does a 40% revenue beat cause a 16% crash — welcome to 2026 AI valuations." Key narrative online: the insider sale framing.</p>
+
+  <div class="block-label">炒作脈絡 / Narrative Context</div>
+  <p>Ciena is benefiting from massive AI data center buildout requiring dense optical networking — a real secular tailwind. But the stock had been priced as a "pure AI infrastructure winner" at elevated multiples. This is a recurring pattern across the AI infrastructure cohort: when growth is 40% but baked in at 50%, the stock gets punished. Peers JNPR, INFN, LITE may see sympathy pressure.</p>
+
+  <div class="block-label">後續觀察 / What to Watch Next</div>
+  <p><span class="tag warn">Watch:</span> Whether $530–$550 holds as new support. AI capex order cadence from hyperscalers in coming weeks is the key re-rating catalyst. CEO insider sale overhang needs to fade. Q3 FY2026 print in early September will be the next major test.</p>
+
+  <div style="margin-top:10px; font-size:0.8rem; color:var(--muted);">
+    Sources:
+    <a href="https://www.investing.com/news/transcripts/earnings-call-transcript-ciena-q2-2026-beats-forecasts-but-stock-dips-93CH-4726909" target="_blank">Investing.com earnings call transcript</a> ·
+    <a href="https://www.stocktitan.net/news/CIEN/ciena-reports-fiscal-second-quarter-2026-financial-s8y5ae6vcv5l.html" target="_blank">StockTitan CIEN results</a> ·
+    <a href="https://www.investing.com/news/insider-trading-news/ciena-ceo-gary-smith-sells-167m-in-stock-on-june-1-93CH-4722630" target="_blank">CEO insider sale</a>
+  </div>
+</div>
+
+<!-- STI -->
+<div class="card">
+  <div class="card-header">
+    <div class="ticker-badge yellow">STI</div>
+    <div>
+      <div class="card-title">Solidion Technology Inc. / 固態電池微型股</div>
+      <div class="card-subtitle">NASDAQ · Advanced Battery Tech / Space Economy</div>
+    </div>
+  </div>
+  <div class="tape">Tape (June 4): Peak ~+500% pre-market; pared to ~+379% intraday (~$23 late morning vs. ~$5 prior close) · Vol: 78M sh (vs. negligible daily float) · RTH: multiple LULD halts likely</div>
+
+  <div class="block-label">為什麼今天熱 / Why it's hot today</div>
+  <p class="zh">Solidion Technology 公布其「Gen-ECB 極端氣候電池平台」，宣稱可在 -80°C 到 +60°C 環境下穩定運作，目標應用於太空任務、衛星、近地軌道 AI 資料中心及月球基礎建設。消息一出，股票爆量暴漲，盤中最高上漲超過 500%。值得注意的是，這只是新聞稿，<strong>尚無正式合約或收入驗證</strong>。公司市值極小，流通量低，非常容易被炒作拉抬。</p>
+  <p class="en">Solidion unveiled its Gen-ECB (graphene-regulated extreme-climate battery) platform claiming operation from −80°C to +60°C, targeting satellites, LEO AI data centers, crewed spacecraft, and lunar infrastructure. The announcement triggered a massive short squeeze + retail momentum pile-on. The company holds 385+ patents but has minimal commercial revenue. This is a classic small-cap press release pump — impressive technology claim, essentially zero near-term revenue verification.</p>
+
+  <div class="block-label">Options &amp; Flow</div>
+  <p>No meaningful options market for STI given tiny market cap. The play was pure equity momentum — retail buyers chasing the gap. Short interest was reportedly non-trivial for its float size (exact % unconfirmed), enabling a brief squeeze dynamic. Volume of 78M shares was multiples of daily float — hallmark of a manipulative momentum event.</p>
+
+  <div class="block-label">Retail Buzz</div>
+  <p>STI dominated r/Daytrading and r/pennystocks on June 4. StockTwits: "SOLIDION TO THE MOON" posts flooded the feed. Multiple Discord day-trading servers flagged it in pre-market. Key warning circulating: "pure PR, no contract signed." Altindex tracked significant spike in Reddit mentions by 9 AM ET.</p>
+
+  <div class="block-label">炒作脈絡 / Narrative Context</div>
+  <p>Same-day context: RDW also surged on a space-adjacent contract. The "space economy" theme was already getting retail attention post-NASA budget cycles and SpaceX commercial milestones. Solidion is capitalizing on that narrative. Compare to similar micro-cap pump events: most retrace 60–80% within 3 sessions without revenue validation.</p>
+
+  <div class="block-label">後續觀察 / What to Watch Next</div>
+  <p><span class="tag hot">CAUTION:</span> This is a speculative micro-cap with classic pump characteristics. No position recommendation. Watch for: follow-on dilution offering (extremely common after such moves), SEC review of the press release, and whether any actual launch contracts get announced. 17% short float means squeeze may have more fuel OR is already exhausted.</p>
+
+  <div style="margin-top:10px; font-size:0.8rem; color:var(--muted);">
+    Sources:
+    <a href="https://www.benzinga.com/trading-ideas/movers/26/06/52995893/why-is-solidion-technology-stock-surging-on-thursday" target="_blank">Benzinga STI</a> ·
+    <a href="https://www.stocktitan.net/news/STI/solidion-technology-unveils-patented-extreme-climate-battery-wqzc9jb17lhy.html" target="_blank">StockTitan press release</a> ·
+    <a href="https://finance.yahoo.com/markets/stocks/articles/why-sti-stock-soaring-premarket-123128001.html" target="_blank">Yahoo Finance STI</a>
+  </div>
+</div>
+
+<!-- ADCT -->
+<div class="card">
+  <div class="card-header">
+    <div class="ticker-badge red">ADCT</div>
+    <div>
+      <div class="card-title">ADC Therapeutics SA / 抗體藥物偶聯物治療</div>
+      <div class="card-subtitle">NYSE · Biotech / Oncology ADC</div>
+    </div>
+  </div>
+  <div class="tape">Tape (June 4): Pre-market –49.7% to $1.55; RTH close ~$1.50–$1.60 range (–53% from ~$3.20) · Vol: 50M+ sh (massive relative to float) · Multiple trading halts</div>
+
+  <div class="block-label">為什麼今天熱 / Why it's hot today</div>
+  <p class="zh">ADC Therapeutics 於 6 月 3 日盤後公布 LOTIS-5 Phase 3 試驗結果：ZYNLONTA 聯合 rituximab 確實達到主要終點（PFS 改善），但安全性數據令人憂慮 — 實驗組 Grade 5（致命）不良事件發生率 13.2%，對照組僅 4.6%。RBC 隨即下調評級，股票盤前暴跌逾 50%。</p>
+  <p class="en">ADC Therapeutics released LOTIS-5 Phase 3 topline data after June 3 close: ZYNLONTA + rituximab achieved the primary endpoint (PFS: 6.1 months vs. 4.7 months control). But the safety signal was alarming — Grade 5 (fatal) treatment-emergent adverse events: 13.2% in the ZYNLONTA arm vs. 4.6% in control. That 2.9× mortality differential, particularly in patients ≥75 years, triggered an immediate re-rating. RBC Capital cut its rating. sBLA submission planned Q4 2026 despite the safety data.</p>
+
+  <div class="block-label">Options &amp; Flow</div>
+  <p>ADCT had active put buying in the week ahead of the trial readout (likely informed participants or options-market hedging of binary event). Post-announcement, stock gapped below most put strikes making them deep ITM. Stock halted multiple times under LULD rules as price discovered a new floor. Very little call activity — the options market correctly priced the downside tail.</p>
+
+  <div class="block-label">Retail Buzz</div>
+  <p>r/biotech: "LOTIS-5 is a mixed bag — PFS positive but the death rate is the story." r/wallstreetbets had scattered posts from bagholders. Key discussion: whether the FDA will even accept the sBLA given 13.2% fatal AE vs. 4.6% in control. StockTwits: highly negative, with some contrarian "bounce play" thesis at $1.50.</p>
+
+  <div class="block-label">炒作脈絡 / Narrative Context</div>
+  <p>ADCT was a binary event stock — pre-announcement the setup was classic Phase 3 readout speculation. The "ADC" drug modality is red-hot (AstraZeneca/Daiichi deals, etc.) which kept ADCT bid. The fatal AE rate is the decisive issue: FDA may require Risk Evaluation and Mitigation Strategies (REMS) or restrict label to lower-risk patient populations, severely limiting commercial opportunity.</p>
+
+  <div class="block-label">後續觀察 / What to Watch Next</div>
+  <p><span class="tag warn">Watch:</span> FDA response to sBLA plan (pre-meeting August). Whether company can raise capital at these levels (massive dilution risk). Peer ADC names (ENSG, RCUS, etc.) — ADCT's fate may not be indicative of the broader ADC modality. Stock near $1.50 is in delisting-risk territory if sustained. <em>(標注：此為事件分析,非投資建議)</em></p>
+
+  <div style="margin-top:10px; font-size:0.8rem; color:var(--muted);">
+    Sources:
+    <a href="https://www.benzinga.com/news/health-care/26/06/52997473/why-is-adc-therapeutics-stock-falling-thursday" target="_blank">Benzinga ADCT</a> ·
+    <a href="https://www.biospace.com/press-releases/adc-therapeutics-announces-results-from-lotis-5-phase-3-confirmatory-clinical-trial-of-zynlonta-in-combination-with-rituximab-in-relapsed-or-refractory-diffuse-large-b-cell-lymphoma" target="_blank">BioSpace LOTIS-5 data</a> ·
+    <a href="https://pharmaphorum.com/news/adc-therapeutics-slumps-cancer-drug-safety-scare" target="_blank">PharmaPhorumn analysis</a>
+  </div>
+</div>
+
+<!-- RDW -->
+<div class="card">
+  <div class="card-header">
+    <div class="ticker-badge green">RDW</div>
+    <div>
+      <div class="card-title">Redwire Corporation / 紅線太空技術</div>
+      <div class="card-subtitle">NYSE · Commercial Space Infrastructure / In-Space Manufacturing</div>
+    </div>
+  </div>
+  <div class="tape">Tape (June 4): Close ~$20.75 (+17% intraday; peaked near +20%) · Vol: elevated vs. 30D avg · Short interest ~17.96% of float · Contract announced pre-market</div>
+
+  <div class="block-label">為什麼今天熱 / Why it's hot today</div>
+  <p class="zh">Redwire 獲得盧森堡生物科技公司 Astrobiome Space 的合約，將在其 ISS 商業溫室系統中種植太空草莓（全球首次）並測試 Astrobiome 的土壤增強劑。合約本身規模不大，但象徵意義極強——Redwire 的溫室系統迎來首次商業飛行任務。疊加 ~18% 高空頭比例，短暫觸發軋空效應。</p>
+  <p class="en">Redwire was awarded a contract from Astrobiome Space (Luxembourg biotech) to grow wild strawberries — the first ever cultivated in orbit — inside Redwire's Greenhouse system on the ISS, using Astrobiome's proprietary biostimulant. This marks the inaugural commercial flight for Redwire's Greenhouse product. The contract itself is small-dollar but strategically significant. With ~18% short float, bulls piling in triggered meaningful short-covering, amplifying the +17% gain.</p>
+
+  <div class="block-label">Options &amp; Flow</div>
+  <p>RDW has limited but growing options activity. Calls outpaced puts significantly on June 4 as retail rotated into the "space theme" following the STI mania earlier in the session. Short interest at ~17.96% of float with elevated days-to-cover created squeeze conditions. Backlog record of $498.1M as of March 2026 provides fundamental backdrop to justify new interest.</p>
+
+  <div class="block-label">Retail Buzz</div>
+  <p>r/wallstreetbets: "Space strawberries got me +17% on RDW." StockTwits $RDW: trending, highly bullish. Multiple finance influencers on X highlighted the "strawberries in space" angle as a quirky, attention-grabbing narrative. WSB described it as "the most wholesome trade of 2026." The story was tailor-made for viral sharing.</p>
+
+  <div class="block-label">炒作脈絡 / Narrative Context</div>
+  <p>Redwire has been steadily building its commercial space backlog — from solar arrays to bioprinting to now food/agriculture. The ISS commercial transition (NASA reducing direct operations, enabling commercial contractors like Redwire) is a multi-year tailwind. Prior contract wins had produced muted stock reactions; this one hit at a moment of peak "space economy" retail enthusiasm (see STI same day).</p>
+
+  <div class="block-label">後續觀察 / What to Watch Next</div>
+  <p><span class="tag buy">Watch:</span> Short squeeze continuation potential (18% SI). Next contract announcements. ISS transition timeline from NASA. Whether RDW can maintain momentum post-squeeze or retraces to $17–$18 range. Q2 2026 earnings report for backlog confirmation.</p>
+
+  <div style="margin-top:10px; font-size:0.8rem; color:var(--muted);">
+    Sources:
+    <a href="https://www.benzinga.com/trading-ideas/movers/26/06/53007968/why-is-redwire-stock-soaring-thursday" target="_blank">Benzinga RDW</a> ·
+    <a href="https://www.stocktitan.net/news/RDW/redwire-awarded-a-contract-from-astrobiome-space-to-launch-inaugural-fkkatuoci6yk.html" target="_blank">StockTitan contract</a> ·
+    <a href="https://finance.yahoo.com/markets/stocks/articles/rdw-pre-market-rally-sets-125155998.html" target="_blank">Yahoo Finance RDW</a>
+  </div>
+</div>
+
+<!-- UNH -->
+<div class="card">
+  <div class="card-header">
+    <div class="ticker-badge green">UNH</div>
+    <div>
+      <div class="card-title">UnitedHealth Group / 聯合健康集團</div>
+      <div class="card-subtitle">NYSE · Managed Care / Health Insurance</div>
+    </div>
+  </div>
+  <div class="tape">Tape (June 4): +5.7% intraday (~$387 pre-market, ~$393+ by mid-session) · Vol: elevated vs. 30D avg · BofA upgrade announced pre-market · YTD: +14.2%</div>
+
+  <div class="block-label">為什麼今天熱 / Why it's hot today</div>
+  <p class="zh">美國銀行分析師 Kevin Fischbeck 將 UNH 評級從「中性」上調至「買進」，目標價從 $420 調升至 $450，理由是醫療成本比率（MCR）改善、數據指向有利的 Q2 趨勢。加上摩根士丹利也在近期調高目標至 $453，機構牛市共識形成。市場將此視為保險板塊重返趨勢的信號。</p>
+  <p class="en">Bank of America analyst Kevin Fischbeck upgraded UNH from Neutral to Buy, raising PT to $450 (from $420), citing improving medical cost ratio (MCR down 90bp to 84%) and a favorable setup into Q2 earnings. Morgan Stanley recently raised its PT to $453 (OW). With 22/28 analysts now at Buy/higher, a growing "wall of bulls" is forming. UNH had snapped a 5-day losing streak, and the upgrade-driven rally pulled managed care peers HUM (+6%) and CI (+4%) higher in sympathy.</p>
+
+  <div class="block-label">Options &amp; Flow</div>
+  <p>Meaningful upside call flow on June 4, particularly in the $395–$410 strike range for July expiry. Call volume exceeded put volume by ~2:1 in morning session. Implied volatility relatively low for a stock of this size — the upgrade-driven move was equity-driven, not options-leveraged. Short interest on UNH is minimal.</p>
+
+  <div class="block-label">Retail Buzz</div>
+  <p>StockTwits $UNH: dominated by institutional perspective given stock price (~$390). Reddit r/investing: "UNH is finally recovering — BofA upgrade is a green flag after the DOJ mess in 2025." Multiple finance media covered the UNH recovery narrative as a "sector rotation" signal into healthcare ahead of Q2 earnings season.</p>
+
+  <div class="block-label">炒作脈絡 / Narrative Context</div>
+  <p>UNH had a brutal 2025 — DOJ antitrust scrutiny, CEO resignation, and MCR concerns. The stock reached a 52-week high of ~$404 in mid-May 2026 then pulled back ~5% into June. The BofA upgrade re-anchors the bull case: improving medical cost trends suggest the 2025 MCR spikes were transitory. Peers Humana (HUM) and Cigna (CI) followed UNH higher — sector-wide re-rating in progress.</p>
+
+  <div class="block-label">後續觀察 / What to Watch Next</div>
+  <p><span class="tag buy">Watch:</span> Q2 earnings release in mid-July — actual MCR print vs. guide. Lawsuit/regulatory overhang: cryptonomist article (June 4) flagged renewed lawsuit risk. $400 resistance level — breakout above would confirm trend reversal. CMS reimbursement rates for 2027 (typically announced ~April, but any revision is key).</p>
+
+  <div style="margin-top:10px; font-size:0.8rem; color:var(--muted);">
+    Sources:
+    <a href="https://www.gurufocus.com/news/8900702/unitedhealth-unh-upgraded-to-buy-by-bofa-with-increased-price-target" target="_blank">GuruFocus BofA upgrade</a> ·
+    <a href="https://247wallst.com/investing/2026/06/04/humana-jumps-6-unitedhealth-climbs-5-cigna-rises-4-as-analysts-cheer-softer-medical-cost-trends/" target="_blank">24/7 Wall St. HUM/UNH/CI</a> ·
+    <a href="https://en.cryptonomist.ch/2026/06/04/unitedhealth-stock-stalls-near-377-as-lawsuit-risk-returns/" target="_blank">Cryptonomist UNH risks</a>
+  </div>
+</div>
+
+<!-- ===================== SECTION 4: WATCH LIST ===================== -->
+<div class="section-title">👀 Watch List — 次熱觀察股</div>
+<div class="watch-list">
+  <div class="watch-card">
+    <div class="wt">PANW — Palo Alto Networks</div>
+    <div class="wm">–5% sympathy to CRWD. No company-specific news. Up 48% YTD — extended valuation now scrutinized. Next earnings in mid-June could be key reset. Watch $315–$320 support.</div>
+  </div>
+  <div class="watch-card">
+    <div class="wt">MRVL — Marvell Technology</div>
+    <div class="wm">Surged +33% June 2 on Jensen Huang comments at Computex. June 5 context: gave back some gains amid AVGO/semi selloff. Custom silicon investor day June 17 is the next major catalyst. PT raised to $321 by Stifel.</div>
+  </div>
+  <div class="watch-card">
+    <div class="wt">RDDT — Reddit Inc.</div>
+    <div class="wm">+6.97% this week on Google AI data deal renewal optimism ($60M/yr contract up for renewal in 2027, bulls see 5×–8× price increase). Slipped slightly June 4 as selling met the move. Ad revenue +strong. Watch $180 support.</div>
+  </div>
+  <div class="watch-card">
+    <div class="wt">ADSK — Autodesk</div>
+    <div class="wm">AWS Strategic Collaboration Agreement announced June 3; largest acquisition in history (MaintainX, $3.6B) closes later in FY2027. Stock range-bound ~$231. Post-deal digestion phase. June earnings date TBD.</div>
+  </div>
+  <div class="watch-card">
+    <div class="wt">HUM — Humana</div>
+    <div class="wm">+6% June 4 in sympathy with UNH upgrade. Analysts cheering softer medical cost trends across managed care. High short interest still in place from 2025 MCR concerns — squeeze candidate if MCR confirms improvement in Q2.</div>
+  </div>
+</div>
+
+<!-- ===================== SECTION 5: HALTS & WEIRDNESS ===================== -->
+<div class="section-title">⚠️ Halts &amp; 異常事件</div>
+
+<div class="halt-card">
+  <strong>STI (Solidion Technology) — Multiple LULD Halts</strong><br>
+  Stock opened with a 500%+ gap and triggered multiple Limit Up-Limit Down circuit breakers throughout the session. Volume of 78M shares on a micro-float name. Characteristic of a PR-driven pump; SEC may review.
+  <br><span style="font-size:0.8rem; color:var(--muted);">Source: <a href="https://www.benzinga.com/trading-ideas/movers/26/06/52995893/why-is-solidion-technology-stock-surging-on-thursday" target="_blank">Benzinga</a></span>
+</div>
+
+<div class="halt-card">
+  <strong>ADCT (ADC Therapeutics) — LULD Halts on Safety Data Gap-Down</strong><br>
+  Stock fell over 50% on trial safety data, triggering multiple circuit breakers. Pre-market halt before RTH open. Dilution/capital raise risk elevated at $1.50 stock price.
+  <br><span style="font-size:0.8rem; color:var(--muted);">Source: <a href="https://seekingalpha.com/news/4600603-adc-therapeutics-falls-data-lymphoma-drug" target="_blank">Seeking Alpha</a></span>
+</div>
+
+<div class="halt-card">
+  <strong>FOXX — +118% surge</strong><br>
+  Heavy volume micro-cap, specific catalyst unclear at time of writing. Watch for follow-on dilution. Not recommended as a primary focus given limited catalyst transparency.
+</div>
+
+<!-- ===================== SECTION 6: SOURCES ===================== -->
+<div class="section-title">📎 Sources Consulted — 資料來源</div>
+<div class="footer">
+  <ul>
+    <li><a href="https://seekingalpha.com/news/4600547-biggest-stock-movers-thursday-crwd-avgo-and-more" target="_blank">Seeking Alpha: Biggest Movers Thursday</a></li>
+    <li><a href="https://www.cnbc.com/2026/06/03/broadcom-avgo-earnings-report-q2-2026.html" target="_blank">CNBC: Broadcom Q2 Earnings Report</a></li>
+    <li><a href="https://www.cnbc.com/after-hours/" target="_blank">CNBC After Hours</a></li>
+    <li><a href="https://www.stocktitan.net/news/AVGO/broadcom-inc-announces-second-quarter-fiscal-year-2026-financial-if4yrbje8hq6.html" target="_blank">StockTitan: AVGO Q2</a></li>
+    <li><a href="https://www.gurufocus.com/news/8901119/broadcom-avgo-falls-despite-record-earnings-report" target="_blank">GuruFocus: AVGO Falls</a></li>
+    <li><a href="https://www.fxleaders.com/news/2026/06/04/crowdstrike-falls-11-after-earnings-despite-ai-boom-5-5b-arr-and-60-ytd-rally/" target="_blank">FX Leaders: CRWD –11%</a></li>
+    <li><a href="https://www.ebc.com/forex/crwd-crowdstrike-stock-split-4-for-1-q1-earnings-2026" target="_blank">EBC: CRWD 4-for-1 Split</a></li>
+    <li><a href="https://247wallst.com/investing/2026/06/04/crowdstrike-sinks-9-as-earnings-beat-falls-short-of-lofty-expectations-weighing-on-palo-alto-networks/" target="_blank">24/7 Wall St: CRWD &amp; PANW</a></li>
+    <li><a href="https://www.investing.com/news/transcripts/earnings-call-transcript-ciena-q2-2026-beats-forecasts-but-stock-dips-93CH-4726909" target="_blank">Investing.com: CIEN Q2 transcript</a></li>
+    <li><a href="https://www.stocktitan.net/news/CIEN/ciena-reports-fiscal-second-quarter-2026-financial-s8y5ae6vcv5l.html" target="_blank">StockTitan: CIEN Q2 results</a></li>
+    <li><a href="https://www.benzinga.com/trading-ideas/movers/26/06/52995893/why-is-solidion-technology-stock-surging-on-thursday" target="_blank">Benzinga: STI surge</a></li>
+    <li><a href="https://www.stocktitan.net/news/STI/solidion-technology-unveils-patented-extreme-climate-battery-wqzc9jb17lhy.html" target="_blank">StockTitan: STI announcement</a></li>
+    <li><a href="https://www.benzinga.com/news/health-care/26/06/52997473/why-is-adc-therapeutics-stock-falling-thursday" target="_blank">Benzinga: ADCT crash</a></li>
+    <li><a href="https://www.biospace.com/press-releases/adc-therapeutics-announces-results-from-lotis-5-phase-3-confirmatory-clinical-trial-of-zynlonta-in-combination-with-rituximab-in-relapsed-or-refractory-diffuse-large-b-cell-lymphoma" target="_blank">BioSpace: LOTIS-5 data</a></li>
+    <li><a href="https://www.stocktitan.net/news/RDW/redwire-awarded-a-contract-from-astrobiome-space-to-launch-inaugural-fkkatuoci6yk.html" target="_blank">StockTitan: RDW contract</a></li>
+    <li><a href="https://www.gurufocus.com/news/8900702/unitedhealth-unh-upgraded-to-buy-by-bofa-with-increased-price-target" target="_blank">GuruFocus: UNH upgrade</a></li>
+    <li><a href="https://247wallst.com/investing/2026/06/04/humana-jumps-6-unitedhealth-climbs-5-cigna-rises-4-as-analysts-cheer-softer-medical-cost-trends/" target="_blank">24/7 Wall St: HUM/UNH/CI managed care</a></li>
+    <li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-june-4-2026-nasdaq-futures-slide-amid-iran-war-concerns" target="_blank">TheStreet: Market Today June 4</a></li>
+    <li><a href="https://altindex.com/wallstreetbets" target="_blank">AltIndex: WSB Tracker</a></li>
+    <li><a href="https://stocktwits.com/rankings/most-active" target="_blank">StockTwits Most Active</a></li>
+    <li><a href="https://finance.yahoo.com/markets/stocks/most-active/" target="_blank">Yahoo Finance Most Active</a></li>
+    <li><a href="https://www.barchart.com/options/unusual-activity" target="_blank">Barchart Unusual Options</a></li>
+    <li><a href="https://finviz.com/" target="_blank">Finviz Screener</a></li>
+  </ul>
+
+  <div class="disclaimer">
+    免責聲明 / Disclaimer: 本報告僅供資訊參考，不構成任何投資建議或買賣推介。所有數據來自公開資訊來源，部分即時數據可能尚未完整反映最終收盤。投資有風險，請自行判斷。This report is for informational purposes only and does not constitute investment advice. All data sourced from public information. Some real-time data may be incomplete.
+  </div>
+  <p style="margin-top:12px;">Generated: 2026-06-05 (Asia/Taipei) · Trading Session: June 4, 2026 US Eastern</p>
+</div>
+
+</body>
+</html>

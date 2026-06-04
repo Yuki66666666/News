@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>美股日報 US Stocks Daily — 2026-06-04 (交易日)</title>
+<style>
+  :root { color-scheme: light; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.65;
+    padding: 0 0 48px;
+  }
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+    color: #fff;
+    padding: 28px 32px 24px;
+  }
+  .header h1 { font-size: 1.55rem; font-weight: 700; letter-spacing: -0.3px; }
+  .header .subtitle { font-size: 0.85rem; opacity: 0.75; margin-top: 4px; }
+  .header .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-size: 0.8rem;
+    margin-top: 8px;
+  }
+
+  /* Index table */
+  .index-section {
+    background: #fff;
+    margin: 20px 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+  .index-section h2 {
+    background: #0f3460;
+    color: #fff;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .index-table { width: 100%; border-collapse: collapse; }
+  .index-table th {
+    background: #f0f4f8;
+    color: #555;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 8px 14px;
+    text-align: left;
+  }
+  .index-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.88rem;
+  }
+  .index-table tr:last-child td { border-bottom: none; }
+  .up { color: #16a34a; font-weight: 600; }
+  .down { color: #dc2626; font-weight: 600; }
+  .neutral { color: #64748b; }
+
+  /* Content */
+  .content { margin: 20px 20px 0; }
+  .section {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    background: #1e3a5f;
+    color: #fff;
+  }
+  .section-header .icon { font-size: 1.1rem; }
+  .section-header h2 { font-size: 0.95rem; font-weight: 600; }
+  .section-body { padding: 18px; }
+
+  /* Story cards */
+  .story {
+    border-left: 3px solid #3b82f6;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    background: #f8faff;
+    border-radius: 0 8px 8px 0;
+  }
+  .story:last-child { margin-bottom: 0; }
+  .story h3 {
+    font-size: 0.93rem;
+    font-weight: 700;
+    color: #0f3460;
+    margin-bottom: 5px;
+  }
+  .story .source {
+    font-size: 0.73rem;
+    color: #64748b;
+    margin-bottom: 8px;
+  }
+  .story .source a { color: #3b82f6; text-decoration: none; }
+  .story .source a:hover { text-decoration: underline; }
+  .label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-bottom: 4px;
+    margin-right: 3px;
+  }
+  .label-facts { background: #dbeafe; color: #1d4ed8; }
+  .label-context { background: #fef9c3; color: #854d0e; }
+  .label-impact { background: #dcfce7; color: #166534; }
+  .story p { font-size: 0.85rem; color: #334155; margin-bottom: 6px; }
+  .story p:last-child { margin-bottom: 0; }
+
+  /* Tag pills */
+  .tag {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    border-radius: 20px;
+    padding: 2px 9px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-right: 5px;
+    margin-bottom: 6px;
+  }
+  .tag.red { background: #fee2e2; color: #b91c1c; }
+  .tag.green { background: #dcfce7; color: #15803d; }
+  .tag.gray { background: #f1f5f9; color: #475569; }
+  .tag.orange { background: #ffedd5; color: #c2410c; }
+
+  /* Sector heatmap */
+  .heatmap { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .hm-cell {
+    border-radius: 8px;
+    padding: 7px 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    min-width: 90px;
+    text-align: center;
+  }
+  .hm-up { background: #bbf7d0; color: #14532d; }
+  .hm-up2 { background: #86efac; color: #14532d; }
+  .hm-down { background: #fecaca; color: #7f1d1d; }
+  .hm-down2 { background: #fca5a5; color: #7f1d1d; }
+  .hm-flat { background: #f1f5f9; color: #475569; }
+
+  /* Analyst table */
+  .analyst-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  .analyst-table th {
+    background: #f0f4f8;
+    color: #555;
+    padding: 7px 12px;
+    text-align: left;
+    font-size: 0.73rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .analyst-table td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #334155;
+  }
+  .analyst-table tr:last-child td { border-bottom: none; }
+
+  /* Warning banner */
+  .disclaimer {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    color: #78350f;
+    margin-bottom: 18px;
+  }
+
+  /* Footer */
+  .footer {
+    margin: 0 20px;
+    font-size: 0.73rem;
+    color: #94a3b8;
+    padding-top: 12px;
+    border-top: 1px solid #e2e8f0;
+  }
+  .footer a { color: #3b82f6; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <h1>📈 美股日報 US Stocks Daily</h1>
+  <div class="subtitle">Bilingual equity briefing · 中英並陳</div>
+  <div class="date-badge">交易日 Trading Session: Wednesday, June 4, 2026 &nbsp;|&nbsp; 報告生成: 2026-06-05 Taipei</div>
+</div>
+
+<!-- ===== INDEX TABLE ===== -->
+<div class="index-section">
+  <h2>市場概況 Market Snapshot</h2>
+  <table class="index-table">
+    <thead>
+      <tr>
+        <th>指數 / Index</th>
+        <th>收盤 Close</th>
+        <th>漲跌 Chg</th>
+        <th>% 變動</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>S&amp;P 500</strong></td>
+        <td>~7,540</td>
+        <td class="down">▼ ~56</td>
+        <td class="down">−0.74%</td>
+      </tr>
+      <tr>
+        <td><strong>Nasdaq Composite</strong></td>
+        <td>~24,100</td>
+        <td class="down">▼ ~216</td>
+        <td class="down">−0.89%</td>
+      </tr>
+      <tr>
+        <td><strong>Dow Jones (DJIA)</strong></td>
+        <td>50,776</td>
+        <td class="down">▼ 532</td>
+        <td class="down">−1.04%</td>
+      </tr>
+      <tr>
+        <td><strong>Russell 2000</strong></td>
+        <td>~2,895</td>
+        <td class="down">▼ ~38</td>
+        <td class="down">−1.31%</td>
+      </tr>
+      <tr>
+        <td><strong>VIX</strong></td>
+        <td>16.27</td>
+        <td class="up">▲ +0.50</td>
+        <td class="up">+3.17%</td>
+      </tr>
+      <tr>
+        <td><strong>US 10Y Yield</strong></td>
+        <td>4.49%</td>
+        <td class="neutral">—</td>
+        <td class="neutral">Stable/slightly up</td>
+      </tr>
+      <tr>
+        <td><strong>DXY (Dollar Index)</strong></td>
+        <td>99.51</td>
+        <td class="up">▲ +0.33</td>
+        <td class="up">+0.33%</td>
+      </tr>
+      <tr>
+        <td><strong>WTI Crude Oil</strong></td>
+        <td>$95.17</td>
+        <td class="down">▼ −0.86</td>
+        <td class="down">−0.89%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="content">
+
+  <div class="disclaimer">
+    ⚠️ 本報告僅供資訊參考，不構成投資建議。部分數據為盤中或收盤估算值。This briefing is for informational purposes only and does not constitute investment advice. Some figures are estimates.
+  </div>
+
+  <!-- ===== SECTION 1: SECTOR HEATMAP ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🗺️</span>
+      <h2>板塊表現 Sector Heatmap</h2>
+    </div>
+    <div class="section-body">
+      <p style="font-size:0.82rem;color:#64748b;margin-bottom:10px;">6/4 全日相對表現 / Full-session relative performance</p>
+      <div class="heatmap">
+        <div class="hm-up2">能源 Energy<br>+1.2%</div>
+        <div class="hm-up">金融 Financials<br>+0.6%</div>
+        <div class="hm-up">必需消費 Staples<br>+0.4%</div>
+        <div class="hm-up">工業 Industrials<br>+0.3%</div>
+        <div class="hm-flat">醫療 Healthcare<br>~flat</div>
+        <div class="hm-flat">材料 Materials<br>~flat</div>
+        <div class="hm-down">非必需消費 Disc.<br>−0.7%</div>
+        <div class="hm-down2">科技 Technology<br>−1.8%</div>
+        <div class="hm-down2">通訊 Comm. Svcs<br>−1.2%</div>
+        <div class="hm-down">公用 Utilities<br>−0.3%</div>
+        <div class="hm-down">房地產 REITs<br>−0.4%</div>
+      </div>
+      <p style="font-size:0.8rem;color:#334155;margin-top:12px;">
+        <span class="label label-context">背景</span>
+        Broadcom (-15%) 的 AI 指引落空引爆科技板塊賣壓，資金轉進 JPMorgan (+4%)、Walmart (+1.5%) 等金融與消費防禦股，形成典型「輪動日」。能源板塊受 WTI $95/桶支撐持續強勢，YTD +21%。
+        <br>Broadcom's guidance disappointment sparked a tech-sector selloff, with capital rotating into JPMorgan, Walmart, and energy names — a textbook rotation session. Energy leads YTD at +21% on sustained Iran-war oil premium.
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 2: TOP STORIES ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🔥</span>
+      <h2>頭條 Top Stories</h2>
+    </div>
+    <div class="section-body">
+
+      <!-- Story 1: Broadcom -->
+      <div class="story">
+        <h3>Broadcom AI 指引未上調引發半導體拋售 / Broadcom Fails to Raise AI Guidance — Semis Sold Off</h3>
+        <div class="source">
+          <span class="tag red">AVGO −15%</span>
+          <span class="tag orange">AI Chips</span>
+          來源: <a href="https://www.cnbc.com/2026/06/03/broadcom-avgo-earnings-report-q2-2026.html" target="_blank">CNBC</a> · <a href="https://www.heygotrade.com/en/blog/broadcom-avgo-q2-fy2026-earnings-record-ai-revenue-software-miss/" target="_blank">HeyGoTrade</a> · 2026-06-03/04
+        </div>
+        <p>
+          <span class="label label-facts">核心事實 / Facts</span>
+          Broadcom Q2 FY2026 (截至 5/3) 總營收 $222 億，YoY +48%；AI 半導體收入 $108 億，Non-GAAP EPS $2.44（超預期 $2.32）。CEO Hock Tan 維持全年 AI 半導體收入「超過 $1,000 億」指引，<strong>未提高</strong>。AVGO 收盤重挫約 15%。
+          <br>Q2 revenue $22.2B (+48% YoY); AI chip revenue $10.8B; Non-GAAP EPS $2.44 beat. CEO maintained full-year AI semi guidance at ">$100B" without an upward revision — stock dropped ~15%.
+        </p>
+        <p>
+          <span class="label label-context">背景脈絡 / Context</span>
+          市場原預期 Tan 將上調全年 AI 指引至 $1,100–$1,200 億，並期待 Q3 前瞻數字大幅超越預期。實際 Q3 AI 收入展望 $160 億（QoQ +48%）雖亮眼，但「未加碼」本身成為賣點。軟件業務小幅落後加劇跌勢。
+          <br>Consensus expected a raise to $110–120B; the Q3 AI revenue guide of $16B (+48% QoQ) was strong but fell short of "blow-out" hopes. A slight software segment miss piled on.
+        </p>
+        <p>
+          <span class="label label-impact">影響觀察 / Implications</span>
+          波及 SMCI (−7%)、Marvell、AMD 等 AI 半導體相關股；SOXX ETF 全日承壓。這是「財報達標但指引未更大超越」的典型 buy-the-rumor/sell-the-news 案例。Q3 法說會焦點將轉移至 Tan 能否在 8 月更新展望。
+          <br>Spillover hit SMCI, Marvell, AMD, and SOXX ETF. Classic buy-rumor/sell-news: beat + unchanged guide = disappointment. Watch for August update.
+        </p>
+      </div>
+
+      <!-- Story 2: Iran / Oil -->
+      <div class="story">
+        <h3>美伊談判破裂恐慌再起，油價持高位 / US-Iran Talks Stall Again — Oil Premium Holds</h3>
+        <div class="source">
+          <span class="tag orange">WTI ~$95</span>
+          <span class="tag gray">Geopolitics</span>
+          來源: <a href="https://www.cnbc.com/2026/06/01/treasury-yields-us-iran-war-oil.html" target="_blank">CNBC</a> · <a href="https://www.jpmorgan.com/insights/global-research/commodities/iran-us-tensions-market-effect" target="_blank">JPMorgan</a> · 2026-06-04
+        </div>
+        <p>
+          <span class="label label-facts">核心事實 / Facts</span>
+          伊朗 Tasnim 通訊社報導談判代表暫停與美方接觸，霍爾木茲海峽局勢仍緊張。WTI 原油小跌 0.89% 至 $95.17，但仍較衝突開始前（2/28）高逾 50%。美股六大板塊收黑，科技、金融、非必需消費領跌。
+          <br>Iran's Tasnim agency reported negotiators halting US contacts; Hormuz still disrupted. WTI slipped 0.89% to $95.17 but remains >50% above pre-conflict levels.
+        </p>
+        <p>
+          <span class="label label-context">背景脈絡 / Context</span>
+          自 2/28 衝突爆發，油價一度突破 $100。Morgan Stanley 和多家機構警告持續高油價的通脹效應可能延後 Fed 降息。Fed 4 月 29 日維持利率 3.5–3.75%，6/16–17 會議降息機率接近零。
+          <br>Oil topped $100 briefly after Feb. 28 outbreak. Morgan Stanley warns sustained prices delay Fed cuts. Fed held 3.5–3.75% at April meeting; June 16–17 cut probability near zero.
+        </p>
+        <p>
+          <span class="label label-impact">影響觀察 / Implications</span>
+          油價高企是 S&P 500 2026 科技主導行情的最大宏觀風險；若 Hormuz 恢復正常，能源股將面臨獲利了結壓力。反之若局勢惡化，油價重回 $100+ 將推升 CPI 並壓縮股票估值。
+          <br>Sustained oil is the key macro tail-risk for equities. Hormuz normalization would trigger energy profit-taking; further escalation risks CPI spike and multiple compression.
+        </p>
+      </div>
+
+      <!-- Story 3: SpaceX IPO -->
+      <div class="story">
+        <h3>SpaceX IPO 零售通道開放，目標市值 $7,500 億 / SpaceX IPO Opens Retail Channel — $75B Target</h3>
+        <div class="source">
+          <span class="tag green">IPO 6/12</span>
+          <span class="tag">SPCX (proposed)</span>
+          來源: <a href="https://www.cnbc.com/2026/05/21/retail-investors-get-direct-access-to-spacex-ipo-through-major-brokerage-platforms.html" target="_blank">CNBC</a> · <a href="https://finance.yahoo.com/markets/stocks/articles/spacex-ipo-targets-75-billion-113043675.html" target="_blank">Yahoo Finance</a> · <a href="https://www.iposcoop.com/the-ipo-buzz-spacex-spcx-proposed-sets-135-share-ipo-price-to-raise-75-billion/" target="_blank">IPOScoop</a>
+        </div>
+        <p>
+          <span class="label label-facts">核心事實 / Facts</span>
+          SpaceX 設定 IPO 定價 $135/股，募資規模 $750 億（5.56 億股）。預計上市日 6/12/2026（NYSE: SPCX 擬）。Robinhood、Fidelity、Schwab、SoFi、E*Trade 均開放零售申購，散戶分配比例約 30%（遠高於傳統 IPO 的 5–10%）。
+          <br>IPO priced at $135/share, raising $75B. Listing target: June 12. Retail allocation ~30% — unusually high — via Robinhood, Fidelity, Schwab, SoFi, E*Trade.
+        </p>
+        <p>
+          <span class="label label-context">背景脈絡</span>
+          此為 2026 年規模最大 IPO，Elon Musk 刻意面向散戶分配，複製 Tesla 早期散戶文化。Bloomberg 報導 Robinhood 和 VCX 同步提供 OpenAI、Anthropic 等未上市科技股敞口。
+          <br>Largest IPO of 2026. Musk deliberately targets retail — echoing early Tesla investor culture. Bloomberg notes Robinhood/VCX also offer OpenAI/Anthropic exposure.
+        </p>
+        <p>
+          <span class="label label-impact">影響觀察</span>
+          SpaceX 上市可能分流部分 AI / 科技板塊資金，短期對 ARKK、SOXX 等 ETF 有邊際壓力。若首日破發，對零售 IPO 市場情緒衝擊顯著；若飆升則帶動 IPO 熱潮。
+          <br>Listing may siphon capital from AI/tech ETFs near-term. Break-issue would dent retail IPO sentiment; strong debut would reignite the IPO wave.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== SECTION 3: EARNINGS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">📋</span>
+      <h2>財報 Earnings of the Day</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="story" style="border-color:#f59e0b;">
+        <h3>CrowdStrike Q1 FY2027 — 亮眼但費用增加拖累 / Strong ARR Growth, Expenses Weigh</h3>
+        <div class="source">
+          <span class="tag red">CRWD −11%</span>
+          來源: <a href="https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000022/crwd-20260603xex991.htm" target="_blank">SEC 8-K</a> · <a href="https://www.fool.com/earnings/call-transcripts/2026/06/03/petco-woof-q1-2026-earnings-call-transcript/" target="_blank">Motley Fool</a> · 2026-06-03
+        </div>
+        <p>
+          <span class="label label-facts">核心事實</span>
+          Q1 FY27 淨新增 ARR $2.56 億 (+32% YoY)，運營現金流 $5.91 億（紀錄高）。FY27 淨新增 ARR 成長指引上調 520bp 至中值 +27.7%。同時宣布 4:1 股票分割。EPS 符合但費用增加令市場失望，股價盤後跌 11%。
+          <br>Record Q1 net new ARR $256M (+32%); OCF $591M record; raised FY27 ARR guide +520bps to +27.7% midpoint. Announced 4:1 stock split. In-line EPS + rising opex disappointed.
+        </p>
+        <p>
+          <span class="label label-context">背景脈絡</span>
+          CRWD 股價在 6/3 之前 YTD 已上漲約 60%，估值偏高，市場對 beat-and-raise 需要非常大幅超越。費用管控質疑加上整體科技賣壓使跌幅放大。
+        </p>
+        <p>
+          <span class="label label-impact">影響觀察</span>
+          PANW、S、FTNT 等同業跟跌，網絡安全板塊承壓。股票分割預計於下一季度生效，理論上有助散戶流動性。
+        </p>
+      </div>
+
+      <div class="story" style="border-color:#ef4444;">
+        <h3>PVH Q1 2026 — 獲利超前但下調全年營收指引 / EPS Beat, Full-Year Revenue Guidance Trimmed</h3>
+        <div class="source">
+          <span class="tag red">PVH −16%</span>
+          <span class="tag gray">Calvin Klein / Tommy Hilfiger</span>
+          來源: <a href="https://sherwood.news/markets/pvh-shares-plunge-on-lowered-revenue-outlook-tied-to-geopolitical-tensions/" target="_blank">Sherwood News</a> · <a href="https://in.investing.com/news/earnings/pvh-shares-plunge-16-as-outlook-update-overshadows-solid-first-quarter-5439595" target="_blank">Investing.com</a>
+        </div>
+        <p>
+          <span class="label label-facts">核心事實</span>
+          Q1 EPS $2.01（超預期 $1.80 +11.7%）；營收 $20.3 億（超預期 $20.0 億）。然而全年營收指引改為「約持平 vs 去年」，明顯低於此前預期，中東地區（EMEA）需求受戰事影響顯著。股價盤後重挫 16%。JPMorgan 下調目標價 $79 → $70，維持 Neutral。
+          <br>Q1 EPS $2.01 beat $1.80 est; revenue $2.03B beat. But FY guidance revised to ~flat YoY on EMEA softness (Middle East conflict impact). JPM cut PT to $70 from $79, keeps Neutral.
+        </p>
+        <p>
+          <span class="label label-context">背景脈絡</span>
+          Calvin Klein、Tommy Hilfiger 在中東及歐洲批發通路受戰事消費信心衝擊，油價高企壓縮歐洲消費者購買力。2025 年 PVH 已因 EMEA 業務波動調整過一次指引。
+        </p>
+        <p>
+          <span class="label label-impact">影響觀察</span>
+          同樣依賴 EMEA 的服飾股 RL、PVH、Tapestry 均面臨相似地緣政治折扣。消費非必需品板塊持續弱勢。
+        </p>
+      </div>
+
+      <div class="story" style="border-color:#f97316;">
+        <h3>Petco Q1 CY2026 — 銷售小超但 EPS 大幅落短 / Revenue Slight Beat, EPS Miss</h3>
+        <div class="source">
+          <span class="tag red">WOOF −10.8%</span>
+          來源: <a href="https://stockstory.org/us/stocks/nasdaq/woof/news/earnings/petco-nasdaqwoof-surprises-with-q1-cy2026-sales-but-stock-drops-108percent" target="_blank">StockStory</a> · <a href="https://www.fool.com/earnings/call-transcripts/2026/06/03/petco-woof-q1-2026-earnings-call-transcript/" target="_blank">Motley Fool</a>
+        </div>
+        <p>
+          <span class="label label-facts">核心事實</span>
+          Q1 營收 $15.0 億（超估 $14.9 億；+0.7%），調整後 EBITDA $9,733 萬（超估 5.7%）。GAAP EPS −$0.05（遠差於預期 −$0.01）。全年調整後 EBITDA 指引維持 $4.15–$4.30 億，但未改善盈利能力敘事。股價 −10.8%。
+          <br>Q1 rev $1.50B beat (+0.7%); adj. EBITDA $97.3M beat (+5.7%). GAAP EPS −$0.05 vs −$0.01 est — large miss. FY EBITDA guide maintained; stock −10.8%.
+        </p>
+        <p>
+          <span class="label label-context">背景脈絡</span>
+          Petco 仍陷 turnaround 困境，可比銷售剛轉正，財務結構脆弱（高槓桿）。市場對持續虧損容忍度有限，EPS miss 觸發停損。
+        </p>
+        <p>
+          <span class="label label-impact">影響觀察</span>
+          寵物消費板塊（Chewy 等）連帶注意。消費降級下，可選消費寵物品類受壓。
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== SECTION 4: SINGLE STOCK MOVERS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">⚡</span>
+      <h2>個股大事 Single-Stock Movers</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="story" style="border-color:#dc2626;">
+        <h3>Super Micro Computer — $20 億印度 AI 基建合約引發「賣消息」 / SMCI: $2B India Deal Triggers Sell-the-News</h3>
+        <div class="source">
+          <span class="tag red">SMCI −7% to −9%</span>
+          <span class="tag red">GRRR −20%</span>
+          來源: <a href="https://247wallst.com/investing/2026/06/03/super-micro-computer-sinks-9-gorilla-technology-tumbles-20-despite-2-billion-india-ai-infrastructure-deal/" target="_blank">24/7 Wall St.</a> · <a href="https://finance.yahoo.com/markets/stocks/articles/super-micro-computer-sinks-9-173757582.html" target="_blank">Yahoo Finance</a>
+        </div>
+        <p>
+          <span class="label label-facts">核心事實</span>
+          Gorilla Technology (GRRR) 宣布與 SMCI 簽訂 $20 億印度 AI 基礎設施合約（Yotta AI），涉及 20,736 張 B300 卡、5,120 張 B200 卡。GRRR 市值僅 ~$6 億，合約規模達其市值 3.3x，市場質疑資金可行性。SMCI 收盤約 $45.80 (−7~9%)；GRRR −20% 至 $17.45。
+          <br>GRRR announced $2B India AI infrastructure deal with SMCI; deal = 3.3x GRRR's market cap, raising financing skepticism. SMCI ~$45.80 (−7–9%); GRRR −20%.
+        </p>
+        <p>
+          <span class="label label-context">背景脈絡</span>
+          兩股宣布前 YTD 分別飆升 71–99%，技術面超買。同時 Broadcom 拖累整體 AI 半導體情緒，SMCI 夾在雙重逆風中。
+        </p>
+        <p>
+          <span class="label label-impact">影響觀察</span>
+          SMCI 近期主要催化劑（Helios 平台、NVIDIA Vera Rubin 配套方案）中長期仍正面，但需等待 GRRR 融資細節確認。
+        </p>
+      </div>
+
+      <div class="story" style="border-color:#16a34a;">
+        <h3>Intel 2026 大反轉—年初迄今漲幅逾 166% / Intel's 2026 Mega-Comeback: +166%+ YTD</h3>
+        <div class="source">
+          <span class="tag green">INTC YTD +166%</span>
+          來源: <a href="https://www.mexc.com/news/1070832" target="_blank">MEXC News</a> · <a href="https://247wallst.com/investing/2026/06/02/why-intel-just-got-the-endorsement-of-a-lifetime-from-two-trillion-dollar-companies/" target="_blank">24/7 Wall St.</a>
+        </div>
+        <p>
+          <span class="label label-facts">核心事實</span>
+          Intel (INTC) 5/11 創歷史新高 $132.75，年初迄今漲幅超過 166%（部分來源引用更高估計）。6/4 周邊分析師持續上調：Mizuho PT → $128、Wells Fargo → $110、Barclays → $100。COMPUTEX 2026 發表新 AI 晶片方案。
+          <br>INTC hit all-time high $132.75 on May 11; YTD +166%+. Analyst PT raises ongoing: Mizuho $128, Wells Fargo $110, Barclays $100. New AI chips unveiled at COMPUTEX 2026.
+        </p>
+        <p>
+          <span class="label label-context">背景脈絡</span>
+          CEO Lip-Bu Tan 主導的產品轉型（18A 製程、AI 加速器）加上 Q1 營收 $135.8 億（超預期 9%）引爆估值重評。Tesla、Google 策略背書為關鍵催化劑。
+        </p>
+        <p>
+          <span class="label label-impact">影響觀察</span>
+          INTC 大漲令此前空頭回補，但從 $133 高點回落警示 overextension。關注 7 月 Q2 財報能否延續正面動能。
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== SECTION 5: M&A / IPO ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🤝</span>
+      <h2>併購與 IPO M&amp;A and IPO</h2>
+    </div>
+    <div class="section-body">
+      <div class="story" style="border-color:#7c3aed;">
+        <h3>SpaceX IPO — 6/12 上市，$135/股，散戶 30% 分配 / SpaceX IPO June 12 at $135, 30% Retail</h3>
+        <div class="source">
+          來源: <a href="https://www.iposcoop.com/the-ipo-buzz-spacex-spcx-proposed-sets-135-share-ipo-price-to-raise-75-billion/" target="_blank">IPOScoop</a> · <a href="https://finance.yahoo.com/markets/stocks/articles/spacex-ipo-targets-75-billion-113043675.html" target="_blank">Yahoo Finance</a>
+        </div>
+        <p>
+          <span class="label label-facts">核心事實</span>
+          SpaceX 設定 IPO 定價 $135/股，計劃募集 $750 億，為 2026 年最大規模 IPO。上市平台：Robinhood、Fidelity、Schwab、SoFi（均不需最低餘額即可申購）。Motley Fool 於 6/4 發佈「IPO 當天如何買」指南。
+          <br>$135/share, $75B raise — largest IPO of 2026. No minimum balance required at Robinhood or SoFi to apply. Motley Fool published "how to buy on IPO day" guide June 4.
+        </p>
+        <p>
+          <span class="label label-context">背景脈絡</span>
+          彭博報導 Robinhood/VCX 同步提供 OpenAI、Anthropic 未上市股票敞口，顯示 2026 年科技獨角獸 IPO 浪潮正啟動。SpaceX 已是全球最高估值私人公司。
+        </p>
+        <p>
+          <span class="label label-impact">影響觀察</span>
+          6/12 首日掛牌表現將成為 2026 H2 IPO 市場風向標。若破發，OpenAI 等後續 IPO 可能推遲；若強勢，將帶動更多獨角獸排隊。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 6: ANALYST CALLS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🔭</span>
+      <h2>券商評等 Analyst Calls</h2>
+    </div>
+    <div class="section-body">
+      <table class="analyst-table">
+        <thead>
+          <tr>
+            <th>公司 Ticker</th>
+            <th>行動 Action</th>
+            <th>機構 Firm</th>
+            <th>舊評等 → 新</th>
+            <th>目標價 PT</th>
+            <th>說明 Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>HPE</strong></td>
+            <td><span class="tag green">Upgrade</span></td>
+            <td>Loop Capital</td>
+            <td>Hold → <strong>Buy</strong></td>
+            <td>$75</td>
+            <td>AI server / networking demand; Q2 rev $10.68B, guidance raised +29%</td>
+          </tr>
+          <tr>
+            <td><strong>GH (Guardant)</strong></td>
+            <td><span class="tag green">Upgrade</span></td>
+            <td>Evercore ISI</td>
+            <td>In-line → <strong>Outperform</strong></td>
+            <td>$160</td>
+            <td>Liquid biopsy adoption acceleration</td>
+          </tr>
+          <tr>
+            <td><strong>AESI (Atlas Energy)</strong></td>
+            <td><span class="tag green">Upgrade</span></td>
+            <td>Raymond James</td>
+            <td>Market Perform → <strong>Outperform</strong></td>
+            <td>$25</td>
+            <td>Energy infrastructure beneficiary</td>
+          </tr>
+          <tr>
+            <td><strong>PVH</strong></td>
+            <td><span class="tag red">PT Cut</span></td>
+            <td>JPMorgan</td>
+            <td>Neutral (unchanged)</td>
+            <td>$79 → $70</td>
+            <td>EMEA guidance lowered post-earnings</td>
+          </tr>
+          <tr>
+            <td><strong>FULC (Fulcrum)</strong></td>
+            <td><span class="tag red">Downgrade x5</span></td>
+            <td>Stifel / Truist / Leerink / HC Wainwright / Piper</td>
+            <td>Buy → Hold/Neutral</td>
+            <td>$25 → $3–$4</td>
+            <td>Clinical setback — multiple simultaneous downgrades</td>
+          </tr>
+          <tr>
+            <td><strong>SHW (Sherwin-Williams)</strong></td>
+            <td><span class="tag red">Downgrade</span></td>
+            <td>UBS</td>
+            <td>Buy → <strong>Neutral</strong></td>
+            <td>$330</td>
+            <td>Margin pressure / housing slowdown risk</td>
+          </tr>
+          <tr>
+            <td><strong>ED (Con Edison)</strong></td>
+            <td><span class="tag red">Downgrade</span></td>
+            <td>Mizuho</td>
+            <td>Outperform → <strong>Neutral</strong></td>
+            <td>$105</td>
+            <td>Utility rate case uncertainty</td>
+          </tr>
+          <tr>
+            <td><strong>INTC</strong></td>
+            <td><span class="tag green">PT Raises</span></td>
+            <td>Mizuho / Wells Fargo / Barclays</td>
+            <td>Various → higher</td>
+            <td>$100–$128</td>
+            <td>Post-Computex AI chip momentum; 2026 biggest comeback</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 7: FED & RATES ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">🏛️</span>
+      <h2>Fed 與利率 Fed &amp; Rates</h2>
+    </div>
+    <div class="section-body">
+      <div class="story" style="border-color:#64748b;">
+        <h3>Fed 6/16–17 會議前瞻：降息機率接近零 / FOMC June 16–17: Rate Cut Probability Near Zero</h3>
+        <div class="source">
+          來源: <a href="https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm" target="_blank">Federal Reserve</a> · <a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm" target="_blank">Fed April Statement</a>
+        </div>
+        <p>
+          <span class="label label-facts">核心事實</span>
+          Fed 於 4/29 維持利率 3.5–3.75%。當前 CPI 估約 2.7% YoY，受中東油價衝擊影響高於目標。下次 FOMC 6/16–17，CME FedWatch 降息概率接近 0%。
+          <br>Fed held 3.5–3.75% on Apr 29. CPI ~2.7%, above target partly due to oil shock. FOMC June 16–17; CME FedWatch shows near-zero probability of cut.
+        </p>
+        <p>
+          <span class="label label-context">背景脈絡</span>
+          Fed 官員在 4 月紀要中點明「若通膨持續高於 2%，可能需要進一步緊縮」。伊朗戰事導致的油價高企直接推升通膨預期。多數委員視勞動市場仍健康。
+        </p>
+        <p>
+          <span class="label label-impact">影響觀察</span>
+          10 年期殖利率維持 4.49%，對估值倍數（尤其科技成長股 DCF）形成頂壓。市場目前將首次降息預期推遲至 Q4 2026 或 2027 初。
+          <br>10Y yield at 4.49% caps multiples. First cut now priced for Q4 2026 or early 2027.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 8: FLOWS & POSITIONING ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">💰</span>
+      <h2>資金流向 Flows &amp; Positioning</h2>
+    </div>
+    <div class="section-body">
+      <div class="story" style="border-color:#0284c7;">
+        <h3>QQQ 近月吸金，但 Put/Call 比率偏空 / QQQ Inflows Solid But Put/Call Ratio Bearish</h3>
+        <div class="source">
+          來源: <a href="https://www.etf.com/sections/daily-etf-flows/daily-etf-flows-qqq-inflows-top-3b" target="_blank">ETF.com</a> · OptionCharts
+        </div>
+        <p>
+          <span class="label label-facts">核心事實</span>
+          QQQ 5 日淨流入 +$1.98 億，1 個月 +$26.6 億，1 年 +$139.6 億。然而 6/3 Put/Call 比率達 1.27（偏空），隱含波動率 21.95%（IV Rank 48%）。AVGO 崩跌引爆 SOXX 期權賣壓。
+          <br>QQQ 5-day net +$197M, 1-month +$2.66B; but P/C ratio 1.27 (bearish). IV 21.95%, IVR 48%. AVGO collapse triggered SOXX options selling.
+        </p>
+        <p>
+          <span class="label label-context">背景脈絡</span>
+          大型 AI 科技股持倉過度集中，機構正通過買入 put 對沖下行風險。能源 ETF（XLE）同期維持資金淨流入。
+        </p>
+        <p>
+          <span class="label label-impact">影響觀察</span>
+          Put/Call 偏高可視為短期情緒指標——若空頭回補，反彈動能強；若空頭續增，表示機構看淡科技板塊未來幾周走勢。
+          <br>Elevated P/C acts as a sentiment gauge — potential short-covering rally if sentiment flips, or continued tech headwind if shorts add.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 9: READS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">📚</span>
+      <h2>觀點 Reads</h2>
+    </div>
+    <div class="section-body">
+      <div class="story" style="border-color:#7c3aed;">
+        <h3>「股市欣快感掩蓋伊朗戰爭衰退風險」— CNBC / 'Euphoria Masks Iran War Recession Risk' — CNBC</h3>
+        <div class="source">
+          來源: <a href="https://www.cnbc.com/2026/05/04/strait-hormuz-gas-price-oil-shock-recession-risk-economy-iran-us-war.html" target="_blank">CNBC (5/4/2026)</a>
+        </div>
+        <p style="font-size:0.85rem;color:#334155;">
+          CNBC 深度分析指出，AI 熱潮推動 S&P 觸及歷史新高，但持續的油價衝擊（WTI +50% YoY）正悄然侵蝕消費者購買力。霍爾木茲海峽若長期封鎖，將使全球通脹預期全面重設。此分析與 Morgan Stanley 的「油震—股市」研究相互印證，值得追蹤地緣政治曝險的投資人參考。
+          <br>AI rally masked oil shock; if Hormuz stays disrupted, inflation reset risk is real. Cross-reference with Morgan Stanley's "Iran War Oil Shock" analysis.
+        </p>
+      </div>
+      <div class="story" style="border-color:#0284c7;">
+        <h3>「2026 板塊輪動：價值跑贏成長」— Investing.com / Sector Rotation: Value Outperforms Growth</h3>
+        <div class="source">
+          來源: <a href="https://www.investing.com/analysis/sector-rotation-intensifies-value-outperforms-growth-in-2026-market-split-200675093" target="_blank">Investing.com</a>
+        </div>
+        <p style="font-size:0.85rem;color:#334155;">
+          Investing.com 深度報告記錄 2026 最顯著的板塊輪動：能源 (+21%)、材料 (+17%)、工業 (+12%) 大幅跑贏成長型科技，而大型 AI 科技股只有在財報超預期的條件下才維持估值。這是對 2023–2025 AI 超級週期的「正常化」，不代表 AI 投資主題終結。
+          <br>Energy (+21%), Materials (+17%), Industrials (+12%) lead 2026 YTD. Not an AI theme reversal — a normalization requiring stronger earnings to justify multiples.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">
+    <p><strong>數據來源 Sources:</strong>
+      <a href="https://www.cnbc.com/markets/" target="_blank">CNBC Markets</a> ·
+      <a href="https://finance.yahoo.com/" target="_blank">Yahoo Finance</a> ·
+      <a href="https://www.thestreet.com/stock-market-today/stock-market-today-june-4-2026-nasdaq-futures-slide-amid-iran-war-concerns" target="_blank">TheStreet</a> ·
+      <a href="https://www.sec.gov/cgi-bin/browse-edgar" target="_blank">SEC EDGAR</a> ·
+      <a href="https://sherwood.news/" target="_blank">Sherwood News</a> ·
+      <a href="https://www.federalreserve.gov/" target="_blank">Federal Reserve</a> ·
+      <a href="https://www.etf.com/" target="_blank">ETF.com</a> ·
+      <a href="https://www.marketbeat.com/" target="_blank">MarketBeat</a> ·
+      <a href="https://www.investing.com/" target="_blank">Investing.com</a> ·
+      <a href="https://247wallst.com/" target="_blank">24/7 Wall St.</a> ·
+      <a href="https://stockstory.org/" target="_blank">StockStory</a>
+    </p>
+    <p style="margin-top:6px;">
+      ⚠️ 本報告不構成投資建議。盤後動向 (AH) 已與正式收盤 (RTH) 明確區分。部分指數數字為估算值，以實際收盤資料為準。
+      <br>This report does not constitute investment advice. After-hours moves are explicitly distinguished from RTH closes. Some index figures are estimates pending official close.
+    </p>
+    <p style="margin-top:6px; color:#b0b8c4;">Generated: 2026-06-05 Asia/Taipei · Skill: daily-us-stocks-news</p>
+  </div>
+
+</div><!-- /.content -->
+</body>
+</html>

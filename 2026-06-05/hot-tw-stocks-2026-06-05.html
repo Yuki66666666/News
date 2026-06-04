@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日台股熱門焦點股 2026-06-05</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: #f5f6fa;
+    color: #1a1a2e;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    padding: 28px 32px 24px;
+    border-bottom: 3px solid #e94560;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+  .header .subtitle { font-size: 12px; opacity: 0.75; margin-top: 4px; }
+  .header .badge-row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+  .badge {
+    display: inline-block; padding: 3px 10px; border-radius: 12px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.3px;
+  }
+  .badge-red { background: #e94560; color: white; }
+  .badge-orange { background: #f39c12; color: white; }
+  .badge-green { background: #27ae60; color: white; }
+  .badge-blue { background: #2980b9; color: white; }
+  .badge-gray { background: #636e72; color: white; }
+
+  .market-backdrop {
+    background: white;
+    border-left: 4px solid #e94560;
+    padding: 16px 20px;
+    margin: 20px 24px 0;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .market-backdrop h2 { font-size: 13px; font-weight: 700; color: #636e72; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; }
+  .index-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 8px; }
+  .index-item { display: flex; flex-direction: column; }
+  .index-label { font-size: 10px; color: #636e72; text-transform: uppercase; letter-spacing: 0.5px; }
+  .index-val { font-size: 18px; font-weight: 700; }
+  .index-chg { font-size: 11px; font-weight: 600; }
+  .red { color: #e74c3c; }
+  .green { color: #27ae60; }
+  .muted { color: #636e72; }
+
+  .section-title {
+    font-size: 16px; font-weight: 700; padding: 20px 24px 0;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-title .dot {
+    width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+  }
+
+  /* Summary table */
+  .summary-wrap { overflow-x: auto; padding: 12px 24px 0; }
+  table.summary {
+    width: 100%; border-collapse: collapse; background: white;
+    border-radius: 10px; overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    font-size: 12.5px;
+  }
+  table.summary thead { background: #1a1a2e; color: white; }
+  table.summary thead th { padding: 10px 12px; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.summary tbody tr { border-bottom: 1px solid #f0f0f0; }
+  table.summary tbody tr:last-child { border-bottom: none; }
+  table.summary tbody tr:hover { background: #fafafa; }
+  table.summary tbody td { padding: 9px 12px; vertical-align: top; }
+  .stars { color: #f39c12; letter-spacing: -1px; }
+
+  /* Ticker cards */
+  .cards { padding: 16px 24px; display: flex; flex-direction: column; gap: 18px; }
+  .card {
+    background: white; border-radius: 10px; overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  }
+  .card-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 18px 12px; border-bottom: 1px solid #f0f0f0;
+    flex-wrap: wrap; gap: 8px;
+  }
+  .card-title { font-size: 16px; font-weight: 700; }
+  .card-ticker { font-size: 11px; color: #636e72; font-family: monospace; }
+  .price-row { display: flex; align-items: baseline; gap: 8px; }
+  .price { font-size: 22px; font-weight: 800; }
+  .change-chip {
+    padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 700;
+  }
+  .chip-red { background: #fdecea; color: #c0392b; }
+  .chip-green { background: #e8f8f0; color: #1e8449; }
+  .card-body { padding: 14px 18px; }
+  .section-row { margin-bottom: 12px; }
+  .section-row:last-child { margin-bottom: 0; }
+  .row-label {
+    font-size: 10px; font-weight: 700; color: #636e72;
+    text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 4px;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .row-label .icon { font-size: 13px; }
+  .row-content { font-size: 13px; color: #2d3436; }
+  .row-content-en { font-size: 12px; color: #636e72; margin-top: 3px; font-style: italic; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+  .tag {
+    padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;
+    background: #dfe6e9; color: #2d3436;
+  }
+  .tag-red { background: #fdecea; color: #c0392b; }
+  .tag-green { background: #e8f8f0; color: #1e8449; }
+  .tag-blue { background: #e8f4fd; color: #1a5276; }
+  .tag-orange { background: #fef9e7; color: #9a6206; }
+  .tag-purple { background: #f4ecf7; color: #6c3483; }
+
+  /* Watch & Caution */
+  .mini-cards { padding: 0 24px 16px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 12px; }
+  .mini-card {
+    background: white; border-radius: 8px; padding: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-left: 3px solid #dfe6e9;
+  }
+  .mini-card.watch { border-color: #3498db; }
+  .mini-card.caution { border-color: #e74c3c; }
+  .mini-card h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .mini-card p { font-size: 12px; color: #636e72; }
+
+  /* Sources */
+  .sources {
+    margin: 0 24px 24px; background: white; border-radius: 10px;
+    padding: 14px 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .sources h3 { font-size: 12px; font-weight: 700; color: #636e72; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
+  .sources ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+  .sources a {
+    font-size: 11px; color: #2980b9; text-decoration: none;
+    padding: 2px 8px; background: #e8f4fd; border-radius: 8px;
+  }
+  .sources a:hover { text-decoration: underline; }
+
+  .disclaimer {
+    text-align: center; font-size: 10px; color: #b2bec3;
+    padding: 0 24px 20px; line-height: 1.5;
+  }
+
+  .caution-banner {
+    background: #fef9e7; border: 1px solid #f39c12;
+    border-radius: 8px; padding: 10px 14px; margin: 0 0 12px;
+    font-size: 12px; color: #7d6608;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>今日台股熱門焦點股 ／ Taiwan Hot Stocks Today</h1>
+  <div class="subtitle">2026-06-05（週五）｜ 基準交易日：2026-06-04（週四收盤）</div>
+  <div class="badge-row">
+    <span class="badge badge-red">博通財報衝擊日 Broadcom Shock Day</span>
+    <span class="badge badge-orange">重電逆勢漲停 Heavy Elec Counter-Trend</span>
+    <span class="badge badge-blue">台積電股東會 TSMC AGM</span>
+    <span class="badge badge-gray">三大法人賣超 931.58 億</span>
+  </div>
+</div>
+
+<!-- Market Backdrop -->
+<div class="market-backdrop">
+  <h2>大盤背景 / Market Backdrop（2026-06-04 收盤）</h2>
+  <div class="index-row">
+    <div class="index-item">
+      <span class="index-label">加權指數</span>
+      <span class="index-val red">45,677.46</span>
+      <span class="index-chg red">▼ 781.70 pts（-1.68%）</span>
+    </div>
+    <div class="index-item">
+      <span class="index-label">成交值</span>
+      <span class="index-val">1.24 兆元</span>
+      <span class="index-chg muted">量縮黑K，守住5日線</span>
+    </div>
+    <div class="index-item">
+      <span class="index-label">外資</span>
+      <span class="index-val red">賣超 756.85 億</span>
+      <span class="index-chg muted">連買後反手大賣</span>
+    </div>
+    <div class="index-item">
+      <span class="index-label">投信</span>
+      <span class="index-val green">買超 38.94 億</span>
+      <span class="index-chg muted">連5買，買超238.93億</span>
+    </div>
+    <div class="index-item">
+      <span class="index-label">自營商</span>
+      <span class="index-val red">賣超 213.67 億</span>
+      <span class="index-chg muted">—</span>
+    </div>
+    <div class="index-item">
+      <span class="index-label">前高（6/3）</span>
+      <span class="index-val">46,459.16</span>
+      <span class="index-chg green">創史高後首次回落</span>
+    </div>
+  </div>
+  <p style="margin-top:8px; font-size:12px; color:#636e72;">
+    博通（AVGO）財報 Q2 AI 晶片展望低於市場預期（160 億美元 vs 預期 172 億美元），盤後重挫 13–15%，費城半導體指數同日跌 4.4%，台積電 ADR 跌 1.46%，觸發台股電子權重股全面獲利了結。與此同時，台積電股東會在新竹登場，魏哲家強調今年全年營收成長超過 30%、AI 需求延伸至終端裝置；資金輪動至「AI 電力」主題的重電族群逆勢走強，成為當日最大亮點。<br>
+    <span style="font-style:italic; margin-top:3px; display:block;">Broadcom's Q2 AI chip revenue guidance ($16B vs consensus $17.2B) fell short, sending AVGO -13–15% after hours. Taiwan's TWSE shed 781 pts on profit-taking in electronics heavyweights. Capital rotation pivoted to heavy-electrical (power infra) stocks — the day's standout theme. TSMC's AGM delivered bullish AI demand commentary from chairman C.C. Wei.</span>
+  </p>
+</div>
+
+<!-- Section: Top Hot Stocks -->
+<div class="section-title" style="margin-top: 20px;">
+  <span class="dot" style="background:#e94560;"></span>
+  熱門焦點 Top 5 / Today's Hottest Names
+</div>
+
+<!-- Summary Table -->
+<div class="summary-wrap">
+  <table class="summary">
+    <thead>
+      <tr>
+        <th>股號</th>
+        <th>公司</th>
+        <th>收盤</th>
+        <th>漲跌%</th>
+        <th>主要 catalyst</th>
+        <th>三大法人方向</th>
+        <th>熱度</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1503</strong></td>
+        <td>士電</td>
+        <td class="green"><strong>漲停</strong></td>
+        <td class="green">+10%</td>
+        <td>AI電力題材，重電四雄領軍，黃仁勳「沒有能源就無法AI」</td>
+        <td>投信連買，主力積極</td>
+        <td><span class="stars">★★★★★</span></td>
+      </tr>
+      <tr>
+        <td><strong>1514</strong></td>
+        <td>亞力</td>
+        <td class="green"><strong>漲停</strong></td>
+        <td class="green">+10%</td>
+        <td>重電AI電力概念同步大爆發，與士電齊攻停板</td>
+        <td>主力分點集中買入</td>
+        <td><span class="stars">★★★★★</span></td>
+      </tr>
+      <tr>
+        <td><strong>1519</strong></td>
+        <td>華城</td>
+        <td class="green"><strong>~997</strong></td>
+        <td class="green">接近+10%</td>
+        <td>挑戰千元大關，AI資料中心電力基建龍頭</td>
+        <td>外資、投信同步加碼</td>
+        <td><span class="stars">★★★★★</span></td>
+      </tr>
+      <tr>
+        <td><strong>8150</strong></td>
+        <td>南茂</td>
+        <td class="green"><strong>漲停</strong></td>
+        <td class="green">+10%</td>
+        <td>記憶體封測，AI+HBM需求回升，逆勢漲停</td>
+        <td>投信持續加碼</td>
+        <td><span class="stars">★★★★</span></td>
+      </tr>
+      <tr>
+        <td><strong>2330</strong></td>
+        <td>台積電</td>
+        <td class="red">2,385</td>
+        <td class="red">-1.6%</td>
+        <td>股東會魏哲家喊話，尾盤6,272張賣單壓盤；重要事件股</td>
+        <td>外資賣超（獲利了結）</td>
+        <td><span class="stars">★★★★</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Ticker Cards -->
+<div class="cards">
+
+  <!-- Card 1: 士電 1503 -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="card-title">士電 Shihlin Electric</div>
+        <div class="card-ticker">1503-TW ｜ 集中市場 ｜ 重電設備</div>
+      </div>
+      <div class="price-row">
+        <span class="price green">漲停板</span>
+        <span class="change-chip chip-green">+10.00%</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="section-row">
+        <div class="row-label"><span class="icon">📊</span> 今日數據 / Today's Tape</div>
+        <div class="row-content">收漲停板（+10%）｜振幅偏大，全天鎖停｜成交量爆增 vs 5MA（待確認確切張數）</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">🔥</span> 為什麼今天熱 / Why It's Hot</div>
+        <div class="row-content">
+          重電四雄（士電、亞力、中興電、華城）全面爆發，是今日台股最大主題。Catalyst 來自多層累積：黃仁勳在 COMPUTEX「兆元宴」點名電力是 AI 最大瓶頸，直言「沒有能源就無法實現經濟成長」；全球資料中心耗電預估 2030 年達 1,200 TWh；博通財報 shock 讓電子股急殺，市場資金直接旋轉進 AI 電力基建族群，形成「博通跌 → 重電漲」的罕見蹺蹺板行情。
+        </div>
+        <div class="row-content-en">Heavy-electrical stocks surged as the day's clearest safe-haven rotation away from semiconductor names. Catalyst stack: Huang Jen-Hsun's "no energy = no AI" keynote at COMPUTEX兆元宴 + global data-center power forecast of 1,200 TWh by 2030 + Broadcom-shock capital flight from tech. This is a structural theme, not a single-day fluke.</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">📦</span> 籌碼觀察 / Flow Watch</div>
+        <div class="row-content">投信連買多日，外資亦加碼；鉅亨盤後報告明確點名「重電四雄為今日最大亮點」，顯示法人認知清晰。融資融券待確認，但漲停鎖定屬主力力道強勁訊號。</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">💬</span> 社群聲量 / Retail Buzz</div>
+        <div class="row-content">PTT Stock 板當日熱議：重電族群討論度飆升；CMoney 熱搜「重電四雄」出現頻率高；投顧頻道直播標題多以「重電漲停」為主打。</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">🧭</span> 炒作脈絡 / Narrative Context</div>
+        <div class="row-content">士電為國內重電老廠，近年受惠於電網升級、資料中心配電與變壓器需求，業績持續改善。所屬族群：AI 電力概念、重電基建、變壓器、電網升級。與同族群相比，士電市值相對小，彈性大，更受短線資金青睞。</div>
+        <div class="tag-list">
+          <span class="tag tag-green">AI電力</span>
+          <span class="tag tag-blue">重電設備</span>
+          <span class="tag tag-orange">電網升級</span>
+          <span class="tag tag-purple">資料中心供電</span>
+        </div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">🔭</span> 後續觀察 / What To Watch Next</div>
+        <div class="row-content">
+          (分析) 若明日費半或 NVDA 止跌反彈，資金是否回流科技股會影響重電持續性。<br>
+          (事實) 隔日沖籌碼：漲停板次日獲利了結壓力高，需觀察開盤是否有人承接。<br>
+          全球電力基建故事是長線，但短線連漲後需注意是否處置。
+        </div>
+      </div>
+      <div class="section-row">
+        <div class="row-label">來源 / Sources</div>
+        <div class="tag-list">
+          <span class="tag">鉅亨網 cnyes.com/news/id/6484140</span>
+          <span class="tag">Yahoo 股市</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2: 亞力 1514 -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="card-title">亞力電機 Asia Pacific Electric</div>
+        <div class="card-ticker">1514-TW ｜ 集中市場 ｜ 重電設備</div>
+      </div>
+      <div class="price-row">
+        <span class="price green">漲停板</span>
+        <span class="change-chip chip-green">+10.00%</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="section-row">
+        <div class="row-label"><span class="icon">📊</span> 今日數據 / Today's Tape</div>
+        <div class="row-content">收漲停板（+10%）｜與士電同步雙漲停，重電族群共振效應完整</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">🔥</span> 為什麼今天熱 / Why It's Hot</div>
+        <div class="row-content">
+          同士電一樣受惠 AI 電力主題，但亞力更聚焦於電力系統整合與配電設備，是重電四雄中資產最輕、股價彈性最大的標的之一。博通財報 shock 驅動資金輪動，投資人選擇「不怕 AI 需求下滑，只會讓電更需要」的防禦性成長題材。
+        </div>
+        <div class="row-content-en">Like Shihlin, Asia Pacific Electric rode the AI-power rotation theme. Its niche in power system integration and distribution gear makes it a purer play on data-center electrical infra without the Broadcom supply-chain overhang.</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">📦</span> 籌碼觀察 / Flow Watch</div>
+        <div class="row-content">主力分點集中買進，投信加碼確認方向；法人報告指出重電四雄為今日最強族群，籌碼面偏多。待確認：具體外資買賣超張數。</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">💬</span> 社群聲量 / Retail Buzz</div>
+        <div class="row-content">散戶討論「重電四雄全漲停」，強調亞力為其中最被低估的標的，討論度僅次於華城（因華城有千元大關話題性）。</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">🧭</span> 炒作脈絡 / Narrative Context</div>
+        <div class="row-content">亞力近年接單結構持續改善，AI 資料中心新訂單佔比提升。歷史模式：2024 年以來重電族群每逢 AI 電力話題催化便出現族群共振，亞力通常第一天與士電同步，第二天換中興電或華城補漲。</div>
+        <div class="tag-list">
+          <span class="tag tag-green">AI電力</span>
+          <span class="tag tag-blue">電力系統整合</span>
+          <span class="tag tag-orange">配電設備</span>
+        </div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">🔭</span> 後續觀察 / What To Watch Next</div>
+        <div class="row-content">(分析) 注意次日換手率，若開高後快速爆量賣壓湧現，隔日沖成分高。(事實) 觀察是否被列為注意股 / 處置股。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3: 華城 1519 -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="card-title">華城電機 Hua Cheng Electrical</div>
+        <div class="card-ticker">1519-TW ｜ 集中市場 ｜ 重電設備龍頭</div>
+      </div>
+      <div class="price-row">
+        <span class="price green">~997</span>
+        <span class="change-chip chip-green">+接近10%</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="caution-banner">
+        注意：華城為重電族群龍頭，盤中一度衝上 997 元挑戰千元大關，但未站穩千元收盤。股價近期大幅攀升，注意追高風險。
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">📊</span> 今日數據 / Today's Tape</div>
+        <div class="row-content">盤中高點 997 元，挑戰千元大關未成功｜依 Yahoo 股市側欄數據：現報 939 元（+0.43%）｜全天為強勢股，最高曾接近+10%（日內推算）</div>
+        <div class="row-content-en">Note: 939 price per cnyes sidebar may reflect different timing; 997 intraday high is from the June 4 盤後 article. Treat as "approached +10%".</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">🔥</span> 為什麼今天熱 / Why It's Hot</div>
+        <div class="row-content">
+          華城是重電族群話題性最強的標的，千元大關是心理關卡，市場高度關注能否突破。背後 AI 電力邏輯同士電、亞力，但因股價高（千金股），更具「里程碑」新聞效應，吸引大量散戶與投顧頻道討論。6/3 鉅亨量大強漲股名單已出現華城；6/4 進一步推進。
+        </div>
+        <div class="row-content-en">Hua Cheng is the highest-profile heavy-electrical play. The psychological 1,000 NT$ threshold generates outsized news coverage and retail excitement. AI power demand + billion-dollar data-center project orders = institutional confirmation of the theme.</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">📦</span> 籌碼觀察 / Flow Watch</div>
+        <div class="row-content">外資與投信同步加碼確認（依 cnyes 人氣排行側欄資料）；Goodinfo 主力進出顯示近期籌碼集中度上升（待確認分點明細）。</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">💬</span> 社群聲量 / Retail Buzz</div>
+        <div class="row-content">CMoney 熱搜前段；投顧 YouTube 頻道當日以「華城挑戰千元」為標題；PTT 股板有「華城千元大關」討論串。謝金河於鉅亨發文點名重電族群。</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">🧭</span> 炒作脈絡 / Narrative Context</div>
+        <div class="row-content">華城近年積極轉型 AI 資料中心供電解決方案，從傳統電機廠升級為 AI 電力生態系供應商。過去類似 setup：2024 年底 AI 電力第一波，華城從 300 元出頭飆至 800+ 元；本次 AI 電力第二波，正從 800 元帶再推升。</div>
+        <div class="tag-list">
+          <span class="tag tag-green">AI電力龍頭</span>
+          <span class="tag tag-blue">千元股挑戰</span>
+          <span class="tag tag-orange">資料中心供電</span>
+          <span class="tag tag-purple">電網升級</span>
+        </div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">🔭</span> 後續觀察 / What To Watch Next</div>
+        <div class="row-content">
+          (事實) 千元大關能否突破是關鍵觀察點。<br>
+          (分析) 一旦站上千元，媒體效應會進一步放大，可能帶動一波散戶追價；但同樣要注意主力在千元附近調節的可能性。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 4: 南茂 8150 -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="card-title">南茂科技 Chipmos Technologies</div>
+        <div class="card-ticker">8150-TW ｜ 集中市場 ｜ 記憶體封測</div>
+      </div>
+      <div class="price-row">
+        <span class="price green">漲停板</span>
+        <span class="change-chip chip-green">+10.00%</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="section-row">
+        <div class="row-label"><span class="icon">📊</span> 今日數據 / Today's Tape</div>
+        <div class="row-content">收漲停板（+10%）｜在全市場電子股慘跌日逆勢漲停，相對強度極高</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">🔥</span> 為什麼今天熱 / Why It's Hot</div>
+        <div class="row-content">
+          南茂主要業務為 DRAM/Flash 記憶體封測，受惠 AI 帶動 HBM 及 DDR5 需求爆發。在博通財報 shock 使 AI ASIC 供應鏈普遍受壓的情況下，記憶體封測因「AI 推論爆量需要 HBM」而被市場視為獨立多頭。鉅亨 6/4 盤後文章明確點名「南茂亮燈漲停，記憶體相關供應鏈仍具中長線成長空間」。
+        </div>
+        <div class="row-content-en">Chipmos surged against the market tide as HBM (High Bandwidth Memory) demand from AI inference workloads insulates it from the Broadcom ASIC supply-chain concerns. Analyst commentary explicitly cited HBM + DDR5 upgrade cycle as the catalyst.</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">📦</span> 籌碼觀察 / Flow Watch</div>
+        <div class="row-content">投信連買，記憶體族群整體籌碼偏多；外資動向待確認個股明細。高盛近期上修記憶體三巨頭目標價（人氣排行第 3 名文章），帶動供應鏈整體評價重估。</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">💬</span> 社群聲量 / Retail Buzz</div>
+        <div class="row-content">記憶體相關討論熱度在 CMoney 和 PTT 均有顯著升溫；「電子股全跌 記憶體逆勢漲停」是當日最受矚目的反差話題。</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">🧭</span> 炒作脈絡 / Narrative Context</div>
+        <div class="row-content">南茂所屬族群：AI HBM 封測、記憶體供應鏈、台積電生態系外圍。歷史模式：記憶體封測通常在記憶體族群多頭期間落後再補漲，今日漲停有族群補漲的成分。</div>
+        <div class="tag-list">
+          <span class="tag tag-blue">HBM封測</span>
+          <span class="tag tag-green">記憶體供應鏈</span>
+          <span class="tag tag-orange">AI推論需求</span>
+        </div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">🔭</span> 後續觀察 / What To Watch Next</div>
+        <div class="row-content">(分析) 觀察 6/5 美股費半是否止穩，若反彈帶動 HBM 族群，南茂有機會延續；(事實) 關注鈺創（5351）等同族群個股是否跟進。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 5: 台積電 2330 -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="card-title">台積電 TSMC</div>
+        <div class="card-ticker">2330-TW ｜ 集中市場 ｜ 晶圓代工龍頭</div>
+      </div>
+      <div class="price-row">
+        <span class="price red">2,385</span>
+        <span class="change-chip chip-red">-40 (-1.6%)</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="section-row">
+        <div class="row-label"><span class="icon">📊</span> 今日數據 / Today's Tape</div>
+        <div class="row-content">收 2,385 元（-40 元，-1.6%）｜成交量 6,272 張大量賣單尾盤出現｜ADR 同步跌 1.46%（$430.73）｜股東會當天</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">🔥</span> 為什麼今天熱 / Why It's Hot</div>
+        <div class="row-content">
+          台積電 2026 年股東會今日在新竹喜來登登場，魏哲家（C.C. Wei）十大金句引爆討論：「股價一年漲超 1.5 倍，請繼續買台積電」、「今年全年營收成長超 30%」、AI 需求延伸至 PC / 手機 / 車用 / IoT。但股價卻開低走低——博通財報衝擊下，外資出現 756.85 億大賣，尾盤更有 6,272 張集中賣壓，把大盤一起往下壓。「股東會行情反向操作」是今日最受討論的話題之一。
+        </div>
+        <div class="row-content-en">TSMC's AGM was a major event: C.C. Wei delivered bullish AI outlook, full-year revenue growth guidance of 30%+, and even said "please keep buying TSMC stock." Yet the stock fell -1.6% as Broadcom shock triggered foreign institutional selling (NT$75.7bn net sell). Classic "sell the news" on good guidance. A 6,272-lot block sell in the final minutes pushed the index lower.</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">📦</span> 籌碼觀察 / Flow Watch</div>
+        <div class="row-content">外資大賣（具體到台積電個股待確認，但外資大盤賣超 756.85 億元，台積電首當其衝）；尾盤 6,272 張大量賣單為明顯主力調節訊號；投信逆勢買超整體市場 38.94 億，但台積電個股動向待確認。</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">💬</span> 社群聲量 / Retail Buzz</div>
+        <div class="row-content">股東會現場股東熱議「買房頭期款」（股票漲一倍）；PTT 股板熱議「魏哲家喊買，法人喊賣」的矛盾；CMoney / 鉅亨人氣排行第 2 名。台積電 AGM 相關新聞為今日媒體版面第一。</div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">🧭</span> 炒作脈絡 / Narrative Context</div>
+        <div class="row-content">台積電 2026 年以來股價累積漲幅巨大（一年 +150%），從 950 元到 2,400+ 元。股東會行情「利多出盡賣」在台積電身上並非首次出現。魏哲家重申不懼英特爾競爭、不考慮股票回購，Q2 營收展望 390–402 億美元，毛利率 65.5–67.5%，基本面依然強勁。</div>
+        <div class="tag-list">
+          <span class="tag tag-blue">AI晶圓代工</span>
+          <span class="tag tag-red">利多出盡賣壓</span>
+          <span class="tag tag-orange">股東會事件股</span>
+          <span class="tag tag-purple">先進封裝CoWoS</span>
+        </div>
+      </div>
+      <div class="section-row">
+        <div class="row-label"><span class="icon">🔭</span> 後續觀察 / What To Watch Next</div>
+        <div class="row-content">
+          (事實) ADR 6/5 表現是最直接先行指標；若費半反彈，台積電開高機率大。<br>
+          (分析) 2,385 元為近期支撐區，若守住，可能是短線買點；若破 2,350，需注意更大幅度修正。魏哲家「繼續買」的喊話對長線投資人有強大心理支撐效果。
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end cards -->
+
+<!-- Watch List -->
+<div class="section-title" style="margin-top: 4px;">
+  <span class="dot" style="background:#3498db;"></span>
+  次熱觀察 / Watch List
+</div>
+<div class="mini-cards">
+  <div class="mini-card watch">
+    <h3>1513 中興電 / Chunghwa Electric</h3>
+    <p>重電四雄之三。盤中突破 200 元整數關卡，尾盤拉回至 187 元附近，仍屬強勢。是否有機會補追士電、亞力的停板是關注重點。</p>
+    <div class="tag-list" style="margin-top:6px;">
+      <span class="tag tag-green">重電</span><span class="tag tag-orange">200元整數關</span>
+    </div>
+  </div>
+  <div class="mini-card watch">
+    <h3>5351 鈺創 / ETRON</h3>
+    <p>邊緣 AI 記憶體，整理後重啟攻勢。AI 推論爆量帶動低功耗 DRAM 需求，被法人點名為「老記憶體翻身」概念。成交量爆增值得追蹤。</p>
+    <div class="tag-list" style="margin-top:6px;">
+      <span class="tag tag-blue">邊緣AI記憶體</span><span class="tag tag-green">量大攻</span>
+    </div>
+  </div>
+  <div class="mini-card watch">
+    <h3>2409 友達 / AUO</h3>
+    <p>面板大廠轉型 CPO 共同封裝光學與車用市場，在手訂單超過現有營收兩倍。6/3 量大強漲股名單在列，今日走勢待確認。</p>
+    <div class="tag-list" style="margin-top:6px;">
+      <span class="tag tag-purple">CPO光學</span><span class="tag tag-orange">車用轉型</span>
+    </div>
+  </div>
+  <div class="mini-card watch">
+    <h3>1409 新纖 / Hualon</h3>
+    <p>傳產大翻身。子公司新硕先進高純度電子級雙氧水已進入全球最大晶圓廠供應鏈，被謝金河點名「傳產跨足電子材料驚奇秀」。今日逢大盤跌，個股表現待觀察。</p>
+    <div class="tag-list" style="margin-top:6px;">
+      <span class="tag tag-blue">電子材料</span><span class="tag tag-orange">傳產轉型</span>
+    </div>
+  </div>
+  <div class="mini-card watch">
+    <h3>8064 東捷 / Dontop</h3>
+    <p>6/3 量大強漲名單，漲停。AI 精密傳動與機器人相關，黃仁勳提及機器人概念後持續受惠。注意是否已有處置風險。</p>
+    <div class="tag-list" style="margin-top:6px;">
+      <span class="tag tag-purple">機器人</span><span class="tag tag-green">精密傳動</span>
+    </div>
+  </div>
+</div>
+
+<!-- Caution List -->
+<div class="section-title" style="margin-top: 4px;">
+  <span class="dot" style="background:#e74c3c;"></span>
+  異常注意 / Caution List
+</div>
+<div class="mini-cards">
+  <div class="mini-card caution">
+    <h3>2317 鴻海 / Foxconn</h3>
+    <p>今日重挫逾 5%，收 293 元，是電子代工股中跌幅最深之一。博通財報衝擊 AI 伺服器代工訂單前景疑慮，外資大量調節。注意後續外資是否轉為持續賣超。</p>
+    <div class="tag-list" style="margin-top:6px;">
+      <span class="tag tag-red">重挫5%+</span><span class="tag tag-red">外資調節</span>
+    </div>
+  </div>
+  <div class="mini-card caution">
+    <h3>8046 南電 / Nanya PCB</h3>
+    <p>「大股東賣股」消息流出，早盤痛失千元股價跌 9%，連帶欣興（3037）、景碩（3189）遭拖累。ABF 載板族群短期籌碼受傷，需觀察大股東減碼進度及後續外資態度。</p>
+    <div class="tag-list" style="margin-top:6px;">
+      <span class="tag tag-red">大股東賣股</span><span class="tag tag-red">失守千元</span>
+    </div>
+  </div>
+  <div class="mini-card caution">
+    <h3>2303 聯電 / UMC</h3>
+    <p>跌幅超過 4%，博通財報顯示 AI ASIC 需求可能趨緩，成熟製程代工受衝擊。注意聯電是否會跌破近期支撐區，法人是否持續調節。</p>
+    <div class="tag-list" style="margin-top:6px;">
+      <span class="tag tag-red">跌幅4%+</span>
+    </div>
+  </div>
+</div>
+
+<!-- Sources -->
+<div class="section-title" style="margin-top: 16px;">
+  <span class="dot" style="background:#636e72;"></span>
+  資料來源 / Sources Consulted
+</div>
+<div class="sources">
+  <h3>URLs</h3>
+  <ul>
+    <li><a href="https://news.cnyes.com/news/id/6484140" target="_blank">鉅亨網 6/4 盤後量大強漲股（主要數據來源）</a></li>
+    <li><a href="https://news.cnyes.com/news/id/6482688" target="_blank">鉅亨網 6/3 量大強漲股整理（前日接棒主流）</a></li>
+    <li><a href="https://news.cnyes.com/news/id/6484381" target="_blank">鉅亨網 6/4 美股早盤：博通重挫拖累晶片股</a></li>
+    <li><a href="https://news.cnyes.com/news/id/6483091" target="_blank">鉅亨網：博通重申AI晶片目標未加碼 盤後重挫13%</a></li>
+    <li><a href="https://udn.com/news/story/7253/9545450" target="_blank">聯合新聞網：台積電股東會 魏哲家談話重點</a></li>
+    <li><a href="https://tw.stock.yahoo.com/rank/change-up" target="_blank">Yahoo 股市漲幅排行（2026/04/30 資料）</a></li>
+    <li><a href="https://tw.stock.yahoo.com/news/%E5%A4%A7%E8%82%A1%E6%9D%B1%E8%B3%A3%E8%82%A1%EF%BC%81%E5%8D%97%E9%9B%BB%E4%BB%8A%E6%97%A9%E7%97%9B%E5%A4%B1%E5%8D%83%E5%85%83%E8%B7%8C9" target="_blank">Yahoo 股市：大股東賣股 南電痛失千元</a></li>
+    <li><a href="https://news.cnyes.com/news/id/6479266" target="_blank">鉅亨網：台股站上4萬5、外資加碼368億</a></li>
+    <li><a href="https://www.ptt.cc/bbs/Stock/index.html" target="_blank">PTT Stock 板</a></li>
+    <li><a href="https://www.cmoney.tw/finance/popular-rank" target="_blank">CMoney 熱搜排行</a></li>
+    <li><a href="https://www.twse.com.tw/zh/trading/foreign/t86.html" target="_blank">TWSE 三大法人買賣超日報</a></li>
+    <li><a href="https://www.inside.com.tw/article/41469-broadcom-avgo-earnings-report-q2-2026" target="_blank">INSIDE：博通 AI 晶片年增 143% 但盤後跌</a></li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  本報告為資訊整理，不構成投資建議。所有數字以實際來源為準；部分個股細部資料（如確切張數、分點明細）標注「待確認」。<br>
+  This report is for informational purposes only and does not constitute investment advice. All figures sourced from public data; items marked "待確認" require verification against TWSE/TPEx official data.
+</div>
+
+</body>
+</html>

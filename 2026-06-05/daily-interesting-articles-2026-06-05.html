@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日有趣文章日報 · 2026-06-05</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --accent: #7c6af7;
+      --accent2: #50c8a8;
+      --accent3: #f5a623;
+      --text: #e8eaf0;
+      --text-muted: #8891aa;
+      --border: #2e3250;
+      --tag-ai: #1e3a5f;
+      --tag-ai-text: #60b4ff;
+      --tag-sci: #1a3d2b;
+      --tag-sci-text: #4cdb8f;
+      --tag-biz: #3d2a1a;
+      --tag-biz-text: #f5a623;
+      --tag-culture: #3a1e3d;
+      --tag-culture-text: #d88ae8;
+      --tag-hist: #3d3319;
+      --tag-hist-text: #e8d070;
+      --tag-psy: #3d1e2a;
+      --tag-psy-text: #f07090;
+      --tag-curious: #1e3a38;
+      --tag-curious-text: #45d5c8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #1a1d2e 0%, #0f1117 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 32px 24px;
+    }
+    .header-inner { max-width: 860px; margin: 0 auto; }
+    .header-date {
+      font-size: 12px; color: var(--text-muted); letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+    .header h1 {
+      font-size: 26px; font-weight: 700;
+      background: linear-gradient(90deg, #a98ffb, #50c8a8);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .header-sub { color: var(--text-muted); font-size: 13px; margin-top: 6px; }
+
+    /* Track header */
+    .track-header {
+      max-width: 860px; margin: 36px auto 0; padding: 0 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .track-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 4px;
+    }
+    .track-a-label { background: var(--accent); color: #fff; }
+    .track-b-label { background: var(--accent2); color: #0f1117; }
+    .track-title { font-size: 18px; font-weight: 700; color: var(--text); }
+    .track-desc { color: var(--text-muted); font-size: 13px; margin-top: 2px; }
+
+    /* Section heading */
+    .section-heading {
+      max-width: 860px; margin: 28px auto 0; padding: 0 20px;
+    }
+    .section-heading h2 {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-muted);
+      padding-bottom: 8px; border-bottom: 1px solid var(--border);
+    }
+
+    /* Card */
+    .card-container { max-width: 860px; margin: 16px auto; padding: 0 20px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+
+    .card-meta {
+      display: flex; align-items: center; gap: 10px;
+      flex-wrap: wrap; margin-bottom: 10px;
+    }
+    .tag {
+      font-size: 11px; font-weight: 700; padding: 2px 8px;
+      border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .tag-ai { background: var(--tag-ai); color: var(--tag-ai-text); }
+    .tag-sci { background: var(--tag-sci); color: var(--tag-sci-text); }
+    .tag-biz { background: var(--tag-biz); color: var(--tag-biz-text); }
+    .tag-culture { background: var(--tag-culture); color: var(--tag-culture-text); }
+    .tag-hist { background: var(--tag-hist); color: var(--tag-hist-text); }
+    .tag-psy { background: var(--tag-psy); color: var(--tag-psy-text); }
+    .tag-curious { background: var(--tag-curious); color: var(--tag-curious-text); }
+    .tag-startup { background: #2a1e3d; color: #c080f0; }
+    .tag-vc { background: #1e2f3d; color: #60c8ff; }
+    .tag-econ { background: #3d2e1e; color: #f0a040; }
+    .tag-product { background: #3d3e1e; color: #d0e040; }
+    .tag-pick { background: var(--accent); color: #fff; }
+
+    .read-badge {
+      font-size: 11px; color: var(--text-muted);
+      background: var(--surface2); padding: 2px 8px; border-radius: 12px;
+      margin-left: auto;
+    }
+
+    .card h3 {
+      font-size: 17px; font-weight: 700; line-height: 1.4;
+      margin-bottom: 8px; color: var(--text);
+    }
+    .card h3 a { color: inherit; }
+    .card h3 a:hover { color: var(--accent); text-decoration: none; }
+
+    .source-line {
+      font-size: 12px; color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .source-line a { color: var(--text-muted); }
+    .source-line a:hover { color: var(--accent); }
+
+    .field { margin-bottom: 12px; }
+    .field-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .field-body { font-size: 14px; color: var(--text); }
+    .field-body strong { color: var(--accent2); font-weight: 600; }
+
+    .divider { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+    .divider hr { border: none; border-top: 1px solid var(--border); margin: 20px 0 0; }
+
+    /* Footer */
+    .footer {
+      max-width: 860px; margin: 40px auto 60px; padding: 0 20px;
+    }
+    .footer-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+    .footer h4 { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+    .footer p { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+    .footer a { color: var(--text-muted); }
+    .footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .header { padding: 20px 16px; }
+      .card-container, .track-header, .section-heading, .footer, .divider { padding: 0 12px; }
+      .card { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-date">2026 · 06 · 05 &nbsp;|&nbsp; Thursday &nbsp;|&nbsp; Asia/Taipei</div>
+    <h1>今日有趣文章日報</h1>
+    <div class="header-sub">Daily Interesting Reads &nbsp;·&nbsp; 長文精選 + 思想領袖觀點 &nbsp;·&nbsp; 8 pieces curated</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TRACK A -->
+<!-- ============================================================ -->
+
+<div class="track-header">
+  <span class="track-label track-a-label">Track A</span>
+  <div>
+    <div class="track-title">長文精選 / Longform Essays</div>
+    <div class="track-desc">Science, tech, culture, philosophy — pieces worth 15+ minutes of your attention</div>
+  </div>
+</div>
+
+<!-- 1. Editor's Pick -->
+<div class="section-heading"><h2>1 · 編輯精選 / Editor's Pick of the Day</h2></div>
+<div class="card-container">
+  <div class="card">
+    <div class="card-meta">
+      <span class="tag tag-pick">精選</span>
+      <span class="tag tag-sci">科學</span>
+      <span class="read-badge">12 min</span>
+    </div>
+    <h3><a href="https://www.quantamagazine.org/entanglement-builds-space-time-now-magic-gives-it-gravity-20260603/" target="_blank">糾纏構建時空，「魔法」賦予引力 / Entanglement Builds Space-Time. Now "Magic" Gives It Gravity.</a></h3>
+    <div class="source-line">Quanta Magazine &nbsp;·&nbsp; Charlie Wood &nbsp;·&nbsp; 2026-06-03 &nbsp;·&nbsp; <a href="https://www.quantamagazine.org/entanglement-builds-space-time-now-magic-gives-it-gravity-20260603/" target="_blank">閱讀全文</a></div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">這是少數能讓外行人真正理解前沿物理的文章：邏輯清晰，比喻精確，而且結論讓人瞠目結舌——重力竟然源自「不完美的量子編碼」。全週最好的科普文章。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">物理學家長期知道「量子糾纏」賦予時空結構，但始終無法解釋為何時空會彎曲（即廣義相對論的核心）。Virginia Tech 的 Charles Cao 等人發現，一種名為「魔法（magic）」的量子力學性質——即量子態的「非穩定器複雜性」——正是賦予時空可塑性的關鍵。沒有魔法，時空是靜止的；有了魔法，時空會回應物質而彎曲。更驚人的是：引力之所以存在，是因為量子編碼必然是「不完美」的，這種不完美正是牛頓蘋果落地的根本原因。
+
+      Physicists have long known quantum entanglement gives space-time its structure, but could not explain why space-time bends. Cao's team showed that a property called "magic" — the non-stabilizer complexity of quantum states — is the "fabric softener of space." Without magic, space-time is inert. With it, matter can tell space how to curve. Startlingly, gravity exists precisely because quantum encoding is necessarily imperfect, and that imperfection is "the reason Newton's apple fell on him."</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Key takeaway</div>
+      <div class="field-body">時空最「量子」的特性（糾纏 + 魔法）對應其最基本的物理特性（形狀 + 彎曲），而引力恰恰來自量子編碼的不完美——這既是宇宙的缺陷，也是生命的前提。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">如果引力是量子錯誤的副產品，那在「完美量子宇宙」裡是否會有完全不同的物理法則？量子電腦能否真正模擬出黑洞奇點附近的時空行為？</div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. Tech & AI -->
+<div class="section-heading"><h2>2 · 科技與 AI / Tech & AI</h2></div>
+<div class="card-container">
+
+  <div class="card">
+    <div class="card-meta">
+      <span class="tag tag-ai">AI / 軟體</span>
+      <span class="read-badge">9 min</span>
+    </div>
+    <h3><a href="https://sockpuppet.org/blog/2026/05/12/emacsification/" target="_blank">軟體的「Emacs 化」/ The Emacsification of Software</a></h3>
+    <div class="source-line">Quarrelsome (sockpuppet.org) &nbsp;·&nbsp; Thomas Ptacek &nbsp;·&nbsp; 2026-05-12 &nbsp;·&nbsp; <a href="https://sockpuppet.org/blog/2026/05/12/emacsification/" target="_blank">閱讀全文</a></div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">一位資深安全研究員提出了一個精準但以前沒人說清楚的觀點：AI agent 時代的軟體文化，正在向 Emacs 文化靠攏——個人化、草根、「prompts 比 source code 更重要」。論點有趣，文筆犀利，沒有廢話。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">作者找不到一個好的 macOS Markdown 閱覽器，於是用 Claude 花了 30 分鐘生成了一個，效果比 App Store 所有選項都好。這件事讓他意識到：AI agent 正在讓「打造個人軟體」變得像設定 .emacs 一樣容易。他稱之為軟體的「Emacs 化」：高度個人化、為特定問題量身打造、prompts 取代 source code 成為可分享的知識單位，原生 UI 開發變得既可能又有趣。
+
+      The author built a macOS Markdown viewer in 30 minutes with Claude that outperformed every App Store option. He argues AI agents are "Emacsifying" software: personal tools for personal problems, where prompts matter more than source code, and native UI development is finally fun and accessible. Everything is now programmable in practice, not just in theory.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Key takeaway</div>
+      <div class="field-body">「你要的是 prompts，不是 source code。」軟體正在從打包產品走向個人配置，Emacs 的精神正在蔓延到整個工具生態。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">當每個人都能生成自己的軟體，軟體商業模式如何演化？「分享 prompts」是否會成為新一代的開源文化？</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-meta">
+      <span class="tag tag-ai">技術史</span>
+      <span class="read-badge">11 min</span>
+    </div>
+    <h3><a href="https://laurent.le-brun.eu/blog/a-history-of-ides-at-google" target="_blank">Google 的 IDE 發展史 / A History of IDEs at Google</a></h3>
+    <div class="source-line">laurent.le-brun.eu &nbsp;·&nbsp; Laurent Le Brun (前 Google 工程師) &nbsp;·&nbsp; 2026-05-09 &nbsp;·&nbsp; <a href="https://laurent.le-brun.eu/blog/a-history-of-ides-at-google" target="_blank">閱讀全文</a></div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">罕見的「Google 內部視角」長文：一位在 Google 工作 12 年的工程師，詳細描述了世界最大程式碼庫如何從「每人用自己的 IDE」走向 80% 人使用同一工具的歷史。具體、有細節、沒有 PR 包裝。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">2011 年 Jeff Dean 說「強迫開發者統一用同一個 IDE 是找麻煩」。然而 13 年後，Google 的 Cider V（基於 VSCode 的雲端 IDE）讓 80% 的 Google3 開發者自願轉移。這篇文章追溯了從 2013 年的實驗性 Web 編輯器 Cider，到 2020 年採用 VSCode 前端，再到整合 AI 功能的全過程。核心洞見：<strong>標準工具創造槓桿</strong>。統一 IDE 讓 100 個內部 extension 得以蓬勃發展，讓 AI 功能集成更有效率。
+
+      In 2011, Jeff Dean said forcing developers to use one IDE was a recipe for unhappiness. By 2023, 80% of Google's main codebase developers had voluntarily moved to Cider V, a VSCode-fronted cloud IDE. The lesson: standard tooling creates leverage. Once most engineers used the same tool, internal extension teams proliferated (100+ extensions), and AI integrations became dramatically more impactful.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Key takeaway</div>
+      <div class="field-body">「Standard tooling creates leverage.」讓工程師自願收斂到同一工具，是組織生產力的倍增器，而非對自由的限制。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">AI coding agent 時代，這個邏輯是否反轉？當每人的 agent 都高度個人化，「標準工具」還有意義嗎？</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 3. Science -->
+<div class="section-heading"><h2>3 · 科學與研究 / Science & Research</h2></div>
+<div class="card-container">
+
+  <div class="card">
+    <div class="card-meta">
+      <span class="tag tag-sci">生命起源</span>
+      <span class="read-badge">10 min</span>
+    </div>
+    <h3><a href="https://www.quantamagazine.org/the-dirt-that-refused-to-die-20260601/" target="_blank">拒絕死去的泥土 / The Dirt That Refused To Die</a></h3>
+    <div class="source-line">Quanta Magazine &nbsp;·&nbsp; Siddhant Pusdekar &nbsp;·&nbsp; 2026-06-01 &nbsp;·&nbsp; <a href="https://www.quantamagazine.org/the-dirt-that-refused-to-die-20260601/" target="_blank">閱讀全文</a></div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">一個意外發現推翻了「代謝只存在於活細胞」的假設：滅菌後的泥土在六年後仍在「呼吸」。這不只是有趣的實驗，更是生命起源理論的重大線索。Quanta 一貫的深度與敘事品質。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">法國農業研究所的 Sébastien Fontaine 本想在滅菌泥土中測量「無生命基準」的碳排放，卻發現泥土在輻射滅菌後持續呼吸六年。他的團隊最終在無生命泥土中觀察到 Krebs 循環（細胞代謝的核心環路）的四個中間產物。研究指向一個驚人可能：生命最基礎的生化反應可能早在生命出現之前就在地質環境中運行，代謝或許先於基因而存在。
+
+      French researcher Fontaine sterilized soil with gamma radiation, expecting metabolic activity to stop. It didn't — for six years. His team found Krebs cycle intermediates in sterile soil, suggesting cellular metabolism's core reactions may occur in plain geology, independent of life. This supports a "metabolism-first" origin-of-life theory: chemistry preceded genes.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Key takeaway</div>
+      <div class="field-body">「生命的化學不是生命專有的，而是地質的化學。」代謝可能是宇宙的基本特徵，而非生命的獨特發明。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">如果代謝是地質現象，其他行星（如火星或土衛二）的無機環境是否也在「呼吸」？這是否改變了我們搜尋地外生命的策略？</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-meta">
+      <span class="tag tag-sci">統計學 · 心理學</span>
+      <span class="read-badge">14 min</span>
+    </div>
+    <h3><a href="https://dynomight.net/lifespan/" target="_blank">壽命遺傳率「約 50%」——當遺傳率被重新定義後 / Heritability of Life Span Is ~50% When Heritability Is Redefined</a></h3>
+    <div class="source-line">Dynomight &nbsp;·&nbsp; 2026-02 (本週熱門 HN) &nbsp;·&nbsp; <a href="https://dynomight.net/lifespan/" target="_blank">閱讀全文</a></div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">這篇文章以罕見的清晰度拆解了一篇登上《Science》的論文是如何「玩弄定義」的，同時對統計概念做了極佳的科普。既不是批判，也不是吹捧，而是真正理解——這是批判性閱讀的示範。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">《Science》2026年一篇論文聲稱「人類壽命的遺傳率約50%」，比先前研究（23-35%）高出許多。作者仔細拆解後發現：這個數字是在「假設沒有人死於事故、謀殺、藥物濫用」的模擬世界中計算出來的。原來的遺傳率沒有錯，只是研究者改變了問題的定義。這篇文章同時是對「遺傳率」這個常被誤解的概念的絕佳入門。
+
+      A Science paper claimed life span heritability is ~50%, higher than prior estimates of 23-35%. Careful analysis reveals the number was computed in a simulated world where nobody dies from accidents, murder, or drug overdoses. The heritability didn't change — the definition did. An excellent lesson in how statistical claims can mislead by quietly shifting the question.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Key takeaway</div>
+      <div class="field-body">「遺傳率是一個比率，不是一個本質屬性。它依賴於你生活在哪個世界。」 改變環境，遺傳率就改變——這不是科學發現，是定義遊戲。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">有多少「重大科學發現」其實只是重新定義了變數？我們閱讀科學新聞時，是否養成了追問「這個數字是在哪個世界裡計算出來的」的習慣？</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 4. Culture & Society -->
+<div class="section-heading"><h2>4 · 文化與社會 / Culture & Society</h2></div>
+<div class="card-container">
+
+  <div class="card">
+    <div class="card-meta">
+      <span class="tag tag-culture">教育 · AI</span>
+      <span class="read-badge">7 min</span>
+    </div>
+    <h3><a href="https://www.dailyprincetonian.com/article/2026/05/princeton-news-adpol-proctoring-in-person-examinations-passed-faculty-133-years-precedent" target="_blank">普林斯頓 133 年不設監考的傳統，終於因 AI 而終結 / Princeton Mandates Proctoring, Upending 133-Year Precedent</a></h3>
+    <div class="source-line">The Daily Princetonian &nbsp;·&nbsp; Devon Williams &nbsp;·&nbsp; 2026-05-11 &nbsp;·&nbsp; <a href="https://www.dailyprincetonian.com/article/2026/05/princeton-news-adpol-proctoring-in-person-examinations-passed-faculty-133-years-precedent" target="_blank">閱讀全文</a></div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">這是 AI 對人類制度造成結構性衝擊的具體案例。普林斯頓 1893 年建立的榮譽制度（靠學生自我舉報舞弊）撐過了 133 年，卻沒能撐過 AI 的普及。這是一個關於信任、制度設計與技術衝擊的真實故事。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">普林斯頓教授會議以近乎全票通過了強制監考方案，自 7 月 1 日起生效，終結了 1893 年建立的「無監考榮譽制度」。直接原因：AI 工具讓作弊在外觀上難以被同學察覺（一支手機就夠），而學生舉報同學的意願也因社交媒體的曝光風險而驟降。29.9% 的畢業年級學生承認曾作弊；44.6% 知道有人作弊但選擇沉默。一位前院長說：「我認為這很遺憾，但這是必要的。」
+
+      Princeton faculty voted nearly unanimously to require exam proctoring starting July 1, ending the 133-year honor system. AI tools made cheating invisible to peers — a phone is all it takes. Meanwhile, student willingness to report violations collapsed due to social media doxxing fears. 29.9% of seniors admitted to cheating; 44.6% knew of violations but stayed silent. The institution that survived two world wars couldn't survive AI.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Key takeaway</div>
+      <div class="field-body">AI 不只改變了人們「能做什麼」，也改變了人際間的信任結構和社會監督機制——這種二階影響往往比技術本身更深遠。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">如果 AI 讓所有「靠互信運作」的制度都難以為繼，我們應如何重建社會契約？監考本身是否只是「治標」而非「治本」？</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 5. Curiosity -->
+<div class="section-heading"><h2>5 · 奇文與偏門 / Curiosities</h2></div>
+<div class="card-container">
+
+  <div class="card">
+    <div class="card-meta">
+      <span class="tag tag-curious">遊戲 · Linux</span>
+      <span class="read-badge">8 min</span>
+    </div>
+    <h3><a href="https://www.xda-developers.com/linux-gaming-is-getting-faster-because-windows-apis-are-becoming-linux-kernel-features/" target="_blank">Linux 遊戲變快了，因為 Windows 的 API 正在變成 Linux 核心功能 / Linux Gaming Is Faster Because Windows APIs Are Becoming Linux Kernel Features</a></h3>
+    <div class="source-line">XDA Developers &nbsp;·&nbsp; Ty Sherback &nbsp;·&nbsp; 2026-05-10 &nbsp;·&nbsp; <a href="https://www.xda-developers.com/linux-gaming-is-getting-faster-because-windows-apis-are-becoming-linux-kernel-features/" target="_blank">閱讀全文</a></div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">科技史上最奇妙的諷刺之一：Windows 的設計正在被重新實作進 Linux 核心，讓遊戲效能超越 Windows 本體。這篇文章把技術細節講得很清楚，但更有意思的是這件事的宏觀含義。Linux Steam 用戶突破 5%，時代真的在變。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">2026 年 3 月，Linux 首次突破 Steam 用戶 5%。這背後有個技術故事：NTSYNC，一個直接整合進 Linux 核心的驅動，讓核心原生支援 Windows 多執行緒同步原語，不再需要 Wine 的模擬層。這是持續的趨勢——Linux 為了讓 Windows 遊戲跑得更好，正在不斷把 Windows 的設計「原生化」。Valve 已在 SteamOS 上預設啟用。
+
+      In March 2026, Linux hit 5% of Steam users for the first time. Behind it: NTSYNC, a new Linux kernel driver that natively implements Windows thread-synchronization primitives, eliminating Wine emulation overhead. Linux is systematically absorbing Windows features to run Windows games better than Windows — a delicious irony. Valve shipped NTSYNC in stable SteamOS, signaling confidence in the approach.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Key takeaway</div>
+      <div class="field-body">平台競爭的終極形態：你的對手的設計被吸收進你自己的系統，然後執行得比原版更好。Linux 遊戲的崛起是一個關於生態系統壓力如何推動技術演化的精彩案例。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">如果 Linux 遊戲繼續成長，Windows 的最後護城河——獨家遊戲相容性——是否會消失？Microsoft 是否應該主動把 DirectX 也貢獻給 Linux？</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- TRACK B -->
+<!-- ============================================================ -->
+
+<div class="divider"><hr /></div>
+
+<div class="track-header" style="margin-top:32px;">
+  <span class="track-label track-b-label">Track B</span>
+  <div>
+    <div class="track-title">思想領袖今日觀點 / Thought Leader Picks</div>
+    <div class="track-desc">Practitioners' own words — real insight from the people doing the work</div>
+  </div>
+</div>
+
+<div class="section-heading"><h2>6 · 思想領袖精選</h2></div>
+<div class="card-container">
+
+  <!-- Ethan Mollick -->
+  <div class="card">
+    <div class="card-meta">
+      <span class="tag tag-ai">[AI]</span>
+      <span class="read-badge">10 min</span>
+    </div>
+    <h3><a href="https://www.oneusefulthing.org/p/choosing-to-stay-human" target="_blank">Ethan Mollick — 選擇保持人類 / Choosing to Stay Human</a></h3>
+    <div class="source-line">One Useful Thing (Substack) &nbsp;·&nbsp; Ethan Mollick (Wharton) &nbsp;·&nbsp; 2026-05-26 &nbsp;·&nbsp; <a href="https://www.oneusefulthing.org/p/choosing-to-stay-human" target="_blank">閱讀全文</a></div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">Mollick 是真正在研究 AI 對工作與學習影響的學者，不是布道師。這篇文章用他自己的研究資料（包括 758 位 BCG 顧問的實驗）回答了一個每個人都迴避的問題：什麼任務應該交給 AI，什麼不應該？答案令人不舒服但必須面對。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Core insight</div>
+      <div class="field-body">社群媒體充斥 AI 生成內容，這些「形狀像意義但沒有意義」的文字是「注意力吸血鬼」。更重要的是：AI 的預設設計推動「認知投降」（cognitive surrender）。在 BCG 實驗中，使用 AI 的精英顧問在 AI 答錯的題目上表現顯著更差——AI 的自信外表讓他們停止思考。但這不是 AI 的罪，是使用方式的問題。兩篇研究對比：同樣是用 AI 學數學，直接讓 AI 給答案的學生期末考退步；讓 AI 個人化引導解題過程的學生進步了相當於 6-9 個月的學習量。關鍵不在用不用 AI，而在你是否仍然在思考。
+
+      Social media is flooded with AI text that is "meaning-shaped but meaningless." More importantly, AI's frictionless design encourages cognitive surrender. BCG consultants using AI were significantly worse on problems AI got wrong — they stopped thinking. But two math studies show the difference: direct AI answer-giving hurt learning; AI tutoring that pushed students to think boosted outcomes by 6-9 months equivalent. The issue is not AI use but intentionality.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">我們怎麼知道自己正在發生「認知投降」？在 AI 輔助工作已成常態的環境中，如何培養一代工作者的「帶著 AI 仍然思考」的能力？</div>
+    </div>
+  </div>
+
+  <!-- Aeon: Flickering Enlightenment -->
+  <div class="card">
+    <div class="card-meta">
+      <span class="tag tag-hist">[哲學/歷史]</span>
+      <span class="read-badge">15 min</span>
+    </div>
+    <h3><a href="https://aeon.co/essays/lets-save-the-enlightenment-baby-from-its-muddied-bathwater" target="_blank">搖曳的啟蒙 / Flickering Enlightenment — 左右夾擊，如何拯救啟蒙運動</a></h3>
+    <div class="source-line">Aeon Essays &nbsp;·&nbsp; Eliane Glaser &nbsp;·&nbsp; 2026 (本週) &nbsp;·&nbsp; <a href="https://aeon.co/essays/lets-save-the-enlightenment-baby-from-its-muddied-bathwater" target="_blank">閱讀全文</a></div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">在一個後真相、反智識的時代，為啟蒙運動辯護需要策略而非天真的捍衛。這篇文章指出：啟蒙運動最大的遺產不是它的任何具體結論，而是「永久批判」的方法論——包括批判啟蒙運動本身。論點新鮮，不落入左右兩邊的俗套。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Core insight</div>
+      <div class="field-body">啟蒙運動同時被左派（批其為殖民主義的理性化外衣）和右派（批其破壞傳統與信仰）攻擊。作者 Glaser 認為，唯一能拯救啟蒙運動的辦法，是回歸啟蒙精神本身：永久、不留情的自我批評。啟蒙不是一套結論，而是一種方法——對所有權威（包括啟蒙運動自身）持懷疑態度。這個遺產在 AI 時代尤其珍貴，因為 AI 系統往往強化既有偏見而非挑戰它們。
+
+      Enlightenment is attacked from the Left (as cover for colonialism) and the Right (as destroyer of tradition). Glaser argues the only way to save it is to use its greatest tool: permanent self-critique. Enlightenment is not conclusions but a method — skepticism toward all authority including itself. In an AI era that amplifies existing consensus, this skeptical inheritance matters more than ever.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">一個設計來強化人類偏見的 AI 系統，是否正在系統性地侵蝕啟蒙遺產？我們如何在 AI 時代重建「懷疑一切」的文化基礎設施？</div>
+    </div>
+  </div>
+
+  <!-- MR: Law professors prefer AI -->
+  <div class="card">
+    <div class="card-meta">
+      <span class="tag tag-ai">[AI · 法律]</span>
+      <span class="read-badge">4 min</span>
+    </div>
+    <h3><a href="https://marginalrevolution.com/marginalrevolution/2026/06/law-professors-prefer-ai-over-peer-answers.html" target="_blank">法學教授更喜歡 AI 的答案，勝過同儕 / Law Professors Prefer AI Over Peer Answers</a></h3>
+    <div class="source-line">Marginal Revolution &nbsp;·&nbsp; Tyler Cowen &nbsp;·&nbsp; 2026-06-05 &nbsp;·&nbsp; <a href="https://marginalrevolution.com/marginalrevolution/2026/06/law-professors-prefer-ai-over-peer-answers.html" target="_blank">閱讀全文</a></div>
+
+    <div class="field">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">數據直接而衝擊：盲測中 LLM 勝率 75%。這不是 AI 吹噓，而是一個嚴謹的盲測研究，受試者是最挑剔的知識工作者之一。值得所有知識工作者認真思考其意涵。</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">核心觀點 / Core insight</div>
+      <div class="field-body">16 位美國法學教授，盲測評估 2918 對「AI 回答 vs 人類法律專業回答」，AI 平均勝率 75.33%。這不是說 AI 理解法律比人更深，而是在「回答問題」這個任務上，AI 的表達清晰度、覆蓋面和一致性讓專業評審更滿意。對法律教育和法律服務業的衝擊不難想像。
+
+      A blinded evaluation with 16 U.S. law professors judging 2,918 answer pairs found LLMs won 75.33% of the time against human peers. Not because AI understands law more deeply, but because its answer quality — clarity, coverage, consistency — scores higher with expert judges. Implications for legal education and the profession are immediate.</div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">如果法學教授已無法在盲測中偏好「人類答案」，法律訓練的核心價值到底是什麼？律師執照的意義應如何重新定義？</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-inner">
+    <h4>資料來源 / Sources</h4>
+    <p>
+      策展引擎: <a href="https://news.ycombinator.com/news" target="_blank">Hacker News</a> ·
+      <a href="https://aeon.co/essays" target="_blank">Aeon Essays</a> ·
+      <a href="https://marginalrevolution.com" target="_blank">Marginal Revolution</a>
+      <br />
+      長文出版: <a href="https://www.quantamagazine.org" target="_blank">Quanta Magazine</a> ·
+      <a href="https://www.dailyprincetonian.com" target="_blank">The Daily Princetonian</a> ·
+      <a href="https://sockpuppet.org" target="_blank">Quarrelsome</a> ·
+      <a href="https://dynomight.net" target="_blank">Dynomight</a> ·
+      <a href="https://www.xda-developers.com" target="_blank">XDA Developers</a>
+      <br />
+      思想領袖: <a href="https://www.oneusefulthing.org" target="_blank">One Useful Thing (Ethan Mollick)</a>
+      <br /><br />
+      付費牆 / 無法存取: The Atlantic (部分) · The New Yorker · Harper's · Stratechery · Ben Thompson · Bloomberg Businessweek
+      <br /><br />
+      生成時間: 2026-06-05 · 本報告由 AI 代理人依 daily-interesting-articles skill 自動生成
+    </p>
+  </div>
+</div>
+
+</body>
+</html>

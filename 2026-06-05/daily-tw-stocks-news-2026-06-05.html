@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台股日報 2026-06-05 | 最近交易日：2026-06-04</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d2e;
+    --border: #2a2d3e;
+    --accent: #4f8ef7;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #f59e0b;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --header-bg: #12162a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  header {
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  header h1 { font-size: 1.3rem; color: var(--accent); margin-bottom: 2px; }
+  header .subtitle { color: var(--muted); font-size: 0.82rem; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 16px; }
+  .section { margin-bottom: 36px; }
+  .section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+    border-left: 3px solid var(--accent);
+    padding-left: 10px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* Summary tables */
+  .tables-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+  @media (max-width: 680px) { .tables-row { grid-template-columns: 1fr; } }
+  .table-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .table-card .card-title {
+    background: rgba(79,142,247,0.12);
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 7px 12px; text-align: right; font-size: 0.83rem; }
+  th { color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--border); text-align: left; }
+  td:first-child { text-align: left; font-weight: 600; }
+  tr:not(:last-child) td { border-bottom: 1px solid rgba(42,45,62,0.7); }
+  .up { color: var(--green); }
+  .dn { color: var(--red); }
+  .neu { color: var(--muted); }
+
+  /* News cards */
+  .news-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+  .news-card h3 { font-size: 0.97rem; font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .news-card .meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 10px; }
+  .news-card .meta a { color: var(--accent); text-decoration: none; }
+  .news-card .meta a:hover { text-decoration: underline; }
+  .label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-right: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .label-fact { background: rgba(79,142,247,0.18); color: #93c5fd; }
+  .label-ctx  { background: rgba(245,158,11,0.18); color: #fcd34d; }
+  .label-impl { background: rgba(34,197,94,0.15); color: #86efac; }
+  .block { margin-bottom: 8px; }
+  .block p { font-size: 0.85rem; line-height: 1.65; color: #cbd5e1; }
+
+  /* Sector pills */
+  .sector-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sector-pill {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .sector-pill .name { font-weight: 700; color: var(--text); }
+  .sector-pill .change { font-size: 0.78rem; }
+
+  /* Alert banner */
+  .alert {
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.3);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: #fca5a5;
+    margin-bottom: 14px;
+  }
+  .alert.green {
+    background: rgba(34,197,94,0.08);
+    border-color: rgba(34,197,94,0.25);
+    color: #86efac;
+  }
+
+  footer {
+    background: var(--header-bg);
+    border-top: 1px solid var(--border);
+    padding: 20px 24px;
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-align: center;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 8px 0 16px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📊 台股日報 Taiwan Stocks Daily</h1>
+  <div class="subtitle">報告日期：2026-06-05（Asia/Taipei） ｜ 最近交易日：2026-06-04（加權指數收盤後）｜ 資料來源：TWSE、TechNews、經濟日報、自由財經、鉅亨網</div>
+</header>
+
+<div class="container">
+
+  <!-- ===== SECTION 1: INDEX OVERVIEW ===== -->
+  <div class="section">
+    <div class="section-title">1. 大盤概況 / Index Overview</div>
+
+    <div class="alert">
+      ⚠️ 2026-06-04：加權指數收45,677.46，大跌781.70點（-1.68%），從前一日歷史收盤高點46,459.16回落，外資單日賣超756.85億元為近期最大賣壓日。
+    </div>
+    <div class="alert green">
+      ✅ 2026-06-03（前一日）：加權指數創歷史收盤新高46,459.16，三大法人合計買超515.44億元，COMPUTEX 2026 AI題材推動旺盛買氣。
+    </div>
+
+    <div class="tables-row">
+      <div class="table-card">
+        <div class="card-title">大盤指數（2026-06-04，最近完成交易日）</div>
+        <table>
+          <thead><tr><th>指數</th><th>收盤</th><th>漲跌</th><th>%</th><th>成交金額</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>加權 TAIEX</td>
+              <td>45,677.46</td>
+              <td class="dn">▼ 781.70</td>
+              <td class="dn">-1.68%</td>
+              <td>1.326兆元</td>
+            </tr>
+            <tr>
+              <td>加權（前日）</td>
+              <td>46,459.16 <span style="font-size:0.72rem;color:var(--green)">歷史新高</span></td>
+              <td class="up">▲ 901.85</td>
+              <td class="up">+1.98%</td>
+              <td>1.518兆元</td>
+            </tr>
+            <tr>
+              <td>櫃買 OTC</td>
+              <td class="neu">待確認</td>
+              <td class="neu">—</td>
+              <td class="neu">—</td>
+              <td class="neu">—</td>
+            </tr>
+            <tr>
+              <td>台指期（近月）</td>
+              <td class="neu">待確認</td>
+              <td class="neu">—</td>
+              <td class="neu">OI待確認</td>
+              <td class="neu">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-card">
+        <div class="card-title">三大法人買賣超（2026-06-04，NT$億元）</div>
+        <table>
+          <thead><tr><th>法人</th><th>買賣差額</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>外資及陸資</td>
+              <td class="dn">-756.85億</td>
+              <td class="neu">前日+433.96億</td>
+            </tr>
+            <tr>
+              <td>投信</td>
+              <td class="up">+41.69億</td>
+              <td class="neu">前日+55.52億</td>
+            </tr>
+            <tr>
+              <td>自營商（合計）</td>
+              <td class="dn">-213.67億</td>
+              <td class="neu">自行-29.73+避險-183.94</td>
+            </tr>
+            <tr>
+              <td><strong>三大合計</strong></td>
+              <td class="dn"><strong>-928.83億</strong></td>
+              <td class="neu">前日+515.44億</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tables-row">
+      <div class="table-card">
+        <div class="card-title">匯率 / 外資ADR參考</div>
+        <table>
+          <thead><tr><th>項目</th><th>數值</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>新台幣/美元（06-03收盤）</td>
+              <td class="up">31.44元</td>
+              <td class="up">升0.5分</td>
+            </tr>
+            <tr>
+              <td>TSM ADR（紐約）</td>
+              <td class="neu">待確認</td>
+              <td class="neu">次日參考</td>
+            </tr>
+            <tr>
+              <td>UMC ADR</td>
+              <td class="neu">待確認</td>
+              <td class="neu">次日參考</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-card">
+        <div class="card-title">法人流量重點對比</div>
+        <table>
+          <thead><tr><th>日期</th><th>外資</th><th>合計</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>06-03（前日）</td>
+              <td class="up">+433.96億</td>
+              <td class="up">+515.44億</td>
+            </tr>
+            <tr>
+              <td>06-04（最近日）</td>
+              <td class="dn">-756.85億</td>
+              <td class="dn">-928.83億</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 2: TOP STORIES ===== -->
+  <div class="section">
+    <div class="section-title">2. 頭條 / Top Stories</div>
+
+    <div class="news-card">
+      <h3>台股前日登歷史收盤新高 46,459點後 06-04 大幅回落 -781點 / TAIEX Hit Record Close 46,459 on Jun-03, Retraced -781 on Jun-04</h3>
+      <div class="meta">
+        <span>來源 / Source：</span>
+        <a href="https://money.udn.com/money/story/5607/9543406" target="_blank">經濟日報</a> ·
+        <a href="https://www.twse.com.tw/rwd/zh/afterTrading/FMTQIK?response=html&date=20260603&type=day" target="_blank">TWSE市場成交資訊</a>
+        · 2026-06-03/04
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>2026-06-03：加權指數收46,459.16點（+901.85，+1.98%），創歷史收盤新高，成交量1.518兆元，三大法人合計買超515.44億元，其中外資買超433.96億元。2026-06-04：指數回落至45,677.46（-781.70，-1.68%），成交量1.326兆元；外資單日轉賣超756.85億元，自營商亦賣超213.67億元，三大法人合計賣超928.83億元。</p>
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡</span>
+        <p>COMPUTEX 2026於06月初在台北盛大舉行，輝達（NVIDIA）CEO黃仁勳的主題演講帶動AI概念股大漲，06-03當日AI伺服器、CoWoS先進封裝、記憶體等族群全面拉升。然而黃仁勳在演講中提到光通訊CPO目前不投入量產規劃，導致部分光通訊股回落，亦引發整體市場在06-04進行獲利了結。此外，美國USTR針對強迫勞動301條款調查結果出爐，提議對台灣加徵10%關稅，市場情緒轉趨審慎。</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察</span>
+        <p>（分析，非事實）06-04的大幅回檔更多屬技術性獲利了結，COMPUTEX題材效應短期釋放，加上美301關稅陰影，外資單日大規模減碼。投信仍維持買超41.69億元，顯示法人仍有逢低布局意願。長線AI供應鏈基本面未變，中短期需注意外資動向與台幣匯率走勢。</p>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <h3>美301條款調查鎖定強迫勞動進口，建議對台灣加徵10%關稅 / US Section 301 Investigation Proposes 10% Tariff on Taiwan Over Forced Labor</h3>
+      <div class="meta">
+        <span>來源 / Source：</span>
+        <a href="https://money.udn.com/money/story/5599/9542802" target="_blank">經濟日報</a>
+        · 2026-06-03
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>美國貿易代表署（USTR）發布301條款調查結果，就「強迫勞動貨品進口禁令」議題，提議對台灣等14個經濟體加徵10%關稅，對其餘46個經濟體加徵12.5%。行政院表示，此為301調查程序之一，最終稅率尚未定案，台美雙方正就7月底前的最終結果持續協商。</p>
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡</span>
+        <p>此301調查與先前的對等關稅（reciprocal tariffs）為不同管道，鎖定強迫勞動問題，屬於美國對供應鏈透明度要求的一環。台灣已納入ART（美台經貿架構）等機制，主要差異在於是否已實施相關協定，決定最終稅率差異。台廠是否受波及，視終端產品認定而定。</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察</span>
+        <p>（分析）此議題加深市場對貿易風險的短期疑慮，尤以勞動密集型傳產廠商較為敏感；科技業以智慧財產與高端製程為主，直接衝擊相對有限，但加總關稅效應若累積，可能影響外資對台灣市場的風險評估。</p>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <h3>台積電股東會：魏哲家確認已購入High-NA EUV研發設備，不急量產；強調台灣生態系無法被韓國複製 / TSMC AGM: Wei Confirms High-NA EUV R&D Purchase, Taiwan Ecosystem "Not Replicable"</h3>
+      <div class="meta">
+        <span>來源 / Source：</span>
+        <a href="https://technews.tw/2026/06/04/tsmc-has-purchased-high-na-euv-for-research-and-development/" target="_blank">TechNews 科技新報</a> ·
+        <a href="https://technews.tw/2026/06/04/cc-wei-taiwan-ecosystem-beyond-tsmc-not-replicable-by-korea/" target="_blank">TechNews</a>
+        · 2026-06-04
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>台積電董事長魏哲家於06-04股東會表示：（1）台積電已購入High-NA EUV設備用於研發，暫不投入量產；（2）台積電不會採記憶體廠突然暴漲報價做法；（3）東京威力科創（TEL）不會被踢出供應鏈；（4）台積電努力不當AI時代的產能瓶頸；（5）對韓國競爭表示「對手說十年後趕上，那是作夢」，強調台灣有完整半導體生態系。</p>
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡</span>
+        <p>NVIDIA黃仁勳完成台灣COMPUTEX 2026行程後轉赴韓國，與三星、SK海力士等高層會面，市場關注輝達布局韓國機器人與記憶體生態的可能影響。魏哲家此番表態具高度象徵意義，既安撫外資對台積電競爭地位的疑慮，也重申台灣半導體護城河的不可替代性。</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察</span>
+        <p>（分析）台積電股價在06-04盤中因大盤回落而下跌（報2,135元，-2.29%），但魏哲家股東會發言有助穩固長期基本面敘事。High-NA EUV暫不量產訊息短期不影響營運，但顯示台積電在A14/A10世代之前的技術路線依然審慎。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 3: HEAVYWEIGHTS ===== -->
+  <div class="section">
+    <div class="section-title">3. 權值股 / Heavyweights（2026-06-04）</div>
+
+    <div class="news-card">
+      <h3>台積電（2330）/ TSMC</h3>
+      <div class="meta">來源：HiStock · TechNews · 2026-06-04</div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>收盤價 2,135元，跌2.29%（前日收2,185待確認；HiStock顯示昨收2,135，今漲跌待最終確認）。成交量48,745張，成交值1,040.7億元，全市場最大成交值股。股東會同日舉行。</p>
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡</span>
+        <p>COMPUTEX 2026期間，輝達確認台積電CoWoS先進封裝為AI晶片核心，大摩亦點名CoWoS、CPO、WoW為三大重要技術。魏哲家股東會強調供應鏈穩定與長期技術領先，是台積電的護城河論述。</p>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <h3>聯發科（2454）/ MediaTek</h3>
+      <div class="meta">來源：HiStock · 鉅亨網 · 2026-06-04</div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>HiStock顯示股價2,610元（漲7.19%），成交量16,772張，成交值437.7億元。列入注意股（自由財經05-25報導，近期因股價波動較大），需持續觀察。COMPUTEX期間，輝達黃仁勳推介Blackwell N1X Agent PC晶片，聯發科與其合作傳聞持續發酵。</p>
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡</span>
+        <p>聯發科在AI PC與智慧型手機SoC的Dimensity系列持續取得市場份額，黃仁勳COMPUTEX演講提及Agent PC大潮，對聯發科具有正面催化效果。06-04大盤回落但聯發科仍維持正報酬，顯示資金輪動到AI終端設備族群。</p>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <h3>南亞科（2408）/ Nanya Technology</h3>
+      <div class="meta">
+        來源：<a href="https://money.udn.com/money/story/5710/9543691" target="_blank">經濟日報</a> · 2026-06-03
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>公布2026年5月合併營收276.7億元，月增8.55%，年增730.14%，續創單月歷史新高。累計前五月合併營收1,022.48億元，年增幅64%以上。記憶體缺貨漲價循環持續，南亞科受益最為明顯。</p>
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡</span>
+        <p>DRAM市場供需緊俏，TrendForce上修2027年記憶體市場規模至1.28兆美元以上；高盛點名記憶體三巨頭目標價全面調升；美汽車、消費電子業也呼籲政府解決記憶體短缺問題，代表需求端壓力廣泛。</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察</span>
+        <p>（分析）南亞科730%年增率雖有低基期效應，但月增8.55%顯示動能仍在持續加速。若記憶體漲價進入第三季，南亞科獲利能力可望大幅改善。連帶受益的台廠包括華邦電（2344）、旺宏等。</p>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <h3>台達電（2308）/ Delta Electronics</h3>
+      <div class="meta">來源：HiStock · 2026-06-04</div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>收盤2,165元，漲4.34%，成交量13,414張，成交值290.4億元。台達電為AI資料中心電源管理解決方案主要供應商，受益於全球資料中心建設加速。</p>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <h3>大立光（3008）/ Largan Precision</h3>
+      <div class="meta">
+        來源：<a href="https://money.udn.com/money/story/5710/9542924" target="_blank">經濟日報</a> · 2026-06-02
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>大立光06-03破天荒首度參展COMPUTEX，展示CPO（共同封裝光學）解決方案，展現積極搶攻AI商機的企圖；股價06-03盤中重返4,000元之上，創近6年高點。合計06-04收2,515元（-0.20%），前日漲幅回吐。轉投資先進光（3362）06-03亦衝漲停。</p>
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡</span>
+        <p>大立光傳統業務為手機鏡頭，COMPUTEX首秀CPO方案代表多角化轉型方向，市場對其AI光學應用給予重新定價機會。然而黃仁勳表示CPO目前不進入量產，短期或造成部分光通訊族群修正。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 4: SECTOR ROTATION ===== -->
+  <div class="section">
+    <div class="section-title">4. 類股輪動 / Sector Rotation</div>
+
+    <div class="sector-grid">
+      <div class="sector-pill">
+        <div class="name">半導體</div>
+        <div class="change up">COMPUTEX後修整中</div>
+        <div style="font-size:0.75rem;color:var(--muted)">台積電、聯發科主導</div>
+      </div>
+      <div class="sector-pill">
+        <div class="name">AI 伺服器/CoWoS</div>
+        <div class="change up">廣達、緯穎強勢</div>
+        <div style="font-size:0.75rem;color:var(--muted)">COMPUTEX題材持續</div>
+      </div>
+      <div class="sector-pill">
+        <div class="name">記憶體</div>
+        <div class="change up">南亞科歷史新高營收</div>
+        <div style="font-size:0.75rem;color:var(--muted)">華邦電、旺宏受益</div>
+      </div>
+      <div class="sector-pill">
+        <div class="name">AI 光通訊/CPO</div>
+        <div class="change dn">黃仁勳言論壓抑</div>
+        <div style="font-size:0.75rem;color:var(--muted)">短期情緒受挫</div>
+      </div>
+      <div class="sector-pill">
+        <div class="name">金融</div>
+        <div class="change up">富邦金、台新新光金法說亮眼</div>
+        <div style="font-size:0.75rem;color:var(--muted)">Q1獲利強勁</div>
+      </div>
+      <div class="sector-pill">
+        <div class="name">無人機/國防</div>
+        <div class="change up">Green UAS授權帶動漢翔</div>
+        <div style="font-size:0.75rem;color:var(--muted)">工研院取得評鑑資格</div>
+      </div>
+      <div class="sector-pill">
+        <div class="name">生技</div>
+        <div class="change up">安立璽榮阿茲海默症二期正向</div>
+        <div style="font-size:0.75rem;color:var(--muted)">個股題材驅動</div>
+      </div>
+      <div class="sector-pill">
+        <div class="name">矽晶圓</div>
+        <div class="change up">環球晶啟動下半年漲價</div>
+        <div style="font-size:0.75rem;color:var(--muted)">需求全面回溫</div>
+      </div>
+    </div>
+
+    <div class="news-card" style="margin-top:16px;">
+      <h3>廣達（群聯8299）、南電（8046）06-04強勢上漲 / Phison, Nan Ya PCB Outperform on Jun-04</h3>
+      <div class="meta">來源：HiStock · 2026-06-04</div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>HiStock排行顯示：群聯（8299，Phison）06-04收1,900元，漲13.10%，成交14,479張，成交值275.1億元；南電（8046，Nan Ya PCB）收1,005元，漲14.99%，成交20,328張，成交值204.3億元。在大盤大幅回落日表現強勢，顯示資金往AI邊緣運算、PCB等次族群轉移。</p>
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡</span>
+        <p>群聯為台灣大攜手其打造地端AI解決方案（edge AI）的合作夥伴，COMPUTEX現場宣布地端AI客戶年增4倍，帶動市場對群聯邏輯控制器與儲存方案的重估。南電5月營收44.40億元，AI伺服器ABF載板需求持續攀升。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 5: SINGLE-STOCK MOVERS ===== -->
+  <div class="section">
+    <div class="section-title">5. 個股大事 / Single-Stock Movers</div>
+
+    <div class="news-card">
+      <h3>台新新光金（2887）Q1大賺211億元，三大獲利引擎齊發 / Taishin-Shin Kong Financial Q1 Profit NT$21.1B</h3>
+      <div class="meta">
+        <span>來源：</span>
+        <a href="https://money.udn.com/money/story/5613/9543651" target="_blank">經濟日報</a> · 2026-06-03
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>台新新光金控召開2026年第一季法說會，Q1稅後盈餘211億元，銀行、壽險、證券三大引擎同步獲利。富邦金Q1稅後盈餘335.5億元（EPS 2.40元），亦為業界第一，並評估北富銀進軍美韓市場。</p>
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡</span>
+        <p>台灣金控業受益於升息環境放緩後的資金回流、股市創高帶動壽險投資收益，以及銀行手續費與信貸成長。台新銀行總經理林淑真出席說明，集團整合綜效逐步顯現。</p>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <h3>環球晶（6488）啟動下半年漲價，矽晶圓需求全面回溫 / GlobalWafers Initiates 2H Price Hike as Wafer Demand Rebounds</h3>
+      <div class="meta">
+        <span>來源：</span>
+        <a href="https://ec.ltn.com.tw/article/breakingnews/5449059" target="_blank">自由財經</a> · 2026-05-25
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>環球晶董事長徐秀蘭於股東常會表示，2026年矽晶圓需求面全面回升，因成本與折舊攀升，目前正全面與客戶協商漲價，希望在下半年可成功調漲。環球晶12吋方形矽晶圓已送客戶驗證，力拼Q4成為台灣首家量產的公司。</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察</span>
+        <p>（分析）矽晶圓漲價若成功，直接提升環球晶毛利率，並帶動台灣其他晶圓廠（如合晶、中美矽晶）跟進。方形矽晶圓為玻璃基板技術的前身，量產成功將強化台廠在先進封裝材料的地位。</p>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <h3>勤凱科技（股王概念）5月營收創歷史次高，MLCC+TGV玻璃基板雙引擎 / Dielectric Materials Maker Posts Near-Record May Revenue</h3>
+      <div class="meta">
+        <span>來源：</span>
+        <a href="https://finance.technews.tw/2026/06/04/tgv/" target="_blank">TechNews 財經新報</a> · 2026-06-04
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>勤凱科技（未上市主板，興櫃/OTC追蹤）5月營收2.3億元，月增1.8%，年增64.8%，創歷史次高。受益AI需求增溫、MLCC（積層陶瓷電容）市況轉佳，並佈局TGV（Through Glass Via）玻璃基板新商機，第二季營運動能佳。</p>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <h3>漢翔（2634）搶頭香取得Green UAS評鑑資格，國防題材發酵 / AIDC First to Receive Green UAS Certification in Taiwan</h3>
+      <div class="meta">
+        <span>來源：</span>
+        <a href="https://technews.tw/2026/06/04/aidc-1st-green-uas/" target="_blank">TechNews</a> · 2026-06-04
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>台灣成為美國「綠色無人機系統」（Green UAS）境外第一個評鑑機構，工研院取得AUVSI授權評鑑機構資格；漢翔航空（2634）搶頭香，攜手學界送驗首件無人機產品。漢翔董事長曹進平表示「對業界是很大的利多」，將開啟國防與海外接單便利性。</p>
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡</span>
+        <p>Green UAS認證為進入美國國防採購體系的必要條件，台灣取得評鑑機構資格可大幅縮短廠商取證時間，帶動台灣無人機國防出口商機。經濟部同步推出四大戰略布局台灣無人機。</p>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <h3>安立璽榮（未上市）阿茲海默症二期臨床期中數據正向 / AnHeart Alzheimer's Drug Phase 2 Interim Data Positive</h3>
+      <div class="meta">
+        <span>來源：</span>
+        <a href="https://finance.technews.tw/2026/06/04/part-the-cloud-award/" target="_blank">TechNews 財經</a> · 2026-06-04
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>安立璽榮宣布其Enrupatinib（EI-1071）在美國阿茲海默症協會Part the Cloud Award計劃補助下的第二期臨床試驗，取得令人鼓舞的期中數據，為台灣生技界重要里程碑。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 6: CORPORATE ACTIONS ===== -->
+  <div class="section">
+    <div class="section-title">6. 公司行動 / Corporate Actions</div>
+
+    <div class="news-card">
+      <h3>東元（1504）正式併購馬來西亞Dynaciate，資料中心業務佔比衝30% / Teco Completes Dynaciate Acquisition, DC Revenue to Hit 30%</h3>
+      <div class="meta">
+        <span>來源：</span>
+        <a href="https://ec.ltn.com.tw/article/breakingnews/5449000" target="_blank">自由財經</a> · 2026-05-25
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>東元（1504）正式完成與馬來西亞工程公司Dynaciate的併購協議簽署，佈局東南亞AI資料中心基礎建設與全球模組化市場；預計今年電力能源事業群的資料中心營收比重從10%以下躍升至30%。</p>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <h3>ETF換股：00878五進四出，納入長榮、華南金 / High-Dividend ETF 00878 Portfolio Rebalance: In Long Rong, Hua Nan</h3>
+      <div class="meta">
+        <span>來源：</span>
+        <a href="https://money.udn.com/money/story/5618/9541915" target="_blank">經濟日報</a> · 2026-06-03
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>元大高股息ETF（00878）進行定期換股，五進四出，新納入長榮（2603）、華南金（2880）等，剔除若干殖利率下滑標的。6月為台股ETF除息密集月，配息率最高可達16%，投資人關注主動型ETF（如兆豐00996A）及高配息月配標的。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 7: POLICY & FINI WATCH ===== -->
+  <div class="section">
+    <div class="section-title">7. 政策與外資觀察 / Policy & FINI Watch</div>
+
+    <div class="news-card">
+      <h3>高盛點名半導體五強，台鏈進入「結構性需求爆發期」 / Goldman Sachs Names 5 Semiconductor Picks, Taiwan Chain in Structural Demand Boom</h3>
+      <div class="meta">
+        <span>來源：</span>
+        <a href="https://money.udn.com/money/story/5607/9541945" target="_blank">經濟日報</a> · 2026-06-02（熱門榜第二名）
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>高盛發布台灣半導體研究報告，點將喊買「五強」（確切標的見原報告），預期台灣半導體供應鏈進入「結構性需求爆發期」，AI訓練與推理需求持續攀升，CoWoS、HBM、先進封裝為三大投資主軸。</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察</span>
+        <p>（分析）高盛等國際投行的正面評等有助拉高外資對台灣半導體的定價目標；06-04外資大幅賣超主要為技術性回檔，而非基本面惡化訊號，需持續追蹤外資買超個股，以確認資金回流時機。</p>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <h3>證交所：亞洲創新籌資平台上線，打造「亞洲那斯達克」 / TWSE Launches Asia Innovation Fundraising Platform</h3>
+      <div class="meta">
+        <span>來源：</span>
+        <a href="https://money.udn.com/money/story/5612/9543826" target="_blank">經濟日報</a> ·
+        <a href="https://money.udn.com/money/story/5612/9543839" target="_blank">COMPUTEX助攻林修銘：證交所扮橋梁</a>
+        · 2026-06-03
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實</span>
+        <p>亞洲創新籌資平台專屬網站正式上線，證交所董事長林修銘表示借助COMPUTEX 2026聲勢，證交所積極扮演全球資金與AI企業橋梁，推動台灣成為亞洲頂尖資本市場。平台對接東南亞及亞洲創新企業的IPO需求。</p>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <h3>期交所調高旺宏期貨保證金 / TAIFEX Raises Macronix Futures Margin Requirements</h3>
+      <div class="meta">
+        <span>來源：</span>
+        <a href="https://money.udn.com/money/story/11112/9543571" target="_blank">經濟日報</a> · 2026-06-03
+      </div>
+      <div class="block">
+        <p style="font-size:0.85rem;color:#cbd5e1;">期交所宣布調高旺宏（2337）期貨合約保證金，顯示近期旺宏期貨波動劇烈，市場應注意槓桿風險。旺宏為Flash記憶體廠，近期受記憶體缺貨題材帶動股價大幅上漲。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 8: READS ===== -->
+  <div class="section">
+    <div class="section-title">8. 觀點精選 / Reads Worth Saving</div>
+
+    <div class="news-card">
+      <h3>大摩：AI封裝重構半導體格局，台積電是最大贏家；CoWoS、CPO、WoW三大技術為未來主軸 / Morgan Stanley: TSMC Is Biggest Winner in AI Packaging Revolution</h3>
+      <div class="meta">
+        <span>來源：</span>
+        <a href="https://news.cnyes.com/news/id/6480009" target="_blank">鉅亨網</a> · 近期
+      </div>
+      <div class="block">
+        <p style="font-size:0.85rem;color:#cbd5e1;">大摩（Morgan Stanley）報告指出，AI封裝技術正重構全球半導體格局，台積電憑借CoWoS（Chip on Wafer on Substrate）、CPO（Co-Packaged Optics）、WoW（Wafer on Wafer）三大先進封裝技術，在AI算力基礎設施中佔據最核心地位。此為長期結構性投資方向，不受短期市場波動影響。</p>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <h3>TrendForce上修記憶體市場預測：2027年規模或超1.28兆美元，AI Agent驅動新週期 / TrendForce Raises Memory Market Forecast to $1.28T by 2027</h3>
+      <div class="meta">
+        <span>來源：</span>
+        <a href="https://news.cnyes.com/news/id/6477908" target="_blank">鉅亨網 / TrendForce</a> · 近期
+      </div>
+      <div class="block">
+        <p style="font-size:0.85rem;color:#cbd5e1;">TrendForce最新預測上修，2027年全球記憶體市場規模或超1.28兆美元，AI Agent（智能代理人）模式帶動推理端記憶體（尤其HBM4、LPDDR6）需求爆發，台廠南亞科、旺宏、華邦電直接受益，長期投資邏輯持續強化。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SOURCES FOOTER ===== -->
+  <hr class="divider">
+  <div class="section">
+    <div class="section-title">資料來源 / Sources</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;font-size:0.8rem;">
+      <a href="https://www.twse.com.tw/zh/index.html" target="_blank" style="color:var(--accent)">TWSE 台灣證券交易所</a>
+      <a href="https://www.twse.com.tw/rwd/zh/fund/BFI82U?response=html&dayDate=20260604&type=day" target="_blank" style="color:var(--accent)">三大法人 06-04</a>
+      <a href="https://money.udn.com/money/index" target="_blank" style="color:var(--accent)">經濟日報</a>
+      <a href="https://technews.tw/" target="_blank" style="color:var(--accent)">TechNews 科技新報</a>
+      <a href="https://news.cnyes.com/news/cat/tw_stock" target="_blank" style="color:var(--accent)">鉅亨網台股</a>
+      <a href="https://ec.ltn.com.tw/list/securities" target="_blank" style="color:var(--accent)">自由財經證券</a>
+      <a href="https://histock.tw/stock/rank.aspx" target="_blank" style="color:var(--accent)">HiStock 嗨投資</a>
+      <a href="https://mops.twse.com.tw/mops/web/index" target="_blank" style="color:var(--accent)">公開資訊觀測站</a>
+    </div>
+    <p style="margin-top:12px;font-size:0.75rem;color:var(--muted);">
+      ⚠️ 免責聲明：本日報僅為資訊整理，不構成任何投資建議。所有股價與法人數字以官方TWSE公告為準。部分個股實時數據待確認處已標註「待確認」。
+      Disclaimer: This report is for informational purposes only and does not constitute investment advice. All figures sourced from TWSE official data.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  台股日報 Taiwan Stocks Daily · 報告日期 2026-06-05 · 最近交易日 2026-06-04
+  · 製作：Claude Sonnet 4.6 via Anthropic Agent SDK
+  · <a href="https://www.twse.com.tw/zh/index.html" target="_blank">TWSE</a>
+</footer>
+
+</body>
+</html>

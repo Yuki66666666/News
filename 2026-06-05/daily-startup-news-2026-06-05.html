@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日新創新聞日報 / Daily Startup News — 2026-06-05</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --border: #2a2d3e;
+    --accent: #6c63ff;
+    --accent2: #00d4aa;
+    --accent3: #ff6b6b;
+    --accent4: #ffd166;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --tag-bg: #252840;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.7;
+    padding: 24px 16px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  header .date-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  header h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+  }
+  header .subtitle {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 6px;
+  }
+  h2 {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-left: 3px solid var(--accent);
+    padding-left: 10px;
+    margin: 36px 0 18px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+  }
+  .card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+  .card .source-line {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .card .source-line a {
+    color: var(--accent2);
+    text-decoration: none;
+  }
+  .card .source-line a:hover { text-decoration: underline; }
+  .label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-right: 4px;
+    margin-bottom: 6px;
+  }
+  .l-facts { background: #1e3a5f; color: #7ec8f7; }
+  .l-context { background: #1e3d2f; color: #6edba8; }
+  .l-implications { background: #3d2a1e; color: #f7a76e; }
+  .block {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .block p { margin-bottom: 6px; }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--accent);
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin: 2px;
+    border: 1px solid var(--border);
+  }
+  .top-story-card {
+    background: linear-gradient(135deg, #1a1d27 0%, #1f2238 100%);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+  }
+  .top-story-card .number {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--accent);
+    opacity: .3;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .top-story-card h3 {
+    font-size: 17px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .top-story-card p { font-size: 14px; color: var(--text); }
+  .shutdown-card {
+    border-color: var(--accent3);
+  }
+  .shutdown-card h3 { color: var(--accent3); }
+  .ipo-card {
+    border-color: var(--accent4);
+  }
+  .ipo-card h3 { color: var(--accent4); }
+  .stage-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+  .seed { background: #1e3d2f; color: #6edba8; }
+  .seriesA { background: #1e3a5f; color: #7ec8f7; }
+  .seriesB { background: #2a1e5f; color: #b07ef7; }
+  .seriesC { background: #3d1e5f; color: #e07ef7; }
+  .seriesD { background: #3d2a1e; color: #f7a76e; }
+  .seriesE { background: #3d1e2a; color: #f77e9e; }
+  .seriesH { background: #5f1e1e; color: #f77e7e; }
+  .amount {
+    font-weight: 700;
+    color: var(--accent2);
+  }
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 40px 0;
+  }
+  footer {
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--accent2); text-decoration: none; }
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 32px;
+    font-size: 13px;
+  }
+  .toc .toc-title { font-weight: 700; color: var(--accent); margin-bottom: 8px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+  .toc ol { padding-left: 18px; color: var(--muted); line-height: 1.9; }
+  .toc ol a { color: var(--muted); text-decoration: none; }
+  .toc ol a:hover { color: var(--accent2); }
+  .reads-card {
+    border-color: var(--accent2);
+  }
+  .reads-card h3 { color: var(--accent2); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="date-badge">2026-06-05 · Asia/Taipei</div>
+  <h1>今日新創新聞日報<br>Daily Startup News</h1>
+  <p class="subtitle">募資 · 發表 · 收購 · 人事 · 裁員 · IPO 進程 · 區域聚焦 | Funding · Launches · M&amp;A · People · Layoffs · IPO Pipeline · Regional</p>
+</header>
+
+<div class="toc">
+  <div class="toc-title">目錄 / Contents</div>
+  <ol>
+    <li><a href="#top">頭條 Top Stories</a></li>
+    <li><a href="#funding">募資 Funding Rounds</a></li>
+    <li><a href="#launches">新公司發表 Launches &amp; Stealth-Out</a></li>
+    <li><a href="#products">產品大事 Notable Products</a></li>
+    <li><a href="#ma">收購與整併 Acquisitions &amp; Consolidation</a></li>
+    <li><a href="#people">人事 People Moves</a></li>
+    <li><a href="#layoffs">裁員與停業 Layoffs &amp; Shutdowns</a></li>
+    <li><a href="#ipo">上市進程 IPO Pipeline</a></li>
+    <li><a href="#regional">區域 Regional Spotlight</a></li>
+    <li><a href="#reads">觀點 Reads</a></li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="top">01 · 頭條 / Top Stories</h2>
+
+<div class="top-story-card">
+  <div class="number">01</div>
+  <h3>SpaceX IPO 路演正式啟動，目標估值 $1.77 兆美元<br>SpaceX Kicks Off IPO Roadshow Targeting $1.77T Valuation</h3>
+  <p>本週最大新創事件：SpaceX 於 6 月 4 日正式開始 IPO 路演，定價每股 $135，預計 6 月 11 日定價、6 月 12 日掛牌上市。以目標市值 $1.77 兆計算，SpaceX 將成為美國第七大市值公司，超越特斯拉（$1.6T）。此次保留高達 30% 股份給散戶（Fidelity 門檻降至 $2,000），為大型 IPO 罕見設計。Elon Musk 掛牌後仍握 82%+ 投票權。<br><br>
+  SpaceX formally began its IPO roadshow on June 4, pricing at $135/share. The June 11 pricing / June 12 debut would crown it the seventh-largest US company by market cap at $1.77T. Up to 30% of shares reserved for retail investors via Fidelity — unusual for a deal of this size. Musk retains 82%+ voting control post-listing.</p>
+</div>
+
+<div class="top-story-card">
+  <div class="number">02</div>
+  <h3>Cognition（Devin）完成 $10 億 Series D，估值 $260 億<br>Cognition Raises $1B Series D at $26B Valuation — Devin Writes 89% of Its Own Code</h3>
+  <p>AI coding agent Devin 開發商 Cognition 於 5 月下旬完成 $10 億融資，估值達 $260 億（僅 8 個月前為 $102 億），年化收入已達 $4.92 億，主要客戶含賓士、NASA、高盛。Devin 目前已自動完成 Cognition 內部 89% 的代碼提交。<br><br>
+  Cognition raised $1B at $26B post-money led by Lux Capital, General Catalyst, 8VC. ARR at ~$492M annualized; 50% MoM enterprise growth for 6 months. Mercedes-Benz, NASA, Goldman Sachs are customers. Devin now commits 89% of Cognition's own codebase — the clearest signal of AI coding eating its own tail.</p>
+</div>
+
+<div class="top-story-card">
+  <div class="number">03</div>
+  <h3>Fivetran × dbt Labs 合併完成，打造 AI Agent 資料基礎設施<br>Fivetran + dbt Labs Complete All-Stock Merger for Agentic AI Data Layer</h3>
+  <p>兩家各自估值逾百億的資料工具公司於 6 月 1 日宣告全股票合併完成（原公告：2025 年 10 月），服務全球逾 10 萬個資料團隊。新公司定位為 AI agent 可信賴的資料基礎設施層，並開源 dbt Fusion Engine（Apache 2.0）。George Fraser 任 CEO，Tristan Handy 任總裁。<br><br>
+  Fivetran + dbt Labs completed their all-stock merger on June 1 (announced Oct 2025), serving 100,000+ data teams globally. Positioning as the trusted data infrastructure for AI agents; open-sourced dbt Fusion Engine under Apache 2.0. George Fraser remains CEO, Tristan Handy as President.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="funding">02 · 募資 / Funding Rounds</h2>
+
+<!-- Cognition -->
+<div class="card">
+  <h3>Cognition（Devin）Series D · $10 億 / $1B @ $26B</h3>
+  <div class="source-line">
+    <span class="stage-badge seriesD">Series D</span>
+    來源 / Source: <a href="https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/" target="_blank">TechCrunch</a> · 2026-05-27
+  </div>
+  <div class="block">
+    <span class="label l-facts">核心事實 / Facts</span>
+    <p>募資金額 <span class="amount">$10 億</span>，post-money 估值 $260 億（pre-money $250 億）。主導方：Lux Capital、General Catalyst、8VC；跟投：Elad Gil、Founders Fund、Ribbit Capital、Atreides。ARR 年化約 $4.92 億，MoM 企業使用成長 50%。Devin 現寫 Cognition 89% 代碼。</p>
+    <p>$1B raised; $26B post-money (up from $10.2B 8 months ago). Lead: Lux Capital, General Catalyst, 8VC. ARR ~$492M annualized. Enterprise MoM growth: 50% for 6 straight months. Customers: Mercedes-Benz, NASA, Goldman Sachs, Santander.</p>
+  </div>
+  <div class="block">
+    <span class="label l-context">背景脈絡 / Context</span>
+    <p>Cognition 於 2024 年以「世界首個 AI 軟體工程師 Devin」出道，早期飽受品質爭議，但 2025–2026 年企業使用量急速攀升。上輪（Sep 2025）估值 $102 億，本輪估值在 8 個月內翻 2.5 倍，反映 agentic coding 市場競爭激烈（Cursor、GitHub Copilot Workspace、Windsurf 等）卻仍有足夠 pricing power。</p>
+    <p>Cognition launched in 2024 amid quality debates; enterprise traction surged through 2025. Competitors include Cursor, GitHub Copilot Workspace, Windsurf/Codeium. The 2.5x valuation jump in 8 months signals investor conviction that enterprise coding agents will consolidate at scale quickly.</p>
+  </div>
+  <div class="block">
+    <span class="label l-implications">影響觀察 / Implications</span>
+    <p>[分析] 企業 AI coding 市場正進入「winner-takes-most」收斂期，$260 億估值對後進者形成強大壓力。對人才市場：軟體工程師需求將分叉——「能與 AI agent 協作的高階工程師」薪資飆升，初級工程師職缺將持續壓縮。</p>
+  </div>
+  <div><span class="tag">AI coding</span><span class="tag">enterprise</span><span class="tag">agentic</span></div>
+</div>
+
+<!-- Mach Industries -->
+<div class="card">
+  <h3>Mach Industries Series C · $3 億 / $300M @ $1.8B</h3>
+  <div class="source-line">
+    <span class="stage-badge seriesC">Series C</span>
+    來源 / Source: <a href="https://techcrunch.com/2026/06/01/defense-tech-darling-mach-industries-hits-1-8b-valuation-a-4x-jump-in-a-year/" target="_blank">TechCrunch</a> / <a href="https://www.bloomberg.com/news/articles/2026-06-01/mach-industries-valued-at-1-8-billion-in-latest-funding-deal" target="_blank">Bloomberg</a> · 2026-06-01
+  </div>
+  <div class="block">
+    <span class="label l-facts">核心事實 / Facts</span>
+    <p>募資金額 <span class="amount">$3 億</span>，估值 $18 億（一年前估值 $4.5 億，漲幅 4×）。主導方：Infinite Capital、Ribbit Capital 共同領投。創辦人 Ethan Thornton，22 歲。公司 2023 年成立，位於加州 Huntington Beach。旗下五大自主無人機系統：Viper、Glide、Stratos、Dart、Pike。另已以 $5,000 萬現金＋股票收購固態火箭馬達新創 Exquadrum。</p>
+    <p>$300M Series C at $1.8B valuation (4× jump in 12 months). Co-led by Infinite Capital and Ribbit Capital. Founder Ethan Thornton is 22. Five active drone/munition programs; recently acquired SRM startup Exquadrum for $50M cash+equity.</p>
+  </div>
+  <div class="block">
+    <span class="label l-context">背景脈絡 / Context</span>
+    <p>防衛科技 VC 投資在 2026 年創歷史新高，主因歐洲再武裝需求、烏俄戰後無人機消耗戰教訓，以及美國國防部對非傳統供應商的採購改革。Mach 垂直整合（武器＋推進系統＋製造網絡「Forge」）是刻意對抗傳統軍工承包商低效模式的差異化策略。</p>
+  </div>
+  <div class="block">
+    <span class="label l-implications">影響觀察 / Implications</span>
+    <p>[分析] Ribbit Capital 傳統上投金融科技，此次跨入防衛科技，顯示資本圈對 defense tech 的共識已擴散至非傳統 LP/GP 基礎。Mach 若能成功量產，將成為 Anduril 在中型無人機系統的直接競爭者。</p>
+  </div>
+  <div><span class="tag">defense tech</span><span class="tag">drones</span><span class="tag">autonomy</span><span class="tag">Series C</span></div>
+</div>
+
+<!-- Groq -->
+<div class="card">
+  <h3>Groq 內部融資 $6.5 億，從晶片硬體轉型 AI 推論雲<br>Groq Raising $650M From Existing Backers for AI Inference Cloud Pivot</h3>
+  <div class="source-line">
+    <span class="stage-badge seriesD">Growth</span>
+    來源 / Source: <a href="https://www.axios.com/2026/05/28/groq-650-million-nvidia" target="_blank">Axios</a> / <a href="https://techcrunch.com/2026/05/29/after-nvidias-20b-not-acqui-hire-ai-chip-startup-groq-reportedly-raising-650m/" target="_blank">TechCrunch</a> · 2026-05-28–29
+  </div>
+  <div class="block">
+    <span class="label l-facts">核心事實 / Facts</span>
+    <p>Groq 向現有投資人募集 <span class="amount">$6.5 億</span>，由 Disruptive 與 Infinitium 背書確保可填滿整輪。估值未披露。目前由代理 CEO Adam Winter 與 CFO Matt Eng 領導（背景：2025 年底 Groq 以 ~$200 億授權其 LPU 硬體技術給 Nvidia，部分高管跟著去了 Nvidia）。</p>
+    <p>Groq raising $650M from existing investors (guaranteed by Disruptive + Infinitium). Post-Nvidia $20B LPU tech licensing deal, Groq is pivoting to build an AI inference neocloud using its own chips for developer/enterprise inference hosting.</p>
+  </div>
+  <div class="block">
+    <span class="label l-context">背景脈絡 / Context</span>
+    <p>Groq 2025 年底將 LPU 晶片技術授權給 Nvidia 換取約 $200 億，投資人提前獲現金退出；此輪是「第二幕」——利用授權收入＋剩餘 LPU 產能，主打低延遲推論服務（GroqCloud）與企業 inference API，不再以晶片銷售為核心。</p>
+  </div>
+  <div class="block">
+    <span class="label l-implications">影響觀察 / Implications</span>
+    <p>[分析] Groq 成為近期「硬體授權後轉雲服務」的極端案例。若能成功，是晶片新創的新退出路徑範本；若失敗，則是警示：技術授權後喪失核心競爭力的風險。GroqCloud 將與 Together AI、Fireworks AI 正面競爭。</p>
+  </div>
+  <div><span class="tag">AI inference</span><span class="tag">chips</span><span class="tag">neocloud</span></div>
+</div>
+
+<!-- Observable Space -->
+<div class="card">
+  <h3>Observable Space Series A $9,000 萬 + $9,400 萬 Space Force 合約<br>Observable Space Closes $90M Series A &amp; $94M Space Force Contract</h3>
+  <div class="source-line">
+    <span class="stage-badge seriesA">Series A</span>
+    來源 / Source: <a href="https://spacewatch.global/2026/06/observable-space-closes-90-million-series-a-round-to-scale-lasercom-platform-amid-94-million-u-s-space-force-contract/" target="_blank">SpaceWatch.GLOBAL</a> · 2026-06-02
+  </div>
+  <div class="block">
+    <span class="label l-facts">核心事實 / Facts</span>
+    <p>募資 <span class="amount">$9,000 萬</span> Series A，由 Lux Capital 與 Upfront Ventures 共同領投，Detroit Venture Partners、Island Green Capital、RTX Ventures、BRV Capital、Fathom Fund 跟投。另宣布 $9,400 萬 Space Force 合約（APFIT 計畫，初始任務訂單 $2,200 萬）。公司 2025 年 2 月成立，底特律擴廠。</p>
+    <p>$90M Series A (Lux Capital + Upfront Ventures) alongside a $94M US Space Force contract via APFIT. Founded Feb 2025 in Detroit; builds software-defined optical telescopes for satellite tracking, lasercom, and deep space observation.</p>
+  </div>
+  <div class="block">
+    <span class="label l-context">背景脈絡 / Context</span>
+    <p>Observable Space 成立僅 15 個月即拿到 $9,000 萬 A 輪，反映政府 + VC 「雙軌」資本對太空感知（Space Domain Awareness）板塊的高度興趣。RTX Ventures（前 Raytheon）參與則代表傳統防衛巨頭正透過早期投資卡位新創供應鏈。</p>
+  </div>
+  <div><span class="tag">space tech</span><span class="tag">defense</span><span class="tag">lasercom</span><span class="tag">Series A</span></div>
+</div>
+
+<!-- Apoha -->
+<div class="card">
+  <h3>Apoha 出 stealth + $3,600 萬 Series A：分子行為 AI 基礎模型<br>Apoha Emerges from Stealth with $36M Series A — "Liquid State Intelligence" for Materials</h3>
+  <div class="source-line">
+    <span class="stage-badge seriesA">Series A (stealth exit)</span>
+    來源 / Source: <a href="https://fortune.com/2026/06/03/apoha-36-million-series-a-funding-round-exit-stealth-wave-form-ai-liquid-intelligence/" target="_blank">Fortune</a> / <a href="https://tech.eu/2026/06/03/apoha-emerges-from-stealth-with-36m-to-build-liquid-state-intelligence-for-molecular-behaviour/" target="_blank">tech.eu</a> · 2026-06-03
+  </div>
+  <div class="block">
+    <span class="label l-facts">核心事實 / Facts</span>
+    <p>募資合計 <span class="amount">$3,600 萬</span>（含 2024 年種子輪＋2026 年春季無命名輪），Series A 由 Singular（歐洲 VC）領投，Draper Associates、Redalpine、Seedcamp、Wilbe、Nucleus 跟投，另獲 Innovate UK 補助。創辦人：牛津物理學家 Shamit Shrivastava（CEO）＋前高盛 Anshika Srivastava（COO）。倫敦＋舊金山雙基地。於 SXSW London 公開發表。</p>
+    <p>$36M total (Seed 2024 + unlettered round Spring 2026). Led by Singular (EU). Founders: Oxford physicist (CEO) + ex-Goldman Sachs (COO). First product VIBE: uses tiny samples to generate 1,000+ molecular behavioral descriptors in minutes — targets pharma drug-candidate screening before expensive clinical trials.</p>
+  </div>
+  <div class="block">
+    <span class="label l-context">背景脈絡 / Context</span>
+    <p>Apoha 的「Liquid State Intelligence」針對材料科學的資料空白：現有 AI 模型缺乏描述液體/分子動態行為的 embedding 層，Apoha 的 VIBE 產品意圖成為這個缺失的資料層。競品包括 Kebotix（已被收購）、Schrödinger、Insilico Medicine 等，但切入角度（液態行為資料而非分子結構）有一定差異化。</p>
+  </div>
+  <div><span class="tag">deep tech</span><span class="tag">materials science</span><span class="tag">AI</span><span class="tag">pharma</span><span class="tag">stealth exit</span></div>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="launches">03 · 新公司發表 / Launches &amp; Stealth-Out</h2>
+
+<div class="card">
+  <h3>Apoha 從 Stealth 出走，發表「Liquid State Intelligence」平台<br>Apoha Exits Stealth — Molecular Behavior AI Platform Goes Public</h3>
+  <div class="source-line">
+    來源 / Source: <a href="https://fortune.com/2026/06/03/apoha-36-million-series-a-funding-round-exit-stealth-wave-form-ai-liquid-intelligence/" target="_blank">Fortune</a> · 2026-06-03 · SXSW London
+  </div>
+  <div class="block">
+    <p>詳情同募資章節。Apoha 是本週最完整的「stealth exit」：技術獨特（液態波形資料）、創辦人跨界（物理學家＋金融），並選擇在 SXSW London 而非矽谷場合發表，強調歐洲深科技圈生態。</p>
+    <p>Full details in Funding section. Notable launch angle: VIBE's 1,000+ molecular descriptors per sample changes pharma screening economics — currently a 2-year drug candidate failure cycle could see early-stage signal at the formulation stage.</p>
+  </div>
+</div>
+
+<div class="card">
+  <h3>SpeedLabs 出 Stealth，$650 萬種子輪，顛覆體育直播即時博彩市場<br>SpeedLabs Launches from Stealth with $6.5M Seed — Real-Time "Momentum Markets" for Sports Betting</h3>
+  <div class="source-line">
+    <span class="stage-badge seed">Seed</span>
+    來源 / Source: <a href="https://www.ingame.com/speedlabs-momentum-live-betting-markets/" target="_blank">InGame</a>
+  </div>
+  <div class="block">
+    <span class="label l-facts">核心事實 / Facts</span>
+    <p>SpeedLabs 帶著 $650 萬種子輪出 stealth，核心產品「Momentum Markets」：在比賽關鍵時刻即時生成新市場（而非傳統賽前固定賠率），讓球迷在比分懸殊時依然能找到有趣的投注選項。</p>
+    <p>$6.5M seed. Product: Momentum Markets — real-time micro-markets generated at inflection points during live sports, solving the "blow-out game boredom" problem in live betting.</p>
+  </div>
+  <div class="block">
+    <span class="label l-implications">影響觀察 / Implications</span>
+    <p>[分析] 美國體育博彩市場估值逾 $100 億，但 live in-game betting 技術創新嚴重落後。SpeedLabs 的「關鍵時刻市場」若能整合主流平台（FanDuel、DraftKings），具備快速規模化潛力。挑戰在於監管合規與資料授權成本。</p>
+  </div>
+  <div><span class="tag">sports tech</span><span class="tag">betting</span><span class="tag">live sports</span><span class="tag">seed</span></div>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="products">04 · 產品大事 / Notable Product Launches</h2>
+
+<div class="card">
+  <h3>WindBorne 發布 WeatherMesh-6，每小時預報、精度超越歐洲氣象中心<br>WindBorne Launches WeatherMesh-6 — Hourly Forecasts, Outperforming ECMWF</h3>
+  <div class="source-line">
+    來源 / Source: <a href="https://techcrunch.com/2026/06/01/this-ai-weather-startup-is-out-forecasting-government-agencies/" target="_blank">TechCrunch</a> · 2026-06-01
+  </div>
+  <div class="block">
+    <span class="label l-facts">核心事實 / Facts</span>
+    <p>WindBorne Systems（2019 年史丹佛學生創立）發布 WeatherMesh-6：每小時更新（傳統模型每 6 小時）、大陸美國解析度降至 3 公里、五日後地表溫度準確度媲美傳統模型「明日」預報。基礎設施：全球 400 顆氣球同時飛行，15 個發射站。公司估值 $8,500 萬，已融資 $2,500 萬。客戶包含 NOAA 與美軍。</p>
+    <p>WeatherMesh-6: hourly forecasts (vs. 6h for traditional), 3 km resolution in CONUS, surface temperature accuracy "5-day out = traditional next-day." 400 active balloons, 15 global launch sites. Valued at $85M; $25M raised. Sells balloon data to NOAA + US military; serves traders and investors for forecast-driven alpha.</p>
+  </div>
+  <div class="block">
+    <span class="label l-implications">影響觀察 / Implications</span>
+    <p>[分析] 氣候科技與 AI 天氣預報的交叉點正成為新投資熱點（參見 Google DeepMind GraphCast、Huawei Pangu-Weather）。WindBorne 差異化在「自有感測器資料 + 自訓模型」的垂直整合，而非純軟體模型。若估值仍在 $8,500 萬，本輪後估計有顯著上調機會。</p>
+  </div>
+  <div><span class="tag">climate tech</span><span class="tag">AI</span><span class="tag">weather forecasting</span><span class="tag">deep tech</span></div>
+</div>
+
+<div class="card">
+  <h3>Fivetran + dbt Labs 開源 dbt Fusion Engine（Apache 2.0）<br>Fivetran + dbt Labs Open-Source dbt Fusion Engine Under Apache 2.0</h3>
+  <div class="source-line">
+    來源 / Source: <a href="https://www.getdbt.com/blog/fivetran-dbt-labs-complete-merger-to-create-the-data-infrastructure-for-trusted-ai-agents" target="_blank">dbt Labs Blog</a> / <a href="https://www.fivetran.com/press/fivetran-dbt-labs-complete-merger-to-create-the-data-infrastructure-for-trusted-ai-agents" target="_blank">Fivetran Press</a> · 2026-06-01
+  </div>
+  <div class="block">
+    <span class="label l-facts">核心事實 / Facts</span>
+    <p>合併完成同步宣布：dbt Core v2.0（alpha）開源發布，核心為 dbt Fusion Engine runtime（Apache 2.0），支援 agentic 開發工作流與智能 orchestration。於 Snowflake Summit 2026 期間展示。</p>
+    <p>dbt Core v2.0 alpha open-sources the Fusion Engine under Apache 2.0 — a strategic move to maintain dbt's open-source community flywheel while monetizing the managed cloud layer with Fivetran enterprise reach.</p>
+  </div>
+  <div class="block">
+    <span class="label l-implications">影響觀察 / Implications</span>
+    <p>[分析] Fivetran（ELT）+ dbt（transformation）+ Fusion Engine（runtime）三件套若整合順暢，將對 Databricks、Airbyte、Matillion 等競爭者形成明顯壓力。開源策略也是對 dbt Core 社群「我們不會拋棄你」的明確訊號。</p>
+  </div>
+  <div><span class="tag">data infra</span><span class="tag">open source</span><span class="tag">AI agents</span><span class="tag">enterprise</span></div>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="ma">05 · 收購與整併 / Acquisitions &amp; Consolidation</h2>
+
+<div class="card">
+  <h3>Fivetran × dbt Labs 全股票合併完成<br>Fivetran + dbt Labs All-Stock Merger Closed — Data Infrastructure Play</h3>
+  <div class="source-line">
+    來源 / Source: <a href="https://www.businesswire.com/news/home/20260601514374/en/Fivetran-dbt-Labs-Complete-Merger-to-Create-the-Data-Infrastructure-for-Trusted-AI-Agents" target="_blank">BusinessWire</a> · 2026-06-01
+  </div>
+  <div class="block">
+    <span class="label l-facts">核心事實 / Facts</span>
+    <p>全股票合併，原公告 2025 年 10 月，6 月 1 日完成。服務 100,000+ 資料團隊。交易金額未披露（全股票換股，估值參考：Fivetran 2021 年估值 $56 億，dbt Labs 2022 年估值 $42 億）。</p>
+  </div>
+  <div class="block">
+    <span class="label l-implications">影響觀察 / Implications</span>
+    <p>[分析] 2026 年資料基礎設施整併波持續加速，Fivetran+dbt 是繼 Snowflake 收購 Streamlit、Databricks 收購 MosaicML 之後另一個「垂直整合」大案。對 independent data tool vendors（Hightouch、Airbyte 等）壓力上升。</p>
+  </div>
+  <div><span class="tag">M&amp;A</span><span class="tag">data infra</span><span class="tag">all-stock merger</span></div>
+</div>
+
+<div class="card">
+  <h3>Mach Industries 以 $5,000 萬收購固態火箭新創 Exquadrum<br>Mach Industries Acquires SRM Startup Exquadrum for $50M Cash+Equity</h3>
+  <div class="source-line">
+    來源 / Source: <a href="https://techcrunch.com/2026/06/01/defense-tech-darling-mach-industries-hits-1-8b-valuation-a-4x-jump-in-a-year/" target="_blank">TechCrunch</a> · 2026-06-01
+  </div>
+  <div class="block">
+    <span class="label l-facts">核心事實 / Facts</span>
+    <p>Mach Industries 以現金＋股票約 $5,000 萬收購 Exquadrum（固態火箭馬達製造商），目的是垂直整合推進系統，降低對外部 SRM 供應商依賴，加速 Pike 遠程打擊彈藥的量產時程。</p>
+  </div>
+  <div><span class="tag">defense</span><span class="tag">acquisition</span><span class="tag">rockets</span></div>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="people">06 · 人事 / People Moves</h2>
+
+<div class="card">
+  <h3>Groq 由代理 CEO Adam Winter 接掌，聯合創辦人 Jonathan Ross 淡出<br>Groq Interim CEO Adam Winter at Helm Post-Nvidia Deal; Co-Founder Ross Steps Back</h3>
+  <div class="source-line">
+    來源 / Source: <a href="https://techcrunch.com/2026/05/29/after-nvidias-20b-not-acqui-hire-ai-chip-startup-groq-reportedly-raising-650m/" target="_blank">TechCrunch</a> · 2026-05-29
+  </div>
+  <div class="block">
+    <span class="label l-facts">核心事實 / Facts</span>
+    <p>2025 年底 Nvidia 以 ~$200 億授權 Groq LPU 技術後，多名高管隨技術轉移至 Nvidia。Groq 現由代理 CEO（CFO 兼任）Adam Winter 與 CFO Matt Eng 主導。創辦人 Jonathan Ross 的現職角色未被明確披露。</p>
+    <p>Post-Nvidia $20B licensing deal, senior Groq leadership shifted to Nvidia. Interim CEO: Adam Winter (also CFO). Founder Jonathan Ross's current active role undisclosed. Classic post-licensing-deal leadership vacuum.</p>
+  </div>
+  <div><span class="tag">people</span><span class="tag">leadership</span><span class="tag">AI chips</span></div>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="layoffs">07 · 裁員與停業 / Layoffs &amp; Shutdowns</h2>
+
+<div class="card shutdown-card">
+  <h3>Picnic 機器人披薩新創倒閉，清算資產；籌資逾 $5,300 萬仍撐不過<br>Picnic Pizza Robotics Shuts Down &amp; Liquidates After Raising $53M — Unable to Pay Debts</h3>
+  <div class="source-line">
+    來源 / Source: <a href="https://www.geekwire.com/2026/robot-pizza-startup-runs-out-of-dough-picnic-shuts-down-sells-assets-to-mystery-buyer/" target="_blank">GeekWire</a> / <a href="https://futurism.com/robots-and-machines/dominos-robotics-startup-pizza-shuts-down" target="_blank">Futurism</a>
+  </div>
+  <div class="block">
+    <span class="label l-facts">核心事實 / Facts</span>
+    <p>西雅圖機器人新創 Picnic（前身 Otto Robotics / Vivid Robotics，2016 年創立）於 5 月 11 日執行「General Assignment for the Benefit of Creditors」（加州法律下的非破產清算程序），由清算顧問 CMBG Advisors 接管。資產已找到買家，身份未披露。公司合計籌資逾 $5,300 萬，曾獲 Paul Allen 的 Vulcan Capital 支持，並於 2022 年與 Domino's 測試機器人組披薩。</p>
+    <p>Picnic Pizza Station could produce 100 custom 12-inch pizzas/hour with one employee. Despite Domino's partnership and $53M+ raised (including Vulcan Capital), the company ran out of cash and executed a state-law liquidation. Mystery buyer has been identified; purchase price and intended use undisclosed.</p>
+  </div>
+  <div class="block">
+    <span class="label l-context">背景脈絡 / Context</span>
+    <p>Picnic 的失敗反映 food robotics 新創的共同困境：硬體資本密集、客戶部署週期長、餐廳業者對自動化設備的 ROI 要求嚴格。2022–2024 年該賽道估值泡沫已明顯收縮（同類對手 Miso Robotics、Bear Robotics 亦面臨挑戰）。</p>
+  </div>
+  <div class="block">
+    <span class="label l-implications">影響觀察 / Implications</span>
+    <p>[事實+分析] 此次清算代表整個「餐廳自動化第一波」的終結訊號。資本可能持續撤出這個賽道，轉往更快見成效的 AI software-for-restaurants（POS、demand forecasting）方向。買家身份若為 Domino's 或另一快餐連鎖，將是有趣的整合案例。</p>
+  </div>
+  <div><span class="tag">shutdown</span><span class="tag">food robotics</span><span class="tag">hardware startup</span></div>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="ipo">08 · 上市進程 / IPO Pipeline</h2>
+
+<div class="card ipo-card">
+  <h3>SpaceX IPO 路演啟動：$135/股，目標估值 $1.77 兆，6/12 掛牌<br>SpaceX IPO Roadshow Live: $135/Share Target, $1.77T Valuation, June 12 Debut</h3>
+  <div class="source-line">
+    來源 / Source: <a href="https://www.cnbc.com/2026/06/03/spacex-ipo-stock-price-roadshow-musk.html" target="_blank">CNBC</a> · 2026-06-03
+  </div>
+  <div class="block">
+    <span class="label l-facts">核心事實 / Facts</span>
+    <p>路演：6 月 4 日開始。定價日：6 月 11 日。上市日：6 月 12 日。目標股價 $135，目標估值 $1.77 兆，約發行 5.556 億股，籌資規模 $750 億。承銷行：Goldman Sachs（主承銷）、Morgan Stanley、Bank of America、Citigroup、JPMorgan。散戶配額：30%（透過 Fidelity，門檻降至 $2,000）。Musk 投票控制：82%+。</p>
+    <p>Roadshow June 4, pricing June 11, debut June 12. $135/share → $1.77T market cap → ranks 7th in US by market cap, above Tesla ($1.6T). 30% reserved for retail via Fidelity ($2,000 min). Lead: Goldman Sachs. Musk 82%+ voting control post-IPO. S-1 filed May 20, Amendment No. 1 filed June 1.</p>
+  </div>
+  <div class="block">
+    <span class="label l-context">背景脈絡 / Context</span>
+    <p>SpaceX 加入 Anthropic（機密 S-1，6 月 1 日，目標 10 月，估值 $9,650 億）與 OpenAI（機密 S-1，5 月 22 日，目標 9 月，估值 $1 兆+）構成史無前例的「AI + Space Tech 三巨頭 IPO 年」。SpaceX 是三者中唯一已定價並啟動路演的公司。</p>
+  </div>
+  <div class="block">
+    <span class="label l-implications">影響觀察 / Implications</span>
+    <p>[分析] SpaceX 的 $1.77 兆定價，若成功掛牌，將為後續 AI 獨角獸 IPO 定錨高估值預期。市場對散戶 30% 配額的安排解讀不一：有人認為是 Musk 擴大支持基礎的政治操作，也有人認為代表機構投資人對如此高估值有所保留。</p>
+  </div>
+  <div><span class="tag">IPO</span><span class="tag">SpaceX</span><span class="tag">space tech</span><span class="tag">mega-IPO</span></div>
+</div>
+
+<div class="card ipo-card">
+  <h3>Anthropic 提交機密 S-1，目標 10 月上市，估值近萬億<br>Anthropic Files Confidential S-1, Eyes October IPO at ~$965B Valuation</h3>
+  <div class="source-line">
+    來源 / Source: <a href="https://finance.yahoo.com/markets/stocks/articles/anthropic-files-confidential-1-joins-161008569.html" target="_blank">Yahoo Finance / The Information</a> · 2026-06-01
+  </div>
+  <div class="block">
+    <span class="label l-facts">核心事實 / Facts</span>
+    <p>Anthropic 於 6 月 1 日提交機密 S-1（SEC），目標上市窗口：2026 年 10 月。緊接 5 月 28 日完成的 $650 億 Series H 後（post-money $9,650 億）。</p>
+    <p>Anthropic filed confidential S-1 on June 1 — just 4 days after closing a $65B Series H at $965B post-money valuation. Targeting October IPO. Part of the unprecedented 2026 AI IPO wave alongside OpenAI (Sep target) and SpaceX (June 12).</p>
+  </div>
+  <div><span class="tag">IPO</span><span class="tag">Anthropic</span><span class="tag">AI</span><span class="tag">trillion-dollar</span></div>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="regional">09 · 區域 / Regional Spotlight</h2>
+
+<div class="card">
+  <h3>印度：Anveshan 完成 Rs 150 Cr Series B，UPI 單月交易量突破 230 億次<br>India: Anveshan Closes Rs 150Cr Series B; UPI Hits 23B Monthly Transactions</h3>
+  <div class="source-line">
+    來源 / Source: <a href="https://startuptalky.com/news/daily-indian-funding-roundup-key-news-june-1-2026-anveshan-raises-rs-150-cr-series-b-upi-crosses-23-billion-transactions-for-the-first-time/" target="_blank">StartupTalky</a> · 2026-06-01
+  </div>
+  <div class="block">
+    <span class="label l-facts">核心事實 / Facts</span>
+    <p>清潔標籤食品品牌 Anveshan 完成 Rs 150 Cr Series B，由 Vertex Ventures SEA &amp; India 領投。印度電動車新創 Simple Energy 完成 Rs 250 Cr 輪，為 IPO 前融資。2026 年迄今印度新創籌資累計 $76.2 億（759 輪）。UPI 史上首度單月突破 230 億筆交易，是全球支付基礎設施裡程碑。</p>
+  </div>
+  <div class="block">
+    <span class="label l-implications">影響觀察 / Implications</span>
+    <p>[分析] UPI 230 億筆突破將持續催生新一批支付 SaaS、信用評分、embedded finance 新創。Microsoft 宣布 2026–2029 年在印度投入 $175 億 AI 基礎設施，等同為這批新創提供「free ride」的算力基礎。</p>
+  </div>
+  <div><span class="tag">India</span><span class="tag">fintech</span><span class="tag">EV</span><span class="tag">UPI</span></div>
+</div>
+
+<div class="card">
+  <h3>以色列：Deep33 Ventures 從 Stealth 出走，$1.5 億深科技基金<br>Israel: Deep33 Ventures Emerges from Stealth with $150M Deep Tech Fund</h3>
+  <div class="source-line">
+    來源 / Source: <a href="https://www.ynetnews.com/tech-and-digital/article/hjr30gphwe" target="_blank">Ynet News</a>
+  </div>
+  <div class="block">
+    <p>Deep33 Ventures 在以色列從 stealth 出走，宣布 $1.5 億深科技基金（含量子運算、先進材料、光子學）。以色列新創生態圈儘管持續面臨地緣政治壓力，深科技 VC 基礎設施仍在擴張。</p>
+    <p>Deep33 Ventures exits stealth with $150M deep tech fund covering quantum computing, advanced materials, and photonics. Notable amid ongoing geopolitical pressures on Israeli startup ecosystem.</p>
+  </div>
+  <div><span class="tag">Israel</span><span class="tag">deep tech</span><span class="tag">VC fund</span></div>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="reads">10 · 觀點 / Reads</h2>
+
+<div class="card reads-card">
+  <h3>Devin 寫了 89% 自己公司的代碼——這意味著什麼<br>"Devin Wrote 89% of Its Own Company's Code" — What That Actually Means</h3>
+  <div class="source-line">
+    來源 / Source: <a href="https://the-agent-report.com/2026/06/cognition-devin-1b-26b-valuation-june-2026/" target="_blank">The Agent Report</a> · 2026-06
+  </div>
+  <div class="block">
+    <p>這則 Cognition/Devin 的統計數字（89% 代碼由 AI 完成）是 2026 年 agentic AI 最具代表性的訊號之一。值得思考的問題：「AI 寫代碼」的品質分佈（長尾錯誤 vs. 平均品質）、人類工程師角色從「寫代碼」轉向「審查與架構設計」的速度，以及這個模式能否推廣到非 SaaS 類型的工程（embedded、硬體、safety-critical 系統）。</p>
+    <p>The 89% figure at Cognition is a canary-in-the-coal-mine for software employment. The key research question: does this hold in regulated / safety-critical domains, or is it a pure SaaS-CRUD phenomenon? The Agent Report breaks down the nuances.</p>
+  </div>
+</div>
+
+<div class="card reads-card">
+  <h3>硬體新創的「授權退出」範本：Groq 賣了靈魂之後能做什麼<br>The "License-and-Reinvent" Exit: What Groq's Story Tells Hardware Startups</h3>
+  <div class="source-line">
+    來源 / Source: <a href="https://startupfortune.com/groq-raises-650-million-for-its-neocloud-second-act-after-selling-its-soul-to-nvidia-for-20-billion/" target="_blank">Startup Fortune</a> · 2026
+  </div>
+  <div class="block">
+    <p>Groq 的路徑提供了一個新模板：將核心硬體 IP 授權給 Nvidia（$200 億）→ 投資人提前退出 → 公司用授權金＋剩餘資產重建第二條業務線（inference cloud）。這個「license-and-reinvent」模式對所有陷入「燒錢造晶片 vs. Nvidia 規模壁壘」困境的 AI 晶片新創都有借鑒意義。核心風險：喪失技術護城河後，inference cloud 競爭只剩定價與 go-to-market，不再有硬體差異化。</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<footer>
+  <p>今日新創新聞日報 / Daily Startup News · 2026-06-05 · Asia/Taipei</p>
+  <p style="margin-top:6px;">資料來源 / Sources: <a href="https://techcrunch.com/" target="_blank">TechCrunch</a> · <a href="https://news.crunchbase.com/" target="_blank">Crunchbase News</a> · <a href="https://fortune.com/" target="_blank">Fortune</a> · <a href="https://www.cnbc.com/" target="_blank">CNBC</a> · <a href="https://www.axios.com/" target="_blank">Axios</a> · <a href="https://www.bloomberg.com/" target="_blank">Bloomberg</a> · <a href="https://spacewatch.global/" target="_blank">SpaceWatch.GLOBAL</a> · <a href="https://tech.eu/" target="_blank">tech.eu</a> · <a href="https://www.geekwire.com/" target="_blank">GeekWire</a> · <a href="https://startuptalky.com/" target="_blank">StartupTalky</a> · <a href="https://www.ynetnews.com/" target="_blank">Ynet News</a></p>
+  <p style="margin-top:6px; color:#555;">本報告由 AI 輔助整理，資訊截至報告生成時間。部分來源（The Information、Bloomberg、WSJ）為付費牆。估值與融資金額以媒體報導為準，不構成投資建議。</p>
+</footer>
+
+</body>
+</html>
