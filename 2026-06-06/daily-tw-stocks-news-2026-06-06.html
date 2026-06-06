@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>台股新聞日報 — 2026-06-06 (最近交易日：2026-06-05)</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3347;
+      --accent: #4f9cf9;
+      --accent2: #38d9a9;
+      --red: #f87171;
+      --green: #4ade80;
+      --yellow: #fbbf24;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --tag-bg: #1e3a5f;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      padding: 0 0 60px 0;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #0f1829 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 40px 22px;
+    }
+    header h1 { font-size: 1.55rem; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+    header .meta { font-size: 0.82rem; color: var(--muted); }
+    .container { max-width: 960px; margin: 0 auto; padding: 28px 20px; }
+
+    /* Summary tables */
+    .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 30px; }
+    @media(max-width:680px){ .summary-grid { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .card h3 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 12px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th { text-align: left; color: var(--muted); font-weight: 500; padding: 4px 6px 6px; border-bottom: 1px solid var(--border); }
+    td { padding: 5px 6px; border-bottom: 1px solid #1e2235; }
+    tr:last-child td { border-bottom: none; }
+    .up { color: var(--red); font-weight: 600; }
+    .dn { color: var(--green); font-weight: 600; }
+    .neu { color: var(--muted); }
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--accent);
+      border-radius: 4px;
+      font-size: 0.73rem;
+      padding: 1px 7px;
+      margin-right: 5px;
+      font-weight: 500;
+      vertical-align: middle;
+    }
+
+    /* Section */
+    section { margin-bottom: 38px; }
+    section h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      border-left: 3px solid var(--accent);
+      padding-left: 12px;
+      margin-bottom: 16px;
+    }
+
+    /* News item */
+    .news-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      transition: border-color .2s;
+    }
+    .news-item:hover { border-color: var(--accent); }
+    .news-item h3 { font-size: 0.97rem; font-weight: 600; margin-bottom: 6px; }
+    .news-item .source { font-size: 0.78rem; color: var(--muted); margin-bottom: 10px; }
+    .news-item .source a { color: var(--accent); text-decoration: none; }
+    .news-item .source a:hover { text-decoration: underline; }
+    .label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent2);
+      margin-top: 8px;
+      margin-bottom: 2px;
+    }
+    .news-item p { color: var(--text); font-size: 0.9rem; margin-bottom: 6px; }
+    .news-item .implications { color: #c7d2e8; font-size: 0.88rem; background: var(--surface2); border-radius: 6px; padding: 8px 12px; margin-top: 8px; }
+
+    /* Footer */
+    footer { text-align: center; color: var(--muted); font-size: 0.78rem; margin-top: 48px; border-top: 1px solid var(--border); padding-top: 20px; }
+    footer a { color: var(--accent); text-decoration: none; }
+    .alert { background: #2d1f0a; border: 1px solid #7c4f14; border-radius: 8px; padding: 10px 16px; margin-bottom: 20px; font-size: 0.85rem; color: #fcd34d; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🇹🇼 台股新聞日報 / Taiwan Stocks Daily Briefing</h1>
+  <div class="meta">
+    報告日期 Report date: <strong>2026-06-06 (Sat)</strong> &nbsp;|&nbsp;
+    最近交易日 Last trading session: <strong>2026-06-05 (Fri)</strong> &nbsp;|&nbsp;
+    台灣證交所週六休市 — 本報告摘要上週五盤後數據
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="alert">
+    ⚠️ 今日 (2026-06-06) 為週六，TWSE 休市。本報告內容為最近一個交易日 (2026-06-05 週五) 盤後資料。<br>
+    Today (2026-06-06) is Saturday; TWSE is closed. This briefing covers the most recent session: Fri 2026-06-05.
+  </div>
+
+  <!-- ========== SUMMARY TABLES ========== -->
+  <div class="summary-grid">
+
+    <div class="card">
+      <h3>大盤 / Index (2026-06-05 收盤)</h3>
+      <table>
+        <thead>
+          <tr><th></th><th>收盤</th><th>漲跌</th><th>%</th><th>成交量</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>加權 TAIEX</strong></td>
+            <td>45,070.94</td>
+            <td class="dn">▼606.52</td>
+            <td class="dn">-1.33%</td>
+            <td>1.23兆</td>
+          </tr>
+          <tr>
+            <td><strong>櫃買 OTC</strong></td>
+            <td colspan="4" class="neu">待確認 (與大盤同步走弱)</td>
+          </tr>
+          <tr>
+            <td><strong>台指期 (近月)</strong></td>
+            <td colspan="4" class="neu">OI 變化：待確認；夜盤前站 46,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>三大法人 / Three Major Investors (NT$ 億元，2026-06-04 最新確認數)</h3>
+      <table>
+        <thead>
+          <tr><th></th><th>買賣超</th><th>方向</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>外資</strong></td>
+            <td class="dn">-756.85 億</td>
+            <td class="dn">賣超</td>
+          </tr>
+          <tr>
+            <td><strong>投信</strong></td>
+            <td class="up">+41.69 億</td>
+            <td class="up">買超</td>
+          </tr>
+          <tr>
+            <td><strong>自營商</strong></td>
+            <td class="dn">-213.67 億</td>
+            <td class="dn">賣超</td>
+          </tr>
+          <tr>
+            <td><strong>合計</strong></td>
+            <td class="dn">-928.83 億</td>
+            <td class="dn">淨賣超</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.75rem;color:var(--muted);margin-top:8px;">* 6月5日詳細數字以 TWSE 官方公告為準</p>
+    </div>
+
+  </div>
+
+  <!-- ========== 匯率 & ADR ========== -->
+  <div class="card" style="margin-bottom:28px;">
+    <h3>匯率 & ADR 參考 / FX & ADRs</h3>
+    <table>
+      <thead>
+        <tr><th>項目</th><th>數值</th><th>備註</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>新台幣兌美元</td><td>~31.08</td><td>量縮走升，6月3日參考收盤 31.417</td></tr>
+        <tr><td>TSM ADR (NYSE)</td><td>↑ +1.88%</td><td>台積電股東會後 ADR 逆勢翻紅</td></tr>
+        <tr><td>UMC ADR</td><td>待確認</td><td>外資上修聯電目標價</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ========== SECTION 1: 頭條 ========== -->
+  <section>
+    <h2>1 / 頭條 Top Stories</h2>
+
+    <div class="news-item">
+      <h3>
+        <span class="tag">費半重挫</span>
+        博通財測引爆半導體賣壓，台股重挫 606 點連二黑守 45,000 / Broadcom Guidance Miss Triggers Semiconductor Selloff; TAIEX -606 pts
+      </h3>
+      <div class="source">
+        <strong>來源:</strong>
+        <a href="https://udn.com/news/story/7251/9547270" target="_blank">聯合新聞網</a> ·
+        <a href="https://money.udn.com/money/story/5607/9547964" target="_blank">經濟日報</a> ·
+        2026-06-05
+      </div>
+
+      <span class="label">核心事實 / Facts</span>
+      <p>
+        台股5日收盤下跌 <strong>606.52 點（-1.33%）</strong>，終場報 <strong>45,070.94 點</strong>，成交量 1.23 兆元，連續兩黑。
+        盤中最低觸及 <strong>44,209 點</strong>，一度重挫逾 1,400 點，跌幅驚人；尾盤大幅收斂。
+        本週（6/2–6/5）高低點差距達 <strong>2,342 點</strong>，顯示市場大幅震盪。
+        TAIEX closed at 45,070.94 on Fri Jun 5, down 606.52 pts (-1.33%), with intraday low of 44,209. Weekly H-L range hit 2,342 pts.
+      </p>
+
+      <span class="label">背景脈絡 / Context</span>
+      <p>
+        博通（Broadcom, AVGO）公布第二季財報後，雖 AI 晶片營收年增逾 200%（達 160 億美元），但仍低於部分華爾街分析師最高預期，股價盤後重挫逾 12%，費城半導體指數（SOX）當夜大跌逾 10%，為近六年最大單日跌幅。
+        此一衝擊直接反映至台股，台積電、聯發科、鴻海等電子權值股開盤即跌勢明顯，台積電一度開高翻黑。
+        Broadcom's AI revenue of $16B beat but missed the highest buy-side estimates; AVGO fell ~12% after hours, dragging Philadelphia Semiconductor Index down 10%+.
+      </p>
+
+      <div class="implications">
+        <strong>影響觀察 / Implications：</strong>
+        費半大幅震盪顯示 AI 估值仍高度敏感於「預期差」。雖然 AI 長線需求無虞，但投資人開始要求財報數字持續超預期，否則易引發大幅調節。外資短線回吐獲利，但多頭結構未破。盤中跌幅快速收斂，顯示 45,000 點有一定支撐。
+        （此段為分析，非事實）
+      </div>
+    </div>
+
+    <div class="news-item">
+      <h3>
+        <span class="tag">台積電股東會</span>
+        魏哲家：2026 年全年美元營收成長逾 30%，AI 能見度到 2030 / TSMC AGM: CC Wei Sees 30%+ Revenue Growth, AI Visibility Through 2030
+      </h3>
+      <div class="source">
+        <strong>來源:</strong>
+        <a href="https://udn.com/news/story/7253/9545450" target="_blank">聯合新聞網</a> ·
+        <a href="https://www.sinotrade.com.tw/richclub/hotstock/%E5%8F%B0%E7%A9%8D%E9%9B%BB-2330-%E8%82%A1%E6%9D%B1%E6%9C%83%E7%99%BB%E5%A0%B4-%E9%AD%8F%E5%93%B2%E5%AE%B6-%E8%82%A1%E5%83%B9%E5%B9%B4%E6%BC%B21-5%E5%80%8D-%E9%85%8D%E6%81%AF%E8%87%B3%E5%B0%9124%E5%85%83-2026%E5%85%A8%E5%B9%B4%E7%BE%8E%E5%85%83%E7%87%9F%E6%94%B6%E6%88%90%E9%95%B7%E4%BB%8D%E9%80%BE3%E6%88%90-%E8%82%A1%E5%B8%82%E8%A9%B1%E9%A1%8C-6a20eef7b55a18bfaf273e78" target="_blank">豐雲學堂</a> ·
+        2026-06-04
+      </div>
+
+      <span class="label">核心事實 / Facts</span>
+      <p>
+        台積電（2330）6月4日召開年度股東常會。董事長魏哲家宣示：
+        (1) 2026 全年美元營收預估成長 <strong>逾 30%</strong>；
+        (2) 今年配息至少 <strong>24 元/股</strong>，較去年成長超過 30%；
+        (3) 股價一年來從約 950 元漲至約 2,425 元，漲幅超過 <strong>1.5 倍</strong>；
+        (4) AI 需求能見度延伸至 <strong>2030 年</strong>；
+        (5) 美國高階晶片需求大，但美國產能「遠遠不夠」，台灣仍是最大生產基地。
+        TSMC AGM Jun 4: FY26 USD revenue +30%+; dividend ≥NT$24/share; AI demand visibility to 2030; US capacity still "far from enough."
+      </p>
+
+      <span class="label">背景脈絡 / Context</span>
+      <p>
+        台積電 5 月份月營收預期再創歷史新高，搭配魏哲家強調「能見度到 2030」，原本應是台股多頭最強催化劑。然而受到博通財報引爆半導體系統性賣壓，台積電股東會隔日（6/5）股價收跌 20 元至 <strong>2,365 元</strong>（-0.84%），ADR 則逆勢上漲 1.88%。魏哲家在股東會亦對股東表示：「想繼續買股票，請繼續。」
+      </p>
+
+      <div class="implications">
+        <strong>影響觀察 / Implications：</strong>
+        魏哲家的長期樂觀展望未能阻止短線因博通引發的技術性調節。外資短期藉機獲利了結，但機構法人普遍認為此次拉回為健康換手，中長線不影響台積電在 AI CoWoS 先進封裝的龍頭地位。後續觀察：6 月 9 日蘋果 WWDC 是否帶動 Apple Intelligence 晶片訂單消息。
+        （此段包含分析意見）
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ========== SECTION 2: 三大法人 ========== -->
+  <section>
+    <h2>2 / 三大法人 Three Major Investors</h2>
+
+    <div class="news-item">
+      <h3>外資連續調節，博通財測衝擊拖累半導體族群 / FINI Sustained Net Selling Amid Semiconductor Rotation</h3>
+      <div class="source">
+        <strong>來源:</strong>
+        <a href="https://www.twse.com.tw/zh/trading/foreign/bfi82u.html" target="_blank">TWSE 三大法人買賣金額統計</a> ·
+        <a href="https://goodinfo.tw/tw/ShowBuySaleChart.asp?STOCK_ID=%E5%8A%A0%E6%AC%8A%E6%8C%87%E6%95%B8&CHT_CAT=DATE" target="_blank">Goodinfo</a>
+      </div>
+
+      <span class="label">核心事實 / Facts</span>
+      <p>
+        依目前已確認數據（6/4），外資在上市市場<strong>賣超 756.85 億元</strong>，投信<strong>買超 41.69 億元</strong>，自營商<strong>賣超 213.67 億元</strong>。
+        6/5（週五）盤後詳細數字尚待 TWSE 官方公告，惟市場預估外資續呈賣超。
+        上周外資賣超最大標的推測包含台積電、聯發科等半導體權值股。
+        投信相對逆勢買進，支撐跌幅收斂。
+      </p>
+
+      <span class="label">背景脈絡 / Context</span>
+      <p>
+        外資在 5 月最後一週及 6 月初曾大幅買超（5 月合計買超逾 2,360 億元，創歷史紀錄），但受博通事件影響在 6/4–6/5 明顯轉為獲利了結。
+        5 月 28 日台積電股價一度站上 2,360 元，市值逾 61.2 兆元，為歷史新高。
+        投信在跌勢中持續承接，是本次盤中跌幅大幅收斂的重要力道。
+      </p>
+
+      <div class="implications">
+        <strong>影響觀察 / Implications：</strong>
+        外資短期調節但月累積部位仍大幅偏多，並非趨勢性出場。若下週 WWDC（6/9）帶來 Apple AI 晶片利多，或 TSM ADR 繼續上漲，外資可能回補台積電。
+        投信在跌勢承接的行為類似 4 月修正期間模式，顯示台灣在地法人看好。
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ========== SECTION 3: 權值股 ========== -->
+  <section>
+    <h2>3 / 權值股 Heavyweight Stocks (2026-06-05 收盤)</h2>
+
+    <div class="news-item">
+      <h3>主要權值股盤後表現一覽 / Key Heavyweights at Close</h3>
+      <div class="source">
+        <strong>來源:</strong>
+        <a href="https://tw.stock.yahoo.com/quote/2330.TW" target="_blank">Yahoo 股市</a> ·
+        <a href="https://tw.stock.yahoo.com/quote/2454.TW" target="_blank">Yahoo 股市</a> ·
+        2026-06-05
+      </div>
+
+      <table style="margin-top:10px;">
+        <thead>
+          <tr><th>股票</th><th>代號</th><th>收盤</th><th>漲跌</th><th>%</th><th>備註</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>台積電</td><td>2330</td><td>2,365</td>
+            <td class="dn">▼20</td><td class="dn">-0.84%</td>
+            <td>股東會隔日拉回，ADR +1.88%</td>
+          </tr>
+          <tr>
+            <td>聯發科</td><td>2454</td><td>4,300</td>
+            <td class="up">▲130</td><td class="up">+2.93%</td>
+            <td>AI ASIC 重估題材；外資目標價上看 5,000 元</td>
+          </tr>
+          <tr>
+            <td>鴻海</td><td>2317</td><td>284.50</td>
+            <td class="up">▲8.50</td><td class="up">+2.90%</td>
+            <td>AI 伺服器背板概念，黃仁勳效應持續</td>
+          </tr>
+          <tr>
+            <td>台達電</td><td>2308</td><td colspan="3" class="neu">待確認</td>
+            <td>電源管理 AI 概念抗跌</td>
+          </tr>
+          <tr>
+            <td>富邦金</td><td>2881</td><td colspan="3" class="neu">待確認</td>
+            <td>金融股盤中抗跌撐盤</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <span class="label" style="margin-top:14px;">背景脈絡 / Context</span>
+      <p>
+        台積電雖受半導體賣壓，但股東會利多（配息 24 元、2030 展望）使跌幅相對有限。
+        聯發科逆勢上漲，受 AI ASIC 法說後外資持續重估支撐，美系喊至 5,000 元目標。
+        鴻海延續 COMPUTEX 黃仁勳效應，AI 伺服器背板需求強勁。
+        金融股在電子股疲軟中相對抗跌，顯示資金輪動跡象。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ========== SECTION 4: 類股輪動 ========== -->
+  <section>
+    <h2>4 / 類股輪動 Sector Rotation</h2>
+
+    <div class="news-item">
+      <h3>
+        <span class="tag">半導體</span>
+        費半引爆賣壓，半導體族群大幅拉回但聯發科逆強 / SOX-Driven Selloff; MediaTek Resilient on ASIC Re-rating
+      </h3>
+      <div class="source">
+        <strong>來源:</strong>
+        <a href="https://cmnews.com.tw/article/cmoneyairesearcher-50bfcfec-6069-11f1-a3db-93dcca621788" target="_blank">CMoney</a> ·
+        <a href="https://tw.stock.yahoo.com/news/%E7%BE%8E%E5%9C%8B%E5%8D%8A%E5%B0%8E%E9%AB%94%E8%82%A1%E7%9F%AD%E7%B7%9A%E4%BF%AE%E6%AD%A3-%E5%8F%B0%E8%82%A1%E9%80%B1%E4%BA%94%E6%81%90%E9%99%B7%E5%85%A5%E9%9C%87%E7%9B%AA-232002038.html" target="_blank">Yahoo 股市</a> ·
+        2026-06-05
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>
+        博通盤後財報雖 Q2 EPS 超預期，但 AI 晶片全年指引（~160 億美元）仍低於部分機構最高預期（200 億美元以上），AVGO 股價重挫逾 12%；
+        費半（SOX）應聲大跌超過 10%，創近六年最大跌幅；
+        南亞科、台積電、台達電等電子權值跟跌；
+        聯發科逆勢上漲 2.93%（4,300 元），AI ASIC 法說效應抵銷系統性賣壓。
+      </p>
+      <div class="implications">
+        <strong>影響觀察 / Implications：</strong>
+        聯發科在費半大跌中逆勢走強，顯示市場認可其 AI ASIC 差異化地位。台積電短線拉回，但從長期基本面看，2026 CoWoS 及 N2 需求仍旺，ADR 收盤反彈暗示海外機構未大量出場。記憶體族群（群聯、十銓等）有望受益於缺貨預期延伸到 2027–2030。
+      </div>
+    </div>
+
+    <div class="news-item">
+      <h3>
+        <span class="tag">AI 概念</span>
+        AI 背板股延續 COMPUTEX 強勢，記憶體缺貨題材浮現 / AI PCB & Memory Shortage Theme Post-COMPUTEX
+      </h3>
+      <div class="source">
+        <strong>來源:</strong>
+        <a href="https://m.cnyes.com/news/id/6481386" target="_blank">鉅亨網</a> ·
+        2026-06-05
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>
+        COMPUTEX 2026（6/2–6/6）黃仁勳主題演講效應持續發酵，鴻海、緯創等 AI 伺服器背板相關個股強勁；
+        群聯執行長潘健成、十銓等業者表示，記憶體缺貨最嚴峻時刻尚未到來，樂觀看延續至 <strong>2030 年</strong>；
+        台指期夜盤在 6/4 收盤後一度站上 <strong>46,000 點</strong>，市場對 WWDC 前景充滿期待。
+      </p>
+      <div class="implications">
+        <strong>影響觀察 / Implications：</strong>
+        記憶體缺貨題材延伸，南亞科、威剛、群聯、十銓等有望成為第二波補漲主力。若蘋果 WWDC（6/9）發布 Apple Intelligence 進展，有望帶動 DRAM 及 AI 邊緣運算族群第二波。
+      </div>
+    </div>
+
+    <div class="news-item">
+      <h3>
+        <span class="tag">金融</span>
+        金融股盤中扮演抗跌撐盤角色，資金輪動訊號 / Financial Sector Cushions Intraday Selloff
+      </h3>
+      <div class="source">
+        <strong>來源:</strong>
+        <a href="https://money.udn.com/money/story/5607/9547964" target="_blank">經濟日報</a> ·
+        2026-06-05
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>
+        台股盤中最低跌至 44,209 點，尾盤大幅收斂，金融股及被動元件族群為主要抗跌力道，協助指數從低點回彈逾 800 點。
+        富邦金、國泰金等金控股相對抗跌，顯示防禦性資金短線流入。
+      </p>
+      <div class="implications">
+        <strong>影響觀察 / Implications：</strong>
+        電子股在費半衝擊下疲軟，資金短線輪入金融股，此模式類似 4 月修正期間。若外資下週回補科技股，金融股漲勢可能受壓，但中期仍受益於升息環境。
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ========== SECTION 5: 個股大事 ========== -->
+  <section>
+    <h2>5 / 個股大事 Single-Stock Movers</h2>
+
+    <div class="news-item">
+      <h3>
+        <span class="tag">聯發科 2454</span>
+        AI ASIC 大爆發後法人持續重估，美系外資喊 5,000 元目標價 / MediaTek AI ASIC Re-Rating: US Bank Targets NT$5,000
+      </h3>
+      <div class="source">
+        <strong>來源:</strong>
+        <a href="https://tw.stock.yahoo.com/news/%E8%81%AF%E7%99%BC%E7%A7%91%E6%B3%95%E8%AA%AA%E6%9C%83%E5%BE%8C%E5%A4%96%E8%B3%87%E9%BD%8A%E8%AA%BF%E9%AB%98%E7%9B%AE%E6%A8%99%E5%83%B9-%E7%BE%8E%E7%B3%BB%E5%96%8A5000%E5%85%83-%E6%97%A5%E7%B3%BB%E9%99%8D%E8%A9%95%E8%87%B3%E4%B8%AD%E7%AB%8B-031643158.html" target="_blank">Yahoo 股市</a> ·
+        <a href="https://news.cnyes.com/news/id/6472950" target="_blank">鉅亨網</a> ·
+        2026-06-05
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>
+        聯發科 4 月 30 日法說會宣布將 2026 年全年 AI ASIC 營收目標從 10 億美元翻倍至 <strong>20 億美元</strong>；
+        法說後，美系外資（高盛）目標價上調至 <strong>5,000 元</strong>（買進評等）；
+        亞系外資目標價上調至 <strong>4,500 元</strong>；
+        歐系外資上調至 <strong>3,700 元</strong>（維持買進）；
+        日系外資小幅調降評等至「中立」，目標價 2,454 元；
+        股東會蔡力行表示，台積電是聯發科「最重要、最長期合作夥伴」。
+        6/5 收盤 <strong>4,300 元（+2.93%）</strong>，逆勢上漲，5 月以來股價翻倍逾二。
+      </p>
+      <div class="implications">
+        <strong>影響觀察 / Implications：</strong>
+        聯發科 AI ASIC 業務爆發是台股本波行情最重要的 re-rating 敘事之一。法人估 2027 年 EPS 上看 90 元，本益比相應評估仍具成長空間。日系機構降評至中立為少數雜音，主流外資仍維持多頭。後續觀察 2025 Q3 法說（通常 7 月）是否進一步上修指引。
+      </div>
+    </div>
+
+    <div class="news-item">
+      <h3>
+        <span class="tag">台積電 2330</span>
+        股東會配息 24 元、2030 展望強，但短線受半導體系統性賣壓 / TSMC: NT$24 Dividend, 2030 AI Visibility, Short-term SOX Drag
+      </h3>
+      <div class="source">
+        <strong>來源:</strong>
+        <a href="https://udn.com/news/story/7253/9547425" target="_blank">聯合新聞網（建廠夥伴）</a> ·
+        <a href="https://ec.ltn.com.tw/article/paper/1757555" target="_blank">自由財經</a> ·
+        2026-06-05
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>
+        台積電 6/4 股東會後，6/5 股價收 <strong>2,365 元（-0.84%）</strong>。
+        魏哲家股東會指出：美國高階晶片需求多，但美國產能「遠遠不夠」，仍需持續擴建，「要很久時間」滿足需求。
+        建廠夥伴（廠務工程、機電相關）股價同步揚，顯示市場解讀擴廠持續。
+        NYSE 掛牌 TSM ADR 逆勢上漲 <strong>+1.88%</strong>，海外機構展現信心。
+      </p>
+      <div class="implications">
+        <strong>影響觀察 / Implications：</strong>
+        ADR 逆勢上漲暗示外資在海外市場並未大量賣出，短線台股的賣壓可能偏向技術性獲利了結。若 TSM ADR 下週維持強勢，台灣本地外資外資可望回補。
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ========== SECTION 6: 公司行動 ========== -->
+  <section>
+    <h2>6 / 公司行動 Corporate Actions</h2>
+
+    <div class="news-item">
+      <h3>台積電配息 24 元、聯發科股東會法說後外資追蹤 / TSMC NT$24 Dividend; MediaTek Post-AGM Tracker</h3>
+      <div class="source">
+        <strong>來源:</strong>
+        <a href="https://money.udn.com/money/story/5612/9544874" target="_blank">經濟日報</a> ·
+        2026-06-04
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>
+        台積電今年配息至少 <strong>24 元/股</strong>（+30% YoY），股東大會已通過。
+        聯發科股東會（6 月初）中，執行長蔡力行強調台積電為最重要合作夥伴，AI ASIC 業務快速成長。
+        除上述兩檔外，本週 MOPS 重大訊息（庫藏股、減資、特殊配息）待確認，建議直接查詢
+        <a href="https://mops.twse.com.tw/mops/web/t05st01" target="_blank" style="color:var(--accent)">公開資訊觀測站重大訊息</a>。
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ========== SECTION 7: 政策與外資觀察 ========== -->
+  <section>
+    <h2>7 / 政策與外資觀察 Policy & FINI Watch</h2>
+
+    <div class="news-item">
+      <h3>外資 5 月創紀錄買超 2,360 億後轉向，6 月首週技術性調節 / FINI Record NT$236B Buy in May; Technical Profit-Taking in Early June</h3>
+      <div class="source">
+        <strong>來源:</strong>
+        <a href="https://m.cnyes.com/news/id/6477352" target="_blank">鉅亨網</a> ·
+        <a href="https://money.udn.com/money/story/5607/9537229" target="_blank">經濟日報</a> ·
+        2026-06
+      </div>
+      <span class="label">核心事實 / Facts</span>
+      <p>
+        外資 5 月單月買超上市股票逾 <strong>2,360 億元</strong>，創歷史最大月度買超紀錄；
+        6 月進入 COMPUTEX 後段，部分外資開始出現「利多出貨」行為；
+        6/4 外資賣超 756.85 億元，5 月強力建倉後短線回吐部分獲利；
+        投信逆勢買超，為台股第二道防線。
+      </p>
+
+      <span class="label">背景脈絡 / Context</span>
+      <p>
+        台股 6 月行情主要驅動：
+        (1) COMPUTEX 2026（6/2–6/6），英偉達黃仁勳、AMD 蘇姿丰等人演講；
+        (2) 蘋果 WWDC（6/9），Apple Intelligence 晶片訂單預期；
+        (3) 台積電 5 月營收預計創新高；
+        三大利多本已支撐 46,000 點挑戰，但博通財報暫時打亂節奏。
+      </p>
+
+      <div class="implications">
+        <strong>影響觀察 / Implications：</strong>
+        若 WWDC 釋放 Apple AI 晶片明確訊號，外資可能在下週迅速回補台積電、大立光、台達電等蘋果供應鏈股。
+        金管會近期無重大政策變動，央行維持利率不變，整體政策面仍屬中性略偏寬。
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ========== SECTION 8: 觀點/策略 ========== -->
+  <section>
+    <h2>8 / 觀點 Reads & Strategy</h2>
+
+    <div class="news-item">
+      <h3>
+        <span class="tag">策略報告</span>
+        「台股主升段持續推進！資金大搬風正式啟動」— 鉅亨網
+      </h3>
+      <div class="source">
+        <strong>來源:</strong>
+        <a href="https://news.cnyes.com/news/id/6480462" target="_blank">鉅亨網</a> ·
+        2026-06-05
+      </div>
+      <p>
+        市場分析認為，台股本波主升段由 AI 算力、AI 邊緣運算、記憶體缺貨三條主軸推動，COMPUTEX 後「資金大搬風」正式啟動——從舊半導體（IDM）輪動至 AI 設計股（聯發科）及 AI 基礎建設股（伺服器、散熱、電源）。6 月短線修正為換手機會。
+        （此為分析觀點，非投資建議）
+      </p>
+    </div>
+
+    <div class="news-item">
+      <h3>
+        <span class="tag">週後觀察</span>
+        蘋果 WWDC（6/9）是下週最大催化劑；台積電 5 月營收待公告
+      </h3>
+      <div class="source">
+        <strong>來源:</strong>
+        <a href="https://money.udn.com/money/story/5607/9537229" target="_blank">經濟日報</a> ·
+        整合多來源
+      </div>
+      <p>
+        下週重要事件：
+        (1) <strong>蘋果 WWDC</strong>（6/9）— Apple Intelligence 晶片路線圖，影響大立光、台積電 3nm 訂單展望；
+        (2) <strong>台積電 5 月月營收</strong>（通常 10 日前公告）— 市場預估再創歷史新高；
+        (3) 美國 5 月 CPI 數據（6/11）— 影響聯準會 6 月 FOMC 利率決定，間接牽動台幣匯率與外資進出意願。
+        台股收盤守穩 45,000 點，技術面月線仍多頭完整。
+        （此為資訊整理，非投資建議）
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>
+      <strong>數據來源 / Sources：</strong>
+      <a href="https://www.twse.com.tw/zh/index.html" target="_blank">TWSE 臺灣證券交易所</a> ·
+      <a href="https://news.cnyes.com/news/cat/tw_stock" target="_blank">鉅亨網台股</a> ·
+      <a href="https://money.udn.com/money/index" target="_blank">經濟日報</a> ·
+      <a href="https://udn.com/news/story/7251/9547270" target="_blank">聯合新聞網</a> ·
+      <a href="https://tw.stock.yahoo.com/" target="_blank">Yahoo 股市</a> ·
+      <a href="https://goodinfo.tw/tw/index.asp" target="_blank">Goodinfo</a> ·
+      <a href="https://www.sinotrade.com.tw/richclub/" target="_blank">豐雲學堂</a> ·
+      <a href="https://mops.twse.com.tw/mops/web/index" target="_blank">MOPS 公開資訊觀測站</a>
+    </p>
+    <p style="margin-top:10px;">
+      本報告由 AI 彙整公開新聞資料，數字以 TWSE/MOPS 官方公告為準。本報告不構成投資建議。<br>
+      Generated by AI from public sources. Numbers subject to TWSE/MOPS official data. Not investment advice.<br>
+      <strong>最後更新 / Last updated：2026-06-06 14:10 (Asia/Taipei)</strong>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

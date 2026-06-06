@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日創投新聞日報 · Daily VC Briefing — 2026-06-06</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --border: #2a2d3a;
+      --accent: #6c63ff;
+      --accent2: #00d2a0;
+      --text: #e2e4ef;
+      --muted: #8b8fa8;
+      --tag-ai: #2d1f6e;
+      --tag-ai-text: #a78bfa;
+      --tag-exit: #1a3a2a;
+      --tag-exit-text: #34d399;
+      --tag-fund: #1e2d3a;
+      --tag-fund-text: #60a5fa;
+      --tag-gp: #3a1f1f;
+      --tag-gp-text: #f87171;
+      --tag-region: #2a2d1a;
+      --tag-region-text: #fbbf24;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 24px 28px;
+      text-align: center;
+    }
+    header .label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    header .date-line {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+    /* Section header */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 36px 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-title h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .section-title .icon {
+      font-size: 20px;
+    }
+    /* News card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+    }
+    .card-headline {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .card-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .tag {
+      display: inline-block;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+    .tag-ai { background: var(--tag-ai); color: var(--tag-ai-text); }
+    .tag-fund { background: var(--tag-fund); color: var(--tag-fund-text); }
+    .tag-exit { background: var(--tag-exit); color: var(--tag-exit-text); }
+    .tag-gp { background: var(--tag-gp); color: var(--tag-gp-text); }
+    .tag-region { background: var(--tag-region); color: var(--tag-region-text); }
+    .tag-mega { background: #2a1a00; color: #fb923c; }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent2);
+      margin: 14px 0 4px;
+    }
+    .card p {
+      color: #c4c7da;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .source-line {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+    .source-line a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .source-line a:hover { text-decoration: underline; }
+
+    /* Top story highlight */
+    .card.top-story {
+      border-left: 3px solid var(--accent);
+    }
+    .card.top-story .card-headline {
+      font-size: 17px;
+    }
+
+    /* Number callout */
+    .num {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--accent2);
+    }
+    .num-row {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin: 8px 0 12px;
+    }
+    .num-item {
+      flex: 1;
+      min-width: 100px;
+    }
+    .num-item .label-sm {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* reads */
+    .reads-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid #fbbf24;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .reads-card .title {
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .reads-card .desc {
+      font-size: 13px;
+      color: #c4c7da;
+    }
+
+    /* footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* toc */
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+    }
+    .toc-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .toc a {
+      display: inline-block;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 13px;
+      margin: 2px 10px 2px 0;
+    }
+    .toc a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .num-row { gap: 16px; }
+      header h1 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="label">Venture Capital · Daily Briefing</div>
+  <h1>今日創投新聞日報</h1>
+  <div class="date-line">2026 年 6 月 6 日（星期六）· Asia/Taipei · 覆蓋 48–72h</div>
+</header>
+
+<div class="container">
+
+  <div class="toc">
+    <div class="toc-title">Quick Nav</div>
+    <a href="#top-stories">頭條</a>
+    <a href="#fund-lp">新基金 &amp; LP</a>
+    <a href="#mega">大型 Round</a>
+    <a href="#exits">退場</a>
+    <a href="#gp-moves">GP 人事</a>
+    <a href="#strategy">策略與生態</a>
+    <a href="#regional">區域</a>
+    <a href="#reads">觀點</a>
+  </div>
+
+  <!-- ===== 1. TOP STORIES ===== -->
+  <div class="section-title" id="top-stories">
+    <span class="icon">🔥</span>
+    <h2>頭條 / Top Stories</h2>
+  </div>
+
+  <div class="card top-story">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-fund">Fund Formation</span>
+      <span class="tag tag-gp">GP 策略 Shift</span>
+    </div>
+    <div class="card-headline">Benchmark 打破 20 年傳統：$20 億募資、首支成長基金問世<br/><small style="font-weight:400;color:#b0b3c9">Benchmark breaks 20-year tradition — raises $2B, launches first-ever growth fund</small></div>
+    <div class="num-row">
+      <div class="num-item"><div class="num">$750M</div><div class="label-sm">Fund XII (Early)</div></div>
+      <div class="num-item"><div class="num">$1.25B</div><div class="label-sm">Fund I Growth</div></div>
+      <div class="num-item"><div class="num">$2B</div><div class="label-sm">Total Package</div></div>
+    </div>
+    <div class="section-label">核心事實 / Facts</div>
+    <p>Benchmark 宣佈完成兩支新基金募資：第 12 期早期基金規模 $7.5 億（前幾期約 $4.25 億），以及 $12.5 億的首支成長基金（Fund I Growth）——這是該公司超過 20 年來首次設立後期載具。總包金額 $20 億。LP 組成未公開揭露。</p>
+    <p>Benchmark has closed its 12th early-stage flagship at $750M (prior vintages ~$425M) alongside a $1.25B growth vehicle — the firm's first ever. Total package: $2B. LP composition undisclosed.</p>
+    <div class="section-label">背景脈絡 / Context</div>
+    <p>Benchmark 長期以「小基金、高 ownership、純早期」著稱，刻意抗拒 multi-stage 趨勢。旗下合夥人包含 Bill Gurley、Sarah Tavel 等，過往拒絕 SoftBank 模式的超大規模基金。此次轉向，根本原因在於 AI 時代晚期估值迅速墊高（Ramp 已達 $440 億），純早期基金的 pro-rata 能力受限，若不進入成長輪將大幅稀釋持股。</p>
+    <p>For two decades Benchmark resisted the multi-stage trend even as rivals (a16z, Sequoia, Lightspeed) expanded into growth. AI megarounds have inflated late-stage valuations; without a dedicated growth vehicle, early marks get diluted before exit.</p>
+    <div class="section-label">影響觀察 / Implications</div>
+    <p>分析：Benchmark 轉型是訊號，而非異常值——若矽谷最守紀律的小型 GP 也無法維持純早期策略，其他中型 VC 承受的壓力將更大。對其 LP（以大學捐贈基金為主）而言，成長基金的流動性時間軸更長，需評估是否另行承諾。競爭面：Benchmark 進場成長輪將直接與 Thrive Capital、Tiger Global 等碰撞。</p>
+    <p><em>Analysis, not fact:</em> Benchmark's move validates what AI capital dynamics have forced across the industry. Expect other holdouts to follow. LPs in the new growth fund face longer lock-ups; risk profiles diverge meaningfully from the early fund.</p>
+    <div class="source-line">來源：<a href="https://www.axios.com/2026/06/04/benchmark-2-billion-vc-funds" target="_blank">Axios Pro Rata · Dan Primack · 2026-06-04</a> | <a href="https://techcrunch.com/2026/06/03/benchmark-raises-its-first-ever-growth-fund-as-part-of-2b-capital-raise/" target="_blank">TechCrunch · 2026-06-03</a></div>
+  </div>
+
+  <div class="card top-story">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-mega">Mega Round</span>
+      <span class="tag tag-fund">GIC · Institutional LP</span>
+    </div>
+    <div class="card-headline">Ramp $7.5 億 Series F：估值達 $440 億，ICONIQ / GIC / Ontario Teachers 聯合領投<br/><small style="font-weight:400;color:#b0b3c9">Ramp $750M Series F at $44B — ICONIQ, GIC, Ontario Teachers' co-lead</small></div>
+    <div class="num-row">
+      <div class="num-item"><div class="num">$750M</div><div class="label-sm">Round Size</div></div>
+      <div class="num-item"><div class="num">$44B</div><div class="label-sm">Post-Money Val.</div></div>
+      <div class="num-item"><div class="num">$3B+</div><div class="label-sm">Total Equity Raised</div></div>
+    </div>
+    <div class="section-label">核心事實 / Facts</div>
+    <p>2026 年 6 月 4 日，Ramp 完成 Series F，融資 $7.5 億，估值達 $440 億（7 個月前為 $320 億，升幅 ~38%）。三大領投方：ICONIQ Growth、GIC（新加坡主權財富基金）、Ontario Teachers' Pension Plan（OTPP）。新進投資人包括 Goldman Sachs Alternatives、D.E. Shaw、Morgan Stanley Investment Management、Generation Investment Management、Insight Partners。</p>
+    <p>June 4 — $750M Series F at $44B post-money. Three co-leads: ICONIQ Growth, GIC, OTPP. New investors include Goldman Sachs Alternatives, D.E. Shaw, MSIM, Generation IM, Insight Partners.</p>
+    <div class="section-label">背景脈絡 / Context</div>
+    <p>ICONIQ 是矽谷最活躍的 crossover 基金之一，曾領投 Figma、Snowflake。GIC 近期頻繁出現在 AI 軟體超大輪（另外也領投 Supabase Series F $5 億）。OTPP 在私市擴大直投比重，此輪為其財科技配置的延伸。Ramp 年化營收突破 $10 億且自由現金流正值，是少數同時達到成長（YoY TPV +170%）與盈利的晚期標的。</p>
+    <div class="section-label">影響觀察 / Implications</div>
+    <p>分析：主權與養老基金大量直投晚期，是結構性趨勢而非機會性行為——機構正在壓縮傳統 VC 在成長輪的角色。對傳統成長型 VC（Tiger、Coatue 等）而言，競爭對手的資本成本更低、持股期間更長。</p>
+    <div class="source-line">來源：<a href="https://www.otpp.com/en-ca/about-us/news-and-insights/2026/ramp-raises-series-f-at-44-billion-valuation/" target="_blank">Ontario Teachers' · 2026-06-04</a> | <a href="https://www.gic.com.sg/newsroom/all/ramp-raises-series-f-at-44-billion-valuation/" target="_blank">GIC Newsroom · 2026-06-04</a> | <a href="https://www.cnbc.com/2026/06/04/ramp-valuation-funding-ai-spend.html" target="_blank">CNBC</a></div>
+  </div>
+
+  <!-- ===== 2. FUND FORMATION & LP ===== -->
+  <div class="section-title" id="fund-lp">
+    <span class="icon">🏦</span>
+    <h2>新基金與 LP / Fund Formation &amp; LP Activity</h2>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-fund">Fund Close</span>
+      <span class="tag tag-region">Asia</span>
+    </div>
+    <div class="card-headline">BAI Capital 首關 $6 億、目標 $8 億 USD 基金，聚焦亞洲企業全球化<br/><small style="font-weight:400;color:#b0b3c9">BAI Capital closes $600M first close on new $800M USD fund for Asia globalization</small></div>
+    <div class="section-label">核心事實 / Facts</div>
+    <p>BAI Capital 於 2026 年 5 月 22 日宣佈新 USD 基金首關，已承諾 $6 億，目標 $8 億。BAI 成立於 2008 年，已有 22 次 IPO、51 次交易退場紀錄。新基金將聚焦三類機會：中國冠軍企業出海、亞洲創新公司全球化、以及具備領先技術能力的國際公司進入中國市場。行業焦點：AI 與科技、金融服務、消費娛樂、企業服務。</p>
+    <p>May 22 — $600M first close on an $800M target. Focus: Chinese champion outbound expansion, Asia-origin global companies, international firms scaling via China. Sectors: AI/tech, fintech, consumer, B2B.</p>
+    <div class="section-label">影響觀察 / Implications</div>
+    <p>分析：在地緣政治緊張的背景下，BAI 跨境定位（中美雙向）是高風險高差異化策略。首關達目標 75%，顯示機構 LP 對跨境增長機遇的信心尚存，但 LP 若為美國大學捐贈基金，須評估合規風險。</p>
+    <div class="source-line">來源：<a href="https://www.prnewswire.com/news-releases/bai-capital-announces-first-close-of-new-us800-million-fund-302779175.html" target="_blank">PR Newswire · 2026-05-22</a></div>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-fund">Fund Close</span>
+      <span class="tag tag-region">Europe</span>
+    </div>
+    <div class="card-headline">Transition Ventures Fund II 超額完成 $1.5 億：氣候 VC 轉向「物理 AI」<br/><small style="font-weight:400;color:#b0b3c9">Transition Ventures raises oversubscribed $150M Fund II — climate firm pivots to "physical AI"</small></div>
+    <div class="section-label">核心事實 / Facts</div>
+    <p>總部倫敦的 Transition Ventures 完成 Fund II，規模 €1.28 億（約 $1.5 億），超額認購。AUM 突破 $3 億。Fund II 與 Fund I 的最大差異：從純氣候技術轉向「物理世界的 AI」——涵蓋電力基礎設施、AI 數據中心能源效率、機器人、關鍵材料。</p>
+    <p>London-based Transition Ventures closes €128M ($150M) oversubscribed Fund II; AUM now >$300M. Thematic pivot from pure-play climate to "physical AI" — power infrastructure, AI datacenter energy, robotics, critical materials.</p>
+    <div class="section-label">背景脈絡 / Context</div>
+    <p>Transition Ventures 曾投資碳移除公司，部分初期押注遭到損失。Fund II 的重框架反映更廣泛的歐洲氣候 VC 趨勢：在 AI 電力需求爆發下，投資人開始把「減少 AI 碳足跡」和「為 AI 供電的基礎設施」視為同一類機會。代表性投組公司包括 Seneca（AI 野火滅火，已融 €5100 萬）。</p>
+    <div class="section-label">影響觀察 / Implications</div>
+    <p>分析：氣候 VC 正在「AI 洗綠」——用 AI 敘事重新包裝氣候投組以提高 LP 接受度。訊號意義大於基金本身規模；若此路徑奏效，2026 下半年可能出現更多仿效者。</p>
+    <div class="source-line">來源：<a href="https://www.bloomberg.com/news/articles/2026-05-27/climate-venture-firm-leaning-into-ai-with-new-150-million-fund" target="_blank">Bloomberg · 2026-05-27</a> | <a href="https://www.eu-startups.com/2026/05/transition-ventures-raises-e128-million-fund-ii-for-early-stage-companies-at-the-intersection-of-ai-and-the-physical-world/" target="_blank">EU-Startups</a></div>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-fund">Fund Close</span>
+      <span class="tag tag-region">MENA</span>
+    </div>
+    <div class="card-headline">Khwarizmi Ventures Fund II 首關：$7000 萬+，聚焦 GCC 新創<br/><small style="font-weight:400;color:#b0b3c9">Khwarizmi Ventures Fund II $70M+ first close — GCC-focused</small></div>
+    <div class="section-label">核心事實 / Facts</div>
+    <p>沙烏地阿拉伯創投公司 Khwarizmi Ventures 的 Fund II 已於 2026 年 2 月完成首關，已簽承諾金額超過 SAR 2.7 億（$7000 萬+），LP 為機構投資人及沙烏地主要家族辦公室。Fund I 已部署完畢。</p>
+    <p>Saudi-based Khwarizmi Ventures first close on Fund II at SAR 270M+ (~$70M+); LPs include institutional investors and Saudi family offices. Focus: GCC early-stage startups.</p>
+    <div class="section-label">影響觀察 / Implications</div>
+    <p>分析：PIF（沙烏地主權基金）已開始大量直投全球晚期，Khwarizmi 此輪以家族辦公室為主要 LP，顯示國內資本市場層次正在形成——本地 VC 生態不再完全依賴 PIF。</p>
+    <div class="source-line">來源：<a href="https://www.wamda.com/2026/05/khwarizmi-ventures-launches-fund-ii-70m-close-gcc-startups" target="_blank">Wamda · 2026-05</a></div>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-fund">LP 動向</span>
+    </div>
+    <div class="card-headline">美國捐贈基金稅制壓力升級：部分機構加速 PE/VC 二級市場出售<br/><small style="font-weight:400;color:#b0b3c9">US endowment tax creates LP pressure — tiered 1.4–8% levy accelerates secondary sales</small></div>
+    <div class="section-label">核心事實 / Facts</div>
+    <p>2025 年 7 月 4 日已簽署生效的「One Big Beautiful Bill Act」對大學捐贈基金淨投資所得課徵分級稅率（1.4% / 4% / 8%），哈佛大學估計每年稅負約 $3.68 億。正式稅率預計 2026 年 7 月起對多數機構適用，促使部分捐贈基金加速 PE/VC 二級市場出售以管理流動性與稅務成本。</p>
+    <p>The endowment tax (effective July 2026 for most institutions) is forcing some LPs to accelerate secondary sales. Harvard alone faces ~$368M/yr in annual tax — driving portfolio rebalancing and changing commitment pace for new VC funds.</p>
+    <div class="section-label">影響觀察 / Implications</div>
+    <p>分析：捐贈基金 LP 仍是 VC 最穩定的資金來源（佔全行業 15–20%），但稅制壓力可能讓 2027 年後的 GP 募資更加困難——尤其是資金量小、DPI 尚低的中型基金。對 secondary 基金（如 Coller Capital、Lexington Partners）而言是直接利多。</p>
+    <div class="source-line">來源：<a href="https://altss.com/blog/endowments-foundations-as-lps-2026" target="_blank">AltSS · Endowments as LPs Guide 2026</a> | <a href="https://nvca.org/2026-nvca-yearbook/" target="_blank">NVCA 2026 Yearbook</a></div>
+  </div>
+
+  <!-- ===== 3. MEGA ROUNDS ===== -->
+  <div class="section-title" id="mega">
+    <span class="icon">💰</span>
+    <h2>大型 Round 與領投者 / Mega Rounds &amp; Lead Investors</h2>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-mega">$465M Series G</span>
+      <span class="tag tag-ai">Fusion Energy</span>
+    </div>
+    <div class="card-headline">Helion $4.65 億 Series G：Thrive Capital 領投，估值 $155 億，為 Microsoft 建融合電廠<br/><small style="font-weight:400;color:#b0b3c9">Helion $465M Series G led by Thrive Capital at $15.5B — building Microsoft fusion plant</small></div>
+    <div class="num-row">
+      <div class="num-item"><div class="num">$465M</div><div class="label-sm">Round Size</div></div>
+      <div class="num-item"><div class="num">$15.5B</div><div class="label-sm">Post-Money Val.</div></div>
+      <div class="num-item"><div class="num">$1.5B</div><div class="label-sm">Total Raised to Date</div></div>
+    </div>
+    <div class="section-label">核心事實 / Facts</div>
+    <p>Helion Energy 於 2026 年 6 月 4 日公告 $4.65 億 Series G，領投方：Thrive Capital（Josh Kushner 的成長基金）。新進 LP 包括 Alta Park Capital、BoxGroup、Lux Capital、Peak XV Partners、Ford Motor 主席 Bill Ford。現有股東包括 Lightspeed Venture Partners、SoftBank Vision Fund 2、Capricorn Technology Impact Fund、Dustin Moskovitz（Good Ventures）及一所大學捐贈基金（未具名）。Helion 已與 Microsoft 簽訂合約，為其華盛頓州數據中心供電，目標 2028 年。</p>
+    <p>June 4 — Thrive Capital leads $465M Series G at $15.5B. New investors: Lux Capital, Peak XV, Alta Park, BoxGroup. Existing: Lightspeed, SoftBank SVF2, Capricorn. Microsoft power purchase agreement targets 2028 delivery.</p>
+    <div class="section-label">背景脈絡 / Context</div>
+    <p>Thrive Capital 近期在 AI 能源基礎設施佈局大幅加碼——此前已領投 OpenAI 的多輪。Sam Altman 個人為 Helion 最大投資人之一。Helion 是目前最接近商業化的私有融合能源公司，估值已超越 Commonwealth Fusion Systems。</p>
+    <div class="section-label">影響觀察 / Implications</div>
+    <p>分析：Thrive 從科技消費品向能源基礎設施擴張，反映 AI 電力需求已成不可回避的投資主題。融合能源仍在早期驗證階段，$155 億估值隱含的風險溢價已大幅壓縮——若 2028 商業化目標延遲，下輪融資難度將顯著提升。</p>
+    <div class="source-line">來源：<a href="https://www.helionenergy.com/newsroom/helion-raises-465-million-series-g-funding-round-to-meet-surging-global-demand-for-power" target="_blank">Helion PR · 2026-06-04</a> | <a href="https://www.axios.com/pro/climate-deals/2026/06/04/helion-465-million-fusion-thrive" target="_blank">Axios Pro · 2026-06-04</a></div>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-mega">$500M Series F</span>
+      <span class="tag tag-ai">AI Infra</span>
+    </div>
+    <div class="card-headline">Supabase $5 億 Series F：GIC 領投，估值 $105 億<br/><small style="font-weight:400;color:#b0b3c9">Supabase $500M Series F led by GIC at $10.5B valuation</small></div>
+    <div class="section-label">核心事實 / Facts</div>
+    <p>開源資料庫後端平台 Supabase 於 2026 年 6 月 4 日完成 $5 億 Series F，由 GIC 領投，估值達 $105 億。參與方包括 Accel、Y Combinator、Coatue、Craft Ventures、Felicis Ventures、Peak XV Partners、Stripe、Salesforce Ventures。</p>
+    <p>June 4 — GIC leads $500M Series F at $10.5B for Supabase open-source BaaS platform. Co-investors: Accel, YC, Coatue, Craft, Felicis, Peak XV, Stripe, Salesforce Ventures.</p>
+    <div class="section-label">影響觀察 / Implications</div>
+    <p>分析：GIC 在本週已連續兩度出現為大輪領投（Ramp + Supabase），顯示新加坡主權基金正在積極直投晚期科技——繞過基金層，壓縮 VC 管理費與附帶利益空間。</p>
+    <div class="source-line">來源：<a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">Crunchbase News · 2026-06-05</a></div>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-mega">$500M Series D</span>
+      <span class="tag tag-ai">Space Tech</span>
+    </div>
+    <div class="card-headline">Impulse Space $5 億 Series D：137 Ventures + Banner VC 領投，估值 $42.6 億<br/><small style="font-weight:400;color:#b0b3c9">Impulse Space $500M Series D at $4.26B — 137 Ventures &amp; Banner VC lead</small></div>
+    <div class="section-label">核心事實 / Facts</div>
+    <p>太空推進公司 Impulse Space 於 2026 年 6 月 2 日完成 $5 億 Series D，估值 $42.6 億。領投：137 Ventures 及 Banner VC。參與：Founders Fund、Lux Capital、Linse Capital。</p>
+    <p>June 2 — 137 Ventures &amp; Banner VC co-lead $500M Series D for Impulse Space at $4.26B. Founders Fund, Lux Capital, Linse Capital participated.</p>
+    <div class="section-label">影響觀察 / Implications</div>
+    <p>分析：137 Ventures 專注於次級基金與非流通資產，此為其領投大型一級輪的罕見案例——可能反映 SpaceX 生態系公司的特殊估值邏輯。Lux Capital 在太空與國防的配置持續深化。</p>
+    <div class="source-line">來源：<a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">Crunchbase News · 2026-06-05</a></div>
+  </div>
+
+  <!-- ===== 4. EXITS ===== -->
+  <div class="section-title" id="exits">
+    <span class="icon">🚪</span>
+    <h2>退場 / Exits &amp; DPI Events</h2>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-exit">M&amp;A</span>
+      <span class="tag tag-ai">Biotech</span>
+    </div>
+    <div class="card-headline">Eli Lilly 以最高 $24 億收購 Orna Therapeutics，VC 退出順利<br/><small style="font-weight:400;color:#b0b3c9">Eli Lilly acquires Orna Therapeutics for up to $2.4B — major biotech VC exit</small></div>
+    <div class="section-label">核心事實 / Facts</div>
+    <p>Eli Lilly 宣佈以最高 $24 億收購 Orna Therapeutics（體內免疫細胞工程公司）。Orna 的主要 VC 股東包括 ARCH Venture Partners 等生技專業基金。此為 2026 年生技領域重要 M&amp;A 退出案例之一。</p>
+    <p>Eli Lilly agrees to pay up to $2.4B for Orna Therapeutics (in vivo immune cell engineering). ARCH Venture Partners among key VC backers. Represents one of 2026's significant biotech M&A exits.</p>
+    <div class="section-label">背景脈絡 / Context</div>
+    <p>生技 M&amp;A 作為 VC 退出通道在 2026 年持續活躍，尤其是與 GLP-1/癌症/免疫療法相關的標的仍是大藥廠的收購重心。Crunchbase 追蹤的 23 件重大 M&amp;A 中，有 10 件以不低於前輪峰值估值成交。</p>
+    <div class="section-label">影響觀察 / Implications</div>
+    <p>分析：生技 M&amp;A 退出是目前 DPI 回報最穩健的通道之一（VC IPO 市場仍受限），ARCH 等生技專業 VC 的 DPI 表現可能顯著優於 2018 年後的廣泛市場基準（目前部分 vintage DPI 僅 0.6x）。</p>
+    <div class="source-line">來源：<a href="https://news.crunchbase.com/health-wellness-biotech/startup-ma-ipo-delivering-exits/" target="_blank">Crunchbase News</a></div>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-exit">DPI Context</span>
+    </div>
+    <div class="card-headline">VC DPI 處於世代低點：2018 年 vintage 均值僅 0.6x，Exit 壓力持續<br/><small style="font-weight:400;color:#b0b3c9">VC DPI at generational lows — 2018 vintage median at just 0.6x as exit backlog lingers</small></div>
+    <div class="section-label">核心事實 / Facts</div>
+    <p>根據 VC 績效數據庫，2018 年 vintage VC 基金的中位數 DPI（Distributions to Paid-In）目前僅 0.6x。相比之下，2015–2018 年間的頂四分位基金已達 1.5–2.5x DPI，市場分化明顯。整體私市退出堵塞估計超過 $2,000 億未退出資本。</p>
+    <p>Median DPI for 2018 vintage VC funds: 0.6x. Top-quartile 2015–2018 funds: 1.5–2.5x. An estimated $200B+ backlog of unrealized VC value remains locked. IPO volume recovering (+89% YoY Q3 2024→2025) but still well below peak.</p>
+    <div class="section-label">影響觀察 / Implications</div>
+    <p>分析：DPI 壓力是 2026–2027 VC 募資難的根本原因——LP 在尚未看到分配時，對再承諾的意願更低。有利 secondary 基金、continuation fund、GP-led transaction 持續擴大市場份額。</p>
+    <div class="source-line">來源：<a href="https://valueaddvc.com/vc-performance" target="_blank">ValueAddVC · VC Performance Benchmarks 2026</a> | <a href="https://invezz.com/news/2026/03/12/vc-investors-200-billion-hole-where-did-all-the-money-go/" target="_blank">Invezz · 2026-03-12</a></div>
+  </div>
+
+  <!-- ===== 5. GP MOVES ===== -->
+  <div class="section-title" id="gp-moves">
+    <span class="icon">🚶</span>
+    <h2>GP 人事 / GP Moves</h2>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-gp">GP 出走</span>
+      <span class="tag tag-region">India / SEA</span>
+    </div>
+    <div class="card-headline">Peak XV 三位資深合夥人出走，成立新 VC：AI 策略分歧引發領導層震盪<br/><small style="font-weight:400;color:#b0b3c9">Peak XV loses three senior GPs — Agrawal, Mittal, Sharma to launch new firm after AI strategy split</small></div>
+    <div class="section-label">核心事實 / Facts</div>
+    <p>Peak XV Partners（Sequoia 分拆後的亞洲旗艦 VC）資深合夥人 Ashish Agrawal（任職 13 年以上）宣佈與夥伴 Ishaan Mittal（9 年+）及 Tejeshwi Sharma（7 年+）共同出走，三人決定「創業」成立新 VC。導火索是與 Peak XV 內部 AI 策略佈局方向的意見分歧。公告時間：2026 年 2 月。</p>
+    <p>February 2026 — Three Peak XV senior GPs (Agrawal 13yr, Mittal 9yr, Sharma 7yr) depart to launch a new VC firm following disagreement over the firm's AI-focused pivot. Peak XV continues to double down on AI investing.</p>
+    <div class="section-label">背景脈絡 / Context</div>
+    <p>Peak XV 在 2023 年從 Sequoia Capital Asia 獨立分拆後，持續重組投資重心向 AI 傾斜；部分資深合夥人在 portfolio 構成與風險偏好上與領導層存在分歧。三位離任者帶走大量印度/東南亞早期生態的人脈與判斷力。</p>
+    <div class="section-label">影響觀察 / Implications</div>
+    <p>分析：新 VC 尚未公佈名稱與策略；鑑於三人在南亞市場的深耕年數，其新基金極可能聚焦印度早期。對 Peak XV 而言，連續資深 GP 出走可能影響 LP 對下一期基金的信心評估。</p>
+    <div class="source-line">來源：<a href="https://techcrunch.com/2026/02/03/peak-xv-says-internal-disagreement-led-to-partner-exits-as-it-doubles-down-on-ai/" target="_blank">TechCrunch · 2026-02-03</a></div>
+  </div>
+
+  <!-- ===== 6. STRATEGY & ECOSYSTEM ===== -->
+  <div class="section-title" id="strategy">
+    <span class="icon">🧭</span>
+    <h2>策略與生態 / Strategy &amp; Ecosystem Shifts</h2>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-ai">AI Dominance</span>
+    </div>
+    <div class="card-headline">Q1 2026 全球 VC 規模達 $3,309 億創紀錄，AI 佔比 80%；4 月數據顯示 53% 融資集中 AI<br/><small style="font-weight:400;color:#b0b3c9">Global VC hits record $330.9B in Q1 2026 — 80% AI; April: 53% of all deals involve AI/ML</small></div>
+    <div class="section-label">核心事實 / Facts</div>
+    <p>Q1 2026 全球 VC 融資總額達 $3,309 億，創歷史新高，其中 80% 流向 AI 相關公司。2026 年 4 月單月 1,314 件融資案中，764 件涉及 AI 或機器學習（約 58%）。AI 市場本身規模估計約 $2,200 億，由少數超大輪主導，資金來源包括企業戰略投資人與主權財富基金。</p>
+    <p>Q1 2026 record $330.9B VC globally; 80% AI-related. April 2026: 1,314 deals, 764 (58%) AI/ML. AI market total ~$220B, dominated by mega-rounds from corporate strategics and SWFs.</p>
+    <div class="section-label">影響觀察 / Implications</div>
+    <p>分析：「AI 佔比 80%」並不代表所有 AI 公司估值合理——投資人的篩選器越來越指向「可防禦性」（專有數據、新架構、深度工作流整合），而非表層應用。非 AI 垂直領域（生命科學、氣候、工業）的 VC 正面臨更嚴峻的 LP 配置競爭。</p>
+    <div class="source-line">來源：<a href="https://angelinvestorsnetwork.com/venture-capital/vc-funding-q2-2026-trends" target="_blank">Angel Investors Network · VC Q1 2026 Data</a> | <a href="https://inforcapital.com/blog/2026-04-25-the-ai-funding-supercycle-1314-deals-in-april-show-where-real-capital-is-going/" target="_blank">InforCapital · 2026-04-25</a></div>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-fund">Defense Tech</span>
+    </div>
+    <div class="card-headline">Air Street Capital Fund III $2.32 億：歐洲最大 Solo GP 基金，聚焦 AI ×國防<br/><small style="font-weight:400;color:#b0b3c9">Air Street Capital Fund III $232M — Europe's largest solo GP fund; AI × defense focus</small></div>
+    <div class="section-label">核心事實 / Facts</div>
+    <p>Nathan Benaich 的 Air Street Capital 於 2026 年 3 月完成 Fund III，規模 $2.32 億，成為歐洲規模最大的 solo GP 創投基金。LP 以美國大學捐贈基金、基金會、醫院為主，部分 LP 為首次投資 solo GP 創投基金。投資範圍：北美與歐洲的 AI-first 公司，行業涵蓋軟體、科學、物理世界與國防。票券大小：早期 $50–$1500 萬，成長輪最高 $2500 萬。代表性投組：Synthesia、Black Forest Labs、Delian Alliance Industries。</p>
+    <p>March 2026 — $232M Fund III closes; LPs: US endowments, foundations, hospitals. Ticket size: $500K–$15M early, up to $25M growth. Key portfolio: Synthesia (AI video), Delian Alliance Industries (autonomous defense systems for Europe).</p>
+    <div class="section-label">影響觀察 / Implications</div>
+    <p>分析：Air Street 的 solo GP 路徑在美國已常見，但在歐洲仍屬例外。Fund III 規模翻倍以上，LP 對單一決策人的信任增加，可能刺激歐洲其他有品牌的個人投資者尋求脫離大型機構自立門戶。</p>
+    <div class="source-line">來源：<a href="https://press.airstreet.com/p/fund-iii" target="_blank">Air Street Capital PR · 2026-03</a> | <a href="https://tech.eu/2026/03/23/nathan-benaich-s-air-street-raises-232m-fund-iii-becoming-europe-s-largest-solo-gp-venture-firm/" target="_blank">Tech.eu</a></div>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-fund">AML 合規</span>
+    </div>
+    <div class="card-headline">VC 基金 AML 合規新規 2026：SEC 登記與豁免申報 Advisers 均受規範<br/><small style="font-weight:400;color:#b0b3c9">New AML rules apply to all VC advisers from Jan 2026 — written programs, compliance officer, training required</small></div>
+    <div class="section-label">核心事實 / Facts</div>
+    <p>2026 年 1 月 1 日起，美國反洗錢計畫要求正式適用於 SEC 登記投資顧問與豁免申報顧問（Exempt Reporting Advisers，ERAs），要求 VC 基金建立書面合規政策與程序、指定合規長及員工培訓計畫。</p>
+    <p>From Jan 1, 2026, AML program requirements apply to both SEC-registered investment advisers and Exempt Reporting Advisers. VC firms must have written policies, a designated CCO, and ongoing staff training.</p>
+    <div class="section-label">影響觀察 / Implications</div>
+    <p>分析：此規定對大型 VC 影響有限（早已具備合規架構），但對新興 solo GP 和微型基金（AUM $1–5 億）是實質性行政負擔，可能推升基金設立成本、抑制新 GP 浮現。</p>
+    <div class="source-line">來源：<a href="https://www.americanbar.org/groups/business_law/resources/business-law-today/2026-january/house-passes-bipartisan-capital-formation-package-invest-act/" target="_blank">ABA Business Law Today · 2026-01</a></div>
+  </div>
+
+  <!-- ===== 7. REGIONAL ===== -->
+  <div class="section-title" id="regional">
+    <span class="icon">🌏</span>
+    <h2>區域 / Regional Highlights</h2>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-region">US</span>
+    </div>
+    <div class="card-headline">美國：本週 megaround 激增，AI + 企業軟體 + 太空科技三大主軸領跑</div>
+    <p>本週（截至 6 月 5 日）美國 VC 市場以量取勝：Ramp $7.5 億、Supabase $5 億、Impulse Space $5 億、Helion $4.65 億、Flourish（腦啟發 AI 模型）$5 億、NewLimit $4.35 億、Suno $4 億。Benchmark $20 億雙基金為本週最重大 GP 策略事件。防禦科技（Mach Industries $3 億，Sequoia + Khosla 等參投）持續吸資。</p>
+    <div class="source-line">來源：<a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">Crunchbase News · 2026-06-05</a></div>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-region">Europe</span>
+    </div>
+    <div class="card-headline">歐洲：Q1 VC 募資 €35 億，中位數基金規模 €8500 萬（年增 70%）</div>
+    <p>PitchBook 歐洲數據顯示 Q1 2026 VC 募資 €35 億，較去年明顯回升，中位數基金規模達 €8500 萬（年增 70%）。Transition Ventures Fund II（€1.28 億）、Elaia（€1.2 億，法國 B2B 科技）、Daphni Blue Fund（€2.6 億）均已完成首關或完整 close。Q2 預計受地緣政治、AI 監管（EU AI Act 執行期）影響持續分化。首次 solo GP 歐洲基金數量也在增加（Air Street 為里程碑）。</p>
+    <div class="source-line">來源：<a href="https://sifted.eu/articles/first-time-european-vc-funds-2026" target="_blank">Sifted</a> | <a href="https://www.vestbee.com/insights/articles/new-vc-funds-launched-in-q1-2026-to-invest-in-europe" target="_blank">Vestbee</a></div>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-region">Asia</span>
+    </div>
+    <div class="card-headline">亞洲：Peak XV Fund XI $28.5 億完成，BAI Capital $8 億目標基金首關；印度仍為最活躍早期市場</div>
+    <p>亞太 VC 市場規模估計 $2968 億（2026 年），其中未部署干火藥約 $2400 億，GP 正選擇性部署至具備明確成熟信號的公司。Peak XV Partners Fund XI 最終關閉 $28.5 億，超目標 14%。BAI Capital 新 USD 基金首關 $6 億（目標 $8 億），聚焦亞洲企業全球化與跨境機遇。GIC 本週在 Ramp 和 Supabase 兩輪均為領投，顯示新加坡主權基金積極直投策略。</p>
+    <div class="source-line">來源：<a href="https://kpmg.com/xx/en/what-we-do/industries/private-enterprise/venture-pulse/asia.html" target="_blank">KPMG Asia Q1'26 Venture Pulse</a></div>
+  </div>
+
+  <div class="card">
+    <div style="margin-bottom:8px">
+      <span class="tag tag-region">MENA</span>
+    </div>
+    <div class="card-headline">中東：PIF 直投全球晚期加速，Khwarizmi 等本地 VC 以沙烏地家辦資本為 LP 建立獨立生態</div>
+    <p>沙烏地 PIF（主權財富基金）AUM 已超越 $7,000 億（2025 年報告），持續擴大在全球科技晚期輪的直投比重。與此同時，本地 VC（如 Khwarizmi Ventures Fund II $7000 萬+）以家族辦公室和機構 LP 為支撐，建立相對獨立的早期生態，不再完全依賴 PIF。兩個層次的資本結構正逐漸形成：主權直投大輪 + 本地 VC 孕育早期。</p>
+    <div class="source-line">來源：<a href="https://www.wamda.com/2026/05/khwarizmi-ventures-launches-fund-ii-70m-close-gcc-startups" target="_blank">Wamda</a> | <a href="https://globalswf.com/" target="_blank">Global SWF</a></div>
+  </div>
+
+  <!-- ===== 8. READS ===== -->
+  <div class="section-title" id="reads">
+    <span class="icon">📚</span>
+    <h2>觀點 / Reads</h2>
+  </div>
+
+  <div class="reads-card">
+    <div class="title">Dan Primack（Axios Pro Rata）：「Benchmark 放棄守則」<br/><small style="font-weight:400">Benchmark Breaks 20-Year Tradition</small></div>
+    <div class="desc">Pro Rata 主筆 Dan Primack 分析 Benchmark 史無前例的 $20 億雙基金：為什麼這是整個行業的重要訊號，而不只是一家公司的策略選擇。核心論點：若矽谷最克制的早期 VC 都必須進場成長輪，純早期模型在 AI 時代的可持續性需要重新評估。</div>
+    <div class="source-line" style="margin-top:8px"><a href="https://www.axios.com/2026/06/04/benchmark-2-billion-vc-funds" target="_blank">Axios Pro Rata · 2026-06-04</a></div>
+  </div>
+
+  <div class="reads-card">
+    <div class="title">Crunchbase：「本週 megaround 激增：企業軟體、AI 與太空科技領軍」<br/><small style="font-weight:400">The Week's 10 Biggest Funding Rounds — Megarounds Proliferate</small></div>
+    <div class="desc">Crunchbase 本週榜單分析 AI 軟體（Ramp、Supabase）、融合能源（Helion）、太空推進（Impulse Space）、腦啟發 AI（Flourish）同時拿出 $4 億以上大輪的罕見現象。報告指出主權財富基金（GIC）與養老基金（OTPP）的結構性直投已超越傳統 VC 基金在晚期輪的參與比重。</div>
+    <div class="source-line" style="margin-top:8px"><a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">Crunchbase News · 2026-06-05</a></div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <p>今日創投新聞日報 · Daily VC Briefing · 2026-06-06</p>
+  <p style="margin-top:6px">資料來源：<a href="https://www.axios.com/newsletters/axios-pro-rata" target="_blank">Axios Pro Rata</a> · <a href="https://news.crunchbase.com/" target="_blank">Crunchbase News</a> · <a href="https://techcrunch.com/category/venture/" target="_blank">TechCrunch Venture</a> · <a href="https://sifted.eu/" target="_blank">Sifted</a> · <a href="https://www.bloomberg.com/deals" target="_blank">Bloomberg Deals</a> · <a href="https://www.otpp.com/" target="_blank">Ontario Teachers'</a> · <a href="https://www.gic.com.sg/" target="_blank">GIC Newsroom</a></p>
+  <p style="margin-top:6px;color:#555">本報告為資訊整理，不構成投資建議。分析段落標注「分析，非事實」。</p>
+</footer>
+
+</body>
+</html>

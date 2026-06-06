@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美股日報 US Stocks Daily — 2026-06-06 (交易日 Jun 5)</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.65;
+    padding: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.3px; }
+  header .subtitle { color: #a8b9d0; font-size: 0.9rem; margin-top: 6px; }
+  header .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-top: 10px;
+    color: #e0eaff;
+  }
+
+  /* Index Table */
+  .index-table-wrap {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  .index-table-wrap h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  table.idx {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  table.idx th {
+    background: #f1f3f5;
+    color: #555;
+    font-weight: 600;
+    padding: 8px 12px;
+    text-align: left;
+    border-radius: 4px;
+  }
+  table.idx td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    font-variant-numeric: tabular-nums;
+  }
+  table.idx tr:last-child td { border-bottom: none; }
+  .up { color: #16a34a; font-weight: 600; }
+  .dn { color: #dc2626; font-weight: 600; }
+  .neu { color: #6b7280; font-weight: 600; }
+
+  /* Section cards */
+  .section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 26px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  .section h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section h2 .icon { font-size: 1.2rem; }
+  .section h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 18px 0 6px;
+  }
+  .section h3:first-child { margin-top: 0; }
+  .meta {
+    font-size: 0.78rem;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .meta a { color: #0f3460; text-decoration: none; }
+  .meta a:hover { text-decoration: underline; }
+  .fact-block, .ctx-block, .impl-block {
+    border-left: 3px solid;
+    padding: 8px 14px;
+    margin: 8px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.87rem;
+  }
+  .fact-block { border-color: #0f3460; background: #eef2ff; }
+  .ctx-block  { border-color: #7c3aed; background: #f5f3ff; }
+  .impl-block { border-color: #059669; background: #ecfdf5; }
+  .label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #666;
+    margin-bottom: 3px;
+  }
+
+  /* Heatmap pill row */
+  .sector-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .sector-pill {
+    border-radius: 20px;
+    padding: 5px 13px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  .pill-up   { background: #16a34a; }
+  .pill-mid  { background: #ca8a04; }
+  .pill-dn   { background: #dc2626; }
+  .pill-big-dn { background: #991b1b; }
+
+  /* alert banner */
+  .alert {
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    color: #78350f;
+    margin-bottom: 18px;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.76rem;
+    color: #9ca3af;
+    line-height: 1.7;
+  }
+  footer a { color: #6b7280; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🇺🇸 美股日報 US Stocks Daily Briefing</h1>
+  <div class="subtitle">三大指數・個股大事・Fed 動向・資金流向 — 中英並陳深度解析</div>
+  <div class="date-badge">交易日 Trading Session: Friday, June 5, 2026 &nbsp;|&nbsp; 整理日期: 2026-06-06 (Taipei)</div>
+</header>
+
+<div class="alert">
+  ⚠️ <strong>警示 / Alert：</strong>本交易日為強烈震盪日。NFP 超預期 (172K vs 預期 85K) 觸發 Fed 升息擔憂，科技 / 半導體板塊遭大幅拋售，VIX 單日飆升 ~34%，收盤越過 20 大關。<br>
+  Strong volatility session. May payrolls (172K vs 85K expected) triggered hawkish-Fed repricing; tech/semis sold off hard; VIX surged ~34% through 20.
+</div>
+
+<!-- ===== INDEX TABLE ===== -->
+<div class="index-table-wrap">
+  <h2>市場概覽 / Market Snapshot — RTH Close, June 5, 2026</h2>
+  <table class="idx">
+    <tr>
+      <th>指數 / Index</th>
+      <th>收盤 Close</th>
+      <th>漲跌 Chg</th>
+      <th>% 變動</th>
+      <th>備注</th>
+    </tr>
+    <tr>
+      <td>S&amp;P 500 (SPX)</td>
+      <td>~7,545</td>
+      <td class="dn">▼</td>
+      <td class="dn">-0.63%</td>
+      <td>前一日 Jun 2 收 7,600 歷史新高後回落</td>
+    </tr>
+    <tr>
+      <td>Nasdaq Composite (IXIC)</td>
+      <td>—</td>
+      <td class="dn">▼</td>
+      <td class="dn">-3.0% ~ -4.1%</td>
+      <td>晶片股拖累；4月以來單日最大跌幅</td>
+    </tr>
+    <tr>
+      <td>Dow Jones (DJIA)</td>
+      <td>—</td>
+      <td class="up">▲</td>
+      <td class="up">+0.07%</td>
+      <td>防禦 / 金融撐盤，勉強收平</td>
+    </tr>
+    <tr>
+      <td>Russell 2000 (RUT)</td>
+      <td>—</td>
+      <td class="dn">▼</td>
+      <td class="dn">-3.6% ~ -3%</td>
+      <td>小型股同步下跌</td>
+    </tr>
+    <tr>
+      <td>VIX</td>
+      <td>&gt; 20</td>
+      <td class="dn">▲</td>
+      <td class="dn">+~34%</td>
+      <td>單日暴衝，6月1日時尚在 16.05</td>
+    </tr>
+    <tr>
+      <td>US 10Y Yield</td>
+      <td>~4.54%</td>
+      <td class="dn">▲</td>
+      <td class="dn">+8 bps</td>
+      <td>NFP 後大幅走升，升息預期重燃</td>
+    </tr>
+    <tr>
+      <td>DXY (US Dollar)</td>
+      <td>+0.5% in Jun MTD</td>
+      <td class="dn">▲</td>
+      <td class="dn">升值</td>
+      <td>強勁就業支撐美元</td>
+    </tr>
+    <tr>
+      <td>WTI Crude Oil</td>
+      <td>—</td>
+      <td class="up">▼</td>
+      <td class="up">下跌</td>
+      <td>以黎停火協議樂觀情緒，能源回落；惟仍高於衝突前水位</td>
+    </tr>
+  </table>
+  <p style="font-size:0.76rem;color:#999;margin-top:8px;">* 部分精確點位未取得最終收盤資料，以區間或方向標示；來源：TheStreet、Yahoo Finance、FXStreet、Schwab。</p>
+</div>
+
+<!-- ===== SECTION 1: MARKET OVERVIEW ===== -->
+<div class="section">
+  <h2><span class="icon">📊</span> 1. 市場概況 / Market Overview</h2>
+
+  <h3>板塊輪動 / Sector Heatmap (June 5, 2026)</h3>
+  <div class="sector-row">
+    <span class="sector-pill pill-up">金融 Financials +2.48%</span>
+    <span class="sector-pill pill-up">公用事業 Utilities +0.48%</span>
+    <span class="sector-pill pill-up">能源 Energy +0.37%</span>
+    <span class="sector-pill pill-up">非必需消費 Cons.Cycl +0.59%</span>
+    <span class="sector-pill pill-dn">資訊科技 Info Tech ▼</span>
+    <span class="sector-pill pill-big-dn">半導體 Semis ▼▼▼</span>
+    <span class="sector-pill pill-dn">通訊 Comm.Svcs ▼</span>
+  </div>
+
+  <div class="fact-block" style="margin-top:14px;">
+    <div class="label">核心事實 / Facts</div>
+    S&amp;P 500 -0.63%，Nasdaq -3%~-4%，Russell 2000 -3.6%；DJIA 幾乎持平 (+0.07%)。VIX 單日飆漲約 34%，突破 20 關口。金融、公用事業、能源出現明顯防禦輪動。
+  </div>
+  <div class="ctx-block">
+    <div class="label">背景脈絡 / Context</div>
+    週一至週三的科技/晶片狂歡在週四（Jun 4）Broadcom 財報後驟然轉向；週五 NFP 數據再度雪上加霜。S&amp;P 500 在創下 7,600 歷史新高後，兩天內修正，顯示市場積累的估值壓力遇到宏觀衝擊時，拋售速度極快。
+  </div>
+  <div class="impl-block">
+    <div class="label">影響觀察 / Implications</div>
+    金融股逆勢上漲，反映「升息 = 利差擴大」的傳統邏輯重被定價。能源受中東停火樂觀情緒影響小幅下挫（但搜尋結果顯示油價下跌）。後續觀察：6/16–17 FOMC 會議成為市場最大焦點，CME FedWatch 升息概率大幅上修。
+  </div>
+</div>
+
+<!-- ===== SECTION 2: TOP STORIES ===== -->
+<div class="section">
+  <h2><span class="icon">🔥</span> 2. 頭條 / Top Stories</h2>
+
+  <h3>就業報告爆表，「好消息變壞消息」/ Blowout Jobs Report Triggers Hawkish Repricing</h3>
+  <div class="meta">
+    來源 / Source: <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank">BLS Employment Situation – May 2026</a> · <a href="https://www.fxstreet.com/news/nonfarm-payrolls-set-to-show-broadly-stable-us-job-market-as-fed-rate-hike-odds-mount-202606050400" target="_blank">FXStreet NFP</a> · <a href="https://finance.yahoo.com/markets/stocks/articles/stock-market-today-june-5-172520268.html" target="_blank">Yahoo Finance</a> · 2026-06-05
+  </div>
+  <div class="fact-block">
+    <div class="label">核心事實 / Facts</div>
+    5 月非農就業人口 +172,000（預期 +85,000；4 月修正後 +179,000）；失業率 4.3%（符合預期）；平均時薪年增 3.4%（前值 3.6%，略降溫）。CME FedWatch 升息 25bps 概率升至 ~60%。
+  </div>
+  <div class="ctx-block">
+    <div class="label">背景脈絡 / Context</div>
+    Fed 利率目前維持在 3.50–3.75%（2026/4/29 FOMC 維持不變）。4 月會議聲明曾暗示降息可能；Dallas Fed Logan 早於 6/3 已發出升息警告（dissent at May 1 meeting）。勞動市場超預期強韌，打破「下半年降息」主流敘事，市場被迫重新定價。
+  </div>
+  <div class="impl-block">
+    <div class="label">影響觀察 / Implications</div>
+    科技 / 成長股受最大估值衝擊（利率敏感）；防禦板塊及金融股相對受益。若通膨數據（下週 CPI？）也超預期，升息概率將進一步飆升。聯準會 6/16–17 的決定成為最大 binary event。
+  </div>
+
+  <h3>Broadcom 財報後晶片股大崩 / Broadcom Earnings Shock Triggers $1T Chip Sector Wipeout</h3>
+  <div class="meta">
+    來源 / Source: <a href="https://www.cnbc.com/2026/06/04/chipmaker-equities-micron-marvell-broadcom-intel.html" target="_blank">CNBC</a> · <a href="https://finance.yahoo.com/markets/stocks/article/intel-amd-micron-shares-trim-losses-after-broadcom-results-spark-semiconductor-sector-sell-off-130128361.html" target="_blank">Yahoo Finance</a> · <a href="https://cryptobriefing.com/micron-broadcom-chip-stocks-market-cap-loss/" target="_blank">CryptoBriefing</a> · 2026-06-04/05
+  </div>
+  <div class="fact-block">
+    <div class="label">核心事實 / Facts</div>
+    Broadcom (AVGO) Q2 FY26 營收 $22.19B (+48% YoY)、EPS $2.44（略超預期 $2.39）；但 Q3 AI 晶片指引低於市場預期約 $1.2B，且未上調全年 AI 營收目標 $100B。AVGO 盤中一度跌 ~15%。Marvell (MRVL) -10.13%，Micron (MU) 市值蒸發 ~$94B（Jun 4），NVDA -6%+ (Jun 5)，AMD 同步下挫。
+  </div>
+  <div class="ctx-block">
+    <div class="label">背景脈絡 / Context</div>
+    AI 晶片板塊在 5 月累積漲幅達數十 %，以 NVDA/AVGO/MRVL 為首的「超級循環」敘事推動估值到極端水平。Broadcom 雖業績亮眼，但「未上調指引 = 指引下調」的市場心態下，引爆獲利了結。疊加 NFP 數據帶來的升息擔憂，恐慌性拋售加劇。
+  </div>
+  <div class="impl-block">
+    <div class="label">影響觀察 / Implications</div>
+    半導體 ETF（SOXX、SMH）短線壓力顯著。需關注：NVDA 是否也將在下個財報中面臨「指引不夠高」的困境。晶片股若持續弱勢，將拖累 QQQ、XLK 乃至整個 SPX（科技權重約 32%）。
+  </div>
+</div>
+
+<!-- ===== SECTION 3: EARNINGS ===== -->
+<div class="section">
+  <h2><span class="icon">📋</span> 3. 財報 / Earnings of the Day</h2>
+
+  <h3>Broadcom (AVGO) — Q2 FY2026 財報</h3>
+  <div class="meta">
+    來源 / Source: <a href="https://www.sec.gov/Archives/edgar/data/0001730168/000173016826000051/avgo-05032026x8kxex99.htm" target="_blank">SEC 8-K Filing</a> · <a href="https://stockinvest.us/earnings-report/AVGO" target="_blank">StockInvest</a> · 報告日 2026-06-03
+  </div>
+  <div class="fact-block">
+    <div class="label">核心事實 / Facts</div>
+    <ul style="padding-left:18px; font-size:0.87rem;">
+      <li>Q2 FY26 營收：$22.19B (+48% YoY) ✅ 符合/微超預期</li>
+      <li>Non-GAAP EPS：$2.44 vs 預期 $2.39 ✅ 小幅 beat</li>
+      <li>AI 半導體前一季（Q1）年增 +106% YoY</li>
+      <li>Q3 AI 晶片指引：低於市場預期約 $1.2B ❌</li>
+      <li>全年 AI 營收目標維持 $100B（未上調）❌ 市場失望</li>
+    </ul>
+  </div>
+  <div class="ctx-block">
+    <div class="label">背景脈絡 / Context</div>
+    市場本已將「每季上調指引」定價為必然，一旦未超預期即視為 miss。Broadcom 的客製化 AI 加速器（XPU）業務為 Google、Meta 等超大型雲商定制，需求能見度理應良好，此次未上調讓市場對整個 AI 超級循環敘事產生動搖。
+  </div>
+  <div class="impl-block">
+    <div class="label">影響觀察 / Implications</div>
+    AVGO 股價短線面臨估值重置。長期觀察：若超大型雲商 capex 計畫未縮減，下一季指引有望回升；但短期情緒面仍是空方主導。
+  </div>
+</div>
+
+<!-- ===== SECTION 4: SINGLE-STOCK MOVERS ===== -->
+<div class="section">
+  <h2><span class="icon">📈</span> 4. 個股大事 / Single-Stock Movers</h2>
+
+  <h3>NVIDIA (NVDA) — 盤中跌逾 6% / Intraday -6%+</h3>
+  <div class="meta">
+    來源 / Source: <a href="https://ca.finance.yahoo.com/news/tech-stocks-today-chip-stocks-drag-down-tech-sector-as-broadcom-earnings-give-investors-pause-100000485.html" target="_blank">Yahoo Finance</a> · <a href="https://www.cnbc.com/quotes/NVDA" target="_blank">CNBC</a> · 2026-06-05
+  </div>
+  <div class="fact-block">
+    <div class="label">核心事實 / Facts</div>
+    NVDA 盤中交易區間 $206.64–$216.25（前日收 $218.66）；盤中最低跌 ~6%+。Broadcom 指引失望疊加就業數據升息預期，拖累 NVDA 遭獲利了結。
+  </div>
+  <div class="ctx-block">
+    <div class="label">背景脈絡 / Context</div>
+    NVDA 年內仍大幅上漲，Blackwell 出貨強勁，多家分析師維持多個銀行上調目標價。但在歷史高位附近，任何宏觀衝擊均容易觸發程序性止損與對沖賣壓。
+  </div>
+  <div class="impl-block">
+    <div class="label">影響觀察 / Implications</div>
+    NVDA 是 QQQ/SPY/SMH 最大權重股之一，波動對指數影響顯著。下一催化劑：NVDA 自身財報（約 8 月）及 Blackwell 出貨量更新。
+  </div>
+
+  <h3>Marvell Technology (MRVL) — 單日跌 -10.13%</h3>
+  <div class="meta">
+    來源 / Source: <a href="https://www.tradingkey.com/news/market-movers/261950087-market-movers-mrvl-20260605" target="_blank">TradingKey</a> · 2026-06-05
+  </div>
+  <div class="fact-block">
+    <div class="label">核心事實 / Facts</div>
+    MRVL 單日 -10.13%，連同 MU、AMD、INTC 均大幅回落。Broadcom 財報的負面溢出效應直接打壓整個定制 XPU / 自定義晶片概念。
+  </div>
+  <div class="ctx-block">
+    <div class="label">背景脈絡 / Context</div>
+    MRVL 今年以來大幅上漲，主要由 Amazon、Microsoft 等雲商定制 AI 晶片訂單驅動。在 Broadcom 指引疑慮下，投資人開始懷疑整個定制晶片的需求是否已被過度樂觀定價。
+  </div>
+  <div class="impl-block">
+    <div class="label">影響觀察 / Implications</div>
+    MRVL 獲利了結空間仍大；若後續大型雲商 capex 數據強勁，反彈空間亦大。屬於高 beta 個股，適合短線交易者但不宜重倉持有過夜。
+  </div>
+
+  <h3>Bitcoin — 盤前跌 3.52%，跌破 $62K</h3>
+  <div class="meta">
+    來源 / Source: <a href="https://finance.yahoo.com/markets/stocks/articles/stock-market-today-june-5-172520268.html" target="_blank">Yahoo Finance</a> · 2026-06-05
+  </div>
+  <div class="fact-block">
+    <div class="label">核心事實 / Facts</div>
+    比特幣盤前報 $61,914，跌 3.52%；本週對應比特幣 ETF 連續淨流出（創紀錄周數），本週為 2 月以來最差表現週。
+  </div>
+  <div class="ctx-block">
+    <div class="label">背景脈絡 / Context</div>
+    升息預期重燃直接打壓高風險資產；比特幣 ETF（IBIT、FBTC 等）已出現多週資金流出跡象，顯示機構投資者在 Fed 政策不確定性下降低風險敞口。
+  </div>
+  <div class="impl-block">
+    <div class="label">影響觀察 / Implications</div>
+    比特幣持續弱勢可能拖累 Coinbase (COIN)、MicroStrategy (MSTR) 等加密相關股票。同時也是整體風險偏好的領先指標。
+  </div>
+</div>
+
+<!-- ===== SECTION 5: M&A & IPO ===== -->
+<div class="section">
+  <h2><span class="icon">🤝</span> 5. 併購與 IPO / M&A and IPO</h2>
+
+  <h3>Berkshire Hathaway 以 $68 億收購 Taylor Morrison / Greg Abel 首宗大型併購</h3>
+  <div class="meta">
+    來源 / Source: <a href="https://www.bloomberg.com/news/articles/2026-05-31/berkshire-hathaway-to-buy-taylor-morrison-for-6-8-billion" target="_blank">Bloomberg</a> · <a href="https://fortune.com/2026/05/31/berkshire-hathaway-acquisition-taylor-morrison-homebuilder-greg-abel/" target="_blank">Fortune</a> · 宣布日 2026-06-01
+  </div>
+  <div class="fact-block">
+    <div class="label">核心事實 / Facts</div>
+    Berkshire Hathaway 以全現金 $6.8B 收購全美第四大建商 Taylor Morrison Home Corp (TMHC)；收購價格 $72.50/股，較最新收盤溢價 24%。交易預計 2026 年下半年完成。此為 Greg Abel 接任 CEO 後首宗重大併購。
+  </div>
+  <div class="ctx-block">
+    <div class="label">背景脈絡 / Context</div>
+    Berkshire 早已持有 Clayton Homes（工廠式住宅）及多個建材公司，此次收購是對美國住宅市場的重大押注。儘管利率高企，供給短缺支撐美國新屋市場。Abel 以此向市場宣示其資本配置風格與 Buffett 一脈相承。
+  </div>
+  <div class="impl-block">
+    <div class="label">影響觀察 / Implications</div>
+    建商板塊（DHI、LEN、PHM）獲溢價收購消息激勵，短線看漲。Berkshire 現金持倉龐大，若後續繼續出手，相關板塊估值將獲得重估支撐。
+  </div>
+</div>
+
+<!-- ===== SECTION 6: ANALYST CALLS ===== -->
+<div class="section">
+  <h2><span class="icon">🔍</span> 6. 券商評等 / Analyst Calls</h2>
+
+  <h3>值得關注的評等異動 (2026 年 6 月初)</h3>
+  <div class="meta">
+    來源 / Source: <a href="https://www.heygotrade.com/en/blog/wall-street-analyst-upgrades-june-2026/" target="_blank">HeyGoTrade</a> · <a href="https://www.benzinga.com/analyst-stock-ratings" target="_blank">Benzinga</a> · 2026-06 初
+  </div>
+
+  <div class="fact-block">
+    <div class="label">升評 Upgrades</div>
+    <ul style="padding-left:18px; font-size:0.87rem; line-height:1.8;">
+      <li><strong>NVDA</strong>：多家銀行上調目標價，引用 Blackwell 出貨擴大預期</li>
+      <li><strong>META</strong>：高 capex 支出被確認不傷害利潤率，Reels 貨幣化 + 廣告定價提升驅動升評</li>
+      <li><strong>INTC</strong>：年內上漲 250% 後，部分空頭分析師移至 Hold/Buy；INTC 製造轉型進展改善預期</li>
+      <li><strong>AVGO</strong>：超大型雲商設計訂單加持，預期 CY26–27 進入收割期</li>
+    </ul>
+  </div>
+  <div class="ctx-block">
+    <div class="label">降評 Downgrades</div>
+    <ul style="padding-left:18px; font-size:0.87rem; line-height:1.8;">
+      <li><strong>Intuit (INTU)</strong>：Goldman Sachs 降至 Sell</li>
+      <li><strong>Okta (OKTA)</strong>：Mizuho 從 Outperform 降至 Neutral</li>
+      <li><strong>Con Edison (ED)</strong>：Mizuho 從 Outperform 降至 Neutral</li>
+      <li>整體本週降評 (54) >> 升評 (32)，市場情緒偏謹慎</li>
+    </ul>
+  </div>
+  <div class="impl-block">
+    <div class="label">影響觀察 / Implications</div>
+    降評數量多於升評，且多集中在軟體（INTU、OKTA）與公用事業（ED），反映估值修正壓力不限於半導體。Goldman 降 INTU 的判斷若成真，SaaS 板塊可能跟進補跌。
+  </div>
+</div>
+
+<!-- ===== SECTION 7: FED & RATES ===== -->
+<div class="section">
+  <h2><span class="icon">🏛️</span> 7. Fed 與利率 / Fed &amp; Rates</h2>
+
+  <h3>Dallas Fed Logan 警告升息，NFP 引爆升息預期</h3>
+  <div class="meta">
+    來源 / Source: <a href="https://www.dallasfed.org/news/speeches/logan/2026/lkl260603" target="_blank">Dallas Fed Speech 2026-06-03</a> · <a href="https://www.axios.com/2026/06/04/inflation-rates-labor-market-fed" target="_blank">Axios</a> · <a href="https://www.bloomberg.com/news/articles/2026-06-03/logan-says-fed-may-need-to-raise-rates-this-year-to-cool-prices" target="_blank">Bloomberg</a>
+  </div>
+  <div class="fact-block">
+    <div class="label">核心事實 / Facts</div>
+    <ul style="padding-left:18px; font-size:0.87rem; line-height:1.8;">
+      <li>現行聯邦基金利率：3.50–3.75%（4/29 FOMC 維持不變）</li>
+      <li>Core PCE：3.3% YoY；Dallas Fed Trimmed Mean PCE：2.3% YoY</li>
+      <li>整體通膨（headline）：接近 4% YoY（未降至 2% 目標）</li>
+      <li>Logan 6/3 演講：明確表示「今年可能需要升息以恢復物價穩定」</li>
+      <li>Logan 為 2026 FOMC 投票委員，曾在 5/1 聲明中投下異議票</li>
+      <li>CME FedWatch：至少一次升息 25bps 概率升至 ~60%</li>
+    </ul>
+  </div>
+  <div class="ctx-block">
+    <div class="label">背景脈絡 / Context</div>
+    2026 年年初市場共識仍傾向降息，但能源價格（中東衝突）、韌性勞動市場、強勁企業獲利（「corporate earnings going gangbusters」— Logan）共同阻止通膨回落。Logan 在 5 月 FOMC 投出罕見的鷹派異議票，已是預警。
+  </div>
+  <div class="impl-block">
+    <div class="label">影響觀察 / Implications</div>
+    下一個關鍵數據：6 月 CPI（日期未確認）。若 CPI 也超預期，6/16–17 FOMC 升息概率將大幅躍升，屆時 10Y 收益率可能測試 4.7%+，科技股將面臨更大估值壓力。聯準會目前的「等待觀望」框架正迅速失去可信度。
+  </div>
+</div>
+
+<!-- ===== SECTION 8: FLOWS ===== -->
+<div class="section">
+  <h2><span class="icon">💸</span> 8. 資金流向 / Flows &amp; Positioning</h2>
+
+  <h3>QQQ 資金流出，比特幣 ETF 連續出血</h3>
+  <div class="meta">
+    來源 / Source: <a href="https://www.whalestream.com/market-tracker/QQQ" target="_blank">WhaleStream QQQ</a> · Yahoo Finance · 2026-06-05
+  </div>
+  <div class="fact-block">
+    <div class="label">核心事實 / Facts</div>
+    <ul style="padding-left:18px; font-size:0.87rem; line-height:1.8;">
+      <li>QQQ 5 日淨流量：-2.82M（短線資金撤退）</li>
+      <li>QQQ 1 個月淨流量：+5.34B（月線仍正，但邊際轉弱）</li>
+      <li>比特幣 ETF（IBIT 等）：連續多週資金凈流出，創週度流出紀錄</li>
+      <li>NFP 當日 SPY 盤前跌 -0.42%，QQQ 盤前跌 -1.04%</li>
+    </ul>
+  </div>
+  <div class="ctx-block">
+    <div class="label">背景脈絡 / Context</div>
+    機構投資者在不確定聯準會下一步之前，傾向降低對 QQQ 及高風險資產（加密）的敞口，符合典型「sell the risk, wait for clarity」模式。
+  </div>
+  <div class="impl-block">
+    <div class="label">影響觀察 / Implications</div>
+    若 6/16 FOMC 結果明朗（不論升息或不升），資金可能快速回補；但在此之前，機構持倉去風險壓力仍會對 QQQ 形成賣壓。可留意 0DTE 選擇權 put/call ratio 是否繼續偏向保護性買 put。
+  </div>
+</div>
+
+<!-- ===== SECTION 9: READS ===== -->
+<div class="section">
+  <h2><span class="icon">📖</span> 9. 觀點 / Reads</h2>
+
+  <h3>「升息 = 利差擴大 = 金融股受益」的邏輯是否依然成立？</h3>
+  <div class="ctx-block">
+    <div class="label">分析觀點 / Analysis (非投資建議)</div>
+    本交易日金融板塊逆勢大漲 +2.48%，是本日最大板塊贏家。傳統邏輯：升息擴大淨利息收益（NIM），利好銀行。然而 2022–2023 年的案例顯示，急速升息也可能引發存款外流、貸款違約率上升等負面效應。此次金融股的上漲，更像是對「相對優勢」的定價（vs 科技板塊），而非純粹的基本面預期。後續如果升息確認但幅度不大（25bps），金融股可能短線維持強勢；但若 Fed 升息超過兩次，信用風險擔憂可能壓過利差擴大的好處。
+  </div>
+
+  <h3>Logan 的「鷹派孤立」是否即將成為共識？</h3>
+  <div class="ctx-block">
+    <div class="label">分析觀點 / Analysis (非投資建議)</div>
+    Dallas Fed Logan 在 5/1 FOMC 投出異議票時仍屬少數派；但 6/5 NFP 數據的爆表，讓她的鷹派立場突然顯得前瞻而非失准。Axios 報導指出「至少兩名 Fed 官員對升息保持開放態度」。若更多委員向 Logan 靠攏，市場對 6/17 決策的定價將劇烈重估。觀察重點：副主席 Jefferson 及 Fed 主席的下一次公開講話。
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <strong>數據來源 / Sources：</strong><br>
+  <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-05-2026" target="_blank">TheStreet – Stock Market Today Jun 5</a> ·
+  <a href="https://finance.yahoo.com/markets/stocks/articles/stock-market-today-june-5-172520268.html" target="_blank">Yahoo Finance – Market Today Jun 5</a> ·
+  <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank">BLS Employment Situation May 2026</a> ·
+  <a href="https://www.fxstreet.com/news/nonfarm-payrolls-set-to-show-broadly-stable-us-job-market-as-fed-rate-hike-odds-mount-202606050400" target="_blank">FXStreet NFP</a> ·
+  <a href="https://www.cnbc.com/2026/06/04/chipmaker-equities-micron-marvell-broadcom-intel.html" target="_blank">CNBC – Chip Stocks</a> ·
+  <a href="https://www.tradingkey.com/news/market-movers/261950087-market-movers-mrvl-20260605" target="_blank">TradingKey – MRVL</a> ·
+  <a href="https://cryptobriefing.com/micron-broadcom-chip-stocks-market-cap-loss/" target="_blank">CryptoBriefing – Chip Market Cap</a> ·
+  <a href="https://www.sec.gov/Archives/edgar/data/0001730168/000173016826000051/avgo-05032026x8kxex99.htm" target="_blank">SEC EDGAR – Broadcom 8-K</a> ·
+  <a href="https://www.dallasfed.org/news/speeches/logan/2026/lkl260603" target="_blank">Dallas Fed – Logan Speech</a> ·
+  <a href="https://www.bloomberg.com/news/articles/2026-05-31/berkshire-hathaway-to-buy-taylor-morrison-for-6-8-billion" target="_blank">Bloomberg – BRK/Taylor Morrison</a> ·
+  <a href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank">CME FedWatch</a> ·
+  <a href="https://www.schwab.com/learn/story/stock-market-update-open" target="_blank">Schwab Market Update</a> ·
+  <a href="https://www.heygotrade.com/en/blog/wall-street-analyst-upgrades-june-2026/" target="_blank">HeyGoTrade – Analyst Upgrades</a>
+  <br><br>
+  ⚠️ 本報告僅供資訊參考，不構成任何投資建議。不要把盤後動向寫成官方收盤價，部分數據為日內/估算值，請以各交易所官方收盤數據為準。<br>
+  This report is for informational purposes only and does not constitute investment advice. Some figures are intraday/estimated; verify with official exchange data.
+  <br><br>
+  整理 / Compiled: 2026-06-06 (Asia/Taipei) · 交易日 / Trading Session: Friday June 5, 2026
+</footer>
+
+</body>
+</html>

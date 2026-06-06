@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>今日美股熱門焦點股 Hot US Stocks — 2026-06-06</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3350;
+    --accent: #4f8ef7;
+    --accent2: #f7a84f;
+    --green: #34d399;
+    --red: #f87171;
+    --yellow: #fbbf24;
+    --text: #e2e8f0;
+    --muted: #8899bb;
+    --tag-bg: #1e2540;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', 'PingFang TC', 'Noto Sans TC', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.7rem; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+  h2 { font-size: 1.15rem; font-weight: 600; color: var(--accent2); border-left: 4px solid var(--accent2); padding-left: 10px; margin: 32px 0 16px; }
+  h3 { font-size: 1rem; font-weight: 600; color: var(--text); margin: 22px 0 8px; }
+  .subtitle { color: var(--muted); font-size: 0.88rem; margin-bottom: 24px; }
+  .badge {
+    display: inline-block; padding: 1px 8px; border-radius: 4px;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.03em; margin-right: 4px;
+  }
+  .badge-red { background: rgba(248,113,113,0.18); color: var(--red); border: 1px solid rgba(248,113,113,0.35); }
+  .badge-green { background: rgba(52,211,153,0.15); color: var(--green); border: 1px solid rgba(52,211,153,0.3); }
+  .badge-yellow { background: rgba(251,191,36,0.15); color: var(--yellow); border: 1px solid rgba(251,191,36,0.3); }
+  .badge-blue { background: rgba(79,142,247,0.15); color: var(--accent); border: 1px solid rgba(79,142,247,0.3); }
+
+  /* Summary Table */
+  .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+  thead tr { background: var(--surface2); }
+  th { padding: 10px 12px; text-align: left; color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; white-space: nowrap; }
+  tr:hover td { background: var(--surface2); }
+  .pct-up { color: var(--green); font-weight: 600; }
+  .pct-dn { color: var(--red); font-weight: 600; }
+  .ticker-cell { font-weight: 700; font-size: 0.95rem; color: var(--accent); }
+  .buzz { letter-spacing: 0.05em; color: var(--yellow); }
+
+  /* Ticker Card */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 20px;
+  }
+  .card-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px; margin-bottom: 12px;
+  }
+  .card-title { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+  .card-sub { color: var(--muted); font-size: 0.82rem; margin-top: 2px; }
+  .tape-line {
+    background: var(--surface2);
+    border-left: 3px solid var(--accent);
+    padding: 8px 14px;
+    border-radius: 0 6px 6px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.84rem;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .section-label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 14px 0 4px;
+  }
+  p { margin-bottom: 8px; }
+  .zh { color: var(--text); }
+  .en { color: #b0bed8; }
+  .quote { border-left: 2px solid var(--border); padding-left: 10px; font-style: italic; color: var(--muted); font-size: 0.84rem; margin: 6px 0; }
+  .watch-list { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; }
+  .watch-item { margin-bottom: 10px; }
+  .sources-box { background: #12141e; border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; margin-top: 12px; }
+  .sources-box a { color: var(--accent); font-size: 0.8rem; word-break: break-all; }
+  .sources-box a:hover { text-decoration: underline; }
+  .market-box {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 14px 18px; margin-bottom: 24px;
+  }
+  .mkt-row { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.84rem; }
+  .mkt-item { display: flex; flex-direction: column; }
+  .mkt-label { color: var(--muted); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  .mkt-val { font-weight: 700; font-size: 0.95rem; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+  .halt-box { background: rgba(248,113,113,0.07); border: 1px solid rgba(248,113,113,0.3); border-radius: 8px; padding: 14px 18px; margin-bottom: 16px; }
+  .footer { color: var(--muted); font-size: 0.77rem; margin-top: 36px; padding-top: 16px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<h1>🔥 今日美股熱門焦點股</h1>
+<h1 style="font-size:1.1rem; color: var(--text); margin-top:2px;">Hot US Stocks of the Day</h1>
+<div class="subtitle">
+  交易日 / Session: <strong>2026-06-05 (Thu) — US RTH Close</strong> &nbsp;|&nbsp;
+  製表時間 / Published: 2026-06-06 Asia/Taipei &nbsp;|&nbsp;
+  資料截止: US Regular Trading Hours close + AH movers
+</div>
+
+<!-- ===================== MARKET BACKDROP ===================== -->
+<h2>📊 大盤背景 Market Backdrop</h2>
+<div class="market-box">
+  <div class="mkt-row" style="margin-bottom:10px;">
+    <div class="mkt-item">
+      <span class="mkt-label">S&amp;P 500</span>
+      <span class="mkt-val pct-dn">7,383.74 &nbsp;▼2.64%</span>
+    </div>
+    <div class="mkt-item">
+      <span class="mkt-label">Nasdaq</span>
+      <span class="mkt-val pct-dn">25,709.43 &nbsp;▼4.18%</span>
+    </div>
+    <div class="mkt-item">
+      <span class="mkt-label">DJIA</span>
+      <span class="mkt-val pct-dn">50,866.78 &nbsp;▼1.35%</span>
+    </div>
+    <div class="mkt-item">
+      <span class="mkt-label">VIX</span>
+      <span class="mkt-val pct-dn">~20+ &nbsp;▲34–40%</span>
+    </div>
+    <div class="mkt-item">
+      <span class="mkt-label">SOXX (Semis)</span>
+      <span class="mkt-val pct-dn">▼10.4% (worst since Mar 2020)</span>
+    </div>
+  </div>
+  <p class="zh">
+    <strong>本日市況：</strong>Broadcom (AVGO) Q2 財報雖每股盈餘超預期，但 AI 網路晶片營收 40.1 億美元遠低於分析師預期的 48 億美元，CEO 指兩家超大型雲端客戶 XPU 客製晶片出貨速度不如預期，引爆半導體板塊史上最大規模連鎖賣壓。疊加 5 月非農就業新增 17.2 萬人遠超預期 8.8 萬人、市場重新預期 Fed 升息，Nasdaq 創 2025 年 4 月以來最大單日跌幅。費城半導體指數 SOXX 重挫 10.4%，市值蒸發逾 1 兆美元。
+  </p>
+  <p class="en">
+    <strong>Session summary:</strong> Broadcom's Q2 AI networking revenue ($4.1B) badly missed the $4.8B consensus, sparking a sector-wide chip rout. Strong May payrolls (172K vs 88K est.) revived rate-hike fears. Nasdaq suffered its worst day since April 2025; the SOXX Philadelphia Semiconductor Index posted its largest single-session loss since March 2020, erasing over $1T in market cap. Sector rotation shifted into financials and healthcare. VIX surged 34–40%, closing above 20.
+  </p>
+</div>
+
+<!-- ===================== SUMMARY TABLE ===================== -->
+<h2>📋 快覽表 Summary Table</h2>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>Ticker</th>
+      <th>Company</th>
+      <th>Close / 方向</th>
+      <th>% 變動</th>
+      <th>Vol (M)</th>
+      <th>vs 30D</th>
+      <th>Options / Flow</th>
+      <th>Buzz ★</th>
+      <th>Catalyst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="ticker-cell">AVGO</td>
+      <td>Broadcom</td>
+      <td class="pct-dn">↓ 大跌</td>
+      <td class="pct-dn">▼13%+</td>
+      <td>高量</td>
+      <td>~5x</td>
+      <td>IV ↑↑, puts spike</td>
+      <td class="buzz">★★★★★</td>
+      <td>AI 晶片營收遜預期 / XPU delay</td>
+    </tr>
+    <tr>
+      <td class="ticker-cell">MU</td>
+      <td>Micron Technology</td>
+      <td class="pct-dn">↓ 重挫</td>
+      <td class="pct-dn">▼12.3%</td>
+      <td>$40B 美元量</td>
+      <td>~4x</td>
+      <td>Put flow ↑↑</td>
+      <td class="buzz">★★★★★</td>
+      <td>AVGO 連動恐慌賣壓</td>
+    </tr>
+    <tr>
+      <td class="ticker-cell">MRVL</td>
+      <td>Marvell Technology</td>
+      <td class="pct-dn">↓ 反轉</td>
+      <td class="pct-dn">▼16%</td>
+      <td>高量</td>
+      <td>~6x</td>
+      <td>C/P ratio reversal</td>
+      <td class="buzz">★★★★★</td>
+      <td>AVGO 連動；先前 Jensen Huang 背書巨漲</td>
+    </tr>
+    <tr>
+      <td class="ticker-cell">ARM</td>
+      <td>Arm Holdings</td>
+      <td class="pct-dn">↓ 重挫</td>
+      <td class="pct-dn">▼12.8%</td>
+      <td>高量</td>
+      <td>~5x</td>
+      <td>Put surge</td>
+      <td class="buzz">★★★★</td>
+      <td>Computex 升幅回吐 / AI 題材修正</td>
+    </tr>
+    <tr>
+      <td class="ticker-cell">BGMS</td>
+      <td>Bio Green Med Solution</td>
+      <td class="pct-up">↑ 暴衝</td>
+      <td class="pct-up">▲76.5%+</td>
+      <td>高量</td>
+      <td>1840x</td>
+      <td>無明顯 options</td>
+      <td class="buzz">★★★</td>
+      <td>收購馬來西亞再生能源公司 Future NRG</td>
+    </tr>
+    <tr>
+      <td class="ticker-cell">STI</td>
+      <td>Solidion Technology</td>
+      <td class="pct-up">↑ 暴衝</td>
+      <td class="pct-up">▲64%+</td>
+      <td>16M</td>
+      <td>極高</td>
+      <td>無明顯 options</td>
+      <td class="buzz">★★★</td>
+      <td>30 項鋰金屬電池專利平台 / AI 數據中心 + 太空應用</td>
+    </tr>
+    <tr>
+      <td class="ticker-cell">RMSG</td>
+      <td>Real Messenger Corp</td>
+      <td class="pct-up">↑ 爆漲</td>
+      <td class="pct-up">▲112.3%</td>
+      <td>184M</td>
+      <td>極高</td>
+      <td>無</td>
+      <td class="buzz">★★</td>
+      <td>平台擴張消息 + 散戶動能</td>
+    </tr>
+    <tr>
+      <td class="ticker-cell">NYXH</td>
+      <td>Nyxoah SA</td>
+      <td class="pct-dn">↓ 崩跌</td>
+      <td class="pct-dn">▼49.7%</td>
+      <td>高量</td>
+      <td>~20x</td>
+      <td>Put flow</td>
+      <td class="buzz">★★★</td>
+      <td>5,523 萬股 $1.72 大折讓配售 / 美國商業化</td>
+    </tr>
+    <tr>
+      <td class="ticker-cell">HNGE</td>
+      <td>Hinge Health</td>
+      <td class="pct-up">↑ 逆勢</td>
+      <td class="pct-up">▲+5%</td>
+      <td>高量</td>
+      <td>9x call</td>
+      <td>Call 9x avg · June 18 $75 strike</td>
+      <td class="buzz">★★★</td>
+      <td>強財報後 call 買盤湧入 · 逆市上漲</td>
+    </tr>
+    <tr>
+      <td class="ticker-cell">CARR</td>
+      <td>Carrier Global</td>
+      <td class="pct-dn">↔ 盤整</td>
+      <td>-</td>
+      <td>一般</td>
+      <td>-</td>
+      <td>Put 11x avg (賣出 put = 看多)</td>
+      <td class="buzz">★★</td>
+      <td>異常 put 賣出 / 關稅協議刺激</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===================== HOT TICKERS ===================== -->
+<h2>🔥 Hot 8 — 今日最熱焦點股</h2>
+
+<!-- AVGO -->
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="card-title">$AVGO — Broadcom Inc. / 博通</div>
+      <div class="card-sub">NASDAQ &nbsp;|&nbsp; 半導體 AI 網路晶片 &nbsp;|&nbsp; <span class="badge badge-red">大跌 ▼13%+</span><span class="badge badge-red">主角</span></div>
+    </div>
+    <div class="buzz" style="font-size:1.3rem;">★★★★★</div>
+  </div>
+  <div class="tape-line">
+    Close: ▼13%+ &nbsp;|&nbsp; Vol: 極高（$40B 美元量級） &nbsp;|&nbsp; 市值蒸發 ~$800 億美元
+  </div>
+  <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+  <p class="zh">Broadcom 於 6 月 3 日盤後公布 Q2 FY2026 財報，每股盈餘 $2.44（超預期 $2.32），但 AI 網路晶片（XPU + ethernet ASIC）季營收僅 40.1 億美元，遠低於市場共識的 48 億美元（miss 約 14%）。CEO Hock Tan 說明：兩家匿名超大型雲端客戶的客製 AI 晶片（XPU）量產爬坡比預期慢。這句話引爆整個 AI 晶片板塊的「估值修正」連鎖反應，Broadcom 在 6 月 4–5 日連跌兩天，累計跌幅逾 13%，並拖垮 Nvidia、AMD、Marvell、Micron、ARM、Intel 全面崩跌。</p>
+  <p class="en">Broadcom's Q2 FY2026 report beat EPS ($2.44 vs $2.32 est.) but badly missed AI networking revenue ($4.1B vs $4.8B consensus — a 14% miss on the metric that matters most). CEO Hock Tan cited two unnamed hyperscaler clients with slower-than-expected XPU custom chip ramps. The miss ignited a sector-wide AI chip selloff across June 4–5, dragging the SOXX down 10.4% — its worst loss since March 2020. Broadcom itself shed ~$80B in market cap in two sessions.</p>
+  <div class="section-label">Options &amp; Flow</div>
+  <p>Put activity surged sharply as options traders scrambled to hedge or bet on further downside. IV spiked materially. The earnings miss on the most closely watched metric (AI networking revenue) drew the largest options flow of the week across semiconductors.</p>
+  <div class="section-label">Retail Buzz</div>
+  <p class="zh">WSB 及 r/stocks 大量帖子討論 AVGO 崩跌是否預示 AI 泡沫破滅第一槍，或只是訂單時間點問題。主流論點分成兩派：「AI capex 延遲不等於取消」vs「AI 升溫故事被過度 price in」。</p>
+  <p class="en">Reddit and X saw intense debate: bulls argued XPU delays are timing issues (not cancellations), bears warned AI chip estimates need to be reset lower across the board. Key quote: <span class="quote">"AVGO guided AI up 20% YoY but that means nothing if the market priced in 40%"</span></p>
+  <div class="section-label">後續觀察 / What to Watch Next</div>
+  <p>觀察 Nvidia FY27 Q1 財報（後續）、Microsoft/Google/Amazon 的 Capex guidance 是否下修；AVGO 股價能否守住關鍵技術支撐。分析師普遍下調 AI networking 短期預估，但長期 thesis 維持。</p>
+  <div class="sources-box">
+    <strong>Sources:</strong><br/>
+    <a href="https://www.gurufocus.com/news/8903354/broadcom-avgo-ai-chip-sales-guidance-falls-short-sparks-semiconductor-selloff" target="_blank">GuruFocus: AVGO AI Chip Sales Guidance Falls Short</a><br/>
+    <a href="https://www.fool.com/earnings/call-transcripts/2026/06/03/broadcom-avgo-q2-2026-earnings-transcript/" target="_blank">Motley Fool: Broadcom Q2 2026 Earnings Transcript</a><br/>
+    <a href="https://www.cnbc.com/2026/06/04/chipmaker-equities-micron-marvell-broadcom-intel.html" target="_blank">CNBC: Broadcom, Micron and ARM sink, leading chip stocks lower</a>
+  </div>
+</div>
+
+<!-- MU -->
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="card-title">$MU — Micron Technology / 美光科技</div>
+      <div class="card-sub">NASDAQ &nbsp;|&nbsp; 記憶體/HBM &nbsp;|&nbsp; <span class="badge badge-red">重挫 ▼12.3%</span></div>
+    </div>
+    <div class="buzz" style="font-size:1.3rem;">★★★★★</div>
+  </div>
+  <div class="tape-line">
+    Close: $868.28 &nbsp;▼12.32% &nbsp;|&nbsp; Vol: $40 billion 美元成交量 &nbsp;|&nbsp; S&amp;P 500 最大單日跌幅貢獻者之一
+  </div>
+  <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+  <p class="zh">Micron 本身並無任何負面消息，但因 AVGO 財報暴露了 AI 晶片需求放緩疑慮，市場擔心 AI 相關 HBM（High Bandwidth Memory）需求也會受衝擊，對 Micron 造成嚴重連鎖賣壓。MU 單日重挫 12.32%，以 $40 億美元的美元成交量高居 S&P 500 最大成交量股票，成為全市場最熱的交易標的之一。下一個重大催化劑是 6 月 24 日的 Q3 FY2026 財報，華爾街預估 EPS $19.29、營收 $338.8 億美元。</p>
+  <p class="en">MU had no company-specific bad news, but the AVGO-induced fear that AI capex spending may be decelerating hammered HBM memory demand expectations. Micron, as the primary supplier of HBM3E to hyperscalers, bore the brunt. It led the S&P 500 lower with over $40B in dollar volume — an extraordinary trading day. Next catalyst: Q3 FY2026 earnings June 24 (consensus: EPS $19.29, Rev $33.88B).</p>
+  <div class="section-label">Options &amp; Flow</div>
+  <p>Large put flows during the session; IV spiked. With Q3 earnings ~18 days away, some options activity reflects pre-earnings hedging and directional bets on whether the HBM narrative remains intact post-AVGO.</p>
+  <div class="section-label">Retail Buzz</div>
+  <p class="zh">WSB 上大量「MU 抄底」討論，但也有「HBM 過熱、估值修正才剛開始」的聲音。AI 記憶體多頭長期 thesis 尚未崩潰，但短期動能急速惡化。</p>
+  <p class="en">WSB and r/investing saw heavy "dip buy vs. avoid" debate. Long-term HBM bulls argue demand is structural; bears cite AVGO's XPU slowdown as a leading indicator for memory pull-forward. Quote: <span class="quote">"MU at this price is a gift if HBM demand holds"</span></p>
+  <div class="section-label">後續觀察 / What to Watch Next</div>
+  <p>6 月 24 日財報是最大觀察點。若 Micron 財報 HBM 出貨量如期，將是重要反彈催化劑；若出現保守 guidance，股價可能再度承壓。注意 $850 技術支撐能否守住。</p>
+  <div class="sources-box">
+    <strong>Sources:</strong><br/>
+    <a href="https://www.benzinga.com/trading-ideas/movers/26/06/52995907/why-is-micron-stock-falling-thursday" target="_blank">Benzinga: Why Is Micron Stock Falling Thursday?</a><br/>
+    <a href="https://tradersunion.com/news/financial-news/show/2266416-micron-technology-slides-12-32percent-today/" target="_blank">TradersUnion: Micron Technology slides 12.32% today</a><br/>
+    <a href="https://www.marketbeat.com/earnings/reports/2026-6-24-micron-technology-inc-stock/" target="_blank">MarketBeat: Micron Q3 2026 Earnings Report (June 24)</a>
+  </div>
+</div>
+
+<!-- MRVL -->
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="card-title">$MRVL — Marvell Technology / 邁威爾科技</div>
+      <div class="card-sub">NASDAQ &nbsp;|&nbsp; 客製 AI ASIC / 矽光子 &nbsp;|&nbsp; <span class="badge badge-red">V 型反轉 ▼16%</span><span class="badge badge-yellow">前週暴漲 +32%</span></div>
+    </div>
+    <div class="buzz" style="font-size:1.3rem;">★★★★★</div>
+  </div>
+  <div class="tape-line">
+    6/2 Close: ▲+32%（Jensen Huang 背書） → 6/3 PM ▲+10% → 6/4–5 急速反轉 ▼16%
+  </div>
+  <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+  <p class="zh">本週最具戲劇性的「雲霄飛車股」。6 月 2 日，Nvidia CEO Jensen Huang 在公開場合稱 Marvell 為「下一個兆美元公司」，單日暴漲 32.52%，創公司史上最大單日漲幅。6 月 3 日盤前再漲 10%。然而 AVGO 財報暴露 AI 網路晶片需求疑慮後，Marvell 作為最直接的 AI ASIC/連接晶片同業，成為本輪跌幅最重的標的之一，兩日合計重挫約 16%，幾乎吐回一半漲幅。</p>
+  <p class="en">The week's most dramatic round-trip. Jensen Huang's "next trillion-dollar company" endorsement on June 2 sent MRVL up 32.52% in a single session — its all-time best day. The stock had surged on strong Q1 FY27 results (data center rev +76% to $1.83B) and a new long-term revenue target of $16.5B for FY2028. But AVGO's AI networking miss reframed Marvell's NVLink Fusion and photonics story as potentially facing the same hyperscaler slowdown. MRVL pulled back ~16% over June 4–5, giving back nearly half the Jensen pop.</p>
+  <div class="section-label">Options &amp; Flow</div>
+  <p>After days of extreme bullish call flow following the Huang endorsement, the C/P ratio reversed sharply as the AVGO ripple hit. IV remains extremely elevated — the stock is a prime vehicle for leveraged bets in both directions.</p>
+  <div class="section-label">Retail Buzz</div>
+  <p class="zh">X 和 Reddit 上「買 MRVL 還是等？」討論最熱。Nvidia 持有 MRVL 約 20 億美元股份，且 NVLink Fusion 合作為真實合作，多頭認為基本面敘事未變。</p>
+  <p class="en">X ($MRVL) saw intense dip-buying discussion. Bulls note Nvidia owns $2B stake and the NVLink partnership is concrete. Bears: "If AVGO hyperscalers slow XPU ramps, MRVL ASIC orders face the same risk." Quote: <span class="quote">"Jensen called it trillion dollar but the customers still control the timing"</span></p>
+  <div class="section-label">後續觀察 / What to Watch Next</div>
+  <p>關注 Nvidia 下一季財報中是否提及 Marvell 合作進度、大型雲端廠 Capex guidance 修正幅度。MRVL 是否能維持 $16.5B FY2028 目標是關鍵。Gamma 擠壓風險仍存（float 的 large options OI 後遺症）。</p>
+  <div class="sources-box">
+    <strong>Sources:</strong><br/>
+    <a href="https://www.cnbc.com/2026/06/02/jensen-huang-nvidia-marvell-technology-trillion-dollar-ai.html" target="_blank">CNBC: Marvell stock soars 32% as Nvidia's Huang says it could be the next trillion-dollar company</a><br/>
+    <a href="https://finance.yahoo.com/markets/stocks/articles/marvell-shares-surge-nvidia-jensen-111417825.html" target="_blank">Yahoo Finance: Marvell Shares Surge After Nvidia's Jensen Huang</a><br/>
+    <a href="https://www.cnbc.com/2026/06/04/chipmaker-equities-micron-marvell-broadcom-intel.html" target="_blank">CNBC: Broadcom, Micron and ARM sink, leading chip stocks lower</a>
+  </div>
+</div>
+
+<!-- ARM -->
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="card-title">$ARM — Arm Holdings / 安謀控股</div>
+      <div class="card-sub">NASDAQ &nbsp;|&nbsp; CPU 授權 / AI 晶片架構 &nbsp;|&nbsp; <span class="badge badge-red">重挫 ▼12.8%</span><span class="badge badge-yellow">YTD ▲199%</span></div>
+    </div>
+    <div class="buzz" style="font-size:1.3rem;">★★★★</div>
+  </div>
+  <div class="tape-line">
+    Close: $358 &nbsp;▼12.8% &nbsp;|&nbsp; 最近 1 個月漲幅 60.8%（Computex 週升幅回吐） &nbsp;|&nbsp; YTD 仍 ▲199%
+  </div>
+  <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+  <p class="zh">ARM 在 Computex 2026 大展期間（5 月下旬至 6 月初）累計暴漲逾 60%，成為本輪 AI 題材的最大受益者之一，年初至今漲幅高達 199%。AVGO 財報觸發的 AI 晶片修正，讓 ARM 當週單日大跌 12.8%，成為本次崩跌中指數性跌幅最深的大型股之一。</p>
+  <p class="en">ARM was a key beneficiary of Computex 2026 (late May through early June), surging 60.8% in a month and 199% YTD. The AVGO earnings miss triggered forced unwind of leveraged AI-cycle longs, with ARM — highest-multiple AI name — bearing the biggest percentage blow among large caps at 12.8% in a single session.</p>
+  <div class="section-label">Options &amp; Flow</div>
+  <p>Large put flows materialized during the session; given ARM's extreme premium valuation, any AI narrative wobble causes amplified put demand. Short interest as a percentage of float remains modest, so this is primarily a long unwind rather than a squeeze dynamic.</p>
+  <div class="section-label">後續觀察 / What to Watch Next</div>
+  <p>ARM 次季財報 + royalty revenue per chip 趨勢。若 AI server / edge AI 出貨維持強勁，199% YTD 漲幅仍有基本面支撐。但 P/E 在 100x+ 的高估值使其對 AI 需求數字極為敏感。</p>
+  <div class="sources-box">
+    <strong>Sources:</strong><br/>
+    <a href="https://www.startuphub.ai/ai-news/ai-stocks-daily/2026/ai-stocks-2026-06-05" target="_blank">StartupHub.ai: ARM and Intel lead AI chip rout, SOXX -10.4%</a><br/>
+    <a href="https://www.schaeffersresearch.com/content/news/2026/06/05/2-chip-stocks-extending-slide-after-broadcom-earnings-bust" target="_blank">Schaeffer's: 2 Chip Stocks Extending Slide After Broadcom Earnings Bust</a>
+  </div>
+</div>
+
+<!-- BGMS -->
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="card-title">$BGMS — Bio Green Med Solution, Inc.</div>
+      <div class="card-sub">OTC / 小型股 &nbsp;|&nbsp; 再生能源 M&amp;A &nbsp;|&nbsp; <span class="badge badge-green">暴漲 ▲76.5% RTH + PM 更高</span></div>
+    </div>
+    <div class="buzz" style="font-size:1.3rem;">★★★</div>
+  </div>
+  <div class="tape-line">
+    Close: ▲76.5% RTH（PM 一度達 ▲151%） &nbsp;|&nbsp; 成交量倍率: ~1,840x 30 日均量 &nbsp;|&nbsp; Close ~$2.66
+  </div>
+  <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+  <p class="zh">Bio Green Med Solution 宣布簽署全股票收購協議，計劃以換股方式收購馬來西亞再生能源公司 Future NRG。這類小型 OTC 公司宣布收購案，往往在散戶聚焦期間引發極端投機性買盤，成交量爆增 1,840 倍。公司本身規模微小，流通量有限，任何散戶資金湧入均可造成大幅波動。</p>
+  <p class="en">Bio Green Med Solution announced an all-stock acquisition agreement to acquire Future NRG, a Malaysia-based renewable energy firm. This type of small/micro-cap OTC deal announcement — with limited float and low base price — consistently triggers extreme retail momentum spikes. Volume surged 1,840x the 30-day average. Premarket trading saw the stock up 150%+.</p>
+  <div class="section-label">風險提示</div>
+  <p class="zh"><strong>⚠️ 注意：</strong>此類 OTC 微型股的劇烈漲幅高度依賴散戶動能，基本面不確定性極高，流動性差，波動極端，不能視為正常投資標的。</p>
+  <div class="section-label">後續觀察 / What to Watch Next</div>
+  <p>收購 Due Diligence 進展、Future NRG 實際規模、是否有 SEC 關注。超高換手率後的散戶持股穩定性。</p>
+  <div class="sources-box">
+    <strong>Sources:</strong><br/>
+    <a href="https://www.rttnews.com/3658353/morning-market-movers-bgms-sti-indp-mrln-see-big-swings.aspx" target="_blank">RTTNews: Morning Market Movers — BGMS, STI, INDP, MRLN</a><br/>
+    <a href="https://www.benzinga.com/markets/equities/26/06/53022545/why-solidion-technology-shares-are-rallying-over-50-here-are-20-stocks-moving-premarket" target="_blank">Benzinga: Why Solidion Technology Shares Are Rallying</a>
+  </div>
+</div>
+
+<!-- STI -->
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="card-title">$STI — Solidion Technology, Inc.</div>
+      <div class="card-sub">微型股 &nbsp;|&nbsp; 鋰金屬電池 / 太空 AI 應用 &nbsp;|&nbsp; <span class="badge badge-green">▲64%（6 月月漲 +361%）</span></div>
+    </div>
+    <div class="buzz" style="font-size:1.3rem;">★★★</div>
+  </div>
+  <div class="tape-line">
+    Close: ▲64%（RTH）· PM ▲74.7% &nbsp;|&nbsp; Vol: 16M sh &nbsp;|&nbsp; 6 月月漲幅目前高達 361%
+  </div>
+  <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+  <p class="zh">Solidion Technology 宣布其 30 項專利的鋰金屬電池平台，主打解決固態電池長期痛點：樹枝晶（dendrite）形成和極端環境熱管理問題。應用場景瞄準太空探索及 AI 數據中心儲能，兩大熱門概念的疊加（AI + 太空）引發散戶高度興趣，使其成為 6 月迄今表現最佳個股（月漲 +361%）。</p>
+  <p class="en">Solidion unveiled a 30-patent lithium metal battery platform addressing two key barriers: dendrite formation and extreme-climate thermal regulation. Target markets: space exploration and AI data center energy storage — a deliberate "AI + space" narrative overlay. This made it June 2026's best-performing stock (+361% MTD). Classic small-cap catalyst-driven retail momentum.</p>
+  <div class="section-label">風險提示</div>
+  <p class="zh"><strong>⚠️ 注意：</strong>月漲 361% 的微型股，有極高的回吐風險。「專利宣布」和「商業化成功」之間存在巨大落差。</p>
+  <div class="sources-box">
+    <strong>Sources:</strong><br/>
+    <a href="https://www.stocktitan.net/rankings/stock-gains-monthly/2026/6" target="_blank">StockTitan: Best Performing Stocks June 2026</a><br/>
+    <a href="https://www.benzinga.com/markets/equities/26/06/53022545/why-solidion-technology-shares-are-rallying-over-50-here-are-20-stocks-moving-premarket" target="_blank">Benzinga: Why Solidion Technology Shares Are Rallying Over 50%</a>
+  </div>
+</div>
+
+<!-- NYXH -->
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="card-title">$NYXH — Nyxoah SA / 奈克索</div>
+      <div class="card-sub">NASDAQ &nbsp;|&nbsp; 醫療器材 / 睡眠呼吸中止症 &nbsp;|&nbsp; <span class="badge badge-red">崩跌 ▼49.7%</span></div>
+    </div>
+    <div class="buzz" style="font-size:1.3rem;">★★★</div>
+  </div>
+  <div class="tape-line">
+    Close: ▼49.7% &nbsp;|&nbsp; 配售價: $1.72（大幅折讓） &nbsp;|&nbsp; 配售規模: 55,232,558 股 / 總募資 $9,500 萬美元
+  </div>
+  <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+  <p class="zh">Nyxoah SA 是比利時醫療器材公司，其 Genio 系統為 FDA 核准的舌下神經刺激器，用於治療中重度阻塞性睡眠呼吸中止症（OSA），僅需單一切口植入。6 月 4 日宣布以 $1.72 每股（約 EUR 1.48）定價 5,523 萬股的折讓配售，較前一日收盤價打了近五折，總募資 $9,500 萬美元，將用於美國商業化推廣。大折讓配售導致原有股東稀釋嚴重，股價單日腰斬近五成。</p>
+  <p class="en">Nyxoah priced a $95M underwritten public offering at $1.72 per share — a deep discount representing roughly a 50% cut from the prior close — issuing 55.2M shares to fund U.S. commercialization of its Genio hypoglossal neurostimulation OSA device. Heavily dilutive secondary offerings at steep discounts almost always trigger immediate sharp selloffs as arbitrageurs short against the deal. A -49.7% single-day drop is exactly the market's reaction to such a pricing.</p>
+  <div class="section-label">後續觀察 / What to Watch Next</div>
+  <p>配售預計 6 月 9 日完成交割；之後賣壓能否消化、Genio 美國商業化實際推進速度是後續觀察重點。</p>
+  <div class="sources-box">
+    <strong>Sources:</strong><br/>
+    <a href="https://www.globenewswire.com/news-release/2026/06/04/3307080/0/en/nyxoah-announces-proposed-offering-of-ordinary-shares.html" target="_blank">GlobeNewswire: Nyxoah Announces Proposed Offering</a><br/>
+    <a href="https://www.stocktitan.net/news/NYXH/nyxoah-announces-pricing-of-95-million-underwritten-public-8sbn7qaephzj.html" target="_blank">StockTitan: Nyxoah prices $95M stock sale for U.S. push</a>
+  </div>
+</div>
+
+<!-- HNGE -->
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="card-title">$HNGE — Hinge Health, Inc.</div>
+      <div class="card-sub">NYSE &nbsp;|&nbsp; 數位肌肉骨骼醫療 / IPO 2025 年 5 月 &nbsp;|&nbsp; <span class="badge badge-green">逆市上漲 ▲~5%</span><span class="badge badge-blue">異常 Call 期權</span></div>
+    </div>
+    <div class="buzz" style="font-size:1.3rem;">★★★</div>
+  </div>
+  <div class="tape-line">
+    Close: ~$66.23 &nbsp;▲$3.24 &nbsp;|&nbsp; Call 成交量: 8,653 / 9x 均量 &nbsp;|&nbsp; C/P ratio: 0.19（極度偏多）
+  </div>
+  <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+  <p class="zh">在大盤及科技股全面崩跌的背景下，Hinge Health 逆勢上漲約 5%，成為當日稀少的亮點。該公司 IPO 於 2025 年 5 月上市，5 月 5 日強勁財報後已累漲逾 25%。今日期權市場出現大量看漲異常活動，6 月 18 日到期、75 美元行使價的 call 期權成交量高達 8,653 張，是平均量的 9 倍、看跌量的 5 倍，大部分交易均以賣方要價成交，顯示買方主動積極。</p>
+  <p class="en">Hinge Health bucked the broader selloff, rising ~5% in a session when most tech names were getting crushed. The digital musculoskeletal (MSK) care platform — backed by a May 2025 IPO — has gained 25%+ since its May 5 earnings beat. Today's options action was notable: 8,653 calls traded (9x avg, 5x put volume), concentrated in June 18 $75 strikes with buyers paying the ask. Put/call ratio of 0.19 signals strongly bullish positioning. Healthcare/digital health is a clear rotation beneficiary from chip sector exodus.</p>
+  <div class="section-label">後續觀察 / What to Watch Next</div>
+  <p>6 月 18 日到期期權 $75 行使價的 gamma 敞口；若股價未來 2 週突破 $75 附近，可能形成 gamma squeeze。持續觀察大盤由科技向醫療的板塊輪動。</p>
+  <div class="sources-box">
+    <strong>Sources:</strong><br/>
+    <a href="https://marketchameleon.com/Reports/UnusualOptionVolumeReport" target="_blank">Market Chameleon: Unusual Option Volume Report</a><br/>
+    <a href="https://www.schwab.com/learn/story/todays-options-market-update" target="_blank">Charles Schwab: Today's Stock Options Market Update</a>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- ===================== WATCH LIST ===================== -->
+<h2>👀 次熱觀察 Watch List</h2>
+<div class="watch-list">
+  <div class="watch-item">
+    <strong>$RMSG — Real Messenger Corporation &nbsp;<span class="badge badge-green">▲112%</span></strong><br/>
+    <span class="zh">OTC 微型股，平台擴張公告觸發散戶動能買盤，單日暴漲 112.3%，成交量達 1.84 億股。股價從不到 $1 飆至近 $4。典型的散戶驅動動能交易，無強力基本面支撐。⚠️ 風險極高。</span><br/>
+    <span class="en">Micro-cap OTC. 184M shares traded, 112% one-day gain purely on retail momentum around platform expansion news. Classic penny-stock squeeze pattern.</span>
+  </div>
+  <div class="watch-item">
+    <strong>$CARR — Carrier Global Corporation &nbsp;<span class="badge badge-blue">異常 Put 賣出</span></strong><br/>
+    <span class="zh">未見明顯股價大波動，但出現異常賣出 put 活動：7 月 10 日到期 $57 put 賣出 6,699 張（OI 為零，全為新倉），隱含看多偏向，關稅協議利多背景下的選擇權佈局值得追蹤。</span><br/>
+    <span class="en">Unusual put-selling (11x avg volume, new positions from zero OI) at the $57 July strike suggests institutional players see $60 support as solid. Potential tariff deal beneficiary. Not a price-action story today, but notable options setup.</span>
+  </div>
+  <div class="watch-item">
+    <strong>$QBTS / $RGTI / $INFQ — 量子計算概念股</strong><br/>
+    <span class="zh">Trump 政府宣布向 Rigetti Computing、D-Wave、Infleqtion 發放共 1 億美元補助，為 20 億美元量子計算計畫的一部分，概念股集體爆量上漲，市值合計增加近 50 億美元。散戶社群討論熱烈，但部分投資人對估值提出疑慮。</span><br/>
+    <span class="en">Trump administration announced $100M in grants to quantum computing firms (part of $2B initiative). QBTS, RGTI, INFQ surged collectively, adding nearly $5B in market cap. StockTwits and Reddit showed heavy retail interest, with divided views on valuation sustainability.</span>
+  </div>
+  <div class="watch-item">
+    <strong>$SMCI — Super Micro Computer &nbsp;<span class="badge badge-red">▼10%</span></strong><br/>
+    <span class="zh">隨半導體賣壓蔓延，SMCI 亦下跌約 10%。本身 GF Value 顯示估值低於市場，但 AI server 需求疑慮短期壓制股價。</span><br/>
+    <span class="en">SMCI fell ~10% caught in the semi selloff. Fundamentally undervalued per some metrics (GF Value $84.24 vs current ~$47), but AI capex uncertainty is the main overhang.</span>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- ===================== HALTS & WEIRDNESS ===================== -->
+<h2>⚠️ 異常事件 Halts &amp; Weirdness</h2>
+<div class="halt-box">
+  <p><strong>本日無重大 LULD halt 或 SEC 停交事件公告。</strong></p>
+  <p class="zh">以下異常需關注：</p>
+  <ul style="margin-left:20px; margin-top:6px;">
+    <li>BGMS +76.5% 伴隨 1,840x 成交量爆量 — OTC 微型股極端波動，注意可能的主力出貨風險。</li>
+    <li>NYXH -49.7% 來自主動配售定價，非空頭攻擊，屬公司自主融資行為。</li>
+    <li>RMSG 單日 +112% 伴隨 1.84 億股量 — 無基本面支撐，投機性動能交易特徵。</li>
+  </ul>
+</div>
+
+<hr class="divider" />
+
+<!-- ===================== ALL SOURCES ===================== -->
+<h2>📎 完整資料來源 All Sources</h2>
+<div class="sources-box">
+  <ul style="list-style: none; padding: 0;">
+    <li>🔗 <a href="https://www.cnbc.com/2026/06/04/stock-market-today-live-updates.html" target="_blank">CNBC: Nasdaq falls 4%, worst day since April 2025 — Live Updates</a></li>
+    <li>🔗 <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-05-2026" target="_blank">TheStreet: Stock Market Today June 5, 2026 — Nasdaq falls 4%</a></li>
+    <li>🔗 <a href="https://www.gurufocus.com/news/8903354/broadcom-avgo-ai-chip-sales-guidance-falls-short-sparks-semiconductor-selloff" target="_blank">GuruFocus: Broadcom AI Chip Sales Guidance Falls Short</a></li>
+    <li>🔗 <a href="https://www.fool.com/earnings/call-transcripts/2026/06/03/broadcom-avgo-q2-2026-earnings-transcript/" target="_blank">Motley Fool: Broadcom Q2 2026 Earnings Transcript</a></li>
+    <li>🔗 <a href="https://www.cnbc.com/2026/06/04/chipmaker-equities-micron-marvell-broadcom-intel.html" target="_blank">CNBC: Broadcom, Micron and ARM sink — chip stocks lower</a></li>
+    <li>🔗 <a href="https://www.startuphub.ai/ai-news/ai-stocks-daily/2026/ai-stocks-2026-06-05" target="_blank">StartupHub.ai: ARM and Intel lead AI chip rout, SOXX -10.4%</a></li>
+    <li>🔗 <a href="https://www.cnbc.com/2026/06/02/jensen-huang-nvidia-marvell-technology-trillion-dollar-ai.html" target="_blank">CNBC: Marvell stock soars 32% — Jensen Huang endorsement</a></li>
+    <li>🔗 <a href="https://finance.yahoo.com/markets/stocks/articles/marvell-shares-surge-nvidia-jensen-111417825.html" target="_blank">Yahoo Finance: Marvell Shares Surge After Nvidia's Jensen Huang</a></li>
+    <li>🔗 <a href="https://247wallst.com/investing/2026/06/04/nvidias-ceo-sees-marvell-becoming-the-next-1-trillion-company-shares-gained-another-5-today/" target="_blank">24/7 Wall St.: Nvidia's CEO Sees Marvell Becoming Next $1 Trillion Company</a></li>
+    <li>🔗 <a href="https://www.benzinga.com/trading-ideas/movers/26/06/52995907/why-is-micron-stock-falling-thursday" target="_blank">Benzinga: Why Is Micron Stock Falling Thursday?</a></li>
+    <li>🔗 <a href="https://tradersunion.com/news/financial-news/show/2266416-micron-technology-slides-12-32percent-today/" target="_blank">TradersUnion: Micron Technology slides 12.32% today</a></li>
+    <li>🔗 <a href="https://www.marketbeat.com/earnings/reports/2026-6-24-micron-technology-inc-stock/" target="_blank">MarketBeat: Micron Q3 2026 Earnings (June 24)</a></li>
+    <li>🔗 <a href="https://www.globenewswire.com/news-release/2026/06/04/3307080/0/en/nyxoah-announces-proposed-offering-of-ordinary-shares.html" target="_blank">GlobeNewswire: Nyxoah Announces Proposed Offering</a></li>
+    <li>🔗 <a href="https://www.stocktitan.net/news/NYXH/nyxoah-announces-pricing-of-95-million-underwritten-public-8sbn7qaephzj.html" target="_blank">StockTitan: Nyxoah prices $95M stock sale</a></li>
+    <li>🔗 <a href="https://www.rttnews.com/3658353/morning-market-movers-bgms-sti-indp-mrln-see-big-swings.aspx" target="_blank">RTTNews: Morning Market Movers — BGMS, STI</a></li>
+    <li>🔗 <a href="https://www.benzinga.com/markets/equities/26/06/53022545/why-solidion-technology-shares-are-rallying-over-50-here-are-20-stocks-moving-premarket" target="_blank">Benzinga: Why Solidion Technology Shares Are Rallying</a></li>
+    <li>🔗 <a href="https://stockstotrade.com/news/real-messenger-corporation-rmsg-news-2026_06_05/" target="_blank">StocksToTrade: RMSG Stock Explodes Higher</a></li>
+    <li>🔗 <a href="https://marketchameleon.com/Reports/UnusualOptionVolumeReport" target="_blank">Market Chameleon: Unusual Option Volume Report</a></li>
+    <li>🔗 <a href="https://www.barchart.com/options/unusual-activity" target="_blank">Barchart: Unusual Options Activity</a></li>
+    <li>🔗 <a href="https://www.gurufocus.com/news/8903601/us-stocks-plunge-as-key-chip-stocks-sell-off-smci-down-10" target="_blank">GuruFocus: US Stocks Plunge — SMCI Down 10%</a></li>
+    <li>🔗 <a href="https://www.schaeffersresearch.com/content/news/2026/06/05/2-chip-stocks-extending-slide-after-broadcom-earnings-bust" target="_blank">Schaeffer's: 2 Chip Stocks Extending Slide</a></li>
+    <li>🔗 <a href="https://finance.yahoo.com/markets/stocks/gainers/" target="_blank">Yahoo Finance: Top Gainers</a></li>
+    <li>🔗 <a href="https://finance.yahoo.com/markets/stocks/most-active/" target="_blank">Yahoo Finance: Most Active Stocks</a></li>
+    <li>🔗 <a href="https://stocktwits.com/rankings/trending" target="_blank">StockTwits: Trending Stocks</a></li>
+    <li>🔗 <a href="https://www.reddit.com/r/wallstreetbets/" target="_blank">Reddit r/wallstreetbets</a></li>
+    <li>🔗 <a href="https://apewisdom.io/" target="_blank">ApeWisdom: WSB Ticker Mentions</a></li>
+    <li>🔗 <a href="https://altindex.com/wallstreetbets" target="_blank">AltIndex: WallStreetBets Stocks</a></li>
+    <li>🔗 <a href="https://www.cnn.com/2026/06/05/markets/stock-market-sell-off-fed" target="_blank">CNN: Nasdaq, S&P 500 worst day of year — AI stocks, Fed rate hike</a></li>
+  </ul>
+</div>
+
+<div class="footer">
+  <strong>免責聲明 / Disclaimer:</strong> 本報告僅供資訊參考，不構成任何投資建議。所有數字來源均已標注；未能即時確認的數字已標示「待確認」。本文件不建議買入、賣出或持有任何特定證券。過去表現不代表未來結果。<br/><br/>
+  This report is for informational purposes only and does not constitute investment advice. All figures are sourced as indicated. This document does not recommend buying, selling, or holding any specific security. Past performance is not indicative of future results.<br/><br/>
+  製表: Claude (Anthropic) · 資料截止: 2026-06-05 US RTH Close + PM/AH movers · 發布: 2026-06-06 Asia/Taipei
+</div>
+
+</body>
+</html>
