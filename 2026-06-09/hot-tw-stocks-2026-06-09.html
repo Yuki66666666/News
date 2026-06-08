@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日台股熱門焦點股 Hot Taiwan Stocks — 2026-06-09</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --card2: #222536;
+    --border: #2e3250;
+    --accent: #4f8ef7;
+    --green: #22c55e;
+    --red: #ef4444;
+    --orange: #f97316;
+    --yellow: #eab308;
+    --purple: #a855f7;
+    --text: #e2e8f0;
+    --muted: #8892b0;
+    --tag-bg: #1e2a4a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, 'Segoe UI', 'PingFang TC', 'Noto Sans TC', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .header {
+    background: linear-gradient(135deg, #0d1b3e 0%, #1a1d27 100%);
+    border-bottom: 2px solid var(--border);
+    padding: 24px 32px 20px;
+  }
+  .header h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 4px; }
+  .header .sub { color: var(--muted); font-size: 0.88rem; }
+  .header .badge {
+    display: inline-block;
+    background: #1a3a1a;
+    color: var(--green);
+    border: 1px solid var(--green);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 0.78rem;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 20px 60px; }
+
+  /* MARKET BACKDROP */
+  .backdrop {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+  }
+  .backdrop h2 { font-size: 1.05rem; color: var(--accent); margin-bottom: 10px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  .backdrop-stats {
+    display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 14px;
+  }
+  .stat-box {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 18px;
+    min-width: 160px;
+    flex: 1;
+  }
+  .stat-box .label { font-size: 0.78rem; color: var(--muted); margin-bottom: 3px; }
+  .stat-box .value { font-size: 1.15rem; font-weight: 700; }
+  .stat-box .change { font-size: 0.82rem; margin-top: 2px; }
+  .up { color: var(--red); }
+  .dn { color: var(--green); }
+  .crash { color: var(--red); font-weight: 700; }
+
+  /* SUMMARY TABLE */
+  .section-title {
+    font-size: 1.1rem; font-weight: 700; color: var(--accent);
+    margin: 28px 0 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-title .num {
+    background: var(--accent);
+    color: #fff;
+    border-radius: 4px;
+    padding: 1px 8px;
+    font-size: 0.82rem;
+  }
+
+  .summary-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-bottom: 30px; }
+  .summary-table th {
+    background: var(--card2);
+    color: var(--muted);
+    padding: 9px 12px;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+  }
+  .summary-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .summary-table tr:hover td { background: rgba(79,142,247,0.04); }
+  .ticker { font-weight: 700; color: var(--accent); }
+  .hot-stars { color: var(--yellow); letter-spacing: -1px; }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--accent);
+    border-radius: 3px;
+    padding: 1px 6px;
+    font-size: 0.78rem;
+    margin: 1px 2px;
+    border: 1px solid rgba(79,142,247,0.3);
+  }
+  .tag.red { background: #3a1a1a; color: var(--red); border-color: rgba(239,68,68,0.3); }
+  .tag.green { background: #1a3a1a; color: var(--green); border-color: rgba(34,197,94,0.3); }
+  .tag.orange { background: #3a2a1a; color: var(--orange); border-color: rgba(249,115,22,0.3); }
+  .tag.purple { background: #2a1a3a; color: var(--purple); border-color: rgba(168,85,247,0.3); }
+
+  /* DEEP DIVE CARDS */
+  .stock-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 22px;
+    overflow: hidden;
+  }
+  .stock-card-header {
+    background: var(--card2);
+    padding: 14px 20px 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border);
+  }
+  .stock-card-header .ticker-big {
+    font-size: 1.4rem; font-weight: 800; color: var(--accent);
+  }
+  .stock-card-header .name-cn { font-size: 1.1rem; font-weight: 700; }
+  .stock-card-header .name-en { font-size: 0.82rem; color: var(--muted); margin-left: 4px; }
+  .price-badge {
+    margin-left: auto;
+    display: flex; align-items: center; gap: 16px;
+    flex-wrap: wrap;
+  }
+  .price-val { font-size: 1.25rem; font-weight: 700; }
+  .price-chg {
+    font-size: 1rem; font-weight: 700; padding: 3px 10px;
+    border-radius: 5px;
+  }
+  .price-chg.up { background: rgba(239,68,68,0.15); }
+  .price-chg.dn { background: rgba(34,197,94,0.15); }
+
+  .stock-card-body { padding: 16px 20px; }
+  .stock-section { margin-bottom: 16px; }
+  .stock-section h4 {
+    font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--muted); margin-bottom: 6px;
+  }
+  .stock-section p { font-size: 0.92rem; line-height: 1.7; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  @media (max-width: 680px) { .grid2 { grid-template-columns: 1fr; } }
+
+  .info-block {
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 12px 14px;
+    font-size: 0.88rem;
+  }
+  .info-block .lbl { color: var(--muted); font-size: 0.78rem; margin-bottom: 4px; }
+
+  .caution-box {
+    background: #3a1a1a;
+    border: 1px solid rgba(239,68,68,0.4);
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    color: #fca5a5;
+    margin-top: 10px;
+  }
+  .caution-box::before { content: "⚠ "; font-weight: 700; }
+
+  /* WATCHLIST / CAUTION */
+  .watch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-bottom: 30px; }
+  .watch-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .watch-card h3 { font-size: 0.95rem; color: var(--accent); margin-bottom: 6px; }
+  .watch-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+  /* SOURCES */
+  .sources {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.82rem;
+  }
+  .sources h3 { color: var(--muted); margin-bottom: 10px; }
+  .sources ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 16px; }
+  .sources li::before { content: "→ "; color: var(--muted); }
+
+  .disclaimer {
+    margin-top: 20px;
+    font-size: 0.78rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    line-height: 1.7;
+  }
+
+  .pending-note {
+    background: #1a1a00;
+    border: 1px solid #666600;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    color: #ffffaa;
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>今日台股熱門焦點股
+    <span style="font-size:1rem; font-weight:400; color:var(--muted);">Hot Taiwan Stocks of the Day</span>
+    <span class="badge">2026-06-09</span>
+  </h1>
+  <div class="sub">資料蒐集截至收盤後 · 數字待確認部分已標注 · 本文僅供資訊參考，不構成投資建議</div>
+</div>
+
+<div class="container">
+
+  <!-- MARKET BACKDROP -->
+  <div class="backdrop">
+    <h2>大盤背景 Market Backdrop — 2026/06/08 (Most Recent TWSE Session)</h2>
+    <div class="pending-note">
+      注意：今日 (6/9) 為 WWDC 蘋果開發者大會開幕日，台股 09:00 開盤；部分 6/9 盤後數字仍在確認中，以下加權指數收盤數據為 6/8 (Monday) 官方確認值。
+    </div>
+    <div class="backdrop-stats">
+      <div class="stat-box">
+        <div class="label">加權指數收盤 (6/8)</div>
+        <div class="value crash">43,502.78</div>
+        <div class="change crash">▼ 1,568.16 pts (-3.48%)</div>
+      </div>
+      <div class="stat-box">
+        <div class="label">盤中最低 (6/8 史上最大跌幅)</div>
+        <div class="value crash">42,376.86</div>
+        <div class="change crash">盤中跌幅近 2,700 點，史上最大盤中跌點</div>
+      </div>
+      <div class="stat-box">
+        <div class="label">三大法人合計 (6/8)</div>
+        <div class="value crash">賣超 1,339 億</div>
+        <div class="change" style="color:var(--muted)">外資大賣，投信續賣</div>
+      </div>
+      <div class="stat-box">
+        <div class="label">台指期夜盤 (6/8 盤後)</div>
+        <div class="value" style="color:var(--green)">反彈 +1,000 pts+</div>
+        <div class="change" style="color:var(--green)">收復 44,000 點大關</div>
+      </div>
+    </div>
+    <p style="font-size:0.88rem; color:var(--muted);">
+      背景：美國 5 月非農就業報告 (+17.2萬) 遠超預期(預估 +8 萬)，市場重新定價聯準會升息預期；加上博通 (AVGO) 財測未上調 AI 目標，費城半導體指數 6/5 崩跌 10.26%，那斯達克暴跌 4.18%，台積電 ADR 跌 6.69%，衝擊台股 6/8 開盤史詩級殺盤。下午 3 點後，美股費半反彈超 4%、台指期夜盤漲千點，市場情緒趨穩，6/9 為首要觀察日。蘋果 WWDC 2026 同日台灣時間凌晨開幕，iOS 27 / Siri 2.0 題材發酵。
+      <br><br>
+      <strong>Background (EN):</strong> A blowout US May NFP print (+172K vs +80K est.) repriced Fed rate-path expectations; Broadcom's in-line-only AI guidance triggered a SOX -10.26% collapse on June 5. Taiwan's index suffered its largest-ever intraday drawdown of ~2,700 pts on June 8 before recovering to close -3.48%. Overnight futures rallied 1,000+ pts on SOX recovery (+4%). June 9 is the first bounce-test session, coinciding with Apple WWDC 2026.
+    </p>
+  </div>
+
+  <!-- SUMMARY TABLE -->
+  <div class="section-title">
+    <span class="num">TOP</span>
+    熱門焦點 Top 8 / Today's Hottest Names
+  </div>
+
+  <div style="overflow-x:auto; margin-bottom:30px;">
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>股號</th>
+        <th>公司</th>
+        <th>收盤 (6/8)</th>
+        <th>漲跌</th>
+        <th>成交量</th>
+        <th>三大法人方向</th>
+        <th>熱度</th>
+        <th>主要 Catalyst</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="ticker">2059</td>
+        <td>川湖 King Slide</td>
+        <td>6,180</td>
+        <td class="up">+560 (+9.96%) 漲停</td>
+        <td>待確認</td>
+        <td><span class="tag green">買</span></td>
+        <td class="hot-stars">★★★★★</td>
+        <td>5月營收 37.91 億，年增 172%，創歷史新高</td>
+      </tr>
+      <tr>
+        <td class="ticker">8454</td>
+        <td>富邦媒 momo</td>
+        <td>388</td>
+        <td class="up">+35.3 (+10%) 漲停</td>
+        <td>待確認</td>
+        <td><span class="tag green">買</span></td>
+        <td class="hot-stars">★★★★★</td>
+        <td>618 購物節暖身 + 逆勢漲停，列注意/處置股</td>
+      </tr>
+      <tr>
+        <td class="ticker">1714</td>
+        <td>和桐 Hotung</td>
+        <td>漲停</td>
+        <td class="up">漲停鎖死</td>
+        <td>待確認</td>
+        <td><span class="tag">待確認</span></td>
+        <td class="hot-stars">★★★★</td>
+        <td>4-5 月營收年增約 72%，大盤崩跌中一開盤漲停</td>
+      </tr>
+      <tr>
+        <td class="ticker">5345</td>
+        <td>馥鴻 Fuhong</td>
+        <td>漲停</td>
+        <td class="up">漲停鎖死</td>
+        <td>待確認</td>
+        <td><span class="tag">待確認</span></td>
+        <td class="hot-stars">★★★★</td>
+        <td>5月營收年增 1,505%，創近 65 個月新高，超強度爆發</td>
+      </tr>
+      <tr>
+        <td class="ticker">2382</td>
+        <td>廣達 Quanta</td>
+        <td>約 310 (待確認)</td>
+        <td class="dn">跌 (待確認)</td>
+        <td>112,545 張+</td>
+        <td><span class="tag red">賣</span></td>
+        <td class="hot-stars">★★★★</td>
+        <td>5月營收 3,114 億，年增 94.38%，創歷史第三高；抄底焦點</td>
+      </tr>
+      <tr>
+        <td class="ticker">3481</td>
+        <td>群創 Innolux</td>
+        <td>48.35</td>
+        <td class="dn">-5.35 (-9.96%) 接近跌停</td>
+        <td>84,683 張</td>
+        <td><span class="tag red">賣</span></td>
+        <td class="hot-stars">★★★★</td>
+        <td>6/9 WWDC 蘋概+CPO 轉型題材 vs 6/8 殺盤重災區</td>
+      </tr>
+      <tr>
+        <td class="ticker">2409</td>
+        <td>友達 AUO</td>
+        <td>24.4</td>
+        <td class="dn">-2.70 (-9.96%) 接近跌停</td>
+        <td>66,599 張</td>
+        <td><span class="tag red">賣</span></td>
+        <td class="hot-stars">★★★★</td>
+        <td>CPO 轉型 + 車用題材 vs 6/8 急殺，6/9 觀察反彈深度</td>
+      </tr>
+      <tr>
+        <td class="ticker">6770</td>
+        <td>力積電 PSMC</td>
+        <td>67.5</td>
+        <td class="dn">-7.10 (-9.52%)</td>
+        <td>98,154 張</td>
+        <td><span class="tag red">賣</span></td>
+        <td class="hot-stars">★★★</td>
+        <td>記憶體族群崩殺；分析師示警 DRAM 價格見頂</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- DEEP DIVES -->
+
+  <!-- 1. 川湖 -->
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="ticker-big">2059</div>
+      <div>
+        <span class="name-cn">川湖</span>
+        <span class="name-en">King Slide Works — AI Server Rail King</span>
+      </div>
+      <div class="price-badge">
+        <span class="price-val">6,180 元</span>
+        <span class="price-chg up">+560 (+9.96%) 漲停 ★</span>
+      </div>
+    </div>
+    <div class="stock-card-body">
+      <div class="grid2">
+        <div class="info-block">
+          <div class="lbl">今日數據 / Today's Tape (6/8)</div>
+          收盤 6,180 元 (+9.96% 漲停) · 成交量待確認 · 為千金股中最勇漲停王
+        </div>
+        <div class="info-block">
+          <div class="lbl">5月營收 / May Revenue</div>
+          37.91 億元 · MoM +46.05% · YoY <strong style="color:var(--red)">+172.05%</strong> · 創歷史新高
+        </div>
+      </div>
+      <div class="stock-section">
+        <h4>為什麼今天熱 / Why It's Hot</h4>
+        <p>
+          6 月 5 日公布 5 月營收 37.91 億元，年增率擴大至 172%，月增 46%，是台股所有個股中最強勁的營收爆炸之一。川湖為全球 AI 伺服器滑軌 (Server Rail) 龍頭，客戶涵蓋輝達 Vera Rubin 平台供應鏈。備註欄標注「新產品開始出貨，導致年對年營收增幅較大」，市場解讀為 Vera Rubin 正式拉貨訊號。在全市場崩跌 2,700 點的背景下，川湖一開盤就直接亮燈漲停鎖死，成為千金股中唯一全程鎖漲停的個股，PTT Stock 板上推文「值得這個價」「王者」「目標萬元」連刷。
+        </p>
+        <p style="margin-top:8px; color:var(--muted);">
+          King Slide reported May revenue of NT$3.79 billion — up 172% YoY — signaling volume ramp of its next-gen Vera Rubin-compatible server rail products. While the broader TAIEX crashed ~2,700 pts intraday, King Slide opened limit-up and held all day, becoming the most resilient "thousand-dollar stock" (股價超千元) in the market. PTT consensus: "Already knew AI servers needed rails. This is just the beginning."
+        </p>
+      </div>
+      <div class="stock-section">
+        <h4>籌碼觀察 / Flow Watch</h4>
+        <p>法人籌碼偏多，主力未出現特定分點異常賣壓。6/5 營收公告後外資小幅加碼，融資動向待確認。川湖過去 6 天大漲約 25%，已被列為注意股。</p>
+      </div>
+      <div class="stock-section">
+        <h4>社群聲量 / Retail Buzz</h4>
+        <p>PTT Stock 板 6/5 推文密集，代表性討論：「老黃說 Vera Rubin 需要更多更精密的滑軌」、「相信魏哲家，年底換新家。買進川湖，別墅面湖。」— 散戶樂觀情緒高，但也有聲音注意已遭列注意股、追高風險。</p>
+      </div>
+      <div class="stock-section">
+        <h4>炒作脈絡 / Narrative Context</h4>
+        <p>所屬族群：AI 伺服器基礎建設（機架滑軌、連接器）。Vera Rubin 為輝達 2026 H2 新平台，出貨量預期翻倍。川湖 Q1 單季 EPS 36.58 元再創新高，法人估 2027 EPS 上看 150-190 元。</p>
+      </div>
+      <div class="stock-section">
+        <h4>後續觀察 / What to Watch Next</h4>
+        <p>6/9 盤中能否延續強勢？是否出現隔日沖賣壓？融資餘額是否攀升過快？Vera Rubin 正式量產時間點確認與否。注意事項：已列注意股，若再漲兩根則進入處置。</p>
+      </div>
+      <div class="caution-box">注意：川湖已列為注意有價證券，連續多日急漲，隔日沖風險升高，技術面需觀察漲停後首日是否有量縮跡象。</div>
+      <div class="stock-section" style="margin-top:14px;">
+        <h4>來源 / Sources</h4>
+        <a href="https://disp.cc/b/Stock/i5yO" target="_blank">PTT 川湖5月營收討論</a> ·
+        <a href="https://www.ctee.com.tw/news/20260608700561-430201" target="_blank">工商時報 川湖漲停報導</a> ·
+        <a href="https://mops.twse.com.tw/mops/#/web/t05st10_ifrs" target="_blank">公開資訊觀測站 MOPS</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. 富邦媒 -->
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="ticker-big">8454</div>
+      <div>
+        <span class="name-cn">富邦媒 momo</span>
+        <span class="name-en">Fubon Media / momo.com — E-commerce Leader</span>
+      </div>
+      <div class="price-badge">
+        <span class="price-val">388 元</span>
+        <span class="price-chg up">+35.3 (+10%) 漲停 逆勢</span>
+      </div>
+    </div>
+    <div class="stock-card-body">
+      <div class="grid2">
+        <div class="info-block">
+          <div class="lbl">今日數據 / Today's Tape (6/8)</div>
+          盤中高點 388 元，亮燈漲停 · 為大崩盤日少數逆勢飆停個股 · 後已列處置股
+        </div>
+        <div class="info-block">
+          <div class="lbl">關鍵事件</div>
+          618 年中購物節暖身 + 近期 ETF 成分股題材 + 6/11 除息行情 · 近 6 天大漲 ~45%
+        </div>
+      </div>
+      <div class="stock-section">
+        <h4>為什麼今天熱 / Why It's Hot</h4>
+        <p>
+          富邦媒 (momo 購物) 在全市場崩跌的 6/8，逆勢衝上 388 元漲停，成為當日最矚目的非電子概念個股。主要催化劑為：(1) 618 年中大促暖身，市場預期 momo 受益最深；(2) 近期確認納入凱基台灣 TOP50 ETF (待確認) 或高息 ETF 成分股，帶動被動型資金追買；(3) 6/11 即將除息，部分資金搶搭息前行情；(4) 技術面自低檔啟動，短線多頭結構完整，主力連日加碼。CMoney 投資網誌報導：盤中逆勢飆漲停，隨後已列入處置股。
+        </p>
+        <p style="margin-top:8px; color:var(--muted);">
+          momo (Fubon Media) surged to its limit-up price of NT$388 — a rare bright spot in a market-wide rout. Three catalysts converged: the 618 mid-year shopping festival warm-up boosting revenue expectations, index inclusion buying by passive funds, and ex-dividend positioning for the June 11 record date. The stock has since been placed on the "disposition stock" (處置股) watch list due to its ~45% gain in 6 sessions.
+        </p>
+      </div>
+      <div class="stock-section">
+        <h4>籌碼觀察 / Flow Watch</h4>
+        <p>主力分點連日買進，CMoney 籌碼 K 線顯示多頭護航。外資持股動向待確認，融資略升。已列處置股代表交易受限（撮合頻率降低至每 3 分鐘一次）。</p>
+      </div>
+      <div class="stock-section">
+        <h4>社群聲量 / Retail Buzz</h4>
+        <p>CMoney 股市爆料同學會：「今天怎麼可以這樣強」「618 加持太猛了」。Yahoo 財經：「momo 越關越大尾！今逆勢飆漲停」。散戶討論熱度高但也有人警示「處置股小心追」。</p>
+      </div>
+      <div class="caution-box">富邦媒已被列為處置有價證券。處置股每 3 分鐘才撮合一次，流動性受影響，且若繼續急漲可能升格為警示股（限制融資）。操作需謹慎。</div>
+      <div class="stock-section" style="margin-top:14px;">
+        <h4>來源 / Sources</h4>
+        <a href="https://cmnews.com.tw/article/forumnews-232f488f-636a-11f1-ba19-219ae3447904" target="_blank">CMoney 台股盤中重挫近2700點，夜盤反彈逾千點</a> ·
+        <a href="https://news.cnyes.com/news/id/6485416" target="_blank">鉅亨 盤中速報 富邦媒漲停</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 廣達 -->
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="ticker-big">2382</div>
+      <div>
+        <span class="name-cn">廣達</span>
+        <span class="name-en">Quanta Computer — AI Server Assembly King</span>
+      </div>
+      <div class="price-badge">
+        <span class="price-val">約 310 元 (待確認)</span>
+        <span class="price-chg dn">崩跌日，但抄底焦點</span>
+      </div>
+    </div>
+    <div class="stock-card-body">
+      <div class="grid2">
+        <div class="info-block">
+          <div class="lbl">5月營收</div>
+          3,114.81 億元 · YoY <strong style="color:var(--red)">+94.38%</strong> · 歷史第三高
+        </div>
+        <div class="info-block">
+          <div class="lbl">為何是焦點</div>
+          崩盤日成交量 112,545 張（CMoney 即時），抄底資金湧入 + 業績超強
+        </div>
+      </div>
+      <div class="stock-section">
+        <h4>為什麼今天熱 / Why It's Hot</h4>
+        <p>
+          廣達在 6/8 殺盤中成為成交量最大股之一，112,545 張換手，顯示市場大量移交籌碼。主要吸引力來自超亮眼的 5 月合併營收 3,114 億元，年增 94.38%，創廣達歷史第三高，確認 AI 伺服器出貨爆量趨勢不變。市場老手公開抄底「口袋名單」點名廣達，認為崩跌是低接機會。
+        </p>
+        <p style="margin-top:8px; color:var(--muted);">
+          Quanta's May consolidated revenue hit NT$311.5 billion (+94.4% YoY), its third-highest monthly record — validating AI server shipment strength. The stock saw massive turnover (112K+ lots) on the crash day, with seasoned investors publicly naming it as a "dip-buy" candidate.
+        </p>
+      </div>
+      <div class="stock-section">
+        <h4>後續觀察 / What to Watch Next</h4>
+        <p>6/9 開盤反彈力道是否顯著；外資是否轉為買超；WWDC 蘋果 AI 應用題材是否進一步帶動 AI 伺服器想像空間。廣達為 WWDC 概念股之一。</p>
+      </div>
+      <div class="stock-section">
+        <h4>來源 / Sources</h4>
+        <a href="https://news.cnyes.com/news/id/6484140" target="_blank">鉅亨 量大強漲股整理</a> ·
+        <a href="https://cmnews.com.tw/article/forumnews-232f488f-636a-11f1-ba19-219ae3447904" target="_blank">CMoney 台股重挫報導</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. 群創 / 友達 -->
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="ticker-big">3481 / 2409</div>
+      <div>
+        <span class="name-cn">群創 / 友達</span>
+        <span class="name-en">Innolux / AUO — Panel Twins + CPO Transformation</span>
+      </div>
+      <div class="price-badge">
+        <div>
+          <span class="price-val">群創 48.35</span>
+          <span class="price-chg dn"> -9.96%</span>
+        </div>
+        <div>
+          <span class="price-val">友達 24.4</span>
+          <span class="price-chg dn"> -9.96%</span>
+        </div>
+      </div>
+    </div>
+    <div class="stock-card-body">
+      <div class="grid2">
+        <div class="info-block">
+          <div class="lbl">群創 6/8 數據</div>
+          48.35 元，接近跌停 · 成交量 84,683 張 · CMoney 熱門股第一
+        </div>
+        <div class="info-block">
+          <div class="lbl">友達 6/8 數據</div>
+          24.4 元，接近跌停 · 成交量 66,599 張 · CPO 轉型 + 車用題材
+        </div>
+      </div>
+      <div class="stock-section">
+        <h4>為什麼今天熱 / Why It's Hot</h4>
+        <p>
+          群創與友達在 6/8 崩盤日雙雙接近跌停，各自爆出六到七萬張以上的成交量，為 CMoney 散戶熱門討論第一名（「群創 3481 84,683 張」）。市場焦點原因有兩面：(1) 崩殺面：先前 CPO 轉型、SpaceX 太空傳輸題材帶動的大漲被大量獲利了結；(2) 反攻題材面：友達積極布局 CPO 共同封裝光學 + 車用 BHTC 併購，訂單超現有營收兩倍；6/9 WWDC 蘋果 AI 推動面板需求預期，面板雙虎成最受關注的反彈候選。
+        </p>
+        <p style="margin-top:8px; color:var(--muted);">
+          Panel twins Innolux and AUO were the most actively discussed names on CMoney on June 8, recording near-limit-down closes on massive volume after CPO-themed rallies reversed hard. With WWDC driving Apple AI expectations and AUO's CPO/automotive pivot story intact, both are on the primary watch list for a June 9 recovery bounce.
+        </p>
+      </div>
+      <div class="stock-section">
+        <h4>社群聲量 / Retail Buzz</h4>
+        <p>CMoney 同學會即時留言充斥：「今天都跌停價全部賣出去，看到夜盤大漲，都空手😰」「不知道是好事還是壞事？」— 反映散戶恐慌性出貨後懊悔情緒，隔日沖籌碼交換明顯。</p>
+      </div>
+      <div class="stock-section">
+        <h4>後續觀察 / What to Watch Next</h4>
+        <p>6/9 開盤反彈是否有量支撐，還是繼續交換籌碼？WWDC 對蘋果面板題材的具體落地？友達 CPO 載板進入客戶驗證進度。外資是否回補。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. 力積電 -->
+  <div class="stock-card">
+    <div class="stock-card-header">
+      <div class="ticker-big">6770</div>
+      <div>
+        <span class="name-cn">力積電</span>
+        <span class="name-en">PSMC — DRAM Cycle Play + Correction Risk</span>
+      </div>
+      <div class="price-badge">
+        <span class="price-val">67.5 元</span>
+        <span class="price-chg dn">-7.10 (-9.52%)</span>
+      </div>
+    </div>
+    <div class="stock-card-body">
+      <div class="grid2">
+        <div class="info-block">
+          <div class="lbl">6/8 數據</div>
+          67.5 元 · 跌 7.1 元 (-9.52%) · 成交量 98,154 張，爆大量
+        </div>
+        <div class="info-block">
+          <div class="lbl">主要利空</div>
+          Raymond James 示警 DRAM 價格 2026 年中見頂 · 美光 ADR -13.25%
+        </div>
+      </div>
+      <div class="stock-section">
+        <h4>為什麼今天熱 / Why It's Hot</h4>
+        <p>
+          力積電為 CMoney 熱門股第五名，6/8 爆出近 10 萬張大量，為記憶體族群殺盤代表。美光 (MU-US) 在美股崩跌 13.25%，加上 Raymond James 分析師 Karl Ackerman 警告 DRAM 與 NAND 價格高峰可能提前在 2026 年中出現，令市場重新評估記憶體族群的估值。力積電前期隨記憶體大漲，此次成為殺盤重災區，但同時也是反彈行情中最快可能回補的標的之一。
+        </p>
+        <p style="margin-top:8px; color:var(--muted);">
+          PSMC saw near-limit-down close with 98K+ lots, as Micron's ADR -13.25% and analyst DRAM peak-pricing warnings battered the memory sector. As a local DRAM/specialty memory proxy, PSMC absorbed the most momentum selling from the group.
+        </p>
+      </div>
+      <div class="stock-section">
+        <h4>後續觀察 / What to Watch Next</h4>
+        <p>記憶體族群賣壓是否收斂、HBM 需求是否持續支撐 DRAM ASP。TrendForce 是否再次上修記憶體市場預測（近期剛上修 2027 年規模至 1.28 兆美元）。外資空單回補速度。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WATCHLIST -->
+  <div class="section-title">
+    <span class="num">次熱</span>
+    次熱觀察 Watch List
+  </div>
+  <div class="watch-grid">
+    <div class="watch-card">
+      <h3>1714 和桐 Hotung</h3>
+      <p>4-5 月營收分別年增 71.7%，6/8 一開盤漲停鎖死。化工/材料族群。成為台股史詩崩盤日「多頭鐵三角」之一，後續動向值得追蹤。</p>
+    </div>
+    <div class="watch-card">
+      <h3>5345 馥鴻 Fuhong</h3>
+      <p>5 月營收年增 1,505%（近 65 個月新高）。崩盤日鎖漲停，爆發性強，但來源/業務內容尚需確認。題材真實性需多方核實。</p>
+    </div>
+    <div class="watch-card">
+      <h3>2330 台積電 TSMC</h3>
+      <p>6/8 收盤 2,295 元，跌 70 元 (-2.96%)，成交量 44,279 張。ADR 已回升 2.64%（6/8 夜盤），6/9 能否重返 2,350 元支撐為市場核心觀察點。</p>
+    </div>
+    <div class="watch-card">
+      <h3>2317 鴻海 Hon Hai</h3>
+      <p>6/8 收 269.5 元，跌 15 元 (-5.27%)，成交量 112,545 張。WWDC 蘋概 + AI 伺服器雙題材，為 6/9 資金方向重要參照。</p>
+    </div>
+    <div class="watch-card">
+      <h3>2344 華邦電 Winbond</h3>
+      <p>記憶體族群代表，6/8 盤前曾遭抄底討論點名（「6/8台股交易回顧｜華邦電(2344)漲勢驚人」），數據待確認。DRAM 週期見頂風險警示中。</p>
+    </div>
+    <div class="watch-card">
+      <h3>2303 聯電 UMC</h3>
+      <p>6/8 收 121 元，跌 10.5 (-7.98%)。ADR 跌 5.24%，上詮 (3363) 同步大跌 8.7%。半導體代工跌幅較深，反彈潛力受矚目。</p>
+    </div>
+  </div>
+
+  <!-- CAUTION LIST -->
+  <div class="section-title">
+    <span class="num">警示</span>
+    異常注意 / Caution List
+  </div>
+  <div class="watch-grid">
+    <div class="watch-card" style="border-color:rgba(239,68,68,0.4);">
+      <h3 style="color:var(--red)">8454 富邦媒 — 處置股</h3>
+      <p>近 6 日大漲 ~45% 後已遭列處置股，每 3 分鐘撮合一次，流動性受限。請注意追高風險與隔日沖壓力。</p>
+    </div>
+    <div class="watch-card" style="border-color:rgba(239,68,68,0.4);">
+      <h3 style="color:var(--red)">2059 川湖 — 注意股</h3>
+      <p>近 6 日大漲 ~25%，已列注意股。處置機制可能於未來數日觸發，融資拉抬需審慎。</p>
+    </div>
+    <div class="watch-card" style="border-color:rgba(239,68,68,0.4);">
+      <h3 style="color:var(--red)">2409 友達 / 3481 群創 — 高波動</h3>
+      <p>6/8 接近跌停，6/9 盤中反彈（夜盤暗示有資金回補）但如放量急拉未能守住則可能再見殺盤。面板族群雙向波動顯著。</p>
+    </div>
+    <div class="watch-card" style="border-color:rgba(239,68,68,0.4);">
+      <h3 style="color:var(--orange)">記憶體族群整體</h3>
+      <p>美光 ADR 單日跌 13.25%，Raymond James 示警 DRAM 價格 2026 年中見頂，力積電、華邦電、旺宏等近期爆量後高風險。</p>
+    </div>
+  </div>
+
+  <!-- SOURCES FOOTER -->
+  <div class="sources">
+    <h3>數據來源 Sources Consulted</h3>
+    <ul>
+      <li><a href="https://www.cmoney.tw/forum/article/179656534" target="_blank">CMoney 股市爆料同學會 6/8 盤前觀察</a></li>
+      <li><a href="https://cmnews.com.tw/article/forumnews-232f488f-636a-11f1-ba19-219ae3447904" target="_blank">CMoney 投資網誌：台股盤中重挫近2700點</a></li>
+      <li><a href="https://news.cnyes.com/news/id/6484140" target="_blank">鉅亨網：量大強漲股整理 (2026-06-04)</a></li>
+      <li><a href="https://news.cnyes.com/news/id/6486593" target="_blank">鉅亨網：美股盤後 非農爆表重創降息夢 費半-10%</a></li>
+      <li><a href="https://news.cnyes.com/news/id/6486761" target="_blank">鉅亨網：台指期夜盤崩跌3006點</a></li>
+      <li><a href="https://www.ctee.com.tw/news/20260608700561-430201" target="_blank">工商時報：台股史詩級崩跌 川湖等3檔漲停</a></li>
+      <li><a href="https://disp.cc/b/Stock/i5yO" target="_blank">PTT/Disp 川湖5月營收情報</a></li>
+      <li><a href="https://www.ptt.cc/bbs/Stock/index.html" target="_blank">PTT Stock 板</a></li>
+      <li><a href="https://www.twse.com.tw/zh/trading/historical/mi-index.html" target="_blank">TWSE 每日收盤行情</a></li>
+      <li><a href="https://www.twse.com.tw/zh/trading/foreign/t86.html" target="_blank">TWSE 三大法人買賣超日報</a></li>
+      <li><a href="https://money.udn.com/money/story/5612/9551865" target="_blank">經濟日報：WWDC 2026 台鏈商機</a></li>
+      <li><a href="https://www.businesstoday.com.tw/article/category/183008/post/202606070009/" target="_blank">今周刊：台股殺3000點搶誰？老手抄底名單</a></li>
+    </ul>
+  </div>
+
+  <div class="disclaimer">
+    本文件由 AI 代理人依據公開資訊彙整，部分數字（標注「待確認」者）來自即時快訊，尚待官方收盤數據核實。本文不構成任何形式之投資建議或買賣推薦。投資有風險，請謹慎評估並自負盈虧。<br>
+    This report was compiled by an AI agent based on publicly available information. Figures marked "待確認" are from real-time feeds and pending official close confirmation. This is not investment advice. Trade at your own risk.
+  </div>
+
+</div><!-- /container -->
+</body>
+</html>

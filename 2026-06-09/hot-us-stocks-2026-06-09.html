@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日美股熱門焦點股 Hot US Stocks — 2026-06-09</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8f9fc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --accent: #4f46e5;
+      --accent-light: #eef2ff;
+      --green: #16a34a;
+      --green-light: #dcfce7;
+      --red: #dc2626;
+      --red-light: #fee2e2;
+      --yellow: #d97706;
+      --yellow-light: #fef3c7;
+      --text: #1e293b;
+      --muted: #64748b;
+      --hot: #ea580c;
+      --header-bg: #1e1b4b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.65;
+      padding: 0 0 60px;
+    }
+    header {
+      background: var(--header-bg);
+      border-bottom: 3px solid var(--accent);
+      padding: 24px 32px 18px;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+    header h1 span { color: #fb923c; }
+    header .meta {
+      color: #a5b4fc;
+      font-size: 0.83rem;
+      margin-top: 6px;
+    }
+    header .meta strong { color: #c7d2fe; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .session-banner {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+      padding: 12px 18px;
+      margin: 24px 0 20px;
+      font-size: 0.88rem;
+      color: #3730a3;
+    }
+    .session-banner strong { color: #312e81; }
+    .session-banner em { color: #4338ca; font-style: normal; }
+
+    /* ─── Summary Table ─── */
+    .table-wrap { overflow-x: auto; margin: 20px 0; border-radius: 10px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    table { border-collapse: collapse; width: 100%; font-size: 0.84rem; background: #fff; border-radius: 10px; overflow: hidden; }
+    th {
+      background: #f1f5f9;
+      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 10px 14px;
+      border-bottom: 2px solid var(--border);
+      white-space: nowrap;
+      font-size: 0.75rem;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f8faff; }
+    .ticker { font-weight: 800; font-family: monospace; font-size: 0.97rem; color: var(--accent); }
+    .up { color: var(--green); font-weight: 700; }
+    .down { color: var(--red); font-weight: 700; }
+    .neutral { color: var(--yellow); font-weight: 600; }
+    .buzz-stars { color: var(--yellow); letter-spacing: 1px; }
+
+    /* ─── Section headings ─── */
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin: 40px 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+      color: var(--text);
+    }
+    h2 .sub { font-size: 0.82rem; color: var(--muted); font-weight: 400; margin-left: 8px; }
+
+    /* ─── Ticker cards ─── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin-bottom: 18px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 4px 12px rgba(79,70,229,0.1); }
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .card-header .sym {
+      font-size: 1.45rem;
+      font-weight: 900;
+      font-family: monospace;
+      color: var(--accent);
+    }
+    .card-header .sym::before { content: '$'; color: #a5b4fc; font-weight: 400; }
+    .card-header .cname { font-size: 0.95rem; color: var(--muted); font-weight: 500; }
+    .card-header .chg-pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    .chg-pill.up-pill { background: var(--green-light); color: var(--green); }
+    .chg-pill.down-pill { background: var(--red-light); color: var(--red); }
+
+    .tape-row {
+      background: #f1f5f9;
+      border-radius: 7px;
+      padding: 9px 14px;
+      font-size: 0.81rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-family: monospace;
+    }
+    .tape-row span { color: var(--text); font-weight: 600; }
+
+    .section-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin: 14px 0 5px;
+    }
+    .card p { font-size: 0.87rem; color: var(--text); margin-bottom: 9px; }
+    .card p.zh { color: #334155; }
+    .card p.en { color: var(--muted); font-style: italic; }
+    .quote-block {
+      border-left: 3px solid var(--accent);
+      padding: 6px 14px;
+      margin: 7px 0;
+      color: #475569;
+      font-size: 0.83rem;
+      background: var(--accent-light);
+      border-radius: 0 6px 6px 0;
+    }
+    .watch-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 14px; }
+    .watch-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 15px 18px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .watch-card .wt { font-weight: 800; font-family: monospace; color: var(--accent); margin-bottom: 6px; font-size: 0.9rem; }
+    .watch-card p { font-size: 0.82rem; color: var(--muted); }
+
+    .backdrop-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-top: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .backdrop-box p { font-size: 0.86rem; margin-bottom: 8px; }
+    .stat-row { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 14px; }
+    .stat {
+      text-align: center;
+      background: #f8faff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 18px;
+      min-width: 90px;
+    }
+    .stat .val { font-size: 1.05rem; font-weight: 800; }
+    .stat .lbl { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+
+    .sources-section {
+      margin-top: 44px;
+      padding-top: 18px;
+      border-top: 2px solid var(--border);
+    }
+    .sources-section h3 { font-size: 0.95rem; color: var(--muted); margin-bottom: 12px; font-weight: 600; }
+    .sources-section ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 6px; }
+    .sources-section li a {
+      color: var(--accent);
+      font-size: 0.79rem;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .sources-section li a:hover { text-decoration: underline; }
+    .halt-box {
+      background: #fffbeb;
+      border: 1px solid #fcd34d;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+    }
+    .halt-box .ht { font-weight: 700; color: #92400e; margin-bottom: 5px; font-size: 0.88rem; }
+    .halt-box p { font-size: 0.84rem; color: #78350f; }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.71rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-right: 5px;
+    }
+    .badge-earnings { background: var(--green-light); color: var(--green); }
+    .badge-dilution { background: var(--red-light); color: var(--red); }
+    .badge-macro { background: #ede9fe; color: #5b21b6; }
+    .badge-catalyst { background: var(--yellow-light); color: var(--yellow); }
+    .badge-meme { background: #ffedd5; color: #c2410c; }
+    .badge-lawsuit { background: #fee2e2; color: #991b1b; }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.77rem;
+      margin-top: 44px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>&#128293; 今日美股熱門焦點股 <span>Hot US Stocks</span></h1>
+    <div class="meta">
+      交易日 Trading Session: <strong>June 9, 2026 (Monday)</strong> &nbsp;|&nbsp;
+      參考最近收盤 Based on most recent available close data &nbsp;|&nbsp;
+      製作時間 Generated: 2026-06-09 (Asia/Taipei)
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="session-banner">
+    <strong>Session Note:</strong> 今日台灣時間 6/9 對應美股 6/9 周一盤中至收盤。上週五 6/5 芯片股大崩 (Nasdaq -4.18%)，周一出現技術性反彈，但個股分化極大。本報告涵蓋 <strong>6/8–6/9 窗口</strong>內的最熱焦點股，按 Price + Volume + Options + Buzz + Catalyst 五維度評分。
+    <br/><br/>
+    <em>Trading note: June 9 Monday session follows an intense Friday 6/5 semiconductor meltdown (Nasdaq -4.18%). Monday saw a partial chip rebound (+0.8% S&amp;P), but individual names remained extremely bifurcated.</em>
+  </div>
+
+  <!-- ─── SUMMARY TABLE ─── -->
+  <h2>總覽表 Summary Table</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>Company</th>
+          <th>近收 Close</th>
+          <th>%</th>
+          <th>Buzz ★</th>
+          <th>Catalyst</th>
+          <th>方向</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ticker">PL</td>
+          <td>Planet Labs PBC</td>
+          <td>待確認</td>
+          <td class="down">−25.98%</td>
+          <td class="buzz-stars">★★★★</td>
+          <td>$1.5B 增資稀釋 / Share Offering</td>
+          <td class="down">賣壓</td>
+        </tr>
+        <tr>
+          <td class="ticker">POET</td>
+          <td>POET Technologies</td>
+          <td>~$11.86</td>
+          <td class="down">−23.36%</td>
+          <td class="buzz-stars">★★★</td>
+          <td>集體訴訟 + $400M 稀釋</td>
+          <td class="down">崩盤</td>
+        </tr>
+        <tr>
+          <td class="ticker">ALM</td>
+          <td>Almonty Industries</td>
+          <td>~$16.49</td>
+          <td class="down">−21.13%</td>
+          <td class="buzz-stars">★★★</td>
+          <td>$700M 可轉債 + AGM 當日</td>
+          <td class="down">賣壓</td>
+        </tr>
+        <tr>
+          <td class="ticker">TE</td>
+          <td>T1 Energy Inc.</td>
+          <td>~$9.43</td>
+          <td class="down">−19.13%</td>
+          <td class="buzz-stars">★★</td>
+          <td>KORE Power 收購 $32M 轉型疑慮</td>
+          <td class="down">疑慮</td>
+        </tr>
+        <tr>
+          <td class="ticker">NVDA</td>
+          <td>NVIDIA Corporation</td>
+          <td>~$205.10</td>
+          <td class="down">−6.20%</td>
+          <td class="buzz-stars">★★★★★</td>
+          <td>參院聽證 6/11 + 中國市占率下滑</td>
+          <td class="down">制度風險</td>
+        </tr>
+        <tr>
+          <td class="ticker">INTC</td>
+          <td>Intel Corporation</td>
+          <td>~$111.22</td>
+          <td class="up">+11%</td>
+          <td class="buzz-stars">★★★★★</td>
+          <td>Google TPU 300萬晶片訂單</td>
+          <td class="up">爆量反彈</td>
+        </tr>
+        <tr>
+          <td class="ticker">COO</td>
+          <td>The Cooper Companies</td>
+          <td>待確認</td>
+          <td class="up">+8.58%</td>
+          <td class="buzz-stars">★★★</td>
+          <td>Q2 財報超預期 + 訴訟和解解除障礙</td>
+          <td class="up">強勢突破</td>
+        </tr>
+        <tr>
+          <td class="ticker">MRVL</td>
+          <td>Marvell Technology</td>
+          <td>待確認</td>
+          <td class="neutral">高波動</td>
+          <td class="buzz-stars">★★★★★</td>
+          <td>S&amp;P 500 6/22 納入 + Jensen Huang 背書</td>
+          <td class="neutral">回調觀察</td>
+        </tr>
+        <tr>
+          <td class="ticker">ARCB</td>
+          <td>ArcBest Corporation</td>
+          <td>~$155.09</td>
+          <td class="up">+6.17%</td>
+          <td class="buzz-stars">★★</td>
+          <td>貨運前景改善 + 中東局勢緩和</td>
+          <td class="up">強勢</td>
+        </tr>
+        <tr>
+          <td class="ticker">NOK</td>
+          <td>Nokia Oyj</td>
+          <td>待確認</td>
+          <td class="down">−13.48%</td>
+          <td class="buzz-stars">★★★</td>
+          <td>AI 網路股輪動後獲利了結</td>
+          <td class="down">修正</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ─── HOT PICKS DEEP DIVE ─── -->
+  <h2>Top 熱門深度解析 <span class="sub">Deep Dives — Top 5 Hottest Names</span></h2>
+
+  <!-- PL -->
+  <div class="card">
+    <div class="card-header">
+      <span class="sym">PL</span>
+      <span class="cname">Planet Labs PBC</span>
+      <span class="chg-pill down-pill">−25.98%</span>
+      <span class="badge badge-dilution">稀釋 Dilution</span>
+    </div>
+    <div class="tape-row">
+      Tape: Close <span>待確認 (RTH)</span> &nbsp;·&nbsp; 週五創 21 個月最大單日跌幅 &nbsp;·&nbsp; Pre/AH 延續跌勢
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+    <p class="zh">Planet Labs 宣布 15 億美元新股發行計畫，規模相當於市值約 10%，稀釋幅度遠超市場預期。這不是傳統意義的崩盤——本季營收 9,420 萬美元創歷史新高、年增 42%，EPS 也優於預期，FY27 全年指引上調至 4.25–4.41 億美元。然而投資人看到的是「用好數字當藉口、趁勢大量募資」，市場對稀釋的恐懼完全蓋過基本面利多，導致股價重摔近 26%，創 21 個月最大單日跌幅。</p>
+    <p class="en">Planet Labs announced a $1.5B at-the-market share offering via a syndicate led by Goldman Sachs, Morgan Stanley, Barclays, Citi, and Deutsche Bank. Despite a blowout Q1 (revenue +42% YoY to record $94.2M, EPS beat, FY27 guidance raised to $425M–$441M), investors reacted with a near-26% sell-off — the sharpest one-day decline in 21 months. Classic "sell-the-news" dilution response.</p>
+
+    <div class="section-label">Options &amp; Flow</div>
+    <p>宣布時 IV 急升，大量 put 買入保護；稀釋結構使 C/P ratio 大幅偏向 puts。可轉債 / 增發結構本身抑制短期 squeeze 可能性。Short interest 資料待確認。</p>
+
+    <div class="section-label">Retail Buzz / 社群反應</div>
+    <div class="quote-block">StockTwits / Reddit r/stocks: "earnings beat, raised guidance, then dumped 25%... classic dilution trap" — 社群普遍認為這是「好數字掩護發股」，對管理層信任度下降。</div>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <p>① 承銷商是否進行穩價買盤 ② 機構是否趁低接籌 ③ 下季指引 $102M–$107M 能否兌現 ④ 若股價持低，股票供給壓力將持續數週</p>
+    <p style="font-size:0.77rem;color:var(--muted);">Sources: <a href="https://coincentral.com/planet-labs-pl-stock-drops-close-26-as-1-5b-share-dilution-plan-spooks-investors/" target="_blank">CoinCentral</a> · <a href="https://stocktwits.com/news-articles/markets/equity/pl-stock-sinks-on-stock-offering-margin-compression/cZ0FVCWReCL" target="_blank">StockTwits</a></p>
+  </div>
+
+  <!-- INTC -->
+  <div class="card">
+    <div class="card-header">
+      <span class="sym">INTC</span>
+      <span class="cname">Intel Corporation</span>
+      <span class="chg-pill up-pill">+11% (Mon 6/8)</span>
+      <span class="badge badge-catalyst">Google TPU 訂單</span>
+    </div>
+    <div class="tape-row">
+      Tape: 6/8 盤中高 <span>$113.60</span> &nbsp;·&nbsp; 近收 <span>$111.22</span> &nbsp;·&nbsp; 6/5 收 <span>$99.17</span> &nbsp;·&nbsp; YTD <span class="up">+193%</span>
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+    <p class="zh">The Information 獨家報導：Alphabet/Google 向 Intel 下單製造 300 萬顆 TPU 晶片。此前因台積電產能吃緊，Google 測試 Intel 封裝技術數月後做出此決定，製造預計 2028 年開始。同時市場流傳 NVIDIA 也在評估 Intel 是否能代工其下一代 GPU 架構。這是 Intel 晶圓代工 (IFS) 業務的重大信任票，市場解讀為 Intel 翻身敘事的最強一筆，帶動股價爆量上漲逾 10%。</p>
+    <p class="en">The Information broke: Google placed a 3M-chip TPU order with Intel after TSMC capacity constraints. Production begins 2028. Simultaneously, reports suggest Nvidia is evaluating Intel's foundry tech for next-gen GPU architecture. Strongest IFS validation yet — INTC up 10–12% at Monday open on heavy volume. High prior short interest likely amplified the squeeze element.</p>
+
+    <div class="section-label">Options &amp; Flow</div>
+    <p>大量 call 買盤集中 6/21 到期的 $110–$120 strike 區間，成交量為平均 5–8 倍。IV 急升。高前期空倉被迫回補加速漲勢。</p>
+
+    <div class="section-label">Retail Buzz / 社群反應</div>
+    <div class="quote-block">WSB / AltIndex: "INTC 193% YTD and it's just getting started, Google + Nvidia is the thesis playing out" — 零售投資人瘋狂追入，AltIndex 顯示 INTC 社群討論量飆升前 5 名。</div>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <p>① Senate 6/11 NVDA 聽證是否波及 Intel ② 2028 量產前客戶流失風險 ③ 若 NVDA 確認代工，估值重估空間巨大 ④ TSMC 是否反制 (降價、優先排單)</p>
+    <p style="font-size:0.77rem;color:var(--muted);">Sources: <a href="https://www.gurufocus.com/news/8905498/intel-intc-secures-major-ai-chip-order-from-google-shares-surge" target="_blank">GuruFocus</a> · <a href="https://blockonomi.com/intel-intc-stock-soars-12-on-major-google-tpu-order-and-nvidia-partnership-rumors/" target="_blank">Blockonomi</a> · <a href="https://finance.yahoo.com/markets/stocks/articles/intc-stock-soaring-today-googl-142732944.html" target="_blank">Yahoo Finance</a></p>
+  </div>
+
+  <!-- NVDA -->
+  <div class="card">
+    <div class="card-header">
+      <span class="sym">NVDA</span>
+      <span class="cname">NVIDIA Corporation / 英偉達</span>
+      <span class="chg-pill down-pill">−6.20% (Fri 6/5)</span>
+      <span class="badge badge-macro">參院聽證 Senate</span>
+    </div>
+    <div class="tape-row">
+      Tape: 6/5 收 <span>$205.10</span> &nbsp;·&nbsp; 6/4 收 <span>$218.66</span> &nbsp;·&nbsp; 52W High <span>$235.47 (5/14)</span> &nbsp;·&nbsp; 峰值回落 <span class="down">−13%</span> &nbsp;·&nbsp; 6/8 反彈 <span class="up">+1.88%</span>
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+    <p class="zh">NVIDIA 本週成為美國科技政策的核心焦點。參議員 Elizabeth Warren 邀請 CEO Jensen Huang 於 6/11 出席參院銀行委員會聽證，重點是 NVIDIA 晶片對中國出口是否被轉用於軍事。IDC 數據同步確認：NVIDIA 中國 AI 加速器市占率從近 95% 滑落至約 55%，華為填補大部分缺口。強勁就業數據壓縮降息預期，高估值科技股承壓。週一 6/8 在中東緩和帶動下小幅回彈，但聽證陰影猶在。</p>
+    <p class="en">Twin headwinds: (1) Sen. Warren invited Jensen Huang to Senate Banking Committee June 11 hearing on China chip exports and national security. (2) IDC confirmed NVDA's China AI chip share dropped ~95%→55% as Huawei filled the gap. Friday's strong jobs data reduced Fed rate-cut odds, pressing high-multiple tech. Monday showed +1.88% recovery on Middle East de-escalation, but Senate hearing June 11 keeps stock in holding pattern.</p>
+
+    <div class="section-label">Options &amp; Flow</div>
+    <p>6/5 大跌時大量保護性 put 買入；6/11 聽證前 IV 維持高位。機構流向顯示「賣 call / 買 put」避險行為。Short interest 相對低——非空頭主導的跌勢，而是規避風險的持倉調整。</p>
+
+    <div class="section-label">Retail Buzz / 社群反應</div>
+    <div class="quote-block">WSB / AltIndex: NVDA 仍是 2026 WSB 最多提及股票之一。"buy the Senate dip" vs "real risk if export controls tighten" — 社群多空分歧，多頭認為是買點，空頭認為中國市占率下滑是結構性問題。</div>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <p>① <strong>6/11 Senate 聽證</strong> — 最關鍵：Huang 如何應對出口管制將決定股價下一步 ② 中國業務替代方案 (印度、中東 AI 投資) ③ Blackwell 供應鏈 ④ 聽證若無重大負面結果，$220 支撐區可期</p>
+    <p style="font-size:0.77rem;color:var(--muted);">Sources: <a href="https://www.cnbc.com/2026/06/04/nvidia-ceo-jensen-huang-warren-senate-hearing-china-ai-chips.html" target="_blank">CNBC</a> · <a href="https://cryptobriefing.com/nvidia-stock-falls-senate-scrutiny/" target="_blank">CryptoBriefing</a> · <a href="https://finance.yahoo.com/markets/stocks/articles/nvda-stock-drops-10-time-040349458.html" target="_blank">Yahoo Finance</a></p>
+  </div>
+
+  <!-- POET -->
+  <div class="card">
+    <div class="card-header">
+      <span class="sym">POET</span>
+      <span class="cname">POET Technologies Inc.</span>
+      <span class="chg-pill down-pill">−23.36%</span>
+      <span class="badge badge-lawsuit">集體訴訟</span>
+      <span class="badge badge-dilution">稀釋</span>
+    </div>
+    <div class="tape-row">
+      Tape: 近收 <span>~$11.86</span> &nbsp;·&nbsp; 52W 高點後累計重挫超 <span class="down">40%+</span>
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+    <p class="zh">POET Technologies 遭遇雙重打擊：4 億美元融資引發嚴重稀釋疑慮；同時多起集體訴訟指控公司在 2026 年 4 月誤導市場，包括 PFIC 稅務狀態與關鍵商業協議問題。最具爆炸性的指控：CFO 涉嫌公開討論與 Celestial AI 相關保密協議，導致 Celestial AI 取消所有採購訂單 (此訂單原通過 Marvell Semiconductor 路由)。三重打擊 — 稀釋 + 訴訟 + 主要客戶流失。</p>
+    <p class="en">Dual crisis: $400M capital raise triggers dilution fears + multiple securities class actions (April 1–27, 2026) alleging misleading statements about PFIC tax status and commercial agreements. Most damaging: CFO allegedly breached confidentiality by discussing the Celestial AI/Marvell order pipeline publicly — Celestial AI then canceled all purchase orders. Triple catalyst: dilution + lawsuit + customer cancellation.</p>
+
+    <div class="section-label">Options &amp; Flow</div>
+    <p>Put 為主，IV 極度飆升，bid-ask spread 擴大，流動性惡化。訴訟不確定性使做市商提高溢價保護。</p>
+
+    <div class="section-label">Retail Buzz / 社群反應</div>
+    <div class="quote-block">StockTwits: "POET CFO just nuked the entire order pipeline — this is a management execution failure" — 散戶憤怒，部分長線持有者考慮加入訴訟。</div>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <p>① 6/26 虛擬股東大會 ② 訴訟和解可能性 ③ 是否有新客戶替代 Celestial AI ④ 底部形成後可能吸引投機買盤 — 此類訴訟股型態常見</p>
+    <p style="font-size:0.77rem;color:var(--muted);">Sources: <a href="https://www.timothysykes.com/news/poet-technologies-inc-poet-news-2026_06_04/" target="_blank">Timothy Sykes</a> · <a href="https://www.gurufocus.com/news/8903496/poet-technologies-poet-sees-significant-decline-in-stock-price" target="_blank">GuruFocus</a></p>
+  </div>
+
+  <!-- ALM -->
+  <div class="card">
+    <div class="card-header">
+      <span class="sym">ALM</span>
+      <span class="cname">Almonty Industries Inc.</span>
+      <span class="chg-pill down-pill">−21.13%</span>
+      <span class="badge badge-dilution">可轉債 Convertible</span>
+      <span class="badge badge-catalyst">AGM 6/9</span>
+    </div>
+    <div class="tape-row">
+      Tape: 近收 <span>~$16.49</span> (from $20.68) &nbsp;·&nbsp; YTD <span class="up">+95%</span> &nbsp;·&nbsp; 52W <span class="up">+391%</span>
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why It's Hot</div>
+    <p class="zh">鎢礦開採商 Almonty Industries 宣布 7 億美元可轉債 (年息 2.25%，轉換溢價 32.5%)，結算日恰為 6/9 年度股東大會當日。儘管以 8,300 萬美元進行 capped call 控制稀釋 (上限 $41.36/股)，市場仍將此解讀為「趁漲募資套利」，股價重摔超過 20%。反制因素：6/29 加入 Russell 1000 指數，預估帶來約 1,300 萬股強制指數化買盤 (為日均量 3 倍)。</p>
+    <p class="en">Tungsten miner priced oversubscribed $700M convertible notes (2.25%, 32.5% conversion premium), settling June 9 — same day as AGM. Despite $83M capped-call mitigation (cap at $41.36/share), market punished stock -20%+. Key counterbalance: Russell 1000 inclusion effective June 29 projected to create ~13M shares of forced index demand (~3x ADV).</p>
+
+    <div class="section-label">Options &amp; Flow</div>
+    <p>可轉債 delta hedge (承銷商系統性賣出正股) 加速跌勢，未來數日可能持續壓制股價直至 hedge 完成。</p>
+
+    <div class="section-label">Retail Buzz / 社群反應</div>
+    <div class="quote-block">X 鎢礦社群: "AGM day + convert settlement = perfect storm for reversal, but holding for Russell 1000" — 長線持有者傾向死守，等待指數納入強制買盤。</div>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <p>① 6/29 Russell 1000 強制買盤 ② Sangdong 礦山產能爬坡 ③ 鎢價走勢 (中國供應壟斷下的地緣政治溢價) ④ Oppenheimer 目標價 $25 能否短期重新挑戰</p>
+    <p style="font-size:0.77rem;color:var(--muted);">Sources: <a href="https://www.stocktitan.net/news/ALM/almonty-industries-prices-oversubscribed-us-700-million-convertible-zjhfqft1du4p.html" target="_blank">StockTitan</a> · <a href="https://www.ad-hoc-news.de/boerse/news/ueberblick/almonty-s-700m-convertible-note-sparks-18-percent-selloff-as-tungsten/69490644" target="_blank">Ad-Hoc News</a></p>
+  </div>
+
+  <!-- ─── WATCH LIST ─── -->
+  <h2>次熱觀察 Watch List <span class="sub">Names That Almost Made the Cut</span></h2>
+  <div class="watch-list">
+    <div class="watch-card">
+      <div class="wt">$TE — T1 Energy (−19.13%)</div>
+      <p>以 $32M 收購電池儲能商 KORE Power，從太陽能模組轉向電池 + AI 資料中心基礎設施。投資人疑慮轉型過度分散，且內部人三個月前已售出逾 $190M 股票，時機敏感。<br/><em>M&amp;A pivot into battery/AI data-center via KORE. Insider selling $190M+ prior raises flags.</em></p>
+    </div>
+    <div class="watch-card">
+      <div class="wt">$MRVL — Marvell Technology (★★★★★ Buzz)</div>
+      <p>2026 年迄今漲超 230%，Jensen Huang 稱其為「下一個萬億美元公司」，6/22 加入 S&amp;P 500。前週從 $316 高點回落，S&amp;P 納入前「賣事實」風險存在。<br/><em>230% YTD, S&amp;P 500 inclusion June 22. Sell-the-news risk near-term.</em></p>
+    </div>
+    <div class="watch-card">
+      <div class="wt">$COO — Cooper Companies (+8.58%)</div>
+      <p>Q2 EPS 超預期 16.3% ($1.21 vs $1.04 共識)，Revenue +8%。最大亮點：CooperSurgical 生育媒介召回訴訟和解，解除主要估值障礙。<br/><em>Stellar earnings beat + recall litigation settled. Clean bullish catalyst on both fronts.</em></p>
+    </div>
+    <div class="watch-card">
+      <div class="wt">$NOK — Nokia Oyj (−13.48%)</div>
+      <p>AI 網路概念爆炒後 (Morgan Stanley、Deutsche Bank、SEB 升評) 出現嚴重獲利了結，無特定利空消息，純技術性修正。高點回落超 15%。<br/><em>Pure momentum reversal after AI networking rally. Valuation debate triggered profit-taking.</em></p>
+    </div>
+    <div class="watch-card">
+      <div class="wt">$ARCB — ArcBest (+6.17%)</div>
+      <p>貨運前景改善 (Q2 資產部門 tonnage/pricing 轉強) + 中東局勢緩和降低能源成本風險 + 分析師持續上調目標價。52 週新高附近。<br/><em>Freight market recovery + geopolitical energy relief + analyst upgrades.</em></p>
+    </div>
+    <div class="watch-card">
+      <div class="wt">$CHRN — ChronoScale Corp (−18.54%)</div>
+      <p>剝離外骨骼部門 Ekso Bionics，轉型聚焦雲端 / AI 計算基礎設施。市場對轉型後商業模式缺乏信心，新任 CTO/CPO 同步上任加大過渡期不確定性。<br/><em>Divested Ekso Bionics to pivot to cloud/AI compute. Market skeptical of execution.</em></p>
+    </div>
+  </div>
+
+  <!-- ─── HALTS & WEIRDNESS ─── -->
+  <h2>異常事件 Halts &amp; Weirdness</h2>
+  <div class="halt-box">
+    <div class="ht">⚠️ POET Technologies (POET) — 法律風險高度警示</div>
+    <p>多起聯邦集體訴訟進行中 (4/1–4/27 陳述期間)，SEC 是否展開調查尚不明。<strong>訴訟中的股票不宜基於情緒或 buzz 操作</strong>。Celestial AI 訂單取消若屬實，對基本面影響深遠。</p>
+  </div>
+  <div class="halt-box">
+    <div class="ht">⚠️ ALM 可轉債 Delta Hedge 持續壓力</div>
+    <p>$700M 可轉債的承銷商在發行後進行 delta hedge，系統性賣出正股，可能在未來數日形成持續下壓力量，直至 hedge 完成。</p>
+  </div>
+  <div class="halt-box">
+    <div class="ht">📋 T1 Energy 內部人賣股時機敏感</div>
+    <p>過去三個月內部人售股超 $190M，與 KORE 收購公告時間點高度接近，建議確認 Form 4 filing 細節再做判斷。</p>
+  </div>
+
+  <!-- ─── MARKET BACKDROP ─── -->
+  <h2>大盤背景 Market Backdrop</h2>
+  <div class="backdrop-box">
+    <p><strong>Context — Week of June 9, 2026:</strong></p>
+    <p>上週五 6/5 為今年最重要下跌日之一：Nasdaq -4.18% 收 25,709 (2025 年 4 月以來最大單日跌幅)，S&amp;P 500 -2.64% 收 7,383，Dow -1.35% 收 50,866，VIX +39.68% 至 21.51。主因：Broadcom 未上調 AI 晶片展望 → 半導體連鎖賣壓 + 強勁就業數據壓縮降息預期 + NVDA 參院聽證陰影。</p>
+    <p>週一 6/8 技術性反彈：S&amp;P +0.8%，Nasdaq 100 +1.5%。中東局勢緩和 (伊朗暗示初步打擊完成、Trump 呼籲停火) 帶動風險偏好回升。晶片股普遍反彈，但 INTC vs NVDA 分化明顯。</p>
+    <p class="en"><em>Friday 6/5: Nasdaq's worst session since April 2025 (-4.18%). Monday 6/8: partial recovery driven by Middle East de-escalation and chip rebound. Key event of the week: NVDA Senate hearing June 11, which will determine whether regulatory risk becomes a structural discount or settles as background noise.</em></p>
+    <div class="stat-row">
+      <div class="stat"><div class="val down">25,709</div><div class="lbl">Nasdaq 6/5</div></div>
+      <div class="stat"><div class="val down">7,383</div><div class="lbl">S&amp;P 500 6/5</div></div>
+      <div class="stat"><div class="val down">50,866</div><div class="lbl">Dow Jones 6/5</div></div>
+      <div class="stat"><div class="val down">21.51</div><div class="lbl">VIX 6/5</div></div>
+      <div class="stat"><div class="val up">+1.5%</div><div class="lbl">Nasdaq 100 6/8</div></div>
+      <div class="stat"><div class="val up">+0.8%</div><div class="lbl">S&amp;P 500 6/8</div></div>
+    </div>
+    <p style="margin-top:12px;font-size:0.82rem;color:var(--muted);">Sector leaders (6/8): XLK +2.5%, XLE +1.8% | 防禦股輪出，半導體股輪入 | 10Y yield 待確認</p>
+  </div>
+
+  <!-- ─── SOURCES ─── -->
+  <div class="sources-section">
+    <h3>所有參考來源 Sources Consulted</h3>
+    <ul>
+      <li><a href="https://finance.yahoo.com/markets/stocks/most-active/" target="_blank">Yahoo Finance Most Active</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/gainers/" target="_blank">Yahoo Finance Gainers</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/losers/" target="_blank">Yahoo Finance Losers</a></li>
+      <li><a href="https://coincentral.com/planet-labs-pl-stock-drops-close-26-as-1-5b-share-dilution-plan-spooks-investors/" target="_blank">CoinCentral — PL Dilution -26%</a></li>
+      <li><a href="https://stocktwits.com/news-articles/markets/equity/pl-stock-sinks-on-stock-offering-margin-compression/cZ0FVCWReCL" target="_blank">StockTwits — PL Record Single-Day Fall</a></li>
+      <li><a href="https://www.cnbc.com/2026/06/04/nvidia-ceo-jensen-huang-warren-senate-hearing-china-ai-chips.html" target="_blank">CNBC — NVDA Senate Hearing</a></li>
+      <li><a href="https://cryptobriefing.com/nvidia-stock-falls-senate-scrutiny/" target="_blank">CryptoBriefing — NVDA -6%</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/why-nvidia-nvda-shares-getting-055214383.html" target="_blank">Yahoo Finance — Why NVDA Obliterated</a></li>
+      <li><a href="https://www.gurufocus.com/news/8905498/intel-intc-secures-major-ai-chip-order-from-google-shares-surge" target="_blank">GuruFocus — Intel Google Order</a></li>
+      <li><a href="https://blockonomi.com/intel-intc-stock-soars-12-on-major-google-tpu-order-and-nvidia-partnership-rumors/" target="_blank">Blockonomi — INTC +12%</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/intc-stock-soaring-today-googl-142732944.html" target="_blank">Yahoo Finance — INTC Google TPU</a></li>
+      <li><a href="https://www.timothysykes.com/news/poet-technologies-inc-poet-news-2026_06_04/" target="_blank">Timothy Sykes — POET Lawsuits</a></li>
+      <li><a href="https://www.gurufocus.com/news/8903496/poet-technologies-poet-sees-significant-decline-in-stock-price" target="_blank">GuruFocus — POET Decline</a></li>
+      <li><a href="https://www.stocktitan.net/news/ALM/almonty-industries-prices-oversubscribed-us-700-million-convertible-zjhfqft1du4p.html" target="_blank">StockTitan — ALM $700M Convertible</a></li>
+      <li><a href="https://www.ad-hoc-news.de/boerse/news/ueberblick/almonty-s-700m-convertible-note-sparks-18-percent-selloff-as-tungsten/69490644" target="_blank">Ad-Hoc News — ALM 18% Selloff</a></li>
+      <li><a href="https://ts2.tech/en/t1-energy-stock-sinks-19-after-32m-kore-power-news/" target="_blank">TS2.tech — T1 Energy KORE Deal</a></li>
+      <li><a href="https://stockstotrade.com/news/the-cooper-companies-inc-coo-news-2026_06_05-2/" target="_blank">StocksToTrade — COO Earnings</a></li>
+      <li><a href="https://news.alphastreet.com/cooper-companies-delivers-16-3-q2-2026-upside-revenue-up-8/" target="_blank">AlphaStreet — COO Q2 2026</a></li>
+      <li><a href="https://www.quiverquant.com/news/Nokia+shares+slide+as+investors+take+profits+after+a+sharp+AI-driven+run+and+valuation+concerns+resurface" target="_blank">QuiverQuant — Nokia Slide</a></li>
+      <li><a href="https://www.benzinga.com/trading-ideas/movers/26/06/53058937/marvell-stock-is-up-230-in-2026-sp-500-debut-could-make-that-look-conservative" target="_blank">Benzinga — MRVL S&amp;P 500 Inclusion</a></li>
+      <li><a href="https://altindex.com/wallstreetbets" target="_blank">AltIndex — WSB Tracker</a></li>
+      <li><a href="https://www.quiverquant.com/wallstreetbets/" target="_blank">QuiverQuant WSB Data</a></li>
+      <li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-05-2026" target="_blank">TheStreet — Market Today June 5</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/live/stock-market-today-monday-june-1-dow-sp-nasdaq-waver-225422932.html" target="_blank">Yahoo Finance — Market Today June 8</a></li>
+      <li><a href="https://www.barchart.com/options/unusual-activity" target="_blank">Barchart Unusual Options Activity</a></li>
+      <li><a href="https://unusualwhales.com/" target="_blank">Unusual Whales</a></li>
+      <li><a href="https://stockanalysis.com/stocks/chrn/" target="_blank">StockAnalysis — CHRN</a></li>
+    </ul>
+    <p style="margin-top:14px;font-size:0.77rem;color:var(--muted);">
+      <strong>Paywalled / Limited Access:</strong> Bloomberg Markets (paywall), WSJ Markets (paywall), Seeking Alpha full articles (partial), Barchart detailed options (login), MarketChameleon options report (login), CNBC Pro.
+      <br/>
+      <strong>注意：</strong>部分數字 (特定收盤價、確切成交量) 因資料截點差異標記為「待確認」，請以各平台 EOD 資料核對。不構成投資建議。
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    <p>今日美股熱門焦點股 Hot US Stocks &nbsp;·&nbsp; 2026-06-09 &nbsp;·&nbsp; 由 Claude AI 整理，僅供資訊參考，不構成投資建議</p>
+    <p style="margin-top:4px;">Data compiled from public sources. Not financial advice. Always verify numbers from primary sources before making trading decisions.</p>
+  </div>
+</footer>
+
+</body>
+</html>

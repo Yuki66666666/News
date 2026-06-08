@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日有趣文章日報 · 2026-06-09</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2d3148;
+      --accent: #7c8ff7;
+      --accent2: #f7c87c;
+      --accent3: #7cf7d4;
+      --text: #e8eaf6;
+      --text-muted: #8892b0;
+      --tag-ai: #7c8ff7;
+      --tag-biz: #f7c87c;
+      --tag-sci: #7cf7d4;
+      --tag-culture: #f77ca8;
+      --tag-psych: #c87cf7;
+      --tag-hist: #f79c7c;
+      --tag-curio: #7cf7a8;
+      --tag-editor: #ffd700;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Noto Sans TC', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 0 0 80px 0;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #0f1117 60%);
+      border-bottom: 1px solid var(--border);
+      padding: 36px 48px 28px;
+    }
+    header .date-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    header h1 {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    header h1 span { color: var(--accent); }
+    header .subtitle {
+      margin-top: 6px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .track-header {
+      padding: 28px 48px 10px;
+      border-top: 2px solid var(--border);
+      margin-top: 36px;
+    }
+    .track-header h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+    .track-header .track-desc {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .section-label {
+      padding: 14px 48px 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 0 48px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 26px 30px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .tag-editor  { background: rgba(255,215,0,0.15);  color: var(--tag-editor); }
+    .tag-ai      { background: rgba(124,143,247,0.15); color: var(--tag-ai); }
+    .tag-biz     { background: rgba(247,200,124,0.15); color: var(--tag-biz); }
+    .tag-sci     { background: rgba(124,247,212,0.15); color: var(--tag-sci); }
+    .tag-culture { background: rgba(247,124,168,0.15); color: var(--tag-culture); }
+    .tag-psych   { background: rgba(200,124,247,0.15); color: var(--tag-psych); }
+    .tag-hist    { background: rgba(247,156,124,0.15); color: var(--tag-hist); }
+    .tag-curio   { background: rgba(124,247,168,0.15); color: var(--tag-curio); }
+    .tag-thought { background: rgba(124,143,247,0.12); color: #a8b8ff; }
+    .tag-thought-econ { background: rgba(247,200,124,0.12); color: #f7d494; }
+    .tag-thought-startup { background: rgba(247,124,168,0.12); color: var(--tag-culture); }
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      flex: 1;
+      min-width: 200px;
+    }
+    .card-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .card-title a:hover { color: var(--accent); text-decoration: underline; }
+    .card-meta {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .card-meta .source { color: var(--accent2); font-weight: 600; }
+    .card-meta .sep { opacity: 0.4; }
+    .readtime {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .field-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 12px;
+      margin-bottom: 3px;
+    }
+    .field-label.zh { color: var(--accent2); }
+    .field-body {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .field-body.muted { color: var(--text-muted); }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 30px 48px;
+    }
+    footer {
+      margin-top: 60px;
+      padding: 24px 48px;
+      border-top: 1px solid var(--border);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .sources-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin-top: 10px;
+    }
+    @media (max-width: 700px) {
+      header, .track-header, .section-label, .cards, .divider, footer { padding-left: 18px; padding-right: 18px; }
+      .card { padding: 18px 16px; }
+      header h1 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="date-label">Daily Interesting Articles &nbsp;|&nbsp; 今日有趣文章日報</div>
+  <h1>今日好文精選 <span>/</span> Reads of the Day</h1>
+  <div class="subtitle">2026-06-09 &nbsp;·&nbsp; Track A 長文精選 &amp; Track B 思想領袖觀點 &nbsp;·&nbsp; 8 篇精選</div>
+</header>
+
+<!-- ===== TRACK A ===== -->
+<div class="track-header">
+  <h2>Track A &mdash; 長文精選 / Longform Essays</h2>
+  <div class="track-desc">Essays, research summaries &amp; unusually good blog posts across tech, science, culture, psychology, history &amp; philosophy.</div>
+</div>
+
+<!-- 1. EDITOR'S PICK -->
+<div class="section-label">編輯精選 / Editor's Pick</div>
+<div class="cards">
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-editor">編輯精選 ★</span>
+      <div class="card-title">
+        <a href="https://www.nybooks.com/articles/2026/06/11/art-for-our-sakes-zadie-smith/" target="_blank">
+          為何繼續創作？／Art for Our Sakes
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="source">The New York Review of Books</span>
+      <span class="sep">·</span>
+      <span>Zadie Smith</span>
+      <span class="sep">·</span>
+      <span>2026-05-21（NYREV 2026-06-11）</span>
+      <span class="sep">·</span>
+      <span class="readtime">~10 min</span>
+    </div>
+
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <div class="field-body">
+      Zadie Smith 以講座形式寫就的散文，在 AI 生成內容氾濫、政治動盪加劇的 2026 年，正面回應「藝術還有存在必要嗎」這個最根本的問題。論點不走廉價的「藝術萬歲」路線，而是從 E.M. Forster、馬克白、以及 Edward P. Jones 的小說出發，提出藝術「不便之處」正是它最後的力量所在。
+    </div>
+
+    <div class="field-label zh">摘要 / Summary</div>
+    <div class="field-body">
+      Smith 以 Forster 1949 年的論文〈藝術本身的藝術〉為起點，論證藝術的價值不在於服務任何道德目的或政治立場，而在於它與「權力的預設目標」保持距離的那種頑固性。她舉馬克白的道德模糊性為例：莎士比亞從未說殺人是對的，但他讓我們進入殺人者的內心，而這種能力是政治宣傳無法取代的。她最終的結論是：在充滿暴力的時代，藝術家最誠實的回應不是「要做什麼對的事」，而是「繼續真實地做事」。<br><br>
+      <em>Smith draws on Forster, Macbeth, and E.P. Jones to argue that art's distance from power's prerogatives is precisely its force of resistance — and that continuing to make things honestly is itself a political act.</em>
+    </div>
+
+    <div class="field-label">核心觀點 / Key takeaway</div>
+    <div class="field-body">
+      藝術最大的政治力量，恰好來自它對政治目的的拒絕；而在 AI 填滿了「有用」的表達空間之後，人類的「不便之作」反而更形珍貴。
+    </div>
+
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <div class="field-body field-muted">
+      當 AI 生成的「藝術」愈來愈貼近人類作品的外觀，Zadie Smith 所說的那種「不便」還能以什麼方式被受眾辨識與珍視？
+    </div>
+  </div>
+
+</div>
+
+<!-- 2. TECH & AI -->
+<div class="section-label" style="margin-top:26px;">科技與 AI / Tech &amp; AI</div>
+<div class="cards">
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-ai">AI / 技術</span>
+      <div class="card-title">
+        <a href="https://www.0xsid.com/blog/meta-account-takeover-fiasco" target="_blank">
+          Instagram 最荒謬的帳號劫持漏洞 / The Newest Instagram "Exploit" is the Goofiest I've Seen
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="source">0xsid.com (Sid's Blog)</span>
+      <span class="sep">·</span>
+      <span>Sid (資安研究員)</span>
+      <span class="sep">·</span>
+      <span>2026-06-01</span>
+      <span class="sep">·</span>
+      <span class="readtime">~4 min</span>
+    </div>
+
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <div class="field-body">
+      這不是典型的技術 CVE 報告，而是一位退休資安老手用幾乎是驚愕的語氣，拆解一個「近十五年最蠢的帳號劫持手法」。文章既是技術分析，也是對 Meta AI 客服轉型後企業安全思維退化的第一手觀察，HN 兩千多分足以說明它擊中了多少工程師的神經。
+    </div>
+
+    <div class="field-label zh">摘要 / Summary</div>
+    <div class="field-body">
+      Meta 在 Instagram 推出 AI 客服後，出現了首個「零驗證密碼重設」漏洞：攻擊者只需要知道你的帳號名稱，就能透過 VPN 偽裝地理位置，哄騙 AI 客服把驗證碼發到攻擊者自己控制的 email。整個流程不需要知道原始信箱或電話，連 2FA 都能繞過，因為系統把這次重設視為「原帳號擁有者在做全面重置」。短暫期間，Obama 白宮帳號、美國太空軍士官長帳號都被翻轉。Meta 已修補，但「一家市值 1.5 兆美元的公司，AI 客服只要你開口就改信箱」這件事，如作者所說「恐怖到只能笑」。<br><br>
+      <em>Meta's AI support agent would reset any account to any attacker-supplied email if asked politely — zero prior authentication required. Obama's White House account was among the flipped. Patched now, but the systemic failure is instructive.</em>
+    </div>
+
+    <div class="field-label">核心觀點 / Key takeaway</div>
+    <div class="field-body">
+      AI 客服自動化帶來的效率紅利，可以被一個設計缺陷瞬間吃掉；當人工客服消失後，「和 AI 爭奪帳號控制權」成為受害者唯一的申訴管道。
+    </div>
+
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <div class="field-body field-muted">
+      當每家大型平台都在用 AI 取代客服時，誰來負責設計足夠嚴謹的 identity verification guard rail，而不是等到帳號被大規模劫持才修補？
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-culture">文化 / 社會</span>
+      <div class="card-title">
+        <a href="https://mullvad.net/en/blog/age-verification-for-social-media-the-beginning-of-the-end-for-a-free-internet" target="_blank">
+          「保護兒童」的名義：社群媒體年齡驗證如何成為網路管控基礎設施 / Age Verification for Social Media — the Beginning of the End for a Free Internet?
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="source">Mullvad VPN Blog</span>
+      <span class="sep">·</span>
+      <span>Mullvad 編輯團隊</span>
+      <span class="sep">·</span>
+      <span>2026-06-01</span>
+      <span class="sep">·</span>
+      <span class="readtime">~18 min</span>
+    </div>
+
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <div class="field-body">
+      這篇文章逆著輿論的潮流而寫——幾乎所有人都同意「應該保護兒童」，但 Mullvad 從技術與政治自由的角度，逐步論證全球 30 多個國家正在推行的「年齡驗證」，本質上是「身份驗證」，最終走向的是 Orwell 式的國家控制網路。文章追蹤了從澳洲到英國、巴西到 EU 的立法進展，並清晰說明 ZKP 技術為何仍不足以解決問題，HN 516 分的討論串反映這是本週科技圈最尖銳的政策辯論。
+    </div>
+
+    <div class="field-label zh">摘要 / Summary</div>
+    <div class="field-body">
+      澳洲、巴西、印尼、英國、丹麥、EU 等 30+ 國已立法或正研議對 16 歲以下用戶實施社群媒體年齡驗證。Mullvad 的論點是：（1）Meta、TikTok 等平台其實早就知道誰是未成年人，根本不需要立法；（2）「年齡驗證」實質上是要求所有用戶向平台或第三方揭露真實身份；（3）匿名表達的消失，將對記者、活動人士和政治異見者造成寒蟬效應；（4）英國已將 OS 層級的身份驗證推進 iPhone，巴西正試圖將開源 OS 也納入管制。EU 提出的 Zero-Knowledge Proof 方案理論上更好，但 ZKP 是「可隨時關閉的選項」而非預設行為。文章以「滑坡」架構追蹤到最終邏輯結論：禁止人民擁有自己控制的裝置。<br><br>
+      <em>Age verification laws spreading globally are identity verification in disguise — and Mullvad traces the slippery slope from protecting kids to state-controlled internet infrastructure, with the UK and Brazil already pushing OS-level controls.</em>
+    </div>
+
+    <div class="field-label">核心觀點 / Key takeaway</div>
+    <div class="field-body">
+      當「兒童安全」成為免疫批評的政治正確外殼，歷史上最廣泛的網路身份管控基礎設施正悄悄成形；一旦完成，不只兒童，所有人的匿名表達權都將消失。
+    </div>
+
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <div class="field-body field-muted">
+      如果 ZKP 技術真的成熟並被強制採用，「無法連結不同平台行為的年齡憑證」是否足以在保護隱私與阻止未成年人之間取得可接受的平衡？還是這只是讓管控更有說服力的技術外衣？
+    </div>
+  </div>
+
+</div>
+
+<!-- 3. SCIENCE & RESEARCH -->
+<div class="section-label" style="margin-top:26px;">科學與研究 / Science &amp; Research</div>
+<div class="cards">
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-sci">物理 / 量子重力</span>
+      <div class="card-title">
+        <a href="https://www.quantamagazine.org/entanglement-builds-space-time-now-magic-gives-it-gravity-20260603/" target="_blank">
+          量子「魔法」如何給時空帶來引力 / Entanglement Builds Space-Time. Now "Magic" Gives It Gravity.
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="source">Quanta Magazine</span>
+      <span class="sep">·</span>
+      <span>Charlie Wood</span>
+      <span class="sep">·</span>
+      <span>2026-06-03</span>
+      <span class="sep">·</span>
+      <span class="readtime">~16 min</span>
+    </div>
+
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <div class="field-body">
+      Quanta 最擅長的事：把一個幾乎不可能向外行人解釋的前沿物理研究（量子重力的全像原理），寫成讓人讀完真的覺得「我理解了一件宇宙的事」。這篇文章追蹤 Charles Cao 從 Caltech 博士生到 Virginia Tech 的研究歷程，解釋為何量子計算中的「magic」（非 Clifford 閘帶來的量子複雜度）可能是廣義相對論所描述的「時空彎曲」的量子根源，這是近十年全像原理研究的重大概念突破。
+    </div>
+
+    <div class="field-label zh">摘要 / Summary</div>
+    <div class="field-body">
+      物理學家長期知道「糾纏（entanglement）建立時空結構」，但時空的「彈性」（也就是 Einstein 所說物質告訴時空如何彎曲）始終無法在量子框架內解釋。Virginia Tech 的 Charles Cao 和 Caltech 的 John Preskill 等人，透過量子錯誤更正碼的新框架，發現量子計算術語中稱為「magic」的屬性——即需要非 Clifford 閘才能實現的量子複雜度——正是讓時空可以彎曲的物理機制。沒有 magic，時空只有形狀，沒有彈性；有了 magic，物質才能真正告訴時空如何彎曲，也就是說，Newton 的蘋果落下，根本原因是「量子編碼的不完美」。研究者承認這只是「0.5/5 步」，但它首次同時解決了 Wheeler 兩條關於時空的謎語。<br><br>
+      <em>Physicists have pinpointed "magic" — a measure of quantum complexity — as the ingredient that gives space-time its bendiness, potentially explaining how gravity emerges from quantum information. The research uses quantum error-correcting code frameworks and suggests Newton's apple fell because quantum encoding is necessarily imperfect.</em>
+    </div>
+
+    <div class="field-label">核心觀點 / Key takeaway</div>
+    <div class="field-body">
+      引力或許不是宇宙的基本力，而是量子資訊編碼「不夠完美」所自然湧現的現象——時空最熟悉的特性，其實是最量子的。
+    </div>
+
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <div class="field-body field-muted">
+      如果引力真的來自量子魔法，未來量子電腦是否有可能直接「模擬」小型的彎曲時空區域，讓我們在實驗室中觀察量子重力？
+    </div>
+  </div>
+
+</div>
+
+<!-- 4. CULTURE & SOCIETY -->
+<div class="section-label" style="margin-top:26px;">文化與社會 / Culture &amp; Society</div>
+<div class="cards">
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-culture">文化 / 記憶</span>
+      <div class="card-title">
+        <a href="https://longreads.com/2026/06/08/the-paperboys-secret/" target="_blank">
+          報紙少年的秘密 / The Paperboy's Secret
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="source">The New Yorker</span>
+      <span class="sep">·</span>
+      <span>Peter Hessler</span>
+      <span class="sep">·</span>
+      <span>2026-05-31（via Longreads 2026-06-08）</span>
+      <span class="sep">·</span>
+      <span class="readtime">~25 min</span>
+    </div>
+
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <div class="field-body">
+      Peter Hessler 寫中國農村的功力舉世公認，但這篇回憶他在密蘇里少年送報歲月的文章，是他最私密的一次書寫。Longreads 本週以 10,531 字的長度選入，本身就是信號——這是本週可讀性最高的一篇人文敘事。報導者與報童身份的反覆辯證，讀來像是一位記者試圖理解「觀察的道德代價」之前，一個少年曾先付過的代價。
+    </div>
+
+    <div class="field-label zh">摘要 / Summary</div>
+    <div class="field-body">
+      Hessler 回憶童年在密蘇里送報紙的歲月，以及一個名叫 Mr. Wood 的老人如何把「一毛五分錢的小費」和「不適切的肢體接觸」混在一起給他。在無法確定發生了什麼、不敢對父母說的沉默中，他發展出一種「秘密的隱忍」，而他認為這種隱忍後來塑造了他作為記者的觀察性格——習慣吸收環境、不輕易評判、把不舒服的事情記在心裡繼續走。這不是創傷回憶錄，而是一個成年人試圖理解：一個孩子的秘密，如何成為一個大人工作的根基。<br><br>
+      <em>Hessler traces how a childhood paper route — and the ambiguous relationship with a customer named Mr. Wood — gave him his reporter's instinct for silence, observation, and the patience to sit with discomfort and keep moving.</em>
+    </div>
+
+    <div class="field-label">核心觀點 / Key takeaway</div>
+    <div class="field-body">
+      最好的記者或許都攜帶著某種「不知如何開口」的童年記憶；保密和觀察，在少年時就是一體兩面。
+    </div>
+
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <div class="field-body field-muted">
+      對記者來說，「隱忍不報」是道德失敗還是職業能力的起源？Hessler 的答案似乎是：取決於你之後拿這種隱忍做了什麼。
+    </div>
+  </div>
+
+</div>
+
+<!-- 5. PSYCHOLOGY & BEHAVIOR -->
+<div class="section-label" style="margin-top:26px;">心理與行為 / Psychology &amp; Behavior</div>
+<div class="cards">
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-psych">神經科學 / 記憶</span>
+      <div class="card-title">
+        <a href="https://longreads.com/2026/06/01/autobiographical-memory-hyperthymesia/" target="_blank">
+          你必須記得這一切 / You Must Remember This
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="source">The American Scholar</span>
+      <span class="sep">·</span>
+      <span>Jonathan Weiner</span>
+      <span class="sep">·</span>
+      <span>2026-06-01</span>
+      <span class="sep">·</span>
+      <span class="readtime">~20 min</span>
+    </div>
+
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <div class="field-body">
+      不是「記憶力驚人是超能力」的勵志文，而是一篇帶著深沉憂鬱的神經科學散文。Weiner 追蹤了一批擁有「超傳記性記憶（hyperthymesia）」的人——他們記得一生中每一天發生了什麼——並問了一個令人不安的問題：如果忘卻本身是一種心理功能，那麼「完美記憶」是天賦還是詛咒？
+    </div>
+
+    <div class="field-label zh">摘要 / Summary</div>
+    <div class="field-body">
+      Weiner 訪談了數名擁有超傳記性記憶的人，這些人能精確回憶人生中幾乎每一天的細節，但這種能力並非只帶來好處——他們往往也被過去的羞恥、遺憾和傷痛所困。神經科學家發現這種人的腦部在「抑制記憶提取」的功能上有所不同，換句話說，健忘不只是失敗，也是心智的主動保護機制。文章進而探討 AI 記憶（能無限儲存一切）對人類的挑戰：當外部記憶變得完美，我們會更自由，還是更難以原諒自己？<br><br>
+      <em>Weiner profiles people with hyperthymesia — total recall of autobiographical memory — and argues that forgetting is not failure but active psychological protection. The arrival of AI systems that remember everything re-opens the question of what memory is for.</em>
+    </div>
+
+    <div class="field-label">核心觀點 / Key takeaway</div>
+    <div class="field-body">
+      遺忘不是缺陷，而是讓我們能夠繼續生活的機制；在 AI 把一切都記住的時代，人類「主動遺忘的權利」可能比任何時候都更需要被重視。
+    </div>
+
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <div class="field-body field-muted">
+      如果我們的 AI 助手開始記住我們說過的每一句話，這是個人歷史的保全，還是一個永遠無法翻頁的監獄？
+    </div>
+  </div>
+
+</div>
+
+<!-- 6. HISTORY & PHILOSOPHY -->
+<div class="section-label" style="margin-top:26px;">歷史與哲學 / History &amp; Philosophy</div>
+<div class="cards">
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-hist">歷史 / 哲學</span>
+      <div class="card-title">
+        <a href="https://aeon.co/essays/lets-save-the-enlightenment-baby-from-its-muddied-bathwater" target="_blank">
+          左右夾攻下的啟蒙運動：如何將它從汙水中救出 / Flickering Enlightenment
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="source">Aeon</span>
+      <span class="sep">·</span>
+      <span>Eliane Glaser</span>
+      <span class="sep">·</span>
+      <span>2026年初（via Aeon 當期）</span>
+      <span class="sep">·</span>
+      <span class="readtime">~14 min</span>
+    </div>
+
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <div class="field-body">
+      這是一篇關於啟蒙運動的辯護文，但沒有一般辯護文的自鳴得意。Glaser 承認啟蒙運動確實伴隨了帝國主義、種族主義和科學主義的惡，但她的論點是：拋棄啟蒙，正是讓那些惡得以復辟的最快捷徑。她主張，啟蒙最大的遺產不是某一套結論，而是「永久批判」本身——包括批判啟蒙自身。
+    </div>
+
+    <div class="field-label zh">摘要 / Summary</div>
+    <div class="field-body">
+      Glaser 梳理了當代知識界左右兩翼對啟蒙的攻擊：左翼批評啟蒙支持了殖民主義與西方中心論；右翼批評啟蒙的理性主義摧毀了宗教與傳統。她認為兩者都誤把「啟蒙的墮落應用」當成「啟蒙本身」。啟蒙最核心的承諾——理性、自由表達、對權威的質疑——恰好是唯一能糾正這些墮落的工具。因此，她的結論是：要拯救啟蒙，就必須用啟蒙的方式來批判啟蒙。<br><br>
+      <em>Glaser argues that both left and right critiques of the Enlightenment mistake its corrupt applications for its core promise. The Enlightenment's greatest legacy — permanent critique of received authority — is also the only tool capable of correcting those corrupt applications.</em>
+    </div>
+
+    <div class="field-label">核心觀點 / Key takeaway</div>
+    <div class="field-body">
+      放棄啟蒙不會讓它的惡果消失，只會讓我們失去評判那些惡果所需要的標準；這是 2026 年在政治極化中最需要反覆閱讀的一個論點。
+    </div>
+
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <div class="field-body field-muted">
+      「用啟蒙批判啟蒙」是否只是一個無法被真正反駁的保護性策略？還是說，有任何具體的歷史案例支持這個自我修復式的主張？
+    </div>
+  </div>
+
+</div>
+
+<!-- 7. CURIOSITIES -->
+<div class="section-label" style="margin-top:26px;">奇文與偏門 / Curiosities</div>
+<div class="cards">
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-curio">奇文</span>
+      <div class="card-title">
+        <a href="https://www.lumafield.com/scan-of-the-month/byd" target="_blank">
+          用 CT 掃描解剖比亞迪的每一個零件 / CT Scans of BYD Car Parts
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="source">Lumafield (Scan of the Month)</span>
+      <span class="sep">·</span>
+      <span>Lumafield 團隊</span>
+      <span class="sep">·</span>
+      <span>2026-06 (HN 本週 367 分)</span>
+      <span class="sep">·</span>
+      <span class="readtime">~5 min + 互動圖</span>
+    </div>
+
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <div class="field-body">
+      與其說這是一篇文章，不如說是一個視覺體驗。工業 CT 公司 Lumafield 用高分辨率掃描解剖了比亞迪車型的各種零件，揭示了中國電動車製造業驚人的整合精度——這既是工程美學的展示，也是全球電動車產業競爭格局最直觀的一次呈現。HN 上的討論串充滿了機械工程師們激動的留言。
+    </div>
+
+    <div class="field-label zh">摘要 / Summary</div>
+    <div class="field-body">
+      Lumafield 定期以工業 CT 掃描「月度掃描」的形式展示各種產品的內部結構。本期選擇了比亞迪的電池包、馬達和其他核心零件，透過三維截面圖讓人看見一般拆解看不到的整合精度。討論串中工程師們指出，比亞迪在電池結構整合（cell-to-body）和電力電子整合方面的密度，已超越了多數歐美競爭對手。<br><br>
+      <em>Lumafield's industrial CT scans of BYD car parts reveal manufacturing precision and vertical integration density that left engineers on Hacker News genuinely impressed — a wordless but powerful argument about where the EV industry's center of gravity now sits.</em>
+    </div>
+
+    <div class="field-label">核心觀點 / Key takeaway</div>
+    <div class="field-body">
+      當製造業的競爭差距已經縮小到必須用 CT 掃描才能看見的程度，「中國只會低端製造」這個敘事已經在現實中死亡很久了。
+    </div>
+
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <div class="field-body field-muted">
+      如果歐美車廠同樣公開接受 CT 掃描，我們會看到相同等級的整合密度嗎？還是說這種透明度本身就是競爭策略的一部分？
+    </div>
+  </div>
+
+</div>
+
+<hr class="divider" />
+
+<!-- ===== TRACK B ===== -->
+<div class="track-header" style="border-top:none; margin-top:0;">
+  <h2>Track B &mdash; 思想領袖觀點 / Thought Leaders</h2>
+  <div class="track-desc">Fresh posts &amp; essays from practitioners in AI, economics, startups — their own words, not news coverage of them. 3–5 picks this week.</div>
+</div>
+
+<div class="section-label">思想領袖今日觀點 / Thought Leader Picks</div>
+<div class="cards">
+
+  <!-- Ethan Mollick -->
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-thought">[AI]</span>
+      <div class="card-title">
+        <a href="https://www.oneusefulthing.org/p/choosing-to-stay-human" target="_blank">
+          Ethan Mollick — 選擇留在人類這一邊 / Choosing to Stay Human
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="source">One Useful Thing (Substack)</span>
+      <span class="sep">·</span>
+      <span>Ethan Mollick · Wharton 教授</span>
+      <span class="sep">·</span>
+      <span>2026-05-26</span>
+      <span class="sep">·</span>
+      <span class="readtime">~12 min</span>
+    </div>
+
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <div class="field-body">
+      Mollick 不是在說「AI 很危險別用」，而是從大量同儕審查研究出發，提出一個更細緻的問題：在哪些情況下，AI 的「幫助」其實是在損害你？他是極少數既大力鼓吹 AI 應用、又敢於用研究數據批評 AI 默認使用模式的人，這種立場組合使這篇文章的分量格外不同。
+    </div>
+
+    <div class="field-label zh">核心觀點 / Core insight</div>
+    <div class="field-body">
+      Mollick 用兩組數據說明 AI 使用的「微小差異帶來巨大結果差距」：同一批作者的研究中，讓 AI「直接給答案」的土耳其高中生考試退步，而讓 AI「客製化出題」的台北高中生學習成效相當於增加六至九個月的額外學習。核心論點是：AI 的設計激勵「認知投降（cognitive surrender）」——人們停止思考，讓 AI 解決問題，即使 AI 給出錯誤答案也不察覺。他援引 BCG 顧問研究說明：即使是精英顧問，在 AI 能給出「看起來正確」的錯誤答案時，大多數人不會察覺。<br><br>
+      關鍵結論：「選擇留在人類這一邊」不是拒絕 AI，而是對每一個任務都做出有意識的決定——哪些東西要交出去，哪些要自己保留。而目前 AI 公司的商業壓力幾乎全部指向「更多投降、更少思考」的方向。
+    </div>
+
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <div class="field-body field-muted">
+      如果下一代工作者和學生的 AI 使用習慣是在這個充滿「認知投降」預設的環境中塑造的，這些習慣一旦形成，有可能被逆轉嗎？
+    </div>
+  </div>
+
+  <!-- Noah Smith -->
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-thought-econ">[總經]</span>
+      <div class="card-title">
+        <a href="https://www.noahpinion.blog/p/roundup-83-i-told-you-so" target="_blank">
+          Noah Smith — 「我說過吧！」：一個經濟學家追蹤自己的預測 / Roundup #83: I Told You So!
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="source">Noahpinion (Substack)</span>
+      <span class="sep">·</span>
+      <span>Noah Smith · 經濟學家、Bloomberg 前專欄作家</span>
+      <span class="sep">·</span>
+      <span>2026-06-08（12小時前）</span>
+      <span class="sep">·</span>
+      <span class="readtime">~10 min</span>
+    </div>
+
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <div class="field-body">
+      大多數評論家從不回頭追蹤自己的預測是否準確；Noah Smith 是極少數定期公開盤點「我預測對了什麼、錯了什麼」的主流評論家。這份誠實本身就是值得學習的認識論實踐，而他最新一期恰好在美國關稅戰與科技出口管制議題上有多個值得追蹤的驗證點。
+    </div>
+
+    <div class="field-label zh">核心觀點 / Core insight</div>
+    <div class="field-body">
+      Smith 在這期綜合評論中追蹤了他過去關於「美國製造業回流」和「對中科技脫鉤效果」的預測。他承認在某些方面高估了脫鉤的速度，但在「中國仍然難以在尖端晶片和 AI 軟體層面突破管制」這一點上認為自己的判斷基本成立。他也回顧了「關稅不會帶來通膨」派與「關稅必然推高物價」派的實證辯論，並給出截至 2026 年中的數據更新。
+    </div>
+
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <div class="field-body field-muted">
+      在 AI 能夠即時生成「有說服力的預測依據」的時代，追蹤預測準確率是否會成為辨別真正分析師與「看起來很聰明的 AI 生成評論」的核心判準？
+    </div>
+  </div>
+
+  <!-- Paul Graham (evergreen but resurfacing) -->
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-thought-startup">[創業]</span>
+      <div class="card-title">
+        <a href="https://paulgraham.com/winc.html" target="_blank">
+          Paul Graham — 財富稅與所得稅的轉換 / How to Convert Between Wealth and Income Tax
+        </a>
+      </div>
+    </div>
+    <div class="card-meta">
+      <span class="source">paulgraham.com</span>
+      <span class="sep">·</span>
+      <span>Paul Graham · YC 共同創辦人</span>
+      <span class="sep">·</span>
+      <span>2026（最新文章，具體日期未標）</span>
+      <span class="sep">·</span>
+      <span class="readtime">~8 min</span>
+    </div>
+
+    <div class="field-label">為什麼值得讀 / Why it stands out</div>
+    <div class="field-body">
+      Paul Graham 極少觸碰財稅政策，但這是他文章列表最頂端的新作。在全球針對「超級財富」徵稅的辯論正熱的 2026 年，他試圖用數學模型釐清「財富稅」與「所得稅」之間的等價轉換關係——這既是技術分析，也是一次讓辯論降噪的嘗試。
+    </div>
+
+    <div class="field-label zh">核心觀點 / Core insight</div>
+    <div class="field-body">
+      Graham 建立了一個簡單的數學框架，說明在特定假設下，X% 的財富稅等於 Y% 的資本收益稅，讓政策辯論者至少在數字層面有共同的換算基礎，而不是各說各話。他的核心論點是：財富稅與所得稅的爭議，很大程度上源自雙方沒有意識到自己其實在討論同一件事的不同形態。<br><br>
+      <em>Graham offers a mathematical conversion between wealth tax and capital income tax, arguing that most policy debates on this topic talk past each other because they don't realize the structural equivalence.</em>
+    </div>
+
+    <div class="field-label">引發的問題 / Questions it opens</div>
+    <div class="field-body field-muted">
+      即使在數學上兩種稅可以互相換算，政治可行性、徵收難度（財富估值的流動性問題）和行為效應是否仍使兩者在實踐上不可同日而語？
+    </div>
+  </div>
+
+</div>
+
+<hr class="divider" />
+
+<footer>
+  <strong>數據來源 / Sources</strong>
+  <div class="sources-grid" style="margin-top:10px;">
+    <a href="https://news.ycombinator.com/best" target="_blank">Hacker News Best</a>
+    <a href="https://longreads.com/picks/" target="_blank">Longreads Editors' Picks</a>
+    <a href="https://aeon.co/essays" target="_blank">Aeon Essays</a>
+    <a href="https://www.quantamagazine.org/" target="_blank">Quanta Magazine</a>
+    <a href="https://www.oneusefulthing.org/" target="_blank">One Useful Thing (Mollick)</a>
+    <a href="https://www.noahpinion.blog/" target="_blank">Noahpinion (Smith)</a>
+    <a href="https://paulgraham.com/articles.html" target="_blank">Paul Graham Essays</a>
+    <a href="https://www.nybooks.com/" target="_blank">NY Review of Books</a>
+    <a href="https://www.newyorker.com/" target="_blank">The New Yorker</a>
+    <a href="https://mullvad.net/en/blog" target="_blank">Mullvad VPN Blog</a>
+  </div>
+  <div style="margin-top:16px; font-size:0.73rem; color: var(--text-muted);">
+    付費牆 / Paywalled: The Economist (Can the stock market swallow Anthropic / SpaceX / OpenAI) &mdash; 標題可見，全文需訂閱。Harper's Magazine "Hard Rain" &mdash; 全文需訂閱。The New Yorker "The Paperboy's Secret" &mdash; 部分文章後需訂閱，透過 Longreads 連結可讀到完整版本。
+  </div>
+  <div style="margin-top:8px; font-size:0.73rem; color: var(--text-muted);">
+    生成日期 / Generated: 2026-06-09 &nbsp;|&nbsp; Daily Interesting Articles · 今日有趣文章日報
+  </div>
+</footer>
+
+</body>
+</html>

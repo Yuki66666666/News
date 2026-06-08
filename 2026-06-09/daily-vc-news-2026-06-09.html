@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日創投新聞日報 / Daily VC News — 2026-06-09</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --accent: #7c6ff7;
+      --accent2: #4ecdc4;
+      --accent3: #f7c65b;
+      --text: #e8eaf0;
+      --muted: #8892a4;
+      --border: #2a2f42;
+      --tag-bg: #2a2f42;
+      --green: #4ade80;
+      --red: #f87171;
+      --orange: #fb923c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+      padding: 0 0 80px;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #12152a 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 36px 40px 28px;
+    }
+    header .kicker {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    header h1 {
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+    header .subtitle {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    /* section */
+    .section {
+      margin-top: 44px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .section-title span {
+      color: var(--muted);
+      font-weight: 400;
+      font-size: 14px;
+      margin-left: 6px;
+    }
+    /* cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .card-title .zh { color: #fff; }
+    .card-title .en { color: var(--accent2); font-size: 14px; font-weight: 500; }
+    .source-line {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+    }
+    .source-line a { color: var(--accent); text-decoration: none; }
+    .source-line a:hover { text-decoration: underline; }
+    .label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-right: 4px;
+    }
+    .label-facts { background: rgba(78,205,196,0.15); color: var(--accent2); }
+    .label-context { background: rgba(124,111,247,0.15); color: var(--accent); }
+    .label-imply { background: rgba(247,198,91,0.15); color: var(--accent3); }
+    .block {
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.75;
+    }
+    .block p { margin-bottom: 6px; }
+    /* top story ribbon */
+    .top-card {
+      background: linear-gradient(135deg, #1e1b38 0%, #1a2230 100%);
+      border-left: 3px solid var(--accent);
+    }
+    /* number badge */
+    .num-badge {
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+    /* tags */
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--muted);
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin: 2px 2px 0 0;
+    }
+    /* grid for mega rounds */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 16px;
+    }
+    @media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
+    /* region pills */
+    .region-pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-right: 4px;
+      margin-bottom: 4px;
+    }
+    .pill-us { background: rgba(99,179,237,0.15); color: #63b3ed; }
+    .pill-eu { background: rgba(102,217,91,0.15); color: #66d95b; }
+    .pill-asia { background: rgba(246,173,85,0.15); color: #f6ad55; }
+    .pill-mena { background: rgba(230,126,34,0.15); color: #e67e22; }
+    /* stat row */
+    .stat-row {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin: 14px 0;
+    }
+    .stat-box {
+      background: var(--surface2);
+      border-radius: 8px;
+      padding: 10px 16px;
+      min-width: 110px;
+    }
+    .stat-box .sv { font-size: 20px; font-weight: 800; color: #fff; }
+    .stat-box .sl { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    /* footer */
+    footer {
+      margin-top: 60px;
+      padding: 28px 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    hr.divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 14px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="kicker">Daily VC Briefing &bull; Investor Edition</div>
+    <h1>今日創投新聞日報<br><span style="color:var(--accent2)">Daily Venture Capital News</span></h1>
+    <div class="subtitle">2026-06-09 &nbsp;|&nbsp; 涵蓋 GP/LP 動向 · 基金募資 · 領投方 · 退場 · 策略觀察</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ===== SECTION 1: TOP STORIES ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">⚡</div>
+      <div class="section-title">頭條 / Top Stories<span>本週塑造創投生態的 3 大事件</span></div>
+    </div>
+
+    <div class="card top-card">
+      <div class="card-title">
+        <span class="num-badge">1</span>
+        <span class="zh">本週巨輪轉動：Ramp $750M、Supabase $500M 等十數筆億元融資</span><br>
+        <span class="en" style="margin-left:34px">Mega-round frenzy: A dozen $100M+ US rounds in a single week, led by Ramp's $750M</span>
+      </div>
+      <div class="source-line">
+        <a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">Crunchbase News</a> · 2026-06-05 ·
+        <span class="tag">Iconiq</span><span class="tag">GIC</span><span class="tag">Thrive Capital</span><span class="tag">137 Ventures</span>
+      </div>
+      <div class="block">
+        <p><span class="label label-facts">核心事實 / Facts</span> 本週（截至 6/5）美國前十大融資輪合計超過 <strong>$4.3B</strong>。Ramp $750M（Iconiq + GIC + Ontario Teachers' Pension Plan 領投，估值 $44B）；Supabase $500M（GIC 領投，估值 $10.5B）；Impulse Space $500M（137 Ventures + Banner VC 領投）；Helion Energy $465M Series G（Thrive Capital 領投，估值 $15.5B）。</p>
+        <p><span class="label label-context">背景脈絡 / Context</span> 5 月全球 VC 融資達 <strong>$92B</strong>，為有史以來第二高月份（Crunchbase，2026-06-03）。主權財富基金 GIC 在同一週同時主導 Ramp 與 Supabase，顯示新加坡政府投資機構在後期輪已取代部分傳統 growth equity 角色。Ontario Teachers' 加入則延續退休金基金直投趨勢。</p>
+        <p><span class="label label-imply">影響觀察 / Implications</span> 當資本如此集中在少數共識型 AI/infrastructure 標的，早期基金 DPI 壓力持續，中段標的（$1–5B 估值）議價空間縮小。Iconiq 在 Ramp 與 Anthropic 兩輪均領投，展現從 family-office-roots 轉向主動 lead investor 的策略完成。</p>
+      </div>
+    </div>
+
+    <div class="card top-card">
+      <div class="card-title">
+        <span class="num-badge">2</span>
+        <span class="zh">a16z + General Catalyst 5 月各領投 6 輪，含 Anduril $5B Series H</span><br>
+        <span class="en" style="margin-left:34px">a16z & General Catalyst each led 6 rounds in May, including Anduril's record $5B Series H</span>
+      </div>
+      <div class="source-line">
+        <a href="https://news.crunchbase.com/venture/active-startup-investors-may-2026-a16z-y-combinator-general-catalyst/" target="_blank">Crunchbase News</a> · 2026-06-04
+      </div>
+      <div class="block">
+        <p><span class="label label-facts">核心事實 / Facts</span> 5 月最活躍領投方：General Catalyst（6 輪）、Andreessen Horowitz（6 輪）、Lightspeed（5 輪）、Upfront Ventures（4 輪）、Index Ventures（4 輪）。按金額排名：Anthropic $50B Series H 的共同領投方（Sequoia、Altimeter、Dragoneer、Greenoaks、GIC、Iconiq）領銜；Thrive + a16z 共領 Anduril $5B。</p>
+        <p><span class="label label-context">背景脈絡 / Context</span> a16z 的國防科技押注（Anduril）配合其正式成立 American Dynamism 部門，且基金 VII 已達 ~$7.2B；General Catalyst 的廣泛佈局（AI + 醫療）反映其 Health Assurance 策略持續延伸。兩者均在規模化後轉向「做少但每筆超大」模式。</p>
+        <p><span class="label label-imply">影響觀察 / Implications</span> 資本集中在 2–3 家超級基金，中型 $500M–$1B 基金在後期 deal 競爭力下降；YC 依舊以 non-lead co-investor 身分參與大量 follow-on 輪，維持生態系黏著度。</p>
+      </div>
+    </div>
+
+    <div class="card top-card">
+      <div class="card-title">
+        <span class="num-badge">3</span>
+        <span class="zh">次級市場 $106B 規模壓境，SpaceX / OpenAI 擬 IPO 恐引爆重組</span><br>
+        <span class="en" style="margin-left:34px">$106B VC secondaries market faces structural reset as SpaceX / OpenAI IPOs loom</span>
+      </div>
+      <div class="source-line">
+        <a href="https://pitchbook.com/news/articles/2026s-fast-approaching-mega-ipo-wave-is-expected-to-reset-the-vc-secondaries-market" target="_blank">PitchBook</a> · 2026 Q1 · <span class="tag">Secondaries</span><span class="tag">DPI</span>
+      </div>
+      <div class="block">
+        <p><span class="label label-facts">核心事實 / Facts</span> 2025 年美國 VC 次級市場規模 $106.3B，其中直接次級（startup stakes）$91.7B，GP 主導型次級 $14.6B。SpaceX 目標 IPO 估值約 $1.5T；OpenAI 最近一輪估值 $840B；Anthropic $380B。若三者今年上市，合計 IPO 募資可能超過 2000 年以來所有 VC 支持 IPO 的總和。</p>
+        <p><span class="label label-context">背景脈絡 / Context</span> Continuation vehicles（CV）現佔 2026 年分配的至少 20%，LP 壓倒性選擇「出售」而非滾倉。2018 年份基金平均 DPI 僅 0.6x，創代際新低。次級市場已成為傳統 IPO 與 M&A 退出之外的第三條流動性管道，規模媲美前兩者之和。</p>
+        <p><span class="label label-imply">影響觀察 / Implications</span> SpaceX/OpenAI IPO 後次級市場流量將大幅集中，二線標的折價幅度擴大、買家競爭強度下降。GP 若有 2017–2019 年份的次級部位，正是出清窗口；LP allocation 超配私募部位的機構（尤其受新稅法衝擊的美國大學捐贈基金）加速賣出壓力延續至 2026 下半。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 2: FUND FORMATION & LP ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🏛</div>
+      <div class="section-title">新基金與 LP / Fund Formation &amp; LP Activity</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="zh">Earlybird VC 完成 €360M Fund VIII，歐洲最大 VC 基金之一</span><br>
+        <span class="en">Earlybird closes €360M Fund VIII — its largest ever, with perpetual active ownership model</span>
+      </div>
+      <div class="source-line">
+        <a href="https://earlybird.com/perspectives/fund-viii-a-%E2%82%AC360m-commitment-to-europe%E2%80%99s-future-builders" target="_blank">Earlybird Official</a> ·
+        <a href="https://www.eu-startups.com/2026/04/earlybird-vc-closes-e360-million-fund-viii-its-largest-yet-as-it-implements-perpetual-active-ownership-model/" target="_blank">EU-Startups</a> · 2026-04-30
+        <span class="tag">Europe</span><span class="tag">Deeptech</span><span class="tag">AI</span>
+      </div>
+      <div class="block">
+        <p><span class="label label-facts">核心事實 / Facts</span> 柏林 Earlybird VC Fund VIII 超額認購，最終規模 <strong>€360M</strong>（約 $388M），為該基金歷史最大。AUM 達 €2.5B，歷史紀錄含 9 次 IPO 與 41 次 trade sale。投資標的：AI 應用、軟體基礎設施、基礎模型、深科技。已投組合含 Black Forest Labs、SpAItial AI、Sintra、Arago。</p>
+        <p><span class="label label-context">背景脈絡 / Context</span> Earlybird 自 1997 年成立，每 3–4 年一輪，橫跨牛熊市均成功關閉基金。Fund VIII 引入「永久主動所有權」（Perpetual Active Ownership）結構——只有在職 partner 擁有基金公司股份，排除外部戰略股東及部分出售，強化長期激勵相容性。此舉呼應歐洲 VC 圈對 GP succession 問題的關注。</p>
+        <p><span class="label label-imply">影響觀察 / Implications</span> 歐洲早期 VC 資本增厚趨勢明顯，可能帶動其他歐洲 GP 跟進推出更大規模基金。「Perpetual Active Ownership」若獲市場驗證，或成歐洲基金治理新範本，對 LP 而言降低 GP 離職風險。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="zh">Air Street Capital Fund III：$232M，歐洲最大 Solo GP 紀錄，聚焦 AI + 國防</span><br>
+        <span class="en">Air Street Capital closes $232M Fund III — Europe's largest solo GP fund, AI &amp; defense focus</span>
+      </div>
+      <div class="source-line">
+        <a href="https://press.airstreet.com/p/fund-iii" target="_blank">Air Street Press</a> ·
+        <a href="https://techcrunch.com/2026/03/23/air-street-becomes-one-of-the-largest-solo-vcs-in-europe-with-232m-fund/" target="_blank">TechCrunch</a> · 2026-03-23
+        <span class="tag">Europe</span><span class="tag">Solo GP</span><span class="tag">Defense</span>
+      </div>
+      <div class="block">
+        <p><span class="label label-facts">核心事實 / Facts</span> Nathan Benaich 主導的 Air Street Capital 完成 Fund III，規模 <strong>$232M</strong>，創歐洲 Solo GP 歷史紀錄。LP 以美國大學捐贈基金、基金會、醫院及機構投資平台為主，多數為初次投資 solo GP 架構。投資範疇：AI 優先軟體、AI 科學應用（techbio）、國防安全，每筆 $500K–$15M，少數 growth 輪至 $25M。</p>
+        <p><span class="label label-context">背景脈絡 / Context</span> Fund I 約 $25M、Fund II $121M、Fund III $232M，近乎每輪翻倍。Nathan Benaich 同時主編年度《State of AI Report》，強化品牌影響力。AI + 國防結合反映歐洲地緣政治焦慮（烏克蘭衝突持續、北約擴張）對 VC 策略的滲透。</p>
+        <p><span class="label label-imply">影響觀察 / Implications</span> Solo GP 模式在歐洲進入主流視野，傳統合夥制 VC 需應對更靈活的競爭者。美國大學捐贈基金對歐洲 solo GP 的配置增加，部分源於受美國「One Big Beautiful Bill」法案新稅負影響後尋求更高 alpha 通道。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="zh">美國大學捐贈基金 LP 壓力：新稅法 2026 年 7 月生效，加速次級賣出</span><br>
+        <span class="en">US endowment LP pressure: Tiered endowment tax kicks in July 2026, accelerating secondary sales</span>
+      </div>
+      <div class="source-line">
+        <a href="https://altss.com/blog/endowments-foundations-as-lps-2026" target="_blank">AltSS</a> · 2026 ·
+        <span class="tag">LP</span><span class="tag">Endowment</span><span class="tag">Tax</span>
+      </div>
+      <div class="block">
+        <p><span class="label label-facts">核心事實 / Facts</span> 2025 年 7 月《One Big Beautiful Bill Act》對大學捐贈基金淨投資收入課徵 1.4%、4%、8% 分層稅，哈佛估計每年稅額達 $368M，多數機構於 2026 年 7 月起正式適用。捐贈基金 + 大型基金會合計可配置資本超過 $1.2T。</p>
+        <p><span class="label label-context">背景脈絡 / Context</span> 受稅法衝擊，頂尖大學捐贈基金持有私募部位已超目標配置，新承諾速度顯著放緩。這與整體次級市場量能增加同步出現：2025 年 VC 次級交易量 $106B，已接近傳統兩大退出管道（IPO + M&A）之和。</p>
+        <p><span class="label label-imply">影響觀察 / Implications</span> GP 在 2026 下半 LP 關係管理上需面對更多「流動性要求」；承接捐贈基金次級部位的買方（如 Lexington、Secondaries specialists）優勢擴大。小型 GP 若 LP 基礎高度依賴美國頂尖大學，新基金募資難度上升。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 3: MEGA ROUNDS & LEAD INVESTORS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">💰</div>
+      <div class="section-title">大型 Round 與領投者 / Mega Rounds &amp; Lead Investors<span>本週 $100M+ 代表案例（聚焦領投方）</span></div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-box"><div class="sv">$750M</div><div class="sl">Ramp (Iconiq / GIC 領)</div></div>
+      <div class="stat-box"><div class="sv">$500M</div><div class="sl">Supabase (GIC 領)</div></div>
+      <div class="stat-box"><div class="sv">$500M</div><div class="sl">Impulse Space (137V 領)</div></div>
+      <div class="stat-box"><div class="sv">$465M</div><div class="sl">Helion (Thrive 領)</div></div>
+      <div class="stat-box"><div class="sv">$435M</div><div class="sl">NewLimit (Founders Fund 領)</div></div>
+      <div class="stat-box"><div class="sv">$400M</div><div class="sl">Suno (Bond 領)</div></div>
+      <div class="stat-box"><div class="sv">$400M</div><div class="sl">Generalist AI (Radical 領)</div></div>
+      <div class="stat-box"><div class="sv">$350M</div><div class="sl">AlphaSense (Vitruvian 領)</div></div>
+      <div class="stat-box"><div class="sv">$300M</div><div class="sl">Mach Industries (Ribbit 領)</div></div>
+    </div>
+
+    <div class="grid-2">
+
+      <div class="card">
+        <div class="card-title">
+          <span class="zh">Thrive Capital：本週最大聲 — Helion $465M 領投，同月參投 NewLimit</span><br>
+          <span class="en">Thrive Capital leads Helion's $465M Series G; also joined NewLimit's $435M Series C</span>
+        </div>
+        <div class="source-line">
+          <a href="https://www.helionenergy.com/newsroom/helion-raises-465-million-series-g-funding-round-to-meet-surging-global-demand-for-power" target="_blank">Helion Official</a> ·
+          <a href="https://techcrunch.com/2026/06/04/helion-the-sam-altman-backed-fusion-startup-raises-465m-to-build-a-power-plant-for-microsoft/" target="_blank">TechCrunch</a> · 2026-06-04
+        </div>
+        <div class="block">
+          <p><span class="label label-facts">核心事實</span> Thrive Capital 領投 Helion $465M Series G，估值 <strong>$15.5B</strong>（前輪 $5.43B，升 185%）。其他新投：Alta Park Capital、Lux Capital、Peak XV Partners、Ford Motor 董事長 Bill Ford；續投：SoftBank Vision Fund 2、Lightspeed、Mithril Capital。總募資超 $1.5B。</p>
+          <p><span class="label label-context">背景脈絡</span> Josh Kushner 的 Thrive Capital 近年從消費科技轉型深科技 + AI，同月亦參與 NewLimit Series C。Helion 目前有與 Microsoft 的電力購買合約，是核融合商業化信心最強的背書之一。Sam Altman 為 Helion 早期個人投資人。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span class="zh">Founders Fund 主導 NewLimit $435M Series C：Coinbase 創辦人的長壽醫學投注</span><br>
+          <span class="en">Founders Fund leads NewLimit $435M Series C — Brian Armstrong's longevity medicine bet</span>
+        </div>
+        <div class="source-line">
+          <a href="https://blog.newlimit.com/p/newlimit-raises-435m-led-by-founders" target="_blank">NewLimit Blog</a> · 2026-06-04 · <span class="tag">Longevity</span>
+        </div>
+        <div class="block">
+          <p><span class="label label-facts">核心事實</span> Peter Thiel 的 Founders Fund 領投，共同新進：Thrive Capital、Greenoaks、Quiet Capital；續投：Kleiner Perkins、Abstract、Nat Friedman/Daniel Gross、Valor Equity、Eli Lilly Ventures。NewLimit 由 Coinbase CEO Brian Armstrong 共同創辦，專注表觀基因組重編程恢復細胞年輕態。</p>
+          <p><span class="label label-context">背景脈絡</span> Founders Fund 在生物/長壽領域持續加碼，與其近年投組（如 Elon Musk 企業群、Space X 週邊）的「科技樂觀主義」主題一致。Kleiner Perkins 作為老牌 biotech GP 續投，為技術路線背書。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span class="zh">Radical Ventures 領投 Generalist AI $400M — 多倫多小 GP 打進大場</span><br>
+          <span class="en">Radical Ventures leads Generalist AI's $400M round — Toronto boutique GP punches up</span>
+        </div>
+        <div class="source-line">
+          <a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">Crunchbase News</a> · 2026-06-05 · <span class="tag">Robotics</span>
+        </div>
+        <div class="block">
+          <p><span class="label label-facts">核心事實</span> Generalist AI（機器人 AI，聖馬特奧）$400M，估值 $2B，由 Radical Ventures 領投。Radical 是多倫多 AI 專注型 VC，背後有 Hinton、LeCun 等 AI 學界 advisor 加持，Fund I 約 $200M（2022）。</p>
+          <p><span class="label label-context">背景脈絡</span> 這是一個規模相對小的專門型 GP 搶下大輪領投機會的例子，顯示 AI 垂直型基金品牌在熱門領域仍有超大型 GP 競爭不過的網絡優勢（學術 sourcing）。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span class="zh">Ribbit Capital 轉身防務：領投 Mach Industries $300M Series C</span><br>
+          <span class="en">Ribbit Capital pivots to defense: leads Mach Industries' $300M Series C</span>
+        </div>
+        <div class="source-line">
+          <a href="https://news.crunchbase.com/defense-tech/startup-venture-funding-all-time-record-ai-anduril/" target="_blank">Crunchbase News</a> · 2026-06-02 · <span class="tag">Defense Tech</span>
+        </div>
+        <div class="block">
+          <p><span class="label label-facts">核心事實</span> Ribbit Capital 與 Infinite Capital 共同領投 Mach Industries $300M Series C，估值 $1.8B。Mach 成立僅 3 年（Huntington Beach, CA），開發武器系統。2026 年至今美國國防科技 VC 融資已超 <strong>$14.6B</strong>，創歷史紀錄（Crunchbase，2026-06-02）。</p>
+          <p><span class="label label-context">背景脈絡</span> Ribbit 以 fintech 起家（Robinhood 早期投資人），轉型國防顯示市場機會足夠大、足以吸引非傳統 GP 進場。這是 VC 策略漂移（strategy drift）的警示信號，還是真正的多元化，有待觀察。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== SECTION 4: EXITS & DPI ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🚪</div>
+      <div class="section-title">退場 / Exits &amp; DPI Events</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="zh">SpaceX / OpenAI / Anthropic IPO 浪潮逼近：2026 下半最大 DPI 事件</span><br>
+        <span class="en">SpaceX / OpenAI / Anthropic IPO wave: the biggest VC DPI events of H2 2026</span>
+      </div>
+      <div class="source-line">
+        <a href="https://pitchbook.com/news/articles/2026s-fast-approaching-mega-ipo-wave-is-expected-to-reset-the-vc-secondaries-market" target="_blank">PitchBook</a> · 2026 Q1 Analysis ·
+        <a href="https://techcrunch.com/2026/05/11/riding-an-ai-rally-robinhood-preps-second-retail-venture-ipo/" target="_blank">TechCrunch (Robinhood IPO)</a> · 2026-05-11
+      </div>
+      <div class="block">
+        <p><span class="label label-facts">核心事實</span> SpaceX 目標 IPO 估值 ~$1.5T；OpenAI 最新一輪 $840B；Anthropic $380B。若三者今年上市，理論合計市值超越 2000 年以來所有 VC 支持 IPO 總和。Robinhood 亦準備第二次零售 VC IPO，時機瞄準 AI rally。</p>
+        <p><span class="label label-context">背景脈絡</span> 2018 年份基金平均 DPI 0.6x 創代際低點。Continuation vehicles 佔 2026 年估計分配至少 20%，是 LP 唯一獲得部分現金的管道。次級市場 2025 全年 $106B，但大批流量集中在少數超大標的。</p>
+        <p><span class="label label-imply">影響觀察</span> SpaceX 上市後其次級股票流動性驟增，持有部位的 LP（如 a16z Growth、Founders Fund）DPI 大幅改善。但第二梯隊 AI 公司（$5–50B 估值）的次級折扣恐加大，因買方資金隨之流向更確定標的。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="zh">國防科技成新 DPI 熱點：VC 開始盤算出場策略</span><br>
+        <span class="en">Defense tech becomes new DPI focal point as VCs start planning exits</span>
+      </div>
+      <div class="source-line">
+        <a href="https://news.crunchbase.com/defense-tech/startup-venture-funding-all-time-record-ai-anduril/" target="_blank">Crunchbase News</a> · 2026-06-02 · <span class="tag">Defense</span><span class="tag">Exit</span>
+      </div>
+      <div class="block">
+        <p><span class="label label-facts">核心事實</span> 2026 年至今美國國防科技 VC 融資 <strong>$14.6B</strong>，創歷史紀錄，年率化超越任一先前完整年度。Anduril $5B（a16z + Thrive 領投）、Mach Industries $300M 均在本季。</p>
+        <p><span class="label label-context">背景脈絡</span> 國防預算持續擴張、NATO 成員國增加，加上 AI 賦能武器系統的商業可行性提升，使國防科技從利基轉入主流 VC 關注。</p>
+        <p><span class="label label-imply">影響觀察</span> Anduril 目前估值 $28B+，若啟動 IPO 流程，將成為美國史上最大科技 IPO 之一，Thrive / a16z 等早期持股人退出收益可觀。但政府合約依賴性、出口管制複雜度仍是 DPI 障礙。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 5: GP MOVES ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">👤</div>
+      <div class="section-title">GP 人事 / GP Moves</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="zh">Earlybird 引入「永久主動所有權」：GP 接班問題的歐洲解法</span><br>
+        <span class="en">Earlybird implements Perpetual Active Ownership — a European answer to GP succession</span>
+      </div>
+      <div class="source-line">
+        <a href="https://earlybird.com/perspectives/fund-viii-a-%E2%82%AC360m-commitment-to-europe%E2%80%99s-future-builders" target="_blank">Earlybird</a> · 2026-04-30
+      </div>
+      <div class="block">
+        <p><span class="label label-facts">核心事實</span> Fund VIII 宣告公司 100% 由在職 partner 持有，不接受外部策略性收購股權，也不允許已離職 partner 保留所有權。這是 GP 治理結構上的重大聲明。</p>
+        <p><span class="label label-context">背景脈絡</span> 歐洲 VC 圈近年討論 GP succession 問題：老牌基金（如 Index、Balderton）如何移轉主導權而不流失 LP 信任。Earlybird 此舉先發制人，也是吸引人才的差異化承諾。</p>
+        <p><span class="label label-imply">影響觀察</span> 若此模式奏效，有望為歐洲多家中型 GP 提供接班藍本；對 LP 而言減少「創辦合夥人依賴風險」。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="zh">VCJ 2026 Rising Stars 榜單：40 歲以下新生代 GP 登場</span><br>
+        <span class="en">VCJ 2026 Rising Stars: the next-gen GPs under 40 making their mark</span>
+      </div>
+      <div class="source-line">
+        <a href="https://www.venturecapitaljournal.com/venture-capitals-2026-rising-stars-a-g/" target="_blank">Venture Capital Journal</a> · 2026
+      </div>
+      <div class="block">
+        <p><span class="label label-facts">核心事實</span> VCJ 發布 2026 年版 Rising Stars（40 歲以下），涵蓋 A–G 與 M–P 兩個分部分，顯示行業人才培育活躍，新一代 GP 在 AI、climate、defense 賽道建立影響力。</p>
+        <p><span class="label label-imply">影響觀察</span> 上榜者往往 2–3 年內啟動個人基金（solo GP 或 spin-out），The Information「Talent Tracker: Next GPs 2026」亦同步追蹤此族群，LP 應提前建立關係。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 6: STRATEGY & ECOSYSTEM ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🧠</div>
+      <div class="section-title">策略與生態 / Strategy &amp; Ecosystem Shifts</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="zh">AI 佔全球 VC 53%：共識型標的集中，早期基金議價空間萎縮</span><br>
+        <span class="en">AI captures 53% of global VC in H1 2026 — consensus crowding squeezes early-stage terms</span>
+      </div>
+      <div class="source-line">
+        <a href="https://inforcapital.com/blog/2026-04-25-the-ai-funding-supercycle-1314-deals-in-april-show-where-real-capital-is-going/" target="_blank">InforCapital</a> · 2026-04 ·
+        <a href="https://corpgov.law.harvard.edu/2025/12/23/venture-capital-outlook-for-2026-5-key-trends/" target="_blank">Harvard Law VC Outlook 2026</a>
+        <span class="tag">AI</span><span class="tag">Macro VC Trend</span>
+      </div>
+      <div class="block">
+        <p><span class="label label-facts">核心事實</span> AI 相關 VC 交易佔 2026 年上半全球融資 <strong>53%</strong>（金額口徑），在件數口徑為 35%+（2025 資料外推），顯示 AI 輪次的平均規模遠高於非 AI。全球 VC 預計全年達 $310B。</p>
+        <p><span class="label label-context">背景脈絡</span> 超大型基金（a16z、General Catalyst、Thrive）已完成多輪新基金募資，dry powder 充裕，但投資標的愈趨集中（Anthropic、OpenAI 體系、Anduril 圈子）。</p>
+        <p><span class="label label-imply">影響觀察</span> 投資人篩選標準已從「是否 AI」轉向「是否有護城河」（proprietary data、novel architecture、deep workflow integration）。非 AI 賽道（climate、biotech 非 AI 分支）估值修正後的性價比開始出現，部分 contrarian GP 悄然布局。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="zh">Solo GP 崛起挑戰合夥制傳統：Air Street $232M 創歐洲紀錄</span><br>
+        <span class="en">Solo GP model challenges traditional partnerships: Air Street's $232M sets European record</span>
+      </div>
+      <div class="source-line">
+        <a href="https://techstartups.com/2026/03/23/air-street-capital-closes-232m-ai-fund-as-solo-vc-model-challenges-traditional-venture-firms/" target="_blank">Tech Startups</a> · 2026-03-23
+      </div>
+      <div class="block">
+        <p><span class="label label-facts">核心事實</span> Air Street Fund III $232M 為歐洲 solo GP 最大募資。LP 包含多家美國大學捐贈基金，部分為首次投資 solo GP 架構。</p>
+        <p><span class="label label-context">背景脈絡</span> 美國 Solo GP 市場已成熟（如 Elad Gil、Mike Maples），歐洲現在跟進。2026 年新 AML/KYC 監管要求（FinCEN 規則）對 sub-$150M solo GP 帶來合規成本，反而利好有規模的 solo GP。</p>
+        <p><span class="label label-imply">影響觀察</span> 傳統 multi-partner 基金在 sourcing 速度與決策彈性上需自我反思；LP 配置策略需建立評估 solo GP 的新框架（key-man clause、succession plan 更重要）。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="zh">國防科技 VC 資金創紀錄，傳統 fintech/consumer GP 跨界佈局</span><br>
+        <span class="en">Defense tech VC hits all-time funding record; traditional fintech/consumer GPs crossing over</span>
+      </div>
+      <div class="source-line">
+        <a href="https://news.crunchbase.com/defense-tech/startup-venture-funding-all-time-record-ai-anduril/" target="_blank">Crunchbase News</a> · 2026-06-02
+      </div>
+      <div class="block">
+        <p><span class="label label-facts">核心事實</span> 2026 年美國國防科技已融 $14.6B，全年創紀錄。多家非傳統 GP（如 Ribbit Capital）開始領投國防標的。Air Street Fund III 明確含括 defense &amp; national security。</p>
+        <p><span class="label label-imply">影響觀察</span> 國防科技 LP 通常來自 endowments + 部分 SWF（尤其英美盟友國），但中立型主權基金（中東部分 SWF）或學術 LP 可能因政策敏感性迴避；GP 組合策略需審視 LP 是否有限制。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 7: REGIONAL ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🌏</div>
+      <div class="section-title">區域 / Regional Highlights</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="zh">美國 / US</span>
+      </div>
+      <div class="block">
+        <p><span class="region-pill pill-us">US</span> 本週 $4.3B+ 大輪集中在 NY（Ramp）、CA（Supabase, Impulse Space）、WA（Helion）。a16z + General Catalyst 持續主導領投排行，但高支出 lead 實際是 Anthropic $50B 輪的共同領投方（Sequoia、Altimeter、GIC 等）。</p>
+        <p>國防科技 $14.6B YTD 創紀錄，2026 年的 policy tailwind（美國 National Security Strategy 對 dual-use tech 友善）預計持續。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="zh">歐洲 / Europe</span>
+      </div>
+      <div class="block">
+        <p><span class="region-pill pill-eu">EU</span> Q1 2026 歐洲 VC 募資顯著增加，新基金以 AI、climate、defense 為主（Vestbee Q1 report）。Earlybird €360M（柏林）、Air Street $232M（倫敦），加上多個中型基金，顯示歐洲 GP 規模化加速。</p>
+        <p>Earlybird 的「Perpetual Active Ownership」與 Air Street 的 Solo GP 模型，代表歐洲 VC 在基金架構上的創新實驗加速。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="zh">亞洲 / Asia</span>
+      </div>
+      <div class="block">
+        <p><span class="region-pill pill-asia">ASIA</span> Q1 2026 亞洲 AI 新創融資達 <strong>$12.5B</strong>（KPMG Venture Pulse），中國帶動亞洲整體融資占比上升，印度則成為機器人、太空科技、AI 基礎設施新亮點（政府配合 PLI 補貼）。東南亞整體融資穩定在 $6.79B（2025 全年基準），2026 Q1 資本更集中後期與深科技。</p>
+        <p><span class="region-pill pill-asia">SEA</span> DealStreetAsia Asia PE-VC Summit 2026 於新加坡舉行，聚焦 AI 工作流競爭與中小企業成長資金。69% 的亞洲 VC 基金管理人優先投資 AI，反映市場敘事高度一致。</p>
+        <p><span class="region-pill pill-mena">MENA</span> Khwarizmi Ventures（沙烏地）Fund II 完成首輪關閉，規模 $70M+（SAR 270M），投資 GCC 種子至 Series A 新創。沙烏地 PIF 規模已從不足 $200B 增至 $900B+，目標 2030 年達 $2T。GIC（新加坡）在本週兩筆 $500M 輪中均為領投，顯示亞洲 SWF 直投能力持續提升。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 8: READS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📖</div>
+      <div class="section-title">觀點 / Reads &amp; Thought Leadership</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="zh">「SaaS 已死，SaaS 萬歲」：AI 終結知識工作配給制</span><br>
+        <span class="en">"SaaS Is Dead. Long Live SaaS!" — AI and the End of the Rationing of Knowledge Work</span>
+      </div>
+      <div class="source-line">
+        <a href="https://news.crunchbase.com/saas/knowledge-work-investment-ai-morse-strattam/" target="_blank">Crunchbase News (Guest: Bob Morse, Strattam Capital)</a> · 2026-06-02
+      </div>
+      <div class="block">
+        <p>Strattam Capital 的 Bob Morse 主張 AI 並非殺死 SaaS 而是解放它——軟體公司將從「按座位授權」轉向「按成果收費」，打開 TAM 天花板。這對 SaaS focused VC（如 Bessemer、Battery）的估值模型與 due diligence 方法論有直接影響：傳統 ARR 倍數邏輯將被重新校準。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <span class="zh">「IPEM Global 2026 Preview：AI 與次級市場考驗 VC 紀律」</span><br>
+        <span class="en">IPEM Global 2026 Preview: VC Discipline Tested by AI and Secondaries</span>
+      </div>
+      <div class="source-line">
+        <a href="https://community.ipem-market.com/ipem-global-2026-preview-vc-discipline-tested-ai-secondaries" target="_blank">IPEM Community</a> · 2026
+      </div>
+      <div class="block">
+        <p>IPEM 論壇預覽指出，AI 泡沫化風險與次級市場結構性轉變（$106B 規模）是今年 VC 生態系的兩大壓力測試。GP 紀律指向：能否抵抗在估值過高時繼續跟投，以及能否主動用次級工具提前給 LP 流動性。</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <div class="container">
+    <p style="margin-bottom:10px; font-weight:600; color:var(--text)">來源 / Sources</p>
+    <p>
+      <a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">Crunchbase — Week's 10 Biggest Rounds (June 5, 2026)</a> ·
+      <a href="https://news.crunchbase.com/venture/active-startup-investors-may-2026-a16z-y-combinator-general-catalyst/" target="_blank">Crunchbase — Active Investors May 2026</a> ·
+      <a href="https://news.crunchbase.com/defense-tech/startup-venture-funding-all-time-record-ai-anduril/" target="_blank">Crunchbase — Defense Tech Funding Record</a> ·
+      <a href="https://earlybird.com/perspectives/fund-viii-a-%E2%82%AC360m-commitment-to-europe%E2%80%99s-future-builders" target="_blank">Earlybird Fund VIII</a> ·
+      <a href="https://techcrunch.com/2026/03/23/air-street-becomes-one-of-the-largest-solo-vcs-in-europe-with-232m-fund/" target="_blank">TechCrunch — Air Street Fund III</a> ·
+      <a href="https://www.helionenergy.com/newsroom/helion-raises-465-million-series-g-funding-round-to-meet-surging-global-demand-for-power" target="_blank">Helion $465M Series G</a> ·
+      <a href="https://blog.newlimit.com/p/newlimit-raises-435m-led-by-founders" target="_blank">NewLimit $435M Series C</a> ·
+      <a href="https://pitchbook.com/news/articles/2026s-fast-approaching-mega-ipo-wave-is-expected-to-reset-the-vc-secondaries-market" target="_blank">PitchBook — Mega-IPO Wave &amp; Secondaries Reset</a> ·
+      <a href="https://altss.com/blog/endowments-foundations-as-lps-2026" target="_blank">AltSS — Endowment LPs 2026</a> ·
+      <a href="https://kpmg.com/xx/en/what-we-do/industries/private-enterprise/venture-pulse/asia.html" target="_blank">KPMG Venture Pulse Asia Q1 2026</a>
+    </p>
+    <hr class="divider" style="margin:16px 0">
+    <p>本報告由 Claude AI 自動整理，僅供資訊參考，不構成投資建議。<br>
+    Generated by Claude AI on 2026-06-09 Asia/Taipei. For informational purposes only. Not investment advice.</p>
+  </div>
+</footer>
+
+</body>
+</html>

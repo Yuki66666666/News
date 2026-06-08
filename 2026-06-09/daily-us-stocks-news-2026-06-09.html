@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美股日報 US Stocks Daily — 2026-06-09</title>
+  <style>
+    :root { color-scheme: light; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #f8f9fa;
+      color: #1a1a2e;
+      line-height: 1.65;
+      padding: 0 0 60px;
+    }
+    header {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      padding: 28px 32px 24px;
+    }
+    header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.3px; }
+    header .subtitle { font-size: 0.9rem; opacity: 0.75; margin-top: 4px; }
+    header .trading-date {
+      display: inline-block;
+      margin-top: 10px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+    /* Index table */
+    .index-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      margin: 24px auto 0;
+      max-width: 900px;
+      overflow: hidden;
+    }
+    .index-card h2 {
+      background: #0f2027;
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 0.95rem;
+      letter-spacing: 0.4px;
+    }
+    .index-table { width: 100%; border-collapse: collapse; }
+    .index-table th {
+      background: #f1f3f5;
+      color: #555;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 10px 16px;
+      text-align: left;
+      border-bottom: 2px solid #e9ecef;
+    }
+    .index-table td {
+      padding: 11px 16px;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #f1f3f5;
+    }
+    .index-table tr:last-child td { border-bottom: none; }
+    .index-table tr:hover td { background: #fafafa; }
+    .up   { color: #0ca678; font-weight: 600; }
+    .down { color: #e03131; font-weight: 600; }
+    .neutral { color: #495057; }
+
+    /* Content sections */
+    .section {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      margin: 20px auto 0;
+      max-width: 900px;
+      overflow: hidden;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-bottom: 2px solid #f1f3f5;
+      background: #fafafa;
+    }
+    .section-header .icon { font-size: 1.2rem; }
+    .section-header h2 { font-size: 1rem; font-weight: 700; color: #1a1a2e; }
+    .section-header .en { font-size: 0.82rem; color: #868e96; font-weight: 400; margin-left: 4px; }
+    .section-body { padding: 20px; }
+
+    /* Story cards */
+    .story {
+      border-left: 4px solid #4dabf7;
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      background: #f8f9ff;
+      border-radius: 0 8px 8px 0;
+    }
+    .story:last-child { margin-bottom: 0; }
+    .story h3 { font-size: 0.95rem; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; line-height: 1.4; }
+    .story .meta { font-size: 0.75rem; color: #868e96; margin-bottom: 10px; }
+    .story .meta a { color: #4dabf7; text-decoration: none; }
+    .story .meta a:hover { text-decoration: underline; }
+    .label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #fff;
+      background: #4dabf7;
+      border-radius: 4px;
+      padding: 1px 7px;
+      margin-right: 6px;
+      vertical-align: middle;
+      letter-spacing: 0.3px;
+    }
+    .label.red { background: #e03131; }
+    .label.green { background: #0ca678; }
+    .label.purple { background: #7950f2; }
+    .label.orange { background: #f76707; }
+    .label.gray { background: #868e96; }
+
+    .fact, .context, .implication {
+      font-size: 0.875rem;
+      margin-bottom: 8px;
+    }
+    .fact strong, .context strong, .implication strong {
+      color: #495057;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* Tag pills */
+    .tags { margin-top: 10px; }
+    .tag {
+      display: inline-block;
+      font-size: 0.71rem;
+      background: #e9ecef;
+      color: #495057;
+      border-radius: 20px;
+      padding: 2px 9px;
+      margin: 2px 3px 0 0;
+    }
+
+    /* Divider */
+    hr { border: none; border-top: 1px solid #f1f3f5; margin: 16px 0; }
+
+    /* Sources footer */
+    .sources-section {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      margin: 20px auto 0;
+      max-width: 900px;
+      padding: 16px 20px;
+    }
+    .sources-section h3 { font-size: 0.82rem; font-weight: 700; color: #868e96; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .source-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+    .source-list li a {
+      font-size: 0.78rem;
+      color: #4dabf7;
+      text-decoration: none;
+      background: #f1f9ff;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid #bee3f8;
+    }
+    .source-list li a:hover { background: #bee3f8; }
+
+    /* Notice box */
+    .notice {
+      background: #fff9db;
+      border-left: 4px solid #f59f00;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      font-size: 0.85rem;
+      color: #5c3d11;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>🇺🇸 美股日報 US Stocks Daily</h1>
+    <div class="subtitle">三大指數 · 個股大事 · Fed 動態 · 資金流向</div>
+    <div class="trading-date">交易日 Trading Session: 2026-06-08 (Mon) &nbsp;|&nbsp; 整理日期 Report Date: 2026-06-09</div>
+  </div>
+</header>
+
+<!-- Index Table -->
+<div class="index-card container" style="margin-top:24px;">
+  <h2>市場概覽 Market Snapshot — Close 2026-06-08</h2>
+  <table class="index-table">
+    <thead>
+      <tr>
+        <th>指數 / Index</th>
+        <th>收盤 Close</th>
+        <th>漲跌 Chg</th>
+        <th>% 變動</th>
+        <th>備註</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>S&amp;P 500</strong></td>
+        <td>7,452.7 <span style="font-size:0.75rem;color:#868e96;">(est.)</span></td>
+        <td class="up">+69.0</td>
+        <td class="up">+0.93%</td>
+        <td>從 6/5 拋售中反彈</td>
+      </tr>
+      <tr>
+        <td><strong>Nasdaq Comp</strong></td>
+        <td>26,080 <span style="font-size:0.75rem;color:#868e96;">(est.)</span></td>
+        <td class="up">+371</td>
+        <td class="up">+1.44%</td>
+        <td>半導體反彈帶動</td>
+      </tr>
+      <tr>
+        <td><strong>Dow Jones</strong></td>
+        <td>51,162 <span style="font-size:0.75rem;color:#868e96;">(est.)</span></td>
+        <td class="up">+296</td>
+        <td class="up">+0.58%</td>
+        <td>防禦股拖累漲幅</td>
+      </tr>
+      <tr>
+        <td><strong>Russell 2000</strong></td>
+        <td>未取得確切數據</td>
+        <td class="down">−3.47%</td>
+        <td class="down">−3.47%</td>
+        <td>小型股逆勢下跌</td>
+      </tr>
+      <tr>
+        <td><strong>VIX</strong></td>
+        <td>~21.5</td>
+        <td class="up">+6.1</td>
+        <td class="up">+39.7%</td>
+        <td>週間大漲，恐慌指數仍高</td>
+      </tr>
+      <tr>
+        <td><strong>US 10Y Yield</strong></td>
+        <td>4.57%</td>
+        <td class="up">+0.07</td>
+        <td class="up">升息預期升溫</td>
+        <td>強就業數據推升</td>
+      </tr>
+      <tr>
+        <td><strong>DXY (美元指數)</strong></td>
+        <td>100.05</td>
+        <td class="up">+0.67</td>
+        <td class="up">+0.67%</td>
+        <td>就業強勁推升美元</td>
+      </tr>
+      <tr>
+        <td><strong>WTI 原油</strong></td>
+        <td>$94.93</td>
+        <td class="up">+$4.39</td>
+        <td class="up">+4.9%</td>
+        <td>以伊衝突重燃推升</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <div class="notice" style="margin-top:16px;">
+    ⚠️ 注意：收盤估算值係根據已確認漲跌幅與前收盤換算，部分精確數字尚未公開。所有分析均標注「est.」。WTI 與 VIX 以週間變動為準。
+  </div>
+</div>
+
+<!-- Section 1: Top Stories -->
+<div class="section container">
+  <div class="section-header">
+    <span class="icon">📰</span>
+    <h2>頭條 <span class="en">/ Top Stories</span></h2>
+  </div>
+  <div class="section-body">
+
+    <div class="story">
+      <h3><span class="label red">半導體</span> 科技股從「黑色星期五」強彈 — Nasdaq 反彈 1.44% / Tech Rebounds After Brutal Friday Selloff</h3>
+      <div class="meta">
+        來源: <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-08-2026" target="_blank">TheStreet</a> · 2026-06-08 ·
+        <a href="https://www.cnbc.com/2026/06/04/stock-market-today-live-updates.html" target="_blank">CNBC</a>
+      </div>
+      <div class="fact">
+        <strong>核心事實 / Facts</strong>
+        Nasdaq 週一收漲 1.44%，S&P 500 +0.93%，Dow +0.58%。這是對上週五（6/5）慘跌的修復——當日 Nasdaq 重挫 4.2%，費城半導體指數（SOX）單日跌幅 10.3%，為 2020 年以來最大跌幅，市值一日蒸發逾 1 兆美元。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        6/5 拋售的觸媒是 Broadcom（AVGO）Q3 AI 晶片銷售指引僅 160 億美元，低於分析師預估的 172 億美元，且未上調全年指引。加上同日 5 月強勁就業數據（新增 17.2 萬，遠超預估 8.5 萬）引發「好消息即壞消息」效應——10 年期殖利率飆至 4.57%，市場重新定價 Fed 不降息的機率。週一反彈主要由半導體股帶頭，以及 Corning/Amazon 合作消息、Marvell 加入 S&P 500 等利多事件提振。
+      </div>
+      <div class="implication">
+        <strong>影響觀察 / Implications</strong>
+        Russell 2000 週一逆勢跌 3.47%，顯示反彈集中在大型科技股，市場廣度偏窄。CPI 數據（預計本週公布）將是下一個重要催化劑，決定反彈能否持續。VIX 仍在 21.5，表明恐慌情緒尚未完全消退。
+      </div>
+      <div class="tags">
+        <span class="tag">$NDX</span><span class="tag">$SPX</span><span class="tag">$SOX</span><span class="tag">半導體反彈</span><span class="tag">VIX</span>
+      </div>
+    </div>
+
+    <div class="story">
+      <h3><span class="label orange">中東</span> 以色列-伊朗互射飛彈，油價飆 4.9% / Israel-Iran Exchange Strikes, WTI Surges 4.9%</h3>
+      <div class="meta">
+        來源: <a href="https://www.cnbc.com/amp/2026/06/08/oil-prices-today-us-iran-missile-middle-east-israel-opec.html" target="_blank">CNBC Oil Prices</a> · 2026-06-08 ·
+        <a href="https://www.jpmorgan.com/insights/global-research/commodities/iran-us-tensions-market-effect" target="_blank">J.P. Morgan Research</a>
+      </div>
+      <div class="fact">
+        <strong>核心事實 / Facts</strong>
+        以色列空軍（IDF）週一轟炸伊朗西部與中部軍事目標，為雙方自 4 月停火以來首次直接衝突。WTI 原油期貨單日大漲 4.9% 至 94.93 美元，Brent 升至 97.67 美元（+4.9%）。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        美以聯合軍事行動已於 2/28 展開，衝突進入第 100 天。儘管全球原油供應自衝突爆發以來下滑約 14%，但市場對「200 美元油價」的極端擔憂迄今未兌現。霍爾木茲海峽仍處緊繃狀態，中國穩定購油一定程度緩解了衝擊。
+      </div>
+      <div class="implication">
+        <strong>影響觀察 / Implications</strong>
+        能源股（XLE）受惠；航空、化工、製造業等成本敏感族群承壓。若局勢進一步升溫，可能再次衝擊消費者通膨，進一步推遲 Fed 降息時程。長線需關注霍爾木茲海峽航運保險費率。
+      </div>
+      <div class="tags">
+        <span class="tag">WTI</span><span class="tag">能源股 XLE</span><span class="tag">地緣政治</span><span class="tag">霍爾木茲</span>
+      </div>
+    </div>
+
+    <div class="story">
+      <h3><span class="label purple">宏觀</span> 5 月就業大爆表，Goldman Sachs 撤回 2026 年降息預測 / Strong May Payrolls — Goldman Drops 2026 Cut Forecast</h3>
+      <div class="meta">
+        來源: <a href="https://www.bloomberg.com/news/articles/2026-06-07/goldman-sachs-no-longer-expects-fed-interest-rate-cut-this-year-mq44uu26" target="_blank">Bloomberg</a> · 2026-06-07 ·
+        <a href="https://www.interactivebrokers.com/campus/traders-insight/securities/macro/may-jobs-report-nonfarm-payrolls-surge-172000-smashing-estimates-updated/" target="_blank">IBKR Campus</a>
+      </div>
+      <div class="fact">
+        <strong>核心事實 / Facts</strong>
+        5 月非農就業人數新增 17.2 萬，遠超市場預估 8.5 萬（上月上修至 17.9 萬）；失業率穩定在 4.3%；平均時薪月增 0.3%、年增 3.4%。Goldman Sachs（6/7）據此將首次降息預測推至 2027 年 6 月，Barclays 亦跟進。10 年期殖利率 6/5 後跳升至 4.57%，達近兩週高點。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        目前 Fed 基金利率目標區間為 3.50–3.75%（4/29 決策後維持不變）。CME FedWatch 顯示 6/16-17 FOMC 維持不變機率逾 89%。Goldman 加入 Nomura、J.P. Morgan 等機構行列，均預期 Fed 全年按兵不動；J.P. Morgan 甚至預測 2027 Q3 有一次升息。4 月 CPI 年增 3.8%（能源大漲 17.9% 為主因），Fed 缺乏降息空間。
+      </div>
+      <div class="implication">
+        <strong>影響觀察 / Implications</strong>
+        「高利率更長期（Higher for Longer）」重返市場敘事。成長股估值承壓、房貸利率維持高位、科技股 P/E 重估風險上升。下週 CPI 數據（6/11）為最重要觀察指標。
+      </div>
+      <div class="tags">
+        <span class="tag">FOMC 6/16</span><span class="tag">Goldman Sachs</span><span class="tag">10Y殖利率</span><span class="tag">Higher for Longer</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Section 2: Earnings -->
+<div class="section container">
+  <div class="section-header">
+    <span class="icon">💰</span>
+    <h2>財報 <span class="en">/ Earnings of the Day</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="notice">
+      6/8（週一）為財報淡季，無重大 S&P 500 成分股發布財報。以下為本週前後值得追蹤的財報事件。
+    </div>
+
+    <div class="story">
+      <h3><span class="label green">Beat</span> Broadcom (AVGO) — Q2 財報後指引失望，成為本輪拋售導火線</h3>
+      <div class="meta">
+        來源: <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-05-2026" target="_blank">TheStreet</a> · 2026-06-05
+      </div>
+      <div class="fact">
+        <strong>核心事實 / Facts</strong>
+        Broadcom Q2 EPS 及營收均超預期（EPS beat），但 Q3 AI 晶片銷售指引為 160 億美元，低於分析師預估 172 億美元；全年 AI 半導體銷售預測未上調。股價 6/5 大跌，拖累整個 AI 晶片族群。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        Broadcom 今年被視為 AI 訓練晶片生態系最重要的供應商之一，與 Google、Meta 的客製化 AI 晶片（ASIC）合作是市值支撐敘事。一旦指引不及預期，市場重新審視整個 AI 資本支出週期的可持續性。
+      </div>
+      <div class="implication">
+        <strong>影響觀察 / Implications</strong>
+        Nvidia、AMD、Marvell 等 AI 晶片股均受拖累。費城半導體指數（SOX）6/5 單日崩跌 10.3%，為本週最重要的行業事件。週一反彈（MRVL +9%、MU +7%）是否持久仍需觀察。
+      </div>
+      <div class="tags">
+        <span class="tag">$AVGO</span><span class="tag">AI晶片</span><span class="tag">ASIC</span><span class="tag">SOX</span>
+      </div>
+    </div>
+
+    <div class="story">
+      <h3><span class="label green">Beat</span> Hewlett Packard Enterprise (HPE) — 財報超預期，Loop Capital 升評</h3>
+      <div class="meta">
+        來源: <a href="https://www.benzinga.com/analyst-stock-ratings/upgrades" target="_blank">Benzinga</a> · 2026-06-08
+      </div>
+      <div class="fact">
+        <strong>核心事實 / Facts</strong>
+        HPE 近期財報超出分析師預期，並上調全年 EPS 指引。Loop Capital 據此將評級從 Hold 升至 Buy，目標價 $75。股價前一週上漲逾 25%。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        HPE 為企業 AI 伺服器及儲存設備重要玩家，受惠於超大型資料中心擴張浪潮。AI 伺服器需求強勁是其核心增長驅動力。
+      </div>
+      <div class="implication">
+        <strong>影響觀察 / Implications</strong>
+        HPE 的強勁指引對 Dell（DELL）等企業 IT 設備股有正面溢出效應。
+      </div>
+      <div class="tags">
+        <span class="tag">$HPE</span><span class="tag">企業AI伺服器</span><span class="tag">Loop Capital Upgrade</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Section 3: Single Stock Movers -->
+<div class="section container">
+  <div class="section-header">
+    <span class="icon">📈</span>
+    <h2>個股大事 <span class="en">/ Single-Stock Movers</span></h2>
+  </div>
+  <div class="section-body">
+
+    <div class="story">
+      <h3><span class="label green">+9%</span> Corning (GLW) — Amazon 簽訂光纖大單，創 1,000 個就業機會</h3>
+      <div class="meta">
+        來源: <a href="https://finance.yahoo.com/video/amazoncorning-ai-deal-marvell-stock-surges-on-sp-500-inclusion-151008035.html" target="_blank">Yahoo Finance</a> · 2026-06-08
+      </div>
+      <div class="fact">
+        <strong>核心事實 / Facts</strong>
+        Amazon 宣布與 Corning 簽署數十億美元光纖合約，供應光纖、光纜及連結元件以擴建其美國資料中心。Corning 盤前大漲 9.31% 至 194.16 美元。此合約將在北卡羅來納州工廠新增 1,000 個就業機會。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        Corning 是全球最大光纖製造商，過去一年受惠於 AI 資料中心建設浪潮。Amazon 此番大手筆採購驗證了光纖基礎設施需求的長期確定性，相較半導體有更清晰的供應鏈能見度。
+      </div>
+      <div class="implication">
+        <strong>影響觀察 / Implications</strong>
+        利好 Prysmian、Coherent、Lumentum 等光纖光學族群。顯示 AI 資本支出從「晶片」進一步蔓延至「連結基礎設施」層，可能引發類股輪動。
+      </div>
+      <div class="tags">
+        <span class="tag">$GLW</span><span class="tag">$AMZN</span><span class="tag">光纖</span><span class="tag">AI基礎設施</span>
+      </div>
+    </div>
+
+    <div class="story">
+      <h3><span class="label green">+8-9%</span> Marvell Technology (MRVL) — 宣布加入 S&P 500（6/22 生效）</h3>
+      <div class="meta">
+        來源: <a href="https://www.cnbc.com/2026/06/05/marvell-technology-flex-sp-500-campbells-pool.html" target="_blank">CNBC</a> · 2026-06-05 ·
+        <a href="https://www.benzinga.com/trading-ideas/movers/26/06/53058937/marvell-stock-is-up-230-in-2026-sp-500-debut-could-make-that-look-conservative" target="_blank">Benzinga</a>
+      </div>
+      <div class="fact">
+        <strong>核心事實 / Facts</strong>
+        S&P Dow Jones Indices 6/5 收盤後公告，Marvell Technology（MRVL）與 Flex（FLEX）將於 6/22 加入 S&P 500，取代 Campbell's（CPB）與 Pool（POOL）。MRVL 週一盤前大漲約 9% 至 287 美元。MRVL 今年迄今漲幅已達 210%。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        Marvell 是 AI 訓練推理晶片（ASIC、Ethernet 交換）的關鍵玩家，與 Amazon、Google 均有客製化 AI 晶片深度合作。Nvidia CEO Jensen Huang 上週公開表示 Marvell 可能成為「下一家市值兆美元的公司」，並宣布 Nvidia 投資 20 億美元入股。被納入 S&P 500 意味著所有跟蹤指數的被動基金被迫買入，估計指數買盤約 5–8 億美元。
+      </div>
+      <div class="implication">
+        <strong>影響觀察 / Implications</strong>
+        指數加入效應通常在公告至生效日（6/22）期間帶來技術性買壓。但納入後「買預期賣事實」的反向套利也需警惕。Campbell's（CPB）、Pool（POOL）被剔除可能引發指數基金拋售。
+      </div>
+      <div class="tags">
+        <span class="tag">$MRVL</span><span class="tag">S&P 500 納入</span><span class="tag">AI晶片</span><span class="tag">ASIC</span><span class="tag">指數再平衡</span>
+      </div>
+    </div>
+
+    <div class="story">
+      <h3><span class="label green">+1%</span> Nvidia (NVDA) — 宣布與 LG 集團合作建構 AI 工廠生態系</h3>
+      <div class="meta">
+        來源: <a href="https://theaiinsider.tech/2026/06/08/nvidia-announces-partnerships-with-doosan-lg-focused-on-physical-ai-robotics/" target="_blank">The AI Insider</a> · 2026-06-08 ·
+        <a href="https://www.newkerala.com/news/a/nvidia-lg-group-partner-build-ai-factory-robotics-mobility-and-data-infrastructure.htm" target="_blank">NewKerala</a>
+      </div>
+      <div class="fact">
+        <strong>核心事實 / Facts</strong>
+        Nvidia 與 LG 集團宣布戰略合作，涵蓋 AI 工廠建置、機器人（Physical AI）、自動駕駛及資料中心基礎設施。LG Electronics、LG CNS、LG Uplus、LG Energy Solution 均參與合作。NVDA 週一漲約 1–1.6%，收盤約 207–209 美元。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        Nvidia 正積極拓展「AI Factory」概念（以 Nvidia 硬體為核心的完整 AI 基礎設施），本次合作是繼與 Doosan 合作後又一大型韓國集團夥伴關係。上週 Nvidia 宣布投資 Marvell 20 億美元，凸顯其對 AI 生態系的掌控布局。
+      </div>
+      <div class="implication">
+        <strong>影響觀察 / Implications</strong>
+        有利於 Nvidia 在亞太 AI 基礎設施市場的版圖擴張。LG Energy Solution 的加入也暗示 AI 與電動車儲能的交叉應用。短期股價漲幅受限於整體市場謹慎情緒。
+      </div>
+      <div class="tags">
+        <span class="tag">$NVDA</span><span class="tag">Physical AI</span><span class="tag">AI工廠</span><span class="tag">Robotics</span><span class="tag">LG集團</span>
+      </div>
+    </div>
+
+    <div class="story">
+      <h3><span class="label red">−10.9%</span> AMD — 半導體週五大崩，週一嘗試反彈</h3>
+      <div class="meta">
+        來源: <a href="https://www.gurufocus.com/news/8903823/nvidia-micron-amd-suffer-major-losses-amid-chip-market-selloff" target="_blank">GuruFocus</a> · 2026-06-05
+      </div>
+      <div class="fact">
+        <strong>核心事實 / Facts</strong>
+        AMD 6/5（週五）重挫 10.86% 至 466.38 美元。Intel 同日跌 11.28% 至 99.17 美元。Micron（MU）跌 6.3%。週一（6/8）MU 盤前反彈 7.1%，AMD 亦見反彈。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        本次崩跌源頭是 Broadcom 指引不如預期，加上記憶體晶片危機加深與全球智慧手機需求預測下修三重打擊。費城半導體指數（SOX）6/5 單日跌 10.3%，為 2020 年以來最大單日跌幅。
+      </div>
+      <div class="implication">
+        <strong>影響觀察 / Implications</strong>
+        週一反彈屬短期技術性修復（跌深反彈），基本面疑慮——AI 晶片指引遜色、記憶體供過於求——尚未解除。下週 CPI 及後續企業財報將決定復甦力道。
+      </div>
+      <div class="tags">
+        <span class="tag">$AMD</span><span class="tag">$INTC</span><span class="tag">$MU</span><span class="tag">SOX崩跌</span><span class="tag">記憶體危機</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Section 4: M&A and IPO -->
+<div class="section container">
+  <div class="section-header">
+    <span class="icon">🤝</span>
+    <h2>併購與 IPO <span class="en">/ M&A and IPO</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="story">
+      <h3><span class="label purple">指數重組</span> S&P 500 季度再平衡：Marvell + Flex 進，Campbell's + Pool 出</h3>
+      <div class="meta">
+        來源: <a href="https://www.marketscreener.com/news/marvell-technology-flex-join-s-p-500-in-reshuffling-of-more-than-20-companies-ce7f5dd2d18bff22" target="_blank">MarketScreener</a> · 2026-06-05
+      </div>
+      <div class="fact">
+        <strong>核心事實 / Facts</strong>
+        S&P Dow Jones Indices 宣布 6/22 季度再平衡，本次超過 20 家公司涉及調整。Marvell（MRVL）與 Flex（FLEX）加入；Campbell's（CPB）與 Pool（POOL）剔出。這是本季最大規模的 S&P 500 成分股調整。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        Marvell 因 AI 晶片營利大幅改善，終於通過 S&P 500 的盈利要求門檻，今年漲幅已逾 210%。Campbell's 近年面臨消費降級與有機食品競爭壓力；Pool 則受高利率打壓住宅游泳池市場。
+      </div>
+      <div class="implication">
+        <strong>影響觀察 / Implications</strong>
+        估計 MRVL 被動基金買入規模約 5–8 億美元。CPB、POOL 面臨指數基金強制性賣壓，可能出現短期超賣機會，但基本面改善需觀察。
+      </div>
+      <div class="tags">
+        <span class="tag">$MRVL</span><span class="tag">$FLEX</span><span class="tag">$CPB</span><span class="tag">$POOL</span><span class="tag">S&P 500 Rebalance</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 5: Analyst Calls -->
+<div class="section container">
+  <div class="section-header">
+    <span class="icon">🔍</span>
+    <h2>券商評等 <span class="en">/ Analyst Calls</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="story">
+      <h3>本週重要券商評等變動 / Key Rating Changes This Week</h3>
+      <div class="meta">
+        來源: <a href="https://seekingalpha.com/news/4601488-sa-analyst-upgrades-downgrades-nvda-lmt-shak-shop" target="_blank">Seeking Alpha</a> ·
+        <a href="https://www.heygotrade.com/en/blog/wall-street-analyst-upgrades-june-2026/" target="_blank">HeyGoTrade</a> · 2026-06-08
+      </div>
+      <div class="fact">
+        <strong>主要升評 / Upgrades</strong>
+        <ul style="margin:8px 0 0 18px;font-size:0.875rem;line-height:1.8;">
+          <li><strong>HPE（Hewlett Packard Enterprise）</strong>：Loop Capital — Hold → Buy，目標價 $75（財報強勁 + AI 伺服器需求）</li>
+          <li><strong>LMT（Lockheed Martin）</strong>：SA 升評 — 受惠全球國防支出加速（中東衝突背景）</li>
+          <li><strong>SHOP（Shopify）</strong>：SA 升評 — 近期股價回調後估值更具吸引力</li>
+          <li><strong>GH（Guardant Health）</strong>：Evercore ISI — In-line → Outperform，目標價 $160</li>
+          <li><strong>NVDA（Nvidia）</strong>：多家機構上調目標價，Blackwell 出貨量指引強勁為主因</li>
+        </ul>
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        國防股（LMT、RTX 等）受中東升溫利多；AI 基礎設施升評循環（NVDA、HPE）持續；醫療保健（GH）則有液態活檢市場擴張故事。Shopify 升評顯示部分分析師開始在科技回調中找「買點」。
+      </div>
+      <div class="implication">
+        <strong>影響觀察 / Implications</strong>
+        分析師評等的集中性（多家同時升評 NVDA 生態鏈）容易形成群聚效應，但在宏觀環境（高利率、油價上漲）不確定性高時，目標價可信度需打折扣。
+      </div>
+      <div class="tags">
+        <span class="tag">$NVDA</span><span class="tag">$HPE</span><span class="tag">$LMT</span><span class="tag">$SHOP</span><span class="tag">$GH</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 6: Fed & Rates -->
+<div class="section container">
+  <div class="section-header">
+    <span class="icon">🏦</span>
+    <h2>Fed 與利率 <span class="en">/ Fed &amp; Rates</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="story">
+      <h3><span class="label red">鷹派</span> Higher for Longer 重返：Goldman、Barclays 撤回 2026 降息預測</h3>
+      <div class="meta">
+        來源: <a href="https://www.bloomberg.com/news/articles/2026-06-07/goldman-sachs-no-longer-expects-fed-interest-rate-cut-this-year-mq44uu26" target="_blank">Bloomberg</a> · 2026-06-07 ·
+        <a href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank">CME FedWatch</a>
+      </div>
+      <div class="fact">
+        <strong>核心事實 / Facts</strong>
+        現行 Fed 基金利率：3.50–3.75%（4/29 決策後不變）。CME FedWatch：6/16–17 FOMC 維持不動機率 89.2%。Goldman Sachs（6/7）撤回 2026 年降息預測，新預測：2027 年 6 月與 12 月各降 25bp。Barclays 跟進，首次降息預測移至 2027 年 3 月。10 年期殖利率：4.57%（近兩週高）。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        4 月 CPI 年增 3.8%（能源 +17.9%，含地緣政治因素），5 月就業數據超強（+17.2 萬 vs 預估 +8.5 萬），共同堵死了 Fed 的降息窗口。J.P. Morgan 更激進地預估 2027 Q3 有一次升息。市場降息預期曾在 2026 年初相對樂觀，但一連串強勁數據快速逆轉了這一敘事。
+      </div>
+      <div class="implication">
+        <strong>影響觀察 / Implications</strong>
+        利率維持高位不利於：(1) 成長/科技股高估值（殖利率越高，折現率越高）；(2) 房地產市場（30Y 抵押利率仍偏高）；(3) 槓桿型企業債負擔。本週三 CPI（6/11）是下一個關鍵數據點，若 CPI 超預期，鷹派情緒可能進一步強化。
+      </div>
+      <div class="tags">
+        <span class="tag">FOMC 6/16</span><span class="tag">10Y殖利率 4.57%</span><span class="tag">Goldman Sachs</span><span class="tag">Higher for Longer</span><span class="tag">CPI 6/11</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 7: Flows & Positioning -->
+<div class="section container">
+  <div class="section-header">
+    <span class="icon">💹</span>
+    <h2>資金流向 <span class="en">/ Flows &amp; Positioning</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="story">
+      <h3>ETF 資金流與選擇權倉位概況 / ETF Flows &amp; Options Positioning Overview</h3>
+      <div class="meta">
+        來源: <a href="https://act-advisors.com/june-2026-market-update-strong-stocks-bond-positioning-and-summer-tax-planning/" target="_blank">ACT Advisors</a> ·
+        <a href="https://www.ishares.com/us/insights/inside-the-market/2026-etf-market-trends-and-flows" target="_blank">iShares Q1 Flow Report</a> · 2026-06
+      </div>
+      <div class="fact">
+        <strong>核心事實 / Facts</strong>
+        2026 年截至 4 月底，ETF 產業淨流入已逾 6,000 億美元，年化約達 1.8 兆美元（有望創歷史新高）。主動型 ETF 策略佔總流入約 38%（主動 ETF 滲透率創歷史高）。Russell 2000 週一跌 3.47%，而大型科技強漲，顯示資金明顯偏向集中在大市值成長股。零售選擇權交易者回歸：指數/ETF 選擇權對個股選擇權比例由週前的 1.5x 回落至 1.3x，且有向單一個股（高 Beta 名單）轉移的跡象。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        中東局勢升溫促使部分機構增加能源 ETF（XLE、OIH）曝險。高油價環境下，黃金 ETF 流入也持續增加（GLD、IAU）。VIX 仍在 21.5，表明機構對沖成本偏高，保護性買入（Put 購買）需求仍在。
+      </div>
+      <div class="implication">
+        <strong>影響觀察 / Implications</strong>
+        市場廣度偏窄（Russell 2000 下跌 vs 大型科技上漲）是一個警示訊號，健康的牛市通常伴隨廣度擴大。高 VIX 環境下，Gamma 壓縮可能放大指數波動，需留意選擇權到期（OpEx）時點的方向性加速。
+      </div>
+      <div class="tags">
+        <span class="tag">ETF flows</span><span class="tag">VIX 21.5</span><span class="tag">XLE</span><span class="tag">Russell 2000</span><span class="tag">市場廣度</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 8: Reads -->
+<div class="section container">
+  <div class="section-header">
+    <span class="icon">📖</span>
+    <h2>觀點 <span class="en">/ Reads &amp; Perspectives</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="story">
+      <h3>值得追蹤的宏觀敘事：油價、利率、半導體週期的三角壓力</h3>
+      <div class="meta">
+        整合分析 · 2026-06-09
+      </div>
+      <div class="fact">
+        <strong>核心觀察 / Key Observation</strong>
+        本週美股面臨三重逆風同時出現的罕見組合：(1) 半導體指引遜色（AI 資本支出週期疑慮）、(2) 強勁就業數據推高殖利率（成長股折現率升高）、(3) 地緣政治升溫推升油價（通膨預期再起）。這三者相互強化，構成短期風險偏好的系統性壓力。
+      </div>
+      <div class="context">
+        <strong>背景脈絡 / Context</strong>
+        Goldman Sachs 撤回降息預測的時點（6/7）耐人尋味——恰在半導體崩盤（6/5）後兩天，暗示大型機構正在系統性重新評估 2026 下半年的股市風險溢酬。若 CPI（6/11）再超預期，市場可能需要重新消化「比預期更長時間的高利率 + 更高油價 + 更慢的 AI 獲利成長」這一組合。
+      </div>
+      <div class="implication">
+        <strong>觀察重點 / What to Watch</strong>
+        (1) 6/11 CPI：若 MoM 超 +0.4%，鷹派情緒可能主宰下週 FOMC 前市場；(2) 6/16–17 FOMC：Powell 記者會措辭是否更鷹派；(3) MRVL S&P 500 正式納入（6/22）買盤力道；(4) 中東局勢是否進一步升溫（霍爾木茲閉鎖風險）。
+      </div>
+      <div class="tags">
+        <span class="tag">CPI 6/11</span><span class="tag">FOMC 6/16</span><span class="tag">三重逆風</span><span class="tag">AI週期</span><span class="tag">Higher for Longer</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sources -->
+<div class="sources-section container">
+  <h3>資料來源 / Sources</h3>
+  <ul class="source-list">
+    <li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-08-2026" target="_blank">TheStreet — June 8 Market</a></li>
+    <li><a href="https://www.cnbc.com/2026/06/04/stock-market-today-live-updates.html" target="_blank">CNBC — Chip Selloff</a></li>
+    <li><a href="https://www.bloomberg.com/news/articles/2026-06-07/goldman-sachs-no-longer-expects-fed-interest-rate-cut-this-year-mq44uu26" target="_blank">Bloomberg — Goldman No Cut</a></li>
+    <li><a href="https://www.interactivebrokers.com/campus/traders-insight/securities/macro/may-jobs-report-nonfarm-payrolls-surge-172000-smashing-estimates-updated/" target="_blank">IBKR — May Jobs Report</a></li>
+    <li><a href="https://finance.yahoo.com/video/amazoncorning-ai-deal-marvell-stock-surges-on-sp-500-inclusion-151008035.html" target="_blank">Yahoo Finance — Amazon-Corning</a></li>
+    <li><a href="https://www.cnbc.com/2026/06/05/marvell-technology-flex-sp-500-campbells-pool.html" target="_blank">CNBC — MRVL S&P 500</a></li>
+    <li><a href="https://theaiinsider.tech/2026/06/08/nvidia-announces-partnerships-with-doosan-lg-focused-on-physical-ai-robotics/" target="_blank">AI Insider — NVDA + LG</a></li>
+    <li><a href="https://www.gurufocus.com/news/8903823/nvidia-micron-amd-suffer-major-losses-amid-chip-market-selloff" target="_blank">GuruFocus — Chip Selloff</a></li>
+    <li><a href="https://www.cnbc.com/amp/2026/06/08/oil-prices-today-us-iran-missile-middle-east-israel-opec.html" target="_blank">CNBC — Oil & Iran</a></li>
+    <li><a href="https://seekingalpha.com/news/4601488-sa-analyst-upgrades-downgrades-nvda-lmt-shak-shop" target="_blank">Seeking Alpha — Upgrades</a></li>
+    <li><a href="https://www.ishares.com/us/insights/inside-the-market/2026-etf-market-trends-and-flows" target="_blank">iShares ETF Flows</a></li>
+    <li><a href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank">CME FedWatch</a></li>
+    <li><a href="https://intellectia.ai/blog/semiconductor-stocks-selloff-june-2026" target="_blank">Intellectia — Semi Selloff</a></li>
+    <li><a href="https://www.benzinga.com/trading-ideas/movers/26/06/53058937/marvell-stock-is-up-230-in-2026-sp-500-debut-could-make-that-look-conservative" target="_blank">Benzinga — MRVL</a></li>
+  </ul>
+  <p style="margin-top:14px;font-size:0.75rem;color:#adb5bd;">
+    本報告僅供資訊參考，不構成任何投資建議。數據以「est.」標注者為推算值，請以官方數據為準。<br>
+    This report is for informational purposes only and does not constitute investment advice. Figures marked "est." are estimates.
+  </p>
+</div>
+
+</body>
+</html>

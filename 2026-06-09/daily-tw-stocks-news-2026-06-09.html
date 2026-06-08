@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>台股日報 2026-06-09｜Taiwan Stock Daily Briefing</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3350;
+      --accent: #4f7cff;
+      --accent2: #ff6b6b;
+      --green: #34d399;
+      --red: #f87171;
+      --yellow: #fbbf24;
+      --text: #e2e8f0;
+      --muted: #8892a4;
+      --tag-bg: #1e2540;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, 'Segoe UI', 'PingFang TC', 'Noto Sans TC', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      padding: 24px 16px 48px;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #1a2040 0%, #0f1117 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px 24px;
+      margin-bottom: 28px;
+    }
+    .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+    .header h1 { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
+    .header h1 span { color: var(--accent); }
+    .badge-date {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 4px 14px;
+      font-size: 13px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .header-sub { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    .session-note {
+      margin-top: 12px;
+      background: #1b2035;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 13px;
+      color: var(--yellow);
+    }
+
+    /* Summary Tables */
+    .tables-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+    @media(max-width:660px){ .tables-grid { grid-template-columns: 1fr; } }
+    .table-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .table-card h3 {
+      background: var(--surface2);
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 9px 14px; text-align: left; font-size: 13px; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-weight: 500; background: var(--surface2); }
+    td:last-child { text-align: right; }
+    th:last-child { text-align: right; }
+    tr:last-child td { border-bottom: none; }
+    .neg { color: var(--red); font-weight: 600; }
+    .pos { color: var(--green); font-weight: 600; }
+    .neut { color: var(--muted); }
+
+    /* Section */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .section-header {
+      background: var(--surface2);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-num {
+      background: var(--accent);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-header h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .section-body { padding: 18px 20px; }
+
+    /* News Item */
+    .news-item {
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .news-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .news-title .en { color: var(--muted); font-weight: 400; font-size: 13px; }
+    .source-line {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .source-line a { color: var(--accent); text-decoration: none; }
+    .source-line a:hover { text-decoration: underline; }
+    .fact-block { margin-bottom: 10px; }
+    .label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 4px;
+    }
+    .label-facts { background: #1e3a2f; color: var(--green); }
+    .label-context { background: #1e2d45; color: #60a5fa; }
+    .label-implications { background: #2d1e3a; color: #c084fc; }
+    .fact-block p { font-size: 14px; color: var(--text); }
+
+    /* Stat Row */
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 12px 0;
+    }
+    .stat-chip {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 13px;
+    }
+    .stat-chip .label2 { color: var(--muted); font-size: 11px; display: block; }
+    .stat-chip .val { font-weight: 700; color: #fff; }
+    .stat-chip.red .val { color: var(--red); }
+    .stat-chip.green .val { color: var(--green); }
+
+    /* Alert Banner */
+    .alert-banner {
+      background: #2a1515;
+      border: 1px solid #6b2626;
+      border-radius: 10px;
+      padding: 12px 18px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .alert-text { font-size: 13px; color: #fca5a5; line-height: 1.5; }
+    .alert-text strong { color: #f87171; }
+
+    /* Footer */
+    .footer {
+      margin-top: 32px;
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+    }
+    .footer h4 { font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+    .sources-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .src-tag {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+    .src-tag a { color: var(--accent); text-decoration: none; }
+    .src-tag a:hover { text-decoration: underline; }
+    .disclaimer {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Sector grid */
+    .sector-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-top: 14px; }
+    .sector-chip {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+    }
+    .sector-chip .s-name { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 3px; }
+    .sector-chip .s-perf { font-size: 12px; }
+
+    /* Price table */
+    .stock-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .stock-table th { background: var(--surface2); color: var(--muted); padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+    .stock-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); }
+    .stock-table tr:last-child td { border-bottom: none; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <h1>台股日報 <span>2026-06-09</span><br><small style="font-size:14px;font-weight:400;color:var(--muted);">Taiwan Stock Daily Briefing</small></h1>
+      <div class="badge-date">最近交易日：2026-06-08 (Mon)　報告日：2026-06-09</div>
+    </div>
+    <div class="header-sub">涵蓋大盤、三大法人、權值股、類股輪動、個股大事、政策觀察｜Bilingual market intelligence</div>
+    <div class="session-note">
+      ⚠ 本報告對應交易日為 2026-06-08（週一）。今日 (06-09) 為報告日，TWSE 盤中進行中，收盤數字將於盤後更新。
+      Session date: Mon 2026-06-08 (last completed TWSE session). Report published: Tue 2026-06-09.
+    </div>
+  </div>
+
+  <!-- ALERT BANNER -->
+  <div class="alert-banner">
+    <div class="alert-icon">🔴</div>
+    <div class="alert-text">
+      <strong>史上第三大跌幅事件 — Third Steepest TAIEX Point Decline on Record</strong><br>
+      台股週一收跌 1,568.16 點（-3.48%），為史上第三大單日跌點，僅次於 2025/04/07（-2,065.87）及 2024/08/05（-1,807.21）。
+      主因美國 5 月非農就業數據遠優於預期（17.2 萬筆，市場估 8.6 萬），引發升息預期回升，費城半導體指數崩跌 10.26%，台積電 ADR 重挫 6.69%。
+    </div>
+  </div>
+
+  <!-- SUMMARY TABLES -->
+  <div class="tables-grid">
+
+    <!-- Index Table -->
+    <div class="table-card">
+      <h3>大盤 (Index)</h3>
+      <table>
+        <thead>
+          <tr><th>指數</th><th>收盤</th><th>漲跌 %</th><th>成交量</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>加權 TAIEX</td>
+            <td>43,502.78</td>
+            <td class="neg">▼ -3.48%<br><small>(-1,568.16 pts)</small></td>
+            <td>NT$1.13T</td>
+          </tr>
+          <tr>
+            <td>櫃買 OTC</td>
+            <td colspan="3" class="neut">待確認 (N/A — data not retrieved)</td>
+          </tr>
+          <tr>
+            <td>台指期 (近月)<br><small>夜盤 (06/06)</small></td>
+            <td>42,220</td>
+            <td class="neg">▼ -6.65%<br><small>夜盤崩跌 3,006 pts</small></td>
+            <td>OI 待確認</td>
+          </tr>
+          <tr>
+            <td>新台幣 USD/TWD</td>
+            <td>31.580</td>
+            <td class="neg">▼ +NT$0.105<br><small>(TWD 貶值)</small></td>
+            <td>US$2.216B</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Institutional Investors Table -->
+    <div class="table-card">
+      <h3>三大法人 NT$ (06-08)</h3>
+      <table>
+        <thead>
+          <tr><th>法人</th><th>買賣超</th><th>主要動向</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>外資</td>
+            <td class="neg">賣超 -938.5億</td>
+            <td>主砍電子權值<br><small>台積電、鴻海首當其衝</small></td>
+          </tr>
+          <tr>
+            <td>投信</td>
+            <td class="pos">買超 +90.7億</td>
+            <td>護盤買台積電<br><small>逢低承接</small></td>
+          </tr>
+          <tr>
+            <td>自營商</td>
+            <td class="neg">待確認</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="padding:8px 14px; font-size:11px; color:var(--muted);">
+        * 外資賣超 938.5 億元依 Focus Taiwan (CNA) 報導：net NT$93.85 billion（約 938.5 億元）。投信 90.7 億元同源。
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ADR REFERENCE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">★</div>
+      <h2>ADR 參考 (06/06 美股收盤) / ADR Reference for Next Session</h2>
+    </div>
+    <div class="section-body">
+      <div class="stat-row">
+        <div class="stat-chip red">
+          <span class="label2">TSM ADR (台積電)</span>
+          <span class="val">▼ -6.69%</span>
+        </div>
+        <div class="stat-chip red">
+          <span class="label2">費城半導體 SOX</span>
+          <span class="val">▼ -10.26%</span>
+        </div>
+        <div class="stat-chip red">
+          <span class="label2">那斯達克 NASDAQ</span>
+          <span class="val">▼ -4.18%</span>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--muted);margin-top:8px;">
+        上述為 6 月 6 日（週五）美股收盤數據，為週一台股大跌的主要導火線。ASX（聯電 ADR）、UMC 具體跌幅待確認。
+        The above are Friday June 6 US close figures that triggered Monday's sell-off; ASX/UMC ADR exact figures not retrieved.
+      </p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: Top Stories -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>頭條 / Top Stories</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <div class="news-title">
+          美 5 月非農爆表引爆「升息恐慌」台股史上第三大跌點
+          <br><span class="en">US May Nonfarm Payrolls Spark Fed-Hawkish Panic; TAIEX Posts 3rd-Steepest Point Fall</span>
+        </div>
+        <div class="source-line">
+          來源：<a href="https://focustaiwan.tw/business/202606080015" target="_blank">Focus Taiwan (CNA)</a> ·
+          <a href="https://www.taipeitimes.com/News/front/archives/2026/06/09/2003858766" target="_blank">Taipei Times</a> · 2026-06-08
+        </div>
+
+        <div class="fact-block">
+          <span class="label label-facts">核心事實 / Facts</span>
+          <p>
+            加權指數收 43,502.78，大跌 1,568.16 點（-3.48%），史上第三大跌點。
+            盤中最低觸及 42,376.86，最高 44,507.49。成交量 NT$1.13 兆元，外資賣超 NT$938.5 億元。
+            美國 5 月非農就業新增 17.2 萬筆，為市場預估 8.6 萬筆的兩倍；費半崩跌 10.26%，台積電 ADR 重挫 6.69%，台指期夜盤崩跌 3,006 點（-6.68%）。
+          </p>
+        </div>
+
+        <div class="fact-block">
+          <span class="label label-context">背景脈絡 / Context</span>
+          <p>
+            台股 4、5 月合計飆漲約 13,000 點（漲幅逾 41%），6 月以來亦再漲 338 點，融資餘額從 3,817 億元急增至 5,666 億元，散戶追高資金深陷高檔。
+            外資 5 月 18 日起在台指期持續加碼空單，累計未平倉空單達 69,146 口，週一多殺多效應劇烈。
+            此外，以色列對伊朗西部及中部目標發動攻擊，中東戰事升溫，布蘭特原油暴漲逾 5%，地緣風險加劇恐慌情緒。
+          </p>
+        </div>
+
+        <div class="fact-block">
+          <span class="label label-implications">影響觀察 / Implications</span>
+          <p>
+            市場預期 Fed 降息空間大幅壓縮，甚至不排除年內升息，科技股估值面臨重估。
+            台積電拉尾盤、金融股疑似政府基金護盤，大盤從最低點彈回逾 1,100 點，顯示「國安基金」或類似干預機制介入。
+            週三為上市公司申報 5 月營收截止日，市場將密切觀察台積電等重量級公司 5 月數據是否支撐指數。
+            蘋果 WWDC（台灣時間 6/9）與 SpaceX IPO 為本周科技板塊兩大催化劑，短線走勢高度不確定。
+          </p>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">
+          中東危機再起：以色列空襲伊朗，原油暴漲加劇賣壓
+          <br><span class="en">Iran-Israel Exchange of Fire Pushes Crude 5%+ Higher, Adding to Market Gloom</span>
+        </div>
+        <div class="source-line">
+          來源：<a href="https://www.taipeitimes.com/News/front/archives/2026/06/09/2003858766" target="_blank">Taipei Times</a> · 2026-06-09
+        </div>
+        <div class="fact-block">
+          <span class="label label-facts">核心事實 / Facts</span>
+          <p>
+            以色列宣布空襲伊朗西部及中部目標，布蘭特原油單日最高漲 5.1%，WTI 漲 4.8%。
+            中東緊張局勢推升能源通膨預期，加劇 Fed 升息疑慮。
+          </p>
+        </div>
+        <div class="fact-block">
+          <span class="label label-implications">影響觀察 / Implications</span>
+          <p>
+            能源成本飆升對台灣製造業毛利形成壓力，航運、石化股短線受油價波動牽動；
+            台股傳產族群（石化、塑化）在本波下跌中跌幅較深，南亞塑膠跌 6.70%、台塑福化跌 6.24%。
+            能源價格若持續高位，將強化 Fed 偏鷹立場，對台股高評價電子股不利。
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 2: Heavyweights -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>權值股 / Heavyweights (06-08 收盤)</h2>
+    </div>
+    <div class="section-body">
+      <table class="stock-table">
+        <thead>
+          <tr>
+            <th>公司 / Company</th>
+            <th>收盤 Close</th>
+            <th>漲跌幅 Chg%</th>
+            <th>備註 Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>台積電 TSMC (2330)</strong></td>
+            <td>NT$2,295</td>
+            <td class="neg">▼ -2.96%</td>
+            <td>盤中低 NT$2,230；尾盤疑政府基金護盤，單股拉回貢獻大盤逾 520 點反彈</td>
+          </tr>
+          <tr>
+            <td><strong>鴻海 Hon Hai (2317)</strong></td>
+            <td>NT$269.50</td>
+            <td class="neg">▼ -5.27%</td>
+            <td>AI 伺服器題材失色，追高籌碼散戶殺出</td>
+          </tr>
+          <tr>
+            <td><strong>聯發科 MediaTek (2454)</strong></td>
+            <td>NT$4,070</td>
+            <td class="neg">▼ -5.35%</td>
+            <td>跌幅居權值股之冠；外資全面重估 AI ASIC 目標價後短線獲利了結</td>
+          </tr>
+          <tr>
+            <td><strong>台達電 Delta Electronics (2308)</strong></td>
+            <td>NT$2,255</td>
+            <td class="neg">▼ -1.96%</td>
+            <td>電源管理相對抗跌，前期漲多稍回</td>
+          </tr>
+          <tr>
+            <td><strong>富邦金 Fubon Financial (2881)</strong></td>
+            <td>NT$116</td>
+            <td class="neg">▼ -1.69%</td>
+            <td>金融股疑似政府基金介入，相對大盤抗跌</td>
+          </tr>
+          <tr>
+            <td><strong>國泰金 Cathay Financial (2882)</strong></td>
+            <td>NT$95</td>
+            <td class="neg">▼ -5.00%</td>
+            <td>跌幅較深，前一週漲多技術面壓力較大</td>
+          </tr>
+          <tr>
+            <td><strong>玉山金 E.Sun Financial (2884)</strong></td>
+            <td>NT$32.90</td>
+            <td class="neg">▼ -1.35%</td>
+            <td>金控股中相對抗跌</td>
+          </tr>
+          <tr>
+            <td><strong>台塑 Formosa Plastics (1301)</strong></td>
+            <td>NT$45.85</td>
+            <td class="neg">▼ -6.24%</td>
+            <td>石化塑化大跌，原油漲反而造成成本壓力，下游需求疑慮</td>
+          </tr>
+          <tr>
+            <td><strong>南亞 Nan Ya Plastics (1303)</strong></td>
+            <td>NT$97.50</td>
+            <td class="neg">▼ -6.70%</td>
+            <td>傳產股跌幅擴大，接近跌停</td>
+          </tr>
+          <tr>
+            <td><strong>中華電 Chunghwa Telecom (2412)</strong></td>
+            <td colspan="3" class="neut">當日具體收盤待確認 (N/A)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="news-item" style="margin-top:16px;">
+        <div class="news-title">
+          台積電市值翻倍，躍升 PwC 全球百大排名第 9
+          <br><span class="en">TSMC Doubles Market Cap, Climbs to 9th in PwC Global Top 100 Rankings</span>
+        </div>
+        <div class="source-line">
+          來源：<a href="https://focustaiwan.tw/business/202606080014" target="_blank">Focus Taiwan (CNA)</a> · 2026-06-08
+        </div>
+        <div class="fact-block">
+          <span class="label label-facts">核心事實 / Facts</span>
+          <p>
+            PwC 全球前 100 大上市企業報告顯示，台積電市值較去年同期翻倍，排名躍升至全球第 9。
+            台積電 2026 年 Q1 合併營收 NT$1,134.10 億元，淨利 NT$572.48 億元，EPS NT$22.08，年增 58%。
+          </p>
+        </div>
+        <div class="fact-block">
+          <span class="label label-context">背景脈絡 / Context</span>
+          <p>
+            台積電 2026 年前四個月累計營收 NT$1,544.83 億元，年增 29.9%。全年美元計價營收指引：年增 30% 以上。
+            4 月月營收 NT$410.73 億元（月減 1.1%，年增 17.5%）；5 月營收申報截止日為週三 (6/10)，市場高度期待。
+          </p>
+        </div>
+        <div class="fact-block">
+          <span class="label label-implications">影響觀察 / Implications</span>
+          <p>
+            台積電佔加權指數市值逾 40%，若 5 月營收創新高，有望提振週二/週三指數反彈動能。
+            華南永昌證券分析師蘇俊宏表示：「市場正等待台積電等龍頭公司交出強勁 5 月數字，以支撐指數」。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Sector Rotation -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>類股輪動 / Sector Rotation</h2>
+    </div>
+    <div class="section-body">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:14px;">週一各類股普遍下跌，但防禦型與食品股相對抗跌。Monday saw broad-based declines; defensive and food sectors outperformed.</p>
+      <div class="sector-grid">
+        <div class="sector-chip">
+          <div class="s-name">半導體 Semiconductor</div>
+          <div class="s-perf neg">重災區。費半 -10.26% 拖累；聯發科 -5.35%、台積電 -2.96%</div>
+        </div>
+        <div class="sector-chip">
+          <div class="s-name">AI 概念 AI Theme</div>
+          <div class="s-perf neg">鴻海（AI 伺服器）-5.27%。AI 漲多修正，短線資金快速撤出</div>
+        </div>
+        <div class="sector-chip">
+          <div class="s-name">金融 Financials</div>
+          <div class="s-perf" style="color:var(--yellow);">疑似政府基金護盤；富邦金 -1.69%、玉山金 -1.35% 相對抗跌</div>
+        </div>
+        <div class="sector-chip">
+          <div class="s-name">傳產/石化 Petrochem</div>
+          <div class="s-perf neg">台塑 -6.24%、南亞 -6.70%；原油漲反添成本壓力，跌幅重</div>
+        </div>
+        <div class="sector-chip">
+          <div class="s-name">食品 Food</div>
+          <div class="s-perf pos">相對抗跌。統一 -1.22%、味全 -1.20%；夏季消費旺季支撐</div>
+        </div>
+        <div class="sector-chip">
+          <div class="s-name">電動車 EV</div>
+          <div class="s-perf neg">跟隨電子大盤下跌；具體個股跌幅待確認</div>
+        </div>
+        <div class="sector-chip">
+          <div class="s-name">生技 Biotech</div>
+          <div class="s-perf" style="color:var(--muted);">鑽石生技 5 月營收 +407.5% YoY；個股分化，短線受整體拖累</div>
+        </div>
+        <div class="sector-chip">
+          <div class="s-name">記憶體 Memory</div>
+          <div class="s-perf neg">南亞科 5 月營收 NT$276.70億 YoY +730.1%，但股價跟跌 -8.86%（即時行情）；韓股 SK Hynix -7.7%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Single Stock Movers -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>個股大事 / Single-Stock Movers & May Revenue Flash</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <div class="news-title">
+          5 月營收速報：南亞科年增 730%、華邦電年增 182%，記憶體景氣強勁
+          <br><span class="en">May Revenue Flash: Nanya Tech YoY +730%, Winbond +182% — Memory Boom Intact</span>
+        </div>
+        <div class="source-line">
+          來源：<a href="https://news.cnyes.com/news/id/6486870" target="_blank">鉅亨網 Anue</a> · 2026-06-06
+        </div>
+        <div class="fact-block">
+          <span class="label label-facts">核心事實 / Facts</span>
+          <p>
+            截至 6 月 6 日，已申報 5 月營收的大型公司（資本額≥50億）共 48 家，年增≥25% 有 18 家，年增為負有 5 家。
+            年增率前 5 名：南亞科(2408) NT$276.70億 +730.1%、鑽石生技(6901) NT$6.93億 +407.5%、
+            康和證(6016) NT$13.00億 +231.1%、華邦電(2344) NT$200.01億 +182.0%、南港(2101) NT$21.52億 +158.8%。
+            聯電(2303) 5 月營收 NT$229億，年增 17.7%，創近 43 個月新高。
+          </p>
+        </div>
+        <div class="fact-block">
+          <span class="label label-context">背景脈絡 / Context</span>
+          <p>
+            台積電 5 月月報截止日為週三 (6/10)，市場高度關注。若延續 Q1 強勁表現，有望帶動大盤反彈情緒。
+            記憶體族群（南亞科、華邦電）受益 AI 拉貨及半導體景氣復甦，即便大盤重挫，基本面數字亮眼。
+          </p>
+        </div>
+        <div class="fact-block">
+          <span class="label label-implications">影響觀察 / Implications</span>
+          <p>
+            若台積電 5 月營收優於預期，可望成為市場情緒轉折的催化劑。記憶體族群基本面支撐明確，短線跌深後具逢低承接機會（分析觀點，非投資建議）。
+          </p>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">
+          外資連 3 日賣超，累計砍台積電逾 5.6 萬張，賣超台股逾 481 億元（截至上週）
+          <br><span class="en">Foreign Investors Offload 56,000+ TSMC Lots Over 3 Sessions, NT$48.1B Net Sell</span>
+        </div>
+        <div class="source-line">
+          來源：<a href="https://finance.ettoday.net/news/3157681" target="_blank">ETtoday 財經雲</a> · 2026-06-06
+        </div>
+        <div class="fact-block">
+          <span class="label label-facts">核心事實 / Facts</span>
+          <p>
+            外資於上週連 3 日賣超，累計砍台積電 5.6 萬張以上，淨賣超台股 NT$481 億元（上週數字），週一（6/8）再擴大至 NT$938.5 億元。
+          </p>
+        </div>
+        <div class="fact-block">
+          <span class="label label-implications">影響觀察 / Implications</span>
+          <p>
+            外資大規模出走顯示海外機構對台股高估值的疑慮；投信逆向買超 90.7 億元，顯示本土法人試圖承接。
+            若 Fed 真正進入升息循環，外資撤出壓力可能延續，融資追高的散戶面臨持續壓力。
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 5: Corporate Actions -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>公司行動 / Corporate Actions</h2>
+    </div>
+    <div class="section-body">
+      <div class="news-item">
+        <div class="news-title">
+          台積電出售聯電 (Vanguard) 81% 股份
+          <br><span class="en">TSMC to Sell 81% Stake in Vanguard International Semiconductor</span>
+        </div>
+        <div class="source-line">
+          來源：<a href="https://www.sec.gov/Archives/edgar/data/0001046179/000104617926000280/tsmctosell81ofvanguardinte.htm" target="_blank">SEC 6-K Form</a> · 2026 (recent filing)
+        </div>
+        <div class="fact-block">
+          <span class="label label-facts">核心事實 / Facts</span>
+          <p>台積電宣布出售其持有之世界先進（Vanguard International Semiconductor）約 81% 股份，釋放非核心資產。具體交易條款與時程待 MOPS 正式公告。</p>
+        </div>
+        <div class="fact-block">
+          <span class="label label-implications">影響觀察 / Implications</span>
+          <p>此舉顯示台積電持續聚焦先進製程，淡出成熟製程布局；對世界先進（5347）股價具重大影響，需關注後續股權承接方身分。</p>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">
+          TS Holdings 完成證券期貨合併：台新證券整合台新期貨
+          <br><span class="en">TS Holdings Completes Merger of Securities and Futures Units</span>
+        </div>
+        <div class="source-line">
+          來源：<a href="https://focustaiwan.tw/ad/20260408000001" target="_blank">Focus Taiwan (Sponsored)</a> · 2026-04-08
+        </div>
+        <div class="fact-block">
+          <span class="label label-facts">核心事實 / Facts</span>
+          <p>台新金控旗下 TS Holdings 完成證券與期貨事業部合併，台新證券正式整合台新期貨，目標擴大市佔率與期貨規模。</p>
+        </div>
+      </div>
+
+      <p style="font-size:13px;color:var(--muted);margin-top:12px;">⚠ 其他庫藏股、減資、配息公告資料待 MOPS 查詢確認。Other buyback/capital reduction/dividend announcements pending MOPS verification.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6: Policy & FINI Watch -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>政策與外資觀察 / Policy &amp; FINI Watch</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <div class="news-title">
+          美 5 月非農 17.2 萬遠超預估，Fed 降息夢碎，升息風險重燃
+          <br><span class="en">US May NFP 172K (2× estimate) Shatters Rate-Cut Hopes; Hike Risk Re-Emerges</span>
+        </div>
+        <div class="source-line">
+          來源：Focus Taiwan (CNA) · Taipei Times · 鉅亨網 · 2026-06-06/08
+        </div>
+        <div class="fact-block">
+          <span class="label label-facts">核心事實 / Facts</span>
+          <p>
+            美國 5 月非農就業新增 17.2 萬筆，為市場共識預估 8.6 萬的兩倍。
+            華南永昌證券分析師蘇俊宏：「強勁就業數據將讓 Fed 陷入兩難，甚至可能在今年晚些時候升息」。
+          </p>
+        </div>
+        <div class="fact-block">
+          <span class="label label-context">背景脈絡 / Context</span>
+          <p>
+            美元強升，新台幣對美元跌 NT$0.105 至 31.580（收盤），盤中一度高至 31.648。
+            美元強勢對外資匯出有阻礙，但也增加台幣計價資產貶值壓力；央行是否出手干預外匯市場待觀察。
+          </p>
+        </div>
+        <div class="fact-block">
+          <span class="label label-implications">影響觀察 / Implications</span>
+          <p>
+            升息預期回升直接打壓高評價成長股，台灣電子、AI 概念股估值首當其衝。
+            外資若持續看多美元、看空 EM 資產，台股外資賣超壓力可能延續至第 3 季。
+            政府護盤基金（疑似）已出手，但若基本面惡化（Fed 真升息），護盤效果有限。
+          </p>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">
+          WWDC 登場在即（台灣時間 6/9）：蘋果能否兌現 AI 藍圖？
+          <br><span class="en">Apple WWDC Kicks Off June 9 (Taiwan Time): Can Apple Deliver on Its AI Roadmap?</span>
+        </div>
+        <div class="source-line">
+          來源：<a href="https://news.cnyes.com/news/id/6486761" target="_blank">鉅亨網</a> · 2026-06-06
+        </div>
+        <div class="fact-block">
+          <span class="label label-facts">核心事實 / Facts</span>
+          <p>
+            蘋果 WWDC 2026 台灣時間 6 月 9 日登場，市場聚焦點在於 AI 功能落地速度及硬體升級週期，
+            直接影響台廠（組裝、晶片、散熱供應鏈）接單能見度。
+          </p>
+        </div>
+        <div class="fact-block">
+          <span class="label label-implications">影響觀察 / Implications</span>
+          <p>
+            若蘋果展示強勁 AI 路線圖，有望提振鴻海、台積電（先進封裝）等相關供應鏈，成為市場情緒轉捩點。
+            相反，若 AI 功能進展落後市場期待，蘋果供應鏈台廠將面臨二次下修風險。
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 7: Reads / Analyst Views -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>觀點 / Reads &amp; Analyst Views</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <div class="news-title">
+          玉山科技島基金 王偉哲：AI 重心從生成式 AI 轉向代理式 AI，台廠長多格局未變
+          <br><span class="en">E.Sun Tech Fund Manager: Shift from Generative AI to Agentic AI; Taiwan Supply Chain Long-Term Thesis Intact</span>
+        </div>
+        <div class="source-line">
+          來源：<a href="https://news.cnyes.com/news/id/6486761" target="_blank">鉅亨網</a> · 2026-06-06
+        </div>
+        <div class="fact-block">
+          <span class="label label-context">核心觀點</span>
+          <p>
+            AI 發展重心從「生成式 AI (Generative AI)」轉向「代理式 AI (Agentic AI)」，PC 平台成為執行 AI 代理的核心。
+            輝達 Vera CPU、Arm 架構伺服器 CPU 需求強勁，台灣晶圓代工市佔率接近 8 成，關鍵地位無可取代。
+            台股短線劇震後，建議投資人保持適度資金彈性，不輕易接掉下來的刀子。
+          </p>
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">
+          安聯台灣 蕭惠中：資金由 AI 晶片股轉向低基期、落後補漲非電族群
+          <br><span class="en">Allianz Taiwan Portfolio Manager: Capital Rotating From High-Valuation AI Chips to Low-Base Non-Tech Plays</span>
+        </div>
+        <div class="source-line">
+          來源：<a href="https://news.cnyes.com/news/id/6486761" target="_blank">鉅亨網</a> · 2026-06-06
+        </div>
+        <div class="fact-block">
+          <span class="label label-context">核心觀點</span>
+          <p>
+            台股波動加大主因：美股漲多修正連動、市場重估評價面、消化科技股「財報雖好但不夠好」的新定價邏輯。
+            短線資金由高波動 AI 晶片轉向低基期、落後補漲及非電族群（被動元件、網通、關鍵零組件）。
+            建議聚焦有明確基本面信號的個股，低接不追高。
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER / SOURCES -->
+  <div class="footer">
+    <h4>資料來源 / Sources</h4>
+    <div class="sources-grid">
+      <div class="src-tag"><a href="https://focustaiwan.tw/business/202606080015" target="_blank">Focus Taiwan (CNA) — 盤勢主報</a></div>
+      <div class="src-tag"><a href="https://www.taipeitimes.com/News/front/archives/2026/06/09/2003858766" target="_blank">Taipei Times — 頭版報導</a></div>
+      <div class="src-tag"><a href="https://focustaiwan.tw/business/202606080013" target="_blank">Focus Taiwan — 新台幣匯率</a></div>
+      <div class="src-tag"><a href="https://news.cnyes.com/news/id/6486761" target="_blank">鉅亨網 Anue — 台指期夜盤/法人分析</a></div>
+      <div class="src-tag"><a href="https://news.cnyes.com/news/id/6486870" target="_blank">鉅亨網 Anue — 5月營收速報</a></div>
+      <div class="src-tag"><a href="https://finance.ettoday.net/news/3157681" target="_blank">ETtoday 財經 — 外資賣超台積電</a></div>
+      <div class="src-tag"><a href="https://focustaiwan.tw/business/202606080014" target="_blank">Focus Taiwan — TSMC PwC 排名</a></div>
+      <div class="src-tag"><a href="https://www.sec.gov/Archives/edgar/data/0001046179/000104617926000280/tsmctosell81ofvanguardinte.htm" target="_blank">SEC 6-K — TSMC/Vanguard 股份出售</a></div>
+      <div class="src-tag"><a href="https://www.twse.com.tw/zh/trading/foreign/t86.html" target="_blank">TWSE — 三大法人買賣超日報</a></div>
+      <div class="src-tag"><a href="https://pr.tsmc.com/english/news/3305" target="_blank">TSMC IR — 4月營收</a></div>
+      <div class="src-tag"><a href="https://www.heygotrade.com/en/blog/semiconductor-stocks-selloff-2026/" target="_blank">HeyGo Trade — 半導體賣壓分析</a></div>
+      <div class="src-tag"><a href="https://tradingeconomics.com/taiwan/stock-market" target="_blank">Trading Economics — TAIEX 歷史</a></div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>免責聲明 / Disclaimer：</strong>
+      本報告為資訊彙整，不構成任何投資建議。數字若標「待確認」表示當日未能從公開來源取得；請以 TWSE、TPEX 官方資料為準。
+      This briefing is informational only and does not constitute investment advice. Figures marked "N/A" could not be sourced from public data as of report time; verify via official TWSE/TPEX data.
+      <br><br>
+      <strong>付費牆/無法取得來源 (Paywalled / Failed Sources)：</strong>
+      經濟日報全文（部分付費）、工商時報全文（付費）、DigiTimes 英文版（付費）、MoneyDJ 部分深度報告（會員制）、PressPlay Academy（訂閱制，僅取得標題）、CMoney 籌碼 K 線（需登入）。
+      OTC 指數收盤點位、台指期近月確切未平倉口數 (OI) 未能從公開搜尋取得，標記待確認。
+      <br><br>
+      報告生成：2026-06-09 | 交易日：2026-06-08 (Mon) | 資料截點：盤後當日
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
