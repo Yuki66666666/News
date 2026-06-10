@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日新創新聞日報 / Daily Startup News — 2026-06-10</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3350;
+      --accent: #6c8eff;
+      --accent2: #a78bfa;
+      --green: #34d399;
+      --yellow: #fbbf24;
+      --red: #f87171;
+      --orange: #fb923c;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --tag-bg: #1e2a4a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 24px 24px;
+      text-align: center;
+    }
+    .header .date-badge {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+    }
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .header .subtitle {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Layout */
+    .container { max-width: 900px; margin: 0 auto; padding: 24px 16px 48px; }
+
+    /* Section */
+    .section { margin-bottom: 40px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .icon-top    { background: rgba(251,191,36,0.15); }
+    .icon-fund   { background: rgba(108,142,255,0.15); }
+    .icon-launch { background: rgba(52,211,153,0.15); }
+    .icon-product { background: rgba(167,139,250,0.15); }
+    .icon-acq    { background: rgba(251,146,60,0.15); }
+    .icon-people { background: rgba(96,165,250,0.15); }
+    .icon-layoff { background: rgba(248,113,113,0.15); }
+    .icon-ipo    { background: rgba(34,197,94,0.15); }
+    .icon-region { background: rgba(45,212,191,0.15); }
+    .icon-reads  { background: rgba(232,121,249,0.15); }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .section-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 1px;
+    }
+
+    /* Card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 14px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .card-title a { color: #fff; }
+    .card-title a:hover { color: var(--accent); text-decoration: none; }
+    .card-en-title {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+    .source-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .source-tag {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .label-facts    { background: rgba(108,142,255,0.15); color: var(--accent); }
+    .label-context  { background: rgba(167,139,250,0.15); color: var(--accent2); }
+    .label-impl     { background: rgba(251,191,36,0.15); color: var(--yellow); }
+    .block { margin-bottom: 10px; }
+    .block p { font-size: 14px; color: var(--text); line-height: 1.7; }
+
+    /* Metrics row */
+    .metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .metric {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 12px;
+      color: var(--text);
+    }
+    .metric strong { color: var(--green); }
+
+    /* Top story special */
+    .top-card {
+      background: linear-gradient(135deg, #1a2040 0%, #1a1d27 100%);
+      border: 1px solid #3a4a7a;
+    }
+
+    /* Divider */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 32px 0;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .footer a { color: var(--muted); }
+
+    /* Stage badge */
+    .stage {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 10px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .stage-seed   { background: rgba(52,211,153,0.15); color: var(--green); border: 1px solid rgba(52,211,153,0.3); }
+    .stage-a      { background: rgba(108,142,255,0.15); color: var(--accent); border: 1px solid rgba(108,142,255,0.3); }
+    .stage-b      { background: rgba(167,139,250,0.15); color: var(--accent2); border: 1px solid rgba(167,139,250,0.3); }
+    .stage-c      { background: rgba(251,191,36,0.15); color: var(--yellow); border: 1px solid rgba(251,191,36,0.3); }
+    .stage-d      { background: rgba(251,146,60,0.15); color: var(--orange); border: 1px solid rgba(251,146,60,0.3); }
+    .stage-e      { background: rgba(248,113,113,0.15); color: var(--red); border: 1px solid rgba(248,113,113,0.3); }
+    .stage-f      { background: rgba(232,121,249,0.15); color: #e879f9; border: 1px solid rgba(232,121,249,0.3); }
+    .stage-ipo    { background: rgba(34,197,94,0.15); color: #22c55e; border: 1px solid rgba(34,197,94,0.3); }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="date-badge">2026-06-10 · Asia/Taipei</div>
+  <h1>今日新創新聞日報</h1>
+  <div class="subtitle">Daily Startup News — Funding · Launches · People · IPO · Regional</div>
+</div>
+
+<div class="container">
+
+  <!-- ===== SECTION 1: TOP STORIES ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-top">&#127381;</div>
+      <div>
+        <div class="section-title">1. 頭條 / Top Stories</div>
+        <div class="section-subtitle">本週定調新創走向的大事 / Events shaping the startup week</div>
+      </div>
+    </div>
+
+    <!-- Top 1: Anthropic IPO + OpenAI IPO -->
+    <div class="card top-card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/01/anthropic-files-to-go-public/" target="_blank">
+          Anthropic 與 OpenAI 雙雙進軍 IPO — AI 史上最大上市季正式啟動
+        </a>
+        <span class="stage stage-ipo">IPO</span>
+      </div>
+      <div class="card-en-title">Anthropic Files Confidentially for IPO; OpenAI Follows Suit — The AI IPO Season Has Begun</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-01 / 2026-06-08</span>
+        <a href="https://techcrunch.com/2026/06/01/anthropic-files-to-go-public/" target="_blank">Anthropic ↗</a>
+        <a href="https://techcrunch.com/2026/06/08/following-anthropic-openai-files-confidentially-for-ipo/" target="_blank">OpenAI ↗</a>
+      </div>
+
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <div class="metrics">
+          <div class="metric">Anthropic 估值 <strong>~$965B</strong></div>
+          <div class="metric">Anthropic Series H <strong>$65B</strong> (2026-05)</div>
+          <div class="metric">OpenAI 估值 <strong>$852B</strong> (post-money)</div>
+          <div class="metric">OpenAI Series H <strong>$122B</strong> (2026-03)</div>
+          <div class="metric">SpaceX IPO 目標估值 <strong>$2T</strong></div>
+        </div>
+        <p>Anthropic 於 6/1 向 SEC 提交保密 S-1，成為史上估值最高的 AI 公司 IPO 之一。OpenAI 於 6/8 跟進，亦提交保密申請。兩者時程相近，市場正在測試公開投資人對「虧損但高速成長的 AI 基礎模型公司」的承受度。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>Anthropic 最新一輪由 Altimeter Capital、Dragoneer、Greenoaks、Sequoia 等聯合領投，投資人陣容幾乎完整複製了 OpenAI 的募資模式。Anthropic CEO Daniela Amodei 在 IPO 前夕公開表示對 AI 報酬懷疑論「不以為然」。川普政府也傳出有意取得 OpenAI 股權，進一步增添政治複雜性。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-impl">影響觀察 / Implications</span>
+        <p>若 Anthropic 與 OpenAI 先後成功上市，將為整體 AI 新創估值提供公開市場的「定錨」—— 對下游 AI infra、tooling 新創的後續估值具有指標意義。SpaceX 也在同期進行 IPO，公開市場能否同時消化三家超大型科技 IPO，是今年最大的市場考驗。</p>
+      </div>
+    </div>
+
+    <!-- Top 2: Supabase $10B -->
+    <div class="card top-card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/05/supabase-doubles-valuation-to-10b-in-8-months/" target="_blank">
+          Supabase 8 個月估值翻倍至 $100 億，Series F 募資 $5 億
+        </a>
+        <span class="stage stage-f">Series F</span>
+      </div>
+      <div class="card-en-title">Supabase Doubles Valuation to $10B in 8 Months, Raises $500M Series F</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-05</span>
+        <a href="https://techcrunch.com/2026/06/05/supabase-doubles-valuation-to-10b-in-8-months/" target="_blank">↗</a>
+      </div>
+
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <div class="metrics">
+          <div class="metric">募資金額 <strong>$500M</strong></div>
+          <div class="metric">Pre-money 估值 <strong>$10B</strong></div>
+          <div class="metric">上輪估值 (2025-10) <strong>$5B</strong></div>
+          <div class="metric">開發者用戶 <strong>~1,000 萬</strong></div>
+          <div class="metric">資料庫啟動數年增 <strong>600%+</strong></div>
+        </div>
+        <p>由 GIC 領投，Stripe、Georgian、Salesforce Ventures 跟投。CEO Paul Copplestone 指出，60% 以上的資料庫是由「某種 AI 工具」啟動——Claude Code、Codex 等是主要推手。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>Supabase 在不到兩年內走過 $2B → $5B → $10B 的估值軌跡，速度異常。核心驅動力是 vibe-coding 工具的爆炸性普及：Bolt、Figma、Lovable、Replit 均預設使用 Supabase 作為後端資料庫。本輪同時宣佈推出 Multigres，一個用於管理大規模 Postgres 的「作業系統」，針對企業需求升級。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-impl">影響觀察 / Implications</span>
+        <p>Supabase 的成功印證「開源 infra + AI tailwind」的估值邏輯已獲市場驗證。競品 PlanetScale、Neon 等 Postgres-as-a-Service 公司承受競爭壓力。GIC 作為領投方，顯示主權財富基金對 AI infra 的配置意圖愈來愈積極。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 2: FUNDING ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-fund">&#128181;</div>
+      <div>
+        <div class="section-title">2. 募資 / Funding Rounds</div>
+        <div class="section-subtitle">Seed → Late Stage</div>
+      </div>
+    </div>
+
+    <!-- Coralogix $200M Series F -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/03/coralogix-raises-200m-in-race-to-build-the-monitoring-layer-for-ai-agents/" target="_blank">
+          Coralogix 募資 $2 億，押注 AI Agent 需要監控層
+        </a>
+        <span class="stage stage-f">Series F</span>
+      </div>
+      <div class="card-en-title">Coralogix Raises $200M Series F at $1.6B Valuation to Monitor AI Agents</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-03</span>
+        <a href="https://techcrunch.com/2026/06/03/coralogix-raises-200m-in-race-to-build-the-monitoring-layer-for-ai-agents/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <div class="metrics">
+          <div class="metric">募資金額 <strong>$200M</strong></div>
+          <div class="metric">Post-money 估值 <strong>$1.6B</strong></div>
+          <div class="metric">ARR <strong>>$100M</strong></div>
+          <div class="metric">YoY 成長 <strong>>60%</strong></div>
+          <div class="metric">$1M+ 客戶 <strong>~30 家</strong></div>
+        </div>
+        <p>由 Advent 與加拿大養老金投資委員會 (CPPIB) 領投，Greenfield Partners、Brighton Park Capital 跟投。距上輪 Series E（$115M，11 個月前）間隔極短。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>Coralogix 成立於 2014 年，總部波士頓、以色列創辦，提供 logs/metrics/traces 的可觀測性平台，與 Datadog、New Relic、Splunk 競爭。超過半數企業客戶已透過 AI agent（Olly）或 CLI 介面操作，而非傳統儀表板。CEO Ariel Assaraf 指出「介面層正在被侵蝕」——工程師越來越傾向透過 AI 助理而非 GUI 查詢系統狀態。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-impl">影響觀察 / Implications</span>
+        <p>AI agent 監控是 2026 年最熱門的 infra 賽道之一。Coralogix 的快速再融資代表市場不願意讓它輸給 Datadog。對於台灣或亞洲企業導入 AI agent 的 CTO 而言，可觀測性工具的選型決策窗口正在縮短。</p>
+      </div>
+    </div>
+
+    <!-- Helion $465M -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/04/helion-the-sam-altman-backed-fusion-startup-raises-465m-to-build-a-power-plant-for-microsoft/" target="_blank">
+          Sam Altman 投資的核融合新創 Helion 再募 $4.65 億，為微軟蓋電廠
+        </a>
+        <span class="stage stage-d">Late Stage</span>
+      </div>
+      <div class="card-en-title">Helion Raises $465M to Build a Fusion Power Plant for Microsoft</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-04</span>
+        <a href="https://techcrunch.com/2026/06/04/helion-the-sam-altman-backed-fusion-startup-raises-465m-to-build-a-power-plant-for-microsoft/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <div class="metrics">
+          <div class="metric">募資金額 <strong>$465M</strong></div>
+        </div>
+        <p>Helion 獲得 $4.65 億新資金，目標是為微軟建造第一座核融合商業電廠。Sam Altman 是 Helion 的重要早期投資人，該公司此前已與微軟簽訂購電合約。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>AI 算力需求爆炸帶動能源新創投資潮，Helion 是目前全球最受矚目的核融合公司之一。微軟需要穩定清潔能源來支撐其 AI 資料中心，而 Helion 提供一個有購電合約背書的商業化路徑，比其他核融合公司更接近落地。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-impl">影響觀察 / Implications</span>
+        <p>「AI 公司 → 能源需求 → 核融合/核電新創」的投資鏈條持續延伸。同期 Focused Energy 也剛完成 $240M Series A（雷射核融合）。能源 infra 正成為 AI 時代最大的非軟體投資賽道。</p>
+      </div>
+    </div>
+
+    <!-- Focused Energy $240M Series A -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/02/focused-energy-raises-whopping-240m-series-a-for-laser-powered-fusion-tech/" target="_blank">
+          Focused Energy 完成 $2.4 億 Series A，雷射核融合拿下史上最大 A 輪
+        </a>
+        <span class="stage stage-a">Series A</span>
+      </div>
+      <div class="card-en-title">Focused Energy Raises $240M Series A for Laser-Powered Fusion Tech</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-02</span>
+        <a href="https://techcrunch.com/2026/06/02/focused-energy-raises-whopping-240m-series-a-for-laser-powered-fusion-tech/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <div class="metrics">
+          <div class="metric">募資金額 <strong>$240M</strong></div>
+          <div class="metric">輪次 <strong>Series A</strong></div>
+        </div>
+        <p>Focused Energy 完成 $2.4 億 Series A，採用雷射慣性約束核融合技術，估值 undisclosed。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>雷射核融合是繼 Tokamak（磁約束）以外最主要的技術路線。美國能源部 NIF 在 2022 年首次實現點火增益，帶動私人資本大舉進入。此 A 輪規模罕見，顯示投資人願意在技術尚未商業化前押注極長期資本。</p>
+      </div>
+    </div>
+
+    <!-- Impulse Space $500M -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/02/rocket-engine-startup-impulse-raises-500-million-to-hire-people-not-ai/" target="_blank">
+          火箭引擎新創 Impulse 募資 $5 億，CEO：「我們要雇人，不是 AI」
+        </a>
+        <span class="stage stage-d">Late Stage</span>
+      </div>
+      <div class="card-en-title">Rocket Engine Startup Impulse Raises $500M — "To Hire People, Not AI"</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-02</span>
+        <a href="https://techcrunch.com/2026/06/02/rocket-engine-startup-impulse-raises-500-million-to-hire-people-not-ai/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <div class="metrics">
+          <div class="metric">募資金額 <strong>$500M</strong></div>
+        </div>
+        <p>Impulse Space 完成 $5 億募資，主要用於擴充工程師人力，而非 AI 工具。創辦人的立場與矽谷主流「AI 替代人力」浪潮形成對比。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>航太製造業性質與軟體業不同，人才密度與物理操作環境的複雜性使 AI 工具的替代效應較為有限。Impulse 的表態更像是搶奪太空人才的差異化信號，而非真正反 AI 立場。</p>
+      </div>
+    </div>
+
+    <!-- FirstClub India $255M -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/03/firstclub-doubles-valuation-to-255m-in-nine-months-on-quality-first-grocery-bet/" target="_blank">
+          印度生鮮電商 FirstClub 9 個月估值翻倍至 $2.55 億
+        </a>
+        <span class="stage stage-b">Growth</span>
+      </div>
+      <div class="card-en-title">India's Quick-Commerce FirstClub Doubles Valuation to $255M in 9 Months</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-03</span>
+        <a href="https://techcrunch.com/2026/06/03/firstclub-doubles-valuation-to-255m-in-nine-months-on-quality-first-grocery-bet/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <div class="metrics">
+          <div class="metric">當前估值 <strong>$255M</strong></div>
+          <div class="metric">9 個月前估值 undisclosed，約 <strong>$127M</strong></div>
+        </div>
+        <p>FirstClub 是印度「品質優先」快速商務平台，主打生鮮食品品質而非速度。9 個月內估值翻倍，顯示印度 quick-commerce 市場持續受資本青睞。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>印度 quick-commerce 市場由 Zepto（IPO 中）、Blinkit（Zomato）、Swiggy Instamart 三強鼎立，FirstClub 走差異化路線，鎖定品質敏感消費者，避開低價血腥競爭。</p>
+      </div>
+    </div>
+
+    <!-- Mach Industries $1.8B -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/01/defense-tech-darling-mach-industries-hits-1-8b-valuation-a-4x-jump-in-a-year/" target="_blank">
+          國防科技明星 Mach Industries 估值達 $18 億，一年暴增 4 倍
+        </a>
+        <span class="stage stage-d">Late Stage</span>
+      </div>
+      <div class="card-en-title">Defense Tech Darling Mach Industries Hits $1.8B Valuation — 4x Jump in One Year</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-01</span>
+        <a href="https://techcrunch.com/2026/06/01/defense-tech-darling-mach-industries-hits-1-8b-valuation-a-4x-jump-in-a-year/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <div class="metrics">
+          <div class="metric">當前估值 <strong>$1.8B</strong></div>
+          <div class="metric">一年前估值 <strong>~$450M</strong></div>
+        </div>
+        <p>Mach Industries 專注於國防科技，估值在一年內從約 $4.5 億躍升至 $18 億，4 倍增長。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>2026 年是國防科技投資高峰年。Anduril（$61B 估值，本月完成 $5B 融資）、Helsing（$18B）等競相擴大規模。Mach 的快速估值跳升反映了投資人對「美國國防供應鏈重建」主題的強烈押注。</p>
+      </div>
+    </div>
+
+    <!-- Layup Parts $42M ex-Anduril -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/02/ex-anduril-engineer-raises-42m-to-build-the-amazon-of-composite-parts/" target="_blank">
+          前 Anduril 工程師募資 $4,200 萬，要打造「複合材料零件界的亞馬遜」
+        </a>
+        <span class="stage stage-a">Series A</span>
+      </div>
+      <div class="card-en-title">Ex-Anduril Engineer Raises $42M to Build "Amazon of Composite Parts"</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-02</span>
+        <a href="https://techcrunch.com/2026/06/02/ex-anduril-engineer-raises-42m-to-build-the-amazon-of-composite-parts/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <div class="metrics">
+          <div class="metric">募資金額 <strong>$42M</strong></div>
+        </div>
+        <p>Layup Parts（加州 Huntington Beach）由前 Anduril 工程師創辦，建立複合材料零件的線上採購平台，目標成為航太、國防、汽車供應鏈的核心採購入口。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>創辦人的 Anduril 背景賦予其接觸高端客戶的起點。複合材料供應鏈向來高度碎片化，數位化程度低。此賽道受益於國防支出增加與製造業回岸（reshoring）趨勢。</p>
+      </div>
+    </div>
+
+    <!-- Unastella $24M South Korea -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/01/unastella-a-south-korean-rocket-startup-that-launched-from-home-raises-24m/" target="_blank">
+          從自家後院發射的韓國火箭新創 Unastella 募資 $2,400 萬
+        </a>
+        <span class="stage stage-a">Series A</span>
+      </div>
+      <div class="card-en-title">South Korean Rocket Startup Unastella — "Launched From Home" — Raises $24M</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-01</span>
+        <a href="https://techcrunch.com/2026/06/01/unastella-a-south-korean-rocket-startup-that-launched-from-home-raises-24m/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <div class="metrics">
+          <div class="metric">募資金額 <strong>$24M</strong></div>
+        </div>
+        <p>Unastella 是一家韓國火箭新創，以從創辦人自家地點發射小型火箭聞名。此輪融資使其得以擴展至商業級發射能力。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 3: LAUNCHES ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-launch">&#128640;</div>
+      <div>
+        <div class="section-title">3. 新公司發表 / Launches & Stealth-Out</div>
+        <div class="section-subtitle">本週出來亮相的新公司</div>
+      </div>
+    </div>
+
+    <!-- Hello Robot -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/04/is-silicon-valley-ready-to-put-robots-in-peoples-homes-hello-robot-is/" target="_blank">
+          Hello Robot：矽谷準備好把機器人放進家裡了嗎？這家公司說「準備好了」
+        </a>
+      </div>
+      <div class="card-en-title">Hello Robot: Silicon Valley Is Ready to Put Robots in Homes</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-04</span>
+        <a href="https://techcrunch.com/2026/06/04/is-silicon-valley-ready-to-put-robots-in-peoples-homes-hello-robot-is/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <p>Hello Robot 正式亮相，目標是將服務機器人帶入一般家庭。具體估值與募資金額 undisclosed，目前處於早期商業化階段。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>家用機器人賽道在 2026 年再次受到關注，Figure、1X Technologies 等前輩多聚焦工廠場景，家用市場仍屬藍海。「Together Tech」（讓人離開手機的共處科技）是 TechCrunch 本週點名的新興趨勢，Hello Robot 被視為代表案例之一。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-impl">影響觀察 / Implications</span>
+        <p>家用機器人若成功商業化，對老齡化嚴重的日本、台灣、韓國市場潛力巨大。值得追蹤融資進展與定價策略。</p>
+      </div>
+    </div>
+
+    <!-- Product Hunt Today: ZeroGPU & agmsg -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://www.producthunt.com/leaderboard/daily/2026/6/9" target="_blank">
+          Product Hunt 今日榜首：ZeroGPU（AI 推論計算層）與 agmsg（AI Coding Agent 協調工具）
+        </a>
+      </div>
+      <div class="card-en-title">Product Hunt Today #1 ZeroGPU (Compute-Efficient AI Inference) / #5 agmsg (Stop Copy-Pasting Between AI Coding Agents)</div>
+      <div class="source-line">
+        <span class="source-tag">Product Hunt</span>
+        <span>2026-06-09</span>
+        <a href="https://www.producthunt.com/products/zerogpu" target="_blank">ZeroGPU ↗</a>
+        <a href="https://www.producthunt.com/products/agmsg" target="_blank">agmsg ↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <p>ZeroGPU 提供計算效率優化的 AI 推論 API 層，主打節省 GPU 成本（API / Dev Tools / AI）。agmsg 解決多 AI coding agent 之間複製貼上效率問題，開源工具（273 upvotes）。昨日榜首為 Wispr Flow（語音輸入工具，2,437 upvotes）與 Browse.sh（AI agent 網頁操作記憶體）。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>Product Hunt 近期榜單呈現明顯的「AI agent 工具週期」——協調、監控、通訊、記憶等 agent 基礎設施類工具持續登頂。這與 Coralogix、ZeroDrift 等大額融資的主題高度一致。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 4: PRODUCT ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-product">&#128736;</div>
+      <div>
+        <div class="section-title">4. 產品大事 / Notable Product Launches</div>
+        <div class="section-subtitle">改變用戶行為或市場格局的產品動態</div>
+      </div>
+    </div>
+
+    <!-- Lovable x Google Cloud -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/03/lovable-signs-multi-year-deal-with-google-cloud-to-up-usage-5x-source-says/" target="_blank">
+          Lovable 與 Google Cloud 簽多年合約，計畫用量 5 倍成長
+        </a>
+      </div>
+      <div class="card-en-title">Lovable Signs Multi-Year Deal with Google Cloud, Plans to 5x Usage</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-03</span>
+        <a href="https://techcrunch.com/2026/06/03/lovable-signs-multi-year-deal-with-google-cloud-to-up-usage-5x-source-says/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <p>Lovable（vibe-coding 平台）與 Google Cloud 達成多年合作協議，目標在未來將算力用量擴充至現有規模的 5 倍。具體金額 undisclosed。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>Lovable 是目前 Product Hunt 最高票 vibe-coding 工具之一。Google Cloud 積極搶奪 AI native 公司的算力合約，此合約與 SpaceX 月付 $9.2 億的 Google Cloud 算力交易屬同一策略佈局脈絡。</p>
+      </div>
+    </div>
+
+    <!-- Revolut India -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/01/revolut-rolls-out-services-to-thousands-of-users-in-india-ahead-of-broader-launch/" target="_blank">
+          Revolut 正式向印度用戶推出服務，大規模上線在即
+        </a>
+      </div>
+      <div class="card-en-title">Revolut Rolls Out to Thousands of Users in India Ahead of Broader Launch</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-01</span>
+        <a href="https://techcrunch.com/2026/06/01/revolut-rolls-out-services-to-thousands-of-users-in-india-ahead-of-broader-launch/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <p>Revolut 開始向印度部分用戶提供金融服務，為全面商業上線鋪路。印度是 Revolut 全球擴張最後一塊拼圖之一，用戶基礎潛力巨大。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-impl">影響觀察 / Implications</span>
+        <p>Revolut 若在印度成功，將與本土巨頭 PhonePe、Paytm 及 Google Pay 正面競爭。印度 UPI 生態的開放性對外來金融服務商既是機遇也是門檻。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 5: ACQUISITIONS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-acq">&#129309;</div>
+      <div>
+        <div class="section-title">5. 收購與整併 / Acquisitions & Consolidation</div>
+      </div>
+    </div>
+
+    <!-- Everand bundles Fable -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/02/a-startup-everand-is-now-bundling-ebooks-audiobooks-and-book-clubs-in-challenge-to-amazon/" target="_blank">
+          閱讀新創 Everand 打包電子書、有聲書與讀書會，挑戰亞馬遜
+        </a>
+      </div>
+      <div class="card-en-title">Everand Now Bundles E-Books, Audiobooks, and Book Clubs to Challenge Amazon</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-02</span>
+        <a href="https://techcrunch.com/2026/06/02/a-startup-everand-is-now-bundling-ebooks-audiobooks-and-book-clubs-in-challenge-to-amazon/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <p>Everand（前身 Scribd）整合旗下平台 Fable（讀書會），推出三合一閱讀訂閱服務，正面對抗亞馬遜 Kindle Unlimited 生態系。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>此舉是典型的「產品整合 → 提升 ARPU」策略。亞馬遜的閱讀生態壟斷仍強大，Everand 需要在社群黏性上找差異化。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 6: PEOPLE ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-people">&#128100;</div>
+      <div>
+        <div class="section-title">6. 人事 / People Moves</div>
+        <div class="section-subtitle">重大 C-level 異動、創辦人動態</div>
+      </div>
+    </div>
+
+    <!-- Reid Hoffman leaves Microsoft board -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/05/reid-hoffman-is-leaving-microsofts-board-to-go-founder-mode-with-startup-manus/" target="_blank">
+          Reid Hoffman 離開微軟董事會，全力投入 AI 藥物研發新創 Manus
+        </a>
+      </div>
+      <div class="card-en-title">Reid Hoffman Leaves Microsoft's Board to Go "Founder Mode" with AI Drug Discovery Startup Manus</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-05</span>
+        <a href="https://techcrunch.com/2026/06/05/reid-hoffman-is-leaving-microsofts-board-to-go-founder-mode-with-startup-manus/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <p>Reid Hoffman 宣佈離開在微軟董事會的職位，理由是要進入「founder mode」，全力支持其 AI 藥物研發新創 Manus（前身 Manas AI）。Manus 已完成超過 $5,000 萬種子輪融資，CEO 為 Pulitzer 得獎作者暨腫瘤學家 Dr. Siddhartha Mukherjee。Hoffman 在 Manus 身兼共同創辦人與董事長，非 CEO。Manus 押注「Move 37」等級的 AI 化學發現能力，尤其針對癌症治療。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>Hoffman 在微軟董事會見證了微軟對 OpenAI 的第一筆 $10 億投資（2019），也親歷了 Inflection AI 以 $6.5 億「acqui-hire」方式被微軟整合的過程。Manus 代表他個人對「AI + 生物醫藥」賽道的最大賭注。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-impl">影響觀察 / Implications</span>
+        <p>Hoffman 的離開標誌微軟 AI 戰略從「投資盟友」階段進入「自主競爭」階段，同時也是一個信號：老牌投資人/董事開始把時間更直接押在自己的新創上，而非守住大公司董事席位。</p>
+      </div>
+    </div>
+
+    <!-- Sriram Krishnan leaves White House -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/06/sriram-krishnan-is-leaving-his-role-as-white-house-ai-advisor/" target="_blank">
+          白宮 AI 顧問 Sriram Krishnan 宣佈離職
+        </a>
+      </div>
+      <div class="card-en-title">Sriram Krishnan Is Leaving His Role as White House AI Advisor</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-06</span>
+        <a href="https://techcrunch.com/2026/06/06/sriram-krishnan-is-leaving-his-role-as-white-house-ai-advisor/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <p>Sriram Krishnan（前 a16z 合夥人、Twitter 高階主管）確認將離開其白宮 AI 政策顧問職位。離職後去向 undisclosed。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>Krishnan 在任期間主導了美國 AI 政策框架的部分論述，尤其在 AI 監管彈性化與科技移民議題上。其離開適逢川普政府討論對 OpenAI 取得股份之際，AI 政策版圖可能再次洗牌。</p>
+      </div>
+    </div>
+
+    <!-- Mira Murati steps back into spotlight -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/04/mira-murati-steps-back-into-the-spotlight-carefully/" target="_blank">
+          前 OpenAI CTO Mira Murati 謹慎重返公眾視野
+        </a>
+      </div>
+      <div class="card-en-title">Mira Murati Steps Back Into the Spotlight, Carefully</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-04</span>
+        <a href="https://techcrunch.com/2026/06/04/mira-murati-steps-back-into-the-spotlight-carefully/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <p>Mira Murati（前 OpenAI CTO，2025 年離職）開始重新接受媒體採訪，被廣泛解讀為即將正式發表新創事業前的鋪墊。她的新公司 Thinking Machines Lab 傳聞已在秘密運作中。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-impl">影響觀察 / Implications</span>
+        <p>若 Murati 的新 AI 基礎模型公司正式亮相，將在 Anthropic 與 OpenAI 雙雙 IPO 的時機點進入市場——競爭烈度可想而知，但她在 ChatGPT 塑造過程中的角色賦予其獨特的品牌資本。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 7: LAYOFFS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-layoff">&#128679;</div>
+      <div>
+        <div class="section-title">7. 裁員與停業 / Layoffs & Shutdowns</div>
+        <div class="section-subtitle">如實記錄，不美化</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">本週無重大新創裁員或停業公告</div>
+      <div class="block">
+        <p>Crunchbase Tech Layoffs Tracker 顯示，2026 年迄今美國科技業累計裁員持續，但本週（6/8-6/10）無單一新創公司大規模裁員事件報出。整體市場處於「AI 投資高峰期」，部分公司的裁員被「AI 重組」包裝，實際數字可能被低估。可追蹤：<a href="https://news.crunchbase.com/startups/tech-layoffs/" target="_blank">Crunchbase Tech Layoffs Tracker ↗</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 8: IPO ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-ipo">&#128200;</div>
+      <div>
+        <div class="section-title">8. 上市進程 / IPO Pipeline</div>
+        <div class="section-subtitle">S-1、F-1、掛牌進度</div>
+      </div>
+    </div>
+
+    <!-- Zepto IPO -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/08/zeptos-ipo-filing-reveals-fast-growth-bigger-losses-and-a-valuation-question-nobodys-answered-yet/" target="_blank">
+          印度快速電商 Zepto 提交 IPO 申請：營收增 104%，虧損增 26%，估值仍待市場回答
+        </a>
+        <span class="stage stage-ipo">IPO Filing</span>
+      </div>
+      <div class="card-en-title">Zepto's IPO Filing: 104% Revenue Growth, 26% More Losses, Valuation TBD</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-09</span>
+        <a href="https://techcrunch.com/2026/06/08/zeptos-ipo-filing-reveals-fast-growth-bigger-losses-and-a-valuation-question-nobodys-answered-yet/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <div class="metrics">
+          <div class="metric">FY2026 營運收入 <strong>₹115.5B (~$2.4B)</strong></div>
+          <div class="metric">YoY 成長 <strong>104%</strong></div>
+          <div class="metric">廣告收入 <strong>₹16.4B (~$171M)</strong></div>
+          <div class="metric">廣告 YoY 成長 <strong>151%</strong></div>
+          <div class="metric">FY2026 淨虧損 <strong>₹59.1B (~$617M)</strong></div>
+          <div class="metric">上輪私募估值 <strong>$7B</strong> (2025-10)</div>
+          <div class="metric">IPO 計畫募資 <strong>~$837M</strong> (新股)</div>
+          <div class="metric">年交易用戶 <strong>~4,800 萬</strong></div>
+        </div>
+        <p>Zepto 由 Stanford 輟學生 Aadit Palicha、Kaivalya Vohra 於 2021 年創辦，YC 校友，投資人包括 Nexus、Lightspeed、StepStone、Glade Brook。部分大型共同基金在 IPO 前評估估值低於私募估值。創辦人曾於 4 月收到印度反洗錢機構傳票，已配合調查，無後續通知。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>印度 quick-commerce 市場激烈：Blinkit（Zomato 旗下）、Swiggy Instamart、Amazon、Flipkart 全在搶市佔。Zepto 廣告業務的超速成長（151%）暗示其正在複製亞馬遜「讓電商平台變廣告平台」的路徑，這是盈利化的關鍵。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-impl">影響觀察 / Implications</span>
+        <p>Zepto 的 IPO 將是 2026 年亞洲最受關注的科技 IPO 之一。若公開估值明顯低於 $7B 私募估值，將對同類印度新創的融資估值帶來下行壓力，也是 YC 在印度最大賭注的一次市場驗收。</p>
+      </div>
+    </div>
+
+    <!-- Anthropic + OpenAI IPO (brief cross-ref) -->
+    <div class="card">
+      <div class="card-title">Anthropic、OpenAI 雙雙保密申請 IPO — 本週最大 IPO 事件詳見頭條</div>
+      <div class="block">
+        <p>Anthropic（估值 ~$965B）已於 6/1 提交保密 S-1，OpenAI 於 6/8 跟進。SpaceX 亦在進行 IPO 路演（目標 $2T 估值，計畫募資 >$75B）。詳細分析見第 1 節頭條。</p>
+      </div>
+    </div>
+
+    <!-- Strava IPO pipeline -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/01/strava-declares-war-on-scrapers-ahead-of-ipo/" target="_blank">
+          Strava IPO 前夕向爬蟲宣戰，保護數據資產
+        </a>
+      </div>
+      <div class="card-en-title">Strava Declares War on Scrapers Ahead of IPO</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-01</span>
+        <a href="https://techcrunch.com/2026/06/01/strava-declares-war-on-scrapers-ahead-of-ipo/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <p>Strava（運動社群平台）在 IPO 準備期間積極打擊資料爬蟲行為，保護其超過 1.5 億用戶的活動數據。估值與 IPO 時程 undisclosed。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-context">背景脈絡 / Context</span>
+        <p>IPO 前保護數據資產是標準操作，但 Strava 的數據本身（GPS 活動數據、熱力圖）對 AI 訓練、保險、廣告公司有極高價值。打擊爬蟲也可能是為了在 IPO 文件中更清晰主張數據所有權。</p>
+      </div>
+    </div>
+
+    <!-- Defense Tech IPOs: Swarmer -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://news.crunchbase.com/public/potential-defense-tech-ipo-candidates-swmr/" target="_blank">
+          AI 無人機公司 Swarmer 上市首日暴漲 520%，國防科技 IPO 潮正式啟動
+        </a>
+      </div>
+      <div class="card-en-title">AI Drone Company Swarmer Surges 520% on IPO Day — 12 More Defense Tech IPOs Incoming</div>
+      <div class="source-line">
+        <span class="source-tag">Crunchbase News</span>
+        <span>2026 年 近期</span>
+        <a href="https://news.crunchbase.com/public/potential-defense-tech-ipo-candidates-swmr/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <p>Swarmer（AI 無人機公司）在 Nasdaq 掛牌首日股價暴漲 520%，Crunchbase 點名另外 12 家國防科技新創為潛在 IPO 候選人。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-impl">影響觀察 / Implications</span>
+        <p>國防科技 IPO 的超預期表現將進一步催化同類公司的上市意願。台灣軍民兩用科技公司（無人機、資安）可關注此趨勢帶來的估值溢價機會。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 9: REGIONAL ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-region">&#127757;</div>
+      <div>
+        <div class="section-title">9. 區域 / Regional Spotlight</div>
+        <div class="section-subtitle">美國以外值得關注的新創動態</div>
+      </div>
+    </div>
+
+    <!-- India Rapido $240M -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/05/15/indian-uber-rival-rapido-raises-240m-at-3b-valuation/" target="_blank">
+          【印度】Uber 競爭者 Rapido 以 $30 億估值完成 $2.4 億融資
+        </a>
+        <span class="stage stage-d">Late Stage</span>
+      </div>
+      <div class="card-en-title">[India] Uber Rival Rapido Raises $240M at $3B Valuation</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-05-15</span>
+        <a href="https://techcrunch.com/2026/05/15/indian-uber-rival-rapido-raises-240m-at-3b-valuation/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <div class="metrics">
+          <div class="metric">募資金額 <strong>$240M</strong></div>
+          <div class="metric">估值 <strong>$3B</strong></div>
+        </div>
+        <p>Rapido 是印度最大摩托計程車（bike taxi）平台，此輪估值 $30 億，與 Ola、Uber India 形成三強格局。</p>
+      </div>
+    </div>
+
+    <!-- Korea: Unastella -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/01/unastella-a-south-korean-rocket-startup-that-launched-from-home-raises-24m/" target="_blank">
+          【韓國】Unastella 小型火箭新創完成 $2,400 萬 A 輪
+        </a>
+      </div>
+      <div class="card-en-title">[Korea] Unastella Rocket Startup Raises $24M Series A</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-01</span>
+      </div>
+      <div class="block">
+        <p>韓國政府近年積極推動太空產業民營化，Unastella 是第一批獲得明確私人資本背書的韓國民間火箭公司之一，值得追蹤其技術進展。</p>
+      </div>
+    </div>
+
+    <!-- India/Asia: Zepto IPO cross-ref -->
+    <div class="card">
+      <div class="card-title">【印度】Zepto IPO 申請：YC 最大海外賭注進入公開市場考驗</div>
+      <div class="block">
+        <p>詳見第 8 節 IPO Pipeline。Zepto 是目前印度最受矚目的科技 IPO，也是 Y Combinator 在美國以外規模最大的投資案之一的上市驗收。</p>
+      </div>
+    </div>
+
+    <!-- Europe: Benchmark $2B + growth fund -->
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/03/benchmark-raises-its-first-ever-growth-fund-as-part-of-2b-capital-raise/" target="_blank">
+          【歐美】Benchmark 完成史上首支 Growth Fund，$20 億資本籌集
+        </a>
+      </div>
+      <div class="card-en-title">[US] Benchmark Raises First-Ever Growth Fund as Part of $2B Capital Haul</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch</span>
+        <span>2026-06-03</span>
+        <a href="https://techcrunch.com/2026/06/03/benchmark-raises-its-first-ever-growth-fund-as-part-of-2b-capital-raise/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <span class="section-label label-facts">核心事實 / Facts</span>
+        <p>Benchmark 作為堅守早期的老牌 VC，首度推出 growth fund，合計募資 $20 億。這標誌著即便是最保守的早期 VC 也開始追逐 AI 時代的大型後期交易。</p>
+      </div>
+      <div class="block">
+        <span class="section-label label-impl">影響觀察 / Implications</span>
+        <p>Benchmark 的策略轉型意味著 early-stage 與 late-stage 的邊界正在模糊。對新創公司而言，選擇早期 VC 時需要重新評估其後期跟投能力。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 10: READS ===== -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-reads">&#128218;</div>
+      <div>
+        <div class="section-title">10. 觀點 / Reads Worth Bookmarking</div>
+        <div class="section-subtitle">創業建設相關值得一讀的文章</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/05/founders-share-vc-horror-stories-and-some-are-naming-names/" target="_blank">
+          創辦人分享 VC 恐怖故事，有人已點名道姓
+        </a>
+      </div>
+      <div class="card-en-title">Founders Share VC Horror Stories, and Some Are Naming Names</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch / Julie Bort</span>
+        <span>2026-06-05</span>
+        <a href="https://techcrunch.com/2026/06/05/founders-share-vc-horror-stories-and-some-are-naming-names/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <p>創辦人對 VC 權力失衡問題的集體發聲持續升溫。從行為不端到條款陷阱，這篇報導收集了多名真名匿名不一的創辦人證詞，是任何正在或計畫融資的創辦人必讀。提醒：VC 與創辦人關係本質上是長期不對等的，理解潛在的權力動態比任何盡職調查都重要。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://techcrunch.com/2026/06/05/as-vc-backed-e-bike-startups-went-bankrupt-bootstrapped-lectric-grew/" target="_blank">
+          VC 電動腳踏車新創們倒閉之際，Bootstrap 的 Lectric 卻持續成長
+        </a>
+      </div>
+      <div class="card-en-title">As VC-Backed E-Bike Startups Went Bankrupt, Bootstrapped Lectric Grew</div>
+      <div class="source-line">
+        <span class="source-tag">TechCrunch / Kirsten Korosec</span>
+        <span>2026-06-05</span>
+        <a href="https://techcrunch.com/2026/06/05/as-vc-backed-e-bike-startups-went-bankrupt-bootstrapped-lectric-grew/" target="_blank">↗</a>
+      </div>
+      <div class="block">
+        <p>Lectric eBikes（共同創辦人 Levi Conlow & Robby Deziel）在 VanMoof、Cowboy 等 VC 重資新創陸續破產後反而壯大。這是一個反例研究：為何「不燒 VC 的錢」在硬體業往往勝過「有錢就花」的策略。對關注硬體創業的台灣新創尤其值得一讀。</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+</div><!-- /container -->
+
+<div class="footer">
+  <p>今日新創新聞日報 · Daily Startup News · 2026-06-10 (Asia/Taipei)</p>
+  <p style="margin-top:6px;">來源 / Sources:
+    <a href="https://techcrunch.com/category/startups/" target="_blank">TechCrunch Startups</a> ·
+    <a href="https://news.crunchbase.com/" target="_blank">Crunchbase News</a> ·
+    <a href="https://www.producthunt.com/" target="_blank">Product Hunt</a> ·
+    <a href="https://techcrunch.com/2026/06/08/zeptos-ipo-filing-reveals-fast-growth-bigger-losses-and-a-valuation-question-nobodys-answered-yet/" target="_blank">Zepto IPO Filing (TechCrunch)</a>
+  </p>
+  <p style="margin-top:6px; color:#64748b;">Paywalled / 無法取得完整內容: The Information · PitchBook · Bloomberg Tech (部分) · WSJ Tech (部分) · Fortune Term Sheet</p>
+  <p style="margin-top:6px; color:#64748b;">Generated by Claude (Sonnet 4.6) · Powered by Anthropic</p>
+</div>
+
+</body>
+</html>

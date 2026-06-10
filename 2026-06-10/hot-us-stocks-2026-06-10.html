@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日美股熱門焦點股 — 2026-06-10</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --card: #21253a;
+      --border: #2e3248;
+      --accent: #4f8ef7;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #eab308;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --tag-bg: #2d3555;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      padding: 0 0 60px;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 40px 22px;
+    }
+    header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; }
+    header .sub { color: var(--muted); font-size: 0.85rem; margin-top: 6px; }
+    .session-badge {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--accent);
+      border-radius: 6px;
+      padding: 2px 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+    main { max-width: 1100px; margin: 0 auto; padding: 32px 24px 0; }
+
+    /* Summary table */
+    .summary-table-wrap { overflow-x: auto; margin-bottom: 40px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th {
+      background: var(--surface);
+      color: var(--muted);
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:hover td { background: rgba(79,142,247,0.04); }
+    .ticker { font-weight: 700; color: var(--accent); font-size: 1rem; }
+    .pos { color: var(--green); font-weight: 700; }
+    .neg { color: var(--red); font-weight: 700; }
+    .buzz-stars { color: var(--yellow); letter-spacing: 2px; }
+
+    /* Section labels */
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      border-left: 3px solid var(--accent);
+      padding-left: 12px;
+      margin: 40px 0 16px;
+    }
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 32px 0 10px;
+      color: #c7d2fe;
+    }
+
+    /* Ticker card */
+    .ticker-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin-bottom: 22px;
+    }
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .card-ticker { font-size: 1.4rem; font-weight: 800; color: var(--accent); }
+    .card-name { font-size: 0.95rem; color: var(--muted); }
+    .card-change { font-size: 1.1rem; font-weight: 700; }
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: #a5b4fc;
+      border-radius: 5px;
+      padding: 2px 9px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      margin-right: 6px;
+      margin-top: 4px;
+    }
+    .section-label {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 14px 0 4px;
+      font-weight: 600;
+    }
+    .content-block { font-size: 0.92rem; line-height: 1.75; }
+    .content-block p { margin-bottom: 6px; }
+    .zh { color: #c7d2fe; }
+    .en { color: var(--text); }
+    blockquote {
+      border-left: 3px solid var(--border);
+      padding-left: 12px;
+      color: var(--muted);
+      font-style: italic;
+      margin: 8px 0;
+      font-size: 0.88rem;
+    }
+
+    /* Watch list & halts */
+    .watchlist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .watchlist-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+    }
+    .watchlist-card .wl-ticker { font-size: 1.05rem; font-weight: 700; color: var(--accent); }
+    .watchlist-card .wl-name { font-size: 0.8rem; color: var(--muted); margin-bottom: 6px; }
+    .watchlist-card .wl-body { font-size: 0.85rem; line-height: 1.65; }
+
+    /* Market backdrop */
+    .backdrop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .backdrop-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      text-align: center;
+    }
+    .backdrop-item .bd-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+    .backdrop-item .bd-val { font-size: 1.15rem; font-weight: 700; margin: 4px 0; }
+    .backdrop-item .bd-chg { font-size: 0.82rem; font-weight: 600; }
+
+    /* Footer sources */
+    .sources-section {
+      border-top: 1px solid var(--border);
+      margin-top: 50px;
+      padding-top: 24px;
+    }
+    .sources-section h2 { margin-top: 0; }
+    .sources-list { list-style: none; column-count: 2; column-gap: 24px; font-size: 0.82rem; }
+    .sources-list li { margin-bottom: 6px; break-inside: avoid; }
+    .sources-list a { color: var(--accent); text-decoration: none; }
+    .sources-list a:hover { text-decoration: underline; }
+
+    .disclaimer {
+      margin-top: 30px;
+      padding: 14px 18px;
+      background: var(--surface);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    @media(max-width: 640px) {
+      header { padding: 20px 16px 16px; }
+      main { padding: 20px 12px 0; }
+      .ticker-card { padding: 16px 14px; }
+      .sources-list { column-count: 1; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>🔥 今日美股熱門焦點股 Hot US Stocks of the Day</h1>
+  <div class="sub">交易日：2026-06-09（週一）美股收盤 · 報告生成：2026-06-10 Asia/Taipei</div>
+  <div class="session-badge">最近完成交易日 = 2026-06-09 RTH Close</div>
+</header>
+
+<main>
+
+  <!-- ======= SUMMARY TABLE ======= -->
+  <h2>一覽表 Summary Table</h2>
+  <div class="summary-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>Company</th>
+          <th>Close (RTH)</th>
+          <th>% Day</th>
+          <th>Options / Flow</th>
+          <th>Buzz</th>
+          <th>Catalyst</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ticker">MRVL</td>
+          <td>Marvell Technology</td>
+          <td>~$288</td>
+          <td class="neg">−6.4% (on 6/8); recovering</td>
+          <td>IV高·S&P 500入選預期</td>
+          <td class="buzz-stars">★★★★★</td>
+          <td>S&P 500加入（6/22）+ Jensen Huang Computex 喊話 + Teralynx T100發表</td>
+        </tr>
+        <tr>
+          <td class="ticker">SWMR</td>
+          <td>Swarmer Inc</td>
+          <td>~$78</td>
+          <td class="pos">+38% MTD</td>
+          <td>Short squeeze; options IV surge</td>
+          <td class="buzz-stars">★★★★</td>
+          <td>Cramer 推薦 + $2.86M SkyKnight合約 + $2.9M Meta Bureau合約</td>
+        </tr>
+        <tr>
+          <td class="ticker">LASE</td>
+          <td>Laser Photonics</td>
+          <td>待確認</td>
+          <td class="pos">+234% MTD peak</td>
+          <td>Short squeeze triggered</td>
+          <td class="buzz-stars">★★★★</td>
+          <td>美國海軍合約 + J&J醫療設備 $250K 訂單</td>
+        </tr>
+        <tr>
+          <td class="ticker">NBIS</td>
+          <td>Nebius Group</td>
+          <td>$220.47</td>
+          <td class="pos">+5% (6/9)</td>
+          <td>BofA PT↑$280; 52週高附近</td>
+          <td class="buzz-stars">★★★★</td>
+          <td>NVIDIA合作AI Living Lab + £1.7B英國AI基礎建設</td>
+        </tr>
+        <tr>
+          <td class="ticker">GME</td>
+          <td>GameStop</td>
+          <td>$22.27</td>
+          <td class="pos">+23% YTD</td>
+          <td>WSB高度討論</td>
+          <td class="buzz-stars">★★★</td>
+          <td>Ryan Cohen持續追求eBay ($125/sh bid) + 史上最佳Q1獲利 + $2B回購</td>
+        </tr>
+        <tr>
+          <td class="ticker">KIM</td>
+          <td>Kimco Realty</td>
+          <td>$25.13</td>
+          <td class="pos">52週新高</td>
+          <td>C/P=150:1 · Jul 30C OI=6988 vs 200</td>
+          <td class="buzz-stars">★★★</td>
+          <td>Unusual options: 巨量異常 call 買進，52週新高突破</td>
+        </tr>
+        <tr>
+          <td class="ticker">STI</td>
+          <td>Solidion Technology</td>
+          <td>待確認</td>
+          <td class="pos">+625% MTD</td>
+          <td>極度投機; 小市值</td>
+          <td class="buzz-stars">★★★</td>
+          <td>太空電池平台突破：衛星、LEO AI 資料中心、月球任務</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ======= HOT PICKS ======= -->
+  <h2>熱門焦點股深度解析 Hot 6 Deep Dives</h2>
+
+  <!-- MRVL -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <span class="card-ticker">$MRVL</span>
+      <span class="card-name">Marvell Technology, Inc. / 美滿電子</span>
+      <span class="card-change neg">Close ~$288 (6/8) · −6.4% on 6/8 (sector selloff)</span>
+    </div>
+    <span class="tag">Semiconductors</span>
+    <span class="tag">AI Infrastructure</span>
+    <span class="tag">S&P 500 加入</span>
+    <span class="tag">Short-term Bounce Candidate</span>
+
+    <div class="section-label">為什麼今天熱 / Why it's hot</div>
+    <div class="content-block">
+      <p class="zh">MRVL 在半導體市場本周劇烈震盪中同樣承壓，但仍是市場最關注的 AI 基礎建設半導體之一。6月5日科技股因 Iran 地緣衝擊與通膨疑慮引發拋售（Nasdaq −4%），MRVL 跟跌後因強勁基本面吸引逢低買盤。三大催化劑疊加：①S&P 500 成分股確定 6/22 正式生效（被動資金買盤可期）、②CEO Jensen Huang 在 Computex 2026 公開表示 Marvell 是「下一家市值破兆美元的公司」、③Teralynx T100 — 102.4 Tbps AI/雲交換晶片發表，宣稱省電 25%。</p>
+      <p class="en">MRVL was caught in the broader semiconductor rout that began June 5 (Nasdaq down 4% on Iran-linked oil shock + inflation fears), but fundamental buyers returned quickly. Three overlapping catalysts define this name: first, confirmed S&P 500 inclusion effective June 22 (index rebalancing flows); second, Jensen Huang's Computex comment calling Marvell "the next trillion-dollar company" for its AI data-center connectivity role; and third, the new Teralynx T100 switch chip — 102.4 Tbps, 25% lower power, targeting hyperscaler AI fabrics.</p>
+    </div>
+
+    <div class="section-label">Options &amp; Flow</div>
+    <div class="content-block">
+      <p>S&P 500 入選公告後，選擇權 IV 整體走升；S&P 500 指數型 ETF (SPY/IVV/VOO) 的 rebalancing desk 在 6/22 生效前須買入大量 MRVL，形成潛在的 gamma squeeze 條件。6/8 當日半導體拋售使 MRVL 跌 6.39%（Micron −6.3%，Broadcom −3.8%），但 put/call 比例顯示機構利用拉回布局 July/Aug calls。具體 OI 數字待確認，但 BofA、摩根大通均在近期上調目標價。</p>
+    </div>
+
+    <div class="section-label">Retail Buzz</div>
+    <div class="content-block">
+      <p>AltIndex 追蹤顯示 MRVL 為本週 Reddit (WSB + r/stocks) 最熱門前五提及股。X (Twitter) cashtag $MRVL 與 $NVDA 連動討論密集，Jensen Huang 喊話截圖廣泛轉傳。StockTwits MRVL 頁面情緒偏多 (約 78% bullish)。</p>
+      <blockquote>"if S&P inclusion doesn't get MRVL to $350 I don't know what will" — top WSB comment thread</blockquote>
+    </div>
+
+    <div class="section-label">炒作脈絡 / Narrative Context</div>
+    <div class="content-block">
+      <p class="en">Marvell delivered record FY2026 revenue of $8.195B (+42% YoY) driven by AI custom ASIC and networking chips. Peers Broadcom (AVGO) and Arista (ANET) benefited from similar AI tailwinds. S&P 500 inclusion is a non-fundamental mechanical bid — passive AUM inflow often totals 3–5 weeks of average volume on announcement-to-effective-date window. Previous S&P inclusions (e.g., ENPH, MPWR) showed +5–15% drift in the period.</p>
+    </div>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <div class="content-block">
+      <p>① 6/22 S&P 500 rebalancing — 最後交易日前 passive 買盤規模。② Iran 停火談判進展影響半導體整體 risk-on/risk-off。③ 若 Nasdaq 繼續承壓，MRVL 有機會相對強勢（基本面護城河）。④ BofA 目標價 $330 — 目前下行空間已有限，但 $350 短期或過分樂觀（分析師意見，非投資建議）。</p>
+    </div>
+    <div class="section-label">Sources</div>
+    <div class="content-block" style="font-size:0.82rem; color:var(--muted)">
+      <a href="https://www.tipranks.com/news/catalyst/why-marvell-stock-is-suddenly-taking-off" style="color:var(--accent)">TipRanks — Why Marvell Stock Is Suddenly Taking Off</a> ·
+      <a href="https://www.timothysykes.com/news/marvell-technology-inc-mrvl-news-2026_06_09/" style="color:var(--accent)">Timothy Sykes — MRVL June 9</a> ·
+      <a href="https://mlq.ai/stocks/MRVL/q1-2026-earnings/" style="color:var(--accent)">MLQ.ai Q1 Earnings</a> ·
+      <a href="https://investor.marvell.com/news-events/press-releases/detail/1011/marvell-technology-inc-reports-fourth-quarter-and-fiscal-year-2026-financial-results" style="color:var(--accent)">Marvell IR</a>
+    </div>
+  </div>
+
+  <!-- SWMR -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <span class="card-ticker">$SWMR</span>
+      <span class="card-name">Swarmer, Inc. / 無人機蜂群軟體</span>
+      <span class="card-change pos">Close ~$78 · +38% MTD (峰值 ~$80+)</span>
+    </div>
+    <span class="tag">Defense Tech</span>
+    <span class="tag">Drone AI</span>
+    <span class="tag">Cramer Effect</span>
+    <span class="tag">Short Squeeze</span>
+    <span class="tag">⚠ 高度投機</span>
+
+    <div class="section-label">為什麼今天熱 / Why it's hot</div>
+    <div class="content-block">
+      <p class="zh">SWMR 從 6 月初的 ~$30 飆升到 $80 以上，堪稱本月最戲劇性的小市值飆股之一。三重催化疊加：①Jim Cramer 在 Mad Money 特別點名 Swarmer 為「無人機戰爭最佳押注」之一，引爆散戶追買；②公司公告 $2.86M SkyKnight 自動偵測合約 + $2.9M Meta Bureau AI 協議，提供業務真實性背書；③原本有空頭倉位的交易者被迫回補（short squeeze），股價加速拉升。然而 Q1 2026 實際營收僅 $20,325，本益比（P/S）超過 70 倍，屬於高度投機標的。</p>
+      <p class="en">A textbook momentum trade driven by three catalysts. Cramer's Mad Money endorsement labeling it a "drone-warfare bet" triggered retail FOMO buying; two simultaneous contract wins provided enough fundamental cover to sustain momentum; and short sellers with significant short interest were squeezed into covering, amplifying the +46.7% single-session spike. Despite the narrative, Q1 revenue was just $20,325 with a $4.46M net loss — fundamentals clearly do not justify the current price-to-sales above 70x.</p>
+    </div>
+
+    <div class="section-label">Options &amp; Flow</div>
+    <div class="content-block">
+      <p>Unusual options flow 在 Cramer 節目後的次日明顯放大，call 端大量成交。具體 OI 資料需查 Barchart/Market Chameleon 確認，但據 StocksToTrade 報導，選擇權 IV 大幅跳升，call 買盤為主。唯一正式分析師目標價 $60，股價已遠高於此。</p>
+    </div>
+
+    <div class="section-label">Retail Buzz</div>
+    <div class="content-block">
+      <p>MEXC 分析報告顯示 WSB 與 X 出現大量 $SWMR cashtag 討論，看法分歧：多方押注無人機概念持續；空方指出業績根本不支撐估值。StockTwits 情緒波動劇烈。</p>
+      <blockquote>"Cramer curse or Cramer rocket? $SWMR let's find out Monday" — StockTwits hot post</blockquote>
+    </div>
+
+    <div class="section-label">炒作脈絡 / Narrative Context</div>
+    <div class="content-block">
+      <p class="en">The Iran war (ongoing since early 2026) has dramatically elevated defense/drone tech thematic interest. Names like AeroVironment (AVAV), Joby (JOBY), and Shield AI have all attracted attention. SWMR benefits from the same narrative rotation but is far smaller and more speculative. The Cramer effect historically creates a 1–3 day pop then mean reversion; the key question is whether contract wins provide durable fundamental support beyond the catalyst window.</p>
+    </div>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <div class="content-block">
+      <p>⚠ 極高風險標的。① 6/10 開盤是否延續動能或出現獲利了結。② 是否有新合約公告繼續撐盤。③ 股價已遠超分析師目標價（$60），技術面無前例可循。④ 關注 Cramer 是否再次提及（助力或「Cramer 詛咒」反轉）。⚠ 非投資建議，純供分析。</p>
+    </div>
+    <div class="section-label">Sources</div>
+    <div class="content-block" style="font-size:0.82rem; color:var(--muted)">
+      <a href="https://stockstotrade.com/news/swarmer-inc-swmr-news-2026_06_02/" style="color:var(--accent)">StocksToTrade — SWMR Rockets</a> ·
+      <a href="https://blog.mexc.com/finance/swmr-stock-analysis-2026-swarmer-bullish-bearish-cramer-spike/" style="color:var(--accent)">MEXC SWMR Analysis 2026</a> ·
+      <a href="https://finance.yahoo.com/quote/SWMR/" style="color:var(--accent)">Yahoo Finance SWMR</a>
+    </div>
+  </div>
+
+  <!-- LASE -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <span class="card-ticker">$LASE</span>
+      <span class="card-name">Laser Photonics Corporation / 雷射光子（防無人機系統）</span>
+      <span class="card-change pos">MTD Peak +234% · 近期整理中</span>
+    </div>
+    <span class="tag">Defense</span>
+    <span class="tag">Medical Device</span>
+    <span class="tag">Short Squeeze</span>
+    <span class="tag">⚠ 小市值高波動</span>
+
+    <div class="section-label">為什麼今天熱 / Why it's hot</div>
+    <div class="content-block">
+      <p class="zh">LASE 於 6 月初一週內暴漲超過 230%，成為 June 月度漲幅排行第二名。兩大催化劑：①美國海軍合約利多（MEIA slot 入選 Laser Shield 反無人機系統）消息在開盤鐘聲後釋出，空頭倉位持有者被迫大量回補，形成教科書式短暫 short squeeze；②旗下 CMS Laser 取得嬌生（Johnson &amp; Johnson）$250K 醫療設備客製化鑽孔系統訂單，開啟藍籌醫療客戶這條新市場軌道。兩個市場（國防 + 醫療）同時開啟，敘事空間突然大幅擴張。</p>
+      <p class="en">LASE nearly doubled in a single session when Navy contract news hit at the opening bell, forcing short sellers into a rapid cover sprint — a classic short squeeze. The additional Johnson &amp; Johnson medical device order ($250K drilling system for CMS Laser) opened a new addressable market narrative, turning LASE from a pure defense play into a dual-market story. The combination of short squeeze mechanics and genuine business diversification catalysts drove exceptional volume and price action in early June.</p>
+    </div>
+
+    <div class="section-label">Options &amp; Flow</div>
+    <div class="content-block">
+      <p>小市值標的，options 流動性有限，但 short interest days-to-cover 較高，使 squeeze 效果更明顯。具體 short interest 數字待 Fintel/Ortex 確認。InvEzz 報導確認「Navy news = squeeze trigger」機制。</p>
+    </div>
+
+    <div class="section-label">Retail Buzz</div>
+    <div class="content-block">
+      <p>6月上旬 StockTwits 與 X 的 $LASE 討論量暴增，大量「軍事概念 + 防無人機」相關貼文。Iran 戰爭背景下，防無人機概念股整體受關注，LASE 成為代表之一。</p>
+    </div>
+
+    <div class="section-label">炒作脈絡 / Narrative Context</div>
+    <div class="content-block">
+      <p class="en">The Iran war that began in early 2026 has elevated defense technology — particularly counter-drone systems — to a hot thematic area. Laser-based C-UAS (Counter Unmanned Aircraft Systems) plays like LASE benefit from both the conflict narrative and the U.S. military's publicized accelerated procurement. The J&amp;J deal pivots the story from pure mil-tech to medical lasers, a far larger total addressable market. Historical analogue: RCAT (Red Cat Holdings) surged on a similar Ukraine drone contract + retail buzz pattern in 2023–2024.</p>
+    </div>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <div class="content-block">
+      <p>① 短 squeeze 後通常有大幅回調 — 留意 RSI 超買和高點後出貨跡象。② 是否有後續美軍合約規模放大的消息。③ J&J 醫療合約是否能帶來持續性可重複訂單（還是一次性）。④ Iran 停火談判若成功，防無人機概念股整體降溫風險。⚠ 非投資建議。</p>
+    </div>
+    <div class="section-label">Sources</div>
+    <div class="content-block" style="font-size:0.82rem; color:var(--muted)">
+      <a href="https://www.tradingview.com/news/invezz:1c16f1da1094b:0-lase-stock-nearly-doubles-as-us-navy-shows-more-love/" style="color:var(--accent)">TradingView/InvEzz — LASE Navy</a> ·
+      <a href="https://finance.yahoo.com/markets/stocks/articles/why-lase-stock-surged-over-193245560.html" style="color:var(--accent)">Yahoo Finance — Why LASE Surged</a> ·
+      <a href="https://stockstotrade.com/news/laser-photonics-corporation-lase-news-2026_06_02/" style="color:var(--accent)">StocksToTrade — LASE J&J Order</a> ·
+      <a href="https://www.stocktitan.net/news/LASE/laser-photonics-laser-shield-anti-drone-system-selected-by-bzrbfog3uygb.html" style="color:var(--accent)">StockTitan — Laser Shield MEIA</a>
+    </div>
+  </div>
+
+  <!-- NBIS -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <span class="card-ticker">$NBIS</span>
+      <span class="card-name">Nebius Group N.V. / 歐洲 AI 雲端基礎建設</span>
+      <span class="card-change pos">Close $220.47 · +5.1% (6/9) · Range $217–$242</span>
+    </div>
+    <span class="tag">AI Cloud</span>
+    <span class="tag">NVIDIA Ally</span>
+    <span class="tag">Europe Infra</span>
+    <span class="tag">BofA PT↑$280</span>
+
+    <div class="section-label">為什麼今天熱 / Why it's hot</div>
+    <div class="content-block">
+      <p class="zh">NBIS 於 6/9 強力反彈約 5%，前一週已下跌逾 16%，此次反彈有兩大催化：①公司與 NVIDIA 聯合宣布「Physical AI Living Lab」計畫，支援英國與歐洲機器人新創公司利用 NVIDIA AI 工具和 Nebius AI Cloud 基礎設施，第一批參與者預計 2026 年 9 月啟動；②公司承諾在英國四個地點投入 £17 億（約 $22 億美元）建置 AI 基礎設施，並部署 NVIDIA 最新 Blackwell Ultra 系統。Bank of America 同日將目標價從 $240 上調至 $280，維持買入評級。</p>
+      <p class="en">NBIS rebounded ~5% on June 9 after losing more than 16% the prior week. The dual announcement of a Physical AI Living Lab with NVIDIA (supporting European robotics startups via Nebius AI Cloud) and a £1.7B commitment to expand UK AI infrastructure (deploying Blackwell Ultra) gave investors a fresh narrative to re-enter the name. Bank of America raising its PT from $240 to $280 on the same day provided additional institutional validation. The stock remains close to its 52-week highs despite the recent drawdown, signaling strong underlying demand.</p>
+    </div>
+
+    <div class="section-label">Options &amp; Flow</div>
+    <div class="content-block">
+      <p>BofA 目標價上調 → 機構 call 買盤明顯。52 週高附近存在顯著 call wall。具體 OI 待確認，但報告整理時大型 buy-side 持倉被廣泛報導（NVIDIA 持有 NBIS 少量股份作為戰略投資）。IV 在前一週下跌後有所降低，提供相對便宜的 call 買入時機（分析師觀點，非投資建議）。</p>
+    </div>
+
+    <div class="section-label">Retail Buzz</div>
+    <div class="content-block">
+      <p>AltIndex 顯示 NBIS 為本週 Reddit 最熱門 AI 股之一，與 NVDA 並列。X cashtag $NBIS 討論以「NVIDIA 生態系」和「歐洲 AI 建設」為核心敘事。StockTwits 情緒偏多。</p>
+      <blockquote>"NBIS is literally European NVDA infra play — why is it not at $400 yet" — r/stocks top comment</blockquote>
+    </div>
+
+    <div class="section-label">炒作脈絡 / Narrative Context</div>
+    <div class="content-block">
+      <p class="en">Nebius (formerly Yandex Cloud's international arm) has rapidly positioned itself as a full-stack AI infrastructure provider. Its NVIDIA strategic relationship (NVIDIA is an investor) gives it significant GPU allocation advantage. The European AI infrastructure investment wave (EU AI Act compliance, data sovereignty requirements) provides structural tailwinds. The stock is more volatile than large-cap AI names given its smaller float, making institutional PT changes more impactful. Comparable setup: CoreWeave (CRWV) post-NVIDIA-backed IPO in 2025.</p>
+    </div>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <div class="content-block">
+      <p>① 9 月 Physical AI Living Lab 首批成員正式啟動時程確認。② 英國 £17 億投資的具體部署進度（Blackwell Ultra 交付時程受半導體供應鏈影響）。③ 若 Nasdaq 持續走弱，NBIS 高 beta 特性可能放大跌幅。④ NVIDIA 季度財報（8月）的 B200/Blackwell 出貨指引。</p>
+    </div>
+    <div class="section-label">Sources</div>
+    <div class="content-block" style="font-size:0.82rem; color:var(--muted)">
+      <a href="https://www.gurufocus.com/news/8907804/nebius-group-nbis-launches-ai-living-lab-with-nvidia-stock-rises-over-5" style="color:var(--accent)">GuruFocus — NBIS AI Living Lab</a> ·
+      <a href="https://finance.yahoo.com/markets/stocks/articles/nbis-stock-fallen-over-16-113636795.html" style="color:var(--accent)">Yahoo Finance — NBIS Robotics Bet</a> ·
+      <a href="https://www.investing.com/news/stock-market-news/why-is-nebius-stock-rallying-today-93CH-4732838" style="color:var(--accent)">Investing.com — Why NBIS Rallying</a>
+    </div>
+  </div>
+
+  <!-- GME / EBAY -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <span class="card-ticker">$GME / $EBAY</span>
+      <span class="card-name">GameStop / eBay — Ryan Cohen M&A Battle</span>
+      <span class="card-change">GME: $22.27 · eBay: $108.13 (6/9)</span>
+    </div>
+    <span class="tag">Meme Stock</span>
+    <span class="tag">M&A Drama</span>
+    <span class="tag">WSB Hot</span>
+    <span class="tag">Ryan Cohen</span>
+
+    <div class="section-label">為什麼今天熱 / Why it's hot</div>
+    <div class="content-block">
+      <p class="zh">Ryan Cohen 以 $125/股（總計約 $556 億）敵意收購 eBay 的劇碼持續發酵。eBay 董事會稱此提案「既不可信也不具吸引力」後拒絕，但 Cohen 表示將直接訴諸 eBay 股東。GameStop 手持 $94 億現金＋7.8% eBay 股份＋$200 億融資承諾（TD Bank），且剛公布史上最佳 Q1 獲利並宣布 $20 億回購計畫。WallStreetBets 討論熱度高，但 GME 股價在 $22 附近橫盤（相較 2021 高點遠低），市場對收購成功的可能性存疑。</p>
+      <p class="en">The GameStop-eBay hostile takeover saga remains one of the most-discussed corporate drama storylines of 2026. Cohen's $125-per-share cash-and-stock bid ($55.5B total) was formally rejected by eBay's board as "neither credible nor attractive," but Cohen is doubling down — stating publicly "I want to own eBay" and threatening a shareholder proxy campaign. Meanwhile, GME's fundamentals have quietly improved: best Q1 operating earnings in company history and a $2B buyback announcement. The stock sits at $22.27, up 23% YTD, far below Cohen's $100B market cap ambition, but WSB treats the narrative as entertainment and positioning opportunity.</p>
+    </div>
+
+    <div class="section-label">Options &amp; Flow</div>
+    <div class="content-block">
+      <p>GME options volume spikes around Cohen news events. WSB 每次有 eBay bid 新進展都伴隨 out-of-the-money call 買盤。eBay 選擇權的情況更複雜：arb players 押注 $125 被提高或新 bidder 進場（eBay $108，被動套利空間壓縮）。Michael Burry 已在 5 月清倉 GME（"Never confuse debt for creativity"），代表聰明錢與散戶敘事明顯分歧。</p>
+    </div>
+
+    <div class="section-label">Retail Buzz</div>
+    <div class="content-block">
+      <p>WSB 每次 Cohen 新動作後必有熱帖，呈現兩極分化：老 GME 信仰者押注 eBay 最終就範；懷疑派認為 $556 億收購計畫對 $22 的 GameStop 不可行。Quiver Quantitative 顯示 GME 持續在 WSB 每日討論 top 10 出現。</p>
+      <blockquote>"Cohen going to do the impossible or blow up GME's cash pile — either way it's going to be a movie" — WSB</blockquote>
+    </div>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <div class="content-block">
+      <p>① eBay 年度股東大會日期 — Cohen 是否發動委託書大戰。② GME 是否向監管單位提交 Schedule 13D 修正（eBay 持股繼續增加）。③ eBay 是否出現白衣騎士（第三方收購方）。④ GME Q2 財報表現（若收購失敗，基本面仍須持續改善才能支撐股價）。</p>
+    </div>
+    <div class="section-label">Sources</div>
+    <div class="content-block" style="font-size:0.82rem; color:var(--muted)">
+      <a href="https://www.cnbc.com/2026/05/04/gamestop-ebay-takeover-bid-ryan-cohen-gaming-retail-ecommerce.html" style="color:var(--accent)">CNBC — GME eBay Bid</a> ·
+      <a href="https://finance.yahoo.com/markets/stocks/articles/gamestop-jumps-10-record-profit-132308511.html" style="color:var(--accent)">Yahoo Finance — GME Record Profit</a> ·
+      <a href="https://www.cnbc.com/2026/05/12/ebay-rejects-gamestops-takeover-ryan-cohen.html" style="color:var(--accent)">CNBC — eBay Rejects Bid</a> ·
+      <a href="https://www.gurufocus.com/news/8903502/gamestop-gme-ceo-ryan-cohen-pursues-ebay-stake" style="color:var(--accent)">GuruFocus — Cohen Pursues eBay</a>
+    </div>
+  </div>
+
+  <!-- KIM -->
+  <div class="ticker-card">
+    <div class="card-header">
+      <span class="card-ticker">$KIM</span>
+      <span class="card-name">Kimco Realty Corporation / 美國 REITs 龍頭之一</span>
+      <span class="card-change pos">Close $25.13 · 52 週新高突破 · C/P=150:1 異常</span>
+    </div>
+    <span class="tag">REIT</span>
+    <span class="tag">Unusual Options</span>
+    <span class="tag">52-Week High</span>
+    <span class="tag">Rate Sensitive</span>
+
+    <div class="section-label">為什麼今天熱 / Why it's hot</div>
+    <div class="content-block">
+      <p class="zh">在 Iran 戰爭相關的能源通膨衝擊令科技股劇烈震盪的背景下，KIM（Kimco Realty）這家美國最大的戶外購物中心 REIT 出現極為異常的選擇權活動：call/put 比例達到 150:1，主要集中在 7 月 17 日 $30 行權價 call（OI 6988 vs 先前 200），顯示有人大量買入深度 OTM 看漲期權，隱含看漲至 $30（距今仍有約 19% 上漲空間）。同時股價剛突破 52 週新高 $25.07，觸發量化策略買盤。Q1 FFO 強勁增長 + 旺盛租賃活動為基本面提供支撐。</p>
+      <p class="en">KIM stands out as a rare REIT making the hot-stock list on the back of extraordinary options activity. A 150:1 call-to-put ratio concentrated in the July 17 $30 call (volume 6,988 vs OI of 200) indicates a large directional bet on +19% upside within 5 weeks. This happened as KIM broke to a 52-week high at $25.07, attracting momentum and breakout-strategy buyers. The Q1 2026 earnings call highlighted strong FFO growth and robust leasing activity — a favorable backdrop for the bullish bet. In a market where tech is selling off on Iran/inflation fears, REITs can attract rotation capital as a "defensive + yield" alternative.</p>
+    </div>
+
+    <div class="section-label">Options &amp; Flow — 重點</div>
+    <div class="content-block">
+      <p>
+        <strong>合約：</strong>Jul 17 2026 $30.00 Call<br/>
+        <strong>成交量：</strong>6,988（vs 前 OI 200）→ 幾乎全是新倉位<br/>
+        <strong>成交均價：</strong>$0.05–$0.15（小額分批買入）<br/>
+        <strong>暗示方向：</strong>強烈看漲（多單）；若 KIM 漲至 $30，call 獲利達 50–100x<br/>
+        <strong>IV：</strong>24.68%（2026-06-09）— 相對 REIT 歷史均值偏高
+      </p>
+    </div>
+
+    <div class="section-label">Retail Buzz</div>
+    <div class="content-block">
+      <p>KIM 在一般 meme 社群圈討論度不高，但 Quantcha.io 和 options-flow Discord 通道廣泛捕捉到此異常 call，觸發「options sweep」警報，吸引日內選擇權交易者跟進。X 上 #REITs + #KIM 標籤在 6/9 出現活躍討論。</p>
+    </div>
+
+    <div class="section-label">後續觀察 / What to Watch</div>
+    <div class="content-block">
+      <p>① Jul 17 到期前股價能否突破 $30（需強勢且持久的 REIT rally）。② 若 Fed 釋放更多緊縮信號，REIT 整體承壓（利率敏感型）。③ 是否有大型機構/內部人知悉重大正面消息（SEC 13D/F 申報）？目前無公開跡象，屬於「觀察中」狀態。④ KIM Q2 租金更新率及空置率數據。⚠ 非投資建議。</p>
+    </div>
+    <div class="section-label">Sources</div>
+    <div class="content-block" style="font-size:0.82rem; color:var(--muted)">
+      <a href="https://ideas.quantcha.com/2026/06/09/52-week-high-alert-trading-todays-movement-in-kimco-realty-kim/" style="color:var(--accent)">Quantcha — KIM 52-Week High Alert</a> ·
+      <a href="https://www.schwab.com/learn/story/todays-options-market-update" style="color:var(--accent)">Charles Schwab — Options Market Update</a> ·
+      <a href="https://www.gurufocus.com/news/8836264/kimco-realty-corp-kim-q1-2026-earnings-call-highlights-strong-ffo-growth-and-robust-leasing-activity" style="color:var(--accent)">GuruFocus — KIM Q1 Earnings</a>
+    </div>
+  </div>
+
+  <!-- ======= WATCH LIST ======= -->
+  <h2>次熱觀察 Watch List</h2>
+  <div class="watchlist-grid">
+
+    <div class="watchlist-card">
+      <div class="wl-ticker">$STI</div>
+      <div class="wl-name">Solidion Technology — 太空電池</div>
+      <div class="wl-body">
+        <span class="pos">+625% MTD</span> — 發表極端氣候太空電池平台（衛星、LEO AI 資料中心、月球任務），小市值極度投機。短期 squeeze 後高度回調風險，業績基礎薄弱。⚠ 留意流動性不足與巨幅波動。
+        <br/><small><a href="https://stocktwits.com/news-articles/markets/equity/why-sti-stock-is-soaring-today-solidion-space-battery-platform/cZ0ZQ7jReyl" style="color:var(--accent)">StockTwits — STI Space Battery</a></small>
+      </div>
+    </div>
+
+    <div class="watchlist-card">
+      <div class="wl-ticker">$LEGN</div>
+      <div class="wl-name">Legend Biotech — CAR-T</div>
+      <div class="wl-body">
+        <span class="pos">+42% MTD</span> — DLL3 靶向 CAR-T（LB2102）在 ASCO 2026 呈現小細胞肺癌早期療效數據（ORR 28.6% at high dose）。EHA 大會（6/11-14）將發表 LB2501 in vivo CAR-T 數據，為近期催化劑。FDA 已核准 CARVYKTI 增加 OS 生存優勢標示。
+        <br/><small><a href="https://www.streetinsider.com/FDA/Legend+Biotech+to+present+LB2501+in+vivo+CAR-T+data+at+EHA+conference/26588997.html" style="color:var(--accent)">StreetInsider — LEGN EHA</a></small>
+      </div>
+    </div>
+
+    <div class="watchlist-card">
+      <div class="wl-ticker">$VIDA</div>
+      <div class="wl-name">VIDA Global — 健康科技</div>
+      <div class="wl-body">
+        <span class="pos">+53% MTD</span> — 虛擬心代謝照護平台，與 Instacart 合作推出健康食品配送補貼（Fresh Funds）計畫，擴大企業健康福利市場。市值 ~$70M，6/14 有 overallotment 選擇權到期事件需留意。小市值高波動。
+        <br/><small><a href="https://www.stocktitan.net/overview/VIDA/" style="color:var(--accent)">StockTitan — VIDA Overview</a></small>
+      </div>
+    </div>
+
+    <div class="watchlist-card">
+      <div class="wl-ticker">$EBAY</div>
+      <div class="wl-name">eBay — GME 敵意收購目標</div>
+      <div class="wl-body">
+        eBay $108.13（6/9）vs GME 出價 $125，股價折讓 ~14% 反映市場對交易成功的懷疑。若 Cohen 啟動委託書大戰或提高出價，eBay 有套利空間；若謀求失敗，eBay 股價或回落。與 GME 連動觀察。
+        <br/><small><a href="https://www.cnbc.com/2026/05/12/ebay-rejects-gamestops-takeover-ryan-cohen.html" style="color:var(--accent)">CNBC — eBay Rejects Bid</a></small>
+      </div>
+    </div>
+
+    <div class="watchlist-card">
+      <div class="wl-ticker">$NVDA</div>
+      <div class="wl-name">NVIDIA — AI 龍頭震盪</div>
+      <div class="wl-body">
+        $208.64（6/8 close），前一週因半導體拋售壓力下跌 >6%。Google GPU 租約合約維持基本面支撐，Marvell 相關敘事仍有利於 NVDA 生態系。NBIS、MRVL 等衛星股的強勢部分取決於 NVDA 能否止穩。
+        <br/><small><a href="https://stockanalysis.com/stocks/nvda/" style="color:var(--accent)">StockAnalysis — NVDA</a></small>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ======= HALTS & WEIRDNESS ======= -->
+  <h2>異常事件 Halts &amp; Weirdness</h2>
+  <div class="ticker-card" style="border-color:#ef444444;">
+    <h3 style="color:var(--red); margin-top:0;">⚠ 本日異常監控</h3>
+    <div class="content-block">
+      <p><strong>Iran 地緣衝擊引發的非線性波動：</strong> Trump 於 6/9 暗示可能恢復對伊朗動能打擊（Kinetic strikes），引發盤中 S&P 500 大幅跳水後收復大部分跌幅，這種「新聞彈弓效應」使多個高 beta 標的出現異常成交量爆衝和短暫 LULD-style 流動性真空。實際 LULD halt 名單請查 <a href="https://www.nasdaqtrader.com/Trader.aspx?id=tradehalts" style="color:var(--accent)">Nasdaq Trading Halts</a>。</p>
+      <p><strong>JLHL（Julong Holding）：</strong> 月初觸及 $55.55 高點，+137% MTD，但催化劑不明（中國概念小市值股，疑似市場炒作，需謹慎）。無具體業績或公告支撐，屬於「待確認類」。</p>
+      <p><strong>SEC EDGAR 8-K 監控：</strong> 今日（6/10）在台灣時間，下一個交易日為 6/10（週二美東），開盤前需關注任何新 8-K 或 6-K 重大公告，尤其半導體、生技與 REIT 類股。</p>
+    </div>
+  </div>
+
+  <!-- ======= MARKET BACKDROP ======= -->
+  <h2>大盤背景 Market Backdrop</h2>
+  <div class="backdrop-grid">
+    <div class="backdrop-item">
+      <div class="bd-label">S&amp;P 500</div>
+      <div class="bd-val">7,386.65</div>
+      <div class="bd-chg neg">−0.26% (6/9)</div>
+    </div>
+    <div class="backdrop-item">
+      <div class="bd-label">Nasdaq</div>
+      <div class="bd-val">25,678.82</div>
+      <div class="bd-chg neg">−0.97% (6/9)</div>
+    </div>
+    <div class="backdrop-item">
+      <div class="bd-label">DJIA</div>
+      <div class="bd-val">50,872.11</div>
+      <div class="bd-chg pos">+0.17% (6/9)</div>
+    </div>
+    <div class="backdrop-item">
+      <div class="bd-label">VIX</div>
+      <div class="bd-val">19.87</div>
+      <div class="bd-chg neg">+5.02% (6/9)</div>
+    </div>
+    <div class="backdrop-item">
+      <div class="bd-label">10Y Treasury</div>
+      <div class="bd-val">&gt;Earnings Yield</div>
+      <div class="bd-chg" style="color:var(--yellow)">警示：2002 以來首見</div>
+    </div>
+    <div class="backdrop-item">
+      <div class="bd-label">WTI Oil</div>
+      <div class="bd-val">+50% vs pre-war</div>
+      <div class="bd-chg neg">Iran Strait Hormuz</div>
+    </div>
+  </div>
+  <div class="content-block">
+    <p>6/9 市場主軸：Trump 暗示可能恢復對伊朗動能打擊 → 盤中科技股與高 beta 股拋售 → 收盤前部分回穩。Nasdaq 科技板塊下跌近 2%，領跌的是已於 6/5 爆發大跌（−4%）後試圖反彈的半導體股，包含 Micron（−6.3%）、Broadcom（−3.8%）、Marvell（−6.4%）。Dow 因非科技權重股（金融、工業）逆市走強而小漲。VIX 升至 19.87，從 3 月高峰 29.49 大幅回落但仍偏高，反映 Iran 地緣風險尚未完全定價。10 年期公債殖利率超過 S&amp;P 500 盈餘殖利率（此現象自 2002 年以來首見），對多頭構成長期警示。AI/科技敘事持續主導，S&amp;P 500 年初至今仍漲約 10%。</p>
+    <p><em>Source: <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-09-2026" style="color:var(--accent)">TheStreet — Stock Market Today June 9 2026</a> · <a href="https://www.cnbc.com/2026/06/08/stock-market-today-live-updates.html" style="color:var(--accent)">CNBC Markets June 8</a> · <a href="https://www.cnbc.com/2026/06/07/iran-war-100-days-trump-stocks-sp500-bonds-oil.html" style="color:var(--accent)">CNBC — 100 days Iran War Impact</a></em></p>
+  </div>
+
+  <!-- ======= SOURCES ======= -->
+  <div class="sources-section">
+    <h2>完整來源 All Sources Consulted</h2>
+    <ul class="sources-list">
+      <li><a href="https://finance.yahoo.com/markets/stocks/gainers/">Yahoo Finance — Top Gainers</a></li>
+      <li><a href="https://www.stocktitan.net/rankings/stock-gains-monthly/2026/june">StockTitan — June 2026 Monthly Gainers</a></li>
+      <li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-09-2026">TheStreet — Market Today June 9</a></li>
+      <li><a href="https://www.cnbc.com/2026/06/08/stock-market-today-live-updates.html">CNBC — Market June 8</a></li>
+      <li><a href="https://www.cnbc.com/2026/06/07/iran-war-100-days-trump-stocks-sp500-bonds-oil.html">CNBC — Iran War 100 Days Market Impact</a></li>
+      <li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-05-2026">TheStreet — Nasdaq −4% June 5</a></li>
+      <li><a href="https://www.gurufocus.com/news/8907804/nebius-group-nbis-launches-ai-living-lab-with-nvidia-stock-rises-over-5">GuruFocus — NBIS AI Living Lab</a></li>
+      <li><a href="https://www.gurufocus.com/news/8907977/nebius-shares-jump-after-nvidiabacked-ai-lab-launch">GuruFocus — NBIS NVIDIA Lab</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/nbis-stock-fallen-over-16-113636795.html">Yahoo Finance — NBIS Robotics Bet</a></li>
+      <li><a href="https://www.investing.com/news/stock-market-news/why-is-nebius-stock-rallying-today-93CH-4732838">Investing.com — Why NBIS Rallying</a></li>
+      <li><a href="https://www.tipranks.com/news/catalyst/why-marvell-stock-is-suddenly-taking-off">TipRanks — Why MRVL Taking Off</a></li>
+      <li><a href="https://www.timothysykes.com/news/marvell-technology-inc-mrvl-news-2026_06_09/">Timothy Sykes — MRVL June 9</a></li>
+      <li><a href="https://mlq.ai/stocks/MRVL/q1-2026-earnings/">MLQ.ai — MRVL Q1 Earnings</a></li>
+      <li><a href="https://investor.marvell.com/news-events/press-releases/detail/1011/marvell-technology-inc-reports-fourth-quarter-and-fiscal-year-2026-financial-results">Marvell IR — FY2026 Results</a></li>
+      <li><a href="https://stockstotrade.com/news/swarmer-inc-swmr-news-2026_06_02/">StocksToTrade — SWMR Rockets</a></li>
+      <li><a href="https://blog.mexc.com/finance/swmr-stock-analysis-2026-swarmer-bullish-bearish-cramer-spike/">MEXC — SWMR Cramer Spike</a></li>
+      <li><a href="https://www.tradingview.com/news/invezz:1c16f1da1094b:0-lase-stock-nearly-doubles-as-us-navy-shows-more-love/">TradingView — LASE Navy</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/why-lase-stock-surged-over-193245560.html">Yahoo Finance — Why LASE Surged</a></li>
+      <li><a href="https://stockstotrade.com/news/laser-photonics-corporation-lase-news-2026_06_02/">StocksToTrade — LASE J&J Order</a></li>
+      <li><a href="https://www.stocktitan.net/news/LASE/laser-photonics-laser-shield-anti-drone-system-selected-by-bzrbfog3uygb.html">StockTitan — LASE Laser Shield MEIA</a></li>
+      <li><a href="https://ideas.quantcha.com/2026/06/09/52-week-high-alert-trading-todays-movement-in-kimco-realty-kim/">Quantcha — KIM 52-Week High</a></li>
+      <li><a href="https://www.schwab.com/learn/story/todays-options-market-update">Charles Schwab — Options Update (KIM)</a></li>
+      <li><a href="https://www.gurufocus.com/news/8836264/kimco-realty-corp-kim-q1-2026-earnings-call-highlights-strong-ffo-growth-and-robust-leasing-activity">GuruFocus — KIM Q1 Earnings</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/04/gamestop-ebay-takeover-bid-ryan-cohen-gaming-retail-ecommerce.html">CNBC — GME eBay Bid</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/gamestop-jumps-10-record-profit-132308511.html">Yahoo Finance — GME Record Profit</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/12/ebay-rejects-gamestops-takeover-ryan-cohen.html">CNBC — eBay Rejects GME Bid</a></li>
+      <li><a href="https://www.gurufocus.com/news/8903502/gamestop-gme-ceo-ryan-cohen-pursues-ebay-stake">GuruFocus — Cohen Pursues eBay</a></li>
+      <li><a href="https://stocktwits.com/news-articles/markets/equity/why-sti-stock-is-soaring-today-solidion-space-battery-platform/cZ0ZQ7jReyl">StockTwits — STI Space Battery</a></li>
+      <li><a href="https://www.kavout.com/market-lens/what-s-fueling-laser-photonics-explosive-growth">Kavout — LASE Explosive Growth</a></li>
+      <li><a href="https://www.streetinsider.com/FDA/Legend+Biotech+to+present+LB2501+in+vivo+CAR-T+data+at+EHA+conference/26588997.html">StreetInsider — LEGN EHA</a></li>
+      <li><a href="https://www.stocktitan.net/sec-filings/LEGN/6-k-legend-biotech-corp-current-report-foreign-issuer-fe9dcad5fae3.html">StockTitan — LEGN ASCO 2026</a></li>
+      <li><a href="https://altindex.com/wallstreetbets">AltIndex — WSB Trending Stocks</a></li>
+      <li><a href="https://stocktwits.com/rankings/trending">StockTwits Trending</a></li>
+      <li><a href="https://www.nasdaqtrader.com/Trader.aspx?id=tradehalts">Nasdaq — Trading Halts</a></li>
+      <li><a href="https://www.barchart.com/options/unusual-activity">Barchart — Unusual Options Activity</a></li>
+      <li><a href="https://unusualwhales.com/">Unusual Whales — Options Flow</a></li>
+      <li><a href="https://www.quiverquant.com/stocks/wallstreetbets/">Quiver Quantitative — WSB Tracker</a></li>
+      <li><a href="https://apewisdom.io/">ApeWisdom — WSB Mentions</a></li>
+      <li><a href="https://finviz.com/">Finviz — Stock Screener</a></li>
+      <li><a href="https://marketchameleon.com/Reports/UnusualOptionVolumeReport">Market Chameleon — Unusual Options</a></li>
+    </ul>
+
+    <div class="disclaimer">
+      ⚠ 本報告僅供資訊參考，不構成任何投資建議或推薦。所有股票分析均為描述性事實整理與公開市場敘事梳理，不代表「應買入/賣出」之判斷。小市值股（STI、LASE、SWMR、VIDA 等）波動極大，不適合所有投資人。投資前請自行評估風險並諮詢合格財務顧問。數字若標示「待確認」代表公開資料不足，請以官方財務資訊平台為準。This report is for informational purposes only and does not constitute investment advice. Past price action and options flow do not predict future results.
+    </div>
+  </div>
+
+</main>
+</body>
+</html>

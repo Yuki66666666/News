@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美股日報 US Stocks Daily — 2026-06-09 Session</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --accent: #4f8ef7;
+      --accent2: #7b5ea7;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #facc15;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --border: #2d3148;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #22263a 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 32px 20px;
+    }
+    header h1 { font-size: 1.6rem; font-weight: 700; color: var(--accent); }
+    header .subtitle { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+    header .session-badge {
+      display: inline-block;
+      background: var(--surface2);
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      padding: 2px 10px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-top: 8px;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 28px 24px 60px; }
+
+    /* Index Table */
+    .index-table-wrap { overflow-x: auto; margin-bottom: 36px; }
+    table.index-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    table.index-table th {
+      background: var(--surface2);
+      color: var(--muted);
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 2px solid var(--border);
+      white-space: nowrap;
+    }
+    table.index-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      white-space: nowrap;
+    }
+    .up { color: var(--green); font-weight: 600; }
+    .down { color: var(--red); font-weight: 600; }
+    .flat { color: var(--muted); }
+
+    /* Sections */
+    section { margin-bottom: 44px; }
+    section h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent);
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+      margin-bottom: 20px;
+    }
+
+    /* Story cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin-bottom: 18px;
+    }
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .card .meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .card .meta a { color: var(--accent); text-decoration: none; }
+    .card .meta a:hover { text-decoration: underline; }
+
+    .label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 4px;
+      padding: 2px 7px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    .label-fact { background: #1e3a5f; color: #93c5fd; }
+    .label-context { background: #2d2040; color: #c4b5fd; }
+    .label-impl { background: #1e3b2f; color: #6ee7b7; }
+
+    .block { margin-bottom: 10px; }
+    .block p { color: var(--text); font-size: 0.93rem; }
+    .block strong { color: var(--yellow); }
+
+    /* Mover chips */
+    .mover-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+    .mover-chip {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 0.87rem;
+    }
+    .mover-chip .ticker { font-weight: 700; color: var(--accent); }
+    .mover-chip .pct { font-weight: 700; margin-left: 6px; }
+
+    /* Sector bar */
+    .sector-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+    .sector-pill {
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 24px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* Warning banner */
+    .warning-banner {
+      background: #2a1a0a;
+      border: 1px solid #f97316;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 0.82rem;
+      color: #fdba74;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>🇺🇸 美股日報 US Stocks Daily</h1>
+  <div class="subtitle">每日美股市場深度摘要 · Bilingual US Equity Briefing</div>
+  <div class="session-badge">Trading Session: Monday, June 9, 2026 (RTH Close) · Published: 2026-06-10 Taipei</div>
+</header>
+
+<div class="container">
+
+  <!-- INDEX TABLE -->
+  <div class="index-table-wrap">
+    <table class="index-table">
+      <thead>
+        <tr>
+          <th>指數 / Index</th>
+          <th>收盤 Close</th>
+          <th>漲跌 Chg</th>
+          <th>%</th>
+          <th>備注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>S&amp;P 500</strong></td>
+          <td>7,386.65</td>
+          <td class="down">▼ −19.23</td>
+          <td class="down">−0.26%</td>
+          <td>Iran geopolitical overhang</td>
+        </tr>
+        <tr>
+          <td><strong>Nasdaq Composite</strong></td>
+          <td>25,678.82</td>
+          <td class="down">▼ −252.06</td>
+          <td class="down">−0.97%</td>
+          <td>Tech/Big-cap drag offset chip rebound</td>
+        </tr>
+        <tr>
+          <td><strong>Dow Jones (DJIA)</strong></td>
+          <td>50,872.11</td>
+          <td class="up">▲ +86.10</td>
+          <td class="up">+0.17%</td>
+          <td>Defensive/industrial outperformance</td>
+        </tr>
+        <tr>
+          <td><strong>Russell 2000</strong></td>
+          <td>~2,932</td>
+          <td class="up">▲ est. +0.55%</td>
+          <td class="up">+0.55%</td>
+          <td>Small-cap breadth strength</td>
+        </tr>
+        <tr>
+          <td><strong>VIX</strong></td>
+          <td>20.45</td>
+          <td class="up">▲</td>
+          <td class="up">+8.09%</td>
+          <td>Elevated; Iran escalation risk</td>
+        </tr>
+        <tr>
+          <td><strong>US 10Y Yield</strong></td>
+          <td>5.46%</td>
+          <td class="flat">―</td>
+          <td class="flat">stable</td>
+          <td>Remains restrictive; no cut priced near-term</td>
+        </tr>
+        <tr>
+          <td><strong>DXY</strong></td>
+          <td>99.85</td>
+          <td class="down">▼ −0.15%</td>
+          <td class="down">−0.15%</td>
+          <td>Mild dollar softness</td>
+        </tr>
+        <tr>
+          <td><strong>WTI Crude</strong></td>
+          <td>~$89.38</td>
+          <td class="down">▼</td>
+          <td class="down">est. −2%+</td>
+          <td>Iran ceasefire hopes; pulled back from $95</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 1: MARKET OVERVIEW -->
+  <section>
+    <h2>1. 市場概況 / Market Overview</h2>
+    <div class="warning-banner">
+      ⚠️ 盤後(AH)動向仍在演進,以下數據均為 RTH 正式收盤價。
+      After-hours moves still developing; all prices below are official RTH closes unless noted.
+    </div>
+
+    <div class="card">
+      <h3>分裂走勢:道指逆勢上漲,那指創週內新低 / Split Tape: Dow Gains, Nasdaq Extends Weekly Loss</h3>
+      <div class="meta">
+        來源: <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-09-2026" target="_blank">TheStreet</a> ·
+        <a href="https://www.cnbc.com/2026/06/08/stock-market-today-live-updates.html" target="_blank">CNBC</a> ·
+        <a href="https://247wallst.com/investing/2026/06/09/stock-market-live-june-9-2026-sp-500-spy-bouncing-back-with-tech/" target="_blank">24/7 Wall St.</a> ·
+        2026-06-09
+      </div>
+
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>S&amp;P 500 收 7,386.65（-0.26%），那斯達克跌 0.97% 至 25,678，道指逆勢漲 0.17% 至 50,872。小型股 Russell 2000 上漲約 0.55%，是當日少數亮點。SPY 日內區間 $722.59-$746.90，成交量 69.85M（高於均值 49.97M），顯示市場分歧加大。</p>
+        <p style="margin-top:6px">The S&amp;P 500 slipped 0.26% to 7,386; Nasdaq lost 0.97% to 25,679. DJIA rose 0.17%, while Russell 2000 gained ~0.55%. SPY volume hit 69.85M vs avg 49.97M — elevated participation.</p>
+      </div>
+
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>市場延續上週五暴跌後的震盪格局。五月強勁就業報告令市場認為聯準會今年幾乎不可能降息，加上伊朗衝突升溫令能源與防禦板塊受益、科技股承壓。整體市場廣度仍正面：推進標的 1,330 檔 vs. 下跌 550 檔，顯示指數跌幅主要由大型科技股拉低。</p>
+        <p style="margin-top:6px">The selloff follows Friday's jobs-data shock that crushed rate-cut hopes. Geopolitical Iran risk boosted energy/defense while pressuring growth stocks. Market breadth remains positive at 1,330 advancers vs 550 decliners — the headline index is distorted by megacap weakness.</p>
+      </div>
+
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>道指與那指背離代表資金「防禦性輪動」仍在進行。若伊朗局勢無法緩解，WTI 可能再測 $95；科技股若無新催化劑，壓力將延續至 CPI 數據（6/11）前。</p>
+        <p style="margin-top:6px">DJIA/Nasdaq divergence signals defensive rotation. WTI could retest $95 if Iran truce talks stall. Tech lacks a near-term re-rating catalyst ahead of the June CPI print (June 11).</p>
+      </div>
+
+      <div class="block" style="margin-top:14px">
+        <p><strong>板塊表現 Sector Snapshot:</strong></p>
+        <div class="sector-row" style="margin-top:8px">
+          <div class="sector-pill up">科技 Tech +1.47%</div>
+          <div class="sector-pill up">能源 Energy +0.89%</div>
+          <div class="sector-pill up">工業 Industrials +0.5%</div>
+          <div class="sector-pill down">醫療 Healthcare −0.16%</div>
+          <div class="sector-pill down">通訊 Comm Svc ~flat</div>
+        </div>
+        <p style="font-size:0.83rem;color:var(--muted);margin-top:6px">*板塊漲跌為盤中估算，非最終收盤確認數字。 Sector figures are intraday estimates; final sector attribution may vary.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: TOP STORIES -->
+  <section>
+    <h2>2. 頭條 / Top Stories</h2>
+
+    <div class="card">
+      <h3>伊朗緊張局勢推高 VIX 至 20:川普暗示可能重啟軍事打擊 / Iran Tensions Spike VIX: Trump Teases Resumed Strikes</h3>
+      <div class="meta">
+        來源: <a href="https://www.cnbc.com/video/2026/06/09/markets-are-wildly-optimistic-to-believe-that-iran-war-is-over.html" target="_blank">CNBC</a> ·
+        <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-09-2026" target="_blank">TheStreet</a> ·
+        <a href="https://www.allianzgi.com/en/insights/strikes-on-Iran-assessing-the-market-impact" target="_blank">AllianzGI</a> ·
+        2026-06-09
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>VIX 當日跳升 8.09% 至 20.45。伊朗與以色列一度傳出停火消息，川普隨即以「可能恢復動能打擊」回應，WTI 在日內高點 $95 附近後回落至 $89.38。Brent 原油較戰前高出約 36%，WTI 較戰前高約 50%。</p>
+        <p style="margin-top:6px">VIX jumped 8.09% to 20.45. An Iran-Israel ceasefire report briefly lifted equities; Trump's threat of resumed strikes reversed gains. WTI slid to ~$89 after testing $95. Brent is ~36% above pre-war levels; WTI ~50%.</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>自 2 月美國與以色列聯合打擊伊朗以來，荷莫斯海峽（全球 20% 石油通過）實質上封閉，全球油市供給缺口巨大。每 次「停火傳聞 → 川普否認」循環都在油市與股市製造劇烈波動。</p>
+        <p style="margin-top:6px">Since joint US-Israel strikes in February, the Strait of Hormuz has been effectively closed, removing ~20% of global oil supply. The oscillating "ceasefire rumor → Trump denial" loop is becoming a recurring volatility pattern.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>高油價繼續壓制通膨，縮短聯準會降息空間。能源股（XLE）為 2026 年報酬最佳板塊（YTD +34.5%），但地緣政治轉折風險同樣高。航空股（AAL +3.6%）藉永續燃料敘事取得差異化表現。</p>
+        <p style="margin-top:6px">Elevated oil sustains inflation, compressing Fed easing runway. Energy (XLE +34.5% YTD) remains 2026's top sector but carries binary geopolitical risk. Airlines like AAL (+3.6%) found refuge in sustainable-fuel narratives.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>BofA 舉旗警告:70% 熊市訊號亮紅燈，喊「獲利了結」/ BofA: 70% Bear-Market Signposts Triggered, Urges Profit-Taking</h3>
+      <div class="meta">
+        來源: <a href="https://www.bloomberg.com/news/articles/2026-06-08/bofa-warns-it-s-time-to-take-profits-as-red-flags-multiply" target="_blank">Bloomberg</a> ·
+        <a href="https://finance.yahoo.com/markets/article/bofa-warns-investors-to-take-profits-as-70-of-the-banks-bear-market-signals-flash-red-141004060.html" target="_blank">Yahoo Finance</a> ·
+        <a href="https://www.axios.com/2026/06/09/stocks-tech-bofa-analysts" target="_blank">Axios</a> ·
+        2026-06-08/09
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>BofA 首席股票策略師 Savita Subramanian 在 6 月 5 日報告中指出，10 項熊市指標已有 7 項觸發（5 月底新增 2 項），包含異常高的長期盈利增長預期、極寬鬆信用環境、高/低本益比股票績效極端分化。S&amp;P 500 在 20 項估值指標中有 17 項「統計上偏貴」，在 8 項指標上甚至超越網路泡沫高峰。BofA 年底目標價維持 7,100，低於目前水準。</p>
+        <p style="margin-top:6px">BofA's Savita Subramanian: 7 of 10 internal bear signals triggered; S&amp;P 500 statistically expensive on 17 of 20 valuation metrics and above dot-com-bubble levels on 8. BofA year-end target: 7,100 (below current price). Recommendation: "take profits."</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>S&amp;P 500 今年已觸及歷史新高，AI 敘事與超大型科技資本支出（2026 年 AI CapEx 合計 $7,500 億美元）推動上漲。但寬廣市場估值與歷史最高點比較令賣方分析師逐漸轉為審慎。</p>
+        <p style="margin-top:6px">The S&amp;P 500 hit all-time highs this year on AI capex tailwinds ($750B planned across four hyperscalers for 2026). But stretched valuations are drawing increasing scrutiny from sell-side strategists.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>BofA 的警告並非罕見，但連同近日其他大行（如摩根士丹利）均指出通膨及地緣政治為主要風險，市場可能在 CPI 數據前維持防禦性偏好。注意：分析師警告不等於熊市確認，僅為風控參考。</p>
+        <p style="margin-top:6px">BofA's caution joins other banks citing inflation and Iran as twin risks. Near-term market tone likely stays defensive before the June 11 CPI print. Analyst warnings are not market-timing signals; they reflect positioning, not prediction.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: EARNINGS -->
+  <section>
+    <h2>3. 財報 / Earnings of the Day</h2>
+
+    <div class="card">
+      <h3>JM Smucker (SJM) Q4 FY26:EPS 超預期 4% / JM Smucker Q4 Beat</h3>
+      <div class="meta">
+        來源: <a href="https://www.chartmill.com/news/SJM/Chartmill-49621-JM-Smucker-Co-NYSESJM-Edges-Higher-After-Q4-Profit-Beat-Offsets-Slight-Revenue-Miss" target="_blank">ChartMill</a> · 2026-06-09
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>SJM 每股盈餘 $2.77，超越共識預期 $2.66（+4.1%），但營收略低於預期。盤前股價上漲約 2.97%。</p>
+        <p style="margin-top:6px">EPS $2.77 vs. consensus $2.66 (+4.1%). Revenue slight miss. Shares gained ~2.97% in premarket.</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>本財報季整體強勁：85% 的標普公司超越 EPS 預期（五年均值 78%），每股盈餘超預期幅度 16.7%，營收年增 11.8%——為 2022Q2 以來最快。SJM 屬消費必需品板塊，在高利率下受防禦性資金青睞。</p>
+        <p style="margin-top:6px">Broader season: 85% S&amp;P companies beat EPS (vs 5yr avg 78%); revenue growth +11.8% YoY — fastest since Q2 2022. Consumer staples like SJM attract defensive flows in the high-rate environment.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>財報季整體正面有助支撐市場信心，但市場注意力已從財報轉向 Fed 政策走向與地緣政治風險。</p>
+        <p style="margin-top:6px">A strong earnings season provides a floor for equities, but market focus has shifted to macro (Fed path, Iran) over earnings.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: SINGLE STOCK MOVERS -->
+  <section>
+    <h2>4. 個股大事 / Single-Stock Movers</h2>
+
+    <div class="mover-row">
+      <div class="mover-chip"><span class="ticker">MU</span><span class="pct up">+9.9%</span></div>
+      <div class="mover-chip"><span class="ticker">MRVL</span><span class="pct up">+9.6%</span></div>
+      <div class="mover-chip"><span class="ticker">AMD</span><span class="pct up">+5.1%</span></div>
+      <div class="mover-chip"><span class="ticker">AVGO</span><span class="pct up">+2.8%</span></div>
+      <div class="mover-chip"><span class="ticker">PAYO</span><span class="pct up">+24.3%</span></div>
+      <div class="mover-chip"><span class="ticker">AAL</span><span class="pct up">+3.6%</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Marvell Technology (MRVL) +9.6%:S&amp;P 500 入選 + 黃仁勳加持 / MRVL Surges on S&amp;P 500 Inclusion &amp; Jensen Huang Endorsement</h3>
+      <div class="meta">
+        來源: <a href="https://www.timothysykes.com/news/marvell-technology-inc-mrvl-news-2026_06_09/" target="_blank">Timothy Sykes / StockStory</a> ·
+        <a href="https://www.investing.com/news/stock-market-news/why-is-marvell-technology-stock-rallying-today-93CH-4733008" target="_blank">Investing.com</a> ·
+        <a href="https://finance.yahoo.com/markets/stocks/articles/marvells-p-500-inclusion-could-154641065.html" target="_blank">Yahoo Finance</a> ·
+        2026-06-09
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>MRVL 盤中最高漲 10.3%，收漲約 9.6%。雙重催化劑：（1）S&amp;P Dow Jones Indices 宣布 MRVL 將納入標普 500 指數，被動基金被迫跟進買進；（2）NVIDIA CEO 黃仁勳稱 Marvell 為「下一個兆元公司」。此外 MRVL 剛公布 Q1 FY27 營收 $24.18 億（年增 28%），Q2 指引 $27 億（年增 35%）。</p>
+        <p style="margin-top:6px">MRVL rose ~9.6% intraday peak of +10.3%. Catalysts: (1) S&amp;P 500 inclusion announcement forcing passive-fund buying; (2) NVIDIA CEO Jensen Huang calling MRVL "the next trillion-dollar company." Q1 FY27 revenue $2.418B (+28% YoY); Q2 guide $2.7B (+35%).</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>MRVL 今年成為 AI 網路晶片主要受益者，推出 102.4 Tbps AI 交換器晶片 Teralynx T100，並收購 Celestial AI、XConn 強化光互連及記憶體晶片佈局。超大型雲端業者（hyperscalers）2026 年 AI CapEx 合計達 $7,500 億，MRVL 的「AI 管線」定位使其受益。</p>
+        <p style="margin-top:6px">MRVL has become the AI networking chip beneficiary of 2026, with Teralynx T100 (102.4 Tbps switch chip) and acquisitions of Celestial AI and XConn. Hyperscaler AI capex of $750B for 2026 directly funds MRVL's addressable market.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>S&amp;P 500 入選帶來的被動資金流入可持續數週；黃仁勳背書強化市場對 AI 基礎設施超級週期的信心。競爭者 Broadcom（AVGO）同樣受益。需注意高估值下散戶追漲風險。</p>
+        <p style="margin-top:6px">Passive-fund flow from S&amp;P inclusion can sustain buying for weeks. Jensen's endorsement reinforces AI infrastructure supercycle narrative. Risk: high valuation makes MRVL sensitive to any demand disappointment.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>半導體族群反彈:MU +9.9%、AMD +5.1%、AVGO +2.8% / Chip Cohort Bounces: MU, AMD, AVGO</h3>
+      <div class="meta">
+        來源: <a href="https://stocktwits.com/news-articles/markets/equity/mu-avgo-mrvl-stocks-hit-52-week-highs-amid-hot-chip-rally/" target="_blank">StockTwits</a> ·
+        <a href="https://www.schwab.com/learn/story/stock-market-update-open" target="_blank">Schwab</a> ·
+        2026-06-09
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>Micron（MU）+9.9%，Advanced Micro Devices（AMD）+5.1%，Broadcom（AVGO）+2.8%。部分標的觸及 52 週新高。週五大跌後出現技術性反彈，AI 資料中心需求敘事重燃。</p>
+        <p style="margin-top:6px">MU +9.9%, AMD +5.1%, AVGO +2.8%. Several hit 52-week highs. Bounce from Friday's selloff (triggered by strong jobs data / rate-cut re-pricing). AI datacenter demand narrative re-ignited.</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>上週五就業報告強勁（遠超預期）令市場重新估算聯準會不降息機率，科技/半導體股遭拋售。NVIDIA 多家銀行上調目標價（Blackwell 擴產加速），帶動族群信心回升。四大超大型雲端業者 2026 年 AI CapEx 合計達 $7,500 億，明年可能超越 $1 兆。</p>
+        <p style="margin-top:6px">Friday's blowout jobs print crushed rate-cut bets, sparking a chip selloff. Today's recovery was led by NVIDIA price target increases (Blackwell ramp acceleration) and hyperscaler capex reaffirmation ($750B in 2026, $1T+ by 2027).</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>反彈是否可持續取決於 6/11 CPI 數據與 6/16-17 FOMC 會議結果。若通膨再超預期，半導體股「利率敏感性」可能再度主導。MU 的 HBM（高頻寬記憶體）需求前景相對明確，是族群中基本面確定性較高者。</p>
+        <p style="margin-top:6px">Sustainability depends on June 11 CPI and June 16-17 FOMC. Another inflation miss would re-trigger rate-sensitivity selling. MU's HBM demand pipeline offers the highest fundamental certainty within the group.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: M&A and IPO -->
+  <section>
+    <h2>5. 併購與 IPO / M&amp;A and IPO</h2>
+
+    <div class="card">
+      <h3>Nuvei 擬 27 億美元收購 Payoneer，PAYO 暴漲 24% / Nuvei in $2.7B Talks to Acquire Payoneer; PAYO +24%</h3>
+      <div class="meta">
+        來源: <a href="https://www.fool.com/coverage/stock-market-today/2026/06/09/stock-market-today-june-9-payoneer-global-surges-on-reports-of-usd2-7-billion-nuvei-acquisition-offer/" target="_blank">Motley Fool</a> ·
+        <a href="https://www.tradingview.com/news/reuters.com,2026:newsml_L6N42G1BT:0-nuvei-to-value-payoneer-at-about-2-7-billion-including-debt-in-deal-sources-say/" target="_blank">TradingView/Reuters</a> ·
+        2026-06-09
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>加拿大支付公司 Nuvei（私有，PE 公司 Advent International 持有）正與 Payoneer（PAYO）洽談，擬以約 $27 億美元（含債務）收購，企業價值約 $23 億。PAYO 收 $6.39，漲幅 24.32%，成交量 51.7M 股（約為三個月均量的 1,005%）。</p>
+        <p style="margin-top:6px">Canadian fintech Nuvei (PE-owned by Advent International since 2024 at $6.3B) in advanced talks to acquire Payoneer for ~$2.7B total enterprise value (~$2.3B EV). PAYO closed at $6.39 (+24.32%). Volume: 51.7M shares (~1,005% of 3-month average).</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>Nuvei 以商家支付解決方案為主，Payoneer 主打跨境收款（尤其是 SMB 和電商賣家）。合併可強化 Nuvei 的全球收款覆蓋範圍。Nuvei 本身在 2024 年以 63 億美元被 Advent 私有化——此次收購代表 PE 策略性擴張。</p>
+        <p style="margin-top:6px">Nuvei focuses on merchant payment acceptance; Payoneer targets cross-border receivables for SMBs/e-commerce. Combination broadens Nuvei's global collection network. Nuvei itself was taken private by Advent at $6.3B in 2024 — this is a PE-driven strategic expansion.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>溢價確認跨境支付賽道仍具戰略價值。同類標的（如 dLocal、Flywire）可能受此帶動。尚未正式宣布，若談判破裂 PAYO 將大幅回吐漲幅。</p>
+        <p style="margin-top:6px">Deal validates cross-border payments as a strategic M&amp;A target. Peers like dLocal and Flywire may re-rate. Talks are not finalized — a breakdown would sharply reverse PAYO's gains.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>SpaceX IPO 路演衝刺：6/12 掛牌，估值 $1,350 億；OpenAI 同日申報 IPO / SpaceX IPO on Track for June 12; OpenAI Files Confidentially</h3>
+      <div class="meta">
+        來源: <a href="https://capital.com/en-int/learn/ipo/spacex-ipo" target="_blank">Capital.com</a> ·
+        <a href="https://www.euronews.com/business/2026/06/09/chatgpt-maker-openai-files-for-ipo-joining-anthropic-and-spacex-in-race-to-go-public" target="_blank">Euronews</a> ·
+        <a href="https://www.bloomberg.com/news/articles/2026-06-09/spacex-anthropic-openai-can-rewrite-history-for-megacap-ipos" target="_blank">Bloomberg</a> ·
+        2026-06-09
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>SpaceX：計畫 6/11 定價（每股 $135），6/12 在那斯達克掛牌（代碼 SPCX），募資 $750 億，若成功將成為史上最大 IPO。OpenAI：6/9 宣布已向 SEC 祕密申報 IPO，目標估值超過 $1 兆，最快 2026 年 9 月掛牌。Anthropic 上週（6/1）也已宣佈 IPO 計畫。</p>
+        <p style="margin-top:6px">SpaceX: pricing June 11 at $135/share, Nasdaq debut June 12 (SPCX); raising $75B — potentially history's largest IPO. OpenAI: confidentially filed with SEC on June 9; valuation target >$1T; earliest listing September 2026. Anthropic announced IPO plans June 1.</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>三大 AI/科技獨角獸同步衝刺 IPO，是自 2004-2012 年 Google/Facebook 世代以來最具歷史意義的「超大型 IPO 潮」。SpaceX 市值估計超過多數 S&amp;P 500 成員；OpenAI 兆元估值將使其立即躋身全球前十大上市公司。</p>
+        <p style="margin-top:6px">Three megacap AI/tech unicorns racing to market simultaneously — the most significant IPO wave since the Google/Facebook era. SpaceX would debut larger than most current S&amp;P 500 members; an OpenAI $1T+ listing would immediately rank among the world's top 10 public companies.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>SpaceX 掛牌將抽走大量零售與機構資金，可能在 6/12 前後造成市場短期流動性緊張。OpenAI 上市路徑仍不確定（公司高層態度審慎）。三者同步 IPO 也凸顯私人 AI 生態系的成熟度。</p>
+        <p style="margin-top:6px">SpaceX debut may temporarily drain liquidity from secondary markets around June 12. OpenAI's path remains uncertain (management cautious). All three listings signal the maturation of the private AI ecosystem into public-market stage.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>美國航空 (AAL) +3.6%：宣布與 Alphabet Google 可持續燃料協議 / American Airlines Signs Sustainable Fuel Deal with Google</h3>
+      <div class="meta">
+        來源: <a href="https://finance.yahoo.com/markets/stocks/articles/stock-market-today-june-9-220014147.html" target="_blank">Yahoo Finance / Motley Fool</a> · 2026-06-09
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>AAL 宣布與 Alphabet（Google 母公司）達成可持續航空燃料（SAF）長期協議，股價收漲 3.60% 至 $14.09。</p>
+        <p style="margin-top:6px">American Airlines announced a sustainable aviation fuel (SAF) long-term deal with Alphabet. AAL closed +3.60% at $14.09.</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>在高油價環境下，SAF 協議為航空公司提供燃料成本多元化路徑，同時滿足 ESG 投資人偏好。Alphabet 的 SAF 採購符合其碳中和承諾。</p>
+        <p style="margin-top:6px">In a high-oil-price environment, SAF deals offer airlines a fuel-cost diversification path and ESG credibility. Google's SAF procurement aligns with its net-zero commitments.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: ANALYST CALLS -->
+  <section>
+    <h2>6. 券商評等 / Analyst Calls</h2>
+
+    <div class="card">
+      <h3>NVIDIA (NVDA)：多家投行上調目標價，Blackwell 放量加速 / NVIDIA: Multiple PT Upgrades on Blackwell Ramp Acceleration</h3>
+      <div class="meta">
+        來源: <a href="https://www.benzinga.com/quote/NVDA/analyst-ratings" target="_blank">Benzinga</a> · 2026-06 月份整體
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>多家銀行在 NVDA 指引 Blackwell GPU 出貨量加速後，陸續上調目標價。Blackwell 已成為 AI 訓練及推論市場的事實標準架構。</p>
+        <p style="margin-top:6px">Multiple banks raised NVDA price targets after the company guided to accelerated Blackwell GPU shipments through H2 2026. Blackwell is the de facto architecture for AI training and inference workloads.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Intel (INTC)：年度最大反轉，多家悲觀分析師升至 Hold/Buy / Intel: Year's Biggest Analyst Rotation to Buy/Hold</h3>
+      <div class="meta">
+        來源: <a href="https://www.heygotrade.com/en/blog/wall-street-analyst-upgrades-june-2026/" target="_blank">HeyGoTrade</a> · 2026-06 月上旬
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>INTC 年初至今累計漲幅達 250%，多家先前持悲觀評等的分析師在 6 月初陸續上調至 Hold 或 Buy，為 2026 年最顯著的個股評等輪動故事之一。</p>
+        <p style="margin-top:6px">INTC is up ~250% YTD. Several previously bearish analysts moved to Hold or Buy in early June — the most notable single-stock analyst rotation of 2026.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>分析師追漲（而非前瞻）升評的現象值得警惕；INTC 基本面轉機仍在驗證中。</p>
+        <p style="margin-top:6px">Late-cycle analyst upgrades (chasing price, not anticipating fundamentals) warrant caution. INTC's turnaround thesis remains in verification stage.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: FED & RATES -->
+  <section>
+    <h2>7. Fed 與利率 / Fed &amp; Rates</h2>
+
+    <div class="card">
+      <h3>10 年期公債殖利率 5.46%：聯準會 6/16-17 FOMC 預期按兵不動 / 10Y Yield at 5.46%; Fed Holds at June 16-17 FOMC</h3>
+      <div class="meta">
+        來源: <a href="https://www.federalreserve.gov/monetarypolicy/fomcpresconf20260429.htm" target="_blank">Federal Reserve</a> ·
+        <a href="https://streetstats.finance/rates/fedfunds" target="_blank">StreetStats FedWatch</a> ·
+        <a href="https://www.federalreserve.gov/releases/h15/" target="_blank">Fed H.15</a> ·
+        2026-06-08/09
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>聯準會最新利率目標區間維持 3.5%-3.75%（4/29 FOMC 決議），準備金利率 3.65%。10 年期殖利率穩於 5.46%，高於一般視為「中性」的水準。市場定價顯示 2027 年 Q1 前升息概率約 30%，2026 年 Q3-Q4 各有一次降息預期，但確定性低。</p>
+        <p style="margin-top:6px">Fed funds target: 3.5%-3.75% (April 29 hold). US 10Y yield: 5.46% — well above neutral. Market pricing: ~30% probability of a rate hike by Q1 2027; two 25bp cuts expected across Q3-Q4 2026 and Q1 2027, but low conviction.</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>Fed 4 月聲明指出就業穩健、通膨仍偏高（部分來自能源）、伊朗衝突增添不確定性。五月強勁就業報告（遠超預期）幾乎消除短期降息空間。下次 FOMC：6/16-17，市場幾乎一致預期維持不變。</p>
+        <p style="margin-top:6px">April FOMC statement: solid job gains, elevated inflation (partly Iran-energy driven), high uncertainty. May's blowout jobs report crushed near-term cut bets. Next FOMC: June 16-17 — a hold is consensus. The June 11 CPI print is the week's key risk event for rate markets.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>高殖利率持續打壓高估值成長股（尤其是無獲利科技）。若 CPI 再超預期，降息預期可能進一步後移，對 Nasdaq 形成額外阻力。美元走弱（DXY -0.15%）則對大型跨國企業盈餘略有正面效益。</p>
+        <p style="margin-top:6px">Sustained high yields cap growth stock multiples. Another CPI overshoot would push cut expectations further out, adding Nasdaq headwinds. Mild DXY softness (-0.15%) provides a slight tailwind for multinational earnings.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: FLOWS & POSITIONING -->
+  <section>
+    <h2>8. 資金流向 / Flows &amp; Positioning</h2>
+
+    <div class="card">
+      <h3>QQQ 短期資金淨流出，SPY 成交量飆升 / QQQ 5-Day Outflows; SPY Volume Surges</h3>
+      <div class="meta">
+        來源: <a href="https://en.macromicro.me/charts/23582/nasdaq-composite" target="_blank">MacroMicro / QQQ Flow</a> ·
+        <a href="https://robinhood.com/us/en/stocks/SPY/" target="_blank">SPY Market Data</a> ·
+        2026-06-09
+      </div>
+      <div class="block">
+        <span class="label label-fact">核心事實 / Facts</span>
+        <p>QQQ 5 日淨流出 -$5.8 億，但 1 個月淨流入仍達 +$103.5 億，顯示長線資金未撤退，近期短線資金保守。SPY 當日成交量 6,985 萬股（高於三個月均量 4,997 萬股 40%），高成交量伴隨寬幅震盪，顯示市場分歧加劇。</p>
+        <p style="margin-top:6px">QQQ: 5-day net flows −$580M; 1-month net flows +$10.35B. Long-term money is not exiting but near-term positioning is cautious. SPY volume 69.85M vs avg 49.97M — elevated volume on wide intraday range ($722-$747) signals heightened uncertainty/disagreement.</p>
+      </div>
+      <div class="block">
+        <span class="label label-context">背景脈絡 / Context</span>
+        <p>近期半導體大跌（6/6）觸發部分 QQQ 短線資金撤出，但月線仍大幅正流入，說明機構中線仍看多 AI 主題。SpaceX IPO 路演可能暫時性吸走部分流動性（6/12 掛牌前後）。</p>
+        <p style="margin-top:6px">Friday's chip selloff triggered short-term QQQ outflows, but 1-month inflows remain robust — institutions are staying the AI course. SpaceX IPO (June 12) may temporarily absorb liquidity around debut week.</p>
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 / Implications</span>
+        <p>短線資金流向謹慎 + VIX 升高 = 選擇權保護需求增加，gamma 結構偏空（market makers 傾向賣高買低，可能放大下行波動）。這不是明確的趨勢轉折訊號，但確認市場正在積累不確定性。</p>
+        <p style="margin-top:6px">Cautious near-term flows + elevated VIX = rising options protection demand. Negative gamma structure likely (MMs sell rallies/buy dips), which can amplify swings. Not a definitive trend reversal signal, but confirms accumulating uncertainty.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: READS -->
+  <section>
+    <h2>9. 觀點 / Reads Worth Bookmarking</h2>
+
+    <div class="card">
+      <h3>CNBC: 「市場對伊朗戰爭終結過度樂觀」/ CNBC: Markets Are 'Wildly Optimistic' on Iran War Ending</h3>
+      <div class="meta">
+        來源: <a href="https://www.cnbc.com/video/2026/06/09/markets-are-wildly-optimistic-to-believe-that-iran-war-is-over.html" target="_blank">CNBC Video</a> · 2026-06-09
+      </div>
+      <div class="block">
+        <p>CNBC 評論員指出，每次停火傳聞推動的反彈都被市場「交易成和平」，但中東地緣政治複雜度遠超市場定價。以色列-哈馬斯-伊朗三角關係使永久停火窗口非常窄。這個「反彈然後失望」的模式已重複多次，值得投資人保持謹慎。</p>
+        <p style="margin-top:6px">Commentary warns that each ceasefire rumor rally prices in a full peace resolution, ignoring the multi-actor complexity (Israel-Hamas-Iran triangle). The repeat "rally then disappointment" cycle is a pattern traders should price in rather than assume is over.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Bloomberg: SpaceX、OpenAI、Anthropic — 改寫超大型 IPO 歷史 / Bloomberg: These IPOs Can Rewrite Megacap IPO History</h3>
+      <div class="meta">
+        來源: <a href="https://www.bloomberg.com/news/articles/2026-06-09/spacex-anthropic-openai-can-rewrite-history-for-megacap-ipos" target="_blank">Bloomberg</a> · 2026-06-09
+      </div>
+      <div class="block">
+        <p>Bloomberg 分析，三大獨角獸同步 IPO 的資本市場意義超越個別公司：它們代表 AI/太空科技私有生態系向公共市場的大規模轉移，也是散戶投資人首次有機會參與這三個敘事的「標準版入場券」。公開市場估值能否撐住私募估值，是 2026 年下半年的最大懸念。</p>
+        <p style="margin-top:6px">Bloomberg frames these three IPOs as a structural shift: private AI/space ecosystems migrating to public markets at unprecedented scale. Key question for H2 2026: can public market valuations sustain private market pricing?</p>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<footer>
+  <p>資料來源 / Sources:
+    <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-09-2026" target="_blank">TheStreet</a> ·
+    <a href="https://www.cnbc.com/2026/06/08/stock-market-today-live-updates.html" target="_blank">CNBC</a> ·
+    <a href="https://247wallst.com/investing/2026/06/09/stock-market-live-june-9-2026-sp-500-spy-bouncing-back-with-tech/" target="_blank">24/7 Wall St.</a> ·
+    <a href="https://www.bloomberg.com/news/articles/2026-06-08/bofa-warns-it-s-time-to-take-profits-as-red-flags-multiply" target="_blank">Bloomberg / BofA</a> ·
+    <a href="https://www.fool.com/coverage/stock-market-today/2026/06/09/stock-market-today-june-9-payoneer-global-surges-on-reports-of-usd2-7-billion-nuvei-acquisition-offer/" target="_blank">Motley Fool</a> ·
+    <a href="https://www.euronews.com/business/2026/06/09/chatgpt-maker-openai-files-for-ipo-joining-anthropic-and-spacex-in-race-to-go-public" target="_blank">Euronews</a> ·
+    <a href="https://www.federalreserve.gov/monetarypolicy/fomcpresconf20260429.htm" target="_blank">Federal Reserve</a> ·
+    <a href="https://stocktwits.com/news-articles/markets/equity/mu-avgo-mrvl-stocks-hit-52-week-highs-amid-hot-chip-rally/" target="_blank">StockTwits</a> ·
+    <a href="https://capital.com/en-int/learn/ipo/spacex-ipo" target="_blank">Capital.com</a> ·
+    <a href="https://streetstats.finance/rates/fedfunds" target="_blank">StreetStats</a>
+  </p>
+  <p style="margin-top:8px">本報告為資訊整理，不構成投資建議。數字以 RTH 正式收盤為準；估算數字標有「est.」或「~」。</p>
+  <p style="margin-top:4px">This briefing is for informational purposes only and does not constitute investment advice. RTH close prices used; estimates marked with "est." or "~".</p>
+  <p style="margin-top:8px; color:#4f8ef7">Generated: 2026-06-10 (Asia/Taipei) | Session: June 9, 2026 (Monday RTH Close)</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日有趣文章日報 — 2026-06-10</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    background: #f8f7f4;
+    color: #1a1a1a;
+    line-height: 1.65;
+    font-size: 15px;
+    padding: 24px 16px 60px;
+  }
+  .header {
+    max-width: 800px;
+    margin: 0 auto 32px;
+    border-bottom: 3px solid #1a1a1a;
+    padding-bottom: 16px;
+  }
+  .header h1 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+  .header .meta {
+    margin-top: 6px;
+    font-size: 0.82rem;
+    color: #666;
+    letter-spacing: 0.3px;
+  }
+  .track-label {
+    max-width: 800px;
+    margin: 28px auto 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+  }
+  .track-title {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border-left: 4px solid #c0392b;
+    padding-left: 10px;
+    color: #1a1a1a;
+  }
+  .section-heading {
+    max-width: 800px;
+    margin: 28px auto 14px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #c0392b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e0ddd8;
+  }
+  .card {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    background: #fff;
+    border: 1px solid #e8e5e0;
+    border-radius: 6px;
+    padding: 20px 22px;
+    position: relative;
+  }
+  .card.editor-pick {
+    border-color: #c0392b;
+    border-left-width: 4px;
+  }
+  .card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 8px;
+    color: #111;
+  }
+  .card h3 .en-title {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #555;
+    margin-top: 3px;
+  }
+  .card .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 0.77rem;
+    color: #777;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: #f0ede8;
+    color: #555;
+  }
+  .badge.time { background: #e8f4f8; color: #2471a3; }
+  .badge.domain { background: #fef9e7; color: #b7950b; }
+  .badge.pick { background: #fdedec; color: #c0392b; }
+  .card .label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #c0392b;
+    margin-top: 12px;
+    margin-bottom: 3px;
+  }
+  .card p {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 4px;
+  }
+  .card a {
+    color: #1a6aab;
+    text-decoration: none;
+    font-size: 0.82rem;
+    word-break: break-all;
+  }
+  .card a:hover { text-decoration: underline; }
+  .divider {
+    max-width: 800px;
+    margin: 32px auto 0;
+    border: none;
+    border-top: 2px solid #1a1a1a;
+  }
+  .footer {
+    max-width: 800px;
+    margin: 28px auto 0;
+    font-size: 0.75rem;
+    color: #999;
+    line-height: 1.7;
+  }
+  .footer strong { color: #555; }
+  .number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.65rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-right: 8px;
+  }
+  .card-header-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 2px;
+  }
+  .thought-leader .domain-tag {
+    display: inline-block;
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    margin-right: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>今日有趣文章日報<br><span style="font-size:0.95rem;font-weight:600;color:#555;">Daily Interesting Articles — 2026-06-10</span></h1>
+  <div class="meta">精選 8 篇長文 + 3 位思想領袖觀點 &nbsp;|&nbsp; 涵蓋科技、科學、歷史、文化、商業 &nbsp;|&nbsp; 資料來源：Hacker News、Aeon、Quanta、One Useful Thing、Noahpinion</div>
+</div>
+
+<!-- TRACK A -->
+<div class="track-label">Track A</div>
+<div class="track-title">長文精選 / Longform Essays</div>
+
+<!-- 1. Editor's Pick -->
+<div class="section-heading">1 &nbsp;編輯精選 / Editor's Pick of the Day</div>
+
+<div class="card editor-pick">
+  <div class="card-header-row">
+    <span class="number">1</span>
+    <h3>
+      「魔法」讓時空有了重力
+      <span class="en-title">Entanglement Builds Space-Time. Now "Magic" Gives It Gravity.</span>
+    </h3>
+  </div>
+  <div class="meta-row">
+    <span class="badge pick">編輯精選</span>
+    <span class="badge">Quanta Magazine</span>
+    <span>· Charlie Wood ·</span>
+    <span>2026-06-03</span>
+    <span class="badge time">18 min</span>
+  </div>
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p>量子引力研究十年難題，終於因「magic」這個量子複雜度指標的突破而向前邁一大步。這篇 Quanta 長文把深奧的全像原理、量子糾纏、量子錯誤更正碼拼成一個有始有終的故事，讓非物理學家也能理解這個進展的輪廓——而且它真的很重要：它第一次給出了「為什麼萬有引力必然存在」的量子根源解釋。</p>
+
+  <div class="label">摘要 / Summary</div>
+  <p>長期以來，物理學家知道量子糾纏（entanglement）能建構時空的幾何結構，但始終無法解釋時空的「彎曲彈性」——也就是愛因斯坦廣義相對論的核心。維吉尼亞理工的 Charles Cao 與加州理工的 John Preskill 等人最新發現：一種名為「magic」的量子複雜度（由非-Clifford 量子閘操作引入）正是時空能夠彎曲的關鍵成分。沒有 magic，量子碼的糾纏把空間與物質分隔得太乾淨，兩者無法相互影響，引力消失；加入 magic 之後，物質才真的能告訴時空如何彎曲。這一步距完整量子引力理論還有很遠（作者自嘲「到了 0.5/5」），但它首次為「牛頓的蘋果為何落下」給出量子層次的機制。</p>
+
+  <div class="label">核心觀點 / Key takeaway</div>
+  <p>引力是量子「不完美編碼」的副產品：越試圖完美保護量子資訊的系統，越不會有引力；正是那些允許資訊稍微洩漏互混的「魔法」操作，讓時空保有彈性——讓蘋果得以落下。</p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p>如果引力源自量子編碼的不完美，那我們宇宙的量子「程式」究竟是哪種碼？能否用量子電腦模擬真實的引力場，讓廣義相對論失效的黑洞內部變得可計算？</p>
+
+  <div style="margin-top:12px;"><a href="https://www.quantamagazine.org/entanglement-builds-space-time-now-magic-gives-it-gravity-20260603/" target="_blank">→ 閱讀全文 quantamagazine.org</a></div>
+</div>
+
+<!-- 2. Tech & AI -->
+<div class="section-heading">2 &nbsp;科技與 AI / Tech &amp; AI</div>
+
+<div class="card">
+  <div class="card-header-row">
+    <span class="number">2</span>
+    <h3>
+      軟體的「Emacs 化」
+      <span class="en-title">The Emacsification of Software</span>
+    </h3>
+  </div>
+  <div class="meta-row">
+    <span class="badge">Quarrelsome (sockpuppet.org)</span>
+    <span>· Thomas Ptacek ·</span>
+    <span>2026-05-12</span>
+    <span class="badge time">10 min</span>
+    <span style="font-size:0.77rem;color:#888;">HN 276 pts，本週持續高熱</span>
+  </div>
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p>這是目前描述「AI agent 讓個人化軟體全面爆發」這個現象最精準的一篇文章，不靠大詞，靠一個具體的 Markdown 檢視器作為切入點，把 Emacs 文化的靈魂——永遠在為自己的痛點建工具、然後分享出去——解釋為現在所有人都在做的事。文筆好，論點實，有趣。</p>
+
+  <div class="label">摘要 / Summary</div>
+  <p>資安研究員 Ptacek 受不了 App Store 上的 Markdown 檢視器，花 30 分鐘與 Claude 生成了一個比市面上所有付費 app 都好用的原生 macOS 工具。這不是偶然：AI agent 現在能可靠地生成原生 GUI，這件事在歷史上從來沒有過（原生 UI 開發工程師向來是稀缺資源）。他的論點是：整個軟體世界正在「Emacs 化」——每個人都開始像 Emacs 使用者為自己打造 elisp 插件一樣，為自己打造超個人化的工具。這些工具往往只對創作者有用，但偶爾會逃出去被更多人採用。最重要的不再是原始碼，而是「這個 idea 加上你用的 prompt」。</p>
+
+  <div class="label">核心觀點 / Key takeaway</div>
+  <p>個人軟體的門檻已低到任何願意描述自己需求的人都能完成，「建造」感覺更像「配置一個突然變得極度可配置的平台」——而那個平台，就是 Emacs 的精神繼承者。</p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p>當個人軟體遠比商業打磨的 app 更貼合個人需求，軟體的「標準化」價值主張會往哪裡去？Magit 是 Emacs 文化裡唯一廣泛流傳的東西——下一個「全民 Magit」會是什麼？</p>
+
+  <div style="margin-top:12px;"><a href="https://sockpuppet.org/blog/2026/05/12/emacsification/" target="_blank">→ 閱讀全文 sockpuppet.org</a></div>
+</div>
+
+<div class="card">
+  <div class="card-header-row">
+    <span class="number">3</span>
+    <h3>
+      Google IDE 的歷史
+      <span class="en-title">A History of IDEs at Google</span>
+    </h3>
+  </div>
+  <div class="meta-row">
+    <span class="badge">le-brun.eu</span>
+    <span>· Laurent Le Brun ·</span>
+    <span>2026-06</span>
+    <span class="badge time">12 min</span>
+    <span style="font-size:0.77rem;color:#888;">HN 351 pts</span>
+  </div>
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p>這是一篇真正的內部史料——作者是前 Google 工程師，第一手記錄了 Google 超過二十年內部 IDE 工具的演進。對任何思考「大規模工程組織如何建立開發工具文化」的人來說，這是難得的原始材料，而不是 PR 包裝版本。</p>
+
+  <div class="label">摘要 / Summary</div>
+  <p>文章追溯 Google 從最初依賴 Emacs/vim、到嘗試自建 IDE（如 Cider）、到 IntelliJ 系列、最終走向 AI 輔助工具的完整路徑。每次工具轉型背後都有特定的組織壓力——monorepo 規模、程式碼搜索需求、多語言同步問題。作者認為 Google 工具演進的每個節點都在回答「什麼讓工程師最不被工具打斷地進入心流」，而 AI coding 只是這個問題的最新答案，不是終點。</p>
+
+  <div class="label">核心觀點 / Key takeaway</div>
+  <p>工具選擇從來不只是技術問題，它反映的是組織對「工程師時間最寶貴的那一刻」的理解——心流比功能清單更重要。</p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p>現在 AI coding agent 接管了大量流程，「IDE」的概念本身是否會消解？下一代的工程師流程意識長什麼樣？</p>
+
+  <div style="margin-top:12px;"><a href="https://laurent.le-brun.eu/blog/a-history-of-ides-at-google" target="_blank">→ 閱讀全文 le-brun.eu</a></div>
+</div>
+
+<!-- 3. Business & Economics -->
+<div class="section-heading">3 &nbsp;商業與經濟 / Business &amp; Economics</div>
+
+<div class="card">
+  <div class="card-header-row">
+    <span class="number">4</span>
+    <h3>
+      我們真正需要多少更多的軟體？
+      <span class="en-title">How Much More Software Do We Really Need?</span>
+    </h3>
+  </div>
+  <div class="meta-row">
+    <span class="badge">Noahpinion</span>
+    <span>· Noah Smith ·</span>
+    <span>2026-06-02</span>
+    <span class="badge time">10 min</span>
+    <span style="font-size:0.77rem;color:#888;">付費部分需訂閱，部分可讀</span>
+  </div>
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p>AI 生產力敘事的反面論證：Smith 不否認 AI 讓個別任務極速加快，但問的是一個更難的問題——這在總體經濟層面能轉化為多少真正的新價值？他的答案讓熱情的 AI 樂觀主義者需要停下來想一想。</p>
+
+  <div class="label">摘要 / Summary</div>
+  <p>Smith 指出，即使 AI coding agent 讓程式碼產出量增加 17 倍（如最新研究），真正抵達使用者手中的產品只有約 18%——因為下游的設計、測試、上市、法規仍是人類瓶頸。更根本的問題是：消費者網路的前沿已趨飽和，新的 consumer app 幾乎只是置換現有 app，而非創造新需求。AI 帶來的「軟體大爆炸」，若要真正反映在 GDP，需要找到軟體以前完全無法觸及的新需求（如機器人、基礎設施）。</p>
+
+  <div class="label">核心觀點 / Key takeaway</div>
+  <p>任務層級的加速不等於經濟層級的爆炸；真正的問題是「誰需要更多軟體，以及為了做什麼」——而不只是「AI 能寫多快」。</p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p>如果消費者軟體的邊際需求已飽和，AI 帶來的生產力浪潮會先在哪個行業轉化為可測量的經濟增長？</p>
+
+  <div style="margin-top:12px;"><a href="https://www.noahpinion.blog/p/how-much-more-software-do-we-really" target="_blank">→ 閱讀全文（部分付費） noahpinion.blog</a></div>
+</div>
+
+<!-- 4. Science & Research -->
+<div class="section-heading">4 &nbsp;科學與研究 / Science &amp; Research</div>
+
+<div class="card">
+  <div class="card-header-row">
+    <span class="number">5</span>
+    <h3>
+      人類壽命的遺傳率，在重新定義之後大約是 50%
+      <span class="en-title">Heritability of Human Life Span is ~50% When Heritability is Redefined to Be Something Different</span>
+    </h3>
+  </div>
+  <div class="meta-row">
+    <span class="badge">dynomight.net</span>
+    <span>· Dynomight ·</span>
+    <span>2026-02</span>
+    <span class="badge time">14 min</span>
+    <span style="font-size:0.77rem;color:#888;">HN 92 pts，本週重新熱傳</span>
+  </div>
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p>這篇文章做到了科學寫作最難的事：把一篇令人困惑的 Science 期刊論文拆解成「它真正在說什麼、有沒有說清楚、標題是不是在騙人」。它本身就是一堂短暫的統計思維課，同時也是對頂尖期刊不夠嚴謹的誠實批評。</p>
+
+  <div class="label">摘要 / Summary</div>
+  <p>一篇發表在《Science》的論文聲稱「人類壽命的遺傳率約 50%」，比傳統雙胞胎研究的 23–35% 高許多。Dynomight 仔細拆解發現：這個數字是在「假設沒有人死於意外、謀殺、藥物過量或非老化傳染病」的模擬世界中測量的——也就是說，他們重新定義了「壽命」本身。真實世界的現代人，按此模型推算的遺傳率大約在 40% 左右，而非論文標題暗示的 50%。這是一篇因為 Science 編輯習慣犧牲精確度換取普及感而誤導讀者的論文。</p>
+
+  <div class="label">核心觀點 / Key takeaway</div>
+  <p>遺傳率不是柏拉圖的固定真理，而是「在特定社會、特定死亡原因分布下」的觀測統計量；改變假設就能改變數字，但那不是「更接近真相」，而是「在另一個世界裡測量另一個東西」。</p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p>若現代醫療持續降低非老化死亡率，人類壽命的遺傳率在幾十年後會顯著提升嗎？這對長壽研究的資金分配有什麼含義？</p>
+
+  <div style="margin-top:12px;"><a href="https://dynomight.net/lifespan/" target="_blank">→ 閱讀全文 dynomight.net</a></div>
+</div>
+
+<!-- 5. Culture & Society -->
+<div class="section-heading">5 &nbsp;文化與社會 / Culture &amp; Society</div>
+
+<div class="card">
+  <div class="card-header-row">
+    <span class="number">6</span>
+    <h3>
+      兩百年前的 Gen Z：十九世紀法國的「世紀病」
+      <span class="en-title">Young People Now and the Mal du Siècle of 19th-Century France</span>
+    </h3>
+  </div>
+  <div class="meta-row">
+    <span class="badge">Aeon</span>
+    <span>· Emily Herring ·</span>
+    <span>2026-05-15</span>
+    <span class="badge time">15 min</span>
+  </div>
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p>以歷史類比重新框架年輕世代心理健康危機的最佳近期嘗試之一。文章不只是說「古人也這樣」，而是仔細分析 1830 年代法國青年絕望的結構性成因，再逐一對應當代：歷史感的封閉、政治的虛偽表面、社交媒體的傳染性焦慮。論點紮實，文筆優美。</p>
+
+  <div class="label">摘要 / Summary</div>
+  <p>法國作家 Alfred de Musset 的《一個世紀兒的告白》（1836）描述了拿破崙帝國崩潰後、一代人「生得太晚、進入一個太老的世界」的集體絕望，法文稱為 *mal du siècle*（世紀病）。作者 Emily Herring 比較 1830 年代青年與今日 Gen Z 的處境：兩者都感受到「未來已被預先封閉」——前者因拿破崙後的道德真空，後者因氣候、AI、威權主義。Chateaubriand 那句「我們心靈豐盈，世界卻空洞」完全可以貼在今日的社群媒體上。文章最後論證：浪漫主義者的回應不只是內省，他們中的最好者（Sand、Hugo）最終仍選擇行動——這對當代「doom scroll 文化」是有效的反省。</p>
+
+  <div class="label">核心觀點 / Key takeaway</div>
+  <p>把年輕世代的集體焦慮定義為「世代病」而非「個人心理失調」，不是在卸責，而是把責任的框架從個人自助（冥想、work-life balance）移向結構性反思——這才是讓社會改變的思維起點。</p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p>Musset 的世代最終有沒有找到出路？如果「行動」是答案，什麼樣的行動適合一個不再有明確戰場或革命對象的數位時代？</p>
+
+  <div style="margin-top:12px;"><a href="https://aeon.co/essays/young-people-now-and-the-mal-du-siecle-of-19th-century-france" target="_blank">→ 閱讀全文 aeon.co</a></div>
+</div>
+
+<!-- 6. Curiosities -->
+<div class="section-heading">8 &nbsp;奇文與偏門 / Curiosities</div>
+
+<div class="card">
+  <div class="card-header-row">
+    <span class="number">7</span>
+    <h3>
+      普林斯頓終結 133 年無監考傳統，AI 作弊是最後一根稻草
+      <span class="en-title">Princeton Mandates Proctoring for In-Person Exams, Upending 133-Year Precedent</span>
+    </h3>
+  </div>
+  <div class="meta-row">
+    <span class="badge">The Daily Princetonian</span>
+    <span>· 2026-05</span>
+    <span class="badge time">8 min</span>
+    <span style="font-size:0.77rem;color:#888;">HN 317 pts</span>
+  </div>
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p>這不只是一則校園新聞：普林斯頓 1893 年建立的榮譽制度是美國精英大學誠信文化的象徵，它的終結標誌著一個 AI 前時代教育假設的正式終結。更有趣的是，推動變革的不是管理層，而是學生自己——因為在無監考的環境下，舉報同學作弊的社交成本已超過遵守規則的道德動機。</p>
+
+  <div class="label">摘要 / Summary</div>
+  <p>普林斯頓教師評議會 2026 年 5 月投票通過，7 月 1 日起所有正式考試須由教職人員監考。觸發點是 AI 作弊的隱蔽性：不像傳統小抄，AI 作弊幾乎無法在考場中被其他學生發現並舉報，使原本依賴學生互相監督的榮譽系統失靈。2025 年畢業生調查中，29.9% 承認曾作弊，44.6% 看到他人作弊卻選擇沉默。</p>
+
+  <div class="label">核心觀點 / Key takeaway</div>
+  <p>榮譽制度的運作前提是「作弊可以被看見」——AI 讓這個前提崩潰。當技術讓不誠信變得不可見，制度就必須從依賴社群信任轉向依賴外部監督。</p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p>如果考試監控是短期解法，長期的教育評量應該長什麼樣？「評量學習過程而非結果」是口號還是可操作的替代方案？</p>
+
+  <div style="margin-top:12px;"><a href="https://www.dailyprincetonian.com/article/2026/05/princeton-news-adpol-proctoring-in-person-examinations-passed-faculty-133-years-precedent" target="_blank">→ 閱讀全文 dailyprincetonian.com</a></div>
+</div>
+
+<hr class="divider">
+
+<!-- TRACK B -->
+<div class="track-label" style="margin-top:28px;">Track B</div>
+<div class="track-title">思想領袖觀點 / Thought Leaders</div>
+
+<div class="section-heading">9 &nbsp;思想領袖今日觀點 / Thought Leader Picks</div>
+
+<!-- TL 1 -->
+<div class="card thought-leader">
+  <span class="domain-tag">AI</span>
+  <h3>Ethan Mollick — 與「神話等級」AI 一起工作是什麼感覺</h3>
+  <div style="font-size:0.83rem;color:#555;margin-bottom:4px;font-style:italic;">What It Feels Like to Work With Mythos</div>
+  <div class="meta-row">
+    <span class="badge">One Useful Thing (Substack)</span>
+    <span>· 2026-06-09</span>
+    <span class="badge time">12 min</span>
+  </div>
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p>Mollick 是目前最嚴謹也最好讀的 AI 實戰評測者之一。這篇是他對 Claude 5 Fable（Anthropic 首批 Mythos 等級模型）的第一手實測心得，聚焦的不是跑分，而是「主控感從哪裡消失了」這個哲學與實務都重要的問題。</p>
+
+  <div class="label">核心觀點 / Core insight</div>
+  <p>Mollick 讓 Fable 自主完成數個複雜任務（包括建立一張歷史等時線地圖、跑 9.5 小時生成一套研究軟體）。結論是：Fable 確實在幾乎每個維度上都超越了之前所有模型，但更重要的發現是「他的角色從嚮導變成了贊助人」——他只需提出需求、判斷成果，過程中的數百個微決策完全由 AI 自行做出，他看不到也無從干預。他用「我已經不確定自己是不是那個巫師了」來形容這種微妙的失控感：力量極大，主控極小。</p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p>當 AI 能力強到你只能在「完全放手」和「頻繁中斷」之間二選一時，人類的「監督」意義如何重新定義？</p>
+
+  <div style="margin-top:12px;"><a href="https://www.oneusefulthing.org/p/what-it-feels-like-to-work-with-mythos" target="_blank">→ 閱讀全文 oneusefulthing.org</a></div>
+</div>
+
+<!-- TL 2 -->
+<div class="card thought-leader">
+  <span class="domain-tag">AI</span>
+  <h3>Ethan Mollick — Co-Intelligence 的終結與 Co-Existence 的開始</h3>
+  <div style="font-size:0.83rem;color:#555;margin-bottom:4px;font-style:italic;">Co-Existence and the End of Co-Intelligence</div>
+  <div class="meta-row">
+    <span class="badge">One Useful Thing (Substack)</span>
+    <span>· 2026-06-04</span>
+    <span class="badge time">10 min</span>
+  </div>
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p>這篇是他宣布新書的貼文，但實質論點遠超書籍公告：他梳理了從「人機協作」到「人機共存（人有時輸）」的範式轉移，並誠實地分享了在 AI 輔助下寫書的實際工作流——包括刻意限制自己使用 AI 的理由。另一個意外亮點：他如何為 AI reader 優化書籍網站，以及 GPT-5.5 指出他的文案「prompt-injection-shaped」。</p>
+
+  <div class="label">核心觀點 / Core insight</div>
+  <p>「Co-Intelligence」時代的前提是 AI 是你的幫手，人在中心。現在 AI 在某些領域已超越人類，新問題是：什麼時候應該拒絕 AI 的幫助（即使它更好）？什麼時候完全把鑰匙交給它？更奇特的是：你如何讓 AI（讀你文章的那些）喜歡你的東西？SEO 正在演變成 AIO（AI Optimization）。</p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p>作者主動減少使用 em-dash 以「看起來更像人類寫的」——這種作者與 AI 之間的認知軍備競賽，最終會把寫作風格帶向哪裡？</p>
+
+  <div style="margin-top:12px;"><a href="https://www.oneusefulthing.org/p/co-existence-and-the-end-of-co-intelligence" target="_blank">→ 閱讀全文 oneusefulthing.org</a></div>
+</div>
+
+<!-- TL 3 -->
+<div class="card thought-leader">
+  <span class="domain-tag">總經</span>
+  <h3>Tyler Cowen (Marginal Revolution) — iPhone 讓青少年生育率下降了 4.5–8%</h3>
+  <div style="font-size:0.83rem;color:#555;margin-bottom:4px;font-style:italic;">New Paper on the iPhone and Fertility</div>
+  <div class="meta-row">
+    <span class="badge">Marginal Revolution</span>
+    <span>· 2026-06-08</span>
+    <span class="badge time">3 min + linked paper</span>
+  </div>
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p>Cowen 以他一貫的「大段引文加幾句尖銳評語」風格，指出一篇方法論嚴謹的論文所揭露的驚人相關性：智慧型手機的普及與美國 2007 年以來 22% 生育率下降之間有可量化的因果關係。這不是相關性炒作，是精心設計的識別策略。</p>
+
+  <div class="label">核心觀點 / Core insight</div>
+  <p>研究利用「縣層級智慧型手機滲透時間差」作為工具變數，估計 iPhone 出現讓 15–19 歲女性的生育率降低 4.5–8.0%，20–24 歲降低 3.2–6.6%。美國總生育率自 2007 年下降了 22%，其中部分可直接歸因於智慧型手機改變了年輕人的社交、約會與性行為模式。</p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p>如果 AI 的社交代理功能（AI 伴侶、AI 社交平台）進一步取代人際關係，下一波生育率衝擊有多大？這對任何關心人口問題的政府而言，意味著什麼政策工具？</p>
+
+  <div style="margin-top:12px;"><a href="https://marginalrevolution.com/marginalrevolution/2026/06/new-paper-on-the-iphone-and-fertility.html" target="_blank">→ 閱讀全文 marginalrevolution.com</a></div>
+</div>
+
+<hr class="divider">
+
+<div class="footer">
+  <strong>資料來源 / Sources</strong><br>
+  Hacker News (news.ycombinator.com) · Quanta Magazine (quantamagazine.org) · Aeon (aeon.co) · One Useful Thing / Ethan Mollick (oneusefulthing.org) · Noahpinion / Noah Smith (noahpinion.blog) · Marginal Revolution / Tyler Cowen (marginalrevolution.com) · The Daily Princetonian (dailyprincetonian.com) · Quarrelsome / Thomas Ptacek (sockpuppet.org) · Laurent Le Brun (le-brun.eu) · Dynomight (dynomight.net)<br><br>
+  <strong>付費牆 / Paywalled</strong>：Noahpinion "How Much More Software" 全文需訂閱（$8/月），摘要可在公開部分閱讀。Noah Smith 其他 6 月文章（Anti-monopoly、Roundup #83）部分開放。<br><br>
+  <strong>未能取得 / Could not fetch</strong>：The Guardian Long Reads（搜索無結果）、The Atlantic、The New Yorker（需訂閱，標題不可見）。<br><br>
+  生成日期：2026-06-10 &nbsp;|&nbsp; 時間窗口：過去 7 天，優先選 2026-06-04 起的新文章
+</div>
+
+</body>
+</html>

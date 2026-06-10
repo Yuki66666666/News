@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台股日報 2026-06-10 | Daily Taiwan Stocks Briefing</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --border: #2a2d3a;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #6366f1;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #f59e0b;
+    --blue: #3b82f6;
+    --tag-bg: #1e2333;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, 'Noto Sans TC', BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    padding: 24px 16px;
+  }
+  .container { max-width: 960px; margin: 0 auto; }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+  }
+  header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  header .subtitle {
+    color: var(--muted);
+    font-size: 0.875rem;
+    margin-top: 4px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 99px;
+    font-weight: 600;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  /* Summary Tables */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 640px) { .summary-grid { grid-template-columns: 1fr; } }
+  .table-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .table-card h3 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th {
+    text-align: left;
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 4px 8px 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 8px 8px 8px 0;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  .up { color: var(--green); font-weight: 600; }
+  .down { color: var(--red); font-weight: 600; }
+  .num { font-variant-numeric: tabular-nums; }
+  /* Sections */
+  .section { margin-bottom: 36px; }
+  .section-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    border-left: 3px solid var(--accent);
+    padding-left: 12px;
+    margin-bottom: 16px;
+  }
+  /* News Items */
+  .news-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 14px;
+  }
+  .news-item h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .news-item h3 .en {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .source-line {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .source-line a { color: var(--blue); text-decoration: none; }
+  .source-line a:hover { text-decoration: underline; }
+  .label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    margin-right: 4px;
+  }
+  .label-fact { background: #1e3a5f; color: #7dd3fc; }
+  .label-context { background: #1e3726; color: #86efac; }
+  .label-imply { background: #3b2000; color: #fbbf24; }
+  .block { margin-bottom: 10px; }
+  .block p { font-size: 0.875rem; color: var(--text); }
+  /* Tags */
+  .tags { margin-top: 10px; }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--muted);
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-right: 4px;
+    border: 1px solid var(--border);
+  }
+  /* Sector grid */
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .sector-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .sector-card h4 { font-size: 0.8rem; color: var(--muted); margin-bottom: 6px; }
+  .sector-card .sentiment {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .sector-card p { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+  /* Alert Box */
+  .alert {
+    background: #1e1a00;
+    border: 1px solid #7c6700;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    color: #fde68a;
+    margin-bottom: 20px;
+  }
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    margin-top: 40px;
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+  footer a { color: var(--blue); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .note { font-size: 0.78rem; color: var(--muted); font-style: italic; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>台股日報 <span class="badge">2026-06-10</span></h1>
+  <div class="subtitle">Daily Taiwan Stock Market Briefing · Asia/Taipei · Wednesday TWSE Session</div>
+  <div class="subtitle" style="margin-top:6px;">本報整合 CTEE、TechNews、TWSE、自由財經等多來源數據 | Multi-source synthesis</div>
+</header>
+
+<!-- SUMMARY TABLES -->
+<div class="summary-grid">
+  <div class="table-card">
+    <h3>大盤 · Index Overview</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>指數</th>
+          <th>收盤 / 盤中</th>
+          <th>漲跌</th>
+          <th>%</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>加權 TAIEX</td>
+          <td class="num">44,732.94</td>
+          <td class="up num">+1,096.50</td>
+          <td class="up">+2.51%</td>
+        </tr>
+        <tr>
+          <td>櫃買 OTC</td>
+          <td class="num">443.64</td>
+          <td class="up num">+11.16</td>
+          <td class="up">+2.58%</td>
+        </tr>
+        <tr>
+          <td>台指期 近月</td>
+          <td colspan="3" class="note">待確認（盤後公告）</td>
+        </tr>
+        <tr>
+          <td>新台幣 TWD</td>
+          <td colspan="3" class="note">待確認（央行收盤公告）</td>
+        </tr>
+        <tr>
+          <td>TSM ADR（昨）</td>
+          <td colspan="3">盤中一度跌 4.96%，終收 <span class="up">+0.26%</span>（台積電出口管制消息衝擊後反彈）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-card">
+    <h3>三大法人 · 2026-06-09 確認數（TWSE 官方）</h3>
+    <p class="note" style="margin-bottom:10px;">單位：億元新台幣 | 今日（6/10）法人數字盤後公告後更新</p>
+    <table>
+      <thead>
+        <tr>
+          <th>法人</th>
+          <th>買賣超</th>
+          <th>備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>外資 FINI</td>
+          <td class="down num">−917.33億</td>
+          <td class="note">賣出 5,028.85億 − 買進 4,111.52億</td>
+        </tr>
+        <tr>
+          <td>投信 SITE</td>
+          <td class="up num">+205.68億</td>
+          <td class="note">連續多日買超電子</td>
+        </tr>
+        <tr>
+          <td>自營商 Prop</td>
+          <td class="down num">−66.92億</td>
+          <td class="note">含自行買賣 + 避險帳戶</td>
+        </tr>
+        <tr>
+          <td>合計</td>
+          <td class="down num">−778.57億</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="alert">
+  注意：今日（2026-06-10）TWSE 三大法人正式數字於盤後約 18:00 公布；上方表格為 06-09 官方確認數（來源：TWSE BFI82U API）。今日盤中加權指數 44,732.94 (+2.51%) 為工商時報即時顯示。
+</div>
+
+<!-- SECTION 1: TOP STORIES -->
+<div class="section">
+  <div class="section-title">頭條 · Top Stories</div>
+
+  <div class="news-item">
+    <h3>
+      台灣研議管制銷往中國 AI 晶片出口，台積電 ADR 一度重挫 4.96% 後收紅
+      <span class="en">Taiwan Eyes AI Chip Export Curbs to China — TSMC ADR Flash-Crashed 4.96%, Recovered to +0.26%</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: <a href="https://finance.technews.tw/2026/06/10/tightening/" target="_blank">TechNews 財經新報</a> · 2026-06-10 07:28 ·
+      Bloomberg 原報導: <a href="https://www.bloomberg.com/news/articles/2026-06-09/taiwan-mulls-curbs-on-ai-chip-exports-to-china-to-align-with-us" target="_blank">Taiwan Mulls Curbs on AI Chip Exports to China</a>
+    </div>
+
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>台灣政府正研議制定新規，將 AI 晶片銷售限制擴大至<strong>所有</strong>中國客戶（而非現行僅限華為等黑名單企業），做為台美貿易談判的一環。目前框架針對「運算能力超過特定門檻」的 AI 晶片。台積電 ADR 盤中一度急跌 4.96%，最終回升收盤漲 0.26%。經濟部同步更新「戰略性高科技貨品出口實體管理名單」。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>台灣今年首次拘留涉嫌走私晶片人員（雖援引較輕罪名）。此舉與美國自 2022 年施行的 EAR 出口管制方向一致，目的在防堵高效能 AI 晶片流入中國，打擊走私中間渠道。若正式落地，將是賴清德政府迄今最強力的科技安全措施。</p>
+    </div>
+    <div class="block">
+      <span class="label label-imply">影響觀察 / Implications</span>
+      <p>短期對台積電、聯發科等高端晶片設計製造廠造成賣壓疑慮，但 ADR 最終收紅顯示市場已部分消化利空。若細則較寬鬆（如有許可機制），衝擊或有限。長期看，台灣與美國科技管制愈發同步，有助於美台半導體合作深化，但北京的反應與反制風險仍是變數。分析 vs 事實：此為研議階段，細則未定。</p>
+    </div>
+    <div class="tags">
+      <span class="tag">台積電</span><span class="tag">出口管制</span><span class="tag">AI晶片</span><span class="tag">地緣政治</span><span class="tag">TSMC ADR</span>
+    </div>
+  </div>
+
+  <div class="news-item">
+    <h3>
+      台股 2026-06-10 大漲 +2.51%，站上 44,732 點，延續 AI 基建熱潮
+      <span class="en">TAIEX Surges +2.51% to 44,732 on AI Infrastructure Momentum</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: <a href="https://www.ctee.com.tw/stock/indices" target="_blank">工商時報即時指數</a> · 2026-06-10 盤中
+    </div>
+
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>加權指數盤中報 44,732.94，漲 1,096.5 點（+2.51%）；OTC 指數報 443.64（+2.58%）。工商時報分析師目標看 6 月上攻 5 萬點。參考 2026-05-25 紀錄：指數收 43,644 點，外資單日買超 494.59 億，為當時歷史新高。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>台股近期走勢受三大催化劑驅動：① GTC Taipei 2026 黃仁勳演講點燃 Vera Rubin 供應鏈預期；② 台灣 5 月出口年增 51.7%（電子零組件創單月新高）；③ 多家台廠 5 月營收創歷史新高（台達電 YoY +43.7%、日月光 YoY +28.6%、光寶 YoY +30%）。</p>
+    </div>
+    <div class="block">
+      <span class="label label-imply">影響觀察 / Implications</span>
+      <p>台股已進入高位，需留意若美股或地緣政治（AI 晶片出口管制）出現負面衝擊時的修正風險。但基本面（出口、企業營收）持續強勁，支撐多頭結構。分析 vs 事實：收盤最終數字待 13:30 後官方公告。</p>
+    </div>
+    <div class="tags">
+      <span class="tag">大盤</span><span class="tag">AI概念</span><span class="tag">多頭</span><span class="tag">加權指數</span>
+    </div>
+  </div>
+
+  <div class="news-item">
+    <h3>
+      台灣 5 月出口年增 51.7%，AI 引爆電子零組件單月新高
+      <span class="en">Taiwan May Exports +51.7% YoY — AI Boom Drives Record Monthly Electronics Exports</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: <a href="https://finance.technews.tw/2026/06/09/may-exports-78-48-billion-second-highest-monthly-record/" target="_blank">TechNews（中央社）</a> · 2026-06-09
+    </div>
+
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>財政部公布 2026 年 5 月出口金額達 784.8 億美元（史上次高），年增 51.7%。電子零組件出口值創<strong>單月歷史新高</strong>，資通與視聽產品刷新歷年單月次高。三大驅動力：① AI 基礎設施建置熱潮；② 科技產品換代備貨週期；③ 原物料價格上揚。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>台灣出口已連續多月呈現高速成長。AI 伺服器出貨、CoWoS 先進封裝、高階 PCB 等均帶動電子零組件需求爆量。台積電 CoWoS 及 Vera Rubin 平台量產排程為下半年繼續攀高的主要支撐。</p>
+    </div>
+    <div class="block">
+      <span class="label label-imply">影響觀察 / Implications</span>
+      <p>強勁出口數據支撐台幣升值預期，AI 概念股（台積電、日月光、廣達、台達電等）法人持倉動能強。此為台股多頭基本面最重要的宏觀錨。</p>
+    </div>
+    <div class="tags">
+      <span class="tag">出口</span><span class="tag">電子零組件</span><span class="tag">財政部</span><span class="tag">AI基建</span>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: HEAVYWEIGHTS -->
+<div class="section">
+  <div class="section-title">權值股 · Heavyweights</div>
+
+  <div class="news-item">
+    <h3>
+      台積電 (2330)：Vera Rubin 唯一代工夥伴，出口管制疑慮一度衝擊 ADR
+      <span class="en">TSMC (2330): Sole Foundry for NVIDIA Vera Rubin, ADR Volatile on Export Control Headlines</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: <a href="https://finance.technews.tw/2026/06/10/computing-power-equals-revenue/" target="_blank">TechNews</a> · 2026-06-10；股東會紀錄 2026-06-04
+    </div>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>NVIDIA Vera Rubin 系列以台積電為唯一晶圓代工夥伴，規模為前代 Grace Blackwell 的兩倍。ADR 週二（2026-06-09 美股）盤中跌 4.96%（出口管制消息），收盤回升至 +0.26%。股東會（6/4）魏哲家揭露已購入 High-NA EUV 進行研發，但暫不投入量產。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>台積電市值為台股最大單一權值，出口管制若正式落地，短期可能打壓對中國客戶的晶圓代工需求（目前中國約佔台積電約 11–12% 營收，主要為成熟製程），但先進製程（3nm、2nm）中國客戶佔比極低，衝擊有限。</p>
+    </div>
+    <div class="tags"><span class="tag">台積電</span><span class="tag">TSMC</span><span class="tag">Vera Rubin</span><span class="tag">ADR</span></div>
+  </div>
+
+  <div class="news-item">
+    <h3>
+      台達電 (2308)：5 月營收 589.62 億，年增 43.7%，AI 資料中心需求強勁
+      <span class="en">Delta Electronics (2308): May Revenue NT$58.962B, +43.7% YoY, Powered by AI Data Centers</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: <a href="https://finance.technews.tw/2026/06/09/ai-infrastrue-delta-5-financial/" target="_blank">TechNews（蘇子芸）</a> · 2026-06-09
+    </div>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>台達電公布 5 月合併營收 589.62 億元，月增 0.5%、<strong>年增 43.7%</strong>。累計前五月營收 2,770.06 億元，年增 38%。受惠 AI 資料中心、雲端運算及電力基礎設施需求持續升溫。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>台達電在 AI 工廠電源規範中扮演關鍵角色，法人點名其為 Vera Rubin 熱能管理與電力系統供應鏈的台股核心受惠標的之一。</p>
+    </div>
+    <div class="tags"><span class="tag">台達電</span><span class="tag">5月營收</span><span class="tag">AI電源</span><span class="tag">資料中心</span></div>
+  </div>
+
+  <div class="news-item">
+    <h3>
+      日月光投控 (3711)：5 月營收 630.33 億，年增 28.6%，創同期新高
+      <span class="en">ASE Technology (3711): May Revenue NT$63.033B, +28.6% YoY — New Same-Period Record</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: <a href="https://finance.technews.tw/2026/06/09/ase-fr-2605/" target="_blank">TechNews（中央社）</a> · 2026-06-09
+    </div>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>日月光投控 5 月自結合併營收 630.33 億元，月增 1.3%、年增 28.6%，<strong>創歷年同期新高</strong>。累計前五月投控自結營收 2,989.42 億元，年增 19.87%，亦創同期新高。AI 先進封測（CoWoS 封裝測試）為主要驅動力。</p>
+    </div>
+    <div class="block">
+      <span class="label label-imply">影響觀察 / Implications</span>
+      <p>日月光是台積電 CoWoS 先進封裝生態的核心合作夥伴。NVIDIA Vera Rubin 量產規模擴大，直接帶動先進封測需求。法人點名日月光投控為 CPO 光通訊受惠台股標的之一。</p>
+    </div>
+    <div class="tags"><span class="tag">日月光</span><span class="tag">封裝測試</span><span class="tag">CoWoS</span><span class="tag">5月營收</span></div>
+  </div>
+
+  <div class="news-item">
+    <h3>
+      光寶科技 (2301)：5 月營收 174 億，年增 30%，AI 電源與 BBU 出貨強勁
+      <span class="en">Lite-On (2301): May Revenue NT$17.4B, +30% YoY — AI PSU & BBU Demand Surges</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: <a href="https://finance.technews.tw/2026/06/09/ai-liteon-bbu-5-financial-30/" target="_blank">TechNews（蘇子芸）</a> · 2026-06-09
+    </div>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>光寶科 5 月全球合併營收 174 億元，月增 4%、<strong>年增 30%</strong>。高階伺服器電源、高效備援電池系統（BBU）及電能管理系統出貨動能強勁。累計前五月合併營收 775 億元，年增 23%。</p>
+    </div>
+    <div class="tags"><span class="tag">光寶科</span><span class="tag">BBU</span><span class="tag">AI電源</span><span class="tag">5月營收</span></div>
+  </div>
+</div>
+
+<!-- SECTION 3: SECTOR ROTATION -->
+<div class="section">
+  <div class="section-title">類股輪動 · Sector Rotation</div>
+  <div class="sector-grid">
+    <div class="sector-card">
+      <h4>半導體 Semiconductors</h4>
+      <div class="sentiment up">強勢 Bullish</div>
+      <p>Vera Rubin 量產帶動封測、基板、HBM 全面受惠。環球晶啟動下半年漲價談判（矽晶圓需求全面回溫）。</p>
+    </div>
+    <div class="sector-card">
+      <h4>AI 伺服器 / 電源 AI Server</h4>
+      <div class="sentiment up">強勢 Bullish</div>
+      <p>廣達、鴻海、緯穎、緯創法人點名。台達電、光寶 5 月創高。SMCI 募資 70 億美元採購零件，短期稀釋疑慮，長期帶動台廠出貨。</p>
+    </div>
+    <div class="sector-card">
+      <h4>AI PC 聯發科 MediaTek</h4>
+      <div class="sentiment up">強勢 Bullish</div>
+      <p>NVIDIA RTX Spark 攜聯發科，台積電 3nm 製程。AI PC 新競局開打，法人點名聯發科扮演要角。</p>
+    </div>
+    <div class="sector-card">
+      <h4>記憶體 Memory</h4>
+      <div class="sentiment up">偏多 Mild-Bullish</div>
+      <p>高盛調升 SK 海力士、美光、三星目標價；台股南亞科受惠 HBM 需求。華邦電大股東趁高出脫（5/25 衝擊已消化）。</p>
+    </div>
+    <div class="sector-card">
+      <h4>金融 Financials</h4>
+      <div class="sentiment">中性 Neutral</div>
+      <p>富邦金 Q1 EPS 2.40 元創業界第一，北富銀評估進軍美韓。台新新光金外資賣壓持續，投信連買三日。</p>
+    </div>
+    <div class="sector-card">
+      <h4>生技醫療 Biotech</h4>
+      <div class="sentiment">觀察 Watch</div>
+      <p>晉弘拋棄式關節鏡取得台美雙認證。GTC Taipei 有醫療 AI 展出（源華智醫、AI 老藥新用）。</p>
+    </div>
+    <div class="sector-card">
+      <h4>傳產 / 鋼鐵 Traditional</h4>
+      <div class="sentiment">中性 Neutral</div>
+      <p>新光鋼看好 AI 基建 Q2 鋼材需求增溫；東元正式併購馬來西亞 Dynaciate，AI 資料中心業務拼達 3 成。</p>
+    </div>
+    <div class="sector-card">
+      <h4>ETF 市場 ETFs</h4>
+      <div class="sentiment up">熱絡 Active</div>
+      <p>台股 ETF 十強今年漲逾 9 成；6 月 ETF 除息月配季配密集；兆豐 00996A 主動 ETF 爆量刷掛牌新高；聯博 00404A 今日掛牌。</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: SINGLE STOCK MOVERS -->
+<div class="section">
+  <div class="section-title">個股大事 · Single-Stock Movers</div>
+
+  <div class="news-item">
+    <h3>
+      GTC Taipei 2026：NVIDIA Vera Rubin 全面量產，「算力即營收」點燃台美供應鏈
+      <span class="en">GTC Taipei 2026: Vera Rubin Full-Scale Production Ignites Taiwan-US AI Supply Chain</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: <a href="https://finance.technews.tw/2026/06/10/computing-power-equals-revenue/" target="_blank">TechNews（姚惠茹）</a> · 2026-06-10 08:02
+    </div>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>NVIDIA 執行長黃仁勳於 GTC Taipei 2026 宣告「算力即營收」新時代：AI 代理（AI Agent）推論需求將大幅延長算力資本支出週期。Vera Rubin 分散式系統全面量產，規模為前代兩倍，涉及超過 <strong>150 家台灣關鍵夥伴</strong>。RTX Spark AI PC 晶片（聯發科 + NVIDIA + Microsoft，台積電 3nm）預計秋季量產。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>黃仁勳直言「台灣是 AI 革命的中心，沒有台灣供應鏈就沒有 NVIDIA」。法人盤點台美 AI 供應鏈完整名單（晶圓：台積電；HBM：南亞科；先進封裝：日月光、欣興；電源：台達電；散熱：奇鋐、雙鴻；伺服器：廣達、鴻海、緯穎；網通：智邦、中磊）。</p>
+    </div>
+    <div class="block">
+      <span class="label label-imply">影響觀察 / Implications</span>
+      <p>Vera Rubin 是台股半導體與電子製造族群下半年最大的業績催化劑。AI PC RTX Spark 則打開面向終端消費的第二成長曲線。分析：此為法人看法，個股表現仍取決於實際出貨時程與競爭格局。</p>
+    </div>
+    <div class="tags">
+      <span class="tag">NVIDIA</span><span class="tag">Vera Rubin</span><span class="tag">GTC Taipei</span><span class="tag">台積電</span>
+      <span class="tag">廣達</span><span class="tag">台達電</span><span class="tag">AI PC</span><span class="tag">聯發科</span>
+    </div>
+  </div>
+
+  <div class="news-item">
+    <h3>
+      美超微（SMCI）擬募資 70 億美元採購 AI 零件，股價盤後重挫 9%
+      <span class="en">Super Micro Plans $7B Equity Raise for AI Parts — Stock Plunges 9% After Hours</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: <a href="https://finance.technews.tw/2026/06/10/equity-dilution/" target="_blank">TechNews（姚惠茹）</a> · 2026-06-10 07:51
+    </div>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>SMCI 宣布將發行 50 億美元承銷股票（7 月起）+ 最多 20 億美元普通股公開發行，合計 70 億美元，用於採購 AI 伺服器零件。消息公布後股價盤後急跌 9%（股權稀釋疑慮）。</p>
+    </div>
+    <div class="block">
+      <span class="label label-imply">影響觀察 / Implications</span>
+      <p>SMCI 為 AI 伺服器組裝大廠，台廠廣達、鴻海、緯穎、緯創均為替代競爭者。SMCI 大規模採購對台灣零件供應商（電源：台達電；散熱：奇鋐等）短期屬利多，但若 SMCI 股價持續承壓，可能轉向台廠的訂單份額。</p>
+    </div>
+    <div class="tags"><span class="tag">SMCI</span><span class="tag">AI伺服器</span><span class="tag">股權稀釋</span><span class="tag">台廠受惠</span></div>
+  </div>
+
+  <div class="news-item">
+    <h3>
+      台灣強化高科技貨品出口管制，經濟部更新實體清單
+      <span class="en">Taiwan Tightens High-Tech Export Controls — MOEA Updates Entity Management List</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: <a href="https://finance.technews.tw/2026/06/10/taiwan-strengthens-export-controls-on-high-tech-goods/" target="_blank">TechNews（Atkinson）</a> · 2026-06-10 08:00
+    </div>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>外媒報導台灣研議收緊對中 AI 晶片出口管制後，經濟部 6/9 晚間正式回應，並同步公布最新「戰略性高科技貨品出口實體管理名單」。明確與美國 EAR 接軌，強調防堵武器擴散及非法轉運。</p>
+    </div>
+    <div class="tags"><span class="tag">出口管制</span><span class="tag">經濟部</span><span class="tag">AI晶片</span><span class="tag">國安政策</span></div>
+  </div>
+</div>
+
+<!-- SECTION 5: CORPORATE ACTIONS -->
+<div class="section">
+  <div class="section-title">公司行動 · Corporate Actions</div>
+
+  <div class="news-item">
+    <h3>
+      東元 (1504) 正式併購馬來西亞 Dynaciate，AI 資料中心業務目標達 3 成
+      <span class="en">TECO Electric Completes Dynaciate M&A — AI Data Center Revenue Target to Reach 30%</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: <a href="https://ec.ltn.com.tw/article/breakingnews/5448998" target="_blank">自由財經</a> · 2026-05-25
+    </div>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>東元於台北總部與馬來西亞工程公司 Dynaciate 正式完成併購協議簽署。AI 資料中心營收預計從 10% 以下躍升至 30%，強化東南亞 AI 資料中心基礎建設佈局。</p>
+    </div>
+    <div class="tags"><span class="tag">東元</span><span class="tag">併購</span><span class="tag">東南亞</span><span class="tag">資料中心</span></div>
+  </div>
+
+  <div class="news-item">
+    <h3>
+      遠東集團暫退中國實體百貨，黃晴雯：止損保留實力
+      <span class="en">Far Eastern Group Exits China Physical Retail — "Preserving Strength" for Future Return</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: <a href="https://finance.technews.tw/2026/06/09/far-eastern-group-temporarily-exits-china-physical-department-stores/" target="_blank">TechNews（中央社）</a> · 2026-06-09
+    </div>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>重慶遠東城熄燈，遠東新 (1402) 在中國百貨實體據點暫時歸零。SOGO 董事長黃晴雯：中國內需復甦前景未明朗，先持觀望，不放棄市場，「保留實力，不做無謂的失血」。</p>
+    </div>
+    <div class="tags"><span class="tag">遠東集團</span><span class="tag">中國市場</span><span class="tag">百貨</span><span class="tag">企業策略</span></div>
+  </div>
+
+  <div class="news-item">
+    <h3>
+      神盾 (6462) 旗下乾瞻科技 6/27 登錄興櫃，認購價 500 元
+      <span class="en">Egis Technology (6462) Spin-off Quanta Vision (7898) Lists on Emerging Market at NT$500/share</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: <a href="https://ec.ltn.com.tw/article/breakingnews/5449044" target="_blank">自由財經</a> · 2026-05-25
+    </div>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>神盾集團 IP 廠乾瞻科技（7898）5/27 登錄興櫃，認購價 500 元。Arm 台灣總裁黃曉剛、達發（6526）董事長謝清江站台。神盾集團董座羅森洲之子羅時豪擔任乾瞻總經理，主導先進製程 IP 業務。</p>
+    </div>
+    <div class="tags"><span class="tag">神盾</span><span class="tag">乾瞻科技</span><span class="tag">興櫃</span><span class="tag">矽智財</span></div>
+  </div>
+</div>
+
+<!-- SECTION 6: POLICY & FINI -->
+<div class="section">
+  <div class="section-title">政策與外資觀察 · Policy & FINI Watch</div>
+
+  <div class="news-item">
+    <h3>
+      AI 引外資，台幣爆量全年看升；央行首提 AI 金融風險
+      <span class="en">AI Inflows Lift TWD — CBC Flags AI Risk in Financial Stability Report</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: <a href="https://www.ctee.com.tw/news/20260531700045-430302" target="_blank">工商時報</a> · 2026-05-31；<a href="https://www.ctee.com.tw/news/20260530700030-430301" target="_blank">央行金融穩定報告</a>
+    </div>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>台灣央行（CBC）在最新金融穩定報告中首次點名 AI 為潛在風險，同時示警全球五大變數（利率、地緣政治、AI 信貸風險、資產泡沫、氣候風險）。外資今年持續因 AI 題材買進台股，台幣強升趨勢確立。</p>
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡 / Context</span>
+      <p>外資在 2026-06-09 台股小幅淨賣超（-917億），但近期整體仍為大幅淨買超。出口管制消息若持續發酵，可能短暫壓抑外資台積電持倉。</p>
+    </div>
+    <div class="tags"><span class="tag">央行</span><span class="tag">台幣</span><span class="tag">外資</span><span class="tag">金融穩定報告</span><span class="tag">AI風險</span></div>
+  </div>
+
+  <div class="news-item">
+    <h3>
+      金管會政策：台股 ETF 市場持續擴大，0050 成分股換血倒數
+      <span class="en">FSC Watch: Taiwan ETF Market Keeps Expanding — 0050 Constituent Reshuffle Imminent</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: <a href="https://www.ctee.com.tw/news/20260530700027-430403" target="_blank">工商時報</a> · 2026-05-30
+    </div>
+    <div class="block">
+      <span class="label label-fact">核心事實 / Facts</span>
+      <p>台股 ETF 第四檔 5,000 億規模基金誕生，四巨頭（0050、006208、00878、00919 等）佔半壁江山。0050 半年調整在即，AI 概念股（廣達、緯穎等）呼聲高；台塑、中鋼恐出局。工商時報分析台股 ETF 十強今年漲逾 9 成。</p>
+    </div>
+    <div class="tags"><span class="tag">ETF</span><span class="tag">0050</span><span class="tag">金管會</span><span class="tag">成分股調整</span></div>
+  </div>
+</div>
+
+<!-- SECTION 7: READS -->
+<div class="section">
+  <div class="section-title">觀點 · Reads</div>
+
+  <div class="news-item">
+    <h3>
+      從 SaaS 到 TaaS：AI 時代為何你不是付月費，而是 Token？
+      <span class="en">From SaaS to TaaS: Why AI Monetization Has Shifted from Subscriptions to Tokens</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: <a href="https://finance.technews.tw/2026/06/10/saas-to-taas/" target="_blank">TechNews（邱倢芯）</a> · 2026-06-10 08:00
+    </div>
+    <div class="block">
+      <p>本文系統性梳理 AI 商業模式的典範轉移：SaaS（訂閱制）→ TaaS（Token-as-a-Service，按推論消耗計費）。隨著 AI 代理大規模部署，企業 Token 消耗量成為驅動 GPU 需求的新主軸，進而形成「算力即營收」的正向飛輪。對台廠意義：每個 Token 的生成都需要伺服器、電源、冷卻基礎設施，台廠佔據供應鏈核心地位。</p>
+    </div>
+    <div class="tags"><span class="tag">TaaS</span><span class="tag">AI商業模式</span><span class="tag">Token經濟</span><span class="tag">必讀</span></div>
+  </div>
+</div>
+
+<!-- FOOTER / SOURCES -->
+<footer>
+  <strong>數據來源 / Sources</strong><br>
+  &bull; <a href="https://www.twse.com.tw/rwd/zh/fund/BFI82U?response=json&dayDate=20260609&type=day" target="_blank">TWSE BFI82U API（三大法人 2026-06-09 官方）</a><br>
+  &bull; <a href="https://www.ctee.com.tw/stock/indices" target="_blank">工商時報即時指數（CTEE Indices）</a><br>
+  &bull; <a href="https://finance.technews.tw/2026/06/10/tightening/" target="_blank">TechNews — 台灣研議管制 AI 晶片出口（2026-06-10）</a><br>
+  &bull; <a href="https://finance.technews.tw/2026/06/10/computing-power-equals-revenue/" target="_blank">TechNews — Vera Rubin 算力即營收（2026-06-10）</a><br>
+  &bull; <a href="https://finance.technews.tw/2026/06/09/may-exports-78-48-billion-second-highest-monthly-record/" target="_blank">TechNews — 5 月出口年增 51.7%（2026-06-09）</a><br>
+  &bull; <a href="https://finance.technews.tw/2026/06/09/ai-infrastrue-delta-5-financial/" target="_blank">TechNews — 台達電 5 月營收年增 43.7%</a><br>
+  &bull; <a href="https://finance.technews.tw/2026/06/09/ase-fr-2605/" target="_blank">TechNews — 日月光 5 月營收創同期高</a><br>
+  &bull; <a href="https://finance.technews.tw/2026/06/09/ai-liteon-bbu-5-financial-30/" target="_blank">TechNews — 光寶 5 月營收年增 30%</a><br>
+  &bull; <a href="https://ec.ltn.com.tw/list/securities" target="_blank">自由財經 — 證券產業</a><br>
+  &bull; <a href="https://www.bloomberg.com/news/articles/2026-06-09/taiwan-mulls-curbs-on-ai-chip-exports-to-china-to-align-with-us" target="_blank">Bloomberg — Taiwan Mulls AI Chip Curbs（原報導）</a><br><br>
+
+  <strong>免責聲明</strong>：本日報僅供資訊參考，不構成投資建議。股價及法人數字以官方公告為準。三大法人 2026-06-10 正式數字於收盤後約 18:00 由 TWSE 公布。<br>
+  今日（2026-06-10）加權指數數字為工商時報盤中即時顯示，收盤最終數字待確認。<br><br>
+
+  <strong>部分受限來源</strong>：DigiTimes、商業周刊、財訊（部分需訂閱）；MoneyDJ 法說報告（需登入）未能抓取正文。<br>
+  生成時間：2026-06-10 10:49 CST | 資料截止：2026-06-10 盤中
+</footer>
+
+</div>
+</body>
+</html>
