@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台股新聞日報 2026-06-11</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+    background: #f7f8fa;
+    color: #1a1a2e;
+    line-height: 1.6;
+    padding: 0 0 40px 0;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #0f2744 100%);
+    color: #fff;
+    padding: 28px 32px 22px;
+    border-bottom: 3px solid #e8b427;
+  }
+  .header h1 { font-size: 1.55rem; font-weight: 700; letter-spacing: 0.02em; }
+  .header .subtitle { font-size: 0.85rem; color: #b0c8e8; margin-top: 4px; }
+  .header .date-badge {
+    display: inline-block;
+    background: #e8b427;
+    color: #1a1a2e;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #e8b427;
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    font-size: 0.88rem;
+    color: #856404;
+  }
+  .summary-tables {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 700px) { .summary-tables { grid-template-columns: 1fr; } }
+  .table-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+  .table-card h3 {
+    background: #1a3a5c;
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    letter-spacing: 0.04em;
+  }
+  .table-card table { width: 100%; border-collapse: collapse; }
+  .table-card th {
+    background: #f0f4f8;
+    color: #444;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: right;
+    padding: 6px 12px;
+  }
+  .table-card th:first-child { text-align: left; }
+  .table-card td {
+    font-size: 0.8rem;
+    padding: 7px 12px;
+    text-align: right;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .table-card td:first-child { text-align: left; font-weight: 600; }
+  .up { color: #d32f2f; }
+  .down { color: #1565c0; }
+  .neutral { color: #555; }
+  .tbd { color: #888; font-style: italic; }
+  .section {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    margin-bottom: 22px;
+    overflow: hidden;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    background: #1a3a5c;
+    padding: 11px 18px;
+    gap: 10px;
+  }
+  .section-header .num {
+    background: #e8b427;
+    color: #1a1a2e;
+    font-size: 0.7rem;
+    font-weight: 800;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-header h2 { color: #fff; font-size: 0.95rem; font-weight: 700; }
+  .section-body { padding: 16px 18px; }
+  .news-item { margin-bottom: 22px; border-bottom: 1px solid #f0f0f0; padding-bottom: 20px; }
+  .news-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .news-item h3 { font-size: 0.95rem; font-weight: 700; color: #1a3a5c; margin-bottom: 4px; }
+  .source-line {
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .source-line a { color: #1565c0; text-decoration: none; }
+  .source-line a:hover { text-decoration: underline; }
+  .fact-block, .context-block, .implication-block {
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    font-size: 0.84rem;
+  }
+  .fact-block { background: #f0f7ff; border-left: 3px solid #1565c0; }
+  .context-block { background: #f5f5f5; border-left: 3px solid #888; }
+  .implication-block { background: #fff8e1; border-left: 3px solid #e8b427; }
+  .block-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 3px;
+  }
+  .tag {
+    display: inline-block;
+    background: #e8f0fe;
+    color: #1a3a5c;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 6px;
+  }
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    margin-top: 6px;
+  }
+  .sector-card {
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 10px 12px;
+  }
+  .sector-card .sector-name {
+    font-size: 0.77rem;
+    font-weight: 700;
+    color: #1a3a5c;
+    margin-bottom: 4px;
+  }
+  .sector-card .sector-status {
+    font-size: 0.75rem;
+    color: #555;
+  }
+  .footer {
+    font-size: 0.75rem;
+    color: #888;
+    padding: 16px 18px;
+    background: #f7f8fa;
+    border-top: 1px solid #e0e0e0;
+  }
+  .footer a { color: #1565c0; text-decoration: none; }
+  .reads-item { margin-bottom: 14px; }
+  .reads-item h4 { font-size: 0.88rem; font-weight: 700; color: #1a3a5c; margin-bottom: 3px; }
+  .reads-item p { font-size: 0.82rem; color: #555; }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="date-badge">2026-06-11 (週三) · 台灣時間</div>
+  <h1>台股新聞日報 / Taiwan Equity Daily Briefing</h1>
+  <div class="subtitle">最近一個交易日（2026-06-11）為台積電除息日；前交易日（6/10）大盤重挫 1,479 點，本報以除息日前後完整脈絡呈現</div>
+</div>
+
+<div class="container">
+
+  <div class="alert-box">
+    ⚠ <strong>資料說明 / Data Note：</strong>2026-06-11 當日收盤數字於本報撰寫時尚未完整索引於外部資料庫，本報以6月10日收盤（前一交易日）為基準，並完整呈現除息日背景與6月11日市場關鍵事件。所有收盤數字均來自已驗證公開報導，未知數字標示「待確認」。
+  </div>
+
+  <!-- SECTION 1: 大盤概況 -->
+  <div class="summary-tables">
+    <div class="table-card">
+      <h3>大盤 (Index) — 前交易日 6/10 收盤</h3>
+      <table>
+        <thead><tr><th></th><th>收盤</th><th>漲跌</th><th>%</th><th>成交量</th></tr></thead>
+        <tbody>
+          <tr><td>加權 TAIEX</td><td>43,225.54</td><td class="down">▼ 1,478.9</td><td class="down">-3.31%</td><td>1兆3,241億</td></tr>
+          <tr><td>櫃買 OTC</td><td class="tbd">待確認</td><td class="tbd">-</td><td class="tbd">-</td><td class="tbd">-</td></tr>
+          <tr><td>台指期 (近月)</td><td class="tbd">待確認</td><td class="tbd">-</td><td class="tbd">OI 待確認</td><td class="tbd">-</td></tr>
+          <tr><td>新台幣 / USD</td><td class="tbd">待確認</td><td class="tbd">-</td><td class="tbd">-</td><td class="tbd">-</td></tr>
+          <tr><td>TSM ADR (6/9)</td><td>USD 427.89</td><td class="up">▲ 0.26%</td><td class="up">+0.26%</td><td>-</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-card">
+      <h3>三大法人 (NT$ 億元) — 6/10 收盤</h3>
+      <table>
+        <thead><tr><th></th><th>買賣超</th><th>說明</th></tr></thead>
+        <tbody>
+          <tr><td>外資 (FINI)</td><td class="down">賣超 -935.74</td><td>連五日賣超</td></tr>
+          <tr><td>投信</td><td class="up">買超 +167.61</td><td>逆勢加碼</td></tr>
+          <tr><td>自營商</td><td class="down">賣超 -405.51</td><td>含避險部位</td></tr>
+          <tr><td><strong>三大法人合計</strong></td><td class="down">賣超 -1,173.64</td><td>5日連賣</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 2: 頭條 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="num">1</div>
+      <h2>大盤概況 &amp; 頭條 / Index Overview &amp; Top Stories</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <div>
+          <span class="tag">大盤</span>
+          <span class="tag">史上第六大跌點</span>
+        </div>
+        <h3>台股 6/10 重挫 1,479 點、創史上第六大跌點，6/11 迎台積電除息考驗</h3>
+        <h3>TAIEX Plunges 1,479 pts on Jun 10 — 6th Largest Single-Day Drop; TSMC Ex-Dividend on Jun 11</h3>
+        <div class="source-line">
+          來源 / Source: <a href="https://udn.com/news/story/7251/9557885" target="_blank">聯合新聞網</a> &amp; <a href="https://udn.com/news/story/7251/9557987" target="_blank">聯合新聞網</a> · 2026-06-10
+        </div>
+        <div class="fact-block">
+          <div class="block-label">核心事實 / Facts</div>
+          台股 6月10日（週二）收盤 43,225.54 點，下跌 1,478.9 點（-3.31%），為史上第六大跌點；成交量 1 兆 3,240 億元。三大法人合計賣超 1,173.64 億元（連第五日賣超），外資賣超 935.74 億元、投信逆勢買超 167.61 億元、自營商賣超 405.51 億元。
+          <br><br>
+          TAIEX closed 43,225.54 on Jun 10, down 1,478.9 pts (-3.31%), the sixth-largest single-day point drop on record. Volume reached NT$1.32 trillion. Three-major-investor combined net sell: NT$117.4 billion (5th consecutive selling day). Foreign investors sold NT$93.6 bn; investment trusts bought NT$16.8 bn; dealers sold NT$40.6 bn.
+        </div>
+        <div class="context-block">
+          <div class="block-label">背景脈絡 / Context</div>
+          台股自 6 月 5 日創下 45,677 點後，連番遭逢技術賣壓與地緣政治衝擊（美軍對伊朗的空襲引發中東衝突升溫擔憂），至 6 月 8 日「黑色星期一」大跌 1,568 點收 43,503 點，6 月 9 日費半強彈帶動反攻 +1,201 點至 44,704 點，但 6 月 10 日（週二）又再度重摔，累計 6/5 起短短 5 個交易日波動超過 4,500 點。月線支撐失守，市場情緒脆弱。SpaceX 預計 6 月 12 日那斯達克掛牌，加上美國 CPI/PPI 數據即將公布，資金不敢重押。
+          <br><br>
+          After hitting record 45,677 on Jun 5, the index shed ~4,500 pts in 5 sessions due to profit-taking, Middle East tensions (US strikes on Iran), plus apprehension ahead of US CPI/PPI and SpaceX's expected Jun 12 Nasdaq IPO. The monthly MA was breached on Jun 10.
+        </div>
+        <div class="implication-block">
+          <div class="block-label">影響觀察 / Implications</div>
+          6 月 11 日為台積電除息日（每股現金股利 NT$6），加權指數除息點數貢獻扣除後，市場焦點轉移至「台積電能否在除息當天即填息」。台積電過去 27 次季度除息有 21 次當日填息，加上 5 月營收創歷史新高（4,169.75 億元，年增 30.1%），基本面支撐填息邏輯成立，但技術面月線失守恐增壓力。（以下為分析，非投資建議）
+          <br><br>
+          Jun 11 is TSMC's ex-dividend date (NT$6/share). The key market watch: can TSMC fill the gap on ex-dividend day? Of 27 prior quarterly ex-dividends, 21 filled same-day. May revenue hit a record NT$416.9 billion (+30.1% YoY), providing fundamental support. However, the broken monthly MA adds technical pressure. (Analysis only, not investment advice.)
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div>
+          <span class="tag">中東地緣政治</span>
+          <span class="tag">美伊衝突</span>
+        </div>
+        <h3>美軍再度空襲伊朗 引爆科技股賣壓 / US Strikes on Iran Trigger Tech-Stock Selloff</h3>
+        <div class="source-line">
+          來源 / Source: <a href="https://udn.com/news/story/7251/9557663" target="_blank">聯合新聞網 · 2026-06-10</a>
+        </div>
+        <div class="fact-block">
+          <div class="block-label">核心事實 / Facts</div>
+          分析師張陳浩指出，台股重挫的主因之一是美軍再度空襲伊朗，市場擔憂中東衝突升溫。此外 SpaceX 周五掛牌、美國 CPI/PPI 數據公布均使資金不敢重押權值股，午盤後外資率先拋售，加速跌勢。6 月外資匯出台灣至少 50 億美元，央行總裁楊金龍出席立法院財委會表示「匯出不算高」。
+          <br><br>
+          US military strikes on Iran re-escalated Middle East risk fears, prompting institutional deleveraging. FX data showed foreign investors repatriated at least USD 5 bn from Taiwan in June. CBC Governor Yang Chin-long said outflows were "not that high."
+        </div>
+        <div class="implication-block">
+          <div class="block-label">影響觀察 / Implications</div>
+          分析師普遍認為此波下跌屬「漲多後技術修正」，AI 與 HBM 需求並未改變，整體格局「短空長多」。若美國 CPI 數據溫和，加上 SpaceX 掛牌效應，台股有機會在 6/11 除息後迎來情緒修復。（分析，非投資建議）
+          <br><br>
+          Analysts broadly characterize the pullback as technical correction after a near-record run; underlying AI and HBM demand is unchanged. A benign US CPI print and the SpaceX IPO halo effect could support sentiment recovery from June 11 onward.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 3: 台積電除息 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="num">2</div>
+      <h2>台積電除息 / TSMC Ex-Dividend (Jun 11, 2026)</h2>
+    </div>
+    <div class="section-body">
+      <div class="news-item">
+        <div>
+          <span class="tag">台積電 2330</span>
+          <span class="tag">除息日</span>
+          <span class="tag">現金股利 NT$6</span>
+        </div>
+        <h3>台積電 6/11 除息每股 NT$6，5 月營收創歷史新高強化填息信心</h3>
+        <h3>TSMC Ex-Dividend NT$6/share on Jun 11; May Revenue Record NT$416.9B Boosts Fill-Gap Confidence</h3>
+        <div class="source-line">
+          來源 / Source:
+          <a href="https://udn.com/news/story/7251/9558032" target="_blank">聯合新聞網 / 棄息報導</a> ·
+          <a href="https://histock.tw/blog/49973/1284" target="_blank">HiStock</a> ·
+          <a href="https://www.sinotrade.com.tw/richclub/hotstock/%E5%8F%B0%E7%A9%8D%E9%9B%BB%E7%87%9F%E6%94%B6" target="_blank">豐雲學堂</a> · 2026-06-10/11
+        </div>
+        <div class="fact-block">
+          <div class="block-label">核心事實 / Facts</div>
+          台積電（2330）2026 年 Q1 季配息每股 NT$6 元，除息交易日為 6 月 11 日，股息發放日為 7 月 9 日，預計發出現金股利 1,555.95 億元（NT$155.6 billion total payout）。除息參考價 = 6/10 收盤 2,255 元 − 6 元 = NT$2,249 元。
+          <br><br>
+          5 月合併營收 4,169.75 億元，月增 1.5%、年增 30.1%，創單月歷史新高。前五月累計 1 兆 9,618 億元，年增 30%。
+          <br><br>
+          TSMC Q1 2026 quarterly dividend: NT$6/share. Ex-div date: Jun 11. Payment: Jul 9. Total payout: ~NT$155.6 bn. Reference price on ex-div day = prior close NT$2,255 minus NT$6 = NT$2,249. May revenue: NT$416.975 billion, +1.5% MoM, +30.1% YoY — record high. YTD Jan–May: NT$1,961.8 billion (+30% YoY).
+        </div>
+        <div class="context-block">
+          <div class="block-label">背景脈絡 / Context</div>
+          台積電 2019 年改為每季配息後，統計過去 27 次季除息，21 次在除息當天即填息（填息率 78%）。6/10 出現棄息賣壓（收盤 2,255 元、較 5 天前最高 2,425 元跌 7.01%），顯示部分持有人選擇在除息前了結。Q2 配息（下季）董事會已決議調升至每股 NT$7 元，9 月 16 日除息，反映未來現金流能力更強。
+          <br><br>
+          Of 27 prior quarterly ex-dividends, 21 filled same day (78% fill rate). Q2 dividend was raised to NT$7 (announced May 12), ex-div scheduled Sep 16, signaling stronger cash generation outlook.
+        </div>
+        <div class="implication-block">
+          <div class="block-label">影響觀察 / Implications</div>
+          若 6/11 台積電能迅速填息，市場信心可望回穩，AI 供應鏈相關股跟漲。若未能填息，月線失守再加除息壓力雙重夾擊下，短線可能進一步回測 42,000–43,000 點支撐。台積電 ADR（TSM）6/9 收 USD 427.89（+0.26%），可作為 6/11 開盤參考。（分析，非投資建議）
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: 權值股 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="num">3</div>
+      <h2>權值股動向 / Heavyweights (6/10 收盤)</h2>
+    </div>
+    <div class="section-body">
+      <div class="news-item">
+        <div>
+          <span class="tag">台積電 2330</span>
+          <span class="tag">聯發科 2454</span>
+          <span class="tag">鴻海 2317</span>
+          <span class="tag">台達電 2308</span>
+          <span class="tag">大立光 3008</span>
+        </div>
+        <h3>五大權值主帥 6/10 集體遭調節，單日合計拖累大盤約 799 點</h3>
+        <h3>Five Heavyweight Leaders Sold Off in Unison on Jun 10, Dragging Index by ~799 pts Combined</h3>
+        <div class="source-line">
+          來源 / Source: <a href="https://udn.com/news/story/7251/9557987" target="_blank">聯合新聞網 · 2026-06-10</a>
+        </div>
+        <div class="fact-block">
+          <div class="block-label">核心事實 / Facts (6/10 收盤)</div>
+          <ul style="margin-left: 16px; font-size: 0.84rem; color: #333;">
+            <li><strong>台積電（2330）</strong>：收 2,255 元，跌 50 元（-2.17%）；月線失守，單檔拖累大盤約 394 點</li>
+            <li><strong>台達電（2308）</strong>：重挫 8.9%，收 2,200 元，跌破月線，拖累大盤約 158 點</li>
+            <li><strong>聯發科（2454）</strong>：跌 7.15%，收 4,155 元，失守 5 日線</li>
+            <li><strong>鴻海（2317）</strong>：跌 5.23%，收 263 元，月線失守風險</li>
+            <li><strong>日月光投控（3711）</strong>：跌 5.27%，收 539 元</li>
+            <li><strong>大立光（3008）</strong>：CPO（共同封裝光學）題材，外資目標價喊至 5,325 元，早盤漲停 4,270 元，尾盤遭空頭攻擊漲停打開，仍收漲 6.31% 報 4,130 元——當日唯一撐盤主力</li>
+          </ul>
+          <br>
+          TSMC -2.17% to NT$2,255, contributed ~394 pt drag. Delta Electronics -8.9% to NT$2,200. MediaTek -7.15% to NT$4,155. Hon Hai -5.23% to NT$263. ASE -5.27% to NT$539. Largan Precision sole bright spot: +6.31% to NT$4,130 on CPO theme (foreign analyst target NT$5,325).
+        </div>
+        <div class="context-block">
+          <div class="block-label">背景脈絡 / Context</div>
+          大立光 CPO（Co-Packaged Optics，共同封裝光學）在 AI 伺服器連接需求爆發下成為市場焦點，外資圈上調目標價至 5,325 元，顯示即使大盤重挫，資金仍追捧具明確 AI 應用利基的個股。台積電除息後能否填息，將是 6/11 全市場最大焦點。
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div>
+          <span class="tag">台積電 5月營收</span>
+          <span class="tag">歷史新高</span>
+        </div>
+        <h3>台積電 5 月營收 4,169.75 億元創新高，年增 30.1%，Q2 業績趨勢強勁</h3>
+        <h3>TSMC May Revenue NT$416.975B All-Time High, +30.1% YoY — Q2 Momentum Remains Solid</h3>
+        <div class="source-line">
+          來源 / Source: <a href="https://udn.com/news/story/7251/9558032" target="_blank">聯合新聞網</a> ·
+          <a href="https://cmnews.com.tw/article/newsyoudeservetoknow-086c03f1-5e2d-11f1-a8fc-4cdeaa7f8899" target="_blank">CMoney 新聞</a> · 2026-06-10
+        </div>
+        <div class="fact-block">
+          <div class="block-label">核心事實 / Facts</div>
+          台積電 5 月合併營收 4,169.75 億元，月增 1.5%，年增 30.1%，創單月歷史新高。前五月累計 1 兆 9,618.04 億元，年增 30%，同步創新高。以目前 Q2 進度推算，Q2 季度營收有望逼近甚至超越法說會指引，進一步強化全年展望。
+          <br><br>
+          TSMC May 2026 consolidated revenue: NT$416.975 bn, +1.5% MoM, +30.1% YoY, a monthly record. Jan–May cumulative NT$1,961.8 bn, also a record (+30% YoY). Q2 revenue trajectory on track to meet or beat guidance.
+        </div>
+        <div class="implication-block">
+          <div class="block-label">影響觀察 / Implications</div>
+          亮眼 5 月營收將支撐 6/11 除息填息信心。若 7 月 Q2 法說會業績優於預期，國際法人有動機重新增持台積電，進而帶動整體台股信心。（分析，非投資建議）
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: 類股輪動 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="num">4</div>
+      <h2>類股輪動 / Sector Rotation</h2>
+    </div>
+    <div class="section-body">
+      <div class="sector-grid">
+        <div class="sector-card">
+          <div class="sector-name">半導體 Semiconductor</div>
+          <div class="sector-status down">全面走弱；台積電、聯發科月線失守；AMD、NVIDIA 等國際晶片股受中東緊張衝擊</div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-name">AI 概念 / AI Theme</div>
+          <div class="sector-status down">大盤重挫壓制，但 CPO（大立光）逆勢收漲 +6.31%；AI 伺服器、HBM 需求長線未變</div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-name">被動元件 Passives</div>
+          <div class="sector-status neutral">早盤撐盤；尾盤同步受壓；6/9 曾帶動反彈，6/10 多空互搏</div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-name">金融 Financial</div>
+          <div class="sector-status neutral">隨大盤下挫，但金融類股 6/9 曾領漲；外資 6/9 賣超揭露兩檔金控</div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-name">營建 Construction</div>
+          <div class="sector-status up">央行總裁確認「選擇性信用管制就到這裡」，京城、全坤建、聯上發、冠德等多檔漲停，當日逆勢大漲 4.45%</div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-name">太陽能 Solar Energy</div>
+          <div class="sector-status up">SpaceX 揭露太空 AI1 衛星規畫、導入大規模太陽能；元晶（6443）、茂迪（6244）、聯合再生（3576）逆勢強漲</div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-name">光學 / CPO</div>
+          <div class="sector-status up">大立光受 CPO 題材拉抬，外資目標價 5,325 元，早盤漲停，收+6.31%</div>
+        </div>
+        <div class="sector-card">
+          <div class="sector-name">記憶體 Memory</div>
+          <div class="sector-status down">群聯（2379）千金股違約交割傳聞衝擊；整體走弱，高盛仍上調記憶體三巨頭目標價</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: 個股大事 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="num">5</div>
+      <h2>個股大事 / Single-Stock Movers</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <div><span class="tag">SpaceX 概念</span><span class="tag">太陽能</span><span class="tag">元晶 6443</span><span class="tag">茂迪 6244</span></div>
+        <h3>馬斯克公開「AI1」太空 AI 衛星規畫導入太陽能 — 元晶、茂迪、聯合再生逆勢飆漲</h3>
+        <h3>Musk Reveals SpaceX "AI1" Space-AI Satellite Plan Using Solar Power — Taiwan Solar Stocks Surge Against Trend</h3>
+        <div class="source-line">
+          來源 / Source:
+          <a href="https://udn.com/news/story/7251/9557676" target="_blank">聯合新聞網 · 2026-06-10</a> ·
+          <a href="https://money.udn.com/money/story/5612/9556446" target="_blank">經濟日報 · 2026-06-10</a>
+        </div>
+        <div class="fact-block">
+          <div class="block-label">核心事實 / Facts</div>
+          SpaceX 執行長馬斯克在 6/10 首度公開「AI1」太空 AI 衛星規畫，目標 2027 年大舉建置太空 AI 運算平台，並導入大規模太陽能發電。SpaceX 預計 6 月 12 日那斯達克掛牌上市。招股書揭露未來 AI 運算需求達「太瓦（TW）等級」，空間太陽能效率超過地面 5 倍。台灣太陽能族群：元晶（6443）、茂迪（6244）、聯合再生（3576）等逆勢走強。
+          <br><br>
+          Musk disclosed "AI1" space-AI orbital computing platform targeting 2027 deployment powered by large-scale space solar. SpaceX expected Nasdaq IPO Jun 12. Prospectus cites "terawatt-scale" AI compute demand; space-based solar ~5x efficiency. Taiwan solar names: Yuanjing (6443), Motech (6244), United Renewable (3576) surged against broader market decline.
+        </div>
+        <div class="context-block">
+          <div class="block-label">背景脈絡 / Context</div>
+          中美晶（5483）和元晶（6443）在台灣太陽能產業具主要地位；元晶更是少數已與 SpaceX 建立太陽能合作關係的台廠之一。SpaceX 供應鏈概念股在 6 月成為台股新興題材，吸引市場資金在大盤重挫中避险追入。
+        </div>
+        <div class="implication-block">
+          <div class="block-label">影響觀察 / Implications</div>
+          6/11 SpaceX 掛牌前夕，相關概念股動能可能延續。若 SpaceX IPO 超額認購，市場對太空 AI 供應鏈想像空間放大，有望成為台股下一波輪動主題。（分析，非投資建議）
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div><span class="tag">群聯 2379</span><span class="tag">違約交割</span></div>
+        <h3>台股洗盤「連環爆」— 千金股群聯 2,284 萬元違約交割 / Phison (2379) Default on NT$22.84M Trade</h3>
+        <div class="source-line">
+          來源 / Source:
+          <a href="https://udn.com/news/story/7255/9556053" target="_blank">聯合新聞網 · 2026-06-09</a>
+        </div>
+        <div class="fact-block">
+          <div class="block-label">核心事實 / Facts</div>
+          記憶體千金股群聯（2379）爆出 2,284 萬元違約交割，佳必琪（6495）同期違約金額 1.49 億元，創今年新高。群聯股價 6/10 大幅下跌。違約交割通常反映融資追繳、散戶強制斷頭壓力，是大盤急速回調的市場信號之一。
+          <br><br>
+          Phison (2379) reported NT$22.84M in failed settlements. JMC (6495) defaults hit NT$149M — a 2026 high. Forced margin calls signal over-leveraged retail positions being unwound during the correction.
+        </div>
+        <div class="implication-block">
+          <div class="block-label">影響觀察 / Implications</div>
+          統一投顧建議，在融資餘額與成交量的止跌訊號出現前，避免急忙承接。若 6/11 台積電填息成功加上融資餘額縮減，可視為多頭企穩訊號。
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div><span class="tag">大立光 3008</span><span class="tag">CPO</span></div>
+        <h3>大立光 CPO 題材爆發，外資目標價喊至 5,325 元，大盤空襲中獨漲 +6.31%</h3>
+        <h3>Largan Precision Surges +6.31% on CPO Demand Amid Broad Selloff; Foreign Target Price NT$5,325</h3>
+        <div class="source-line">
+          來源 / Source: <a href="https://udn.com/news/story/7251/9557987" target="_blank">聯合新聞網 · 2026-06-10</a>
+        </div>
+        <div class="fact-block">
+          <div class="block-label">核心事實 / Facts</div>
+          大立光（3008）6/10 早盤觸漲停 4,270 元（+10%），雖尾盤被空頭攻擊、漲停打開，仍收漲 6.31% 報 4,130 元——大盤重挫時全場最強。外資圈對大立光在 AI 資料中心共同封裝光學（CPO）應用的前景給出最高目標價 5,325 元。
+          <br><br>
+          Largan hit limit-up NT$4,270 in early trade (+10%), settled at NT$4,130 (+6.31%) as bears fought back. Foreign brokers cite Co-Packaged Optics (CPO) for AI datacenters; top target NT$5,325.
+        </div>
+        <div class="implication-block">
+          <div class="block-label">影響觀察 / Implications</div>
+          CPO 是 AI 資料中心高速光訊號傳輸的關鍵技術，摩根士丹利（大摩）在台北 AI 峰會中亦點名 CPO 為三大關鍵技術之一。大立光技術與品質壁壘強，若 CPO 大規模量產，市場估值有望持續重估。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: 公司治理 / 央行 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="num">6</div>
+      <h2>政策與外資觀察 / Policy &amp; FINI Watch</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <div><span class="tag">央行</span><span class="tag">選擇性信用管制</span><span class="tag">營建</span></div>
+        <h3>楊金龍：「選擇性信用管制就到這裡」— 房市政策明朗化，營建股多檔漲停</h3>
+        <h3>CBC Governor: "Selective Credit Controls Stop Here" — Property Policy Clarity Triggers Construction-Stock Rally</h3>
+        <div class="source-line">
+          來源 / Source: <a href="https://udn.com/news/story/7251/9558077" target="_blank">聯合新聞網 · 2026-06-10</a>
+        </div>
+        <div class="fact-block">
+          <div class="block-label">核心事實 / Facts</div>
+          央行總裁楊金龍 6/10 赴立法院財委會報告，在接受立委質詢時明確表示「選擇性信用管制就到這裡」，確認央行不會進一步加碼房市管制措施。受此消息刺激，京城（2524）、全坤建（2509）、聯上發（2537）、冠德（2520）、國建（2501）、工信（5521）等全面漲停，營建類股當日逆勢大漲 4.45%。
+          <br><br>
+          CBC Governor Yang confirmed no additional property credit-control tightening at a legislative committee hearing. Construction stocks surged: Jing Cheng (2524), Quankun (2509), Lianshang (2537), Guande (2520), Guo Jian (2501), and Gongxin (5521) all hit limit-up. Construction sector rose +4.45% against the bearish tape.
+        </div>
+        <div class="implication-block">
+          <div class="block-label">影響觀察 / Implications</div>
+          信義房屋提醒，此次營建大漲仍需觀察是否為一日行情，Q2 央行理監事會議仍是下一個政策關鍵節點。外資對台幣匯出的疑慮（6月至少匯出 50 億美元），楊金龍稱係外資對台股「進進出出」屬正常動作。（觀察，非投資建議）
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div><span class="tag">外資</span><span class="tag">大摩</span><span class="tag">AI 峰會</span></div>
+        <h3>摩根士丹利首次於台北舉辦亞太 AI 峰會 — 610 名外資，85 家 AI 企業，台股獲「長期看好」背書</h3>
+        <h3>Morgan Stanley Holds First-Ever Asia-Pacific AI Summit in Taipei — 610 Institutional Investors, 85 AI Companies; Taiwan Gets "Long-Term Bullish" Endorsement</h3>
+        <div class="source-line">
+          來源 / Source:
+          <a href="https://technews.tw/2026/06/06/beyond-tsmc-ai-supply-chain-in-demand-cross-strait-risks-morgan-stanley-optimistic-taiwan-stocks/" target="_blank">TechNews · 2026-06-06</a> ·
+          <a href="https://money.udn.com/money/story/5607/9537229" target="_blank">經濟日報 · 台股三大利多</a>
+        </div>
+        <div class="fact-block">
+          <div class="block-label">核心事實 / Facts</div>
+          摩根士丹利（大摩）於 5 月 28–29 日首次在台北舉辦亞太 AI 峰會（Asia AI Summit），吸引全球 610 位頂級機構投資人、涵蓋美中日台 85 家 AI 產業核心企業。大摩表示，選擇台北舉辦係因「台灣在 AI 領域具舉足輕重的地位」，並點名 AI 封裝重構半導體格局：CoWoS、CPO、WoW 三大技術為台積電最大贏家。大摩對聯發科持「首選（Overweight）」評等；對台股整體保持「續旺」看法，僅擔心兩大風險（兩岸局勢、美國利率走向）。
+          <br><br>
+          MS held its inaugural Asia AI Summit in Taipei May 28–29; 610 institutional investors, 85 companies across US/China/Japan/Taiwan attended. MS named CoWoS, CPO, and WoW as the three AI packaging technologies making TSMC "the biggest winner." MS rates MediaTek "Overweight" (top pick). Overall Taiwan view: constructive; two key risks — cross-strait and US rate trajectory.
+        </div>
+        <div class="context-block">
+          <div class="block-label">背景脈絡 / Context</div>
+          大摩有意將亞洲投資峰會發展為台北常態性年度活動，顯示外資對台灣資本市場的長期戰略重視度提升。儘管短線外資因中東緊張賣超，但這次峰會所代表的「長期資金意圖」值得關注。
+        </div>
+      </div>
+
+      <div class="news-item">
+        <div><span class="tag">金管會</span><span class="tag">注意股門檻</span></div>
+        <h3>金管會研議調高注意股門檻、縮短處置股時間 — 因應市場規模擴大</h3>
+        <h3>FSC Considers Raising Alert-Stock Thresholds and Shortening Disposition Periods</h3>
+        <div class="source-line">
+          來源 / Source: <a href="https://udn.com/news/story/7251/9558112" target="_blank">聯合新聞網 · 2026-06-10</a>
+        </div>
+        <div class="fact-block">
+          <div class="block-label">核心事實 / Facts</div>
+          金管會正研議調高「注意股」認定門檻，並縮短「處置股」管制時間，考量近年台灣資本市場規模及股價水準大幅提升，現行標準已難與市場現況匹配。導火索是高價股聯發科日前交易觸及異常定義遭處置，引發業界討論。
+          <br><br>
+          FSC is reviewing whether to raise the definition threshold for "alert stocks" and shorten disposition periods, after MediaTek's high-value trades triggered existing abnormal-trading definitions. Market scale has grown significantly since current rules were set.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 8: 觀點 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="num">7</div>
+      <h2>觀點 / Reads — 值得收藏的策略報告</h2>
+    </div>
+    <div class="section-body">
+      <div class="reads-item">
+        <h4><a href="https://technews.tw/2026/06/06/beyond-tsmc-ai-supply-chain-in-demand-cross-strait-risks-morgan-stanley-optimistic-taiwan-stocks/" target="_blank" style="color: #1a3a5c; text-decoration: none;">不只台積電，整條 AI 供應鏈都要！兩岸風險未解，摩根士丹利為何仍看好台股？ (TechNews)</a></h4>
+        <p>大摩亞太 AI 峰會深度分析：從 CoWoS 封裝到 CPO 光學，解析外資長線佈局台股的核心邏輯與兩大風險；摩根士丹利台灣區負責人邱慧平的完整觀點。</p>
+      </div>
+      <div class="reads-item">
+        <h4><a href="https://finance.technews.tw/2026/06/07/cpu-powerful-comeback-multi-hundred-billion-dollar-boom-ai-server-landscape-investment-opportunities/" target="_blank" style="color: #1a3a5c; text-decoration: none;">AI 伺服器戰局大翻轉！CPU 躍升主角爆缺貨潮，千億美元商機點火 (TechNews / 財訊)</a></h4>
+        <p>Computex 2026 後的 AI 伺服器供應鏈洞察：CPU 從配角成主角，影響台股哪些供應鏈族群？解析英特爾、AMD 在 AI 伺服器新賽局中的機會，與台廠受益清單。</p>
+      </div>
+      <div class="reads-item">
+        <h4><a href="https://www.pocket.tw/school/report/SB/7453/" target="_blank" style="color: #1a3a5c; text-decoration: none;">SpaceX IPO 懶人包：傳 6/12 那斯達克掛牌、史上最大 IPO，台股概念股一次看懂 (口袋學堂)</a></h4>
+        <p>SpaceX 上市完整指南：估值 1.75 兆美元、太空 AI 規畫、與台灣太陽能及低軌衛星供應鏈的關係，附完整台股概念股名單。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 9: 本日 6/11 關鍵觀察點 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="num">8</div>
+      <h2>6/11 關鍵觀察點 / Key Watch Points for Jun 11</h2>
+    </div>
+    <div class="section-body">
+      <ul style="margin-left: 20px; font-size: 0.88rem; color: #333; line-height: 2;">
+        <li><strong>台積電（2330）除息填息情況</strong> — 參考價 NT$2,249，能否當日填息是全場最大焦點</li>
+        <li><strong>美國 CPI 數據</strong> — 若溫和，有助外資情緒修復；若超預期，科技股二次壓力</li>
+        <li><strong>SpaceX 6/12 那斯達克 IPO 前夕</strong> — 太陽能、低軌衛星概念股動能是否延續</li>
+        <li><strong>台指期夜盤走勢</strong> — 確認多空籌碼是否持續優化</li>
+        <li><strong>外資買賣超（待確認）</strong> — 連五日賣超後是否轉向，關鍵指標</li>
+        <li><strong>融資餘額變化</strong> — 若明顯縮減，代表弱手洗盤接近尾聲</li>
+        <li><strong>月線（約 44,000 附近）修復</strong> — 待確認台積電除息後指數能否快速回到月線之上</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    <strong>資料來源 / Sources：</strong>
+    <a href="https://udn.com/news/cate/2/6645" target="_blank">聯合新聞網股市</a> ·
+    <a href="https://news.cnyes.com/news/cat/tw_stock" target="_blank">鉅亨網台股</a> ·
+    <a href="https://technews.tw" target="_blank">TechNews 科技新報</a> ·
+    <a href="https://www.twse.com.tw/zh/trading/foreign/bfi82u.html" target="_blank">TWSE 三大法人</a> ·
+    <a href="https://histock.tw/blog/49973/1284" target="_blank">HiStock 台積電除息</a> ·
+    <a href="https://investor.tsmc.com/english/latest-dividend" target="_blank">TSMC 官方股利</a> ·
+    <a href="https://money.udn.com/money/story/5607/9537229" target="_blank">經濟日報 台股三大利多</a> ·
+    <a href="https://www.sinotrade.com.tw/richclub/hotstock/2026%E5%8F%B0%E7%A9%8D%E9%9B%BB" target="_blank">豐雲學堂</a>
+    <br><br>
+    <em>本報為資訊彙整與分析，不構成投資建議。所有數字均源自公開報導，6/11 當日尚未完整入庫之數字標示「待確認」。</em><br>
+    <em>This briefing is for informational purposes only and does not constitute investment advice. Numbers marked "待確認" (TBC) were not yet indexed at time of compilation.</em>
+  </div>
+
+</div>
+</body>
+</html>

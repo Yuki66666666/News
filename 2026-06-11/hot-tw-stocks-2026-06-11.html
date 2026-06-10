@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日台股熱門焦點股 2026-06-11（盤後資料：2026/06/10）</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3350;
+    --accent: #e84040;
+    --accent2: #00c97b;
+    --accent3: #f5a623;
+    --text: #e8ecf0;
+    --text2: #9aa5b4;
+    --up: #e84040;
+    --down: #00c97b;
+    --badge-bg: #2e3350;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif; font-size: 14px; line-height: 1.6; }
+  a { color: var(--accent3); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .header { background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%); border-bottom: 2px solid var(--accent); padding: 20px 24px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #fff; }
+  .header .meta { color: var(--text2); font-size: 12px; margin-top: 4px; }
+  .header .session-note { background: #2e1a00; border: 1px solid var(--accent3); border-radius: 4px; padding: 6px 12px; font-size: 12px; color: var(--accent3); margin-top: 8px; display: inline-block; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 20px 16px; }
+
+  /* Section titles */
+  .section-title { font-size: 16px; font-weight: 700; color: var(--accent3); border-left: 3px solid var(--accent); padding-left: 10px; margin: 24px 0 12px; }
+  .section-subtitle { font-size: 12px; color: var(--text2); margin-left: 13px; }
+
+  /* Summary table */
+  .summary-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 20px; overflow-x: auto; display: block; }
+  .summary-table th { background: var(--surface2); color: var(--text2); font-weight: 600; padding: 8px 10px; text-align: left; white-space: nowrap; }
+  .summary-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  .summary-table tr:hover td { background: var(--surface2); }
+  .up { color: var(--up); font-weight: 700; }
+  .down { color: var(--down); font-weight: 700; }
+  .flat { color: var(--text2); }
+  .ticker-code { font-weight: 700; color: #7eb8ff; }
+  .star { color: var(--accent3); }
+
+  /* Deep dive cards */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; margin-bottom: 16px; }
+  .card-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+  .card-ticker { font-size: 18px; font-weight: 800; color: #fff; }
+  .card-name { font-size: 14px; color: var(--text2); }
+  .card-change { font-size: 15px; font-weight: 700; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; background: var(--badge-bg); color: var(--text2); margin-left: 4px; }
+  .badge-red { background: #4a1a1a; color: #ff6b6b; }
+  .badge-green { background: #0d3325; color: #00c97b; }
+  .badge-yellow { background: #3a2a00; color: var(--accent3); }
+  .badge-blue { background: #0d1e4a; color: #7eb8ff; }
+  .badge-caution { background: #5a2000; color: #ff9944; }
+
+  .label { font-size: 11px; font-weight: 700; color: var(--text2); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 10px; margin-bottom: 4px; }
+  .card p { color: var(--text); font-size: 13px; line-height: 1.7; margin-bottom: 6px; }
+  .card .en { color: var(--text2); font-size: 12px; font-style: italic; margin-bottom: 8px; }
+  .chip-row { display: flex; gap: 6px; flex-wrap: wrap; margin: 6px 0; }
+  .chip { display: inline-block; background: var(--surface2); border: 1px solid var(--border); border-radius: 4px; padding: 3px 8px; font-size: 12px; color: var(--text2); }
+  .chip.buy { border-color: #00c97b44; color: var(--down); }
+  .chip.sell { border-color: #e8404044; color: var(--up); }
+  .chip.neutral { border-color: var(--border); }
+
+  /* Market backdrop */
+  .backdrop { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; margin-bottom: 20px; }
+  .backdrop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; margin-top: 10px; }
+  .metric-box { background: var(--surface2); border-radius: 6px; padding: 10px 14px; }
+  .metric-box .metric-label { font-size: 11px; color: var(--text2); margin-bottom: 3px; }
+  .metric-box .metric-val { font-size: 15px; font-weight: 700; }
+
+  /* Watch / caution list */
+  .mini-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-bottom: 10px; }
+  .mini-card h4 { font-size: 14px; color: #fff; margin-bottom: 6px; }
+  .mini-card p { font-size: 12px; color: var(--text2); }
+
+  /* Sources */
+  .sources { background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; margin-top: 20px; }
+  .sources h4 { font-size: 13px; color: var(--text2); margin-bottom: 8px; }
+  .sources ul { list-style: none; padding: 0; }
+  .sources li { font-size: 12px; color: var(--text2); padding: 2px 0; }
+  .sources li::before { content: "→ "; color: var(--accent3); }
+
+  /* Footer */
+  .footer { margin-top: 30px; padding: 16px 0; border-top: 1px solid var(--border); color: var(--text2); font-size: 11px; text-align: center; }
+
+  @media (max-width: 600px) {
+    .card-header { flex-direction: column; }
+    .backdrop-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 今日台股熱門焦點股 · Hot Taiwan Stocks of the Day</h1>
+  <div class="meta">產出時間 Generated：2026-06-11 02:30 CST ｜ 資料日期 Session Data：2026-06-10（週三 Wed）</div>
+  <span class="session-note">⚠ 現為台北時間 02:30，TWSE 下一盤 09:00 開盤。本報告基於 2026/06/10 最近完成交易日資料。</span>
+</div>
+
+<div class="container">
+
+  <!-- Section 0: Market Backdrop -->
+  <div class="section-title">大盤背景 · Market Backdrop <span class="section-subtitle">2026/06/10 TWSE 收盤</span></div>
+  <div class="backdrop">
+    <div class="backdrop-grid">
+      <div class="metric-box">
+        <div class="metric-label">加權指數 TAIEX</div>
+        <div class="metric-val down">43,225.54</div>
+        <div class="chip sell" style="font-size:12px;margin-top:4px;display:inline-block;padding:2px 8px;border-radius:4px;">▼ 1,478.9 pts (−3.31%)</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">成交量 Turnover</div>
+        <div class="metric-val">1.32 兆</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">跌點排名</div>
+        <div class="metric-val up">史上第6大跌點</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">外資 Foreign Inv.</div>
+        <div class="metric-val up">連續賣超（前日砍 937 億）</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">台幣匯率</div>
+        <div class="metric-val">外資持續匯出（CBC 楊金龍：6月已出≥50億美元）</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">費城半導體 SOX</div>
+        <div class="metric-val up">−1.93%（前日）</div>
+      </div>
+    </div>
+    <p style="margin-top:12px;font-size:13px;color:var(--text2);">
+      台股 6/10 受美銀示警「台韓超買居全球前3」、外資連續鉅額賣超、融資籌碼仍偏高，三大利空夾擊，尾盤賣壓加劇，終場重挫 1,478 點，為史上單日跌幅第6大。電子權值股（台積電 −2.2%、台達電 −8.9%、聯發科 −7.15%、鴻海 −5%）全線重挫。然而市場出現兩大逆勢亮點：被動元件族群因 AI 需求強勁挺漲停潮，央行楊金龍表態「信用管制就到這裡」點燃營建股慶祝行情，雙族群成為當日最搶眼焦點股。
+    </p>
+    <p class="en" style="margin-top:6px;">Taiwan stocks tumbled 1,478 pts on June 10 (6th-largest single-day drop in TWSE history), driven by global overheating warnings, sustained foreign selling (₩937B sold the prior day), and elevated margin positions. Amid the carnage, passive components hit limit-up on AI demand tailwinds, and construction/real estate stocks surged after CBC Governor Yang Jin-long signaled no further credit-tightening measures.</p>
+  </div>
+
+  <!-- Section 1: Summary Table -->
+  <div class="section-title">熱門焦點 Top 6 · Today's Hottest Names</div>
+  <div style="overflow-x:auto;">
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>股號</th>
+          <th>公司</th>
+          <th>收盤/盤中高</th>
+          <th>漲跌%</th>
+          <th>量(盤中)</th>
+          <th>三大法人</th>
+          <th>熱度</th>
+          <th>主要 Catalyst</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ticker-code">2327</td>
+          <td>國巨*</td>
+          <td>819 元（盤中漲停 908）</td>
+          <td class="up">▲ 拉停後回跌</td>
+          <td>~83,000 張</td>
+          <td>近5日外資賣超 33,230 張；投信買超 3,557 張</td>
+          <td class="star">★★★★★</td>
+          <td>AI 伺服器 MLCC 需求爆發；5月營收史高</td>
+        </tr>
+        <tr>
+          <td class="ticker-code">8043</td>
+          <td>蜜望實</td>
+          <td>漲停（盤中）</td>
+          <td class="up">▲ +10%</td>
+          <td>待確認</td>
+          <td>投信連買；外資待確認</td>
+          <td class="star">★★★★</td>
+          <td>被動元件族群跟漲；AI 石英元件</td>
+        </tr>
+        <tr>
+          <td class="ticker-code">3090</td>
+          <td>日電貿</td>
+          <td>253 元（漲停）</td>
+          <td class="up">▲ +10%</td>
+          <td>待確認</td>
+          <td>主力分點集中</td>
+          <td class="star">★★★★</td>
+          <td>被動元件；MLCC 代理商；AI 伺服器受惠</td>
+        </tr>
+        <tr>
+          <td class="ticker-code">5345</td>
+          <td>馥鴻</td>
+          <td>漲停（盤中）</td>
+          <td class="up">▲ +10%</td>
+          <td>待確認</td>
+          <td>待確認</td>
+          <td class="star">★★★</td>
+          <td>5月營收亮眼；被動元件族群連鎖</td>
+        </tr>
+        <tr>
+          <td class="ticker-code">5534</td>
+          <td>長虹建設 / 國建(2501)</td>
+          <td>漲停</td>
+          <td class="up">▲ +10%</td>
+          <td>待確認</td>
+          <td>投信買超（待確認）</td>
+          <td class="star">★★★★</td>
+          <td>楊金龍「信用管制就到這裡」政策拐點</td>
+        </tr>
+        <tr>
+          <td class="ticker-code">5534/2501+</td>
+          <td>營建族群（冠德、海悅、京城等）</td>
+          <td>多檔漲停</td>
+          <td class="up">▲ +10%</td>
+          <td>待確認</td>
+          <td>投信買超</td>
+          <td class="star">★★★★</td>
+          <td>央行放緩打房；市場解讀政策拐點</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Deep Dives -->
+
+  <!-- Stock 1: 國巨 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-ticker">2327</span>
+      <span class="card-name">國巨* / Yageo Corporation</span>
+      <span class="card-change up">▲ 拉漲停 908 後收 819（−0.85% vs prev）</span>
+      <span class="badge badge-caution">前処置股（5/26-6/8）</span>
+      <span class="badge badge-yellow">被動元件龍頭</span>
+    </div>
+
+    <div class="label">今日數據 / Today's Tape</div>
+    <div class="chip-row">
+      <span class="chip">盤中高 908 元（漲停）</span>
+      <span class="chip">最低 803 元</span>
+      <span class="chip sell">收盤 819 元</span>
+      <span class="chip">成交 ~83,000 張</span>
+      <span class="chip">漲停價 908 元（10日09:03 拉停）</span>
+    </div>
+
+    <div class="label">為什麼今天熱 / Why It's Hot</div>
+    <p>
+      國巨 5 月自結合併營收 <strong>150.58 億元</strong>，月增 7.3%，連續 3 個月刷新單月歷史新高。前 5 月累計合併營收 672.63 億元，年增 27.4%。AI 伺服器與 CoWoS 封裝對高規格 MLCC（Multi-Layer Ceramic Capacitors）需求大爆發，國巨作為全球前三大被動元件廠，訂單能見度延伸至 2026Q3。開盤即拉上漲停 908 元（前一交易日 6/9 出關後已大漲，6/10 再度開高），創歷史新天價。然而因本輪漲幅過快（820→908，+10.7%），盤中遭大量獲利賣壓壓回，最終收盤 819 元，呈上影線收跌。
+    </p>
+    <p class="en">
+      Yageo reported record May revenue (NT$15.06B, +7.3% MoM, +27.4% YoY), driven by AI server MLCC demand explosion. Stock gapped to the 10% limit-up price (NT$908) at open on June 10, but intense profit-taking reversed it to close at NT$819. The stock was recently under TWSE disposition (May 26–June 8), which expired — releasing pent-up energy.
+    </p>
+
+    <div class="label">籌碼觀察 / Flow Watch</div>
+    <div class="chip-row">
+      <span class="chip sell">外資近5日賣超 −33,230 張</span>
+      <span class="chip buy">投信近5日買超 +3,557 張</span>
+      <span class="chip sell">自營近5日 −48 張</span>
+      <span class="chip">融資增加 +5,138 張（籌碼仍偏散戶）</span>
+      <span class="chip buy">融券減少 −1,058 張（軋空壓力降低）</span>
+    </div>
+    <p>外資口頭喊目標 1,500 元卻連日賣超，籌碼明顯由外資轉移至投信與散戶。近5日三大法人合計賣超 29,721 張，外資賣超為主力。盤中漲停雖有 2.4 萬張委買排隊，但下午賣壓湧現。此模式警示：短期籌碼換手仍在進行中，隔日沖風險存在。</p>
+    <p class="en">Foreign investors sold heavily even while issuing NT$1,500 price targets, suggesting distribution to retail. With net institutional selling of 29,721 lots over 5 days and margin-debt rising, the bullish case depends on whether AI demand revisions can keep re-rating the stock above NT$908.</p>
+
+    <div class="label">社群聲量 / Retail Buzz</div>
+    <p>PTT Stock 板出現「台灣首富換人當！國巨太威了」等熱門討論，也有討論「外資喊1,500元卻連日賣超！國巨飆天價領13檔漲停被動元件有何底氣？」。CMoney 熱搜榜國巨持續高居前列。今周刊分析「拉第2根漲停急殺盤下，2.4萬張買單現虧10%！」，散戶追漲疑慮升溫。</p>
+
+    <div class="label">炒作脈絡 / Narrative</div>
+    <p>被動元件族群自 5 月下旬啟動一波「被動元件大復活」行情（參照 6/9 鉅亨網報導），主因 AI 伺服器需求帶動 MLCC 缺貨漲價預期。國巨處置股到期後（5/26-6/8），6/9 單日即大漲逾 10%。類似模式在 2023Q3 曾出現，當時出關後拉3根後急殺。本次基本面更強（月營收創高、AI 訂單能見度長），但籌碼換手仍需時間。</p>
+
+    <div class="label">後續觀察 / What to Watch</div>
+    <p>① 6/11 能否維持 830 元以上（10MA 支撐）；② 外資是否轉買（翻正是上攻 900 再試的必要條件）；③ AI 伺服器 Q3 出貨量是否符合預期；④ 其他被動元件（華新科 2492、蜜望實 8043、大毅 2478）是否接棒帶動輪漲。以上為分析，非投資建議。</p>
+
+    <div class="label">來源 Sources</div>
+    <div class="chip-row">
+      <a href="https://news.cnyes.com/news/id/6492098" class="chip">鉅亨網 6/10 盤中速報</a>
+      <a href="https://www.businesstoday.com.tw/article/category/183008/post/202606090009/" class="chip">今周刊 國巨分析</a>
+      <a href="https://finance.ettoday.net/news/3180810" class="chip">ETtoday 被動元件漲停</a>
+      <a href="https://www.ptt.cc/bbs/Stock/M.1779336359.A.6D7.html" class="chip">PTT Stock 熱門</a>
+    </div>
+  </div>
+
+  <!-- Stock 2: 被動元件族群（蜜望實/日電貿） -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-ticker">8043 / 3090</span>
+      <span class="card-name">蜜望實 / 日電貿 · Passive Components Sub-tier</span>
+      <span class="card-change up">▲ +10% 漲停</span>
+      <span class="badge badge-yellow">被動元件</span>
+      <span class="badge badge-blue">AI 伺服器受惠</span>
+    </div>
+
+    <div class="label">今日數據 / Today's Tape</div>
+    <div class="chip-row">
+      <span class="chip">蜜望實 8043：漲停 159.5 元（6/5 已漲停，連波）</span>
+      <span class="chip">日電貿 3090：漲停 253 元</span>
+      <span class="chip">信昌電 6173：漲停 253 元</span>
+    </div>
+
+    <div class="label">為什麼今天熱 / Why It's Hot</div>
+    <p>
+      6/9 費半大彈後，AI 伺服器相關零組件需求重新定價。被動元件族群在 6/9「大復活飆漲停」之後，6/10 部分個股持續跟漲。<strong>蜜望實（8043）</strong> 為石英晶體元件（Crystal Units / TCXO）廠商，受惠 AI 伺服器高穩定性時脈需求；近10日連續出現主力分點異常集中現象。<strong>日電貿（3090）</strong> 為被動元件代理商，代理凡卡（KOA）、TDK 等日系品牌，下游 AI 伺服器廠直接詢貨，導致成交量爆增。
+    </p>
+    <p class="en">
+      The passive component sector extended gains from June 9's "big revival" rally. Miwang (8043, crystal components for AI clocking) and Ri-Tronics (3090, MLCC distributor for KOA/TDK) hit the 10% limit-up on AI server re-stocking demand. With Yageo (2327) under prior disposition and now released, the entire sub-sector repriced. Approximately 10 stocks in the group hit limit-up intraday.
+    </p>
+
+    <div class="label">籌碼觀察 / Flow Watch</div>
+    <p>蜜望實：投信持續買超，主力分點集中度高；融資使用率偏高（市場關注後續融資斷頭風險）。日電貿：中小型股，散戶追漲為主，主力短進短出跡象。</p>
+
+    <div class="label">社群聲量 / Retail Buzz</div>
+    <p>CMoney 熱搜「被動元件族群爆發！10檔概念股多數強攻漲停」（6/9-6/10）；PTT 有「被動元件倒一片！華新科13連漲夢碎」等討論，顯示部分散戶開始警惕短線過熱。</p>
+
+    <div class="label">炒作脈絡 / Narrative</div>
+    <p>被動元件此波起漲源自：①AI 伺服器每台用料 MLCC 數量是一般 PC 的 3-5 倍；②供給端因前幾年去庫存後工廠稼動率偏低，短期擴產有限；③漲價預期催動下游客戶提前備庫。族群過去曾在 2021 年炒作一波，本次有 AI 基本面支撐，但短期漲幅過快，部分個股已進入處置或注意股清單。</p>
+
+    <div class="label">後續觀察 / What to Watch</div>
+    <p>① 蜜望實、日電貿是否被新增為注意股或處置股（TWSE 公告）；② 國巨 Q2 毛利率能否超預期；③ 散戶融資是否繼續增加（增加則籌碼風險提升）。</p>
+
+    <div class="label">來源 Sources</div>
+    <div class="chip-row">
+      <a href="https://www.chinatimes.com/realtimenews/20260609001962-260410" class="chip">中時 被動元件大復活</a>
+      <a href="https://cmnews.com.tw/article/cmoney-9f21a59c-5a75-11f1-b1e7-8197f61d4e85" class="chip">CMoney 被動元件漲停</a>
+      <a href="https://finance.ettoday.net/news/3178149" class="chip">ETtoday 國巨領漲</a>
+      <a href="https://udn.com/news/story/7251/9547577" class="chip">聯合新聞 被動元件</a>
+    </div>
+  </div>
+
+  <!-- Stock 3: 營建族群 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-ticker">2501/2520/2536+</span>
+      <span class="card-name">營建族群（國建、冠德、海悅等） · Construction/Real Estate</span>
+      <span class="card-change up">▲ 10+ 檔漲停</span>
+      <span class="badge badge-green">政策利多</span>
+      <span class="badge badge-yellow">逆勢抗跌</span>
+    </div>
+
+    <div class="label">今日數據 / Today's Tape</div>
+    <div class="chip-row">
+      <span class="chip up">國建（2501）漲停</span>
+      <span class="chip up">全坤建 漲停</span>
+      <span class="chip up">冠德（2520）漲停</span>
+      <span class="chip up">聯上發 漲停</span>
+      <span class="chip up">聯上 漲停</span>
+      <span class="chip up">永信建 漲停</span>
+      <span class="chip up">京城 漲停</span>
+      <span class="chip up">上曜 漲停</span>
+      <span class="chip up">愛山林 漲停</span>
+      <span class="chip up">欣巴巴 漲停</span>
+      <span class="chip up">海悅（6505）漲停</span>
+    </div>
+
+    <div class="label">為什麼今天熱 / Why It's Hot</div>
+    <p>
+      央行總裁<strong>楊金龍</strong>於立法院財政委員會表示：「<em>選擇性信用管制就到這裡</em>」，明確表態現階段央行沒有加碼信用管制（第8波打房）的規畫。這句話被市場解讀為 <strong>近兩年打房循環終止的政策拐點</strong>。在台股大盤重挫 1,478 點的當日，營建族群逆勢集體飆漲，超過 10 檔一度亮燈漲停，代銷業海悅也同步大漲，引發全市場關注。
+    </p>
+    <p class="en">
+      CBC Governor Yang Jin-long testified before the Legislature: "Selective credit controls are stopping here," signaling no further real estate tightening measures. The market interpreted this as a policy pivot, catalyzing a full-sector rally in construction stocks with 10+ names hitting limit-up — a sharp contrast to the broader market's 3.3% crash on the same day.
+    </p>
+
+    <div class="label">籌碼觀察 / Flow Watch</div>
+    <p>短線投信有買入跡象（政策確定性提升通常帶動投信配置）。散戶融資快速增加。外資動向待觀察。本族群流通股數偏小，容易出現「一句話行情」式的短線急漲急跌。</p>
+
+    <div class="label">社群聲量 / Retail Buzz</div>
+    <p>ETtoday、TVBS、新頭殼、東森等媒體均頭條大幅報導「打房喊卡！楊金龍脫口『就到這』10檔營建概念股逆勢飆漲停」。CMoney 討論量大幅提升。PTT Stock 板相關討論熱度高。</p>
+
+    <div class="label">炒作脈絡 / Narrative</div>
+    <p>台灣央行自2024年起推出多波信用管制打房，歷經第5至7波措施後，房市成交量明顯萎縮。楊金龍此次表態「到這裡」，市場預期：①進一步打房壓力解除；②建商土地銀行貸款條件不再收緊；③可望帶動建商預售屋去化加速。然而分析師提醒，「不加碼≠放鬆」，現行管制仍在，只是不升級。</p>
+
+    <div class="label">後續觀察 / What to Watch</div>
+    <p>① 6/11 能否延續漲停或維持強勢；② 成交量能否撐住（一句話行情往往隔日就縮量）；③ 後續是否有法人報告跟進調升目標價；④ 是否有第8波意外出現（尾部風險）。</p>
+
+    <div class="label">來源 Sources</div>
+    <div class="chip-row">
+      <a href="https://udn.com/news/story/7251/9557250" class="chip">聯合新聞 楊金龍打房暫停</a>
+      <a href="https://finance.ettoday.net/news/3180929" class="chip">ETtoday 10檔漲停</a>
+      <a href="https://newtalk.tw/news/view/2026-06-10/1040480" class="chip">新頭殼報導</a>
+      <a href="https://fnc.ebc.net.tw/fncnews/stock/212561" class="chip">東森財經</a>
+    </div>
+  </div>
+
+  <!-- Stock 4: 全新/全新半導體 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-ticker">2455</span>
+      <span class="card-name">全新 / Pan Jit International</span>
+      <span class="card-change up">▲ 漲幅約 9.87%（趨近漲停）</span>
+      <span class="badge badge-blue">半導體</span>
+    </div>
+
+    <div class="label">今日數據 / Today's Tape</div>
+    <div class="chip-row">
+      <span class="chip">盤中高約 395 元（+9.87%）</span>
+      <span class="chip">成交量大增</span>
+    </div>
+
+    <div class="label">為什麼今天熱 / Why It's Hot</div>
+    <p>
+      全新（2455）為功率半導體（Power Semiconductors）廠商，主要產品包含二極體（Diode）、電晶體（Transistor）。受惠於電動車、AI 伺服器電源管理需求成長，近期族群整體走揚。6/10 大盤重挫之際，全新維持相對強勢（漲幅近 10%），為成交值排行漲幅榜前段班，引起市場關注。注意：其確切 6/10 收盤數據仍待確認（資料來源顯示盤中約 395 元附近）。
+    </p>
+    <p class="en">
+      Pan Jit (2455) is a discrete power semiconductor maker (diodes, transistors). It held strength near +10% on June 10 amid broad market weakness, benefiting from EV/AI power management demand narrative. Specific closing data to be verified post-session.</p>
+
+    <div class="label">籌碼觀察 / Flow Watch</div>
+    <p>三大法人買賣超待確認（資料標示「待確認」）。融資變化待確認。</p>
+
+    <div class="label">後續觀察 / What to Watch</div>
+    <p>① 成交量是否較前5日均量有顯著擴增；② 法人是否買入；③ 是否出現關鍵客戶訂單或法說消息。</p>
+
+    <div class="label">來源 Sources</div>
+    <div class="chip-row">
+      <a href="https://tw.stock.yahoo.com/rank/change-up" class="chip">Yahoo 漲幅榜（04/30 cached, 需刷新）</a>
+    </div>
+  </div>
+
+  <!-- Stock 5: 台達電暴跌 -->
+  <div class="card" style="border-color: #2e3350;">
+    <div class="card-header">
+      <span class="card-ticker">2308</span>
+      <span class="card-name">台達電 / Delta Electronics</span>
+      <span class="card-change up">▼ −8.9% 重挫（一度逼近跌停）</span>
+      <span class="badge badge-red">暴跌股</span>
+      <span class="badge badge-blue">AI 電源龍頭</span>
+    </div>
+
+    <div class="label">今日數據 / Today's Tape</div>
+    <div class="chip-row">
+      <span class="chip sell">收盤 2,200 元</span>
+      <span class="chip sell">跌幅 −8.9%</span>
+      <span class="chip sell">一度逼近跌停（2,145 元）</span>
+      <span class="chip">成交量巨大</span>
+    </div>
+
+    <div class="label">為什麼今天熱（熱在跌）/ Why It's Hot (as a crash story)</div>
+    <p>
+      台達電近期因 AI 伺服器電源供應器（PSU / UPS）需求爆發，股價自 4 月起大幅攀升，6 月初已位在相對高位（法說前夕一度創歷史新高 2,685 元）。6/10 在美銀示警「台韓超買」、外資大舉調節下，台達電成為賣壓最重個股之一，跌幅達 8.9%，一度逼近跌停。成交值在當日跌幅榜中排名靠前，引發媒體頭條「台達電崩7%」大量討論。
+    </p>
+    <p class="en">Delta Electronics, which had rallied sharply on AI power supply demand, was among the hardest hit on June 10 (−8.9%), becoming a focal "crash story" after BofA's "global equities overheating" note singled out Taiwan. The stock had previously surged to a record NT$2,685 pre-earnings but saw aggressive foreign selling following global risk-off.</p>
+
+    <div class="label">籌碼觀察 / Flow Watch</div>
+    <p>外資連續賣超（與大盤外資賣超同步），成交量顯著放大（跌量大於漲量）。融資餘額是否增加值得觀察（增加意味散戶接刀）。</p>
+
+    <div class="label">後續觀察 / What to Watch</div>
+    <p>① 2,200 元是否為強支撐（季線約 1,950 元）；② 是否有重要客戶訂單消息（CSP 電源 PSU 拉貨）穩定基本面信心；③ 外資是否回補（若連賣10日以上則修正延長）。</p>
+
+    <div class="label">來源 Sources</div>
+    <div class="chip-row">
+      <a href="https://www.chinatimes.com/realtimenews/20260610002711-260410" class="chip">中時 台股暴跌兇手</a>
+      <a href="https://udn.com/news/story/7253/9554628" class="chip">聯合 台達電台股強彈逾千點</a>
+    </div>
+  </div>
+
+  <!-- Section 2: Watch List -->
+  <div class="section-title">次熱觀察 · Watch List <span class="section-subtitle">值得追蹤但未入 Top 6</span></div>
+
+  <div class="mini-card">
+    <h4><span class="ticker-code">2492</span> 華新科 / Walsin Technology · 被動元件</h4>
+    <p>MLCC 二大廠，6/9 漲停後 6/10 維持強勢，但跌幅比國巨小。前13連漲後短線過熱，本次在 AI 需求支撐下仍有底氣。近5日籌碼：外資轉買中。待確認具體收盤價。</p>
+  </div>
+
+  <div class="mini-card">
+    <h4><span class="ticker-code">2449</span> 京元電子 / KYEC · 封測</h4>
+    <p>封測廠，6/10 漲幅 6.70%，成交量 69,506 張（偏大），法人動向待確認。受惠 AI ASIC 封測需求，有成交量爆量現象值得追蹤。</p>
+  </div>
+
+  <div class="mini-card">
+    <h4><span class="ticker-code">2313</span> 華通 / Compeq · PCB</h4>
+    <p>PCB 廠，6/10 漲幅 6.30%，成交量 76,849 張（本日成交值前段班），AI 伺服器 PCB 需求受惠股。法人動向待確認。</p>
+  </div>
+
+  <div class="mini-card">
+    <h4><span class="ticker-code">8996</span> 高力 / Goldtek · 熱交換器/散熱</h4>
+    <p>AI 伺服器水冷散熱概念，6/10 漲 9.65%（趨近漲停），成交量 3,448 張，屬中小型強勢股。法人買超待確認。</p>
+  </div>
+
+  <!-- Section 3: Caution List -->
+  <div class="section-title">異常注意 · Caution List</div>
+
+  <div class="mini-card" style="border-color: #5a2000;">
+    <h4><span class="card-change up">⚠</span> 被動元件族群部分個股 — 處置 / 注意股風險</h4>
+    <p>國巨前期（5/26-6/8）已處置期滿，但若 6/10-6/11 再度出現漲停被鎖、委買嚴重失衡，TWSE 可能新增注意或再度處置。蜜望實、日電貿、信昌電等盤中達漲停的族群，需留意是否被新增至注意股清單（TWSE twtazu.html 每日公告）。</p>
+  </div>
+
+  <div class="mini-card" style="border-color: #5a2000;">
+    <h4><span class="card-change up">⚠</span> 台達電（2308）、聯發科（2454）暴跌 — 跟風買入風險</h4>
+    <p>台達電 −8.9%、聯發科 −7.15%，融資餘額若出現增加，代表散戶接刀，需警惕外資仍在調節期間。兩檔股票中長線基本面無疑，但短線籌碼混亂，可能出現反彈後再殺的格局。</p>
+  </div>
+
+  <div class="mini-card" style="border-color: #5a2000;">
+    <h4><span class="card-change up">⚠</span> 記憶體族群 — 集體跌停 / 暴跌</h4>
+    <p>華邦電（2344）跌停 −9.75%，南亞科（2408）跌 −8.86%，力積電（6770）跌 −7.9%，晶豪科（3006）跌 −9.18%。記憶體族群為 6/10 最弱勢族群，SemiAnalysis 報告曾示警 HBM 需求或見頂（後遭專家反駁），籌碼尚未穩定，短線避免追空。</p>
+  </div>
+
+  <!-- Sources -->
+  <div class="sources">
+    <h4>本報告參考來源 · All URLs Consulted</h4>
+    <ul>
+      <li><a href="https://www.chinatimes.com/realtimenews/20260610002711-260410">中時新聞 2026/06/10 台股重挫 1478 點</a></li>
+      <li><a href="https://news.cnyes.com/news/id/6492098">鉅亨網 國巨盤中漲停速報 2026/06/10 09:03</a></li>
+      <li><a href="https://news.cnyes.com/news/id/6485639">鉅亨網 2026/06/05 台股盤後 被動元件救場</a></li>
+      <li><a href="https://news.cnyes.com/news/id/6479266">鉅亨網 2026/06/01 台股站上4萬5</a></li>
+      <li><a href="https://udn.com/news/story/7251/9557250">聯合新聞 楊金龍管制就到這裡 營建股漲停</a></li>
+      <li><a href="https://finance.ettoday.net/news/3180929">ETtoday 打房喊卡！10檔營建概念股逆勢漲停</a></li>
+      <li><a href="https://finance.ettoday.net/news/3180810">ETtoday 千元目標+1！國巨創新高 10檔被動元件漲停</a></li>
+      <li><a href="https://www.businesstoday.com.tw/article/category/183008/post/202606090009/">今周刊 國巨分析 6/9</a></li>
+      <li><a href="https://udn.com/news/story/7251/9547577">聯合新聞 台股止血 被動元件族群噴出</a></li>
+      <li><a href="https://www.chinatimes.com/realtimenews/20260609001962-260410">中時 被動元件大復活飆漲停</a></li>
+      <li><a href="https://cmnews.com.tw/article/cmoney-9f21a59c-5a75-11f1-b1e7-8197f61d4e85">CMoney 被動元件10檔漲停</a></li>
+      <li><a href="https://tw.stock.yahoo.com/rank/change-up">Yahoo 股市 漲幅排行（漲幅數據）</a></li>
+      <li><a href="https://www.cnyes.com/twstock/ranking2.aspx">鉅亨網 盤後統計（排行）</a></li>
+      <li><a href="https://www.twse.com.tw/zh/trading/foreign/t86.html">TWSE 三大法人買賣超日報</a></li>
+      <li><a href="https://www.ptt.cc/bbs/Stock/index.html">PTT Stock 板（社群聲量）</a></li>
+      <li><a href="https://newtalk.tw/news/view/2026-06-10/1040480">新頭殼 楊金龍打房到這裡</a></li>
+      <li><a href="https://fnc.ebc.net.tw/fncnews/stock/212561">東森財經 國建冠德漲停</a></li>
+      <li><a href="https://www.ftnn.com.tw/news/547507">FTNN 被動元件連9漲15檔漲停</a></li>
+      <li><a href="https://news.cnyes.com/news/id/6484140">鉅亨網 量大強漲股整理 6月</a></li>
+      <li><a href="https://vocus.cc/article/6a239299fd89780001d78888">Vocus 2026年六月首週台灣股市深度分析</a></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    本報告由 Claude (claude-sonnet-4-6 [1m]) 自動生成，資料截止於 2026/06/10 收盤盤後公開資訊。數字標記「待確認」者為資料未能完整取得，請自行至 TWSE 或 Yahoo 股市核實。<br>
+    本報告不構成任何投資建議。This report does not constitute investment advice.
+  </div>
+
+</div>
+</body>
+</html>

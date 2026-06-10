@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新創新聞日報 / Daily Startup News — 2026-06-11</title>
+<style>
+  :root { color-scheme: light; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+  .header {
+    background: linear-gradient(135deg, #16213e 0%, #0f3460 60%, #533483 100%);
+    color: #fff;
+    padding: 28px 32px 22px;
+  }
+  .header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.3px; }
+  .header .subtitle { font-size: 0.95rem; color: #c9d6ff; margin-top: 4px; }
+  .header .dateline { font-size: 0.82rem; color: #a8b4d8; margin-top: 8px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 24px 20px 48px; }
+  .section-label {
+    display: inline-block;
+    background: #e8f0fe;
+    color: #1a56db;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    margin-top: 36px;
+  }
+  h2 { font-size: 1.2rem; font-weight: 700; color: #16213e; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e0e7ff; }
+  .card {
+    background: #fff;
+    border: 1px solid #e5e9f2;
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .card h3 .en { color: #4a5568; font-weight: 600; }
+  .meta {
+    font-size: 0.78rem;
+    color: #718096;
+    margin-bottom: 10px;
+  }
+  .meta a { color: #3b82f6; text-decoration: none; }
+  .meta a:hover { text-decoration: underline; }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-right: 6px;
+    margin-bottom: 4px;
+    vertical-align: middle;
+  }
+  .tag-seed { background: #d1fae5; color: #065f46; }
+  .tag-series-a { background: #dbeafe; color: #1e40af; }
+  .tag-series-b { background: #e0e7ff; color: #3730a3; }
+  .tag-series-c { background: #ede9fe; color: #5b21b6; }
+  .tag-series-d { background: #fce7f3; color: #9d174d; }
+  .tag-series-g { background: #fff3cd; color: #92400e; }
+  .tag-ipo { background: #fef3c7; color: #78350f; }
+  .tag-stealth { background: #f0fdf4; color: #14532d; }
+  .tag-shutdown { background: #fee2e2; color: #991b1b; }
+  .tag-people { background: #fdf2f8; color: #86198f; }
+  .tag-product { background: #ecfdf5; color: #064e3b; }
+  .tag-acquisition { background: #fff7ed; color: #9a3412; }
+  .facts-block, .context-block, .implications-block {
+    border-left: 3px solid;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 0 6px 6px 0;
+  }
+  .facts-block { border-color: #3b82f6; background: #eff6ff; }
+  .context-block { border-color: #8b5cf6; background: #f5f3ff; }
+  .implications-block { border-color: #10b981; background: #ecfdf5; }
+  .block-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    color: #4b5563;
+  }
+  .block-text { font-size: 0.88rem; color: #374151; }
+  .top-story { border-left: 4px solid #f59e0b; background: #fffbeb; }
+  .amount { font-weight: 700; color: #1d4ed8; font-size: 1rem; }
+  .valuation { color: #7c3aed; font-weight: 600; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
+  .sources-section { background: #f1f5f9; border-radius: 8px; padding: 16px 20px; margin-top: 40px; }
+  .sources-section h4 { font-size: 0.85rem; font-weight: 700; color: #475569; margin-bottom: 10px; }
+  .sources-list { list-style: none; }
+  .sources-list li { font-size: 0.78rem; color: #64748b; margin-bottom: 4px; }
+  .sources-list li a { color: #3b82f6; text-decoration: none; }
+  .sources-list li a:hover { text-decoration: underline; }
+  .disclaimer { font-size: 0.75rem; color: #94a3b8; margin-top: 12px; font-style: italic; }
+  .section-intro { font-size: 0.87rem; color: #64748b; margin-bottom: 14px; }
+  .highlight-number { font-size: 1.3rem; font-weight: 800; color: #1d4ed8; }
+  .stats-bar { display: flex; gap: 20px; flex-wrap: wrap; margin: 12px 0 6px; }
+  .stat-item { background: #fff; border: 1px solid #e5e9f2; border-radius: 8px; padding: 10px 16px; text-align: center; flex: 1; min-width: 100px; }
+  .stat-item .stat-num { font-size: 1.2rem; font-weight: 800; color: #1d4ed8; }
+  .stat-item .stat-lbl { font-size: 0.72rem; color: #718096; margin-top: 2px; }
+  .paywall-note { background: #fff8f1; border: 1px solid #fcd34d; border-radius: 6px; padding: 8px 14px; font-size: 0.8rem; color: #92400e; margin-top: 12px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>新創新聞日報 / Daily Startup News</h1>
+  <div class="subtitle">募資 · 發表 · 裁員 · 上市 · 人事 · 區域動態</div>
+  <div class="dateline">📅 2026-06-11 &nbsp;|&nbsp; Asia/Taipei &nbsp;|&nbsp; Sources: Crunchbase · TechCrunch · Bloomberg · Reuters · GeekWire · SiliconAngle · Fortune</div>
+</div>
+
+<div class="container">
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">$297B</div>
+      <div class="stat-lbl">Q1 2026 全球募資 / Global VC Q1</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">$92B</div>
+      <div class="stat-lbl">May 月度募資 (史上第2) / May total</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">183,966</div>
+      <div class="stat-lbl">2026 YTD 裁員人數 / Layoffs YTD</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3</div>
+      <div class="stat-lbl">巨型 IPO 同步籌備 / Mega-IPOs in pipeline</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: TOP STORIES -->
+  <div class="section-label">頭條 / Top Stories</div>
+  <h2>本日最重要三件事</h2>
+
+  <div class="card top-story">
+    <h3>SpaceX 明日掛牌 NASDAQ — 史上最大 IPO 定價在即<br><span class="en">SpaceX Prices World's Largest-Ever IPO Tonight, Lists on Nasdaq June 12</span></h3>
+    <div class="meta">
+      <span class="tag tag-ipo">IPO</span>
+      <a href="https://www.heygotrade.com/en/news/spacex-ipo-177-trillion-valuation-2026-ipo-wave/" target="_blank">HeyGoTrade</a> · <a href="https://www.techtimes.com/articles/317793/20260604/spacex-ipo-roadshow-launches-fixed-price-wall-street-says-stock-worth-half-ask.htm" target="_blank">TechTimes</a> · 2026-06-04/11
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">
+        SpaceX 今晚（2026-06-11 美東）定價，明日（06-12）掛牌 Nasdaq，代號 <strong>SPCX</strong>。IPO 目標價 <span class="amount">$135/股</span>，發行 5.566 億股，募資目標 <span class="amount">$750 億</span>，對應估值 <span class="valuation">$1.75 兆美元</span>——若成功將是史上最大 IPO，超越 2014 年阿里巴巴 ($250B)。2025 全年營收 $187 億（+33% YoY），但淨損 $49 億。今日有約 1,500 名散戶投資人說明會。
+      </div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">SpaceX 於 4 月 1 日秘密遞交 SEC，5 月 20 日公開 S-1，路演 6 月 4 日啟動（早於市場預期）。Starlink 商業衛星網路是主要獲利引擎；Dragon 太空船合約來自 NASA 與 DoD。主承銷商為高盛 (Goldman Sachs) 及摩根士丹利。部分 Wall Street 分析師認為定價偏高，認為公允市值應在估值一半左右。</div>
+    </div>
+    <div class="implications-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-text">SpaceX 上市同週，OpenAI 已於 6/8 秘密遞 S-1，Anthropic 也傳規劃公開市場佈局——三大 AI/科技龍頭在 2026 下半年密集 IPO，將大量吸收機構資金，可能短期影響成長型基金對中小新創的配置。（分析）</div>
+    </div>
+  </div>
+
+  <div class="card top-story">
+    <h3>Ramp 750億估值融資 $7.5 億 — 企業支出管理新標竿<br><span class="en">Ramp Closes $750M at $44B Valuation, Resets Fintech Benchmarks</span></h3>
+    <div class="meta">
+      <span class="tag tag-series-d">Late Stage</span>
+      <a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">Crunchbase News</a> · 2026-06-05
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">
+        紐約支出管理平台 Ramp 完成 <span class="amount">$7.5 億</span> 融資，估值 <span class="valuation">$440 億</span>（創公司成立七年最高），由 ICONIQ Growth、GIC（新加坡政府投資公司）、Ontario Teachers' Pension Plan 領投。公司未揭露最新 ARR，但此前一輪（2024 年）估值為 $75 億，此輪等同六倍跳升。
+      </div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">Ramp 2019 年成立，與 Brex、Airbase 競爭企業支出管理。其 AI-native 帳單審核與支出分析功能被視為差異化。GIC 入股顯示亞洲主權財富基金繼續佈局美國 SaaS。$440 億估值讓 Ramp 超越多數美國上市金融科技公司市值（如 Marqeta）。</div>
+    </div>
+    <div class="implications-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-text">Fintech B2B SaaS 的估值重新回到 2021 高點水位。對競爭對手 Brex、Mercury 來說，此輪等同提升整個賽道倍數，下一輪融資談判籌碼更強。（分析）</div>
+    </div>
+  </div>
+
+  <div class="card top-story">
+    <h3>OpenAI 秘密遞交 S-1，秋季掛牌目標 $1 兆估值<br><span class="en">OpenAI Confidentially Files S-1, Targets $852B–$1T Valuation for Fall IPO</span></h3>
+    <div class="meta">
+      <span class="tag tag-ipo">IPO Filing</span>
+      <a href="https://fortune.com/2026/06/09/openai-files-confidential-s-1-sec-ipo/" target="_blank">Fortune</a> · <a href="https://www.cnbc.com/2026/06/08/openai-confidentially-files-for-ipo-prepping-wall-street-for-ai-debut.html" target="_blank">CNBC</a> · 2026-06-08
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">
+        OpenAI 於 2026-06-08 向 SEC 秘密遞交草稿 S-1，由高盛、摩根士丹利、JPMorgan 領銜承銷，目標 2026 年 9 月公開掛牌，預期估值 <span class="valuation">$8,520 億–$1 兆</span>。財務數字：2025 全年營收 $131 億，淨損 $90 億，每賺 $1 便虧 $1.22；月均收入已達 $20 億。
+      </div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">OpenAI 正從非營利轉為公益公司（PBC）架構，IPO 是此轉型的關鍵里程碑。已在 Q1 2026 完成 $300 億 Anthropic 同規模募資。與 SpaceX、Anthropic 形成史上最高估值三角 IPO 陣容。</div>
+    </div>
+    <div class="implications-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-text">機構配置巨型 AI IPO 的資金將主要來自已有部位的 crossover 基金，但散戶需求強烈可能導致定價高於基本面；若上市後虧損持續，可能觸發 AI 泡沫論重燃。（分析）</div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: FUNDING ROUNDS -->
+  <div class="section-label">募資 / Funding Rounds</div>
+  <h2>本週重要募資（依金額排序）</h2>
+  <p class="section-intro">主要數據來源：Crunchbase News 週排行（截至 2026-06-09）。本週最大一筆 Ramp $750M 已列入頭條。以下補充其餘重要輪次。</p>
+
+  <div class="card">
+    <h3>Supabase 融資 $5 億，估值 $105 億<br><span class="en">Supabase $500M, $10.5B Valuation — Open-Source BaaS for AI Apps</span></h3>
+    <div class="meta">
+      <span class="tag tag-series-d">Series D-equivalent</span>
+      <a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">Crunchbase News</a> · 2026-06-05
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">舊金山開源後端平台 Supabase 完成 <span class="amount">$5 億</span> 融資，由 GIC 領投，估值 <span class="valuation">$105 億</span>，成立六年。Supabase 提供 Postgres-as-a-service + Auth + Storage，並深度整合 AI 應用建構工具鏈。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">Supabase 是 Firebase 的開源替代方案，受益於 AI agent / vibe-coding 爆發，每個 AI app builder 都需要一個快速後端。GIC 同週也領投 Ramp，顯示新加坡主權財富基金大幅提升美國科技直投規模。</div>
+    </div>
+    <div class="implications-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-text">開源基礎設施公司的估值邏輯已從「能否商業化」轉向「AI 生態圈流量入口」，競爭對手 PlanetScale、Neon 後續融資壓力加大。（分析）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Flourish 以「大腦啟發 AI」模型融資 $5 億<br><span class="en">Flourish Raises $500M Seed for Brain-Inspired Foundational AI</span></h3>
+    <div class="meta">
+      <span class="tag tag-seed">Initial / Seed Stage</span>
+      <a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">Crunchbase News</a> · 2026-06-05
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">紐約新創 Flourish 以「人腦啟發 AI 模型」為核心技術，完成 <span class="amount">$5 億</span> 初始融資，投資方包括 Jeff Bezos、Lux Capital、Google Ventures。估值未披露。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">「神經符號」與「大腦啟發」AI 架構是當前 Transformer 後時代研究的一個方向，代表投資人對非 Transformer 路徑押注興趣仍在。Bezos 同週也是 NewLimit 的間接支持者（Founders Fund 領投）。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Helion Series G $4.65 億，核融合估值達 $155 億<br><span class="en">Helion $465M Series G at $15.5B — World's First Fusion Power Plant Race</span></h3>
+    <div class="meta">
+      <span class="tag tag-series-g">Series G</span>
+      <a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">Crunchbase News</a> · 2026-06-05
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">華盛頓州 Everett 核融合新創 Helion 完成 <span class="amount">$4.65 億</span> Series G，Thrive Capital 領投，估值 <span class="valuation">$155 億</span>，累計融資超過 $15 億。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">Helion 擁有 Microsoft 的電力採購承諾（2028 前提供商業核融合電力），是少數有具體買家合約的核融合公司。競爭對手 Commonwealth Fusion Systems（TAE Technologies、General Fusion）均未達同等商業可見度。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>NewLimit Series C $4.35 億，長壽藥物攻表觀遺傳學<br><span class="en">NewLimit $435M Series C — Coinbase CEO Brian Armstrong's Longevity Bet</span></h3>
+    <div class="meta">
+      <span class="tag tag-series-c">Series C</span>
+      <a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">Crunchbase News</a> · 2026-06-05
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">南舊金山 NewLimit 完成 <span class="amount">$4.35 億</span> Series C，Founders Fund 領投。公司攻表觀遺傳重新程式化，目標讓老細胞恢復年輕功能。共同創辦人為 Coinbase CEO Brian Armstrong。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">長壽科技（longevity tech）在 2025–2026 間融資顯著加速，Altos Labs（Bezos）、Calico（Google）之後，NewLimit 是第三個超過 $4 億的長壽新創。表觀遺傳學路徑尚處早期臨床前研究，距商業化仍遠。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Suno Series D $4 億，估值 $54 億 — AI 音樂正版官司未解<br><span class="en">Suno $400M Series D at $5.4B Amid Ongoing Music Copyright Lawsuits</span></h3>
+    <div class="meta">
+      <span class="tag tag-series-d">Series D</span>
+      <a href="https://techcrunch.com/2026/06/03/still-facing-copyright-lawsuits-ai-music-generator-suno-raises-another-400m/" target="_blank">TechCrunch</a> · 2026-06-03
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">AI 音樂生成平台 Suno 完成 <span class="amount">$4 億</span> Series D，Bond 領投，估值 <span class="valuation">$54 億</span>。公司目前面臨 RIAA 代表 Universal、Sony、Warner 的侵權訴訟，指控使用超過 61,000 首受保護歌曲訓練模型。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">Udio 已於 2025 年 10 月與 UMG 達成和解，設立 AI 授權模板。Suno 選擇以「合理使用」（fair use）抗辯，7 月波士頓聯邦地區法院將有關鍵聽證，裁決可能成為生成式 AI 訓練數據版權的標誌性判決。</div>
+    </div>
+    <div class="implications-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-text">若法院不支持 fair use，Suno 需支付的賠償可能遠超其本輪融資；若支持，將為所有生成式 AI 公司提供關鍵護盾。投資人顯然押注後者，或認為即便和解損失可控。（分析）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Standard Bots Series C $2 億，AI 工業機器人估值達獨角獸<br><span class="en">Standard Bots $200M Series C at $1B — AI-Native Industrial Robotics Unicorn</span></h3>
+    <div class="meta">
+      <span class="tag tag-series-c">Series C</span>
+      <a href="https://siliconangle.com/2026/06/09/standard-bots-raises-200m-1b-valuation-revolutionize-ai-native-industrial-robotics/" target="_blank">SiliconAngle</a> · <a href="https://www.bloomberg.com/news/articles/2026-06-09/standard-bots-raises-200-million-to-manufacture-robots-in-us" target="_blank">Bloomberg</a> · 2026-06-09
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">紐約州 Glen Cove 工業機器人新創 Standard Bots 完成 <span class="amount">$2 億</span> Series C，General Catalyst 共同領投，估值 <span class="valuation">$10 億</span>（獨角獸）。客戶包含 Lockheed Martin、Amazon、NASA、美國陸軍、Sunoco。工廠將從 16,000 sqft 擴建至 70,000 sqft。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">公司機器人臂以 NVIDIA Isaac 驅動，工人可透過示範動作教導機器人新任務，主打「美國製造」差異化（契合 reshoring 政策趨勢）。競爭對手：ABB、FANUC（大廠）；Veo Robotics、Machina Labs（新創）。</div>
+    </div>
+    <div class="implications-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-text">工業機器人賽道正享受關稅重組帶來的製造業回美浪潮紅利，此輪估值倍增暗示 2026 H2 本賽道競爭融資將加劇。（分析）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Generalist AI $4 億，AI 驅動通用機器人<br><span class="en">Generalist AI $400M at $2B — Teaching Robots Complex Tasks with AI</span></h3>
+    <div class="meta">
+      <span class="tag tag-series-d">Series-equivalent</span>
+      <a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">Crunchbase News</a> · 2026-06-05
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">加州聖馬特奧機器人 AI 新創 Generalist AI 完成 <span class="amount">$4 億</span> 融資，Radical Ventures 領投，估值 <span class="valuation">$20 億</span>，成立僅兩年。專注讓機器人執行複雜現實任務。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">Radical Ventures 是 Geoffrey Hinton 等 AI 先驅的重要支持者，其領投是技術可信度背書。此賽道競爭對手眾多：Figure AI、1X Technologies、Physical Intelligence (PI)。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Mach Industries Series C $3 億，國防科技獨角獸<br><span class="en">Mach Industries $300M Series C at $1.8B — Defense Tech for Munitions</span></h3>
+    <div class="meta">
+      <span class="tag tag-series-c">Series C</span>
+      <a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">Crunchbase News</a> · 2026-06-05
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">加州獵人灘國防科技新創 Mach Industries 完成 <span class="amount">$3 億</span> Series C，Ribbit Capital + Infinite Capital 領投，估值 <span class="valuation">$18 億</span>，成立三年。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">國防科技（defense tech）是 2025–2026 最熱賽道之一，與 Anduril、Shield AI、Palantir 並列，受惠於 DoD 對非傳統承包商的開放態度。Ribbit Capital（傳統 fintech 投資方）跨界投資是值得注意的訊號。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>AlphaSense Series $3.5 億，AI 企業市場情報<br><span class="en">AlphaSense $350M at $7.5B — AI-Powered Market Intelligence Platform</span></h3>
+    <div class="meta">
+      <span class="tag tag-series-d">Growth Round</span>
+      <a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">Crunchbase News</a> · 2026-06-05
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事실 / Facts</div>
+      <div class="block-text">紐約 AI 市場情報平台 AlphaSense 完成 <span class="amount">$3.5 億</span>，由 Vitruvian Partners、Accenture Ventures、J.P. Morgan Asset Management、D.E. Shaw Ventures 聯合領投，估值 <span class="valuation">$75 億</span>。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">J.P. Morgan 直接投資其平台競爭對手（或潛在整合夥伴）顯示金融機構對 AI workflow 工具的策略興趣。AlphaSense 服務全球 4,000+ 企業客戶，覆蓋法說會、研究報告即時 AI 摘要。</div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: LAUNCHES / STEALTH -->
+  <div class="section-label">新公司發表 / Launches & Stealth-Out</div>
+  <h2>走出隱身模式 / 公開發表</h2>
+
+  <div class="card">
+    <h3>morph 軟性機器人電池出爐，8VC 等支持<br><span class="en">morph Exits Stealth with Shapeshifting Soft Robotic Cells Platform</span></h3>
+    <div class="meta">
+      <span class="tag tag-stealth">Stealth Exit</span>
+      <a href="https://theaiinsider.tech/2026/06/03/morph-launches-shapeshifting-soft-robotics-cells-platform-for-real-world-applications/" target="_blank">AI Insider</a> · 2026-06-03
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">morph 由前 Digital Surgery CEO Jean Nehme 創辦，發表可形變、可嵌入產品的「軟性機器人電池」平台。投資方包含 8VC、Pharrell Williams（音樂人轉投資）、Copper、Qubit Health Capital。融資金額未披露。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">軟性機器人（soft robotics）應用於醫療、工廠夾爪、穿戴裝置，對比剛性機器臂優勢在安全交互。Pharrell Williams 投資科技公司（非創意類）仍屬新鮮。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>SOND 睡眠科技 Dreambuds，Bose 前主管創辦出發<br><span class="en">SOND Exits Stealth with $7M, Launches Dreambuds Closed-Loop Sleep Earbuds</span></h3>
+    <div class="meta">
+      <span class="tag tag-stealth">Stealth Exit</span>
+      <a href="https://techcrunch.com/2026/05/27/sond-a-sleep-tech-startup-from-boses-former-head-of-sleep-exits-stealth-with-7m/" target="_blank">TechCrunch</a> · 2026-05-27
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">由兩位 MIT 畢業生（含 Bose 前全球睡眠主管）創辦的 SOND 以 <span class="amount">$700 萬</span> 走出隱身模式，推出 Dreambuds——入耳式裝置，同時監測 12 項生理指標並形成閉環睡眠干預。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">睡眠科技硬體市場競爭激烈（Oura、Whoop、Apple Watch），但閉環（biofeedback）是相對空白區域。Bose 背景強化可信度，但 $700 萬 seed 規模與硬體開發成本仍有落差。</div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: NOTABLE PRODUCT LAUNCHES -->
+  <div class="section-label">產品大事 / Notable Product Launches</div>
+  <h2>值得關注的產品動態</h2>
+
+  <div class="card">
+    <h3>Product Hunt 六月熱門：Fundraisly 以逾百萬票登頂<br><span class="en">Product Hunt June 2026: Fundraisly Tops Charts with 1M+ Votes</span></h3>
+    <div class="meta">
+      <span class="tag tag-product">Product Hunt</span>
+      <a href="https://www.producthunt.com/leaderboard/monthly/2026/6" target="_blank">Product Hunt</a> · 2026-06
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">Product Hunt 六月月榜（截至 6/11）：#1 Fundraisly (1,027,261 票)、#2 Honen (493,108 票)、#3 Minimi (485,108 票)、#4 Mina Meeting Assistant (479,135 票)。AI 助理、募資工具、會議輔助為三大主題。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">Fundraisly 票數異常偏高（百萬級），有 vote-gaming 疑慮；PH 社群已在討論計票真實性。Dreambeans by Google Labs（第9）是 Google 罕見以「Labs」身份在 PH 試水溫的一次發表。</div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: ACQUISITIONS -->
+  <div class="section-label">收購與整併 / Acquisitions & Consolidation</div>
+  <h2>收購動態</h2>
+
+  <div class="card">
+    <h3>Snap-on 以 $1 億收購 Diesel Laptops，汽車診斷科技整併<br><span class="en">Snap-on Acquires Diesel Laptops for ~$100M — Fleet Diagnostics Consolidation</span></h3>
+    <div class="meta">
+      <span class="tag tag-acquisition">Acquisition</span>
+      BusinessWire · 2026-06-08
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">工具製造商 Snap-on 宣布以約 <span class="amount">$1 億</span> 現金收購 Diesel Laptops LLC（車隊柴油車診斷硬體+軟體新創），完成於 2026-06-08。Diesel Laptops 為私有公司，融資狀況未披露。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">汽車工具產業的 AI/軟體化是近兩年持續整併方向。Snap-on 藉此強化車隊維修端數位化能力，直面 Delphi Technologies（BorgWarner 旗下）的競爭。</div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: PEOPLE MOVES -->
+  <div class="section-label">人事 / People Moves</div>
+  <h2>重要 C-Level 異動</h2>
+
+  <div class="card">
+    <h3>Reid Hoffman 辭 Microsoft 董事，以「創辦人模式」投入 Manus 藥物發現<br><span class="en">Reid Hoffman Leaves Microsoft Board for "Founder Mode" at AI Drug Startup Manus</span></h3>
+    <div class="meta">
+      <span class="tag tag-people">People</span>
+      <a href="https://techcrunch.com/2026/06/05/reid-hoffman-is-leaving-microsofts-board-to-go-founder-mode-with-startup-manus/" target="_blank">TechCrunch</a> · 2026-06-05
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">LinkedIn 共同創辦人 Reid Hoffman 宣布辭去 Microsoft 董事（任職近十年），轉為全力投入 AI 藥物發現新創 <strong>Manus</strong>，擔任共同創辦人兼董事長（非 CEO）。CEO 由 Pulitzer 獲獎腫瘤學家 Dr. Siddhartha Mukherjee 擔任。Manus 去年已完成超過 $5,000 萬 seed 融資，General Catalyst 跟投。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">Hoffman 在其 Podcast「Possible」中與 Satya Nadella 對談後公開此決定，強調「Move 37 AI」——超越人類創意的化學突破。2016 年 Microsoft 以 $262 億收購 LinkedIn 後，Hoffman 加入其董事會。辭任是 Microsoft 失去一位理解 AI 新創生態的重要外部視角。</div>
+    </div>
+    <div class="implications-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-text">資深科技投資人回歸「創辦人模式」（Founder Mode，出自 Paul Graham 2024 年同名文章）成為 2026 年一個敘事主題。這也反映 AI 藥物發現已進入一個需要有意義的「知名臉孔」加持才能突出的競爭期。（分析）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Hootsuite 創辦人 Ryan Holmes 回任 CEO<br><span class="en">Hootsuite Founder Ryan Holmes Returns as CEO, Replacing Irina Novoselsky</span></h3>
+    <div class="meta">
+      <span class="tag tag-people">Founder Return</span>
+      Various reports · 2026-06
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">社群媒體管理平台 Hootsuite 創辦人 Ryan Holmes 回任 CEO，接替 Irina Novoselsky。Hootsuite 曾在 2022 年估值超過 $50 億，後因市場壓力多次裁員。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">「創辦人回歸」在科技圈有 Steve Jobs、Jack Dorsey（Twitter）先例。Hootsuite 面臨 Sprout Social、Buffer 激烈競爭及 AI 發文工具侵蝕，需要重建增長故事。</div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: LAYOFFS & SHUTDOWNS -->
+  <div class="section-label">裁員與停業 / Layoffs & Shutdowns</div>
+  <h2>真實呈現（不美化）</h2>
+
+  <div class="card">
+    <h3>披薩機器人新創 Picnic 關門清算，燒掉 $5,300 萬後倒閉<br><span class="en">Picnic Pizza Robot Startup Shuts Down, Liquidates After Burning Through $53M</span></h3>
+    <div class="meta">
+      <span class="tag tag-shutdown">Shutdown</span>
+      <a href="https://www.geekwire.com/2026/robot-pizza-startup-runs-out-of-dough-picnic-shuts-down-sells-assets-to-mystery-buyer/" target="_blank">GeekWire</a> · 2026-05/06
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">西雅圖披薩自動化新創 Picnic（原名 Otto Robotics / Vivid Robotics，2016 年創辦）無力償債，於 5 月 11 日啟動《General Assignment for Benefit of Creditors》清算程序，指定 CMBG Advisors Inc. 處理資產。十年間融資超過 <span class="amount">$5,300 萬</span>，早期投資方包含 Paul Allen 的 Vulcan Capital；2021 年 Series A $1,630 萬由 Thursday Ventures 領投。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">Picnic Pizza Station 可每小時生產 100 個 12 吋披薩（自動醬料+芝士+配料），但餐廳業利潤薄、採購週期長、現場整合複雜，是食物機器人化的「結構性障礙」。CEO 在大規模裁員數週後已先行離職。</div>
+    </div>
+    <div class="implications-block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-text">Picnic 的失敗與軟性機器人（morph）同週出現，凸顯「Demo 廚房能跑」≠「可規模化商業部署」的鴻溝。食物機器人化的下一波需要更低 CapEx 或更強的 as-a-service 模式。（分析）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>2026 年裁員整體概況（截至 6/10）<br><span class="en">2026 Tech Layoff Tracker: 183,966 Jobs Cut YTD as of June 10</span></h3>
+    <div class="meta">
+      <span class="tag tag-shutdown">Layoff Data</span>
+      <a href="https://news.crunchbase.com/startups/tech-layoffs/" target="_blank">Crunchbase Tech Layoffs Tracker</a> · <a href="https://layoffs.fyi/" target="_blank">Layoffs.fyi</a>
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">截至 2026-06-10：全年 247 次裁員事件，共 <span class="amount">183,966</span> 人受影響，日均 1,143 人。六月截至目前已有 15 家公司宣告裁員，影響 1,190 名員工。主要驅動因素：AI 自動化代替崗位、融資緊縮延長 runway。</div>
+    </div>
+  </div>
+
+  <!-- SECTION 8: IPO PIPELINE -->
+  <div class="section-label">上市進程 / IPO Pipeline</div>
+  <h2>2026 巨型 IPO 三角陣</h2>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>SpaceX — 明日掛牌 SPCX</h3>
+      <div class="meta"><span class="tag tag-ipo">Listing June 12</span></div>
+      <div class="block-text" style="font-size:0.85rem;margin-top:8px;">
+        <strong>定價：</strong>$135/股 &nbsp;|&nbsp; <strong>募資：</strong>$750 億<br>
+        <strong>估值：</strong>$1.75 兆 &nbsp;|&nbsp; <strong>交易所：</strong>Nasdaq (SPCX)<br>
+        <strong>承銷：</strong>Goldman Sachs、Morgan Stanley<br>
+        <strong>2025 營收：</strong>$187 億（+33%），淨損 $49 億
+      </div>
+    </div>
+    <div class="card">
+      <h3>OpenAI — 秋季目標上市</h3>
+      <div class="meta"><span class="tag tag-ipo">Confidential S-1 Filed June 8</span></div>
+      <div class="block-text" style="font-size:0.85rem;margin-top:8px;">
+        <strong>目標時程：</strong>2026 年 9 月<br>
+        <strong>目標估值：</strong>$8,520 億–$1 兆<br>
+        <strong>承銷：</strong>Goldman Sachs、Morgan Stanley、JPMorgan<br>
+        <strong>2025 營收：</strong>$131 億，淨損 $90 億<br>
+        <strong>月收入：</strong>$20 億
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 9: REGIONAL SPOTLIGHT -->
+  <div class="section-label">區域 / Regional Spotlight</div>
+  <h2>非美地區重要動態</h2>
+
+  <div class="card">
+    <h3>台灣 COMPUTEX 2026 InnoVEX 平台：500+ 新創參展創歷史新高<br><span class="en">Taiwan COMPUTEX 2026: InnoVEX Startup Platform Sets Record with 500+ Startups</span></h3>
+    <div class="meta">
+      <span class="tag tag-product">Taiwan</span>
+      IT Brief Asia · 2026-06
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">COMPUTEX 2026 閉幕，吸引來自 152 個國家/地區 111,312 名買家與訪客，創展覽史上最高。InnoVEX 新創展區超過 500 家新創參展，年增逾 11%。台灣、日本、南韓為三大參展市場。AI 機器人為最熱主題。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">台灣硬體生態（TSMC、鴻海等供應鏈）正成為 AI 硬體新創的重要孵化土壤，NVIDIA、Qualcomm 均在 COMPUTEX 公布台灣合作夥伴。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>中國 Q1 2026 新創融資達 $165 億，佔亞洲 60%<br><span class="en">China Startups Pull $16.5B in Q1 2026, Representing 60% of All Asian VC</span></h3>
+    <div class="meta">
+      <span class="tag tag-series-b">China</span>
+      Crunchbase Q1 Asia Report · 2026
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">中國新創在 2026 Q1 融資約 <span class="amount">$165 億</span>，佔全亞洲新創融資約 60%。強勢賽道：AI 應用、機器人、半導體、工業科技、智慧硬體、商業軟體。</div>
+    </div>
+    <div class="context-block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-text">中國新創生態在 2024 H1 低點後反彈，DeepSeek 效應帶動本地 AI 應用投資熱潮。跨境投資仍受限，主要資金來自國家隊（國家集成電路基金等）及本土機構投資人。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>印度新創：207,000 家獲認證，112 隻獨角獸<br><span class="en">India Startup Ecosystem: 207K+ Recognized Startups, 112 Unicorns, $350B+ in Value</span></h3>
+    <div class="meta">
+      <span class="tag tag-series-b">India</span>
+      Government of India / YourStory data · 2026
+    </div>
+    <div class="facts-block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-text">印度官方認證新創數量突破 207,000 家，112 隻獨角獸，生態系總估值 $3,500 億+。近半數新創來自三線以下城市。深科技（AI/機器人/生技/量子）佔整體 12%，超過 3,600 家。</div>
+    </div>
+  </div>
+
+  <!-- SECTION 10: READS -->
+  <div class="section-label">觀點 / Reads</div>
+  <h2>值得存檔的文章</h2>
+
+  <div class="card">
+    <h3>「硬體食物自動化的結構性失敗」— Picnic 個案解讀<br><span class="en">Structural Failure in Food Robotics — The Picnic Case</span></h3>
+    <div class="meta">
+      <a href="https://biztechweekly.com/picnic-robotics-shutdown-lessons-from-seattle-startups-53m-pizza-automation-failure-and-industry-challenges/" target="_blank">BizTech Weekly</a> ·
+      <a href="https://www.geekwire.com/2026/robot-pizza-startup-runs-out-of-dough-picnic-shuts-down-sells-assets-to-mystery-buyer/" target="_blank">GeekWire</a>
+    </div>
+    <div class="block-text" style="font-size:0.87rem;margin-top:8px;">Picnic 十年、$5,300 萬、Demo 完美，但商業化失敗。GeekWire 的分析指出：「問題不在於 Picnic 的執行，而在食物服務自動化的結構性困境」。CapEx 高、整合複雜、餐廳毛利薄——這個三元死鎖尚未有人解開。適合任何硬體+服務新創創辦人閱讀。</div>
+  </div>
+
+  <div class="card">
+    <h3>Suno 版權案 7 月聽證：生成式 AI 訓練數據的命運轉折點<br><span class="en">Suno Copyright Ruling July 2026: The Pivotal Moment for Generative AI Training Data</span></h3>
+    <div class="meta">
+      <a href="https://www.chartlex.com/blog/business/music-industry-ai-lawsuits-tracker-2026" target="_blank">Chartlex</a> ·
+      <a href="https://techcrunch.com/2026/06/03/still-facing-copyright-lawsuits-ai-music-generator-suno-raises-another-400m/" target="_blank">TechCrunch</a>
+    </div>
+    <div class="block-text" style="font-size:0.87rem;margin-top:8px;">7 月波士頓聯邦地院裁決將決定：用版權素材訓練 AI 是否構成「合理使用」。這不只是音樂 AI 的問題——文字、圖像、影片 AI 的訓練數據邏輯都繫於此。若 fair use 不成立，幾乎所有主流生成式 AI 都需重新談授權。</div>
+  </div>
+
+  <!-- SOURCES -->
+  <div class="sources-section">
+    <h4>資料來源 / Sources</h4>
+    <ul class="sources-list">
+      <li><a href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/" target="_blank">Crunchbase News — Week's 10 Biggest Funding Rounds (June 5, 2026)</a></li>
+      <li><a href="https://techcrunch.com/2026/06/03/still-facing-copyright-lawsuits-ai-music-generator-suno-raises-another-400m/" target="_blank">TechCrunch — Suno Raises $400M Amid Copyright Lawsuits (June 3, 2026)</a></li>
+      <li><a href="https://techcrunch.com/2026/06/05/reid-hoffman-is-leaving-microsofts-board-to-go-founder-mode-with-startup-manus/" target="_blank">TechCrunch — Reid Hoffman Leaves Microsoft Board for Manus (June 5, 2026)</a></li>
+      <li><a href="https://fortune.com/2026/06/09/openai-files-confidential-s-1-sec-ipo/" target="_blank">Fortune — OpenAI Files Confidential S-1 (June 9, 2026)</a></li>
+      <li><a href="https://www.cnbc.com/2026/06/08/openai-confidentially-files-for-ipo-prepping-wall-street-for-ai-debut.html" target="_blank">CNBC — OpenAI Confidentially Files for IPO (June 8, 2026)</a></li>
+      <li><a href="https://siliconangle.com/2026/06/09/standard-bots-raises-200m-1b-valuation-revolutionize-ai-native-industrial-robotics/" target="_blank">SiliconAngle — Standard Bots $200M Series C (June 9, 2026)</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-06-09/standard-bots-raises-200-million-to-manufacture-robots-in-us" target="_blank">Bloomberg — Standard Bots $200M (June 9, 2026)</a></li>
+      <li><a href="https://www.geekwire.com/2026/robot-pizza-startup-runs-out-of-dough-picnic-shuts-down-sells-assets-to-mystery-buyer/" target="_blank">GeekWire — Picnic Pizza Robot Shuts Down (2026)</a></li>
+      <li><a href="https://www.heygotrade.com/en/news/spacex-ipo-177-trillion-valuation-2026-ipo-wave/" target="_blank">HeyGoTrade — SpaceX IPO Details (2026)</a></li>
+      <li><a href="https://www.techtimes.com/articles/317793/20260604/spacex-ipo-roadshow-launches-fixed-price-wall-street-says-stock-worth-half-ask.htm" target="_blank">TechTimes — SpaceX Roadshow (June 4, 2026)</a></li>
+      <li><a href="https://theaiinsider.tech/2026/06/03/morph-launches-shapeshifting-soft-robotics-cells-platform-for-real-world-applications/" target="_blank">AI Insider — morph Stealth Exit (June 3, 2026)</a></li>
+      <li><a href="https://techcrunch.com/2026/05/27/sond-a-sleep-tech-startup-from-boses-former-head-of-sleep-exits-stealth-with-7m/" target="_blank">TechCrunch — SOND Stealth Exit (May 27, 2026)</a></li>
+      <li><a href="https://news.crunchbase.com/startups/tech-layoffs/" target="_blank">Crunchbase Tech Layoffs Tracker (2026)</a></li>
+      <li><a href="https://layoffs.fyi/" target="_blank">Layoffs.fyi (2026)</a></li>
+      <li><a href="https://www.producthunt.com/leaderboard/monthly/2026/6" target="_blank">Product Hunt Monthly Leaderboard — June 2026</a></li>
+      <li><a href="https://www.chartlex.com/blog/business/music-industry-ai-lawsuits-tracker-2026" target="_blank">Chartlex — Music AI Lawsuits Tracker (2026)</a></li>
+    </ul>
+    <div class="disclaimer">
+      付費牆來源（部分）：The Information、Bloomberg（部分）、Wall Street Journal、Financial Times。部分個別公司財務數字引自公開新聞報導而非原始財報，請以各公司官方披露為準。分析觀點標注「（分析）」代表作者推論，非事實陳述。
+    </div>
+    <div class="disclaimer" style="margin-top:6px;">
+      Generated: 2026-06-11 | Asia/Taipei | Powered by Claude + Anthropic
+    </div>
+  </div>
+
+</div><!-- /container -->
+</body>
+</html>

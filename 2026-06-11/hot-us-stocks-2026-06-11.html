@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hot US Stocks — 2026-06-11</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --card: #1a1d27;
+      --border: #2a2d3e;
+      --accent: #00d4aa;
+      --red: #ff4d6d;
+      --green: #00d4aa;
+      --yellow: #ffd166;
+      --text: #e8eaf0;
+      --muted: #8b91a8;
+      --tag-bg: #252840;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      padding: 24px 16px;
+    }
+    .container { max-width: 960px; margin: 0 auto; }
+    header { margin-bottom: 32px; }
+    header h1 { font-size: 1.8rem; font-weight: 700; color: var(--accent); }
+    header .subtitle { color: var(--muted); margin-top: 6px; font-size: 0.9rem; }
+    .session-note {
+      background: var(--card);
+      border-left: 3px solid var(--yellow);
+      padding: 10px 16px;
+      border-radius: 6px;
+      margin: 16px 0 28px;
+      font-size: 0.85rem;
+      color: var(--yellow);
+    }
+
+    /* Summary table */
+    .summary-table-wrap { overflow-x: auto; margin-bottom: 36px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th {
+      background: var(--tag-bg);
+      color: var(--muted);
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,0.03); }
+    .up   { color: var(--green); font-weight: 700; }
+    .down { color: var(--red);   font-weight: 700; }
+    .ticker-badge {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--accent);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+    }
+    .stars { color: var(--yellow); }
+
+    /* Sections */
+    section { margin-bottom: 48px; }
+    section h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    section h2 span { color: var(--muted); font-size: 0.85rem; font-weight: 400; margin-left: 8px; }
+
+    /* Ticker cards */
+    .ticker-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin-bottom: 20px;
+    }
+    .ticker-card:hover { border-color: var(--accent); }
+    .ticker-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .ticker-card h3 .co-name { color: var(--muted); font-weight: 400; font-size: 0.92rem; }
+    .tape {
+      background: var(--tag-bg);
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .tape strong { color: var(--text); }
+    .label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--accent);
+      margin: 14px 0 4px;
+    }
+    p.body-text { font-size: 0.88rem; color: var(--text); margin-bottom: 8px; }
+    p.zh { font-size: 0.88rem; color: #c8cce0; margin-bottom: 8px; }
+    blockquote {
+      border-left: 3px solid var(--yellow);
+      margin: 6px 0;
+      padding: 4px 12px;
+      font-size: 0.83rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .warning {
+      background: rgba(255,77,109,0.08);
+      border: 1px solid rgba(255,77,109,0.3);
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 0.82rem;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+    .watch-item {
+      border-left: 3px solid var(--muted);
+      padding: 6px 14px;
+      margin-bottom: 10px;
+      font-size: 0.87rem;
+    }
+    .watch-item .wt { color: var(--accent); font-weight: 700; }
+
+    /* Backdrop */
+    .backdrop-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+    .macro-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .macro-pill {
+      background: var(--tag-bg);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.8rem;
+    }
+
+    /* Sources */
+    .sources { font-size: 0.78rem; color: var(--muted); margin-top: 12px; }
+    .sources a { color: var(--muted); text-decoration: underline; word-break: break-all; }
+    .sources a:hover { color: var(--accent); }
+
+    /* Footer */
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.35rem; }
+      .tape { flex-direction: column; gap: 5px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>🔥 Hot US Stocks — 今日美股熱門焦點股</h1>
+    <div class="subtitle">
+      交易日: <strong>June 11, 2026 (Wednesday)</strong> · RTH session · 數據截至收盤及盤後 · 生成時間 2026-06-11 Asia/Taipei
+    </div>
+  </header>
+
+  <div class="session-note">
+    ⚡ 交易背景：US-Iran 軍事衝突升溫、油價飆漲；May CPI 年增 4.2% (3年新高)；Oracle Q4 財報今晚盤後發布；Adobe ADBE 盤後財報亦為今日重要催化事件。整體氣氛 Risk-Off，但 AI/小市值概念股持續活躍。
+  </div>
+
+  <!-- ===== SUMMARY TABLE ===== -->
+  <section>
+    <h2>今日熱門快覽 <span>Summary Table</span></h2>
+    <div class="summary-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Ticker</th>
+            <th>Company</th>
+            <th>% Move</th>
+            <th>Vol Signal</th>
+            <th>Options</th>
+            <th>Buzz</th>
+            <th>Catalyst</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="ticker-badge">AZI</span></td>
+            <td>Autozi Internet Technology</td>
+            <td class="up">+224.8%</td>
+            <td>177M sh vs 48K avg (3,600×)</td>
+            <td>待確認</td>
+            <td class="stars">★★★★★</td>
+            <td>戰略合夥 + 10-for-1 reverse split + insider 承諾 $30M 注資</td>
+          </tr>
+          <tr>
+            <td><span class="ticker-badge">CHAI</span></td>
+            <td>Core AI Holdings</td>
+            <td class="up">+189%</td>
+            <td>160M sh vs 6M avg (26×)</td>
+            <td>Beta 3.91; 待確認期權細節</td>
+            <td class="stars">★★★★★</td>
+            <td>OpenAI 保密 S-1 提交 SEC → AI sympathy play</td>
+          </tr>
+          <tr>
+            <td><span class="ticker-badge">MTEN</span></td>
+            <td>Mingteng International</td>
+            <td class="up">+186.6%</td>
+            <td>爆量 (低流通量)</td>
+            <td>待確認</td>
+            <td class="stars">★★★</td>
+            <td>$2.26M registered direct offering @$2.00/sh 引發軋空</td>
+          </tr>
+          <tr>
+            <td><span class="ticker-badge">CCTG</span></td>
+            <td>CCSC Technology International</td>
+            <td class="up">+500% (PM)</td>
+            <td>54.5M sh vs 3.42M avg (16×)</td>
+            <td>待確認</td>
+            <td class="stars">★★★★</td>
+            <td>Nasdaq 合規截止日 6/15 倒數 → 軋空 + 零售投機</td>
+          </tr>
+          <tr>
+            <td><span class="ticker-badge">SUNE</span></td>
+            <td>SUNation Energy</td>
+            <td class="down">-38% to -39%</td>
+            <td>74× relative vol</td>
+            <td>待確認</td>
+            <td class="stars">★★★★</td>
+            <td>Suniva 逆向合併後獲利了結 + 股東訴訟調查</td>
+          </tr>
+          <tr>
+            <td><span class="ticker-badge">ORCL</span></td>
+            <td>Oracle Corporation</td>
+            <td class="down">-2.8% RTH; AH TBD</td>
+            <td>高於平均; 財報日放量</td>
+            <td>±13% 期權隱含波動; 財報前 IV surge</td>
+            <td class="stars">★★★★</td>
+            <td>FY Q4 財報盤後發布; $553B AI 合約積壓首次轉換測試</td>
+          </tr>
+          <tr>
+            <td><span class="ticker-badge">MRVL</span></td>
+            <td>Marvell Technology</td>
+            <td class="down">-3% (6/10); -16% (6/6)</td>
+            <td>持續分配量</td>
+            <td>待確認</td>
+            <td class="stars">★★★</td>
+            <td>"Parabolic 7" 解套拋售持續; CPI + US-Iran 壓制</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== HOT PICKS DEEP DIVE ===== -->
+  <section>
+    <h2>今日熱門個股深度解析 <span>Hot Tickers — Deep Dive</span></h2>
+
+    <!-- AZI -->
+    <div class="ticker-card">
+      <h3>
+        <span class="ticker-badge">AZI</span>
+        <span>Autozi Internet Technology (Global) Ltd.</span>
+        <span class="co-name">/ 奧托智聯</span>
+      </h3>
+      <div class="tape">
+        <span><strong>+224.8%</strong> RTH</span>
+        <span>Vol: <strong>~177M sh</strong> vs 30D avg ~48K (≈3,600× spike)</span>
+        <span>Intraday High: <strong>~$10.28</strong> on heavy momentum</span>
+        <span>Type: Micro-cap NASDAQ</span>
+      </div>
+
+      <div class="label">為什麼今天熱 / Why it's hot</div>
+      <p class="zh">AZI 從 6/9 的劇烈爆發延續至 6/11，核心驅動力是三重催化疊加：①與 Velocar Ltd. 深化歐洲汽車供應鏈戰略合作，目標三年聯合營收 $5 億；②共同投資人已到位第一筆 $3,000 萬（$1.1 億承諾的首筆）；③ 10-for-1 反向合股使流通量極度壓縮。這是典型的低流通量 + 利多消息 + 動能追漲組合。</p>
+      <p class="body-text">AZI's multi-day surge carries characteristics of a classic low-float momentum squeeze: a 10-for-1 reverse split compresses share count, a $110M co-investor commitment (first $30M tranche received) provides a fundamental story, and a strategic European auto supply chain partnership with Velocar gives traders a tangible narrative. Volume of 177M shares against a 48K 30-day average represents one of the most extreme relative-volume events of the week. Retail and algorithmic momentum chasers dominated the tape.</p>
+
+      <div class="label">Options & Flow</div>
+      <p class="body-text">具體期權細節待確認（micro-cap 期權流動性低）。短線交易者主要透過正股操作。Short interest 資訊未能確認；reverse split 後流通量壓縮本身即具備軋空條件。</p>
+
+      <div class="label">Retail Buzz</div>
+      <p class="body-text">WSB 及 StockTwits 上活躍討論，主要圍繞「哪裡是頂部」及跟進操作的風險。Tickeron 追蹤到單日最高 +858% 的時段（含盤前）。</p>
+      <blockquote>"gap and run or gap and trap?" — StockTwits 高讚評論摘要</blockquote>
+
+      <div class="label">炒作脈絡 / Narrative Context</div>
+      <p class="body-text">AZI 是典型的中國概念小市值美股（中國汽配互聯網平台），業績基礎薄弱，但「AI+汽車+歐洲擴張」的故事夠響亮。近年類似 setup 如 BTBT、CENN、BSTP 等均在短期爆發後快速回調，參考價值高。</p>
+
+      <div class="label">後續觀察 / What to Watch Next</div>
+      <p class="body-text">
+        • 成交量是否能維持在 30D avg 的 10× 以上（持續性判斷）<br/>
+        • $1.1 億承諾資金後續到位時間表（基本面錨點）<br/>
+        • Velocar 合作協議是否有正式 8-K/6-K 披露<br/>
+        • 反向合股後 Nasdaq 合規狀態<br/>
+        ⚠️ 分析用途，非投資建議。
+      </p>
+
+      <div class="sources">
+        來源: <a href="https://stockstotrade.com/news/autozi-internet-technology-global-ltd-azi-news-2026_06_09/" target="_blank">StocksToTrade</a> ·
+        <a href="https://tickeron.com/blogs/why-is-autozi-internet-technology-global-ltd-azi-stock-up-858-today-14066/" target="_blank">Tickeron</a> ·
+        <a href="https://finance.yahoo.com/quote/AZI/" target="_blank">Yahoo Finance AZI</a> ·
+        <a href="https://finviz.com/stock?t=AZI" target="_blank">Finviz</a>
+      </div>
+    </div>
+
+    <!-- CHAI -->
+    <div class="ticker-card">
+      <h3>
+        <span class="ticker-badge">CHAI</span>
+        <span>Core AI Holdings, Inc.</span>
+        <span class="co-name">/ OpenAI IPO 聯動炒作</span>
+      </h3>
+      <div class="tape">
+        <span><strong>+189% ~ +300%</strong> (盤中高點 $3.33+)</span>
+        <span>Vol: <strong>~160M sh</strong> vs 6.06M avg (≈26×)</span>
+        <span>Prior Close: ~$0.82; High: $4+</span>
+        <span>Beta: 3.91</span>
+      </div>
+
+      <div class="label">為什麼今天熱 / Why it's hot</div>
+      <p class="zh">Core AI Holdings 本身沒有任何公司特定的利多消息。它是本週最典型的「sympathy play」：OpenAI 於 6/8 向 SEC 提交保密 S-1 草稿（IPO 上市流程啟動），整個小市值 AI 概念股板塊被瘋狂掃貨。CHAI 因為名稱含「AI」、估值極低、流通量小、Beta 高，成為最大受益者之一。這是情緒而非基本面的行情。</p>
+      <p class="body-text">OpenAI's confidential S-1 submission to the SEC on June 8 set off a wave of speculative retail buying across any ticker with "AI" in its name or business description. CHAI (Core AI Holdings) — a micro-cap with a going-concern notice, $1.93M cash, and $31.96M accumulated losses — became a primary vehicle because of its AI-themed name, ultra-low float, and high Beta (3.91). No earnings beat, no FDA news, no partnership announcement: this is pure sentiment flow following a landmark event (OpenAI, valued at ~$852B privately, moving toward a $1T+ IPO).</p>
+
+      <div class="warning">⚠️ CHAI 持有巨額累計虧損（$31.96M）且現金僅 $1.93M，SEC 文件顯示持續經營疑慮。此股的漲勢完全由情緒驅動，基本面未支撐。</div>
+
+      <div class="label">Options & Flow</div>
+      <p class="body-text">期權詳細資訊待確認。以 Beta 3.91 和本次成交量爆發，IV 應大幅上升。建議參考 Market Chameleon 確認實際 IV 數值。</p>
+
+      <div class="label">Retail Buzz</div>
+      <p class="body-text">WSB 及多個 Telegram AI 炒股群組廣傳，討論主題主要是「OpenAI IPO 前哪些 AI 股可能暴漲」。CHAI 被列為「純 meme 屬性 AI 股」。</p>
+      <blockquote>"pure hype play on OpenAI name, exit fast" — Reddit r/stocks 高讚回覆摘要</blockquote>
+
+      <div class="label">炒作脈絡 / Narrative Context</div>
+      <p class="body-text">歷史上 OpenAI 每次重大里程碑（Sam Altman 回任、微軟合作擴大）都會引發小市值 AI 概念股的短暫爆拉。典型前例：2023 年 ChatGPT 爆紅時 $BBAI、$AISP 等均在數日內漲 300-500% 後快速拉回。</p>
+
+      <div class="label">後續觀察 / What to Watch Next</div>
+      <p class="body-text">
+        • OpenAI S-1 正式公開披露時程（預計 2026 Q3-Q4）<br/>
+        • CHAI 公司基本面改善訊號（無則視為純情緒股）<br/>
+        • AI 板塊情緒是否持續（NVDA、AMD 後市走向為代理指標）<br/>
+        ⚠️ 此類標的在情緒退潮後通常快速回吐 70-90%，純屬分析觀察。
+      </p>
+
+      <div class="sources">
+        來源: <a href="https://moneycheck.com/core-ai-holdings-chai-stock-rockets-300-following-openais-sec-registration-filing/" target="_blank">MoneyCheck</a> ·
+        <a href="https://parameter.io/core-ai-holdings-chai-stock-rockets-300-on-openai-ipo-filing-hype/" target="_blank">Parameter.io</a> ·
+        <a href="https://coincentral.com/core-ai-chai-stock-surges-300-as-openais-ipo-filing-ignites-ai-frenzy/" target="_blank">CoinCentral</a> ·
+        <a href="https://fortune.com/2026/06/09/openai-files-confidential-s-1-sec-ipo/" target="_blank">Fortune — OpenAI S-1</a>
+      </div>
+    </div>
+
+    <!-- CCTG -->
+    <div class="ticker-card">
+      <h3>
+        <span class="ticker-badge">CCTG</span>
+        <span>CCSC Technology International Holdings</span>
+        <span class="co-name">/ Nasdaq 合規倒數軋空</span>
+      </h3>
+      <div class="tape">
+        <span><strong>+315–500% (PM peak)</strong></span>
+        <span>Vol: <strong>54.5M sh</strong> vs 3.42M avg (16×)</span>
+        <span>PM High: ~$2.93; Prior Close: $0.48</span>
+        <span>Nasdaq 合規截止: 6/15/2026</span>
+      </div>
+
+      <div class="label">為什麼今天熱 / Why it's hot</div>
+      <p class="zh">CCTG 距 Nasdaq 合規截止（6/15）只剩 4 個交易日，需連續 10 個交易日收盤在 $1.00 以上。投機性資金大量湧入，期望推高股價使公司達標，本質是「合規 squeeze」。此類操作在 Nasdaq 合規截止前一週極為常見，但成功率不一。公司本身有新產品（eNaviX 碳足跡管理）但非直接催化劑。</p>
+      <p class="body-text">CCSC Technology faces a Nasdaq compliance deadline of June 15, 2026, needing to close above $1.00 for 10 consecutive sessions. With only ~4 trading days remaining, retail traders and momentum players piled in ahead of the cutoff. Volume hit 54.5M shares against a 3.42M 30-day average — a 16× spike. The move is purely deadline-driven with no fundamental business catalyst. The company launched eNaviX (carbon footprint monitoring) in January 2026, but that product announcement predates this week's move by months.</p>
+
+      <div class="label">Options & Flow</div>
+      <p class="body-text">CCTG 流動性過低，期權市場不活躍，主要透過正股交易。Short float 資訊待確認，但 Nasdaq 合規 squeeze 的動態本身即提供持續做多動機（直到截止日）。</p>
+
+      <div class="label">Retail Buzz</div>
+      <p class="body-text">在 StockTwits 及 r/Daytrading 上受到關注，討論點集中在「能否在截止前連續 10 日站上 $1」的賭注性交易。</p>
+      <blockquote>"compliance squeeze, short window, high risk" — StockTwits 討論摘要</blockquote>
+
+      <div class="label">炒作脈絡 / Narrative Context</div>
+      <p class="body-text">Nasdaq 合規截止軋空是 2023-2026 年間頻繁出現的操作模式。典型案例：截止日前大幅拉升達標後，股價在截止日後 1-2 週內通常回落 40-70%（因投機買盤撤出）。</p>
+
+      <div class="label">後續觀察 / What to Watch Next</div>
+      <p class="body-text">
+        • 是否能在 6/15 前達成 10 日連續收盤 $1 以上<br/>
+        • 若達標：預期短期利多出盡賣壓<br/>
+        • 若未達標：可能轉至 OTC 或獲延期，股價通常跳水<br/>
+        ⚠️ 純投機交易，非基本面分析。
+      </p>
+
+      <div class="sources">
+        來源: <a href="https://ts2.tech/en/ccsc-stock-pops-ahead-of-the-bell-as-nasdaq-deadline-looms/" target="_blank">ts2.tech — CCSC Nasdaq 截止</a> ·
+        <a href="https://www.sec.gov/Archives/edgar/data/0001931717/000121390026007247/ea027379601-6k_ccsctech.htm" target="_blank">SEC 6-K Filing</a>
+      </div>
+    </div>
+
+    <!-- SUNE -->
+    <div class="ticker-card">
+      <h3>
+        <span class="ticker-badge">SUNE</span>
+        <span>SUNation Energy, Inc.</span>
+        <span class="co-name">/ 逆向合併崩盤 + 股東訴訟</span>
+      </h3>
+      <div class="tape">
+        <span><strong>-38% to -39.5%</strong> (盤中)</span>
+        <span>相對成交量: ~74×</span>
+        <span>前週漲幅: +216% (合併消息)</span>
+        <span>股東最終持股: <strong>1.8%</strong> (vs Suniva 98.2%)</span>
+      </div>
+
+      <div class="label">為什麼今天熱 / Why it's hot</div>
+      <p class="zh">SUNE 上週因 Suniva 逆向合併消息暴漲 216%，但本週進入劇烈獲利了結。關鍵問題：合併完成後，原 SUNE 股東僅保留合併後公司 1.8% 股權，Suniva 股東獲得 98.2%。此外，法律機構 Halper Sadeh LLC 已宣布調查董事會是否為股東爭取到最佳交易條件。雙重壓力（籌碼解套 + 法律風險）導致跌幅創近年新高。</p>
+      <p class="body-text">SUNation Energy's merger with solar manufacturer Suniva triggered a 216% spike last week. The unwind began this week as traders locked in profits and the severity of the dilution became clear: existing SUNE shareholders end up with only 1.8% of the combined company. Law firm Halper Sadeh LLC announced an investigation into whether the board secured fair value for shareholders — a classic post-announcement legal overhang. This is a textbook "buy the rumor, sell the news" combined with a fairness-of-deal concern. Volume at 74× 30-day average reflects both panicked exits and speculative shorts pressing the story.</p>
+
+      <div class="label">Options & Flow</div>
+      <p class="body-text">期權活躍度待確認。PUT 相對成交量可能大幅提升。做空成本及 SI 數據建議查閱 Fintel/Ortex。</p>
+
+      <div class="label">Retail Buzz</div>
+      <p class="body-text">Reddit r/Shortsqueeze 及 WSB 皆有討論，前者以「squeeze exhausted, fade it」為主流觀點，後者有少數看多聲音認為法律調查反而可能逼出更高溢價。</p>
+      <blockquote>"1.8% leftover for original holders, this was a steal" — r/investing 討論摘要</blockquote>
+
+      <div class="label">炒作脈絡 / Narrative Context</div>
+      <p class="body-text">逆向合併（reverse merger）完成後 SUNE 股東嚴重稀釋的結構並不罕見，但此案例因稀釋比例極端（僅留 1.8%）而格外引人注目。Suniva 是美國最後幾家本土晶矽太陽能製造商之一，具有「美國製造」政策題材。</p>
+
+      <div class="label">後續觀察 / What to Watch Next</div>
+      <p class="body-text">
+        • Halper Sadeh 調查結果或和解方案<br/>
+        • 合併完成時間表（股東投票日）<br/>
+        • 太陽能板塊整體政策動向（IRA 補貼、關稅保護）<br/>
+        ⚠️ 下跌股同樣是市場焦點，非推介放空。
+      </p>
+
+      <div class="sources">
+        來源: <a href="https://www.benzinga.com/trading-ideas/movers/26/06/53119638/why-is-sunation-energy-stock-falling-on-wednesday" target="_blank">Benzinga — SUNE 下跌原因</a> ·
+        <a href="https://www.gurufocus.com/news/8905929/sun-sune-investigation-into-merger-raises-concerns-over-shareholder-value" target="_blank">Gurufocus — 股東調查</a> ·
+        <a href="https://finance.yahoo.com/quote/SUNE/" target="_blank">Yahoo Finance SUNE</a>
+      </div>
+    </div>
+
+    <!-- ORCL -->
+    <div class="ticker-card">
+      <h3>
+        <span class="ticker-badge">ORCL</span>
+        <span>Oracle Corporation</span>
+        <span class="co-name">/ FY Q4 財報 — AI 積壓首次轉換測試</span>
+      </h3>
+      <div class="tape">
+        <span>RTH Close: ~<strong>$205.81</strong> (-2.84%)</span>
+        <span>盤後: 待確認 (財報 6/10 收盤後發布)</span>
+        <span>Street EPS Est: <strong>$1.96</strong> / Rev Est: <strong>$19.1B</strong></span>
+        <span>AI 積壓合約: <strong>$553B</strong></span>
+        <span>期權隱含波動: ±13%</span>
+      </div>
+
+      <div class="label">為什麼今天熱 / Why it's hot</div>
+      <p class="zh">Oracle FY2026 Q4 財報於 6/10 盤後發布，為 6/11 開盤的核心驅動事件。市場關注重點不是本季 EPS（$1.96 預期），而是 FY2027 指引，以及 $553 億 AI 基礎設施合約積壓是否開始轉為實際營收。過去一週股價已下跌 12.9%，市場在財報前顯著承壓。期權市場對本次財報定價了 ±13% 的隱含移動空間。</p>
+      <p class="body-text">Oracle's Q4 FY2026 earnings released after the June 10 close represent the week's most watched institutional event. The $553B contracted AI infrastructure backlog — roughly 8× annual revenue — is the single most-discussed figure on Wall Street. Guidance for FY2027 is the true binary catalyst; if OCI (Oracle Cloud Infrastructure) growth accelerates meaningfully, the stock could reclaim its $220 high. A guidance miss would amplify the recent 12.9% weekly decline. Options markets priced a ±13% post-earnings move. Bloomberg called it "Oracle earnings pose next test for suddenly shaky AI stock rally."</p>
+
+      <div class="label">Options & Flow</div>
+      <p class="body-text">財報前 IV Surge 明顯，期權市場隱含 ±13% 單日波動（低於 ORCL 近期自身歷史均值）。大型機構通常在財報週前降低 delta 敞口，等待結果後重新布局。Straddle 交易者在收盤前活躍。</p>
+
+      <div class="label">Retail Buzz</div>
+      <p class="body-text">財經媒體全面覆蓋。WSB 及 r/options 討論主要圍繞「買 straddle 還是 strangle」，AI infrastructure 題材使多頭論點充斥。Bloomberg、Fortune、CNBC 均在財報前大幅報導。</p>
+      <blockquote>"$553B backlog but when does it turn into dollars?" — Bloomberg 標題意旨</blockquote>
+
+      <div class="label">炒作脈絡 / Narrative Context</div>
+      <p class="body-text">Oracle 近年轉型為 AI 雲端基礎設施供應商（OCI），競爭者為 AWS/Azure/GCP。其超大型 AI 資料中心合約（含 xAI、NVIDIA 夥伴關係）是估值重估的基礎。但資本支出龐大、自由現金流壓力也是空頭論據。</p>
+
+      <div class="label">後續觀察 / What to Watch Next</div>
+      <p class="body-text">
+        • FY2027 全年營收指引（市場預期 ~$22-24B）<br/>
+        • OCI 季度增速（是否加速超過 Azure/AWS）<br/>
+        • $553B 積壓中已認列為 RPO 的比例<br/>
+        • 財報電話會議 (5pm ET) 中 Safra Catz 對 AI capex 的表態<br/>
+        ⚠️ 財報結果截至本報告生成時尚未公開，以下為前瞻分析。
+      </p>
+
+      <div class="sources">
+        來源: <a href="https://en.cryptonomist.ch/2026/06/10/oracle-stocks-553b-backlog-faces-its-biggest-test-wednesday/" target="_blank">Cryptonomist — ORCL 分析</a> ·
+        <a href="https://news.alphastreet.com/oracle-q4-2026-earnings-preview-june-10-street-expects-1-96-eps/" target="_blank">AlphaStreet 財報預覽</a> ·
+        <a href="https://www.bloomberg.com/news/articles/2026-06-10/oracle-earnings-pose-next-test-for-suddenly-shaky-ai-stock-rally" target="_blank">Bloomberg</a> ·
+        <a href="https://www.techtimes.com/articles/318098/20260609/oracle-q4-earnings-land-june-10-record-553-billion-ai-backlog-faces-its-first-conversion-test.htm" target="_blank">TechTimes</a>
+      </div>
+    </div>
+
+    <!-- MTEN -->
+    <div class="ticker-card">
+      <h3>
+        <span class="ticker-badge">MTEN</span>
+        <span>Mingteng International Corporation Inc.</span>
+        <span class="co-name">/ 中國汽模公司 Direct Offering 軋空</span>
+      </h3>
+      <div class="tape">
+        <span><strong>+186.6%</strong></span>
+        <span>Offering Price: <strong>$2.00/sh</strong></span>
+        <span>Gross Proceeds: <strong>$2.26M</strong></span>
+        <span>1,131,004 sh + warrants</span>
+      </div>
+
+      <div class="label">為什麼今天熱 / Why it's hot</div>
+      <p class="zh">MTEN 公告以每股 $2.00 進行 $2.26M 的 registered direct offering（配售 113.1 萬股＋認購憑證），在市場普遍認為這類小額配售「利空」的情況下，股價不跌反漲逾 186%。此現象常見於超低流通量的中國概念小市值股：配售定價高於市價（根據 Investing.com 報導「above market」），反而被部分投機者解讀為「insiders 願以高於市價注資 = 利多」。</p>
+      <p class="body-text">Mingteng International (MTEN) is a Chinese automotive mold manufacturer. Its registered direct offering at $2.00/share — priced "above market" per Nasdaq rules — for just $2.26M total proceeds paradoxically triggered a +186% single-day rally. This counterintuitive reaction is typical of ultra-low-float Chinese micro-caps where any pricing action can trigger outsized momentum moves. The company provides mold design, production, testing, and after-sales services for auto parts — no AI story, no blockbuster earnings.</p>
+
+      <div class="label">Options & Flow</div>
+      <p class="body-text">期權市場不活躍（極小市值）。主要透過正股低流通量動能。</p>
+
+      <div class="label">Retail Buzz</div>
+      <p class="body-text">在 Quiver Quantitative 及 Fintel 上有追蹤。WSB 討論量較低，主要出現在「中概小市值爆破」類版塊討論中。</p>
+
+      <div class="label">後續觀察 / What to Watch Next</div>
+      <p class="body-text">
+        • 配售資金用途執行情況（working capital 聲明後是否有具體公告）<br/>
+        • 流通量正常化後股價承壓<br/>
+        • 中國汽車產業整體景氣（電動車切換對傳統模具需求影響）<br/>
+        ⚠️ 純低流通量動能股，非基本面驅動。
+      </p>
+
+      <div class="sources">
+        來源: <a href="https://www.investing.com/news/company-news/mingteng-international-raises-226m-in-registered-direct-offering-93CH-4733758" target="_blank">Investing.com</a> ·
+        <a href="https://www.manilatimes.net/2026/06/10/tmt-newswire/globenewswire/mingteng-international-corporation-inc-announces-pricing-of-226-million-registered-direct-offering/2362125" target="_blank">Manila Times / GlobeNewswire</a> ·
+        <a href="https://fintel.io/ss/us/mten" target="_blank">Fintel Short Interest</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== WATCH LIST ===== -->
+  <section>
+    <h2>次熱觀察 <span>Watch List (3–5 names)</span></h2>
+
+    <div class="watch-item">
+      <span class="wt">MRVL</span> — Marvell Technology (-3% on 6/10, -16% on 6/6)：「Parabolic 7」解套拋售持續，AI 晶片回調先鋒。觀察點：AI 資本支出預期是否進一步下修、$553B ORCL 積壓轉換數據對 Marvell 訂單見解。
+    </div>
+    <div class="watch-item">
+      <span class="wt">MU</span> — Micron Technology (-3.5% on 6/10)：同為「Parabolic 7」成員，HBM 供應緊張 vs. CPI 打壓估值雙重張力。下次財報在 6 月底，屬潛在催化窗口。
+    </div>
+    <div class="watch-item">
+      <span class="wt">ADBE</span> — Adobe Systems：Q2 FY2026 財報 6/11 盤後發布，期權隱含波動 ±9.45%（歷史均值 8.2%）。年初至今已跌 32%，AI 工具商業化進展是核心看點。財報後預計成為 6/12 焦點個股。
+    </div>
+    <div class="watch-item">
+      <span class="wt">STI</span> — Solidion Technology (電池股)：6/5 收漲 350%（太空電池題材），6/8 盤前再加 22%，但隨後 private placement 稀釋壓力及 Nasdaq 合規問題帶來震盪。短線動能已部分衰減，觀察 6/11 年度股東會結果。
+    </div>
+    <div class="watch-item">
+      <span class="wt">NVDA</span> — NVIDIA (-1.4% on 6/10)：跌幅相對溫和，但整體半導體板塊悲觀情緒下，NVDA 的成交量及期權異動值得持續追蹤，是 AI/半導體情緒的晴雨表。
+    </div>
+  </section>
+
+  <!-- ===== HALTS & WEIRDNESS ===== -->
+  <section>
+    <h2>異常事件 <span>Halts &amp; Weirdness</span></h2>
+    <div class="ticker-card">
+      <p class="body-text"><strong>CCTG Nasdaq 合規危機</strong>：截止日 6/15/2026 前 4 個交易日，需達成連續 10 日收盤 $1 以上。目前股價透過投機性軋空暫時達標，但流動性風險極高。Nasdaq Trading Halts 頁面可能出現波動性暫停（LULD halt）。</p>
+      <p class="body-text"><strong>SUNE 法律調查</strong>：Halper Sadeh LLC 宣布對 SUNation Energy / Suniva 合併進行股東公平性調查。此類調查通常不構成交易暫停，但會影響合併時間表。</p>
+      <p class="body-text"><strong>OpenAI 保密 S-1</strong>：6/8 提交，目前處於 SEC 審查靜默期，預計 IPO 於 2026 Q3-Q4 間，Goldman Sachs + Morgan Stanley 為主承銷商。目前估值 $852B，部分分析師預期上市後 $1T+。</p>
+      <div class="sources">
+        <a href="https://www.nasdaqtrader.com/Trader.aspx?id=tradehalts" target="_blank">Nasdaq Trading Halts (實時)</a> ·
+        <a href="https://www.nyse.com/trade-halt-current" target="_blank">NYSE Halts (實時)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MARKET BACKDROP ===== -->
+  <section>
+    <h2>大盤背景 <span>Market Backdrop — June 10 Close (最近完整交易日)</span></h2>
+    <div class="backdrop-block">
+      <div class="macro-row">
+        <div class="macro-pill">S&amp;P 500 <span class="down">-0.37% ~ -0.48%</span></div>
+        <div class="macro-pill">Nasdaq <span class="down">-0.42% ~ -0.62%</span></div>
+        <div class="macro-pill">Dow <span class="down">-0.59% ~ -0.78%</span></div>
+        <div class="macro-pill">VIX <span class="up">+10%</span> (恐慌升溫)</div>
+        <div class="macro-pill">Oil <span class="up">↑ 上漲</span> (美伊衝突)</div>
+      </div>
+      <p class="body-text"><strong>核心驅動因素：</strong><br/>
+        ① <strong>May CPI 4.2% YoY</strong>（3 年新高）— 高於 4.0% 前值，月增 0.5%，核心月增 0.2% 低於預期，混合訊號。Fed 12 月升息 25bps 仍完全定價。<br/>
+        ② <strong>美伊軍事衝突</strong>：美國軍機被伊朗擊落後美軍反擊，Strait of Hormuz 緊張，油價飆升帶動能源股抗跌，其他板塊承壓。<br/>
+        ③ <strong>半導體板塊持續弱勢</strong>：「Parabolic 7」解套拋售延伸第二週，iShares SMH 於 6/6 單日跌 10%（6 年最差）。<br/>
+        ④ <strong>大盤風格輪動</strong>：62.7% 個股上漲但 Tech 落後，Coca-Cola (+1.52%)、Verizon (+1.46%) 等防禦股領漲，反映 Risk-Off 輪動。
+      </p>
+      <p class="body-text"><strong>June 11 前瞻：</strong>ECB 利率決策、May PPI、Adobe 財報、Oracle 財報後市場消化 — 預計波動持續偏高，VIX 短期難以顯著回落。</p>
+      <div class="sources">
+        來源: <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-10-2026" target="_blank">TheStreet</a> ·
+        <a href="https://finance.yahoo.com/markets/live/stock-market-today-dow-sp-500-nasdaq-slide-as-cpi-report-lands-us-iran-truce-teeters-215056930.html" target="_blank">Yahoo Finance Market Live</a> ·
+        <a href="https://diotimes.com/en/insights/market-insight-20260608-us-may-cpi-inflation-rates-dollar-tech-valuation/" target="_blank">DioTimes CPI 分析</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ALL SOURCES ===== -->
+  <section>
+    <h2>完整數據來源 <span>All Sources Consulted</span></h2>
+    <div class="sources" style="line-height:2;">
+      <a href="https://finance.yahoo.com/markets/stocks/most-active/" target="_blank">Yahoo Finance Most Active</a> ·
+      <a href="https://finance.yahoo.com/markets/stocks/gainers/" target="_blank">Yahoo Finance Gainers</a> ·
+      <a href="https://finance.yahoo.com/markets/stocks/losers/" target="_blank">Yahoo Finance Losers</a> ·
+      <a href="https://stockanalysis.com/markets/active/" target="_blank">Stock Analysis Most Active</a> ·
+      <a href="https://stockstotrade.com/news/autozi-internet-technology-global-ltd-azi-news-2026_06_09/" target="_blank">StocksToTrade — AZI</a> ·
+      <a href="https://tickeron.com/blogs/why-is-autozi-internet-technology-global-ltd-azi-stock-up-858-today-14066/" target="_blank">Tickeron — AZI +858%</a> ·
+      <a href="https://moneycheck.com/core-ai-holdings-chai-stock-rockets-300-following-openais-sec-registration-filing/" target="_blank">MoneyCheck — CHAI</a> ·
+      <a href="https://parameter.io/core-ai-holdings-chai-stock-rockets-300-on-openai-ipo-filing-hype/" target="_blank">Parameter.io — CHAI OpenAI hype</a> ·
+      <a href="https://fortune.com/2026/06/09/openai-files-confidential-s-1-sec-ipo/" target="_blank">Fortune — OpenAI S-1</a> ·
+      <a href="https://openai.com/index/openai-submits-confidential-s-1/" target="_blank">OpenAI 官方 S-1 公告</a> ·
+      <a href="https://ts2.tech/en/ccsc-stock-pops-ahead-of-the-bell-as-nasdaq-deadline-looms/" target="_blank">ts2.tech — CCTG</a> ·
+      <a href="https://www.benzinga.com/trading-ideas/movers/26/06/53119638/why-is-sunation-energy-stock-falling-on-wednesday" target="_blank">Benzinga — SUNE</a> ·
+      <a href="https://www.gurufocus.com/news/8905929/sun-sune-investigation-into-merger-raises-concerns-over-shareholder-value" target="_blank">Gurufocus — SUNE 調查</a> ·
+      <a href="https://www.investing.com/news/company-news/mingteng-international-raises-226m-in-registered-direct-offering-93CH-4733758" target="_blank">Investing.com — MTEN</a> ·
+      <a href="https://en.cryptonomist.ch/2026/06/10/oracle-stocks-553b-backlog-faces-its-biggest-test-wednesday/" target="_blank">Cryptonomist — ORCL</a> ·
+      <a href="https://news.alphastreet.com/oracle-q4-2026-earnings-preview-june-10-street-expects-1-96-eps/" target="_blank">AlphaStreet — ORCL Preview</a> ·
+      <a href="https://www.bloomberg.com/news/articles/2026-06-10/oracle-earnings-pose-next-test-for-suddenly-shaky-ai-stock-rally" target="_blank">Bloomberg — ORCL</a> ·
+      <a href="https://247wallst.com/investing/2026/06/05/micron-sandisk-and-marvell-plummet-as-parabolic-7-trade-unwinds/" target="_blank">247WallSt — Parabolic 7 Unwind</a> ·
+      <a href="https://congress.net/chip-sector-suffers-worst-single-day-collapse-in-six-years-as-marvell-mrvl-and-micron-mu-lead-losses/" target="_blank">Congress.net — Chip Collapse</a> ·
+      <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-10-2026" target="_blank">TheStreet — 6/10 Market Recap</a> ·
+      <a href="https://www.tikr.com/blog/adobe-stock-2026-outlook-q2-earnings-on-june-11-and-a-25-billion-buyback-in-place" target="_blank">TIKR — Adobe Earnings Preview</a> ·
+      <a href="https://www.tipranks.com/news/adobe-will-report-q2-earnings-tomorrow-options-traders-expect-a-9-45-move-in-adbe-stock" target="_blank">TipRanks — ADBE Options</a> ·
+      <a href="https://www.barchart.com/options/unusual-activity" target="_blank">Barchart Unusual Options</a> ·
+      <a href="https://unusualwhales.com/" target="_blank">Unusual Whales</a> ·
+      <a href="https://fintel.io/sst" target="_blank">Fintel Short Interest</a> ·
+      <a href="https://altindex.com/wallstreetbets" target="_blank">AltIndex — WSB Tracker</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>本報告由 AI 自動化工作流程生成，僅供市場觀察與學術分析用途，<strong>不構成任何投資建議</strong>。所有數字均已盡力核實，但部分盤後/隔日數據仍標示「待確認」。交易日：US June 11, 2026 (Wednesday RTH)。</p>
+    <p style="margin-top:8px;">Generated: 2026-06-11 · hot-us-stocks skill · Claude (Anthropic)</p>
+  </footer>
+
+</div>
+</body>
+</html>

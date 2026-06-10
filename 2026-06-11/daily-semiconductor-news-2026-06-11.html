@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>半導體新聞日報 · 2026-06-11</title>
+<style>
+  :root { color-scheme: light; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+  header {
+    background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%);
+    color: #e0e1dd;
+    padding: 28px 32px 20px;
+  }
+  header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.3px; }
+  header .subtitle { font-size: 0.85rem; color: #a8b2c1; margin-top: 4px; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .tag {
+    font-size: 0.72rem; font-weight: 600; padding: 2px 9px; border-radius: 99px;
+    background: rgba(255,255,255,0.12); color: #e0e1dd; border: 1px solid rgba(255,255,255,0.2);
+  }
+  nav {
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0 32px;
+    display: flex; gap: 0; overflow-x: auto;
+  }
+  nav a {
+    display: inline-block;
+    padding: 12px 14px;
+    font-size: 0.78rem; font-weight: 600;
+    color: #64748b; text-decoration: none;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+  }
+  nav a:hover { color: #1e40af; }
+  nav a.active { color: #1e40af; border-bottom-color: #1e40af; }
+  main { max-width: 900px; margin: 0 auto; padding: 28px 24px 60px; }
+  section { margin-bottom: 42px; }
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .section-icon { font-size: 1.3rem; }
+  .section-title { font-size: 1.05rem; font-weight: 700; color: #1e293b; }
+  .section-en { font-size: 0.8rem; color: #94a3b8; margin-left: 2px; }
+  .card {
+    background: #fff;
+    border: 1px solid #e8ecf0;
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: box-shadow 0.2s; }
+  .card-headline { font-size: 0.98rem; font-weight: 700; color: #1e293b; margin-bottom: 4px; line-height: 1.45; }
+  .card-en { font-size: 0.85rem; color: #475569; font-weight: 500; margin-bottom: 10px; }
+  .meta { font-size: 0.75rem; color: #94a3b8; margin-bottom: 10px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .meta a { color: #3b82f6; text-decoration: none; }
+  .meta a:hover { text-decoration: underline; }
+  .badge {
+    font-size: 0.65rem; font-weight: 700; padding: 1px 7px; border-radius: 4px;
+    text-transform: uppercase; letter-spacing: 0.4px;
+  }
+  .badge-foundry { background: #dbeafe; color: #1d4ed8; }
+  .badge-memory  { background: #d1fae5; color: #065f46; }
+  .badge-fabless { background: #ede9fe; color: #5b21b6; }
+  .badge-equip   { background: #fef3c7; color: #92400e; }
+  .badge-ai      { background: #fee2e2; color: #991b1b; }
+  .badge-geo     { background: #f3f4f6; color: #374151; border: 1px solid #d1d5db; }
+  .badge-pkg     { background: #fce7f3; color: #831843; }
+  .block { margin-bottom: 10px; }
+  .block-label {
+    font-size: 0.72rem; font-weight: 700; color: #64748b; text-transform: uppercase;
+    letter-spacing: 0.6px; margin-bottom: 3px;
+  }
+  .block-body { font-size: 0.87rem; color: #334155; }
+  .highlight { background: #fef9c3; padding: 0 3px; border-radius: 3px; font-weight: 600; }
+  .top-card {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 1px solid #bae6fd;
+    border-left: 4px solid #0284c7;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+  }
+  .top-card .card-headline { color: #075985; }
+  .sources-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-top: 30px;
+    font-size: 0.78rem; color: #64748b;
+  }
+  .sources-box h4 { font-size: 0.8rem; font-weight: 700; color: #475569; margin-bottom: 8px; }
+  .sources-box ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+  .sources-box li a {
+    color: #3b82f6; text-decoration: none;
+    padding: 2px 8px; border: 1px solid #bfdbfe; border-radius: 4px; font-size: 0.72rem;
+  }
+  .sources-box li a:hover { background: #eff6ff; }
+  .divider { height: 1px; background: #f1f5f9; margin: 8px 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>半導體新聞日報 · 2026-06-11</h1>
+  <div class="subtitle">Semiconductor Industry Daily — 晶圓代工 · 記憶體 · IC設計 · 設備材料 · AI晶片 · 地緣政治</div>
+  <div class="tag-row">
+    <span class="tag">TSMC N2</span>
+    <span class="tag">NVIDIA Vera Rubin</span>
+    <span class="tag">RTX Spark / N1X</span>
+    <span class="tag">HBM4</span>
+    <span class="tag">Intel 18A</span>
+    <span class="tag">CoPoS</span>
+    <span class="tag">Qualcomm Dragonfly</span>
+    <span class="tag">US Export Controls</span>
+  </div>
+</header>
+
+<nav>
+  <a href="#top" class="active">頭條</a>
+  <a href="#foundry">代工/封測</a>
+  <a href="#fabless">IC設計</a>
+  <a href="#memory">記憶體</a>
+  <a href="#equip">設備材料</a>
+  <a href="#ai">AI晶片</a>
+  <a href="#geo">地緣政治</a>
+  <a href="#reads">深度</a>
+</nav>
+
+<main>
+
+<!-- ── 1. 頭條 ─────────────────────────────────────────── -->
+<section id="top">
+  <div class="section-header">
+    <span class="section-icon">📌</span>
+    <span class="section-title">頭條 / Top Stories</span>
+  </div>
+
+  <div class="top-card">
+    <div class="card-headline">【頭條 1】NVIDIA Vera Rubin 三家 HBM4 供應商全數認證，Q3 開始出貨</div>
+    <div class="card-en">All Three HBM4 Vendors Qualified for Vera Rubin; Shipments Begin Q3 2026</div>
+    <div class="meta">
+      <span class="badge badge-ai">AI晶片</span>
+      <span class="badge badge-memory">記憶體</span>
+      <a href="https://www.techtimes.com/articles/317855/20260605/nvidia-vera-rubin-hbm4-jensen-huang-confirms-all-three-suppliers-production-q3-ship.htm" target="_blank">TechTimes · 2026-06-05</a>
+      <a href="https://www.investing.com/news/stock-market-news/nvidia-certifies-samsung-sk-hynix-and-micron-for-vera-rubin-hbm4-supply-4728612" target="_blank">Investing.com</a>
+    </div>
+    <div class="block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-body">Jensen Huang 於 GTC Taipei（6/1）確認三星、SK Hynix、Micron 均已完成認證並進入量產，首批系統預計 <span class="highlight">2026 Q3（7–9月）</span> 出貨。SK Hynix 佔 HBM4 配額約 <span class="highlight">60–70%</span>，三星約 25–30%，Micron 其餘。Micron HBM4 36GB 12H 帶寬達 <span class="highlight">2.8 TB/s</span>（11 Gb/s 針腳速度）；三星版本達 <span class="highlight">3.3 TB/s</span>，採 4nm 邏輯基底晶片 + 12 層堆疊。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-body">三星去年底因良率問題（HBM4 良率約 50%，需達 70% 才可量產）幾乎失去資格，但今年初大幅改善並於 2 月率先宣告商業出貨。此次三家同步認證，標誌 HBM4 供應鏈正式多元化，有別於 HBM3E 時代 SK Hynix 幾乎獨佔的格局。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-body">（分析）SK Hynix 短期仍享有份額溢價，但三星與 Micron 的市場地位將隨 Vera Rubin 量產而顯著改善。Vera Rubin 出貨落地將直接帶動 CoWoS 封測需求及 HBM4 上游設備（如蝕刻、沉積）。NVIDIA Q3 財測能見度大幅提升。</div>
+    </div>
+  </div>
+
+  <div class="top-card">
+    <div class="card-headline">【頭條 2】NVIDIA RTX Spark（N1X）正式發表，聯發科協設 CPU，台積電 3nm 製造</div>
+    <div class="card-en">NVIDIA RTX Spark Unveiled at Computex — MediaTek-co-designed N1X CPU on TSMC 3nm</div>
+    <div class="meta">
+      <span class="badge badge-ai">AI晶片</span>
+      <span class="badge badge-fabless">IC設計</span>
+      <a href="https://nvidianews.nvidia.com/news/nvidia-microsoft-windows-pcs-agents-rtx-spark" target="_blank">NVIDIA Newsroom · 2026-06-01</a>
+      <a href="https://www.trendforce.com/news/2026/06/01/news-nvidia-enters-pc-market-with-rtx-spark-featuring-mediatek-co-designed-n1x-cpu-on-tsmc-3nm/" target="_blank">TrendForce</a>
+    </div>
+    <div class="block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-body">RTX Spark SoC 整合 <span class="highlight">Blackwell GPU（6,144 CUDA cores，等同 RTX 5070）</span>＋ 聯發科 20 核 Arm CPU（N1X），共享 <span class="highlight">128GB 統一記憶體</span>，台積電 <span class="highlight">N3 製程</span> 生產。Dell、HP、ASUS、Lenovo、MSI、Microsoft 逾 <span class="highlight">30 款</span> 筆電及 <span class="highlight">10 款</span> 桌機預計秋季上市。NVIDIA 入股 PC 市場後，Intel、AMD、Qualcomm 股價當日各跌 7%、5%、5%。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-body">此次是 NVIDIA 首次直接切入 PC SoC 市場，以統一記憶體架構解決傳統 AI PC 在記憶體頻寬上的瓶頸，打通 CUDA 生態系至桌面端，是 Jensen Huang「掌控全棧」策略的延伸。聯發科從 Wi-Fi 晶片到 SoC CPU 的跨越，則代表台廠在 AI PC 新產業鏈的切入。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-body">（分析）台積電 N3 需求再添一筆大單；聯發科直接受益，市值大幅拉升。Intel Meteor Lake 及 Qualcomm Snapdragon X 均直接受到威脅。LPDDR5X 封裝廠（SK Hynix、Samsung）及 CoWoS-R 型封裝工廠受益。</div>
+    </div>
+  </div>
+
+  <div class="top-card">
+    <div class="card-headline">【頭條 3】蘋果 A21 晶片尋求 Intel 18A／三星代工；台積電 N2 供應吃緊</div>
+    <div class="card-en">Apple Eyes Intel 18A and Samsung SF2 for A21 SoC Amid TSMC N2 Capacity Crunch</div>
+    <div class="meta">
+      <span class="badge badge-foundry">晶圓代工</span>
+      <a href="https://www.tweaktown.com/news/111460/apple-is-reportedly-eyeing-intel-and-samsung-foundries-for-its-a21-chips-as-tsmc-supply-constraints-tighten/index.html" target="_blank">Tweaktown · 2026-05</a>
+      <a href="https://www.trendforce.com/news/2026/05/05/news-apple-reportedly-eyes-samsung-intel-u-s-foundry-for-core-chips-amid-tsmc-constraints-supply-diversification/" target="_blank">TrendForce</a>
+    </div>
+    <div class="block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-body">蘋果內部已取得 Intel <span class="highlight">18A-P PDK 0.9.1GA</span> 並進行模擬驗證，目標是以 Intel 18A 或三星 SF2 代工入門款 A21 SoC，供 MacBook Air 及 iPad Pro 使用，年需求量估 <span class="highlight">1,500–2,000 萬顆</span>，最快 2027 年量產。Pro 系列晶片仍由台積電 N2 生產，Apple 持有台積電 <span class="highlight">2026–2027 年 N2 超過 50%</span> 配額。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-body">台積電 N2 已被 Apple 大量鎖單，CoWoS 需求量龐大，其他 AI 晶片客戶（NVIDIA、AMD）競搶產能。蘋果採雙軌策略既是供應分散，也對台積電具議價空間。Intel 則以此強化「Intel Foundry」的轉型敘事。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-body">（分析）若 Intel 18A 良率達標，此將是 Intel Foundry 最重要的旗艦客戶，有助扭轉市場形象。對台積電而言，短期衝擊有限（Pro 系列不受影響），但長期份額風險值得追蹤。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 2. 晶圓代工與封測 ───────────────────────────────── -->
+<section id="foundry">
+  <div class="section-header">
+    <span class="section-icon">🏭</span>
+    <span class="section-title">晶圓代工與封測 / Foundry &amp; Advanced Packaging</span>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">TSMC CoPoS 先進面板級封裝試線 6 月完工，2028–29 年量產</div>
+    <div class="card-en">TSMC CoPoS Pilot Line On Track for June Completion; Mass Production 2028–29</div>
+    <div class="meta">
+      <span class="badge badge-pkg">封測</span>
+      <a href="https://www.trendforce.com/news/2026/04/13/news-tsmc-advances-panel-level-packaging-copos-pilot-line-reportedly-set-for-june-completion-2028-29-ramp-eyed/" target="_blank">TrendForce · 2026-04-13</a>
+    </div>
+    <div class="block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-body">台積電 CoPoS（Chip-on-Panel-on-Substrate）試線預計 <span class="highlight">2026 年 6 月完工</span>，設備已於 2 月陸續移入新竹子公司欣特克廠。面板尺寸 <span class="highlight">310mm × 310mm</span>，比 CoWoS 圓形晶圓顯著提升可用面積與成本效益，目標整合 AI/HPC 晶片及更多 HBM。量產目標 2028–29 年，CoWoS 中程仍是主力，年底產能擴至 <span class="highlight">125k wpm</span>，2027 年達 <span class="highlight">170k wpm</span>。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-body">CoWoS 雖積極擴產（2022–2027 年 CAGR 逾 80%），但受限圓晶尺寸，面板級封裝是下一代突破。競爭對手 Samsung 也在矽光子代工布局，但面板封裝仍落後。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-body">（分析）CoPoS 若順利量產，NVIDIA GB300 後代及未來 Google TPU 可望整合更大規模封裝。設備廠商（AMAT、TEL、蘇斯微）需提前取得面板級設備訂單，先佈局者優先。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">台積電 vs Intel Foundry vs 三星：2026 代工版圖重塑</div>
+    <div class="card-en">Foundry Landscape 2026: TSMC 64% Market Share, Intel &amp; Samsung Challenging</div>
+    <div class="meta">
+      <span class="badge badge-foundry">晶圓代工</span>
+      <a href="https://semiwiki.com/semiconductor-manufacturers/tsmc/366523-tsmc-vs-intel-foundry-vs-samsung-foundry-2026/" target="_blank">SemiWiki · 2026</a>
+      <a href="https://www.digitimes.com/news/a20260518PD213/tsmc-intel-samsung-ic-manufacturing-production.html" target="_blank">DigiTimes</a>
+    </div>
+    <div class="block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-body">台積電全球市佔率達 <span class="highlight">64%</span>，為歷史新高。Intel Foundry 在 CEO Lip-Bu Tan 帶領下積極挖角前台積電工程師，並引入台廠供應商；三星已啟動矽光子代工試產，計劃 <span class="highlight">2026 H2</span> 量產光通訊模組。N3 全數鎖單，N7 仍有餘量，CoWoS 前置時間超過 <span class="highlight">50 週</span>。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-body">AI 需求激增使台積電如同「水壩管理員」：先進製程供不應求，反促客戶嘗試備援選項，反而加速 Intel 與三星的代工商機。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-body">（分析）短期內台積電護城河未見缺口；但若 Intel 18A 良率在 2027 年達標，代工市場競爭格局將實質轉變。下游設備廠（ASML、AMAT）同時受益於多廠擴產。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 3. IC 設計 ─────────────────────────────────────── -->
+<section id="fabless">
+  <div class="section-header">
+    <span class="section-icon">💡</span>
+    <span class="section-title">IC 設計 / Fabless &amp; IDM</span>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Qualcomm 發表 Dragonfly 資料中心品牌，鎖定 ByteDance ASIC 大單</div>
+    <div class="card-en">Qualcomm Launches Dragonfly Brand; Secures ByteDance AI Data Center ASIC Deal</div>
+    <div class="meta">
+      <span class="badge badge-fabless">IC設計</span>
+      <a href="https://www.bloomberg.com/news/articles/2026-05-26/qualcomm-strikes-ai-chip-deal-with-tiktok-owner-bytedance" target="_blank">Bloomberg · 2026-05-26</a>
+      <a href="https://www.trendforce.com/news/2026/06/02/news-mediatek-and-qualcomm-race-for-bigger-ai-roles-through-nvidia-n1x-asics-and-dragonfly/" target="_blank">TrendForce · 2026-06-02</a>
+    </div>
+    <div class="block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-body">Qualcomm CEO Cristiano Amon 於 Computex 2026 發表 <span class="highlight">Dragonfly</span> 品牌（繼 Snapdragon、Dragonwing 之後第三大品牌），涵蓋伺服器 CPU、AI 加速器及 ASIC。ByteDance 已簽署長期、多世代 ASIC 供應協議，數量估 <span class="highlight">數百萬顆</span>。產品細節保留至 <span class="highlight">6/24 投資人日</span> 公布；今年內首款資料中心 ASIC 量產出貨。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-body">NVIDIA 出口管制使中國科技廠加速尋求替代方案；Qualcomm 對中合規性相對寬鬆（ASIC 客製，非通用 AI GPU），ByteDance 成為 Dragonfly 的試金石客戶。聯發科同步透過 NVIDIA N1X 擴大 AI 版圖，兩者形成台灣廠商與美國 IDM 的共同崛起敘事。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-body">（分析）若 Qualcomm 成功建立 ASIC 設計服務模式，對 Marvell、Broadcom 自定義 ASIC 業務直接形成壓力。製造端仍依賴台積電，意味台積電 ASIC 相關節點（N4P/N3E）訂單持續滿載。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">聯發科再次公開力挺台積電為長期夥伴；否認轉單三星</div>
+    <div class="card-en">MediaTek CEO Reaffirms TSMC Partnership; Denies Samsung Order Diversion Reports</div>
+    <div class="meta">
+      <span class="badge badge-fabless">IC設計</span>
+      <a href="https://www.trendforce.com/news/2026/05/29/news-mediatek-ceo-reaffirms-tsmc-as-key-long-term-partner-amid-samsungs-reported-push-for-foundry-orders/" target="_blank">TrendForce · 2026-05-29</a>
+    </div>
+    <div class="block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-body">聯發科 CEO 蔡力行公開表示，台積電是「關鍵長期合作夥伴」，目前無意大規模轉單三星，此前三星積極推銷代工訂單的傳聞被直接駁斥。聯發科同時透過 RTX Spark N1X CPU 協設，深化與 NVIDIA、台積電的三角生態系。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-body">三星近期積極行銷 SF2（2nm 同級）節點，試圖搶奪聯發科、AMD 等客戶，但良率與生態系成熟度仍落後台積電 N3/N2。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-body">（分析）聯發科公開聲明有助穩定台積電估值，亦間接打擊三星代工股訊號。RTX Spark 的成功與否將成 2026–2027 年聯發科獲利最重要的上行風險。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">意法半導體（ST）大幅調高資料中心營收目標至 10 億美元</div>
+    <div class="card-en">STMicroelectronics Nearly Doubles 2026 Data Center Revenue Target to $1 Billion</div>
+    <div class="meta">
+      <span class="badge badge-fabless">IDM</span>
+      <a href="https://www.bloomberg.com/news/articles/2026-06-02/stmicro-raises-estimates-for-data-center-revenue-to-1-billion" target="_blank">Bloomberg · 2026-06-02</a>
+    </div>
+    <div class="block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-body">意法半導體（STM）宣布 2026 年資料中心營收目標自「略高於 5 億美元」上調至 <span class="highlight">約 10 億美元</span>；2027 年可望再翻倍。核心驅動力為 2026 年 2 月與 AWS 簽訂的策略合作協議，涵蓋矽光子高頻寬連接、混合訊號處理、MCU 及類比/電源 IC。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-body">ST 不是 GPU 大廠，但其在工業 MCU 與電源管理的優勢正被 AI 基礎設施建置需求帶動。此訊號顯示 AI 算力需求已向「周邊」半導體廠商蔓延，矽光子連接（用於 AI 叢集內部互聯）是新興熱點。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-body">（分析）矽光子連接需求上升直接受益 GlobalFoundries、TSMC（矽光子代工）及相關雷射元件廠。ST 的上修也印證台積電在矽光子模組 COUPE 平台的布局正確性。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 4. 記憶體 ─────────────────────────────────────── -->
+<section id="memory">
+  <div class="section-header">
+    <span class="section-icon">🧊</span>
+    <span class="section-title">記憶體 / Memory (DRAM · HBM · NAND)</span>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">HBM4 量產進入多供應商時代；三星、SK Hynix、Micron 份額解析</div>
+    <div class="card-en">HBM4 Multi-Vendor Era Begins — SK Hynix ~65%, Samsung ~28%, Micron ~7% Allocation for Vera Rubin</div>
+    <div class="meta">
+      <span class="badge badge-memory">記憶體</span>
+      <a href="https://videocardz.com/newz/samsung-and-micron-confirm-hbm4-enters-mass-production-for-nvidia-vera-rubin" target="_blank">VideoCardz · 2026</a>
+      <a href="https://news.skhynix.com/2026-market-outlook-focus-on-the-hbm-led-memory-supercycle/" target="_blank">SK Hynix IR · 2026</a>
+    </div>
+    <div class="block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-body">三星於 <span class="highlight">2026/2/12</span> 率先宣告 HBM4 商業出貨（4nm 邏輯基底 + 12H），速率 <span class="highlight">3.3 TB/s</span>；Micron HBM4 36GB 12H 達 <span class="highlight">2.8 TB/s</span>（11+ Gb/s）。HBM3E 時代 SK Hynix 市佔率 53%、三星 35%、Micron 11%，HBM4 時代三星份額有望上升。Samsung、SK Hynix 已與 OpenAI Stargate 簽署 LoI，月供 <span class="highlight">90 萬片 DRAM 晶圓</span>。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-body">DRAM 合約價 2026 Q1 預計漲 <span class="highlight">55–60%</span>，NAND 漲 <span class="highlight">33–38%</span>（TrendForce）。HBM3E 仍是當前 AI 伺服器主力，HBM4 逐步接棒，2026 為過渡年。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-body">（分析）記憶體漲價週期加上 HBM 高附加值，三大廠毛利率均大幅改善。注意 HBM4 的基底晶片（logic die）使用先進節點（三星用 4nm），代工競爭激烈；SK Hynix 用台積電代工邏輯基底。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 5. 設備與材料 ──────────────────────────────────── -->
+<section id="equip">
+  <div class="section-header">
+    <span class="section-icon">⚙️</span>
+    <span class="section-title">設備與材料 / Equipment &amp; Materials</span>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Cantor Fitzgerald 大幅調高 ASML、AMAT、Lam、KLA 目標價；CY26 設備支出上修至 1,450 億美元</div>
+    <div class="card-en">Cantor Lifts WFE Estimate to $145B for CY26 (+32% YoY); Raises Price Targets Across All Four Equipment Giants</div>
+    <div class="meta">
+      <span class="badge badge-equip">設備</span>
+      <a href="https://seekingalpha.com/news/4602148-kla-corp-lam-research-applied-materials-asml-in-focus-as-cantor-ups-price-targets" target="_blank">Seeking Alpha / Cantor Fitzgerald</a>
+    </div>
+    <div class="block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-body">Cantor 新目標價：KLA <span class="highlight">$2,500</span>（前 $2,000）、LAM <span class="highlight">$425</span>（前 $320）、AMAT <span class="highlight">$650</span>（前 $575）、ASML <span class="highlight">€2,000</span>（前 €1,600）。CY26 晶圓前段設備（WFE）預估 <span class="highlight">$145B（+32% YoY）</span>；CY27 上修至 $185B，CY28 維持 $200B。ASML 去年全年營收 €32.7B（+15.6%），在手訂單 €38.8B（歷史新高）。LAM 最新季度營收 $5.34B（+22.1% YoY），季指引 $5.70B。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-body">AI 訓練/推論叢集建置需求持續驅動晶圓廠資本支出，唯一限制因子是無塵室空間不足。Cantor 指出 CY26 上限約 $150B 受此制約。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-body">（分析）無塵室空間瓶頸意味未來 1–2 年設備商仍處於賣方市場，交期維持長。ASML EUV 機台等待時間超過 2 年，NA EUV 爭奪更激烈。高 WFE 預估對材料廠（信越化工、SUMCO、Shin-Etsu）同步利好。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 6. AI 晶片 ─────────────────────────────────────── -->
+<section id="ai">
+  <div class="section-header">
+    <span class="section-icon">🤖</span>
+    <span class="section-title">AI 晶片 / AI Accelerators &amp; Roadmaps</span>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">NVIDIA Vera Rubin：首出貨 7 月，大規模量產 2026 H2</div>
+    <div class="card-en">Vera Rubin First Shipments July 2026; Mass Production H2 — Jensen Clears Up Rumors</div>
+    <div class="meta">
+      <span class="badge badge-ai">AI晶片</span>
+      <a href="https://wccftech.com/nvidia-squashes-vera-rubin-rumors-first-shipments-rolling-out-in-july-to-ai-customers/" target="_blank">WCCFTech · 2026-06</a>
+    </div>
+    <div class="block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-body">Jensen Huang 正式澄清：Vera Rubin 首批出貨 <span class="highlight">2026 年 7 月</span> 送達主要 AI 客戶（微軟、Google、Meta 等超大規模雲端），大規模量產貫穿 H2。三家 HBM4 供應商（Samsung、SK Hynix、Micron）均已到位，正式進入全速生產。Vera Rubin 之後，Vera Rubin Ultra（2 倍算力）及 Feynman 架構（2027）已在規劃中。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-body">市場此前流傳 Vera Rubin 良率問題導致延遲的傳言，Jensen 此次直接澄清，顯示供應鏈進度符合原定計劃。與 Blackwell 相比，Rubin 採用台積電 CoWoS-L 更大尺寸基板，對封裝產能是新考驗。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-body">（分析）Vera Rubin 7 月出貨確認，強化 NVIDIA FY2027（2026Q3–Q4 財報期）營收展望，對 SK Hynix、三星、台積電 CoWoS 訂單能見度皆正面。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">TSMC 魏哲家：已採購高 NA EUV（High-NA），積極投入研發</div>
+    <div class="card-en">TSMC Chairman Wei Confirms High-NA EUV Procurement and Active R&amp;D Investment</div>
+    <div class="meta">
+      <span class="badge badge-foundry">晶圓代工</span>
+      <span class="badge badge-equip">設備</span>
+      <a href="https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?id=0000757469_ZNQ3KCAW73ZT468NB7BD5&cf=A21" target="_blank">DigiTimes · 2026-06</a>
+    </div>
+    <div class="block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-body">台積電董事長魏哲家出面澄謠言：台積電 <span class="highlight">已購入高 NA EUV 設備</span>，並積極研發，並未如外界所言「不投資」高 NA EUV。高 NA EUV（ASML NXE:5000 系列）為台積電 A14 及以下節點的關鍵投資。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-body">ASML 高 NA EUV 全球首批已交付給 Intel 與 IMEC，台積電採購時程市場高度關注。此次魏哲家親自澄清，顯示台積電積極維持技術領先地位，對 ASML 未來訂單是正向訊號。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-body">（分析）確認台積電高 NA EUV 投資，ASML 估值基礎更穩固。A14（~1.4nm 等效）節點競爭中，台積電維持優先布局優勢。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 7. 地緣政治 ─────────────────────────────────────── -->
+<section id="geo">
+  <div class="section-header">
+    <span class="section-icon">🌐</span>
+    <span class="section-title">地緣政治與政策 / Geopolitics &amp; Policy</span>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">BIS 出口管制新規 1/15 生效：AI 晶片輸中從「拒絕預設」改為「逐案審查」</div>
+    <div class="card-en">BIS Revised China AI Chip Export Review: Presumption of Denial → Case-by-Case with Conditions (Eff. Jan 15, 2026)</div>
+    <div class="meta">
+      <span class="badge badge-geo">地緣政治</span>
+      <a href="https://www.morganlewis.com/pubs/2026/01/bis-revises-export-review-policy-for-advanced-ai-chips-destined-for-china-and-macau" target="_blank">Morgan Lewis · 2026-01</a>
+    </div>
+    <div class="block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-body">美國商務部 BIS 於 <span class="highlight">2026/1/15</span> 生效新規，對特定高效能 AI 晶片輸往中國/澳門的審查政策，由「拒絕預設（presumption of denial）」改為「附嚴格條件的逐案審查（case-by-case）」。同日白宮宣布對同等性能閾值晶片加徵 <span class="highlight">25% 232 條款關稅</span>。此舉形成「管制放鬆+關稅增加」的雙軌策略，意在爭取技術主導但允許受控出口。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-body">2022 年以來的出口管制演進：H100 → A800/H800 → B 系列全封鎖 → 現階段逐案審查。業界解讀為 Trump 政府試圖透過關稅收益與外交條件換取有限技術輸出空間，而非全面封鎖。Qualcomm 的 ByteDance ASIC 交易即被解讀為在此框架下可能被批准的類型（客製 ASIC 非通用 AI GPU）。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-body">（分析）全球半導體市場正加速走向「雙圈」結構：美國/盟友圈 vs. 中國自主圈。中國本土廠商（華為昇騰、寒武紀、壁仞）短期受益於 NVIDIA 缺口，但長期仍受設備管制限制。對台廠的影響需追蹤台積電是否受 Chip4 聯盟要求強化對中出口審查。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">CHIPS 法案 6 月新增獎項：$2.77 億美元最終協議；Powerex $3,000 萬美元</div>
+    <div class="card-en">CHIPS Act June Awards: $277M Final Agreement + $30M Powerex R&amp;D Signed</div>
+    <div class="meta">
+      <span class="badge badge-geo">政策</span>
+      <a href="https://www.commerce.gov/news" target="_blank">US Commerce Dept · 2026-06</a>
+    </div>
+    <div class="block">
+      <div class="block-label">核心事實 / Facts</div>
+      <div class="block-body">美國商務部 CHIPS 辦公室於 <span class="highlight">2026/6/3</span> 簽署最終協議：提供最高 <span class="highlight">2.77 億美元</span> 聯邦補貼及貸款協議給一家半導體製造商（對象未具名）。<span class="highlight">2026/6/5</span> 另與 Powerex 簽署 <span class="highlight">3,000 萬美元</span> 直接融資協議，用於 RF/功率半導體製造與研發。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">背景脈絡 / Context</div>
+      <div class="block-body">CHIPS 法案 527 億美元預算持續落地，重點在美國境內製造端激勵，對 Intel、TSMC Arizona、Samsung Texas 廠均有直接影響。Powerex 的功率半導體補貼則顯示政策已延伸至國防/能源相關的化合物半導體。</div>
+    </div>
+    <div class="block">
+      <div class="block-label">影響觀察 / Implications</div>
+      <div class="block-body">（分析）CHIPS 資金持續發放為美國製造量產提供財務緩衝；但資本效率問題（補貼與建廠成本比）仍是長期爭議。功率半導體補貼對 SiC/GaN 廠商（Wolfspeed、Onsemi、英飛凌）具示範意義。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 8. 深度閱讀 ─────────────────────────────────────── -->
+<section id="reads">
+  <div class="section-header">
+    <span class="section-icon">📚</span>
+    <span class="section-title">深度閱讀 / Deep Reads</span>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Tom's Hardware：台積電 CoWoS 擴廠路線圖全解析</div>
+    <div class="card-en">Analyzing TSMC's Fab Expansion — Multi-Fab N2 Ramp, CoWoS, SoIC and Uncorking Bottlenecks</div>
+    <div class="meta">
+      <a href="https://www.tomshardware.com/tech-industry/semiconductors/analyzing-tsmcs-fab-expansion-roadmap-multi-fab-n2-ramp-cowos-soic-and-uncorking-bottlenecks" target="_blank">Tom's Hardware</a>
+    </div>
+    <div class="block-body">深入分析台積電 N2 多廠同步擴產（5 座廠址第一年內同步 ramp）、CoWoS 年底達 125k wpm、SoIC 積層技術及 14 tile CoWoS（2028–29）規劃，是理解台積電未來 3 年供應瓶頸的必讀文章。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">DigiTimes：AI 重塑晶片業，台積電迎來第一批真正競爭者</div>
+    <div class="card-en">As AI Redraws Chip Industry, TSMC Faces Its First Real Rivals</div>
+    <div class="meta">
+      <a href="https://www.digitimes.com/news/a20260518PD213/tsmc-intel-samsung-ic-manufacturing-production.html" target="_blank">DigiTimes · 2026-05-18</a>
+    </div>
+    <div class="block-body">探討 AI 需求如何反而加速 Intel Foundry 與三星代工的崛起機會，分析 TSMC 護城河的真實深度與潛在裂縫，含供應鏈多元化的動態推力。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">SemiWiki：2026 代工市場格局——誰在爭奪什麼</div>
+    <div class="card-en">TSMC vs Intel Foundry vs Samsung Foundry 2026 — Full Competitive Landscape</div>
+    <div class="meta">
+      <a href="https://semiwiki.com/semiconductor-manufacturers/tsmc/366523-tsmc-vs-intel-foundry-vs-samsung-foundry-2026/" target="_blank">SemiWiki · 2026</a>
+    </div>
+    <div class="block-body">以節點對節點、客戶結構、良率估算、地緣政治補貼等多維度比較三大代工廠，含 N2 vs SF2 vs 18A 的客觀技術分析，適合投資者快速建立框架。</div>
+  </div>
+</section>
+
+<!-- 來源 -->
+<div class="sources-box">
+  <h4>資料來源 / Sources Cited</h4>
+  <ul>
+    <li><a href="https://nvidianews.nvidia.com/news/nvidia-microsoft-windows-pcs-agents-rtx-spark" target="_blank">NVIDIA Newsroom</a></li>
+    <li><a href="https://www.trendforce.com/news/" target="_blank">TrendForce</a></li>
+    <li><a href="https://www.digitimes.com/news/" target="_blank">DigiTimes Asia</a></li>
+    <li><a href="https://semiwiki.com/" target="_blank">SemiWiki</a></li>
+    <li><a href="https://www.bloomberg.com/news/topics/semiconductors" target="_blank">Bloomberg Semi</a></li>
+    <li><a href="https://www.tomshardware.com/news" target="_blank">Tom's Hardware</a></li>
+    <li><a href="https://www.techtimes.com/" target="_blank">TechTimes</a></li>
+    <li><a href="https://www.tweaktown.com/" target="_blank">Tweaktown</a></li>
+    <li><a href="https://videocardz.com/" target="_blank">VideoCardz</a></li>
+    <li><a href="https://wccftech.com/" target="_blank">WCCFTech</a></li>
+    <li><a href="https://investors.micron.com/" target="_blank">Micron IR</a></li>
+    <li><a href="https://news.skhynix.com/" target="_blank">SK Hynix IR</a></li>
+    <li><a href="https://www.morganlewis.com/" target="_blank">Morgan Lewis (BIS)</a></li>
+    <li><a href="https://seekingalpha.com/" target="_blank">Seeking Alpha / Cantor</a></li>
+    <li><a href="https://www.mediatek.com/press-room/" target="_blank">MediaTek Press</a></li>
+    <li><a href="https://technews.tw/category/semiconductor/" target="_blank">TechNews 科技新報</a></li>
+    <li><a href="https://www.digitimes.com.tw/" target="_blank">DigiTimes 中文版</a></li>
+    <li><a href="https://www.commerce.gov/news" target="_blank">US Commerce Dept (CHIPS)</a></li>
+  </ul>
+  <div style="margin-top:10px; font-size:0.72rem; color:#94a3b8;">
+    本報告資料截止：2026-06-11 Asia/Taipei。部分財務預測為分析師意見，非事實陳述，請勿作為投資依據。
+  </div>
+</div>
+
+</main>
+</body>
+</html>

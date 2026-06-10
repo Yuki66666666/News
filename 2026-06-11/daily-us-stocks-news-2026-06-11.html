@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美股新聞日報 · Daily US Stocks News · 2026-06-11</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #222536;
+      --border: #2e3248;
+      --accent: #4f8ef7;
+      --accent2: #7c5cfc;
+      --up: #22c55e;
+      --down: #ef4444;
+      --neutral: #94a3b8;
+      --text: #e2e8f0;
+      --text-dim: #8892a4;
+      --tag-bg: #1e2a3a;
+      --tag-text: #60a5fa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      padding: 24px 16px 60px;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+    header { margin-bottom: 28px; }
+    .header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .date-badge {
+      font-size: 0.78rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 10px;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+    .subtitle {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+    /* Index table */
+    .index-table-wrap { overflow-x: auto; margin-bottom: 32px; }
+    table.index-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    table.index-table th {
+      background: var(--surface2);
+      color: var(--text-dim);
+      font-weight: 600;
+      padding: 8px 12px;
+      text-align: right;
+      border-bottom: 1px solid var(--border);
+    }
+    table.index-table th:first-child { text-align: left; }
+    table.index-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: right;
+      background: var(--surface);
+    }
+    table.index-table td:first-child { text-align: left; font-weight: 600; }
+    table.index-table tr:hover td { background: var(--surface2); }
+    .up { color: var(--up); }
+    .down { color: var(--down); }
+    .neutral { color: var(--neutral); }
+    /* Section */
+    .section { margin-bottom: 36px; }
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+      margin-bottom: 18px;
+    }
+    /* Card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .card-source {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+    .card-source a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .card-source a:hover { text-decoration: underline; }
+    .label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-right: 4px;
+      margin-bottom: 4px;
+    }
+    .label-facts  { background: #1b3a5c; color: #60a5fa; }
+    .label-ctx    { background: #2a2020; color: #f97316; }
+    .label-impl   { background: #1a2e1a; color: #4ade80; }
+    .block {
+      margin-top: 8px;
+      font-size: 0.88rem;
+      color: var(--text);
+    }
+    .alert-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .alert-up   { background: #14532d; color: #4ade80; }
+    .alert-down { background: #4c1d1d; color: #f87171; }
+    /* Footer */
+    footer {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      margin-top: 40px;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .source-list { columns: 2; gap: 24px; margin-top: 8px; }
+    @media (max-width: 600px) {
+      .source-list { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <div class="header-top">
+      <h1>美股新聞日報 · Daily US Stocks News</h1>
+      <span class="date-badge">交易日 Trading Day: 2026-06-10 (Tue) · 發佈 Published: 2026-06-11 Taipei</span>
+    </div>
+    <p class="subtitle">三大指數、個股動向、Fed 利率、資金流向 · Indexes · Movers · Fed · Flows</p>
+  </header>
+
+  <!-- Index Table -->
+  <div class="index-table-wrap">
+    <table class="index-table">
+      <thead>
+        <tr>
+          <th>指數 / Index</th>
+          <th>收盤 Close</th>
+          <th>漲跌 Chg</th>
+          <th>%</th>
+          <th>備注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>S&amp;P 500</td>
+          <td>—</td>
+          <td class="down">▼</td>
+          <td class="down">約 −0.37%~−0.48%</td>
+          <td class="neutral">精確收盤數字未取得</td>
+        </tr>
+        <tr>
+          <td>Nasdaq Comp</td>
+          <td>—</td>
+          <td class="down">▼</td>
+          <td class="down">約 −0.42%~−0.62%</td>
+          <td class="neutral">精確收盤數字未取得</td>
+        </tr>
+        <tr>
+          <td>Dow Jones</td>
+          <td>—</td>
+          <td class="down">▼</td>
+          <td class="down">約 −0.59%~−0.78%</td>
+          <td class="neutral">精確收盤數字未取得</td>
+        </tr>
+        <tr>
+          <td>Russell 2000</td>
+          <td>—</td>
+          <td>—</td>
+          <td class="neutral">未取得</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>VIX</td>
+          <td>≈ 19.87</td>
+          <td class="up">▲</td>
+          <td class="neutral">前收盤 ~19.87</td>
+          <td class="neutral">Cboe 盤中資料</td>
+        </tr>
+        <tr>
+          <td>US 10Y Yield</td>
+          <td>≈ 4.69%</td>
+          <td class="down">▲ (16 月高)</td>
+          <td class="neutral">—</td>
+          <td class="neutral">殖利率飆升至 16 個月高點</td>
+        </tr>
+        <tr>
+          <td>DXY (Dollar)</td>
+          <td>≈ 99.85</td>
+          <td>—</td>
+          <td class="neutral">—</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>WTI Crude</td>
+          <td>≈ $89.29</td>
+          <td class="up">▲</td>
+          <td class="up">—</td>
+          <td class="neutral">美伊衝突推升油價</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.75rem;color:var(--text-dim);margin-top:6px;">* 部分精確收盤數字因資料限制未能取得，以目前已知近似值呈現。</p>
+  </div>
+
+  <!-- Section 1: Market Overview -->
+  <div class="section">
+    <div class="section-title">1. 市場概況 / Market Overview</div>
+
+    <div class="card">
+      <div class="card-title">三大指數收跌：CPI 飆升 + 美伊衝突雙重壓力 / Triple Decline: Hot CPI + US-Iran Strikes Hit Equities</div>
+      <div class="card-source">來源：<a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-10-2026" target="_blank">TheStreet · 2026-06-10</a>、<a href="https://www.benzinga.com/markets/economic-data/26/06/53112443/us-cpi-inflation-report-may-2026-fed-interest-rates" target="_blank">Benzinga · 2026-06-10</a></div>
+
+      <div class="block">
+        <span class="label label-facts">核心事實 Facts</span>
+        S&amp;P 500 約 −0.4%、Nasdaq 約 −0.5%、Dow 約 −0.7%，三大指數全面收跌。VIX 前收約 19.87，10 年期美債殖利率升至近 4.69%（16 個月高點），WTI 原油升破 $89。五月 CPI 年增率 4.2%（4 月 3.8%），月增 0.5%，為 2023 年 4 月以來最熱。
+        <br><br>
+        S&amp;P 500 ~−0.4%, Nasdaq ~−0.5%, Dow ~−0.7%. 10Y yield hit 16-month high ~4.69%. May CPI +4.2% YoY (hottest since Apr 2023), +0.5% MoM. WTI crude ≈$89.
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 Context</span>
+        五月通膨數字正式確認能源價格傳導效應：美伊戰爭自 3 月爆發後，布蘭特原油最高突破 $120，WTI 累計漲幅達 +50%，能源成本全面墊高 CPI。與此同時，Fed 主席由 Powell 卸任（五月中）改由 Warsh 接掌，市場對新主席是否親白宮而延緩升息高度不確定。
+        <br><br>
+        Energy shock from US-Iran conflict (started Mar 2026) continues feeding through to CPI. New Fed Chair Kevin Warsh faces pressure between White House rate-cut wishes and 4.2% inflation.
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 Implications</span>
+        CME FedWatch：6 月 FOMC（16-17 日）維持不動概率 96%，但 10 月升息概率升至 60%、12 月 40-50%。「暫緩降息」轉「可能升息」的敘事已確立。科技股高估值在利率再升預期下承壓；能源、防禦性消費板塊相對受益。
+        <br><br>
+        Markets now price ~60% Oct hike probability. Tech premium under pressure; energy and consumer defensive are sector-rotation winners.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">板塊輪動：能源 / 防禦勝出，科技持續落後 / Sector Rotation: Energy &amp; Defensive Lead, Tech Lags</div>
+      <div class="card-source">來源：<a href="https://www.morningstar.com/markets/markets-brief-big-2026-sector-rotation-ai-disrupts-disruptors" target="_blank">Morningstar · 2026</a>、<a href="https://www.investing.com/analysis/sector-rotation-intensifies-value-outperforms-growth-in-2026-market-split-200675093" target="_blank">Investing.com</a></div>
+
+      <div class="block">
+        <span class="label label-facts">核心事實 Facts</span>
+        能源板塊 YTD +22%（油價漲幅驅動），防禦性消費 YTD +13.3%，由 Walmart、Costco 領頭。資訊科技 6 月 9 日單日 −1.82%，延續弱勢。
+        <br><br>
+        Energy sector YTD +22%, Consumer Defensive +13.3%. IT sector fell 1.82% on Jun 9, continued weakness Jun 10.
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 Context</span>
+        2026 年的板塊輪動核心邏輯：AI 革命紅利已部分定價在大型科技股，而高通膨 + 高利率環境使獲利確定性更受青睞，資金流向能源、工業、防禦消費等「真實經濟」板塊。
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 Implications</span>
+        XLE 近 5 日淨流出 −$3 億（短線獲利了結），但 6 個月累計仍淨流入 +$43 億，顯示中長期資金仍押注能源。若 FOMC 維持鷹派姿態，輪動邏輯將持續至少至 Q3。
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: Top Stories -->
+  <div class="section">
+    <div class="section-title">2. 頭條 / Top Stories</div>
+
+    <div class="card">
+      <div class="card-title">
+        五月 CPI 年增 4.2%，三年最高，升息預期重燃
+        <span class="alert-tag alert-down">通膨衝擊</span>
+        / May CPI +4.2% YoY — Hottest Since 2023, Rate-Hike Odds Surge
+      </div>
+      <div class="card-source">來源：<a href="https://www.benzinga.com/markets/economic-data/26/06/53112443/us-cpi-inflation-report-may-2026-fed-interest-rates" target="_blank">Benzinga · 2026-06-10</a>、<a href="https://www.kiplinger.com/investing/economy/cpi-report-may-2026-what-to-expect" target="_blank">Kiplinger · 2026-06-10</a>、<a href="https://www.cbsnews.com/news/cpi-report-today-may-2026-inflation-iran-war-trump/" target="_blank">CBS News · 2026-06-10</a></div>
+
+      <div class="block">
+        <span class="label label-facts">核心事實 Facts</span>
+        BLS 數據：五月 CPI 月增 0.5%，年增率由 4 月 3.8% 跳升至 4.2%，核心 CPI（扣食品能源）年增 2.9%（4 月 2.8%）。能源分項是主要推手，反映美伊衝突後石油進口供應中斷的滯後傳導。
+        <br><br>
+        BLS: May CPI +0.5% MoM, +4.2% YoY (highest since Apr 2023). Core +2.9% YoY. Energy component the primary driver from Iran conflict oil shock.
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 Context</span>
+        2026 年 3 月霍爾木茲海峽一度封閉後，布蘭特油價突破 $120；此後美伊達成 60 天停火延長，油價稍退，但整體能源成本仍遠高於 2025 年。Powell 於五月中辭任，新任 Fed 主席 Warsh 被認為傾向配合白宮（Trump 希望降息），但通膨數字正在反向施壓。
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 Implications</span>
+        6 月 FOMC 維持 3.5-3.75% 概率 ~96%，但市場敘事從「何時降息」轉為「是否需要升息」。利率長期偏高對科技、REITs 估值最不利；能源股及大宗商品相關股繼續受益。若 7 月 CPI 不退，Warsh 的政策信用將受考驗。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        Amazon 宣布對外開放 LTL 貨運，物流股全面崩跌
+        <span class="alert-tag alert-down">行業衝擊</span>
+        / Amazon Opens LTL Freight to All Businesses, Carrier Stocks Plunge
+      </div>
+      <div class="card-source">來源：<a href="https://www.truckinginfo.com/news/amazon-launches-less-than-truckload-freight-offering-for-all-businesses" target="_blank">Heavy Duty Trucking · 2026-06-10</a>、<a href="https://www.gurufocus.com/news/8910078/amazon-opens-freight-services-impacting-competitors-stocks" target="_blank">GuruFocus · 2026-06-10</a></div>
+
+      <div class="block">
+        <span class="label label-facts">核心事實 Facts</span>
+        Amazon 宣布將旗下 Amazon Supply Chain Services (ASCS) LTL 貨運服務開放給所有企業客戶（含倉到倉、倉到零售夥伴）。Amazon 擁有 80,000+ 拖車、24,000 個多式聯運集裝箱，覆蓋全美主要都會。消息一出，ODFL −6.4%、ArcBest −5%+ 、XPO 跌幅相當，FedEx Freight（剛完成 spin-off）亦承壓。
+        <br><br>
+        Amazon opens LTL freight to all shippers. ODFL −6.4%, ArcBest −5%+, XPO fell sharply, newly-spun FedEx Freight also declined.
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 Context</span>
+        ODFL 今年累計漲幅達 +46%，觸及 52 周高點 $252.03，技術面拉伸嚴重。Amazon 此前已在物流領域佈局多年，現在正式以平台模式複製 AWS 對 IT 市場的顛覆性打法，進入 LTL 市場（全美規模 ~$500 億美元/年）。
+        <br><br>
+        ODFL had surged 46% YTD to 52-week high before today's drop. Amazon replicating AWS "platform disruption" strategy in the $50B US LTL market.
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 Implications</span>
+        短期：傳統 LTL 業者訂價能力受挑戰，運費折扣壓力增大。中長期：Amazon 是否具備服務質量與可靠性尚待觀察；ODFL 護城河（服務品質、損壞率）仍有競爭優勢。關注 UPS 等全方位物流業者是否有跟進防禦動作。
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: Earnings -->
+  <div class="section">
+    <div class="section-title">3. 財報 / Earnings of the Day</div>
+
+    <div class="card">
+      <div class="card-title">
+        Cracker Barrel (CBRL) Q3 FY2026 大幅超預期，全年展望上調
+        <span class="alert-tag alert-up">+7%</span>
+        / CBRL Q3 Beat — EPS $0.29 vs Est. −$0.48
+      </div>
+      <div class="card-source">來源：<a href="https://www.prnewswire.com/news-releases/cracker-barrel-reports-third-quarter-fiscal-2026-results-and-updates-fiscal-2026-outlook-302795391.html" target="_blank">PR Newswire · 2026-06-10</a>、<a href="https://finance.yahoo.com/markets/stocks/articles/cracker-barrel-q3-2026-earnings-131844193.html" target="_blank">Yahoo Finance · 2026-06-10</a>、<a href="https://www.gurufocus.com/news/8909489/cracker-barrel-cbrl-surges-7-following-strong-earnings-report" target="_blank">GuruFocus · 2026-06-10</a></div>
+
+      <div class="block">
+        <span class="label label-facts">核心事實 Facts</span>
+        截至 5 月 1 日的 FY2026 Q3：調整後 EPS $0.29（Wall Street 預期 −$0.48，大幅超標）；營收 $7.974 億（預期 $7.767 億），YoY −2.9%（仍衰退，但優於預期）。同店餐廳銷售 −2.6%，零售 −1.8%。全年調整後 EBITDA 指引上調至 $1.2 億 – $1.25 億，年收入指引中位數上調至 $32.9 億。股價 +7%。
+        <br><br>
+        Adj. EPS $0.29 vs est. −$0.48; Revenue $797.4M vs est. $776.7M. FY EBITDA guidance raised to $120-125M. Stock +7%.
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 Context</span>
+        Cracker Barrel 過去兩年面臨客流疲弱、成本高漲雙重夾擊，是分析師長期看空的標的。此次 EPS 超預期幅度創近年最大，顯示管理層成本削減計畫奏效，同時消費者對平價餐廳的需求逆勢回升（高通膨環境下平價品牌的輪動效應）。
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 Implications</span>
+        防禦型消費股的超預期財報在當前宏觀環境（高通膨、升息預期）下更受資金青睞。同業 Dine Brands（Applebee's 母公司）、Texas Roadhouse 值得關注類似輪動邏輯。CBRL 短線技術面突破，空頭回補效應明顯。
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4: Single Stock Movers -->
+  <div class="section">
+    <div class="section-title">4. 個股大事 / Single-Stock Movers</div>
+
+    <div class="card">
+      <div class="card-title">
+        Super Micro (SMCI) 兩日暴跌 26%：$70 億股本融資摀下籌碼
+        <span class="alert-tag alert-down">−18% 當日</span>
+        / SMCI Crashes 26% in Two Days on $7B Share Dilution
+      </div>
+      <div class="card-source">來源：<a href="https://mlq.ai/news/super-micro-shares-plunge-26-in-two-days-after-7-billion-equity-raise-to-fund-ai-orders/" target="_blank">MLQ.ai News · 2026-06-10</a>、<a href="https://www.proactiveinvestors.com/companies/news/1093733/super-micro-stock-dives-on-7b-share-offering-to-fund-ai-server-push-1093733.html" target="_blank">Proactive Investors · 2026-06-10</a>、<a href="https://www.sec.gov/Archives/edgar/data/0001375365/000119312526265109/d41737d424b5.htm" target="_blank">SEC EDGAR Form 424B5</a></div>
+
+      <div class="block">
+        <span class="label label-facts">核心事實 Facts</span>
+        SMCI 宣布 $70 億美元融資組合：$12.5 億普通股 + $37.5 億存託股份 + $20 億 ATM 計畫（Q3 2026 啟動）。公司稱此資金用於購置零組件，以應付近期收到的約 $390 億 AI 伺服器訂單。股價 6 月 9 日 −9.5%，6 月 10 日再跌約 −18%，兩日合計市值蒸發 ~$120 億。
+        <br><br>
+        $7B equity raise: $1.25B common stock + $3.75B depositary shares + $2B ATM. Company claims $39B in recent AI server orders. Two-day drop ~26%, ~$12B market cap erased.
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 Context</span>
+        SMCI 以 AI 伺服器（尤其是液冷機架）作為核心成長敘事，年初以來曾大幅上漲。然而此次融資規模驚人（對應現有市值稀釋比例高），且 ATM 計畫意味未來持續供股壓力。市場擔憂：訂單雖龐大但應收帳款、庫存風險是否被低估？
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 Implications</span>
+        短線賣壓沉重，機構持有人面臨稀釋。中長期若 $390 億訂單如期交付，EPS 稀釋效應可被收入增長抵消。觀察 Dell、HPE 等 AI 伺服器競爭對手是否因 SMCI 的客戶搶單能力受到衝擊，或形成市場份額重分配。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        Robinhood (HOOD) 單日 +8%：分析師升目標、平台資產創新高、內部人買入三重加持
+        <span class="alert-tag alert-up">+8%</span>
+        / HOOD +8%: Analyst Target Hike + Record Platform Assets + Insider Buy
+      </div>
+      <div class="card-source">來源：<a href="https://www.investing.com/news/stock-market-news/why-is-robinhood-markets-stock-surging-today-93CH-4735583" target="_blank">Investing.com · 2026-06-10</a>、<a href="https://stockstotrade.com/news/robinhood-markets-inc-hood-news-2026_06_10/" target="_blank">StocksToTrade · 2026-06-10</a></div>
+
+      <div class="block">
+        <span class="label label-facts">核心事實 Facts</span>
+        Cantor Fitzgerald 將目標價從 $100 上調至 $110，維持 Overweight。5 月平台資產 $3,770 億（MoM +9%、YoY +48%），付費用戶數 2,770 萬。Ribbit Capital 創辦人 Meyer Malka 6 月 5 日申報以均價 $80.74 買入 25 萬股（約 $2,020 萬）。盤中最高 $91.46。
+        <br><br>
+        Cantor Fitzgerald PT raised to $110 (OW). May platform assets $377B (+9% MoM, +48% YoY). Insider: Ribbit's Malka bought 250K shares at $80.74 (~$20.2M). Intraday high $91.46.
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 Context</span>
+        HOOD 近期產品佈局快速擴張：與 BNY Mellon 合作推出 Trump Accounts 應用、提交 IPO 承銷資質申請、涉足預測市場。分析師認為其 Rothera 與 Susquehanna 的合資標靶可讓 HOOD 直接吃到交易所從預測市場量中的 Economics，這是市場尚未充分定價的潛在驅動力。
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 Implications</span>
+        HOOD 持續從零售交易平台向「金融超應用」進化，若 S&amp;P 500 指數納入成功（決議本週），將帶來額外被動資金買入壓力。短線高點 $91 附近有阻力，觀察能否站穩 $88 以上。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        Micron (MU) 跌約 −4.7%：分析師降評、估值過高疑慮升溫
+        <span class="alert-tag alert-down">−4.7%</span>
+        / MU Falls ~4.7% as Analyst Downgrades on Stretched Valuation
+      </div>
+      <div class="card-source">來源：<a href="https://seekingalpha.com/article/4913748-microns-growth-spurt-likely-wont-last-rating-downgrade" target="_blank">Seeking Alpha · 2026-06-10</a>、<a href="https://seekingalpha.com/article/4913324-micron-dancing-near-the-exit-downgrade" target="_blank">Seeking Alpha · 2026-06-10</a></div>
+
+      <div class="block">
+        <span class="label label-facts">核心事實 Facts</span>
+        MU 下跌約 4.7%，有分析師將評等從 Buy 降至 Hold，稱目前以約 43x 本益比、18x P/S 交易，估值過度拉伸；另有分析師降至 Sell，理由是 AI 支出動能放緩、中國新進者威脅邊際。FY Q3 財報預定 6 月 24 日公布。
+        <br><br>
+        MU −4.7%. Analyst downgrade from Buy to Hold (43x PE, 18x P/S — stretched). Another Sell downgrade on AI spending slowdown + China competition risk. Q3 earnings due June 24.
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 Context</span>
+        MU 年初以來受惠 HBM（高頻寬記憶體）需求爆發而大漲，部分目標價預測高達 $1,050-$1,750（Morgan Stanley、UBS、Susquehanna）。但記憶體為高度周期性產業，市場開始爭論「是否已過週期高點」。
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 Implications</span>
+        6 月 24 日 Q3 財報為最近期催化劑，若 HBM 出貨數字和 guidance 超預期，降評效應可被覆蓋。短線整理後多頭關注 $240-250 支撐。SK Hynix、三星 DRAM 同類股動向可做印證。
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 5: M&A and IPO -->
+  <div class="section">
+    <div class="section-title">5. 併購與 IPO / M&amp;A and IPO</div>
+
+    <div class="card">
+      <div class="card-title">FedEx Freight 近期完成 Spin-off，Amazon LTL 宣布當日即遭賣壓 / FedEx Freight Post-Spinoff Faces Amazon Disruption Immediately</div>
+      <div class="card-source">來源：<a href="https://www.sec.gov/Archives/edgar/data/0002082247/000110465926068521/tm2615735d1_ex99-1.htm" target="_blank">SEC EDGAR 8-K · FedEx Freight Holding · 2026</a></div>
+
+      <div class="block">
+        <span class="label label-facts">核心事實 Facts</span>
+        FedEx Freight 自 FedEx Corp. 分拆（spin-off）後以獨立公司掛牌，6 月 10 日恰逢 Amazon LTL 宣布進入市場，股價在新股開市即遭賣壓，單日大幅下挫。確切收盤數字未取得。
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 Context</span>
+        FedEx Freight 分拆是 FedEx 近年最大結構性調整，意在讓 LTL 部門獨立上市、釋放股東價值。然而上市首週即遭遇 Amazon 的競爭宣言，市場對定價能力的疑慮加劇。
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 6: Analyst Calls -->
+  <div class="section">
+    <div class="section-title">6. 券商評等 / Analyst Calls</div>
+
+    <div class="card">
+      <div class="card-title">主要升評 / 降評整理 / Key Upgrades &amp; Downgrades — June 10, 2026</div>
+
+      <div class="block" style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+          <thead>
+            <tr style="background:var(--surface2);color:var(--text-dim);">
+              <th style="padding:8px;text-align:left;">股票</th>
+              <th style="padding:8px;">券商</th>
+              <th style="padding:8px;">動作</th>
+              <th style="padding:8px;">目標價</th>
+              <th style="padding:8px;text-align:left;">理由摘要</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:8px;font-weight:700;">HOOD</td>
+              <td style="padding:8px;text-align:center;">Cantor Fitzgerald</td>
+              <td style="padding:8px;text-align:center;"><span class="up">↑ 維持 OW</span></td>
+              <td style="padding:8px;text-align:center;">$100 → $110</td>
+              <td style="padding:8px;">Rothera JV 低估、平台資產創高、預測市場 economics</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:8px;font-weight:700;">MU</td>
+              <td style="padding:8px;text-align:center;">Seeking Alpha 分析師</td>
+              <td style="padding:8px;text-align:center;"><span class="down">↓ Buy→Hold</span></td>
+              <td style="padding:8px;text-align:center;">— </td>
+              <td style="padding:8px;">43x PE 過高，記憶體周期峰值疑慮，中國競爭</td>
+            </tr>
+            <tr>
+              <td style="padding:8px;font-weight:700;">MU</td>
+              <td style="padding:8px;text-align:center;">獨立分析師</td>
+              <td style="padding:8px;text-align:center;"><span class="down">↓ → Sell</span></td>
+              <td style="padding:8px;text-align:center;">—</td>
+              <td style="padding:8px;">AI 支出降溫、市值突破 $1 兆後下行風險加大</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 7: Fed & Rates -->
+  <div class="section">
+    <div class="section-title">7. Fed 與利率 / Fed &amp; Rates</div>
+
+    <div class="card">
+      <div class="card-title">FOMC 6 月會議（16-17 日）幾乎確定按兵不動，但升息預期已提前定價 / June FOMC Nearly Certain to Hold, But Rate-Hike Path Now Priced In</div>
+      <div class="card-source">來源：<a href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank">CME FedWatch · 2026-06-10</a>、<a href="https://www.tradingkey.com/analysis/economic/central-banks/261952348-fed-fomc-june-warsh-inflation-cpi-nonfarm-payrolls-rate-hike-whitehouse-fed-yields-tradingkey" target="_blank">TradingKey · 2026-06-10</a>、<a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm" target="_blank">Fed · Apr 2026 Statement</a></div>
+
+      <div class="block">
+        <span class="label label-facts">核心事實 Facts</span>
+        目前聯邦基金利率目標區間：3.50%–3.75%。CME FedWatch：6 月維持不動概率 96.3%。但 10 月升息概率升至 ~60%，12 月升息概率 40-50%。新任 Fed 主席 Kevin Warsh（Powell 5 月中辭任後接掌）面臨白宮壓降息 vs 4.2% 通膨的矛盾。
+        <br><br>
+        Fed funds target 3.50-3.75%. June hold probability 96.3%. Oct hike odds now ~60%, Dec ~40-50%. New Chair Warsh: White House pressure vs. 4.2% CPI.
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 Context</span>
+        美國通膨重新加速的核心來源為能源（美伊戰爭），非需求過熱驅動。Fed 若升息打壓的是供給端衝擊，效果有限但信用信號強烈。Warsh 的言辭傾向更重視通膨預期錨定，但實際動作是否比 Powell 更鷹，市場尚在觀察。
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 Implications</span>
+        10 年期殖利率 ~4.69% 為近 16 個月最高，對高本益比科技股和 REITs 構成持續壓力。若 6 月 CPI（7 月初公布）再度高於預期，10 月升息可能從概率轉為基本情境。短端利率曲線已隱含利率升至 4.0%-4.25% 的可能性。
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 8: Flows & Positioning -->
+  <div class="section">
+    <div class="section-title">8. 資金流向 / Flows &amp; Positioning</div>
+
+    <div class="card">
+      <div class="card-title">ETF 資金流：SPY 大量淨流入，XLE 短線獲利了結，QQQ 相對弱勢 / ETF Flows: SPY Net Inflows, XLE Profit-Taking, QQQ Lagging</div>
+      <div class="card-source">來源：<a href="https://www.etf.com/sections/weekly-etf-flows/2026-etf-inflows-cross-500b" target="_blank">ETF.com · 2026</a></div>
+
+      <div class="block">
+        <span class="label label-facts">核心事實 Facts</span>
+        2026 年迄今 ETF 累計淨流入突破 $5,000 億（整體市場）。SPY 近週拉入 $124 億（該週最大 ETF）。XLE 5 日淨流出 −$3.09 億，1 月淨流出 −$7.19 億，但 6 月淨流入 +$43 億（中長線資金仍在）。QQQ 盤中區間 $686-$726（6 月 10 日）。
+        <br><br>
+        2026 ETF YTD inflows crossed $500B. SPY pulled ~$12.4B recently. XLE 5-day outflow −$309M (profit-taking), but 6-month net inflow +$4.3B. QQQ range $686-$726 on June 10.
+      </div>
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 Context</span>
+        資金流向顯示市場並非全面撤退，而是從高 beta 科技（QQQ）轉向大盤寬基（SPY）和部分防禦板塊。CPI 衝擊後的短線賣壓集中在科技個股而非系統性資金外撤。
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 Implications</span>
+        若升息預期繼續升溫，預計 QQQ 相對 SPY 的表現差距（QQQ underperformance）將持續。關注下週 FOMC 後 Fed 官員的 press conference 措辭對科技、成長股的短線反應。
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 9: Reads -->
+  <div class="section">
+    <div class="section-title">9. 觀點 / Reads</div>
+
+    <div class="card">
+      <div class="card-title">Iran War + CPI：2026 年最大「雙重衝擊」如何重塑股市結構 / Iran War + CPI: How 2026's Dual Shock Is Restructuring US Equity Narratives</div>
+      <div class="card-source">來源：<a href="https://www.morganstanley.com/insights/articles/iran-war-oil-inflation-stock-market-2026" target="_blank">Morgan Stanley Research · 2026</a>、<a href="https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war" target="_blank">Wikipedia — Economic impact of 2026 Iran war</a>、<a href="https://www.cnbc.com/2026/06/07/iran-war-100-days-trump-stocks-sp500-bonds-oil.html" target="_blank">CNBC · 2026-06-07</a></div>
+
+      <div class="block">
+        <span class="label label-ctx">背景脈絡 Context</span>
+        2026 年美股在「地緣政治油價衝擊」與「二次通膨」的雙重夾擊下走出截然不同的板塊表現：能源 +22% YTD、防禦消費 +13%，而科技在升息預期重燃後高點回落。Morgan Stanley 分析指出，能源股在「stagflation-lite」情境下（低增長 + 高通膨 + 偏強就業）具備稀缺的「實質資產」屬性，與 2022 年類似但油價基礎更高。<br><br>
+        S&amp;P 500 在 100 天戰爭後已回到歷史高點甚至創新高（5 月底），顯示市場消化了「局部衝突不危及美國本土經濟基本面」的敘事；但通膨持久化 + 新 Fed 主席的政策不確定，是接下來三個月的核心風險。
+      </div>
+      <div class="block">
+        <span class="label label-impl">影響觀察 Implications</span>
+        從結構角度看，「AI 成長股 vs. 能源/防禦輪動」的拔河格局預計延續至年底。Warsh 若在 7-8 月釋出升息訊號，成長股重新定價的空間仍大。投資人應留意 6 月 24 日 Micron 財報作為「半導體周期是否見頂」的試金石。（分析僅供參考，非投資建議。）
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <strong>來源列表 / Sources</strong>
+    <div class="source-list" style="margin-top:10px;">
+      <div><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-10-2026" target="_blank">TheStreet — Market Today June 10</a></div>
+      <div><a href="https://www.benzinga.com/markets/economic-data/26/06/53112443/us-cpi-inflation-report-may-2026-fed-interest-rates" target="_blank">Benzinga — CPI May 2026</a></div>
+      <div><a href="https://www.kiplinger.com/investing/economy/cpi-report-may-2026-what-to-expect" target="_blank">Kiplinger — CPI May 2026</a></div>
+      <div><a href="https://www.cbsnews.com/news/cpi-report-today-may-2026-inflation-iran-war-trump/" target="_blank">CBS News — CPI May 2026</a></div>
+      <div><a href="https://mlq.ai/news/super-micro-shares-plunge-26-in-two-days-after-7-billion-equity-raise-to-fund-ai-orders/" target="_blank">MLQ.ai — SMCI $7B Equity Raise</a></div>
+      <div><a href="https://www.stocktitan.net/news/SMCI/supermicro-announces-proposed-7-0-billion-of-equity-and-equity-w6x00uha43a7.html" target="_blank">StockTitan — SMCI Offering</a></div>
+      <div><a href="https://www.sec.gov/Archives/edgar/data/0001375365/000119312526265109/d41737d424b5.htm" target="_blank">SEC EDGAR — SMCI Form 424B5</a></div>
+      <div><a href="https://www.prnewswire.com/news-releases/cracker-barrel-reports-third-quarter-fiscal-2026-results-and-updates-fiscal-2026-outlook-302795391.html" target="_blank">PR Newswire — Cracker Barrel Q3</a></div>
+      <div><a href="https://finance.yahoo.com/markets/stocks/articles/cracker-barrel-q3-2026-earnings-131844193.html" target="_blank">Yahoo Finance — CBRL Q3 Earnings</a></div>
+      <div><a href="https://www.gurufocus.com/news/8910078/amazon-opens-freight-services-impacting-competitors-stocks" target="_blank">GuruFocus — Amazon LTL Launch</a></div>
+      <div><a href="https://www.truckinginfo.com/news/amazon-launches-less-than-truckload-freight-offering-for-all-businesses" target="_blank">Heavy Duty Trucking — Amazon LTL</a></div>
+      <div><a href="https://www.investing.com/news/stock-market-news/why-is-robinhood-markets-stock-surging-today-93CH-4735583" target="_blank">Investing.com — HOOD Surge</a></div>
+      <div><a href="https://stockstotrade.com/news/robinhood-markets-inc-hood-news-2026_06_10/" target="_blank">StocksToTrade — HOOD June 10</a></div>
+      <div><a href="https://seekingalpha.com/article/4913748-microns-growth-spurt-likely-wont-last-rating-downgrade" target="_blank">Seeking Alpha — MU Downgrade</a></div>
+      <div><a href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank">CME FedWatch</a></div>
+      <div><a href="https://www.tradingkey.com/analysis/economic/central-banks/261952348-fed-fomc-june-warsh-inflation-cpi-nonfarm-payrolls-rate-hike-whitehouse-fed-yields-tradingkey" target="_blank">TradingKey — Warsh FOMC June</a></div>
+      <div><a href="https://www.morganstanley.com/insights/articles/iran-war-oil-inflation-stock-market-2026" target="_blank">Morgan Stanley — Iran War &amp; Markets</a></div>
+      <div><a href="https://www.cnbc.com/2026/06/07/iran-war-100-days-trump-stocks-sp500-bonds-oil.html" target="_blank">CNBC — Iran War 100 Days</a></div>
+      <div><a href="https://www.morningstar.com/markets/markets-brief-big-2026-sector-rotation-ai-disrupts-disruptors" target="_blank">Morningstar — 2026 Sector Rotation</a></div>
+      <div><a href="https://www.etf.com/sections/weekly-etf-flows/2026-etf-inflows-cross-500b" target="_blank">ETF.com — 2026 ETF Flows</a></div>
+    </div>
+    <p style="margin-top:16px;font-size:0.72rem;">
+      本日報僅供資訊參考，不構成投資建議。部分數字為近似值，如需精確收盤資料請查閱官方交易所或 Bloomberg/Reuters 終端。<br>
+      This briefing is for informational purposes only and does not constitute investment advice. Some figures are approximate.
+    </p>
+    <p style="margin-top:6px;font-size:0.72rem;">
+      生成時間 Generated: 2026-06-11 (Asia/Taipei) · 資料截止 Data as of: 2026-06-10 US Market Close
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

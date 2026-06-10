@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日有趣文章日報 — 2026-06-11</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #222636;
+    --border: #2e3348;
+    --accent: #7c6af7;
+    --accent2: #5eead4;
+    --accent3: #f472b6;
+    --text: #e2e8f0;
+    --text-muted: #8892a4;
+    --text-dim: #5a6275;
+    --tag-a: #7c6af7;
+    --tag-b: #f59e0b;
+    --green: #34d399;
+    --red: #f87171;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 0 0 80px;
+  }
+  a { color: var(--accent2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 36px 24px 28px;
+    text-align: center;
+  }
+  .header-date {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* Track dividers */
+  .track-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 32px 24px 16px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .track-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .track-a .track-label { background: rgba(124,106,247,0.2); color: var(--accent); border: 1px solid rgba(124,106,247,0.3); }
+  .track-b .track-label { background: rgba(245,158,11,0.2); color: var(--tag-b); border: 1px solid rgba(245,158,11,0.3); }
+  .track-title { font-size: 18px; font-weight: 700; color: var(--text); }
+  .track-divider { flex: 1; height: 1px; background: var(--border); }
+
+  /* Section */
+  .section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin: 28px 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Card */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 18px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: rgba(124,106,247,0.4); }
+  .card.editor-pick {
+    border-color: rgba(124,106,247,0.5);
+    background: linear-gradient(135deg, #1a1d27 0%, #1e1b2e 100%);
+  }
+  .card.editor-pick::before {
+    content: "✦ 編輯精選";
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(124,106,247,0.15);
+    border: 1px solid rgba(124,106,247,0.3);
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-bottom: 12px;
+  }
+
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .card-title .en { color: var(--text-muted); font-weight: 500; }
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 14px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .badge {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .badge.time { color: var(--accent2); border-color: rgba(94,234,212,0.25); background: rgba(94,234,212,0.07); }
+  .badge.domain { color: var(--tag-b); border-color: rgba(245,158,11,0.25); background: rgba(245,158,11,0.07); }
+
+  .card-why, .card-summary, .card-takeaway, .card-question {
+    margin-bottom: 12px;
+  }
+  .field-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .card-why .field-label { color: var(--accent); }
+  .card-summary .field-label { color: var(--accent2); }
+  .card-takeaway .field-label { color: #a78bfa; }
+  .card-question .field-label { color: var(--text-dim); }
+  .field-body { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+  /* Track B domain tag */
+  .domain-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    background: rgba(245,158,11,0.15);
+    color: var(--tag-b);
+    border: 1px solid rgba(245,158,11,0.3);
+  }
+
+  /* Sources footer */
+  .sources-footer {
+    max-width: 860px;
+    margin: 48px auto 0;
+    padding: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .sources-footer h4 { color: var(--text-muted); margin-bottom: 10px; font-size: 13px; }
+  .sources-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .sources-list a { color: var(--text-dim); font-size: 11px; }
+  .sources-list a:hover { color: var(--accent2); }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .header h1 { font-size: 22px; }
+    .card { padding: 18px; }
+    .card-title { font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-date">2026 · 06 · 11 &nbsp;·&nbsp; Wednesday</div>
+  <h1>今日有趣文章日報</h1>
+  <div class="header-sub">精選深度長文 · 思想領袖觀點 · Daily Interesting Articles</div>
+</div>
+
+<!-- ============================== TRACK A ============================== -->
+<div class="track-header track-a">
+  <span class="track-label">Track A</span>
+  <span class="track-title">長文精選 / Longform Essays</span>
+  <span class="track-divider"></span>
+</div>
+
+<div class="section">
+
+  <!-- 1. Editor's Pick -->
+  <div class="section-label">編輯精選 / Editor's Pick of the Day</div>
+
+  <div class="card editor-pick">
+    <div class="card-title">土壤拒絕死亡 / <span class="en">The Dirt That Refused To Die</span></div>
+    <div class="card-meta">
+      <span>Quanta Magazine</span>
+      <span>·</span>
+      <span>Siddhant Pusdekar</span>
+      <span>·</span>
+      <span>2026-06-01</span>
+      <span class="badge time">⏱ 12 min</span>
+    </div>
+    <div class="card-meta">
+      <a href="https://www.quantamagazine.org/the-dirt-that-refused-to-die-20260601/" target="_blank">→ quantamagazine.org</a>
+    </div>
+    <div class="card-why">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">這篇文章顛覆了「新陳代謝只發生在活細胞中」的根本假設。Fontaine 的實驗室用六年時間觀察無菌土壤持續呼吸，而這個驚人發現幾乎被科學界駁回了十年——它的重要性不只在科學，更在科學社群如何應對挑戰既有典範的異常數據。A six-year obsession that may rewrite where metabolism begins.</div>
+    </div>
+    <div class="card-summary">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">法國農業研究所的 Sébastien Fontaine 花了十五年試圖「殺死土壤」——用伽馬射線滅菌後密封在玻璃罐中，卻發現土壤持續排放 CO₂ 長達六年。他的團隊最終在 2025 年的 Science Advances 發表研究，觀察到無菌土壤中克氏循環（Krebs Cycle）的四個中間分子，並透過燃料電池偵測到土壤中流動的自由電子。他們的結論是：過去被認為只能發生在活細胞內的代謝反應，在礦物與鐵氧化物催化下同樣可以自發進行。這一發現指向一個根本問題：代謝過程或許早於生命本身存在，而不是生命的「產物」。<br><br>French biochemist Fontaine sealed gamma-irradiated soil in jars and waited. It never stopped "breathing." Six years later, his team found Krebs cycle intermediates and free-electron currents in completely sterile soil — suggesting Earth's metabolic chemistry may predate living cells themselves.</div>
+    </div>
+    <div class="card-takeaway">
+      <div class="field-label">核心觀點 / Key Takeaway</div>
+      <div class="field-body">「如果代謝很難發生，地球就不會充滿生命」——代謝反應也許是地質的自然特徵，而非生物的專利。</div>
+    </div>
+    <div class="card-question">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">若代謝可以自發於無生命的礦物環境，那火星或木衛二的土壤中是否正在進行著類似反應？我們判斷「生命跡象」的標準夠嚴謹嗎？</div>
+    </div>
+  </div>
+
+  <!-- 2. Tech & AI -->
+  <div class="section-label">科技與 AI / Tech & AI</div>
+
+  <div class="card">
+    <div class="card-title">軟體的 Emacs 化 / <span class="en">The Emacsification of Software</span></div>
+    <div class="card-meta">
+      <span>sockpuppet.org (Quarrelsome)</span>
+      <span>·</span>
+      <span>Thomas Ptacek</span>
+      <span>·</span>
+      <span>2026-05-12</span>
+      <span class="badge time">⏱ 10 min</span>
+      <span class="badge">HN #3 · 276 pts</span>
+    </div>
+    <div class="card-meta">
+      <a href="https://sockpuppet.org/blog/2026/05/12/emacsification/" target="_blank">→ sockpuppet.org</a>
+    </div>
+    <div class="card-why">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">這不是「AI 要取代程式設計師」的老文章，而是一個安全研究者從自己用 AI 做出比 App Store 更好的 Markdown 閱讀器的親身經驗，推導出一個真正有洞見的文化論點：個人軟體時代來臨。The thesis — AI has fracked Emacs culture — is genuinely new and precise.</div>
+    </div>
+    <div class="card-summary">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">漏洞研究員 Thomas Ptacek 在 App Store 找不到滿意的 Markdown 閱讀器，於是用 Claude 花了三十分鐘做了一個。他從這個小事裡推導出一個宏觀論點：AI 代理讓所有軟體都像 Emacs 一樣可以高度個人化與客製化。Emacs 文化的核心一直是「為自己的癢處寫程式、然後分享出去」——過去這文化的最大瓶頸是原生 UI 開發太難，現在這個瓶頸消失了。每個人現在都能做出能用的、甚至好看的本地原生應用程式，只需要幾十分鐘。<br><br>Ptacek argues that AI agents have unlocked "Emacsification" — the ability for anyone to build bespoke personal software with native UI, turning what was once only possible for hardcore Emacs lifers into a universal capability. The limiting factor isn't code anymore; it's the idea.</div>
+    </div>
+    <div class="card-takeaway">
+      <div class="field-label">核心觀點 / Key Takeaway</div>
+      <div class="field-body">分享的不再是源代碼，而是「你用了哪些 prompts」——這是個人軟體文化的重心轉移。</div>
+    </div>
+    <div class="card-question">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">如果每個人都能快速做出「夠用」的個人工具，那通用型商業軟體（SaaS）的商業模式會受到什麼衝擊？</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Google IDE 歷史 / <span class="en">A History of IDEs at Google</span></div>
+    <div class="card-meta">
+      <span>laurent.le-brun.eu</span>
+      <span>·</span>
+      <span>Laurent Le Brun</span>
+      <span>·</span>
+      <span>2026-05-09</span>
+      <span class="badge time">⏱ 14 min</span>
+      <span class="badge">HN #9 · 351 pts</span>
+    </div>
+    <div class="card-meta">
+      <a href="https://laurent.le-brun.eu/blog/a-history-of-ides-at-google" target="_blank">→ laurent.le-brun.eu</a>
+    </div>
+    <div class="card-why">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">這是一位在 Google 工作十三年的開發者工具技術主管的第一手回顧，帶有很多「只有在裡面的人才知道」的細節。Jeff Dean 在 2011 年的一句話如何定調了 Google 十年 IDE 策略，以及後來如何因規模問題被打臉——這種歷史回顧有罕見的坦誠度。</div>
+    </div>
+    <div class="card-summary">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">Le Brun 從 2011 年 Google 無法統一 IDE 的失敗嘗試說起，到 2013 年 Cider（雲端 IDE）的誕生、2020 年決定切換到 VSCode 前端、2023 年 80% 的 Google 工程師已遷移到 Cider V。全文有很多珍貴細節：為什麼雲端 backend 可以合理化，但前端非要自己做反而成為瓶頸；「顏色主題」在 IDE 遷移中引發了怎樣不理性的爭議；以及統一工具後的意外好處——一百個內部 extension 在兩年內被開發出來。<br><br>A former Google tech lead traces the 12-year arc from IDE anarchy (Jeff Dean: "trying to agree on a common editor is a recipe for unhappiness") to 80% of engineers on a single cloud-based VSCode IDE. The lesson: "Standard tooling creates leverage."</div>
+    </div>
+    <div class="card-takeaway">
+      <div class="field-label">核心觀點 / Key Takeaway</div>
+      <div class="field-body">「標準化工具創造槓桿（leverage）」——工程師最後同意遷移，不是因為被強迫，而是因為統一後每個人的功能需求都更容易被滿足。</div>
+    </div>
+    <div class="card-question">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">在 AI 代碼編輯器百花齊放的今天，下一個「Cider」會是誰做的？還是說個人化 AI 工具反而讓工具統一再也不可能發生？</div>
+    </div>
+  </div>
+
+  <!-- 3. Business & Economics -->
+  <div class="section-label">商業與經濟 / Business & Economics</div>
+
+  <div class="card">
+    <div class="card-title">勞動份額下降，然後呢？ / <span class="en">The Labor Share Fell. So What?</span></div>
+    <div class="card-meta">
+      <span>Marginal Revolution</span>
+      <span>·</span>
+      <span>Alex Tabarrok</span>
+      <span>·</span>
+      <span>2026-06-10</span>
+      <span class="badge time">⏱ 6 min</span>
+    </div>
+    <div class="card-meta">
+      <a href="https://marginalrevolution.com/marginalrevolution/2026/06/the-labor-share-fell-so-what.html" target="_blank">→ marginalrevolution.com</a>
+    </div>
+    <div class="card-why">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">幾乎所有人看到「勞動份額下降」都直接跳到「資本剝削勞工」的結論。Tabarrok 用一個清晰的圖表和一個逆反直覺的觀察（衰退期勞動份額反而最高！）拆解了這個流行的邏輯謬誤。文章極短卻論點精準，是典型的 MR 風格。</div>
+    </div>
+    <div class="card-summary">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">Tabarrok 指出：勞動份額下降，但勞動的絕對報酬（以實際薪資計）卻創歷史新高，且持續增長。更反直覺的是，勞動份額在 2008 和 2020 年衰退期達到局部高峰——因為那時 GDP（資本的分子）在縮水。他的結論：份額數據與「資本更有生產力、帶動整體 GDP 增長、勞工同時受益」的故事完全相容，「如果份額保持不變，薪資會更高」這個反事實論點邏輯上成立，但只是「我祖母如果有輪子，她就是輛腳踏車」。<br><br>Tabarrok shows that while labor's *share* of GDP has declined, labor's *absolute* compensation is at all-time highs and growing. The data is consistent with a story where more productive capital grows the overall pie while labor benefits absolutely — just not in share terms.</div>
+    </div>
+    <div class="card-takeaway">
+      <div class="field-label">核心觀點 / Key Takeaway</div>
+      <div class="field-body">比較份額和比較絕對值是兩件不同的事——大多數關於「勞動被剝削」的討論混淆了這兩者。</div>
+    </div>
+    <div class="card-question">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">如果 AI 讓資本生產力再次大幅躍升，勞動份額將進一步下滑但絕對薪資繼續上漲——政策上我們應該在乎哪個指標？</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">AI 會傷害企業利潤嗎？ / <span class="en">Might AI Hurt Corporate Profits?</span></div>
+    <div class="card-meta">
+      <span>Marginal Revolution</span>
+      <span>·</span>
+      <span>Tyler Cowen（轉載讀者 Clifford Sosin 來信）</span>
+      <span>·</span>
+      <span>2026-06-08</span>
+      <span class="badge time">⏱ 5 min</span>
+    </div>
+    <div class="card-meta">
+      <a href="https://marginalrevolution.com/marginalrevolution/2026/06/might-ai-hurt-corporate-profits-from-my-email.html" target="_blank">→ marginalrevolution.com</a>
+    </div>
+    <div class="card-why">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">主流敘事是「AI 讓科技公司賺更多錢」，這封信反轉了邏輯：AI 代理作為超理性採購員，將消滅企業的「懶惰租金（lazy rents）」，讓消費者獲益但讓企業利潤率下滑——即使 GDP 整體增長，公司股東不一定受益。這個論點非常具體且可測試。</div>
+    </div>
+    <div class="card-summary">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">讀者 Sosin 的核心論點：很多企業的利潤來自顧客的「懶惰稅」——銀行存款不優化、不切換更便宜的供應商、不自建軟體。AI 代理將代表使用者做這些優化決策，把原本企業拿走的「便利費」還給消費者。他估計若利潤率下降 100-200 bp，即使 GDP 增加 5-10%，企業盈利總額可能幾乎不變甚至下滑。諷刺的是，這反而有利於 AI 本身的採用率。<br><br>Sosin argues that AI agents acting as hyper-rational procurement agents will compress corporate margins by eliminating "lazy rents" — the excess profits companies earn because customers can't be bothered to optimize. GDP could grow while corporate profits stagnate.</div>
+    </div>
+    <div class="card-takeaway">
+      <div class="field-label">核心觀點 / Key Takeaway</div>
+      <div class="field-body">AI 的最大受益者可能是消費者，而不是股東——企業股票的「AI premium」可能建立在錯誤的前提上。</div>
+    </div>
+    <div class="card-question">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">如果連 Google Search 的廣告租金都會被 AI 代理繞過，哪些商業模式能夠倖存？護城河的新定義是什麼？</div>
+    </div>
+  </div>
+
+  <!-- 4. Science & Research -->
+  <div class="section-label">科學與研究 / Science & Research</div>
+
+  <div class="card">
+    <div class="card-title">壽命遺傳率約 50%（當遺傳率被重新定義的時候）/ <span class="en">Heritability of Human Life Span Is About 50% When Heritability Is Redefined</span></div>
+    <div class="card-meta">
+      <span>dynomight.net</span>
+      <span>·</span>
+      <span>dynomight</span>
+      <span>·</span>
+      <span>2026-02</span>
+      <span class="badge time">⏱ 15 min</span>
+      <span class="badge">HN · 92 pts</span>
+    </div>
+    <div class="card-meta">
+      <a href="https://dynomight.net/lifespan/" target="_blank">→ dynomight.net</a>
+    </div>
+    <div class="card-why">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">這是一篇教科書式的「怎麼解讀一篇 Science 論文」示範。作者不攻擊研究本身，而是精確地說明媒體的詮釋錯了，並解釋為什麼 Science 雜誌的編輯風格讓科學家幾乎不可能說清楚。兼具統計教育和期刊批評，非常少見。</div>
+    </div>
+    <div class="card-summary">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">一篇 Science 論文聲稱壽命遺傳率約 50%（比過去估計的 23-35% 高很多）。作者仔細閱讀論文後發現：這個 50% 是在「假設沒有人死於車禍、謀殺、藥物過量或感染病」的模擬世界中算出來的，不是我們活著的世界。更好笑的是，作者讀完發現，就連論文本身在模擬現代條件下算出來的數字也只有 35-45%，根本不到 50%。Science 的編輯風格（幾乎不寫數學、隨機插入技術細節）是這個誤解的主要幫兇。<br><br>A careful dismantling of a viral Science paper: the "50% heritable lifespan" figure applies only in a hypothetical world with no accidents, murders, or infectious disease. Even by the paper's own simulations under modern mortality conditions, the number is closer to 40%.</div>
+    </div>
+    <div class="card-takeaway">
+      <div class="field-label">核心觀點 / Key Takeaway</div>
+      <div class="field-body">遺傳率不是柏拉圖式的永恆真理，它是一個依賴當前環境的觀察統計量——改變社會，遺傳率就改變了。</div>
+    </div>
+    <div class="card-question">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">如果頂尖期刊系統性地製造出容易被誤解的論文，那「科學傳播」的問題是出在媒體還是期刊本身？</div>
+    </div>
+  </div>
+
+  <!-- 5. Culture & Society -->
+  <div class="section-label">文化與社會 / Culture & Society</div>
+
+  <div class="card">
+    <div class="card-title">普林斯頓終結 133 年榮譽制度：全面引入監考 / <span class="en">Princeton Mandates Proctoring, Upending 133-Year Precedent</span></div>
+    <div class="card-meta">
+      <span>The Daily Princetonian</span>
+      <span>·</span>
+      <span>Devon Williams</span>
+      <span>·</span>
+      <span>2026-05-11</span>
+      <span class="badge time">⏱ 8 min</span>
+      <span class="badge">HN · 317 pts</span>
+    </div>
+    <div class="card-meta">
+      <a href="https://www.dailyprincetonian.com/article/2026/05/princeton-news-adpol-proctoring-in-person-examinations-passed-faculty-133-years-precedent" target="_blank">→ dailyprincetonian.com</a>
+    </div>
+    <div class="card-why">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">這不只是一則校園新聞，它是 AI 對高等教育制度性信任造成不可逆衝擊的歷史紀錄。普林斯頓的榮譽制度 1893 年由學生請願創立、明確禁止監考——AI 作弊的興起讓這個被珍視了一個多世紀的傳統在一票之差下垮台。</div>
+    </div>
+    <div class="card-summary">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">普林斯頓教授會以僅一票反對通過強制監考法規，自 2026 年 7 月 1 日起全面生效。這終結了從 1893 年由學生請願建立的「榮譽制度」——在那之前，監考在 133 年間是明確被禁止的。直接觸發原因：AI 工具讓作弊幾乎不可能被同儕觀察到（只需一支手機）；加上 2025 年的調查顯示 29.9% 的畢業班學生曾作弊，而 44.6% 的人知道有人作弊卻沒有舉報。<br><br>Princeton's century-old honor system — born from an 1893 student petition to eliminate proctoring — collapsed in a single vote, driven by AI-assisted cheating so invisible that peer reporting became impossible. Nearly 30% of seniors admitted to cheating; 44% knew about violations and said nothing.</div>
+    </div>
+    <div class="card-takeaway">
+      <div class="field-label">核心觀點 / Key Takeaway</div>
+      <div class="field-body">「AI 讓作弊從一種需要膽量的公開行為，變成了私密到連坐旁邊的人都看不出來的動作」——制度信任一旦打破，很難修復。</div>
+    </div>
+    <div class="card-question">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">當考試成為真實世界中幾乎沒有類比物的場景（現實工作根本允許使用 AI），我們是否還需要傳統意義上的考試？</div>
+    </div>
+  </div>
+
+  <!-- 6. Psychology & Behavior -->
+  <div class="section-label">心理與行為 / Psychology & Behavior</div>
+
+  <div class="card">
+    <div class="card-title">iPhone 讓美國年輕人生育率下降了三分之一 / <span class="en">The iPhone and Fertility: A Natural Experiment</span></div>
+    <div class="card-meta">
+      <span>Marginal Revolution（引用 NBER 論文）</span>
+      <span>·</span>
+      <span>Myers & Hooper</span>
+      <span>·</span>
+      <span>2026-06-08</span>
+      <span class="badge time">⏱ 6 min</span>
+    </div>
+    <div class="card-meta">
+      <a href="https://marginalrevolution.com/marginalrevolution/2026/06/new-paper-on-the-iphone-and-fertility.html" target="_blank">→ marginalrevolution.com</a>
+    </div>
+    <div class="card-why">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">這是一個設計精妙的自然實驗：2007-2011 年 iPhone 只在 AT&T 網路上販售，讓研究者可以用 AT&T 覆蓋範圍作為「隨機分配」的近似。結果大到驚人，而且機制分析也非常具體（性行為頻率降低、色情消費增加、當面社交時間減少）。</div>
+    </div>
+    <div class="card-summary">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">Myers 與 Hooper 利用 2007-2011 年 iPhone 在 AT&T 獨家銷售的自然實驗，發現 iPhone 普及使 15-19 歲生育率下降 4.5-8%，20-24 歲下降 3.2-6.6%，估計 iPhone 的普及解釋了美國 15-44 歲女性整體生育率下降的 33-52%。調查機制包括：減少當面社交互動、增加色情消費、降低性行為頻率。自 2007 年以來美國生育率下降了 22%，傳統解釋（避孕、房價、育兒成本）都無法完整說明。<br><br>A natural experiment using AT&T's exclusive iPhone coverage finds that smartphone access reduced births by 4-8% among women under 25, and explains 33-52% of America's 22% fertility decline since 2007, primarily through reduced in-person interaction and sexual frequency.</div>
+    </div>
+    <div class="card-takeaway">
+      <div class="field-label">核心觀點 / Key Takeaway</div>
+      <div class="field-body">智慧型手機對人類繁殖行為的影響，可能是近代史上單一科技產品對人口學影響最大的案例。</div>
+    </div>
+    <div class="card-question">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">如果智慧型手機讓台灣的 TFR 從 1.1 再往下，政府補貼生育費用的政策是否根本打錯了靶？</div>
+    </div>
+  </div>
+
+  <!-- 7. History & Philosophy -->
+  <div class="section-label">歷史與哲學 / History & Philosophy</div>
+
+  <div class="card">
+    <div class="card-title">海耶克式的文學批評會長什麼樣？ / <span class="en">Hayekian Literary Criticism</span></div>
+    <div class="card-meta">
+      <span>Marginal Revolution</span>
+      <span>·</span>
+      <span>Alex Tabarrok</span>
+      <span>·</span>
+      <span>2026-06-08</span>
+      <span class="badge time">⏱ 8 min</span>
+    </div>
+    <div class="card-meta">
+      <a href="https://marginalrevolution.com/marginalrevolution/2026/06/hayekian-literary-criticism.html" target="_blank">→ marginalrevolution.com</a>
+    </div>
+    <div class="card-why">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">這篇文章提出一個令人耳目一新的問題：為什麼英文系的文學批評永遠都是馬克思主義框架？Tabarrok 不是在反馬克思，而是在說「海耶克的工具箱也能解讀文學，而且可能更精確地解讀資本主義文學」——他用 Thomas Mann 的《失序與早期悲傷》舉例，非常有說服力。</div>
+    </div>
+    <div class="card-summary">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">Tabarrok 指出，馬克思主義的文學批評工具（階級、意識形態、異化）成為英文系的預設選項，卻無法妥善處理企業家、投機者、中間商等資本主義核心人物。他介紹 Paul Cantor 的先驅論文：用奧地利學派的通貨膨脹理論讀 Thomas Mann 的威瑪共和國短篇，發現惡性通膨如何顛覆了時間偏好、世代權威、甚至「現實感本身」。並提出：《戰爭與和平》可以是對偉人理論的海耶克式批判，《鐵線》可以是自發秩序的史詩。<br><br>Tabarrok asks: why is literary criticism always Marxist? He shows through Paul Cantor's reading of Thomas Mann that Hayekian tools — spontaneous order, time preference, the fatal conceit — can open texts that Marxist analysis handles poorly, and that inflation converting monetary disorder into moral disorder is a more precise reading than "capitalism's contradictions."</div>
+    </div>
+    <div class="card-takeaway">
+      <div class="field-label">核心觀點 / Key Takeaway</div>
+      <div class="field-body">知識工具箱的壟斷造成盲點——用奧地利學派讀通膨時代的文學，可能比馬克思主義框架更貼近作者的實際心理地圖。</div>
+    </div>
+    <div class="card-question">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">如果我們用海耶克框架讀中文現代文學（比如五四時期或台灣戒嚴小說），會看到什麼馬克思框架看不到的東西？</div>
+    </div>
+  </div>
+
+  <!-- 8. Curiosities -->
+  <div class="section-label">奇文與偏門 / Curiosities</div>
+
+  <div class="card">
+    <div class="card-title">停止毀掉它 / <span class="en">Stop Ruining It</span></div>
+    <div class="card-meta">
+      <span>Seth's Blog</span>
+      <span>·</span>
+      <span>Seth Godin</span>
+      <span>·</span>
+      <span>2026-06-02</span>
+      <span class="badge time">⏱ 1 min</span>
+      <span class="badge">HN · 271 pts</span>
+    </div>
+    <div class="card-meta">
+      <a href="https://seths.blog/2026/06/stop-ruining-it/" target="_blank">→ seths.blog</a>
+    </div>
+    <div class="card-why">
+      <div class="field-label">為什麼值得讀 / Why it stands out</div>
+      <div class="field-body">一分鐘的文章，一個顛覆思維框架的觀察。「好」不是我們加進去的東西，它是我們停止破壞之後留下來的東西——這個洞見簡單到令人難以置信，但對產品設計、教育、管理都有深刻含意。</div>
+    </div>
+    <div class="card-summary">
+      <div class="field-label">摘要 / Summary</div>
+      <div class="field-body">Godin 從音響工程師 Paul McGowan 的洞見展開：擴大器的「音樂感」不是一個你加進去的特性，而是你停止破壞之後剩下來的東西。他把這個框架套用到幾個場景：顧客的喜悅、孩子的好奇心、員工對工作的滿足感、品牌信任——它們都是預設存在的，但我們的各種「改善行動」往往反而是破壞的來源。<br><br>Godin's one-minute reframe: quality, trust, curiosity, and satisfaction aren't features you engineer in. They're what remains when you stop destroying them. A mental inversion that has wide applications in product, management, and education.</div>
+    </div>
+    <div class="card-takeaway">
+      <div class="field-label">核心觀點 / Key Takeaway</div>
+      <div class="field-body">「不作為」有時候比「積極行動」更有價值——很多系統的問題是被人類的干預製造出來的。</div>
+    </div>
+    <div class="card-question">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">在你自己的產品或工作裡，你正在「加什麼」其實是在破壞原本應該存在的東西？</div>
+    </div>
+  </div>
+
+</div><!-- end section -->
+
+<!-- ============================== TRACK B ============================== -->
+<div class="track-header track-b">
+  <span class="track-label">Track B</span>
+  <span class="track-title">思想領袖觀點 / Thought Leaders</span>
+  <span class="track-divider"></span>
+</div>
+
+<div class="section">
+
+  <div class="section-label">思想領袖今日觀點 / Thought Leader Picks</div>
+
+  <!-- B1 -->
+  <div class="card">
+    <div class="domain-tag">[總經]</div>
+    <div class="card-title">Alex Tabarrok — The Labor Share Fell. So What?</div>
+    <div class="card-meta">
+      <span>Marginal Revolution</span>
+      <span>·</span>
+      <span>2026-06-10</span>
+    </div>
+    <div class="card-meta">
+      <a href="https://marginalrevolution.com/marginalrevolution/2026/06/the-labor-share-fell-so-what.html" target="_blank">→ marginalrevolution.com</a>
+    </div>
+    <div class="card-why">
+      <div class="field-label">為什麼有資格說這件事 / Why this matters from this person</div>
+      <div class="field-body">Tabarrok 是 GMU 的應用總體經濟學教授，長期研究生產力與要素市場。他的 MR 文章的特點是用實際數據拆解流行但錯誤的敘事，這篇就是典型。</div>
+    </div>
+    <div class="card-takeaway">
+      <div class="field-label">核心觀點 / Core Insight</div>
+      <div class="field-body">勞動份額下降的標準詮釋是「資本剝削勞工」，但這個詮釋忽略了：勞動的絕對薪資在增長、勞動份額在衰退期反而最高。更符合數據的故事是：資本生產力的提升讓整個 GDP 增長，勞資都受益，只是比例在調整。這個區別對公共政策的含意完全相反。</div>
+    </div>
+    <div class="card-question">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">若 AI 讓資本生產力再次飛躍，政策重點應該放在再分配機制的設計，還是加速 GDP 增長讓勞工絕對受益？</div>
+    </div>
+  </div>
+
+  <!-- B2 -->
+  <div class="card">
+    <div class="domain-tag">[AI]</div>
+    <div class="card-title">Tyler Cowen — How Well Does Current AI Find Errors in Economics Papers?</div>
+    <div class="card-meta">
+      <span>Marginal Revolution（引用 Toda 論文）</span>
+      <span>·</span>
+      <span>2026-06-09</span>
+    </div>
+    <div class="card-meta">
+      <a href="https://marginalrevolution.com/marginalrevolution/2026/06/how-well-does-current-ai-find-errors-in-economics-papers.html" target="_blank">→ marginalrevolution.com</a>
+    </div>
+    <div class="card-why">
+      <div class="field-label">為什麼有資格說這件事 / Why this matters from this person</div>
+      <div class="field-body">Cowen 是最認真用 AI 做研究工作的主流經濟學家之一，他對 AI 能力的評估比大多數評論者更貼近現實的使用邊界。</div>
+    </div>
+    <div class="card-takeaway">
+      <div class="field-label">核心觀點 / Core Insight</div>
+      <div class="field-body">Toda 的實驗讓四個 AI 系統（Gemini、Claude、ChatGPT 等）找已知有錯誤的四篇經濟學論文的錯。結論：ChatGPT Pro 偶爾能構造反例，但沒有任何模型能在沒有大量人類引導的情況下獨立找到真正的錯誤。「有能力的人類 + 前沿模型 > 現行同儕審查，但 AI 還不能單獨否定經濟理論。」這是一個非常精確的能力邊界描述。</div>
+    </div>
+    <div class="card-question">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">如果 AI 輔助的審查已經超越現有同儕審查，學術期刊應該強制要求 AI-assisted review，還是這會引入新的系統性偏誤？</div>
+    </div>
+  </div>
+
+  <!-- B3 -->
+  <div class="card">
+    <div class="domain-tag">[總經 / 政策]</div>
+    <div class="card-title">Mullvad VPN — Age Verification for Social Media: The Beginning of the End for a Free Internet?</div>
+    <div class="card-meta">
+      <span>Mullvad Blog</span>
+      <span>·</span>
+      <span>2026-06-01</span>
+    </div>
+    <div class="card-meta">
+      <a href="https://mullvad.net/en/blog/age-verification-for-social-media-the-beginning-of-the-end-for-a-free-internet" target="_blank">→ mullvad.net</a>
+    </div>
+    <div class="card-why">
+      <div class="field-label">為什麼有資格說這件事 / Why this matters from this person</div>
+      <div class="field-body">Mullvad 是歐洲最具公信力的 VPN 服務商之一，對網路隱私法規有直接的業務利益與深度研究。這篇文章是目前最完整的全球年齡驗證立法地圖，同時提出清晰的反論。</div>
+    </div>
+    <div class="card-takeaway">
+      <div class="field-label">核心觀點 / Core Insight</div>
+      <div class="field-body">全球「兒童保護」名義下的社群媒體年齡驗證立法浪潮（澳洲、巴西、英國、EU 等已通過，美國各州跟進），本質是「身份驗證」而非「年齡驗證」——每次發文都會留下可追蹤的身份標籤，徹底消滅匿名批評政府的空間。Mullvad 詳細記錄了這個「滑坡」如何從社群媒體延伸到 VPN，再到 OS 層級，並指向 Orwellian 終點：由國家控制的設備。EU 的零知識證明方案是相對較好的選項，但目前實作仍有 fallback 漏洞。</div>
+    </div>
+    <div class="card-question">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">台灣是否也會跟進這波立法浪潮？若是，台灣的民主體制有沒有足夠的制衡機制防止「保護兒童」成為壓制言論的工具？</div>
+    </div>
+  </div>
+
+  <!-- B4 -->
+  <div class="card">
+    <div class="domain-tag">[創業 / 產品]</div>
+    <div class="card-title">Seth Godin — Stop Ruining It</div>
+    <div class="card-meta">
+      <span>Seth's Blog</span>
+      <span>·</span>
+      <span>2026-06-02</span>
+    </div>
+    <div class="card-meta">
+      <a href="https://seths.blog/2026/06/stop-ruining-it/" target="_blank">→ seths.blog</a>
+    </div>
+    <div class="card-why">
+      <div class="field-label">為什麼有資格說這件事 / Why this matters from this person</div>
+      <div class="field-body">Seth Godin 寫了三十年的每日部落格，每一篇都是精煉到極致的單一洞見。他在行銷與產品哲學上的影響力無需介紹——這篇的影響力在於它的框架可以立刻應用到任何你在做的事上。</div>
+    </div>
+    <div class="card-takeaway">
+      <div class="field-label">核心觀點 / Core Insight</div>
+      <div class="field-body">我們傾向於把品質、信任、好奇心、滿足感視為「需要被建造的東西」，但 Godin 說它們是預設狀態——問題只在於你停止做了哪些破壞它們的事。對產品經理：你下一個 feature 是在建造，還是在破壞？對管理者：你的 OKR 是在激勵，還是在扼殺內在動機？</div>
+    </div>
+    <div class="card-question">
+      <div class="field-label">引發的問題 / Questions it opens</div>
+      <div class="field-body">你最近做的哪一個決策或功能，事後來看其實是在「毀掉原本存在的東西」？</div>
+    </div>
+  </div>
+
+</div><!-- end section -->
+
+<!-- Sources Footer -->
+<div class="sources-footer">
+  <h4>數據來源 / Sources Checked</h4>
+  <div class="sources-list">
+    <a href="https://news.ycombinator.com/news" target="_blank">Hacker News (top)</a>
+    <a href="https://news.ycombinator.com/best" target="_blank">Hacker News (best 48h)</a>
+    <a href="https://www.quantamagazine.org/" target="_blank">Quanta Magazine</a>
+    <a href="https://marginalrevolution.com/" target="_blank">Marginal Revolution</a>
+    <a href="https://mullvad.net/en/blog" target="_blank">Mullvad Blog</a>
+    <a href="https://seths.blog/" target="_blank">Seth's Blog</a>
+    <a href="https://dynomight.net/" target="_blank">Dynomight</a>
+    <a href="https://aeon.co/essays" target="_blank">Aeon Essays</a>
+    <a href="https://www.dailyprincetonian.com/" target="_blank">Daily Princetonian</a>
+    <a href="https://sockpuppet.org/blog" target="_blank">Quarrelsome Blog</a>
+    <a href="https://www.oneusefulthing.org/" target="_blank">One Useful Thing (Ethan Mollick)</a>
+  </div>
+  <div style="margin-top:12px; color: var(--text-dim); font-size:11px;">
+    Paywalled / failed: The Economist (403 blocked). Noahpinion, One Useful Thing (Substack JS required, no fresh essays visible). WSJ (paywalled).<br>
+    Generated: 2026-06-11 Asia/Taipei
+  </div>
+</div>
+
+</body>
+</html>
