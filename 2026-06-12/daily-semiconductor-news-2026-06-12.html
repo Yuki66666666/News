@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>半導體日報 — 2026-06-12</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --border: #2a2d3e;
+    --accent: #6c8eff;
+    --accent2: #3ecfcf;
+    --accent3: #f5a623;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --tag-bg: #252a3a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    padding: 0 0 80px;
+  }
+  header {
+    background: linear-gradient(135deg, #1a1d27 0%, #151820 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 40px 24px;
+  }
+  header .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+  }
+  header .meta {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .section {
+    margin-top: 40px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .ic-blue { background: rgba(108,142,255,0.15); }
+  .ic-teal { background: rgba(62,207,207,0.15); }
+  .ic-orange { background: rgba(245,166,35,0.15); }
+  .ic-red { background: rgba(239,68,68,0.15); }
+  .ic-green { background: rgba(52,211,153,0.15); }
+  .ic-purple { background: rgba(167,139,250,0.15); }
+  .ic-yellow { background: rgba(250,204,21,0.15); }
+  .ic-pink { background: rgba(244,114,182,0.15); }
+  .section-header h2 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .section-header .en-label {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: var(--accent); }
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .card-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card-title a:hover { color: var(--accent); }
+  .card-source {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .card-source .dot { color: var(--border); }
+  .card-source a { color: var(--accent); text-decoration: none; }
+  .card-source a:hover { text-decoration: underline; }
+  .card-section {
+    margin-bottom: 10px;
+  }
+  .card-section .label-row {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 4px;
+  }
+  .card-section p {
+    font-size: 14px;
+    color: var(--text);
+  }
+  .card-section.implications .label-row { color: var(--accent3); }
+  .card-section.context .label-row { color: var(--accent); }
+  .tag {
+    display: inline-block;
+    background: var(--tag-bg);
+    color: var(--muted);
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+    border: 1px solid var(--border);
+  }
+  .headline-card {
+    background: linear-gradient(135deg, #1e2233 0%, #1a1d27 100%);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+  }
+  .headline-number {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .sources-footer {
+    margin-top: 48px;
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .sources-footer h3 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .sources-footer ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sources-footer ul li a {
+    color: var(--accent);
+    font-size: 12px;
+    text-decoration: none;
+    background: var(--tag-bg);
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+  .sources-footer ul li a:hover { border-color: var(--accent); }
+  .highlight-stat {
+    display: inline-block;
+    background: rgba(108,142,255,0.12);
+    color: var(--accent);
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 13px;
+  }
+  .highlight-stat.orange {
+    background: rgba(245,166,35,0.12);
+    color: var(--accent3);
+  }
+  .highlight-stat.teal {
+    background: rgba(62,207,207,0.12);
+    color: var(--accent2);
+  }
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 10px 0;
+  }
+  .top-bar {
+    background: var(--accent);
+    height: 3px;
+    border-radius: 0 0 0 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+<header>
+  <div class="container">
+    <div class="label">Semiconductor Daily Brief</div>
+    <h1>半導體產業日報</h1>
+    <div class="meta">2026年6月12日（亞太時間）· 資料日期：2026-06-11～06-12 · 資料來源：TrendForce、NVIDIA Newsroom、TechNews 科技新報</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ① 頭條 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon ic-blue">🔥</div>
+      <div>
+        <h2>頭條 <span class="en-label">/ Top Stories</span></h2>
+      </div>
+    </div>
+
+    <div class="headline-card">
+      <div class="headline-number">01</div>
+      <div class="card-title">SK 海力士：2034年晶圓產能目標翻三倍，375層NAND年底量產</div>
+      <p style="font-size:14px; color:var(--text); margin-top:6px;">記憶體業最強硬派擴產訊號：SK 海力士董事長崔泰源宣布 2034 年前晶圓產能擴至三倍，龍仁四廠第一廠 2027 年初啟用，月產能達 36 萬片；同步確認 375 層 NAND 年底量產、首度採用鉬替代鎢材料。</p>
+    </div>
+
+    <div class="headline-card">
+      <div class="headline-number">02</div>
+      <div class="card-title">NVIDIA × SK 海力士簽署多年記憶體戰略夥伴協議</div>
+      <p style="font-size:14px; color:var(--text); margin-top:6px;">NVIDIA 與 SK 海力士宣布多年技術合作，共同開發 Vera Rubin AI 超電腦、Vera CPU、RTX Spark 及 Jetson Thor 所需記憶體，並以 NVIDIA Omniverse 推進晶圓廠數位雙生實現完全自主化製造。</p>
+    </div>
+
+    <div class="headline-card">
+      <div class="headline-number">03</div>
+      <div class="card-title">韓國5月DRAM出口年增370%、NAND+207%；記憶體比黃金貴</div>
+      <p style="font-size:14px; color:var(--text); margin-top:6px;">5月韓國DRAM出口額達 <span class="highlight-stat">US$186億</span>（YoY +369.8%），NAND 達 US$17億（+206.8%）。伺服器DDR5 16Gb每顆合約價 US$42，換算每克約 KRW 31.5 萬，高於黃金每克 KRW 22 萬。</p>
+    </div>
+  </div>
+
+  <!-- ② 晶圓代工與封測 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon ic-teal">🏭</div>
+      <div>
+        <h2>晶圓代工與封測 <span class="en-label">/ Foundry & Advanced Packaging</span></h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://www.trendforce.com/news/2026/06/11/news-ases-spil-acquires-nt2-8b-plant-amid-spillover-demand-from-tsmc-advanced-packaging-capacity-crunch/" target="_blank">SPIL 以 NT$28億收購台灣光罩竹南六廠，台積電外溢需求爆量 / ASE's SPIL Acquires NT$2.8B Plant Amid TSMC CoWoS Crunch</a>
+      </div>
+      <div class="card-source">
+        <span>TrendForce</span><span class="dot">·</span><span>2026-06-11</span><span class="dot">·</span>
+        <a href="https://www.trendforce.com/news/2026/06/11/news-ases-spil-acquires-nt2-8b-plant-amid-spillover-demand-from-tsmc-advanced-packaging-capacity-crunch/" target="_blank">來源連結</a>
+      </div>
+      <div class="card-section">
+        <div class="label-row">核心事實 / Facts</div>
+        <p>日月光子公司矽品（SPIL）以 <span class="highlight-stat">NT$28億</span>收購台灣光罩竹南六廠，為今年第五次廠房收購；2026 年累計廠房收購支出逾 <span class="highlight-stat">NT$227億</span>。5月日月光合併營收 <span class="highlight-stat">NT$630.3億</span>，YoY <span class="highlight-stat teal">+28.6%</span>，創同期新高。</p>
+      </div>
+      <div class="card-section context">
+        <div class="label-row">背景脈絡 / Context</div>
+        <p>台積電 CoWoS 先進封裝滿載，持續外包測試設備及部分封裝工序給 ASE、SPIL、京元電。矽品是 NVIDIA 及 AMD 的關鍵 OSAT，具備 CoWoS 能力的廠商屈指可數。竹南新廠鄰近台積電竹南封測廠，可快速承接外溢訂單。</p>
+      </div>
+      <div class="card-section implications">
+        <div class="label-row">影響觀察 / Implications</div>
+        <p>AI 算力需求持續推升先進封裝進入門檻，OSAT 龍頭加速土地圈佔。短期內 SPIL/ASE 因直接受益台積電外溢而財務表現強勁（分析）；中長期 CoWoS 自有產能擴大將使 TSMC 可能收回部分委外（風險）。</p>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="tag">ASE</span><span class="tag">SPIL</span><span class="tag">CoWoS</span><span class="tag">封測</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        台積電在美專利爭議：共和黨議員致函 ITC 要求嚴格執法 / TSMC Faces ITC Patent Challenge from GOP Lawmakers
+      </div>
+      <div class="card-source">
+        <span>TechNews 科技新報 / Axios</span><span class="dot">·</span><span>2026-06-11</span><span class="dot">·</span>
+        <a href="https://technews.tw/2026/06/11/us-republican-lawmakers-tsmc/" target="_blank">來源連結</a>
+      </div>
+      <div class="card-section">
+        <div class="label-row">核心事實 / Facts</div>
+        <p>多位共和黨眾參議員聯名致函美國 ITC 主席 Amy Karpel，要求對台積電先進製程晶片（先進邏輯，含 AI 加速器及 HPC）相關進口禁令依法執行，不因國家半導體戰略地位享有豁免。案件源自愛爾蘭授權公司 Longitude Licensing 與 Marlin Semiconductor（2021年自聯電取得專利）的申訴。</p>
+      </div>
+      <div class="card-section context">
+        <div class="label-row">背景脈絡 / Context</div>
+        <p>此案觸及美國半導體政策矛盾：CHIPS Act 深度依賴台積電在美投資，但 ITC 必須執行專利法。台積電方面回應遵守當地法律；經濟部表示持續關注並提供業者必要協助。Marlin Semiconductor 同時點名蘋果、博通，但市場焦點仍在台積電。</p>
+      </div>
+      <div class="card-section implications">
+        <div class="label-row">影響觀察 / Implications</div>
+        <p>若 ITC 對台積電製造晶片發出禁令，衝擊範圍涵蓋 NVIDIA、AMD、Apple 等大型客戶（分析）。短期判決不確定性構成供應鏈風險，但 ITC 歷史上鮮少全面禁止涉及國家戰略利益的晶片進口（事實）。</p>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="tag">台積電</span><span class="tag">ITC</span><span class="tag">專利</span><span class="tag">地緣政治</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ③ IC 設計 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon ic-purple">💡</div>
+      <div>
+        <h2>IC 設計 <span class="en-label">/ Fabless & IDM</span></h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://technews.tw/2026/06/11/report-q1-smartphone-soc-shipments-down-8-yoy-mediatek-retains-lead/" target="_blank">Q1 智慧手機 SoC 出貨年減8%；聯發科蟬聯第一 / Q1 Smartphone SoC Shipments -8% YoY; MediaTek Retains Lead</a>
+      </div>
+      <div class="card-source">
+        <span>TechNews / Counterpoint Research</span><span class="dot">·</span><span>2026-06-11</span><span class="dot">·</span>
+        <a href="https://technews.tw/2026/06/11/report-q1-smartphone-soc-shipments-down-8-yoy-mediatek-retains-lead/" target="_blank">來源連結</a>
+      </div>
+      <div class="card-section">
+        <div class="label-row">核心事實 / Facts</div>
+        <p>Counterpoint 數據顯示 2026 Q1 全球智慧型手機 AP-SoC 出貨量年減 <span class="highlight-stat orange">8%</span>，聯發科維持市佔率領先地位。</p>
+      </div>
+      <div class="card-section context">
+        <div class="label-row">背景脈絡 / Context</div>
+        <p>手機端記憶體成本飆升（LPDDR5、eMMC 合約價連續上漲）使 OEM 廠商提高售價、壓縮出貨量；Lenovo 已確認 7 月全線漲價。聯發科 5 月合併營收 NT$474.3 億，仍為手機 SoC 龍頭。</p>
+      </div>
+      <div class="card-section implications">
+        <div class="label-row">影響觀察 / Implications</div>
+        <p>記憶體漲價帶來的終端消費需求放緩，短期對 SoC 出貨量形成壓力；但對記憶體供應商 ASP 提升有利（分析）。聯發科在 AI PC（與 NVIDIA RTX Spark 合作）領域的拓展是否成為新增長引擎，值得持續追蹤。</p>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="tag">聯發科</span><span class="tag">SoC</span><span class="tag">手機</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        Intel Nova Lake Z990/Z970 晶片組曝光：尺寸縮小、功耗上限拉高 / Intel Nova Lake Chipset Details Leaked
+      </div>
+      <div class="card-source">
+        <span>TechNews 科技新報</span><span class="dot">·</span><span>2026-06-11</span>
+      </div>
+      <div class="card-section">
+        <div class="label-row">核心事實 / Facts</div>
+        <p>Intel Nova Lake 平台旗艦晶片組 Z990 與 Z970 細節外洩：強化 PCIe 5.0 支援、PCH 晶粒與封裝尺寸縮小，但功耗上限與最高工作溫度均提高。Intel 同步推進 Project Firefly 計畫（Wildcat Lake 平台），以手機供應鏈重新定義平價筆電。</p>
+      </div>
+      <div class="card-section context">
+        <div class="label-row">背景脈絡 / Context</div>
+        <p>Intel Foundry 仍在追趕 TSMC N2 工藝，Nova Lake 係 Intel 在 IDM 2.0 策略下的重要里程碑。Project Firefly 試圖以手機供應鏈降低成本，瞄準入門市場。</p>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="tag">Intel</span><span class="tag">Nova Lake</span><span class="tag">PC</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ④ 記憶體 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon ic-orange">💾</div>
+      <div>
+        <h2>記憶體 <span class="en-label">/ Memory — DRAM, HBM, NAND</span></h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://www.trendforce.com/news/2026/06/11/news-sk-hynix-advances-dram-and-nand-roadmap-targets-3x-wafer-output-by-2034-375-layer-nand-at-year-end/" target="_blank">SK 海力士：DRAM 月產能 2030 年衝百萬片、375層NAND引入鉬材料年底量產 / SK hynix Targets 3x Wafer Output by 2034, 375-Layer NAND in H2'26</a>
+      </div>
+      <div class="card-source">
+        <span>TrendForce / Nikkei / The Elec</span><span class="dot">·</span><span>2026-06-11</span><span class="dot">·</span>
+        <a href="https://www.trendforce.com/news/2026/06/11/news-sk-hynix-advances-dram-and-nand-roadmap-targets-3x-wafer-output-by-2034-375-layer-nand-at-year-end/" target="_blank">來源連結</a>
+      </div>
+      <div class="card-section">
+        <div class="label-row">核心事實 / Facts</div>
+        <p>DRAM：SK 海力士董事長崔泰源（Chey Tae-won）告訴日經，2034 年前晶圓月產能擴至目前三倍；龍仁半導體聚落第一廠 2027 年初啟動，約增 <span class="highlight-stat">36萬片/月</span> DRAM，原定 2045 年完工的計畫提前約十年。現況月產能約 <span class="highlight-stat">55萬片</span>，2030 年目標 <span class="highlight-stat teal">100萬片</span>。NAND：375 層 3D NAND 驗證完成，年底啟動量產，首度以鉬（Mo）替代鎢（W）作為字元線材料，減少細線結構電阻，後續路線圖延伸至 480 層及 604 層。</p>
+      </div>
+      <div class="card-section context">
+        <div class="label-row">背景脈絡 / Context</div>
+        <p>SK 海力士是 HBM3E 市場主導者，目前 HBM 占 DRAM 晶圓投入約 22%；TrendForce 預估 2027 年底將升至 30%。375 層 NAND 同期，競爭對手 Kioxia BiCS10 (332 層) 預計 FY2027 量產，Samsung 亦在開發超高層 NAND。SK 集團考慮在日本（Tokyo Electron、JSR 等設備/材料供應商聚集地）建設海外廠。</p>
+      </div>
+      <div class="card-section implications">
+        <div class="label-row">影響觀察 / Implications</div>
+        <p>鉬材料導入是 NAND 製程的重大材料轉換；對鉬靶材供應商（如 Plansee、Materion）有正面拉動（分析）。龍仁四廠超大規模投資驗證 AI 記憶體需求剛性，但也可能形成 2030 年代初期的供給衝擊風險（分析）。</p>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="tag">SK Hynix</span><span class="tag">HBM</span><span class="tag">DRAM</span><span class="tag">375L NAND</span><span class="tag">鉬</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://www.trendforce.com/news/2026/06/11/news-south-korea-chip-export-volume-falls-yet-revenue-surges-may-dram-370-nand-207/" target="_blank">韓國5月半導體出口：量減、金額創紀錄；DDR5比黃金貴 / Korea Chip Exports Surge in Revenue Despite Volume Decline</a>
+      </div>
+      <div class="card-source">
+        <span>TrendForce / Seoul Economic Daily / KITA</span><span class="dot">·</span><span>2026-06-11</span><span class="dot">·</span>
+        <a href="https://www.trendforce.com/news/2026/06/11/news-south-korea-chip-export-volume-falls-yet-revenue-surges-may-dram-370-nand-207/" target="_blank">來源連結</a>
+      </div>
+      <div class="card-section">
+        <div class="label-row">核心事實 / Facts</div>
+        <p>2026年5月：DRAM 出口 <span class="highlight-stat">US$186億</span>（YoY <span class="highlight-stat teal">+369.8%</span>），NAND 出口 <span class="highlight-stat">US$17億</span>（YoY +206.8%）。4月半導體出口量按重量 YoY <span class="highlight-stat orange">-11.9%</span>，但金額 YoY <span class="highlight-stat teal">+173.5%</span> 達 US$319億。伺服器 DDR5 16Gb 合約價 <span class="highlight-stat">US$42/顆</span>（一年前 US$6），換算約 KRW 315,000/克，高於黃金 KRW 220,000/克。6月上旬首十天出口 US$286億，YoY +85.9%，創歷史新高。</p>
+      </div>
+      <div class="card-section context">
+        <div class="label-row">背景脈絡 / Context</div>
+        <p>記憶體供應商將 DRAM 晶圓產能轉向 HBM 及高規格 DDR5，壓縮一般產品供給，推動 ASP 大幅提升。Samsung 1Q26 報告 ASP 年增 146%，SK 海力士 DRAM mid-60% 增幅。</p>
+      </div>
+      <div class="card-section implications">
+        <div class="label-row">影響觀察 / Implications</div>
+        <p>記憶體超強上行周期繼續壓縮下游 OEM（筆電、平板、汽車）利潤。Lenovo 宣布 7 月全線漲價，日本平板出貨量預估年減 16%（來源：TechNews）。HBM 合約價 2027 年預計翻倍（TrendForce 分析）。</p>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="tag">DRAM</span><span class="tag">HBM</span><span class="tag">Korea Exports</span><span class="tag">記憶體超循環</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        AI 代理推動企業級 SSD 供應危機；Q1 五大品牌合計營收破 US$184.6億 創新高 / AI Agents Drive Enterprise SSD Shortage; Top-5 Revenue Hits $18.46B in Q1'26
+      </div>
+      <div class="card-source">
+        <span>TechNews / TrendForce</span><span class="dot">·</span><span>2026-06-11</span>
+      </div>
+      <div class="card-section">
+        <div class="label-row">核心事實 / Facts</div>
+        <p>2026 Q1 全球五大企業級 SSD 品牌（Samsung、Kioxia、WD、SK 海力士/Solidigm、Micron）合計營收較前一季增長 <span class="highlight-stat teal">86.1%</span>，突破 <span class="highlight-stat">US$184.6億</span>，創歷史新高。AI 代理服務普及及 CSP 訂單是主要驅動力。</p>
+      </div>
+      <div class="card-section context">
+        <div class="label-row">背景脈絡 / Context</div>
+        <p>企業級 SSD 需求集中於 AI 推論節點（高速 NVMe）及資料湖（大容量 NAND）。供應面 NAND 廠商優先保障高毛利產品，QLC 產能轉向高層數 NAND，加劇企業級供給緊張。</p>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="tag">Enterprise SSD</span><span class="tag">NAND</span><span class="tag">AI 代理</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ 設備與材料 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon ic-green">⚙️</div>
+      <div>
+        <h2>設備與材料 <span class="en-label">/ Equipment & Materials</span></h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://www.trendforce.com/news/2026/06/11/news-applied-materials-opens-500m-singapore-site-aims-to-double-global-capacity-on-ai-demand/" target="_blank">應用材料 US$5億新加坡廠開幕；CEO 預測設備業務年成長 30%、先進封裝設備年增 50% / Applied Materials Opens $500M Singapore Campus, Aims to Nearly Double Capacity</a>
+      </div>
+      <div class="card-source">
+        <span>TrendForce / Applied Materials / Nikkei</span><span class="dot">·</span><span>2026-06-11</span><span class="dot">·</span>
+        <a href="https://www.trendforce.com/news/2026/06/11/news-applied-materials-opens-500m-singapore-site-aims-to-double-global-capacity-on-ai-demand/" target="_blank">來源連結</a>
+      </div>
+      <div class="card-section">
+        <div class="label-row">核心事實 / Facts</div>
+        <p>Applied Materials 在新加坡開設 <span class="highlight-stat">US$5億</span> 製造園區，新加坡廠數量從 1 座增至 3 座，現佔全球產能約 <span class="highlight-stat">50%</span>。CEO Gary Dickerson 表示 2026 年半導體業務成長 <span class="highlight-stat teal">&gt;30%</span>，先進封裝設備收入成長 <span class="highlight-stat teal">50%</span>，且 2027 年以後需求將持續強勁。AI 資料中心相關投資未來 4-5 年預計達 <span class="highlight-stat">US$7兆</span>。新加坡員工增至 4,000 人，規劃再增 1,000 人。</p>
+      </div>
+      <div class="card-section context">
+        <div class="label-row">背景脈絡 / Context</div>
+        <p>AMAT 是 CVD/PVD 最大設備商，80% 以上的成長集中在先進邏輯、DRAM 及先進封裝。新加坡佈局鄰近東南亞供應鏈，同時規避部分地緣政治風險。主要客戶含 TSMC、Samsung、SK hynix、Micron、Intel；客戶現提供滾動8季度預測增強可見度。</p>
+      </div>
+      <div class="card-section implications">
+        <div class="label-row">影響觀察 / Implications</div>
+        <p>新加坡擴廠強化 AMAT 對 ASEAN 基地的戰略佈局。先進封裝設備成長 50% 與 CoWoS 需求高度連動，對 AMAT、LAM、KLA 均形成正向催化（分析）。</p>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="tag">Applied Materials</span><span class="tag">先進封裝設備</span><span class="tag">新加坡</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://technews.tw/2026/06/11/semi-2026-q1-wwsems/" target="_blank">SEMI：2026 Q1 全球半導體設備銷售額 US$365.5億，YoY +14%，創單季歷史新高 / SEMI: Q1'26 Global Equipment Billings Hit Record $36.55B, +14% YoY</a>
+      </div>
+      <div class="card-source">
+        <span>TechNews / SEMI</span><span class="dot">·</span><span>2026-06-11</span><span class="dot">·</span>
+        <a href="https://technews.tw/2026/06/11/semi-2026-q1-wwsems/" target="_blank">來源連結</a>
+      </div>
+      <div class="card-section">
+        <div class="label-row">核心事實 / Facts</div>
+        <p>SEMI 全球半導體設備市場報告（WWSEMS）顯示，2026 Q1 全球半導體製造設備銷售額達 <span class="highlight-stat">US$365.5億</span>，YoY <span class="highlight-stat teal">+14%</span>，QoQ +1%，創單季歷史新高。需求集中於先進邏輯、DRAM 及先進封裝。</p>
+      </div>
+      <div class="card-section context">
+        <div class="label-row">背景脈絡 / Context</div>
+        <p>SEMI 台灣區總裁曹世綸指出「AI 驅動的半導體成長為設備市場提供持續動能」。先進封裝設備需求是最快速增長子項，台灣（台積電帶動）仍是單一最大設備採購地區。</p>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="tag">SEMI</span><span class="tag">WFE</span><span class="tag">設備</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑥ AI 晶片 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon ic-yellow">🤖</div>
+      <div>
+        <h2>AI 晶片 <span class="en-label">/ AI Accelerators & Roadmaps</span></h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        <a href="https://nvidianews.nvidia.com/news/sk-hynix-ai-factory" target="_blank">NVIDIA × SK 海力士多年記憶體技術夥伴協議：Vera Rubin、Vera CPU、RTX Spark、Jetson Thor 全面覆蓋 / NVIDIA-SK hynix Announce Multiyear AI Factory Memory Partnership</a>
+      </div>
+      <div class="card-source">
+        <span>NVIDIA Newsroom</span><span class="dot">·</span><span>2026-06-07</span><span class="dot">·</span>
+        <a href="https://nvidianews.nvidia.com/news/sk-hynix-ai-factory" target="_blank">來源連結</a>
+      </div>
+      <div class="card-section">
+        <div class="label-row">核心事實 / Facts</div>
+        <p>協議涵蓋：①共同開發 Vera Rubin AI 超電腦、Vera CPU、RTX Spark AI PC 及 Jetson Thor 機器人平台用記憶體；②SK 海力士採用 NVIDIA CUDA-X 函式庫加速 TCAD 及半導體模擬；③以 NVIDIA Omniverse、OpenUSD、cuOpt 建立晶圓廠數位雙生，推進自主化製造。Jensen Huang 表示「AI 工廠是下一次工業革命的引擎，先進記憶體是核心」。</p>
+      </div>
+      <div class="card-section context">
+        <div class="label-row">背景脈絡 / Context</div>
+        <p>Vera Rubin（下一代 GPU）與 Vera CPU（ARM 架構 CPU）構成 NVIDIA 新一代 AI 超電腦架構，需要下一代 HBM（HBM4/HBM4E）支援。此協議鞏固 SK 海力士在 HBM 供應鏈的排他性地位（Samsung 仍在爭取 HBM4E 認證）。RTX Spark AI PC 切入邊緣 AI 市場，聯發科亦為合作夥伴。</p>
+      </div>
+      <div class="card-section implications">
+        <div class="label-row">影響觀察 / Implications</div>
+        <p>NVIDIA 鎖定 SK 海力士作為多世代 HBM 夥伴，對 Samsung HBM4 認證形成進一步壓力（分析）。數位雙生 + cuOpt 的應用若有效，可顯著提升晶圓廠 OEE，影響未來設備購買週期（分析）。</p>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="tag">NVIDIA</span><span class="tag">SK Hynix</span><span class="tag">HBM4</span><span class="tag">Vera Rubin</span><span class="tag">AI Factory</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑦ 地緣政治 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon ic-red">🌐</div>
+      <div>
+        <h2>地緣政治與政策 <span class="en-label">/ Geopolitics & Policy</span></h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        台積電 ITC 專利案：美國半導體戰略依賴與專利執法的結構性矛盾 / TSMC ITC Patent Case Exposes US Semiconductor Strategic Dilemma
+      </div>
+      <div class="card-source">
+        <span>TechNews / Axios</span><span class="dot">·</span><span>2026-06-11</span>
+      </div>
+      <div class="card-section">
+        <div class="label-row">核心事實 / Facts</div>
+        <p>共和黨議員聯名要求 ITC 對台積電先進製程晶片（廣泛用於 AI 加速器及 HPC）嚴格執行進口禁令，不因台積電在 CHIPS Act 中的戰略地位獲豁免。申訴方 Marlin Semiconductor 2021 年自聯電取得相關專利。台積電、蘋果、博通均被點名。</p>
+      </div>
+      <div class="card-section context">
+        <div class="label-row">背景脈絡 / Context</div>
+        <p>美國 CHIPS Act 補貼鼓勵台積電赴美設廠，但在美本土晶片公司（IP licensing firm）的訴訟攻勢也在上升。ITC 本身傾向保護本土產業，但此前對國防/戰略供應鏈的豁免判例存在。台灣經濟部回應強調業者遵法，政府將提供必要協助。</p>
+      </div>
+      <div class="card-section implications">
+        <div class="label-row">影響觀察 / Implications</div>
+        <p>若 ITC 裁定禁令，理論上可阻止台積電出廠晶片進入美國市場，將觸發 CHIPS Act 與 WTO 等多層次政策衝突，業界普遍認為最終不太可能實施（分析）。然此案發出訊號：「戰略豁免不是無限期」，對台積電 IP 策略形成壓力。</p>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="tag">台積電</span><span class="tag">CHIPS Act</span><span class="tag">ITC</span><span class="tag">智財</span><span class="tag">地緣政治</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        中國管制磷化銦（InP）出口，衝擊全球 AI 資料中心建設 / China InP Export Controls May Disrupt AI Data Center Construction
+      </div>
+      <div class="card-source">
+        <span>TechNews 科技新報</span><span class="dot">·</span><span>2026-06-11</span>
+      </div>
+      <div class="card-section">
+        <div class="label-row">核心事實 / Facts</div>
+        <p>中國宣布管制磷化銦（Indium Phosphide, InP）出口。InP 是製造光電晶片（矽光子模組、高速雷射、光收發器）的關鍵化合物半導體材料，廣泛用於 AI 資料中心的光互連建設。</p>
+      </div>
+      <div class="card-section context">
+        <div class="label-row">背景脈絡 / Context</div>
+        <p>COMPUTEX 2026 多家廠商展出矽光子 CPO 方案（光互連成 COMPUTEX 重點展出），需求快速增長中。中國是全球最大 InP 晶圓生產國之一，此舉可能影響美歐日本 CPO / 光通訊供應鏈。</p>
+      </div>
+      <div class="card-section implications">
+        <div class="label-row">影響觀察 / Implications</div>
+        <p>短期 InP 價格可能上漲；對 II-VI（Coherent）、Lumentum 等光電晶片廠商形成成本壓力（分析）。加速推動 ASEAN 及日本等地 InP 原料多元化供應佈局（分析）。</p>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="tag">InP</span><span class="tag">矽光子</span><span class="tag">中國出口管制</span><span class="tag">AI 資料中心</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        三星 2025 年半導體總投資逾 KRW 90兆，居全球第一 / Samsung Topped Global Chipmakers with ~$90T KRW in Semiconductor Investment in 2025
+      </div>
+      <div class="card-source">
+        <span>TechNews / CEO Score</span><span class="dot">·</span><span>2026-06-11</span>
+      </div>
+      <div class="card-section">
+        <div class="label-row">核心事實 / Facts</div>
+        <p>企業分析機構 CEO Score 統計顯示，三星電子 2025 年資本支出加 R&D 合計達 <span class="highlight-stat">KRW 89.9兆</span>（約 NT$2.16兆），高於台積電，位居全球半導體企業之首。</p>
+      </div>
+      <div class="card-section context">
+        <div class="label-row">背景脈絡 / Context</div>
+        <p>三星在先進製程（2nm GAA）、記憶體（HBM4）及系統 LSI 上同步高強度投資，但 2025 年 HBM 量產良率落後於 SK 海力士，AI 晶片合約仍以 SK 海力士為主。台積電因聚焦先進邏輯，資本效率更高（分析）。</p>
+      </div>
+      <div style="margin-top:10px;">
+        <span class="tag">Samsung</span><span class="tag">Capex</span><span class="tag">R&D</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑧ 觀點/深度閱讀 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon ic-pink">📖</div>
+      <div>
+        <h2>觀點 <span class="en-label">/ Deep Reads</span></h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">代理 AI 重塑晶片架構——「成本才是王道」，ASIC、CPU 與記憶體牆成新戰場</div>
+      <div class="card-source">
+        <span>TechNews 科技新報 編輯台</span><span class="dot">·</span><span>2026-06-10</span><span class="dot">·</span>
+        <a href="https://technews.tw/2026/06/10/ai-inference-and-memory/" target="_blank">來源連結</a>
+      </div>
+      <div style="font-size:14px; color:var(--text);">
+        <p>AI 推論時代的到來改變了晶片架構優先次序：訓練看 FLOPS、推論看 token/$ 和 token/watt。文章梳理 ASIC（Google TPU、AWS Trainium）vs. GPU（NVIDIA）vs. CPU（Qualcomm/Intel/AMD）在推論成本結構上的差異，並指出「記憶體牆」（有限的 HBM 頻寬 vs. 不斷膨脹的模型大小）是未來 2-3 年的核心供應鏈制約。值得從設備材料及記憶體角度延伸閱讀。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">COMPUTEX 2026：光互連方案成展出重點，CPO 大幅減少資料中心能耗</div>
+      <div class="card-source">
+        <span>TechNews / VIP 付費內容</span><span class="dot">·</span><span>2026-06-09</span><span class="dot">·</span>
+        <a href="https://technews.tw/2026/06/09/computex-2026-optical-interconnect-solutions-key-focus-reduce-data-center-energy-consumption/" target="_blank">來源連結</a>
+      </div>
+      <div style="font-size:14px; color:var(--text);">
+        <p>共同封裝光學（CPO）與矽光子方案在 COMPUTEX 2026 取得顯著曝光，背景是 AI 資料中心功耗每年以數十% 增長。中國同期管制 InP 出口恰好形成逆風——在全球推進光電整合之際，材料供應鏈多元化議題浮出水面。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sources Footer -->
+  <div class="sources-footer">
+    <h3>資料來源 / Sources</h3>
+    <ul>
+      <li><a href="https://www.trendforce.com/news/" target="_blank">TrendForce News</a></li>
+      <li><a href="https://nvidianews.nvidia.com/" target="_blank">NVIDIA Newsroom</a></li>
+      <li><a href="https://technews.tw/category/tech/semiconductor/" target="_blank">TechNews 科技新報</a></li>
+      <li><a href="https://asia.nikkei.com/Business/Tech/Semiconductors" target="_blank">Nikkei Asia</a></li>
+      <li><a href="https://www.thelec.kr/" target="_blank">The Elec</a></li>
+      <li><a href="https://www.axios.com/" target="_blank">Axios</a></li>
+      <li><a href="https://www.semi.org/en/news-resources" target="_blank">SEMI</a></li>
+      <li><a href="https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-expands-singapore-manufacturing-support-ai" target="_blank">Applied Materials IR</a></li>
+      <li><a href="https://www.kita.org/" target="_blank">KITA 韓國貿協</a></li>
+    </ul>
+    <p style="margin-top:16px; font-size:12px; color:var(--muted);">本日報由 AI 自動彙整，事實與分析已加以標示區分。部分付費媒體（Bloomberg、WSJ、DigiTimes、SemiAnalysis、The Information）因封鎖無法存取，標記如下。</p>
+    <p style="margin-top:8px; font-size:12px; color:var(--accent3);">封鎖/付費牆：Reuters（403）、Bloomberg Semiconductors（paywall）、WSJ（paywall）、DigiTimes（paywall）、SemiAnalysis（paywall）</p>
+  </div>
+
+</div><!-- /container -->
+
+</body>
+</html>

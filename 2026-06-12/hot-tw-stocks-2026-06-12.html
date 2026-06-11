@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日台股熱門焦點股 — 2026-06-12</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --bg2: #1a1d27;
+    --bg3: #22263a;
+    --border: #2e3354;
+    --text: #e8eaf0;
+    --muted: #8b90a8;
+    --accent: #4f8ef7;
+    --green: #3dd68c;
+    --red: #f76c5e;
+    --yellow: #f5c842;
+    --orange: #f5924e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', 'PingFang TC', sans-serif; font-size: 15px; line-height: 1.6; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header { background: linear-gradient(135deg, #1b2240 0%, #0f1117 60%); border-bottom: 2px solid var(--accent); padding: 28px 36px 22px; }
+  header h1 { font-size: 1.7rem; color: #fff; letter-spacing: 0.02em; }
+  header .subtitle { color: var(--muted); margin-top: 4px; font-size: 0.93rem; }
+  header .note { margin-top: 10px; background: rgba(245,200,66,0.12); border: 1px solid var(--yellow); border-radius: 6px; padding: 8px 14px; color: var(--yellow); font-size: 0.88rem; display: inline-block; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 28px 24px; }
+
+  /* Summary Table */
+  .summary-table { width: 100%; border-collapse: collapse; margin-bottom: 36px; background: var(--bg2); border-radius: 10px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.3); }
+  .summary-table thead th { background: var(--bg3); color: var(--accent); font-size: 0.82rem; padding: 12px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  .summary-table tbody td { padding: 11px 10px; border-bottom: 1px solid var(--border); font-size: 0.87rem; vertical-align: middle; }
+  .summary-table tbody tr:hover { background: var(--bg3); }
+  .summary-table tbody tr:last-child td { border-bottom: none; }
+  .up { color: var(--green); font-weight: 700; }
+  .down { color: var(--red); font-weight: 700; }
+  .limit-up { color: var(--green); background: rgba(61,214,140,0.12); border-radius: 4px; padding: 2px 6px; font-size: 0.8rem; font-weight: 700; }
+  .limit-down { color: var(--red); background: rgba(247,108,94,0.12); border-radius: 4px; padding: 2px 6px; font-size: 0.8rem; font-weight: 700; }
+  .heat { font-size: 1rem; letter-spacing: -2px; }
+
+  /* Section Header */
+  .section-title { font-size: 1.15rem; font-weight: 700; color: var(--accent); margin: 32px 0 16px; padding-left: 12px; border-left: 4px solid var(--accent); }
+  .section-subtitle { color: var(--muted); font-size: 0.85rem; margin-bottom: 20px; }
+
+  /* Stock Card */
+  .stock-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; margin-bottom: 22px; box-shadow: 0 2px 12px rgba(0,0,0,0.25); }
+  .stock-card-header { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .stock-id { font-size: 1.4rem; font-weight: 800; color: #fff; }
+  .stock-name { font-size: 1.1rem; font-weight: 600; color: var(--accent); }
+  .stock-eng { color: var(--muted); font-size: 0.85rem; }
+  .tape { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; background: var(--bg3); border-radius: 8px; padding: 12px 16px; font-size: 0.88rem; }
+  .tape-item label { color: var(--muted); font-size: 0.78rem; display: block; margin-bottom: 2px; }
+  .tape-item span { font-weight: 700; }
+
+  .card-section { margin-bottom: 14px; }
+  .card-section h4 { color: var(--yellow); font-size: 0.88rem; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .card-section p, .card-section ul { color: var(--text); font-size: 0.91rem; }
+  .card-section ul { padding-left: 18px; }
+  .card-section li { margin-bottom: 4px; }
+
+  .sources-line { font-size: 0.78rem; color: var(--muted); margin-top: 12px; padding-top: 8px; border-top: 1px solid var(--border); }
+  .sources-line a { color: var(--muted); }
+  .sources-line a:hover { color: var(--accent); }
+
+  /* Market Backdrop */
+  .market-backdrop { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+  .market-backdrop table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  .market-backdrop td { padding: 7px 12px; font-size: 0.89rem; border-bottom: 1px solid var(--border); }
+  .market-backdrop td:first-child { color: var(--muted); width: 35%; }
+  .market-backdrop tr:last-child td { border-bottom: none; }
+
+  /* Watch List */
+  .watchlist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-bottom: 24px; }
+  .watchlist-item { background: var(--bg2); border: 1px solid var(--border); border-radius: 9px; padding: 14px 16px; }
+  .watchlist-item .wl-code { font-size: 1.05rem; font-weight: 800; color: #fff; }
+  .watchlist-item .wl-name { font-size: 0.88rem; color: var(--accent); }
+  .watchlist-item .wl-note { font-size: 0.82rem; color: var(--muted); margin-top: 6px; }
+
+  /* Caution List */
+  .caution-card { background: rgba(247,108,94,0.07); border: 1px solid rgba(247,108,94,0.35); border-radius: 9px; padding: 14px 16px; margin-bottom: 12px; }
+  .caution-card .cc-header { font-size: 1rem; font-weight: 700; color: var(--red); }
+  .caution-card .cc-note { font-size: 0.88rem; color: var(--text); margin-top: 6px; }
+  .badge-danger { background: rgba(247,108,94,0.2); color: var(--red); border-radius: 4px; padding: 2px 7px; font-size: 0.78rem; font-weight: 700; margin-left: 6px; }
+
+  /* Footer */
+  footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 24px 36px; margin-top: 40px; }
+  footer h3 { color: var(--accent); margin-bottom: 12px; font-size: 0.95rem; }
+  footer ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
+  footer ul li a { color: var(--muted); font-size: 0.82rem; }
+  footer ul li a:hover { color: var(--accent); }
+  footer .disclaimer { color: var(--muted); font-size: 0.78rem; margin-top: 16px; line-height: 1.5; }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    header { padding: 18px; }
+    .container { padding: 18px 12px; }
+    .summary-table { font-size: 0.78rem; }
+    .summary-table thead th, .summary-table tbody td { padding: 8px 6px; }
+    .tape { gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>台股熱門焦點股 / Taiwan Hot Stocks</h1>
+  <div class="subtitle">2026年6月12日（五）· 最近交易日：2026-06-11（週四）· 資料截止盤後</div>
+  <div class="note">
+    ⚠ 注意：6月12日台北時間上午2:15時市場尚未開盤。本報告以最近完成的6月11日（週四）交易日為主要數據基準，
+    並結合美股6月10日夜間動態與6月8–11日個股動能脈絡。
+    市場處於高度震盪期（美伊衝突升溫、費半近週單周重挫12%後技術修復中）。
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ============ MARKET BACKDROP ============ -->
+  <div class="section-title">大盤背景 / Market Backdrop</div>
+  <div class="market-backdrop">
+    <p style="color:var(--text); font-size:0.93rem; line-height:1.8;">
+      6月11日（週四）加權指數高低震盪達1,456點（「大怒神」行情），終場收43,149.46點，下跌76.08點（-0.18%），
+      拉出長達1,143點的下影線，守住43,000點大關。台積電當日除息（現金股利），除息後收在除息參考價2,250元平盤，
+      盤中雖一度填息隨後翻黑。成交值1.25兆元，較前日萎縮。
+      <br><br>
+      <strong style="color:var(--yellow)">本週台股脈絡（6/8–6/11）：</strong>
+      6月8日（週一）費半崩10%引發史上第三大跌點1,568點，盤中一度重挫2,694點；
+      6月9日費半反彈5.6%帶動大漲1,201點重返44K；
+      6月10日美伊再度升溫+SemiAnalysis CPO延後報告，再跌1,478點失守月線；
+      6月11日台積電除息震盪後收小跌。<br><br>
+      <strong style="color:var(--yellow)">外資動向：</strong>三大法人整週以賣超為主，外資尤甚。6月10日外資單日砍938億元。台幣貶值壓力，6月11日匯率觸及近兩個月低點31.752元。<br><br>
+      <strong style="color:var(--yellow)">美股6月10日夜（台灣6月11日參照）：</strong>
+      費半重挫451點（-3.57%）至12,206點，台積電ADR（TSM）大跌19.17美元（-4.48%）至408.75美元。
+      美伊再度全面交火，川普下令重擊伊朗；科威特攔截空中目標、荷姆茲海峽封閉成為週末最大地緣風險因子，預計6月12日開盤面臨較大壓力。
+    </p>
+    <table>
+      <tr><td>加權指數（6/11收）</td><td class="down">43,149.46（-76.08點，-0.18%）</td></tr>
+      <tr><td>本週累計（6/9-11）</td><td class="down">從44,704下跌至43,149（-3.5%）</td></tr>
+      <tr><td>成交值（6/11）</td><td>1.25兆元</td></tr>
+      <tr><td>台積電（2330）</td><td>2,250元（除息日，收在除息參考價平盤）</td></tr>
+      <tr><td>費半（6/10）</td><td class="down">12,206.46（-3.57%）</td></tr>
+      <tr><td>台積電ADR（6/10）</td><td class="down">US$408.75（-4.48%）</td></tr>
+      <tr><td>台幣兌美元（6/11）</td><td class="down">31.752（近兩個月低）</td></tr>
+      <tr><td>地緣風險</td><td style="color:var(--red);">美伊全面交火、荷姆茲海峽封閉；油價走高</td></tr>
+    </table>
+  </div>
+
+  <!-- ============ SUMMARY TABLE ============ -->
+  <div class="section-title">熱門焦點總覽 / Top Hot Stocks Summary</div>
+  <p class="section-subtitle">基於6月11日盤後數據與本週動能。★ = 熱度（量＋價＋籌碼＋噪音＋題材綜合判斷）</p>
+
+  <div style="overflow-x:auto;">
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>股號</th>
+        <th>公司</th>
+        <th>族群</th>
+        <th>6/11收</th>
+        <th>漲跌</th>
+        <th>題材</th>
+        <th>熱度</th>
+        <th>主要 Catalyst</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="#s3042">3042</a></td>
+        <td>晶技</td>
+        <td>石英元件</td>
+        <td>235元</td>
+        <td><span class="limit-up">+9.81%</span></td>
+        <td>AI光模組漲價</td>
+        <td><span class="heat">★★★★★</span></td>
+        <td>石英振盪器AI伺服器漲價題材爆發，產業景氣上行</td>
+      </tr>
+      <tr>
+        <td><a href="#s6174">6174</a></td>
+        <td>安碁</td>
+        <td>石英元件</td>
+        <td>51.7元</td>
+        <td><span class="limit-up">漲停+10%</span></td>
+        <td>AI光模組漲價</td>
+        <td><span class="heat">★★★★★</span></td>
+        <td>晶技帶頭石英族群全面拉升，安碁跟進漲停</td>
+      </tr>
+      <tr>
+        <td><a href="#s8182">8182</a></td>
+        <td>加高</td>
+        <td>石英元件</td>
+        <td>54.5元</td>
+        <td><span class="limit-up">+9.88%</span></td>
+        <td>AI光模組漲價</td>
+        <td><span class="heat">★★★★☆</span></td>
+        <td>石英元件族群共振；基期低漲幅彈性佳</td>
+      </tr>
+      <tr>
+        <td><a href="#s2484">2484</a></td>
+        <td>希華</td>
+        <td>石英元件</td>
+        <td>~60元區間</td>
+        <td><span class="up">+4~10%</span></td>
+        <td>石英器件需求回溫</td>
+        <td><span class="heat">★★★★☆</span></td>
+        <td>營收連月成長；6/10盤中曾攻漲停63.9元；本週石英龍頭之一</td>
+      </tr>
+      <tr>
+        <td><a href="#s2059">2059</a></td>
+        <td>川湖</td>
+        <td>AI伺服器導軌</td>
+        <td>~6,180元</td>
+        <td><span class="limit-up">6/8漲停逆勢</span></td>
+        <td>AI伺服器5月營收超預期</td>
+        <td><span class="heat">★★★★☆</span></td>
+        <td>5月營收遠超預期，投顧喊目標價7,500元；千金股逆勢亮燈</td>
+      </tr>
+      <tr>
+        <td><a href="#s2509">2509</a></td>
+        <td>全坤建</td>
+        <td>營建</td>
+        <td>~13.75元</td>
+        <td><span class="limit-up">6/10漲停</span></td>
+        <td>類股輪動避險買盤</td>
+        <td><span class="heat">★★★☆☆</span></td>
+        <td>電子股崩跌期間營建逆勢爆量漲停，資金輪動避風港</td>
+      </tr>
+      <tr>
+        <td><a href="#s8043">8043</a></td>
+        <td>蜜望實</td>
+        <td>被動元件</td>
+        <td>—（6/5漲停後回整）</td>
+        <td><span class="up">前幾日強勢</span></td>
+        <td>被動元件漲價</td>
+        <td><span class="heat">★★★☆☆</span></td>
+        <td>6/5漲停、6/8從跌停拉至漲停（20%幅度），被動元件龍頭輪動</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- ============ TOP PICKS DEEP DIVE ============ -->
+  <div class="section-title">熱門焦點 Top 5 深度剖析 / Deep Dive</div>
+
+  <!-- STOCK 1: 晶技 3042 -->
+  <div class="stock-card" id="s3042">
+    <div class="stock-card-header">
+      <span class="stock-id">3042</span>
+      <span class="stock-name">晶技 Taitien Electronics</span>
+      <span class="stock-eng">石英元件 / Quartz Crystal Component</span>
+    </div>
+    <div class="tape">
+      <div class="tape-item"><label>6/11收盤</label><span class="up">235元（+9.81%）</span></div>
+      <div class="tape-item"><label>振幅</label><span>待確認</span></div>
+      <div class="tape-item"><label>三大法人</label><span>待確認（來源：TWSE T86）</span></div>
+      <div class="tape-item"><label>族群</label><span>石英元件龍頭</span></div>
+    </div>
+
+    <div class="card-section">
+      <h4>為什麼今天熱 / Why It's Hot</h4>
+      <p>
+        石英元件族群在6月11日成為全市場最強族群，晶技(3042)幾乎貼近漲停收盤（+9.81%），安碁(6174)更直接亮燈漲停。
+        驅動力來自雙重 catalyst：<br>
+        (1) <strong>漲價題材</strong>：AI 伺服器與 800G/1.6T 光通訊模組升級週期中，石英振盪器（TCXO/OCXO）規格升級需求激增，日系廠商已開始漲價，台灣廠商跟漲預期強烈；
+        (2) <strong>比較基期低</strong>：去年同期獲利相對低基期，今年在 AI 需求帶動下 EPS 成長確定性高，吸引法人逢低布局。<br><br>
+        Quartz crystal oscillators are critical timing components in high-speed AI server interconnects and optical transceivers. As the industry moves from 400G to 800G/1.6T, frequency precision requirements increase, driving both ASP upgrades and volume demand. Japanese vendors raising prices triggered Taiwan peer re-rating.
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h4>籌碼觀察 / Flow Watch</h4>
+      <p>
+        法人買賣超數字待確認（TWSE 盤後公告），但觀察盤面特徵：石英族群在大盤震盪期間「逆勢放量拉升」，成交量明顯異常放大，非單純跟漲大盤，符合主動性買盤介入特徵。晶技同類股集群式上漲（晶技、安碁、加高同日齊揚）顯示資金有計畫性進駐。融資券資料待確認。
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h4>社群聲量 / Retail Buzz</h4>
+      <p>
+        PTT Stock 板討論度上升，石英元件被標記為「電子股大跌中唯一有題材的族群」。CMoney 熱搜亦可見晶技出現在當日話題前列。常見討論：「費半崩、石英漲，輪動到防禦型 AI 零組件」。
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h4>炒作脈絡 / Narrative Context</h4>
+      <p>
+        晶技是台灣石英元件龍頭，除了傳統通訊與消費電子應用，近年成功打入低軌衛星（StarLink 供應鏈）及 AI 光通訊供應鏈。6月11日的爆量上漲模式類似2023年石英族群剛受注目時的走法：大型族群（AI 伺服器、重電）回調整理時，資金轉移到尚未漲過的次主流題材，形成「接棒行情」。石英六雄（晶技、希華、泰藝、台嘉碩、加高、安碁）齊動，是族群共振而非個別事件。
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h4>後續觀察 / What to Watch Next</h4>
+      <ul>
+        <li>6/12 開盤量能能否延續：若成交量維持3倍以上5日均量，行情較有可延續性</li>
+        <li>隔日沖籌碼：漲停次日常見出貨壓力，若隔日開盤直接跳空開高後拉回則需警惕</li>
+        <li>法人是否跟進：觀察TWSE三大法人買賣超日報，確認是否為投信主導</li>
+        <li>比較基礎：該族群本週已明顯啟動，若美伊局勢稍微緩和費半反彈，資金可能再度回流AI主流股</li>
+        <li>（以上為分析觀點，非投資建議）</li>
+      </ul>
+    </div>
+    <div class="sources-line">
+      來源：<a href="https://news.cnyes.com/news/id/6495587" target="_blank">鉅亨 6/11盤後</a> ·
+      <a href="https://www.sinotrade.com.tw/richclub/industry/%E7%9F%B3%E8%8B%B1%E5%85%83%E4%BB%B6%E6%98%AF%E4%BB%80%E9%BA%BC-%E5%8F%B0%E7%81%A3%E7%9F%B3%E8%8B%B1%E5%85%AD%E9%9B%84" target="_blank">豐雲學堂石英六雄分析</a> ·
+      <a href="https://tw.stock.yahoo.com/quote/3042.TW" target="_blank">Yahoo晶技</a>
+    </div>
+  </div>
+
+  <!-- STOCK 2: 安碁 6174 -->
+  <div class="stock-card" id="s6174">
+    <div class="stock-card-header">
+      <span class="stock-id">6174</span>
+      <span class="stock-name">安碁 Anbi Technology</span>
+      <span class="stock-eng">石英元件 / Quartz Crystal</span>
+    </div>
+    <div class="tape">
+      <div class="tape-item"><label>6/11收盤</label><span class="limit-up">51.7元（漲停+10%）</span></div>
+      <div class="tape-item"><label>前收</label><span>約47元</span></div>
+      <div class="tape-item"><label>成交量</label><span>待確認</span></div>
+      <div class="tape-item"><label>族群</label><span>石英元件</span></div>
+    </div>
+
+    <div class="card-section">
+      <h4>為什麼今天熱 / Why It's Hot</h4>
+      <p>
+        安碁（6174）在6月11日亮燈漲停，為石英六雄中當日表現最強者。Catalyst 與晶技相同（石英元件漲價 + AI 光通訊需求），但安碁股本較小、市值較輕，動能彈性更大，吸引散戶資金追捧。鉅亨盤後報導明確點名「晶技、安碁、加高」為6月11日強勢族群。<br><br>
+        Anbi Technology hit the 10% daily limit up, representing the most aggressive mover among the quartz six. Smaller market cap gives greater price elasticity for the same thematic catalyst.
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h4>籌碼觀察 / Flow Watch</h4>
+      <p>
+        漲停封板成功，委買單積壓（待查張數），顯示多頭信心強。小市值股票在漲停後隔日籌碼動向更關鍵，若主力分點集中在特定券商則後續追蹤價值高。融資可能在漲停後明顯增加，需追蹤後續融資增幅是否過速（隔日沖風險指標）。
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h4>社群聲量 / Retail Buzz</h4>
+      <p>
+        PTT 與 CMoney 論壇可見「石英族群漲停潮」相關討論，安碁為其中被提及次數較多的標的之一，多空焦點在「已追高可否持有」vs「隔日沖賣壓」。
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h4>後續觀察 / What to Watch Next</h4>
+      <ul>
+        <li>漲停日後之開盤走勢：若6/12以漲停或高開維持為正訊號，否則跳水即確認隔日沖</li>
+        <li>觀察晶技是否繼續引領，若晶技率先打開漲停壓力則安碁跟進修正</li>
+        <li>（分析觀點，非投資建議）</li>
+      </ul>
+    </div>
+    <div class="sources-line">
+      來源：<a href="https://news.cnyes.com/news/id/6495587" target="_blank">鉅亨 6/11盤後</a> ·
+      <a href="https://tw.stock.yahoo.com/quote/6174.TW" target="_blank">Yahoo安碁</a>
+    </div>
+  </div>
+
+  <!-- STOCK 3: 川湖 2059 -->
+  <div class="stock-card" id="s2059">
+    <div class="stock-card-header">
+      <span class="stock-id">2059</span>
+      <span class="stock-name">川湖 King Slide</span>
+      <span class="stock-eng">AI 伺服器導軌 / Rack Slide Rail</span>
+    </div>
+    <div class="tape">
+      <div class="tape-item"><label>6/8收盤</label><span class="limit-up">6,180元（漲停，電子股崩跌日逆勢）</span></div>
+      <div class="tape-item"><label>5/30前後高</label><span>約5,620元</span></div>
+      <div class="tape-item"><label>漲幅</label><span class="up">+9.96%（6/8）</span></div>
+      <div class="tape-item"><label>族群</label><span>AI伺服器周邊</span></div>
+    </div>
+
+    <div class="card-section">
+      <h4>為什麼今天熱 / Why It's Hot</h4>
+      <p>
+        川湖（2059）在6月8日（台股史詩級崩盤日，大盤一度跌2,694點）逆勢亮燈漲停6,180元，成為當日盤面最受矚目的千金股。
+        具體 Catalyst：<strong>5月營收遠超市場預期</strong>，以及本土投顧最新報告維持「買進」評等並上調目標價至 7,500元（當時約有21%的上漲空間）。
+        川湖是全球 AI 伺服器機架導軌核心供應商，受益於 NVIDIA Blackwell/Rubin 伺服器大型機架需求激增，屬於具基本面支撐的逆勢標的。<br><br>
+        King Slide hit daily limit up on the worst single-day Taiwan stock crash of 2026 (so far), driven by a massive May revenue beat and a buy-side analyst target price upgrade to NT$7,500. This is a genuine fundamental catalyst, not just a thematic play.
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h4>籌碼觀察 / Flow Watch</h4>
+      <p>
+        外資連續加碼，投信亦有跟進跡象。千金股流動性有限，大戶佔比高，散戶在漲停日追高成本風險較高。
+        後續留意外資是否在指數反彈日獲利了結、或是繼續加碼衝關 7,000 元。
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h4>炒作脈絡 / Narrative Context</h4>
+      <p>
+        川湖近年已從「傳統抽屜滑軌廠」完全轉型為 AI 伺服器機架滑軌龍頭，NVIDIA、Dell、SuperMicro 等主要伺服器品牌均採用其產品。
+        在費半崩跌、大型電子廠全線倒下的當日，川湖能夠漲停，反映市場對其「非追題材、有訂單支撐」屬性的高度認可。2026年前5月累計 EPS 已超過2025年全年，正向訊號明確。
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h4>後續觀察 / What to Watch Next</h4>
+      <ul>
+        <li>觀察6/12能否守住6,000元整數關卡，為多頭關鍵支撐</li>
+        <li>7,500元目標價能否在季底前達成，依賴6月訂單動向</li>
+        <li>若 AI 伺服器需求出現疑慮（如 SemiAnalysis 這類研調報告），需重新評估</li>
+        <li>（分析觀點，非投資建議）</li>
+      </ul>
+    </div>
+    <div class="sources-line">
+      來源：<a href="https://finance.ettoday.net/news/3179420" target="_blank">ETtoday 6/8川湖逆勢漲停</a> ·
+      <a href="https://tw.stock.yahoo.com/quote/2059.TW" target="_blank">Yahoo川湖</a>
+    </div>
+  </div>
+
+  <!-- STOCK 4: 被動元件 蜜望實 8043 + 國巨 2327 -->
+  <div class="stock-card" id="s8043">
+    <div class="stock-card-header">
+      <span class="stock-id">8043 / 2327</span>
+      <span class="stock-name">蜜望實 ＋ 國巨 Wus Printed / Yageo</span>
+      <span class="stock-eng">被動元件族群 / Passive Components Cluster</span>
+    </div>
+    <div class="tape">
+      <div class="tape-item"><label>蜜望實 6/5</label><span class="limit-up">159.5元（漲停）</span></div>
+      <div class="tape-item"><label>蜜望實 6/8</label><span class="limit-up">跌停拉至漲停（+20%！）</span></div>
+      <div class="tape-item"><label>國巨 6/5</label><span class="up">769元（+3.50%）</span></div>
+      <div class="tape-item"><label>國巨 6/8</label><span>早盤漲停後尾盤翻黑</span></div>
+    </div>
+
+    <div class="card-section">
+      <h4>為什麼今天熱 / Why It's Hot</h4>
+      <p>
+        被動元件族群（國巨、華新科、蜜望實、立隆電、禾伸堂等）在6月初至6月9日大盤回檔期間成為「護盤英雄」，在電子權值股全線下跌時逆勢撐盤，屢屢出現漲停個股。
+        Catalyst：<br>
+        (1) <strong>漲價週期啟動</strong>：AI 伺服器 MLCC 需求翻倍，日本松下、基美（Kemet）宣布鈦鉭電容漲價5-65%，觸發台廠跟漲預期；<br>
+        (2) <strong>蜜望實神奇走法</strong>：6月8日（大崩盤日）以跌停144元開出，盤中突然反手攻至175元漲停鎖死，展現極強的主力意志，當日若低接跌停能賺20%，成為討論度最高的事件股；<br>
+        (3) <strong>國巨估值重評</strong>：外資更新報告，強調國巨不再是「景氣循環股」而是「AI成長股」，正在重新定價。<br><br>
+        The passive components cluster became the market's "anchor in the storm" — hitting limit-up while tech flagships were melting down. The narrative shift from cyclical to AI structural growth stock is the key repricing catalyst.
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h4>籌碼觀察 / Flow Watch</h4>
+      <p>
+        蜜望實（8043）在漲停日委買單超過1.4萬張積壓，顯示主力不急於出貨；國巨則有外資連續加碼訊號（待確認每日買賣超細項）。
+        禾伸堂（3026）因6月初漲幅過大（年漲幅高達250%），已遭主管機關列入處置股，成交需為零股交易，實際流動性受限，投資人須特別留意。
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h4>社群聲量 / Retail Buzz</h4>
+      <p>
+        PTT Stock 板「蜜望實跌停拉漲停事件」引發大量討論，成為6月8日最多人轉發的股票故事。CMoney 熱搜中被動元件前三名持續高熱度。投顧群組對國巨是否能挑戰800-1000元有廣泛討論。
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h4>後續觀察 / What to Watch Next</h4>
+      <ul>
+        <li>觀察6/12蜜望實是否維持在160元以上，決定6/8神走法是否只是短線操作</li>
+        <li>國巨能否再次挑戰800元關卡，關注外資買超是否連續5日以上</li>
+        <li>禾伸堂（3026）處置股身份需等解除後才能恢復正常交易，在此期間不宜追高</li>
+        <li>被動元件漲價周期若延伸至Q3，族群有機會持續在盤面佔有一席之地</li>
+        <li>（分析觀點，非投資建議）</li>
+      </ul>
+    </div>
+    <div class="sources-line">
+      來源：<a href="https://finance.ettoday.net/news/3179631" target="_blank">ETtoday 6/8蜜望實事件</a> ·
+      <a href="https://news.cnyes.com/news/id/6485639" target="_blank">鉅亨 6/5被動元件護盤</a> ·
+      <a href="https://tw.stock.yahoo.com/news/%E8%A2%AB%E5%8B%95%E5%85%83%E4%BB%B6%E9%A3%86%E5%A4%AA%E5%BF%AB" target="_blank">Yahoo 被動元件處置股</a>
+    </div>
+  </div>
+
+  <!-- STOCK 5: 營建 全坤建 2509 -->
+  <div class="stock-card" id="s2509">
+    <div class="stock-card-header">
+      <span class="stock-id">2509</span>
+      <span class="stock-name">全坤建 Chuan Kuen Construction</span>
+      <span class="stock-eng">營建類股代表 / Construction Sector Proxy</span>
+    </div>
+    <div class="tape">
+      <div class="tape-item"><label>6/10收盤</label><span class="limit-up">13.75元（漲停）</span></div>
+      <div class="tape-item"><label>6/11</label><span class="down">跌0.83%（類股整理）</span></div>
+      <div class="tape-item"><label>同族群6/10漲停</label><span>欣巴巴、京城、國建、聯上發</span></div>
+      <div class="tape-item"><label>族群</label><span>營建</span></div>
+    </div>
+
+    <div class="card-section">
+      <h4>為什麼今天熱 / Why It's Hot</h4>
+      <p>
+        6月10日（大盤第六大跌點1,478點）電子股崩跌日，營建族群多達4-5檔漲停，成為當日最鮮明的「資金避難所」，上演大盤下、個股逆勢的輪動行情。
+        Catalyst：
+        (1) <strong>防禦性輪動</strong>：電子股籌碼混亂時，資金轉向本益比低、與 AI/半導體週期無關的傳統產業；
+        (2) <strong>房市仍支撐</strong>：台灣房市6月數據未見惡化，且央行雖有管制訊號（楊金龍表態「踩煞車」），但政策實施的不確定性使部分資金提前反應利多；
+        (3) <strong>6月11日受央行壓制</strong>：楊金龍發表管制言論後，营建類股反轉收跌，顯示6/10的漲停帶有投機性質。<br><br>
+        Construction stocks served as safe-haven plays on the worst tech sell-off days, but quickly gave back gains when the central bank governor cautioned on property controls. Classic defensive rotation with a short shelf life.
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h4>籌碼觀察 / Flow Watch</h4>
+      <p>
+        6/10 多檔漲停成交量大幅放大，但6/11 後三大法人基本無持續性買盤。散戶情緒驅動比例高，籌碼穩定性偏低。
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h4>炒作脈絡 / Narrative Context</h4>
+      <p>
+        台灣營建股因利率政策敏感性及房市管制風險，長期估值偏低，但每當大型電子族群崩跌時，會吸引短線資金作為「電子股崩盤避難」的替代投機標的，形成週期性輪動模式。央行一旦表態，通常是好題材終結訊號。6月12日能否延續需觀察央行政策實際行動。
+      </p>
+    </div>
+
+    <div class="card-section">
+      <h4>後續觀察 / What to Watch Next</h4>
+      <ul>
+        <li>央行若再度明確管制房市，營建補跌風險大；反之若電子股繼續弱勢，可能再度輪動</li>
+        <li>觀察6/12是否有法人認列持續性部位</li>
+        <li>（分析觀點，非投資建議）</li>
+      </ul>
+    </div>
+    <div class="sources-line">
+      來源：<a href="https://news.cnyes.com/news/id/6493191" target="_blank">鉅亨 6/10盤後（營建逆勢漲停）</a> ·
+      <a href="https://news.cnyes.com/news/id/6495587" target="_blank">鉅亨 6/11盤後（央行壓制後回落）</a>
+    </div>
+  </div>
+
+  <!-- ============ WATCH LIST ============ -->
+  <div class="section-title">次熱觀察 / Watch List</div>
+  <p class="section-subtitle">未列入主榜但本週明顯有動能、值得追蹤的標的</p>
+  <div class="watchlist-grid">
+    <div class="watchlist-item">
+      <div class="wl-code">1519</div>
+      <div class="wl-name">華城 / Huacheng Electric</div>
+      <div class="wl-note">重電四雄之一。6/4挑戰千元（高點997），後因6/5重電族群回落修正。AI電力基礎建設長線題材仍在，等待再次進攻時機。</div>
+    </div>
+    <div class="watchlist-item">
+      <div class="wl-code">8150</div>
+      <div class="wl-name">南茂 / Chipbond</div>
+      <div class="wl-note">記憶體族群代表。6/4漲停後6/8遭重挫，SemiAnalysis報告衝擊。後續DDR5/HBM需求確認是重返關鍵。</div>
+    </div>
+    <div class="watchlist-item">
+      <div class="wl-code">6414</div>
+      <div class="wl-name">樺漢 / Ennoconn</div>
+      <div class="wl-note">6/11宣布以每股23.5歐元收購德國Kontron AG（持股超30%），布局實體AI商機。重訊股，短期動能待確認。</div>
+    </div>
+    <div class="watchlist-item">
+      <div class="wl-code">3147</div>
+      <div class="wl-name">大綜 / Tatung</div>
+      <div class="wl-note">AI伺服器機電整合，受惠半導體客戶占比突破50%，法人預估2026年EPS挑戰雙位數。基本面強但已漲過一波。</div>
+    </div>
+    <div class="watchlist-item">
+      <div class="wl-code">2882</div>
+      <div class="wl-name">國泰金 / Cathay Financial</div>
+      <div class="wl-note">金融族群在大盤震盪時逆勢扮演護盤角色，6/5漲超半根停板。富邦金(2881)前5月EPS 11.36元創歷史同期新高。</div>
+    </div>
+    <div class="watchlist-item">
+      <div class="wl-code">2303</div>
+      <div class="wl-name">聯電 / UMC</div>
+      <div class="wl-note">6/5一枝獨秀漲超半根停板，在電子五哥全跌的環境下展現異常強勢，原因待確認（外資翻多或特定訂單消息）。</div>
+    </div>
+  </div>
+
+  <!-- ============ CAUTION LIST ============ -->
+  <div class="section-title">異常注意 / Caution List</div>
+
+  <div class="caution-card">
+    <div class="cc-header">禾伸堂 3026 <span class="badge-danger">處置股</span></div>
+    <div class="cc-note">
+      被動元件族群代表，今年來漲幅已達250%+，因漲幅過速已遭交易所列入處置股。處置期間：
+      採逐筆撮合（非集合競價），每30分鐘撮合一次，大幅降低流動性。
+      追高風險極大，等待解除處置後才宜考慮布局。
+    </div>
+  </div>
+
+  <div class="caution-card">
+    <div class="cc-header">CPO光通訊族群（聯亞3081、波若威3163、華星光4979、上詮3363）<span class="badge-danger">高波動</span></div>
+    <div class="cc-note">
+      6/10 因 SemiAnalysis 報告指出 CPO（共同封裝光學）量產時程延後，上述個股全數跌停。
+      此類研調報告引發的跌停行情往往是題材終結訊號，近期籌碼凌亂，不宜輕易低接。
+      後續需觀察主要客戶（NVIDIA等）是否有反駁訊號或重新確認時間表。
+    </div>
+  </div>
+
+  <div class="caution-card">
+    <div class="cc-header">美伊衝突尾部風險 <span class="badge-danger">地緣黑天鵝</span></div>
+    <div class="cc-note">
+      荷姆茲海峽封閉（伊朗宣告）若持續，全球原油供應受衝擊，油價大漲將引發通膨再升、美聯準會政策不確定性增加，
+      對科技股估值形成壓力。若6/12 開盤美伊局勢進一步惡化，整體大盤面臨第四波修正風險，
+      個股再強也難免受拖累。2026年6月12日台灣時間上午2時，川普已下令重擊伊朗、科威特攔截飛彈。
+    </div>
+  </div>
+
+  <div class="caution-card">
+    <div class="cc-header">記憶體族群（華邦電2344、南亞科2408、力積電6770）<span class="badge-danger">震盪分歧</span></div>
+    <div class="cc-note">
+      SemiAnalysis 報告稱 HBM 需求未降溫的分析被媒體打臉（又有研調反駁），
+      記憶體族群陷入報告戰。籌碼短期凌亂，適合等待方向更明確後再布局。
+      不建議在報告分歧期間短線進出。
+    </div>
+  </div>
+
+</div><!-- end container -->
+
+<footer>
+  <h3>資料來源 / Sources Consulted</h3>
+  <ul>
+    <li><a href="https://news.cnyes.com/news/id/6495587" target="_blank">鉅亨 6/11台股盤後</a></li>
+    <li><a href="https://news.cnyes.com/news/id/6493191" target="_blank">鉅亨 6/10台股盤後</a></li>
+    <li><a href="https://news.cnyes.com/news/id/6485639" target="_blank">鉅亨 6/5被動元件護盤</a></li>
+    <li><a href="https://news.cnyes.com/news/id/6484140" target="_blank">鉅亨 量大強漲股整理</a></li>
+    <li><a href="https://finance.ettoday.net/news/3179631" target="_blank">ETtoday 6/8蜜望實事件</a></li>
+    <li><a href="https://finance.ettoday.net/news/3179420" target="_blank">ETtoday 6/8川湖逆勢漲停</a></li>
+    <li><a href="https://news.nextapple.com/finance/20260611/0E0726EF3AC3AA41E081952922D7E09F" target="_blank">壹蘋 6/11美伊費半崩跌</a></li>
+    <li><a href="https://www.sinotrade.com.tw/richclub/industry/%E7%9F%B3%E8%8B%B1%E5%85%83%E4%BB%B6" target="_blank">豐雲學堂石英六雄</a></li>
+    <li><a href="https://tw.stock.yahoo.com/rank/change-up" target="_blank">Yahoo台股漲幅排行</a></li>
+    <li><a href="https://www.wantgoo.com/stock/ranking/top-gainer" target="_blank">玩股網漲幅排行</a></li>
+    <li><a href="https://www.twse.com.tw/zh/trading/foreign/t86.html" target="_blank">TWSE 三大法人買賣超日報</a></li>
+    <li><a href="https://www.ptt.cc/bbs/Stock/index.html" target="_blank">PTT Stock 板</a></li>
+    <li><a href="https://vocus.cc/article/6a239299fd89780001d78888" target="_blank">六月首週資金流向分析</a></li>
+    <li><a href="https://news.cnyes.com/news/id/6494898" target="_blank">鉅亨 伊朗局勢</a></li>
+  </ul>
+  <div class="disclaimer">
+    本報告由 AI 自動整理生成，資料截止2026年6月11日盤後。數字以各來源揭露為準，若來源間有差異以原始公告為準。
+    本報告不構成任何投資建議，所有分析僅供研究參考。6月12日市場尚未開盤，相關分析為前瞻性判斷，實際表現可能因市場狀況而異。
+    投資有風險，市場變化難以預測，請自行承擔投資責任。
+    <br><br>
+    This report is AI-generated and does not constitute investment advice. Data current as of June 11, 2026 close. All forward-looking statements are analytical judgments only.
+  </div>
+</footer>
+
+</body>
+</html>

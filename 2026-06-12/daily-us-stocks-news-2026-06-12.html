@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美股日報 US Stocks Daily — 2026-06-11 (June 11, 2026)</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .header {
+    background: linear-gradient(135deg, #0a192f 0%, #1a3a5c 100%);
+    color: white;
+    padding: 28px 32px 20px;
+    border-bottom: 3px solid #00d4aa;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+  .header .subtitle { font-size: 12px; color: #8ecae6; margin-top: 4px; }
+  .header .trading-date {
+    display: inline-block;
+    background: #00d4aa;
+    color: #0a192f;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 16px 40px; }
+  .index-table-wrap {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    margin: 20px 0;
+    overflow: hidden;
+  }
+  .index-table-wrap table { width: 100%; border-collapse: collapse; }
+  .index-table-wrap th {
+    background: #0a192f;
+    color: #8ecae6;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 10px 14px;
+    text-align: right;
+  }
+  .index-table-wrap th:first-child { text-align: left; }
+  .index-table-wrap td {
+    padding: 10px 14px;
+    text-align: right;
+    border-bottom: 1px solid #f0f0f0;
+    font-variant-numeric: tabular-nums;
+  }
+  .index-table-wrap td:first-child { text-align: left; font-weight: 600; }
+  .index-table-wrap tr:last-child td { border-bottom: none; }
+  .up { color: #16a34a; font-weight: 700; }
+  .down { color: #dc2626; font-weight: 700; }
+  .neutral { color: #6b7280; }
+  .intraday-note {
+    background: #fff3cd;
+    border: 1px solid #f59e0b;
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin: 8px 0 20px;
+    font-size: 12px;
+    color: #78350f;
+  }
+  .intraday-note strong { color: #b45309; }
+  .section {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  .section-header {
+    background: #0a192f;
+    color: white;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-header .icon { font-size: 16px; }
+  .section-header h2 { font-size: 14px; font-weight: 700; letter-spacing: 0.3px; }
+  .section-header .en { font-size: 11px; color: #8ecae6; font-weight: 400; margin-left: 4px; }
+  .section-body { padding: 18px; }
+  .news-item {
+    border-left: 3px solid #00d4aa;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    background: #f8fffe;
+    border-radius: 0 8px 8px 0;
+  }
+  .news-item:last-child { margin-bottom: 0; }
+  .news-item h3 { font-size: 14px; font-weight: 700; color: #0a192f; margin-bottom: 4px; line-height: 1.4; }
+  .news-item .meta { font-size: 11px; color: #9ca3af; margin-bottom: 10px; }
+  .news-item .meta a { color: #2563eb; text-decoration: none; }
+  .news-item .meta a:hover { text-decoration: underline; }
+  .news-item .fact-label {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.8px; color: #6b7280; margin-top: 10px; margin-bottom: 3px;
+  }
+  .news-item p { font-size: 13px; color: #374151; margin-bottom: 6px; }
+  .badge {
+    display: inline-block;
+    background: #e0f2fe; color: #0369a1;
+    font-size: 11px; font-weight: 700;
+    padding: 2px 7px; border-radius: 4px; margin-right: 4px;
+  }
+  .badge.red { background: #fee2e2; color: #dc2626; }
+  .badge.green { background: #dcfce7; color: #16a34a; }
+  .badge.orange { background: #ffedd5; color: #c2410c; }
+  .movers-table { width: 100%; border-collapse: collapse; }
+  .movers-table th {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.5px; color: #6b7280;
+    padding: 6px 10px; border-bottom: 2px solid #e5e7eb; text-align: left;
+  }
+  .movers-table th.right, .movers-table td.right { text-align: right; }
+  .movers-table td { padding: 8px 10px; border-bottom: 1px solid #f3f4f6; font-size: 13px; }
+  .movers-table tr:last-child td { border-bottom: none; }
+  .footer {
+    background: #0a192f; color: #8ecae6;
+    padding: 18px 32px; font-size: 11px; line-height: 1.8;
+  }
+  .footer a { color: #00d4aa; text-decoration: none; }
+  .footer .sources { margin-top: 6px; }
+  hr.divider { border: none; border-top: 1px dashed #e5e7eb; margin: 14px 0; }
+  .summary-bar {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    padding: 14px 18px; background: #f0fdf4; border-bottom: 1px solid #bbf7d0;
+  }
+  .summary-item { font-size: 12px; }
+  .summary-item .label { color: #6b7280; }
+  .summary-item .val { font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>&#x1F1FA;&#x1F1F8; 美股日報 &middot; US Stocks Daily</h1>
+  <div class="subtitle">June 12, 2026 台北時間發行 &middot; 涵蓋 2026-06-11 美股盤中資料</div>
+  <div class="trading-date">交易日 TRADING DATE: Thursday, June 11, 2026</div>
+</div>
+
+<div class="container">
+
+  <div class="intraday-note">
+    <strong>注意 Note：</strong> 本報發行時美股盤中仍在進行（台北時間 06-12 凌晨）。指數數字取自盤中快照（RTH intraday），最終收盤請以 Yahoo Finance 為準。前日（2026-06-10 週三）收盤數字另行列出供比較。
+  </div>
+
+  <div class="index-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>指數 / Index</th>
+          <th>參考價 / Level</th>
+          <th>漲跌 Chg</th>
+          <th>% 漲跌</th>
+          <th>備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>S&amp;P 500 (SPX)</td>
+          <td>7,304.98</td>
+          <td class="up">+37.99</td>
+          <td class="up">+0.52%</td>
+          <td class="neutral">RTH 盤中 6/11</td>
+        </tr>
+        <tr>
+          <td>Nasdaq Comp (IXIC)</td>
+          <td>25,359.84</td>
+          <td class="up">+190.34</td>
+          <td class="up">+0.76%</td>
+          <td class="neutral">RTH 盤中 6/11</td>
+        </tr>
+        <tr>
+          <td>Dow Jones (DJIA)</td>
+          <td>50,313.37</td>
+          <td class="up">+394.59</td>
+          <td class="up">+0.79%</td>
+          <td class="neutral">RTH 盤中 6/11</td>
+        </tr>
+        <tr>
+          <td>Russell 2000 (RUT)</td>
+          <td>2,870.64</td>
+          <td class="up">+35.17</td>
+          <td class="up">+1.24%</td>
+          <td class="neutral">RTH 盤中 6/11</td>
+        </tr>
+        <tr>
+          <td>VIX 恐慌指數</td>
+          <td>22.07</td>
+          <td class="down">-0.15</td>
+          <td class="down">-0.68%</td>
+          <td class="neutral">盤中 6/11</td>
+        </tr>
+        <tr style="background:#fff8f0;">
+          <td><em>前日 06-10 SPX close</em></td>
+          <td><em>~7,267</em></td>
+          <td class="down"><em>-107.05</em></td>
+          <td class="down"><em>-1.45%</em></td>
+          <td class="neutral"><em>06-10 確認收盤</em></td>
+        </tr>
+        <tr style="background:#fff8f0;">
+          <td><em>前日 06-10 Nasdaq close</em></td>
+          <td><em>~25,170</em></td>
+          <td class="down"><em>-467.64</em></td>
+          <td class="down"><em>-1.82%</em></td>
+          <td class="neutral"><em>06-10 確認收盤</em></td>
+        </tr>
+        <tr style="background:#fff8f0;">
+          <td><em>前日 06-10 Dow close</em></td>
+          <td><em>~50,017</em></td>
+          <td class="down"><em>-854.64</em></td>
+          <td class="down"><em>-1.68%</em></td>
+          <td class="neutral"><em>道指連跌第五日</em></td>
+        </tr>
+        <tr>
+          <td>US 10Y 殖利率</td>
+          <td>4.542%</td>
+          <td class="up">+0.014</td>
+          <td class="up">+0.31%</td>
+          <td class="neutral">Bonds</td>
+        </tr>
+        <tr>
+          <td>US 30Y 殖利率</td>
+          <td>5.030%</td>
+          <td class="up">+0.010</td>
+          <td class="up">+0.28%</td>
+          <td class="neutral">Bonds</td>
+        </tr>
+        <tr>
+          <td>DXY 美元指數</td>
+          <td>99.99</td>
+          <td class="up">+0.08</td>
+          <td class="up">+0.08%</td>
+          <td class="neutral">FX</td>
+        </tr>
+        <tr>
+          <td>WTI 原油 (CL=F)</td>
+          <td>$90.46</td>
+          <td class="up">+$2.26</td>
+          <td class="up">+2.56%</td>
+          <td class="neutral">伊朗衝突</td>
+        </tr>
+        <tr>
+          <td>布蘭特原油 (BZ=F)</td>
+          <td>$93.51</td>
+          <td class="up">+$2.06</td>
+          <td class="up">+2.25%</td>
+          <td class="neutral">Geopolitics</td>
+        </tr>
+        <tr>
+          <td>黃金 (GC=F)</td>
+          <td>$4,111.50</td>
+          <td class="down">-$21.80</td>
+          <td class="down">-0.53%</td>
+          <td class="neutral">獲利了結</td>
+        </tr>
+        <tr>
+          <td>EUR/USD</td>
+          <td>1.1547</td>
+          <td class="up">+0.0007</td>
+          <td class="up">+0.06%</td>
+          <td class="neutral">FX</td>
+        </tr>
+        <tr>
+          <td>USD/JPY</td>
+          <td>160.50</td>
+          <td class="up">+0.18</td>
+          <td class="up">+0.11%</td>
+          <td class="neutral">FX</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TOP STORIES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">&#x1F4F0;</span>
+      <h2>頭條 <span class="en">/ Top Stories</span></h2>
+    </div>
+    <div class="section-body">
+
+      <div class="news-item">
+        <h3>【1】Fed 按兵不動，1992年來最嚴重四票異議，市場重估升息路徑 / Fed Holds; Rare 4-Member Dissent — Most Divided Since 1992</h3>
+        <div class="meta">
+          來源: <a href="https://news.cnyes.com/news/id/6437522" target="_blank">鉅亨網</a> &middot; 2026-06-10 &middot;
+          <a href="https://finance.yahoo.com/topic/latest-news/" target="_blank">Yahoo Finance</a>
+        </div>
+        <div class="fact-label">核心事實 / Facts</div>
+        <p>聯準會（Fed）6月10日維持利率目標區間 3.50%–3.75% 不變，連續第三次按兵不動。投票出現自1992年10月以來最嚴重分歧：理事 Milan 主張降息25bp；克里夫蘭、明尼阿波利斯、達拉斯三位主席雖同意持平，但反對聲明中任何偏寬鬆的措辭。市場幾乎放棄2026年降息預期，並開始定價2027年升息可能。</p>
+        <p>The Fed held rates at 3.50%–3.75% for the third consecutive meeting June 10. The 4-member dissent is the most divided FOMC vote since Oct 1992. 2026 rate-cut bets are nearly fully priced out; some positioning is now entertaining 2027 hike scenarios.</p>
+        <div class="fact-label">背景脈絡 / Context</div>
+        <p>Fed 主席接班人 Kevin Warsh 提名案通過參議院銀行委員會（13-11黨派票決）。通膨連續五年高於目標，就業仍強，但家庭負擔加重讓降息路徑極度複雜。外界解讀本次鷹派措辭或為預先框住下任主席政策空間。</p>
+        <div class="fact-label">影響觀察 / Implications</div>
+        <p>觸發週三 SPX -1.45%、Nasdaq -1.82%、Dow -1.68%（道指連跌五日），VIX 突破22。週四溫和反彈（SPX+0.52%），但10Y殖利率4.542%、30Y殖利率5.03% 持續壓制成長股估值。關鍵前瞻：PCE數據(6/27)、CPI(7/14)為下一降息/升息定價基準。</p>
+      </div>
+
+      <hr class="divider">
+
+      <div class="news-item" style="border-left-color: #f59e0b;">
+        <h3>【2】伊朗飛彈攻擊以色列，荷莫茲外交危機再升溫，油價急飆 / Iran Fires Missiles at Israel; Hormuz Diplomacy at Risk, Oil Surges</h3>
+        <div class="meta">
+          來源: <a href="https://finance.yahoo.com/sectors/energy/articles/oil-prices-spike-iran-launches-010906858.html" target="_blank">Oilprice.com / Yahoo Finance</a> &middot; 2026-06-08
+        </div>
+        <div class="fact-label">核心事實 / Facts</div>
+        <p>伊朗於6月7日（週日）夜間對以色列發射彈道飛彈，為自4月停火以來首次直接攻擊。以色列稱所有飛彈均攔截、無傷亡。WTI 一度升至 $92.66/桶(+2.34%)，布蘭特至 $95.43(+2.51%)；6/11盤中 WTI 維持 $90.46(+2.56%)。川普聲稱攻擊「不影響談判」，並呼籲以色列不要反擊。</p>
+        <p>Iran's first direct attack on Israel since the April ceasefire. All missiles intercepted; no casualties. WTI spiked to $92.66, Brent to $95.43. Thursday intraday: WTI $90.46 (+2.56%). Trump says attack "will not affect" the deal and urged Israel not to retaliate.</p>
+        <div class="fact-label">背景脈絡 / Context</div>
+        <p>荷莫茲海峽自4月起封鎖，美國原油庫存持續下滑（EIA數據），阿聯已宣布5月退出OPEC，多重變數疊加讓油市備感壓力。</p>
+        <div class="fact-label">影響觀察 / Implications</div>
+        <p>能源板塊（XLE）為本週美股最強板塊，受益標的：OXY、CVX、XOM。若荷莫茲外交全面破局，WTI目標$100+，Fed降息空間進一步收縮。航空股（AAL盤中+1.49%）短期因整體反彈而表現，但中長期油價居高是利空。</p>
+      </div>
+
+      <hr class="divider">
+
+      <div class="news-item" style="border-left-color: #7c3aed;">
+        <h3>【3】Oracle 財報遜預期，盤中重挫逾11%，創近期大跌 / Oracle Tumbles 11%+ Intraday on Earnings Disappointment</h3>
+        <div class="meta">
+          來源: <a href="https://finance.yahoo.com/quote/ORCL/" target="_blank">Yahoo Finance ORCL</a> &middot; 2026-06-11
+          <span class="badge red">ORCL -11.35%</span>
+        </div>
+        <div class="fact-label">核心事實 / Facts</div>
+        <p>Oracle (ORCL) 週四（6/11）盤中約 $178.41（-$22.85，-11.35%），成交量34.3M（均量26.1M的1.3倍）。52週區間 $134.57–$345.72，距高點腰斬。為當日跌幅最深的大市值股之一。財報/展望具體數字待公告確認。</p>
+        <p>ORCL -11.35% to ~$178.41 on 34.3M volume. 52-week range $134.57–$345.72; down ~50% from peak. This is the largest single-day decline for ORCL in recent sessions.</p>
+        <div class="fact-label">背景脈絡 / Context</div>
+        <p>Oracle近期以AI雲端基礎設施業務為主要成長敘事，股價在過去有大幅拉升。若本季指引下修或AI雲端成長低於預期，將引發龐大估值重估壓力（目前P/E仍在36.9倍高位）。</p>
+        <div class="fact-label">影響觀察 / Implications</div>
+        <p>雲端軟體板塊有外溢壓力：PTC(-5.94%)、WIX(-6.35%)、ADBE(-4.87%) 同日下滑，但 Mag-7 受影響有限。整體市場視此為個股事件，而非廣泛AI雲端需求惡化的訊號。</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EARNINGS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">&#x1F4CA;</span>
+      <h2>財報 <span class="en">/ Earnings of the Day</span></h2>
+    </div>
+    <div class="section-body">
+
+      <div class="news-item" style="border-left-color: #16a34a;">
+        <h3>Casey's General Stores (CASY) 財報大超預期，盤中暴衝逾18% / Casey's +18.76% on Strong Q4 Earnings Beat</h3>
+        <div class="meta">
+          <span class="badge green">CASY +18.76%</span>
+          來源: <a href="https://finance.yahoo.com/quote/CASY/" target="_blank">Yahoo Finance</a> &middot; 2026-06-11
+        </div>
+        <div class="fact-label">核心事實 / Facts</div>
+        <p>Casey's General Stores (CASY) 盤中漲至約 $903.98（+$142.80，+18.76%），為今日大型股最強勢個股，屬財報後跳空上漲。52週高點附近，顯示財報驅動的多頭延伸。</p>
+        <div class="fact-label">背景脈絡 / Context</div>
+        <p>Casey's 為美國中西部便利超商及加油站連鎖（~2,500門市），近年受益於燃油毛利改善及自有品牌熱食擴展。財報結果反映消費者支出端維持韌性。</p>
+        <div class="fact-label">影響觀察 / Implications</div>
+        <p>對便利商店同業有正面信心傳遞。消費防禦型零售在高利率環境下韌性再次驗證，分析師關注全年指引是否進一步上修。</p>
+      </div>
+
+      <hr class="divider">
+
+      <div class="news-item" style="border-left-color: #16a34a;">
+        <h3>Cracker Barrel (CBRL) 財報後延續大漲25%+ — 空頭回補效應顯著 / Cracker Barrel +25%+ — Earnings Surprise + Short Squeeze</h3>
+        <div class="meta">
+          <span class="badge green">CBRL +25.45%</span>
+          來源: <a href="https://finance.yahoo.com/quote/CBRL/" target="_blank">Yahoo Finance</a> &middot; 2026-06-10/11
+        </div>
+        <div class="fact-label">核心事實 / Facts</div>
+        <p>Cracker Barrel (CBRL) 週四延續前日盤後財報反應，盤中約 $45.54（+$9.24，+25.45%）。財報正面驚喜幅度異常，加上高空頭利息下的強迫回補，推動罕見的跳空漲幅。</p>
+        <div class="fact-label">背景脈絡 / Context</div>
+        <p>CBRL 過去一年因消費降級壓力長期低迷徘徊低位，空頭利息偏高。此次反彈幅度顯示投資人對其轉型敘事重新定價。</p>
+        <div class="fact-label">影響觀察 / Implications</div>
+        <p>對 Dine Brands (DIN)、Denny's (DENN) 等同業具正面外溢。需留意此波是否為可持續反彈或僅空頭回補一次性行情，後續追蹤管理層指引。</p>
+      </div>
+
+      <hr class="divider">
+
+      <div class="news-item" style="border-left-color: #dc2626;">
+        <h3>Super Micro Computer (SMCI) 前日暴跌25.7%後整理，本週跌幅驚人 / SMCI Stabilizes After Catastrophic 25%+ Prior-Day Plunge</h3>
+        <div class="meta">
+          <span class="badge red">SMCI 前日 -25.76%</span>
+          來源: <a href="https://finance.yahoo.com/quote/SMCI/" target="_blank">Yahoo Finance</a> &middot; 2026-06-10/11
+        </div>
+        <div class="fact-label">核心事實 / Facts</div>
+        <p>SMCI 週三（6/10）暴跌25.76%收約$30.17，成交量155.5M（均量45M的3.4倍）——創近期大型AI基礎設施股單日最大跌幅之一。週四（6/11）盤中約$29.26（幾近平盤），市場在觀察支撐位是否守穩。52週區間 $19.48–$62.36。</p>
+        <div class="fact-label">背景脈絡 / Context</div>
+        <p>SMCI 近年因AI伺服器需求飆漲，但2025年以來從高點大幅回落。過去有會計相關爭議，加上競爭加劇（Dell、HP）及AI資本支出放緩疑慮，均為重複性風險來源。</p>
+        <div class="fact-label">影響觀察 / Implications</div>
+        <p>對AI伺服器供應鏈（台廠ODM：廣達、緯穎、鴻海等）有情緒壓力，但NVDA本身週四小漲（+0.49%），顯示市場視此為SMCI個股問題而非AI需求放緩的訊號。後續觀察：SMCI是否在$27–29區間形成底部。</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MOVERS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">&#x1F680;</span>
+      <h2>個股大事 <span class="en">/ Single-Stock Movers (6/11 盤中)</span></h2>
+    </div>
+    <div class="section-body">
+      <table class="movers-table">
+        <thead>
+          <tr>
+            <th>代號 Ticker</th>
+            <th>公司 Company</th>
+            <th class="right">盤中價 Price</th>
+            <th class="right">漲跌%</th>
+            <th>催化劑 Catalyst</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge green">CBRL</span></td>
+            <td>Cracker Barrel</td>
+            <td class="right up">$45.54</td>
+            <td class="right up">+25.45%</td>
+            <td>財報 + 空頭回補 Earnings + short squeeze</td>
+          </tr>
+          <tr>
+            <td><span class="badge green">CASY</span></td>
+            <td>Casey's General</td>
+            <td class="right up">$903.98</td>
+            <td class="right up">+18.76%</td>
+            <td>財報大超預期 Earnings beat</td>
+          </tr>
+          <tr>
+            <td><span class="badge green">CBRS</span></td>
+            <td>Cerebras Systems</td>
+            <td class="right up">$237.83</td>
+            <td class="right up">+18.32%</td>
+            <td>AI晶片需求 AI chip momentum</td>
+          </tr>
+          <tr>
+            <td><span class="badge green">CPNG</span></td>
+            <td>Coupang</td>
+            <td class="right up">$16.88</td>
+            <td class="right up">+11.61%</td>
+            <td>盤中強勢 Intraday strength</td>
+          </tr>
+          <tr>
+            <td><span class="badge green">IONQ</span></td>
+            <td>IonQ (量子運算)</td>
+            <td class="right up">$62.81</td>
+            <td class="right up">+10.62%</td>
+            <td>量子運算題材 Quantum computing</td>
+          </tr>
+          <tr>
+            <td><span class="badge green">MRVL</span></td>
+            <td>Marvell Technology</td>
+            <td class="right up">$266.68</td>
+            <td class="right up">+5.58%</td>
+            <td>AI晶片正向 AI chip tailwind; 52W +262%</td>
+          </tr>
+          <tr>
+            <td><span class="badge green">INTC</span></td>
+            <td>Intel Corporation</td>
+            <td class="right up">$113.03</td>
+            <td class="right up">+5.60%</td>
+            <td>Foundry復甦反彈 Foundry turnaround; 52W +415%</td>
+          </tr>
+          <tr>
+            <td><span class="badge green">MU</span></td>
+            <td>Micron Technology</td>
+            <td class="right up">$924.85</td>
+            <td class="right up">+3.70%</td>
+            <td>HBM記憶體需求; 52W +667%</td>
+          </tr>
+          <tr>
+            <td><span class="badge green">IREN</span></td>
+            <td>IREN Ltd (BTC Mining)</td>
+            <td class="right up">$54.25</td>
+            <td class="right up">+5.30%</td>
+            <td>BTC反彈 Bitcoin rally; 52W +406%</td>
+          </tr>
+          <tr>
+            <td><span class="badge green">RDW</span></td>
+            <td>Redwire Corp</td>
+            <td class="right up">$16.14</td>
+            <td class="right up">+8.54%</td>
+            <td>SpaceX IPO概念 Space theme</td>
+          </tr>
+          <tr>
+            <td><span class="badge red">ORCL</span></td>
+            <td>Oracle Corporation</td>
+            <td class="right down">$178.41</td>
+            <td class="right down">-11.35%</td>
+            <td>財報/展望遜預期 Earnings miss/weak guide</td>
+          </tr>
+          <tr>
+            <td><span class="badge red">SMCI</span></td>
+            <td>Super Micro Computer</td>
+            <td class="right down">$29.26</td>
+            <td class="right down">±0.02%</td>
+            <td>前日-25.7%後整理 Consolidating post-plunge</td>
+          </tr>
+          <tr>
+            <td><span class="badge red">PCT</span></td>
+            <td>PureCycle Technologies</td>
+            <td class="right down">$8.38</td>
+            <td class="right down">-15.23%</td>
+            <td>異常成交量賣壓 High-vol selloff</td>
+          </tr>
+          <tr>
+            <td><span class="badge red">ADBE</span></td>
+            <td>Adobe Inc.</td>
+            <td class="right down">$222.01</td>
+            <td class="right down">-4.87%</td>
+            <td>軟體板塊壓力 Software sector weakness</td>
+          </tr>
+          <tr>
+            <td><span class="badge">NOK</span></td>
+            <td>Nokia Oyj</td>
+            <td class="right up">$13.56</td>
+            <td class="right up">+1.23%</td>
+            <td>異常高成交量 Unusual vol (50M); 52W +151%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- M&A / IPO -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">&#x1F91D;</span>
+      <h2>併購與 IPO <span class="en">/ M&amp;A and IPO</span></h2>
+    </div>
+    <div class="section-body">
+      <div class="news-item" style="border-left-color: #7c3aed;">
+        <h3>SpaceX IPO 即將到來：市場炒作「三重威脅」論述 / SpaceX IPO Looming: Market Debate on Triple-Threat Risk</h3>
+        <div class="meta">
+          來源: <a href="https://finance.yahoo.com/markets/stocks/articles/markets-face-triple-threat-iran-224339869.html" target="_blank">Fortune / Yahoo Finance</a> &middot; 2026-06-11
+          <span class="badge orange">SPCX 私有股 $135</span>
+        </div>
+        <div class="fact-label">核心事實 / Facts</div>
+        <p>Fortune 報導，市場面臨「三重威脅」（伊朗戰事、AI泡沫疑慮、Fed升息風險）之際，SpaceX 超大型 IPO 議題持續升溫。私有市場顯示 SpaceX 估值仍受高度關注；商業太空概念股 Redwire (RDW +8.54%)、Firefly (FLY +13.57%)、Intuitive Machines (LUNR +12.34%)、Virgin Galactic (SPCE +22.27%) 本週均有明顯動能。</p>
+        <div class="fact-label">影響觀察 / Implications</div>
+        <p>SpaceX IPO 若成行，將是近年最大型上市案，可能虹吸其他新股資金。但伊朗衝突及市場波動加劇可能讓時程延後。相關受益標的持續受到短線資金追捧。</p>
+      </div>
+      <hr class="divider">
+      <div class="news-item" style="border-left-color: #0369a1;">
+        <h3>Nvidia 首爾行 — 與 LG、SK Hynix、Naver 簽訂多項 AI 合作協議 / Nvidia Seoul Blitz: AI Deals with LG, SK Hynix, Naver</h3>
+        <div class="meta">
+          來源: <a href="https://finance.yahoo.com/sectors/technology/articles/nvidia-ceo-says-company-working-023727300.html" target="_blank">Reuters / Yahoo Finance</a> &middot; 2026-06-08
+          <span class="badge">NVDA</span>
+        </div>
+        <p>黃仁勳（Jensen Huang）首爾行確認：與 LG 集團合作人形機器人馬達技術及下一代資料中心架構；與 SK Hynix 簽署多項科技合作（含 HBM 記憶體）；Naver 將以 Nvidia 技術建立吉瓦級 AI 工廠。鞏固 NVDA 在 AI 晶片、機器人、資料中心三大敘事的生態系護城河。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANALYST CALLS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">&#x1F50D;</span>
+      <h2>券商評等 <span class="en">/ Analyst Calls</span></h2>
+    </div>
+    <div class="section-body">
+      <div class="news-item">
+        <h3>半導體回調後的買點：Marvell vs. Broadcom / Post-Selloff Semis: MRVL vs AVGO Buy Analysis</h3>
+        <div class="meta">
+          來源: <a href="https://finance.yahoo.com/markets/stocks/articles/better-buy-semiconductor-sell-off-022200092.html" target="_blank">Motley Fool / Yahoo Finance</a> &middot; 2026-06-11
+          <span class="badge green">MRVL +5.58%</span> <span class="badge">AVGO</span>
+        </div>
+        <p>市場分析評估 MRVL 和 AVGO 的相對吸引力。Marvell (MRVL) 今日反彈 +5.58%（52週+262%），AI網路晶片需求為主要驅動力。Broadcom (AVGO) 則以 AI 定製矽（ASIC）敘事持續受機構青睞。兩者均被視為半導體賣壓過後的優先回補標的。</p>
+      </div>
+      <hr class="divider">
+      <div class="news-item">
+        <h3>Intel (INTC) 反彈5%+：Foundry 轉型與 AI PC 催化劑 / Intel +5%+ Bounce: Foundry Turnaround + AI PC Cycle</h3>
+        <div class="meta">
+          <span class="badge green">INTC +5.60%</span>
+          來源: Yahoo Finance &middot; 2026-06-11
+        </div>
+        <p>Intel (INTC) 今日 +5.60% 至約$113，成交量93.7M（最高之一）。52週漲幅 +415%，顯示市場對 Intel Foundry Services 轉型復甦的重新定價已大幅進行。今日技術性反彈自52週高點$132.75回調後支撐位觸發。Benzinga 分析師將 INTC 及 MU 列為本週值得觀察標的。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FED & RATES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">&#x1F3E6;</span>
+      <h2>Fed 與利率 <span class="en">/ Fed &amp; Rates</span></h2>
+    </div>
+    <div class="section-body">
+      <div class="news-item">
+        <h3>Fed 利率路徑更新：三次持平，分歧加劇，2027升息入場券 / Fed Rate Path Update: Third Hold, Deepening Divide, 2027 Hike Risk</h3>
+        <div class="meta">
+          來源: <a href="https://news.cnyes.com/news/id/6437563" target="_blank">鉅亨網</a> &middot; 2026-06-10
+        </div>
+        <div class="fact-label">當前利率 / Current Rate</div>
+        <p>目標區間：3.50%–3.75%（連續三次維持）</p>
+        <div class="fact-label">分歧票數與立場 / Dissent Breakdown</div>
+        <p>
+          &bull; 理事 Milan：主張降息25bp（1票）<br>
+          &bull; 克里夫蘭主席 Hammack、明尼阿波利斯 Kashkari、達拉斯 Logan：同意持平但反對偏鬆聲明（3票）<br>
+          &bull; 合計4票反對 = 1992年10月以來最多
+        </p>
+        <div class="fact-label">主席接班 / Leadership Succession</div>
+        <p>Kevin Warsh 提名案通過參議院銀行委員會（13-11），送全院表決。本次鷹派聲明或預先定調 Warsh 時代政策框架。</p>
+        <div class="fact-label">殖利率曲線 / Yield Curve (6/11 盤中)</div>
+        <p>
+          5Y: 4.264%(+0.26%) &nbsp;|&nbsp; <strong>10Y: 4.542%(+0.31%)</strong> &nbsp;|&nbsp; <strong>30Y: 5.030%(+0.28%)</strong><br>
+          長端持續居高，對長存續期高成長股（P/E &gt; 30倍）估值壓制顯著。The 30-year at 5.03% is a critical watch level for equity valuation.
+        </p>
+        <div class="fact-label">前瞻 / Forward Calendar</div>
+        <p>PCE 通膨 (6/27) → CPI (7/14) → 7月 FOMC (7/29-30) 為最近期三大定價節點。市場對聯準會的信任已出現裂痕，任何數據意外均可能引發大幅波動。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOWS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">&#x1F4B9;</span>
+      <h2>資金流向 <span class="en">/ Flows &amp; Positioning</span></h2>
+    </div>
+    <div class="section-body">
+      <div class="summary-bar">
+        <div class="summary-item"><span class="label">BTC </span><span class="val up">$62,950 +2.08%</span></div>
+        <div class="summary-item"><span class="label">ETH </span><span class="val up">$1,679 +5.34%</span></div>
+        <div class="summary-item"><span class="label">XRP </span><span class="val up">$1.15 +3.15%</span></div>
+        <div class="summary-item"><span class="label">Gold </span><span class="val down">$4,112 -0.53%</span></div>
+        <div class="summary-item"><span class="label">VIX </span><span class="val">22.07</span></div>
+        <div class="summary-item"><span class="label">WTI </span><span class="val up">$90.46 +2.56%</span></div>
+      </div>
+      <div class="news-item" style="margin-top: 16px;">
+        <h3>週三大跌後週四板塊輪動：能源領漲、小型股反彈、AI科技整理 / Thursday Rotation: Energy Leads, Small Caps Bounce, AI Tech Digests Selloff</h3>
+        <div class="meta">來源: Yahoo Finance Market Data &middot; 2026-06-11</div>
+        <div class="fact-label">板塊輪動觀察 / Sector Rotation</div>
+        <p>
+          &bull; <strong>能源</strong>：伊朗-以色列衝突推升油價，WTI+2.56%，能源板塊為本週最強。<br>
+          &bull; <strong>科技/半導體</strong>：週三領跌後週四反彈（Nasdaq+0.76%），MRVL+5.58%、INTC+5.60%、MU+3.70%較強。<br>
+          &bull; <strong>小型股</strong>：RUT+1.24% 跑贏大盤，資金輪動跡象。<br>
+          &bull; <strong>加密</strong>：BTC+2.08%、ETH+5.34%，相對股市更有彈性（抗Fed敘事）。<br>
+          &bull; <strong>雲端軟體</strong>：ORCL拖累，PTC/WIX/ADBE同步走弱，板塊整體承壓。<br>
+          &bull; <strong>消費防禦</strong>：CASY+18.76%、CBRL+25.45% 為個股事件，板塊整體不突出。
+        </p>
+        <div class="fact-label">異常成交量 / Unusual Volume Flags</div>
+        <p>
+          &bull; <strong>Nokia (NOK)</strong>：50.1M股（均量均量的~5倍）— 持續異常，值得追蹤是否有機構/策略性買盤。<br>
+          &bull; SMCI：155.5M（均量3.4倍）— 大量換手，多空激烈交鋒。<br>
+          &bull; ORCL：34.3M（均量1.3倍）— 機構性出貨。<br>
+          &bull; INTC：93.7M（均量126M，接近均量）— 反彈較為正常。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- READS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="icon">&#x1F4D6;</span>
+      <h2>觀點 <span class="en">/ Reads &amp; Perspectives</span></h2>
+    </div>
+    <div class="section-body">
+      <div class="news-item">
+        <h3>「Fed 不在乎你的股票組合」— 通膨降溫前難以轉鴿 / "The Fed Doesn't Care About Your Portfolio" Until Inflation Calms</h3>
+        <div class="meta">來源: CNBC Pro commentary &middot; 2026-06-11</div>
+        <p>核心張力：市場試圖區分「Fed 可信地鷹派」（長期有利於穩定）與「Fed 落後曲線、利率更長更高」（對估值倍數不利）兩種情境。Evercore ISI 認為本次回撤「接近尾聲」並提供第一批反彈標的候選，提供多頭陣營一個反對觀點。Principal 資產管理 Seema Shah：「四票異議反映當前經濟環境的不確定性異常高。」</p>
+        <p>The key question is whether this week's selloff is a healthy consolidation (bullish view: ISI) or the start of a more significant repricing of risk (bearish view: 30Y at 5%+ structural headwind). With earnings season providing mixed signals (ORCL miss vs. CASY/CBRL beats), the answer likely depends on the June 27 PCE print.</p>
+      </div>
+      <hr class="divider">
+      <div class="news-item">
+        <h3>大型科技自研 AI 晶片：NVDA 護城河的長期壓力測試 / Big Tech DIY AI Chips: A Long-Term Stress Test of Nvidia's Moat</h3>
+        <div class="meta">
+          來源: <a href="https://finance.yahoo.com/sectors/technology/articles/amazon-alphabet-microsoft-racing-design-223200752.html" target="_blank">Motley Fool / Yahoo Finance</a> &middot; 2026-06-11
+        </div>
+        <p>Amazon (Trainium/Inferentia)、Google (TPU)、Microsoft (Maia) 三巨頭均在加速自研 AI 晶片。短期內難以取代 Nvidia GPU 生態系，但長期隨規模擴大，NVDA 在各自雲端平台的市佔將面臨議價壓力。黃仁勳南韓行（LG、SK Hynix、Naver）的密集合作簽約，正是 NVDA 以速度擴大生態系應對這一長期威脅的策略回應。</p>
+        <p>The bull case: NVDA is building ecosystem moats (humanoid robots, data center architecture, HBM partnerships) faster than hyperscalers can build meaningful alternatives. The bear case: Custom silicon economics eventually erode NVDA's take-rate at scale. This is the defining structural debate for NVDA's long-term valuation.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end container -->
+
+<div class="footer">
+  <strong>數據來源 / Sources</strong>
+  <div class="sources">
+    <a href="https://finance.yahoo.com/markets/" target="_blank">Yahoo Finance Markets</a> &middot;
+    <a href="https://finance.yahoo.com/markets/stocks/most-active/" target="_blank">Yahoo Finance Most Active</a> &middot;
+    <a href="https://www.benzinga.com/markets" target="_blank">Benzinga Markets</a> &middot;
+    <a href="https://news.cnyes.com/news/cat/wd_stock" target="_blank">鉅亨網美股</a> &middot;
+    <a href="https://finance.yahoo.com/sectors/energy/articles/oil-prices-spike-iran-launches-010906858.html" target="_blank">Oilprice.com / Yahoo Finance</a> &middot;
+    <a href="https://finance.yahoo.com/sectors/technology/articles/nvidia-ceo-says-company-working-023727300.html" target="_blank">Reuters / Yahoo Finance (NVDA-LG)</a> &middot;
+    <a href="https://finance.yahoo.com/topic/latest-news/" target="_blank">Yahoo Finance Latest News</a>
+    <br><br>
+    <strong>免責聲明：</strong>本報告僅供資訊參考，不構成投資建議。指數及個股數字取自盤中快照，最終收盤請以交易所官方數據為準。本報告不得用於商業用途。
+    This report is for informational purposes only and does not constitute investment advice. All prices are intraday snapshots and subject to final close confirmation.
+    <br><br>
+    報告生成時間 Generated: 2026-06-12 (Asia/Taipei, UTC+8) &middot; 版本 v1.0
+  </div>
+</div>
+
+</body>
+</html>

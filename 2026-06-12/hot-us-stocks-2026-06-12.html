@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日美股熱門焦點股 — June 12, 2026 (US Session: June 11 Close + June 12 Open)</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --yellow: #d29922;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --orange: #f0883e;
+    --accent: #1f6feb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 16px; }
+  .header { border-bottom: 1px solid var(--border); padding-bottom: 20px; margin-bottom: 28px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: var(--blue); margin-bottom: 6px; }
+  .header .meta { color: var(--muted); font-size: 13px; }
+  .header .session-badge { display: inline-block; background: var(--accent); color: #fff; border-radius: 4px; padding: 2px 8px; font-size: 12px; font-weight: 600; margin-left: 8px; }
+
+  /* Summary table */
+  .section-title { font-size: 16px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 0.05em; margin: 28px 0 12px; border-left: 3px solid var(--orange); padding-left: 10px; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 8px; overflow: hidden; font-size: 13px; }
+  th { background: var(--surface2); color: var(--muted); font-weight: 600; text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .ticker { font-weight: 700; color: var(--blue); font-size: 14px; }
+  .up { color: var(--green); font-weight: 600; }
+  .down { color: var(--red); font-weight: 600; }
+  .neutral { color: var(--yellow); font-weight: 600; }
+  .buzz { color: var(--yellow); letter-spacing: 1px; }
+  .tag { display: inline-block; border-radius: 3px; padding: 1px 6px; font-size: 11px; font-weight: 600; margin: 1px 2px; }
+  .tag-ipo { background: #7c3aed; color: #fff; }
+  .tag-upgrade { background: #1d4ed8; color: #fff; }
+  .tag-earnings { background: #b45309; color: #fff; }
+  .tag-meme { background: #dc2626; color: #fff; }
+  .tag-sector { background: #065f46; color: #fff; }
+
+  /* Deep dives */
+  .ticker-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+  .ticker-card h3 { font-size: 17px; font-weight: 700; color: var(--blue); margin-bottom: 6px; }
+  .tape-line { font-family: 'Courier New', monospace; font-size: 13px; color: var(--text); background: var(--surface2); border-radius: 5px; padding: 8px 12px; margin: 8px 0 14px; border-left: 3px solid var(--blue); }
+  .subsection { margin: 14px 0; }
+  .subsection-title { font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--orange); letter-spacing: 0.08em; margin-bottom: 5px; }
+  .bi { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .bi-block { background: var(--surface2); border-radius: 6px; padding: 10px 12px; font-size: 13px; }
+  .bi-block .lang { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; margin-bottom: 4px; }
+  @media (max-width: 600px) { .bi { grid-template-columns: 1fr; } }
+  .options-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  .options-badge { background: var(--surface2); border: 1px solid var(--border); border-radius: 5px; padding: 4px 10px; font-size: 12px; }
+  .options-badge span { color: var(--muted); }
+  .watch-list { list-style: none; }
+  .watch-list li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .watch-list li:last-child { border-bottom: none; }
+  .watch-ticker { font-weight: 700; color: var(--purple); margin-right: 8px; }
+  .backdrop { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-size: 13px; line-height: 1.8; }
+  .backdrop strong { color: var(--blue); }
+  .sources-block { margin-top: 8px; }
+  .sources-block a { color: var(--muted); font-size: 12px; text-decoration: none; display: inline-block; margin: 2px 4px; }
+  .sources-block a:hover { color: var(--blue); }
+  .disclaimer { margin-top: 32px; padding: 12px 16px; background: var(--surface2); border-radius: 6px; font-size: 12px; color: var(--muted); border-left: 3px solid var(--yellow); }
+  .footer-sources { margin-top: 28px; border-top: 1px solid var(--border); padding-top: 16px; }
+  .footer-sources h4 { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+  .footer-sources a { color: var(--muted); font-size: 12px; text-decoration: none; display: block; margin: 3px 0; }
+  .footer-sources a:hover { color: var(--blue); text-decoration: underline; }
+  .halts-box { background: var(--surface); border: 1px solid var(--red); border-radius: 8px; padding: 16px; }
+  .halts-box .halt-item { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .halts-box .halt-item:last-child { border-bottom: none; }
+  blockquote { border-left: 3px solid var(--purple); padding-left: 12px; color: var(--muted); font-style: italic; font-size: 13px; margin: 6px 0; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>🔥 今日美股熱門焦點股 / Hot US Stocks of the Day
+      <span class="session-badge">June 12, 2026</span>
+    </h1>
+    <div class="meta">
+      交易日 / Trading Session: <strong>June 11, 2026 (US RTH close)</strong> ＋ <strong>June 12 premarket / opening</strong>
+      ｜ 生成時間 / Generated: 2026-06-12 Asia/Taipei
+      ｜ 數據截止 / Data as of: June 12 AM EST
+    </div>
+  </div>
+
+  <!-- ===== SUMMARY TABLE ===== -->
+  <div class="section-title">🏆 Hot 7 — Today's Hottest Names</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Ticker</th>
+        <th>Company</th>
+        <th>Close / Move</th>
+        <th>Vol vs 30D</th>
+        <th>Options Signal</th>
+        <th>Buzz ★</th>
+        <th>Catalyst</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="ticker">SPCX</td>
+        <td>SpaceX</td>
+        <td class="neutral">IPO $135<br>1st Day</td>
+        <td class="neutral">N/A — New</td>
+        <td><span class="options-badge"><span>OI build</span> day-1</span></td>
+        <td class="buzz">★★★★★</td>
+        <td><span class="tag tag-ipo">IPO</span> Largest IPO in history $1.77T</td>
+      </tr>
+      <tr>
+        <td class="ticker">INTC</td>
+        <td>Intel Corp</td>
+        <td class="up">+7.5% ~$115</td>
+        <td class="up">5–6x avg</td>
+        <td><span class="options-badge"><span>C/P skewed bullish</span></span></td>
+        <td class="buzz">★★★★</td>
+        <td><span class="tag tag-upgrade">UPGRADE</span> BofA double-upgrade UND→BUY PT $135</td>
+      </tr>
+      <tr>
+        <td class="ticker">ORCL</td>
+        <td>Oracle Corp</td>
+        <td class="down">−12.6%</td>
+        <td class="down">4–5x avg</td>
+        <td><span class="options-badge"><span>Put flow elevated</span></span></td>
+        <td class="buzz">★★★★</td>
+        <td><span class="tag tag-earnings">EARNINGS</span> Beat EPS/Rev, but $95B capex + $40B debt plan shocks</td>
+      </tr>
+      <tr>
+        <td class="ticker">ADBE</td>
+        <td>Adobe Inc</td>
+        <td class="down">−4.8% RTH<br><span style="color:var(--muted);font-size:11px">AH pending</span></td>
+        <td class="up">3–4x avg</td>
+        <td><span class="options-badge"><span>IV spike</span> ±7.5% priced</span></td>
+        <td class="buzz">★★★★</td>
+        <td><span class="tag tag-earnings">EARNINGS</span> Q2 FY26 after close — AI ARR the key metric</td>
+      </tr>
+      <tr>
+        <td class="ticker">AMAT</td>
+        <td>Applied Materials</td>
+        <td class="up">+6.9% ~$533</td>
+        <td class="up">3–4x avg</td>
+        <td><span class="options-badge"><span>Call flow elevated</span></span></td>
+        <td class="buzz">★★★</td>
+        <td><span class="tag tag-sector">SEMI HALO</span> INTC upgrade ripple; SOXX +2%</td>
+      </tr>
+      <tr>
+        <td class="ticker">RKLB</td>
+        <td>Rocket Lab USA</td>
+        <td class="neutral">±3–5%</td>
+        <td class="up">4x+ avg</td>
+        <td><span class="options-badge"><span>Mixed flow</span></span></td>
+        <td class="buzz">★★★</td>
+        <td><span class="tag tag-ipo">SPCX HALO</span> SpaceX IPO — closest public comp</td>
+      </tr>
+      <tr>
+        <td class="ticker">GLXG</td>
+        <td>Galaxy Payroll Group</td>
+        <td class="up">+191–322% multi-day</td>
+        <td class="up">38M sh PM</td>
+        <td><span class="options-badge"><span>No listed options</span></span></td>
+        <td class="buzz">★★</td>
+        <td><span class="tag tag-meme">MEME / LOW FLOAT</span> $200M shelf reg; Chinese low-float retail squeeze</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ===== DEEP DIVES ===== -->
+  <div class="section-title">📋 Deep Dives</div>
+
+  <!-- SPCX -->
+  <div class="ticker-card">
+    <h3>$SPCX — Space Exploration Technologies Corp. (SpaceX) / 太空探索科技</h3>
+    <div class="tape-line">IPO Price: $135 · Valuation: $1.75–1.77 Trillion · Exchange: Nasdaq · Date: June 12, 2026 (First Day RTH)</div>
+
+    <div class="subsection">
+      <div class="subsection-title">為什麼今天熱 / Why it's hot today</div>
+      <div class="bi">
+        <div class="bi-block">
+          <div class="lang">中文</div>
+          這是史上規模最大的 IPO，募資 $750 億，以 $135/股定價登上那斯達克，掛牌市值 $1.77 兆，遠超過 2019 年 Saudi Aramco 的 $354 億 IPO 紀錄。MSCI 宣布 6/13 起納入大型 IPO 快速通道指數，意味著被動基金第一天結束後就要開始強迫買進。加上零售配額高達 30%（通常僅 5–10%），散戶參與熱情空前。
+        </div>
+        <div class="bi-block">
+          <div class="lang">English</div>
+          SPCX is the largest IPO in history, raising $75 billion at $135/share for a $1.77 trillion market cap — dwarfing Saudi Aramco's $35.4B record. MSCI announced June 9 that SPCX qualifies for early large-IPO index inclusion effective June 13 (T+1), creating structural forced buying from passive funds. SpaceX allocated a record ~30% of shares to retail investors vs. the typical 5–10%.
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">IPO Mechanics / 籌碼細節</div>
+      <div class="options-grid">
+        <div class="options-badge"><span>IPO Size: </span>$75B all-primary offering</div>
+        <div class="options-badge"><span>Oversubscribed: </span>&gt;2x (institutional orders &gt;$10B verified)</div>
+        <div class="options-badge"><span>Retail Alloc: </span>~30% of shares</div>
+        <div class="options-badge"><span>MSCI inclusion: </span>June 13 (T+1 passive buy pressure)</div>
+        <div class="options-badge"><span>Day-1 halts: </span>Expected (LULD volatility halts likely)</div>
+        <div class="options-badge"><span>Lockup: </span>180 days for insiders</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Retail Buzz / 社群討論</div>
+      SpaceX dominated StockTwits, Reddit r/investing, and X cashtag discussions. Retail investors enthusiastic about $135 opening price and MSCI index buy-in tailwind. Space sector stocks ASTS, RKLB, LUNR also trending as SpaceX halo plays.
+      <blockquote>"biggest IPO day of our lifetimes, loading up SPCX at open"</blockquote>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">炒作脈絡 / Narrative Context</div>
+      Elon Musk's rocket company carries a Starlink broadband unit (70M+ subscribers) growing &gt;40% annually, plus commercial launch dominance and the Starship program. Multiple prior-quarter analyst estimates put intrinsic value well below $1.77T, yet MSCI index mechanics guarantee mechanical demand. The "Musk premium" also creates halo for Tesla (TSLA) which Musk still chairs.
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">後續觀察 / What to Watch Next</div>
+      <ul style="margin-left:16px;font-size:13px;margin-top:4px;">
+        <li>Day-1 opening print vs $135 IPO price — gap-up size will set sentiment</li>
+        <li>MSCI index inclusion rebalance June 13 — structural bid</li>
+        <li>First-day pop vs. typical 20–40% 90-day retracement for overvalued tech IPOs</li>
+        <li>Watch RKLB, ASTS, LUNR for sympathy rotation</li>
+        <li>Tesla (TSLA) Musk-halo reaction</li>
+      </ul>
+    </div>
+    <div class="sources-block">Sources:
+      <a href="https://finance.yahoo.com/quote/SPCX/" target="_blank">Yahoo Finance SPCX</a>
+      <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261960721-spacex-ipo-is-live-at-135-bull-base-and-bear-cases-for-the-first-90-days-tradingkey" target="_blank">TradingKey IPO analysis</a>
+      <a href="https://www.fool.com/investing/2026/05/19/the-spacex-ipo-could-come-as-early-as-june-12-thin/" target="_blank">Motley Fool IPO guide</a>
+      <a href="https://financer.com/invest/spacex-ipo/" target="_blank">Financer IPO details</a>
+    </div>
+  </div>
+
+  <!-- INTC -->
+  <div class="ticker-card">
+    <h3>$INTC — Intel Corporation / 英特爾</h3>
+    <div class="tape-line">RTH Close June 11: ~$115.02 (+7.46%) · Intraday Range: $103.78–$111.50 · Vol: ~5–6x 30D avg · YTD: +168%</div>
+
+    <div class="subsection">
+      <div class="subsection-title">為什麼今天熱 / Why it's hot today</div>
+      <div class="bi">
+        <div class="bi-block">
+          <div class="lang">中文</div>
+          美銀美林（BofA）分析師 Vivek Arya 罕見「雙重升評」英特爾，從「劣於大盤（Underperform）」直接跳至「買入（Buy）」，目標價從 $96 上調至 $135。關鍵論點：伺服器 CPU 市佔率 2030 年可達 ~25%，代工業務（IFS）外部客戶能見度明顯改善，2030 年 EPS 可望超過 $6（遠高於之前估計的 $3–$4）。股價一天彈升逾 7%，帶動半導體設備股 AMAT、LRCX 同步大漲。
+        </div>
+        <div class="bi-block">
+          <div class="lang">English</div>
+          BofA analyst Vivek Arya issued a rare "double upgrade" — from Underperform directly to Buy — raising his PT from $96 to $135. The thesis: Intel can capture ~25% server CPU TAM by 2030 as agentic AI drives demand, and the Intel Foundry Services (IFS) external business has materially improved visibility. BofA now models &gt;$6 EPS by 2030, up from the prior $3–4 estimate. INTC gapped up 7%+, lifting the broader SOXX by ~2%.
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Options &amp; Flow / 期權籌碼</div>
+      <div class="options-grid">
+        <div class="options-badge"><span>Direction: </span>Call-skewed flow on upgrade day</div>
+        <div class="options-badge"><span>IV: </span>Elevated intraday on vol surge</div>
+        <div class="options-badge"><span>Short Interest: </span>INTC has had elevated SI as prior turnaround skepticism; squeeze dynamic present</div>
+        <div class="options-badge"><span>YTD gain: </span>+168% — short squeeze contributed</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Retail Buzz / 社群</div>
+      Reddit r/wallstreetbets and r/stocks both active on INTC — narrative shifted from "turnaround hope" to "foundry + CPU re-rating." X cashtag $INTC trending. WSB sentiment: bullish, citing "BofA was the biggest bear, now flipping is the clearest signal."
+      <blockquote>"BofA went from sell to buy in one move — that's a re-rating catalyst not just a trade"</blockquote>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">炒作脈絡 / Narrative Context</div>
+      Intel's 168% YTD gain already reflects substantial turnaround excitement under CEO Lip-Bu Tan. The BofA upgrade validates the narrative: Granite Rapids server CPUs gaining traction, IFS landing new foundry customers, and now AI agentic computing creating a CPU-demand super-cycle. Lam Research and Applied Materials surged in sympathy (AMAT +6.9%, LRCX +8%+).
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">後續觀察 / What to Watch Next</div>
+      <ul style="margin-left:16px;font-size:13px;margin-top:4px;">
+        <li>Whether other sell-side analysts follow BofA upgrade — consensus re-rating could push further</li>
+        <li>IFS customer announcement flow (TSMC alternative narrative)</li>
+        <li>SOXX holding $240 key support post-INTC halo</li>
+        <li>AMD reaction — AMD also +3% on the semiconductor tide</li>
+        <li>Next earnings: October — watch for foundry revenue guidance upgrade</li>
+      </ul>
+    </div>
+    <div class="sources-block">Sources:
+      <a href="https://finance.yahoo.com/markets/stocks/articles/intel-rallies-bofa-double-upgrades-105400178.html" target="_blank">Yahoo Finance — BofA double upgrade</a>
+      <a href="https://www.benzinga.com/markets/tech/26/06/53145150/intel-bofa-double-upgrade-best-year-since-1975" target="_blank">Benzinga — Intel upgrade detail</a>
+      <a href="https://www.gurufocus.com/news/8911512/intel-intc-sees-5-surge-following-upgrade-from-bofa" target="_blank">GuruFocus price action</a>
+    </div>
+  </div>
+
+  <!-- ORCL -->
+  <div class="ticker-card">
+    <h3>$ORCL — Oracle Corporation / 甲骨文</h3>
+    <div class="tape-line">RTH Close June 11: ~−12.6% (opened down −11.12%) · Pre-mkt low: ~$117 (lowest since May 20) · Vol: 4–5x avg</div>
+
+    <div class="subsection">
+      <div class="subsection-title">為什麼今天熱 / Why it's hot today</div>
+      <div class="bi">
+        <div class="bi-block">
+          <div class="lang">中文</div>
+          甲骨文 Q4 FY2026 財報大幅超出預期（EPS $2.11 vs 預期 $1.97；營收 $191.8 億 vs $190.9 億），OCI 雲端基礎設施年增 93%，剩餘履約義務（RPO）暴增 363% 至創紀錄 $6,380 億。然而，資本支出計劃震驚市場：FY27 預計 capex 達 $950 億（淨 $700 億），並預告發行 $400 億債務與股票融資，包含先前宣布的 $200 億增資計畫，導致 FY26 自由現金流赤字達 $237 億。股價重挫逾 12%，雲端軟體股集體承壓。
+        </div>
+        <div class="bi-block">
+          <div class="lang">English</div>
+          Oracle beat on every headline metric — Q4 EPS $2.11 vs $1.97 est., revenue $19.18B vs $19.09B est., OCI cloud infra +93% YoY — and its RPO backlog hit a record $638B (+363% YoY). But the market focused on the CapEx shock: FY2027 capex guided at ~$95B (net $70B after customer prepayments), 40% above the street's $67.7B estimate and nearly double FY2026. Combined with a $40B debt/equity raise plan and negative free cash flow of −$23.7B in FY26, investors dumped the stock 12%+.
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Options &amp; Flow / 期權籌碼</div>
+      <div class="options-grid">
+        <div class="options-badge"><span>Direction: </span>Put flow elevated post-earnings</div>
+        <div class="options-badge"><span>FY26 FCF: </span>−$23.7B (vs −$394M in FY25)</div>
+        <div class="options-badge"><span>Debt plan: </span>$40B equity + debt raise announced</div>
+        <div class="options-badge"><span>Cloud rev miss: </span>$9.91B vs $9.99B est.</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Retail Buzz / 社群</div>
+      Strong discussion on Reddit r/stocks and Seeking Alpha. Bulls argue cloud RPO $638B justifies CapEx; bears flag dilution risk from $40B raise and deteriorating FCF. Salesforce (CRM) also fell in sympathy (~−2.35%).
+      <blockquote>"How do you post blockbuster earnings and still drop 12%? Welcome to the era of AI capex skepticism."</blockquote>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">炒作脈絡 / Narrative Context</div>
+      ORCL had already rallied sharply in 2025–2026 on the AI cloud narrative. The stock is now down ~25% from its recent highs even after the earnings beat. This follows a similar pattern to Amazon, Google, and Microsoft when they massively ramped capex — the market initially punishes free cash flow dilution before rewarding the growth. OCI is widely cited as the fastest-growing hyperscaler in percentage terms.
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">後續觀察 / What to Watch Next</div>
+      <ul style="margin-left:16px;font-size:13px;margin-top:4px;">
+        <li>EMA 200 support at ~$190 — is this a buy-the-dip opportunity?</li>
+        <li>$40B equity raise timeline — dilution specifics will matter</li>
+        <li>OCI customer announcements (was catching up to AWS/Azure)</li>
+        <li>Peer cloud cos (MSFT, AMZN, GOOGL) capex narrative reset</li>
+        <li>Salesforce (CRM) sympathy — watch for further cloud software sector rotation</li>
+      </ul>
+    </div>
+    <div class="sources-block">Sources:
+      <a href="https://www.cnbc.com/2026/06/10/oracle-orcl-q4-earnings-report-2026.html" target="_blank">CNBC — Oracle earnings</a>
+      <a href="https://finance.yahoo.com/markets/stocks/articles/oracle-plunges-10-earnings-salesforce-132445152.html" target="_blank">Yahoo Finance — Oracle plunge</a>
+      <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261961175-stock-oracle-orcl-price-prediction-gaap-eps-nvda-ai-tradingkey" target="_blank">TradingKey — Oracle analysis</a>
+      <a href="https://www.investing.com/news/stock-market-news/oracle-shares-slide-as-hefty-ai-spending-debt-plans-spook-investors-4737927" target="_blank">Reuters/Investing.com</a>
+    </div>
+  </div>
+
+  <!-- ADBE -->
+  <div class="ticker-card">
+    <h3>$ADBE — Adobe Inc / 奧多比</h3>
+    <div class="tape-line">RTH Close June 11: $222.29 (−4.80%) · YTD: −30% · Q2 FY26 Earnings: Reported after close June 11 (AH reaction = June 12 open)</div>
+
+    <div class="subsection">
+      <div class="subsection-title">為什麼今天熱 / Why it's hot today</div>
+      <div class="bi">
+        <div class="bi-block">
+          <div class="lang">中文</div>
+          Adobe 在 6/11 收盤後公布 Q2 FY2026 財報，是本季市場最關注的「AI 是否吃掉軟體」測試案例。年初至今股價已跌逾 30%，因市場擔憂 Anthropic Claude Design、OpenAI Sora 等 AI 工具正取代 Photoshop 訂閱。市場定價 ±7.5% 的選擇權波動，關鍵觀察指標是「淨新增 Digital Media ARR」能否超越 Q1 的 $4 億（預期 $4.5–4.6 億），以及 Firefly AI ARR 的加速成長。ADBE 已連續 13 季超越營收預期，但「例行性超標」已不足以提振股價。
+        </div>
+        <div class="bi-block">
+          <div class="lang">English</div>
+          Adobe's Q2 FY26 earnings released after the close June 11 serve as Wall Street's "cleanest live test" of the AI-eats-software thesis. ADBE is down 30% YTD as investors fear Anthropic Claude Design, OpenAI Sora, and open-source tools replacing Photoshop subscriptions. The options market priced ±7.5% move. Critical metrics: net new Digital Media ARR (Q1 shortfall at ~$400M vs $450–460M est.) and Firefly AI ARR acceleration. Estimates: $5.81 EPS on $6.45B revenue. A routine beat won't move the stock — only the ARR trajectory can.
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Options &amp; Flow / 期權籌碼</div>
+      <div class="options-grid">
+        <div class="options-badge"><span>Priced move (IV): </span>±7.5%</div>
+        <div class="options-badge"><span>Firefly AI ARR (Q1): </span>$250M annualized, +3x YoY</div>
+        <div class="options-badge"><span>Buyback program: </span>$25B authorized</div>
+        <div class="options-badge"><span>Consensus EPS: </span>$5.81 est</div>
+        <div class="options-badge"><span>Consensus Rev: </span>$6.45B est</div>
+        <div class="options-badge"><span>Status: </span>⚠️ AH results — June 12 open reflects reaction</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Retail Buzz / 社群</div>
+      ADBE mentioned surging on Reddit — +2,825% mentions in 24h per AltIndex tracker. Reddit r/stocks debate split: bears cite Claude Design + Sora threat; bulls cite $25B buyback + Nvidia Computex partnership (Photoshop re-architected for RTX Spark). X cashtag $ADBE trending heavily on earnings day.
+      <blockquote>"Adobe's had 13 straight beats but the stock is down 30% — this print needs ARR acceleration to matter"</blockquote>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">炒作脈絡 / Narrative Context</div>
+      The "AI eats software" narrative has pressured ADBE harder than most peers — the stock is now at multi-year lows. But Adobe has also strategically partnered with Nvidia on RTX Spark (Jensen Huang's Computex reveal), suggesting AI may enhance rather than replace Adobe's products. The $25B buyback and deeply discounted valuation have attracted value investors betting on a sentiment reversal.
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">後續觀察 / What to Watch Next</div>
+      <ul style="margin-left:16px;font-size:13px;margin-top:4px;">
+        <li>June 12 open: full post-earnings reaction (RTH after AH report)</li>
+        <li>Net new Digital Media ARR — any acceleration above $450M+ is bullish</li>
+        <li>Firefly AI ARR trajectory — did it accelerate past $250M annualized?</li>
+        <li>Q3 guidance — does Adobe raise, maintain, or cut?</li>
+        <li>Broader SaaS sector reaction (CRM, WDAY, ADSK as peers)</li>
+      </ul>
+    </div>
+    <div class="sources-block">Sources:
+      <a href="https://www.marketbeat.com/earnings/reports/2026-6-11-adobe-inc-stock/" target="_blank">MarketBeat Adobe Q2 report</a>
+      <a href="https://www.techtimes.com/articles/318155/20260610/adobe-q2-earnings-june-11-stock-down-30market-test-whether-ai-eats-feeds-creative-software.htm" target="_blank">TechTimes — Adobe AI test</a>
+      <a href="https://news.alphastreet.com/adobe-q2-2026-earnings-preview-june-11-street-expects-5-81-eps/" target="_blank">Alphastreet earnings preview</a>
+      <a href="https://www.tikr.com/blog/adobe-stock-2026-outlook-q2-earnings-on-june-11-and-a-25-billion-buyback-in-place" target="_blank">TIKR — Adobe outlook</a>
+    </div>
+  </div>
+
+  <!-- AMAT -->
+  <div class="ticker-card">
+    <h3>$AMAT — Applied Materials / 應用材料</h3>
+    <div class="tape-line">RTH Close June 11: ~$532.90 (+6.93%) · Range: $511.01–$538.17 · Semiconductor equipment sector halo from INTC upgrade</div>
+
+    <div class="subsection">
+      <div class="subsection-title">為什麼今天熱 / Why it's hot today</div>
+      <div class="bi">
+        <div class="bi-block">
+          <div class="lang">中文</div>
+          英特爾的 BofA 升評帶出半導體設備股的全面反彈：AMAT 漲近 7%，LRCX（科林研發）漲逾 8%，AMD 漲超 3%，MU（美光）漲超 3%，帶動 SOXX ETF 約 +2%。Cantor Fitzgerald 分析師 CJ Muse 同步重申看多，認為半導體設備產業正處於「多年供給受限、持久性景氣上行週期早段」，上調 AMAT 目標價至 $650。
+        </div>
+        <div class="bi-block">
+          <div class="lang">English</div>
+          Intel's BofA upgrade triggered a sector-wide semiconductor equipment rally: AMAT +6.9%, LRCX +8%+, AMD +3%, MU +3%, SOXX +2%. Cantor Fitzgerald's CJ Muse reiterated a bullish view, calling the industry in "early innings of a multi-year supply-constrained durable upcycle" and raised his AMAT PT to $650. Intel's IFS foundry ramp is a direct catalyst for wafer fabrication equipment demand.
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Options &amp; Flow / 期權籌碼</div>
+      <div class="options-grid">
+        <div class="options-badge"><span>Direction: </span>Call flow elevated on breakout</div>
+        <div class="options-badge"><span>Cantor PT: </span>$650 (vs ~$533 close)</div>
+        <div class="options-badge"><span>Trigger: </span>INTC foundry ramp = WFE demand</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">後續觀察 / What to Watch Next</div>
+      <ul style="margin-left:16px;font-size:13px;margin-top:4px;">
+        <li>AMAT next earnings (Oct) — will show real foundry revenue from INTC IFS ramp</li>
+        <li>LRCX: atomic layer deposition ALTUS Halo + Striker SPARC systems gaining traction</li>
+        <li>SOXX holding breakout above prior resistance</li>
+        <li>AI chip capex (NVDA/AMD buildout) continues to drive WFE demand</li>
+      </ul>
+    </div>
+    <div class="sources-block">Sources:
+      <a href="https://www.tipranks.com/news/lam-amat-kla-why-chip-gear-stocks-are-up-despite-the-pressure-on-ai-trade-june-10-2026" target="_blank">TipRanks — AMAT/LRCX/KLA analysis</a>
+      <a href="https://finance.yahoo.com/quote/AMAT/" target="_blank">Yahoo Finance AMAT</a>
+    </div>
+  </div>
+
+  <!-- RKLB -->
+  <div class="ticker-card">
+    <h3>$RKLB — Rocket Lab USA / 火箭實驗室</h3>
+    <div class="tape-line">June 11–12 Activity: Volatile ±3–5% on SpaceX IPO buzz · Vol: 4x+ avg · Q1 2026 Rev: $200M (+63.5% YoY)</div>
+
+    <div class="subsection">
+      <div class="subsection-title">為什麼今天熱 / Why it's hot today</div>
+      <div class="bi">
+        <div class="bi-block">
+          <div class="lang">中文</div>
+          SpaceX 上市是航太類股的最大催化劑。RKLB 被市場視為「最接近 SpaceX 的公開交易替代標的」，因此既享有 IPO 的光環溢出效應，也承受 Jefferies 等大行做空 SpaceX 帶來的定價壓力。RKLB Q1 2026 營收 $2 億（年增 63.5%），訂單積壓高達 $22 億。然而在 SpaceX 上市後，市場將以 SPCX 為整個航太行業的估值錨，RKLB 面臨被重新估值的壓力。
+        </div>
+        <div class="bi-block">
+          <div class="lang">English</div>
+          Rocket Lab is Wall Street's "most direct publicly-traded SpaceX alternative," making it the primary SpaceX IPO halo play. Q1 2026 revenue hit $200M (+63.5% YoY) with a $2.2B backlog. But Jefferies has positioned a SpaceX short trade that pressures broader space stocks. Now that SPCX provides a valuation anchor for the industry, RKLB may face compression if the market decides the SpaceX premium "belongs" to SPCX rather than RKLB.
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">後續觀察 / What to Watch Next</div>
+      <ul style="margin-left:16px;font-size:13px;margin-top:4px;">
+        <li>SPCX first-day close — sets the P/S multiple reference for all space stocks</li>
+        <li>Morningstar flagged ASTS, RKLB, LUNR as potentially overvalued vs SPCX anchor</li>
+        <li>RKLB Neutron rocket development timeline</li>
+        <li>ASTS SpaceMobile also in focus — $1.2B committed commercial revenue</li>
+      </ul>
+    </div>
+    <div class="sources-block">Sources:
+      <a href="https://www.heygotrade.com/en/news/spacex-ipo-june-12-tesla-rocket-lab-ast-spacemobile-outlook/" target="_blank">HeyGoTrade — SpaceX/RKLB/ASTS</a>
+      <a href="https://www.foreignpolicyjournal.com/2026/06/10/spacex-ipo-reshapes-space-sector-valuations-rocket-lab-nasdaq-rklb-and-ast-spacemobile-nasdaq-asts-in-focus/" target="_blank">FPJ — Space sector valuations</a>
+    </div>
+  </div>
+
+  <!-- GLXG -->
+  <div class="ticker-card">
+    <h3>$GLXG — Galaxy Payroll Group Limited ⚠️ LOW FLOAT / 細價股警示</h3>
+    <div class="tape-line">June 11 Close: ~$4.07 (+191–322% multi-day) · PM June 12: +246% on 38M sh · Prior close June 10: $0.976 · No listed options</div>
+
+    <div class="subsection">
+      <div class="subsection-title">⚠️ 風險警示 / Risk Warning</div>
+      <div style="background:#1a0a0a;border:1px solid var(--red);border-radius:6px;padding:12px;font-size:13px;color:#ff8080;margin:8px 0;">
+        此標的為低流通量中概小型股，無基本面催化劑支撐此等漲幅。高度懷疑存在協調性炒作（pump）。LULD 熔斷可能觸發。<br>
+        This is a low-float Chinese-domiciled micro-cap with no confirmed fundamental catalyst for these gains. Highly suspect coordinated pump activity. LULD circuit breaker halts likely. Not a normal trading candidate.
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">為什麼今天熱 / Why it's hot today</div>
+      <div class="bi">
+        <div class="bi-block">
+          <div class="lang">中文</div>
+          GLXG 是香港薪資外包服務公司，在 6/11 突然爆量急漲近 200–322%，從 $0.976 飆升至 $4.07（最高 $5.73），成交量近 3,800 萬股，是正常量的數十倍。唯一可見的「觸媒」是公司之前宣布 $2 億美元的貨架式發行（shelf registration），但這只是允許未來發股，並非真的已發行。典型的低流通量中概股零售炒作模式。
+        </div>
+        <div class="bi-block">
+          <div class="lang">English</div>
+          GLXG provides payroll outsourcing in Hong Kong. The stock exploded from $0.976 to $4.07+ (high $5.73) on June 11 with 38M shares traded — dozens of times normal volume. The only visible "catalyst" was a previously-announced $200M shelf registration (which permits future share sales, not an actual sale). This fits the classic pattern of low-float Chinese Nasdaq-listed micro-caps attracting retail squeeze speculation with no underlying fundamental driver. Pre-market June 12 showed +246%.
+        </div>
+      </div>
+    </div>
+
+    <div class="sources-block">Sources:
+      <a href="https://www.timothysykes.com/news/galaxy-payroll-group-limited-glxg-news-2026_06_11/" target="_blank">TimothySykes — GLXG analysis</a>
+      <a href="https://stockstotrade.com/news/galaxy-payroll-group-limited-glxg-news-2026_06_11/" target="_blank">StocksToTrade — GLXG breakout</a>
+      <a href="https://ts2.tech/en/galaxy-payroll-stock-pops-in-premarket-as-traders-hit-small-nasdaq-name/" target="_blank">ts2.tech — PM report</a>
+    </div>
+  </div>
+
+  <!-- ===== WATCHLIST ===== -->
+  <div class="section-title">👀 次熱觀察 / Watch List (3-5 didn't quite make cut)</div>
+  <div class="ticker-card">
+    <ul class="watch-list">
+      <li><span class="watch-ticker">$ASTS</span> AST SpaceMobile — SpaceX IPO halo play, $1.2B committed revenue, $3.5B cash, but Morningstar valuation warning. Watch for rerating post-SPCX pricing.</li>
+      <li><span class="watch-ticker">$AMD</span> AMD Advanced Micro Devices — +3%+ on Intel/SOXX halo; BofA PT $250; Zen 5 server CPU gaining share debate. Not a standalone catalyst but strong sympathy.</li>
+      <li><span class="watch-ticker">$MU</span> Micron Technology — +3%+ on semiconductor rally; DRAM/HBM AI chip demand; +$1.3B dollar volume in PM on June 12.</li>
+      <li><span class="watch-ticker">$TSLA</span> Tesla — Elon Musk "SpaceX IPO halo" — any SPCX success benefits Musk brand; also TSLA put flow noted (unusual $240 June 12 expiry puts, $253K premium).</li>
+      <li><span class="watch-ticker">$CRM</span> Salesforce — −2.35% in sympathy with Oracle cloud selloff; approaching 52-week lows; cloud SaaS de-rating continues.</li>
+    </ul>
+  </div>
+
+  <!-- ===== HALTS & WEIRDNESS ===== -->
+  <div class="section-title">🚨 Halts &amp; Weirdness / 異常事件</div>
+  <div class="halts-box">
+    <div class="halt-item">
+      <strong>$GLXG</strong> — Pre-market June 12: +246% on no confirmed news. Low-float Chinese micro-cap. Multiple LULD volatility halts expected intraday. SEC suspension risk: 待確認. <em style="color:var(--red)">[CAUTION: 高度疑似協調炒作]</em>
+    </div>
+    <div class="halt-item">
+      <strong>$PPCB</strong> (Propanc Biopharma) — +58.6% PM on 43x normal volume with no confirmed catalyst. Speculative micro-cap biotech. <em style="color:var(--yellow)">[異常成交量，無明確催化劑]</em>
+    </div>
+    <div class="halt-item">
+      <strong>$DSY</strong> (Big Tree Cloud Holdings) — Gap down −34.4% as Nasdaq compliance deadline rally (June 29) exhausts. Traders aggressively fading unconfirmed breakout. <em style="color:var(--muted)">[合規期限博弈後的反向洗牌]</em>
+    </div>
+    <div class="halt-item">
+      <strong>$SPCX — LULD Expected</strong> — First-day IPO trading with massive institutional demand + retail FOMO = probable multiple LULD circuit breaker halts on the opening cross. Normal for historic IPO size.
+    </div>
+  </div>
+
+  <!-- ===== MARKET BACKDROP ===== -->
+  <div class="section-title">📊 大盤背景 / Market Backdrop (June 11, 2026 Close)</div>
+  <div class="backdrop">
+    <strong>SPX</strong>: ~7,266–7,300 range, +0.3–0.5% on June 11 (partial recovery from June 10 −1.62%) ·
+    <strong>NDX / Nasdaq</strong>: +0.8% on June 11 (tech led by INTC/SOXX) ·
+    <strong>RUT</strong>: flat to slightly positive ·
+    <strong>VIX</strong>: ~22.22 (closed June 10 at 22.22, +11.8%) — elevated but off intraday highs ·
+    <strong>10Y UST</strong>: Yields elevated after CPI hit 3-year high of 4.2% (June 10 data) ·
+    <strong>Sector leaders</strong>: Semiconductors (SOXX +2%), Industrials partially recovered ·
+    <strong>Sector laggards</strong>: Cloud software (ORCL −12.6%, CRM −2.3%, MSFT −1.84%), Consumer (LULU, CMG, AT&T at 52-week lows) ·
+    <strong>Context</strong>: Market navigating tri-factor headwinds — sticky CPI inflation (4.2%), Iran geopolitical risk spike (June 10 Dow −900pts), and AI capex cost concerns (ORCL, AVGO) — offset by selective tech/semi upgrade catalysts (INTC) and the historic SpaceX IPO on June 12.
+  </div>
+
+  <!-- ===== DISCLAIMER ===== -->
+  <div class="disclaimer">
+    ⚠️ <strong>免責聲明 / Disclaimer</strong>：本報告僅供資訊分析參考，不構成任何投資建議。所有數據盡量引自公開來源，部分盤中/盤後數字仍待確認（標注「待確認」者）。Adobe (ADBE) 盤後財報反應資料截至本報告生成時尚未完全確認，請以開盤後實際報價為準。低流通量標的（GLXG、PPCB）風險極高，請勿將討論解讀為推介。
+  </div>
+
+  <!-- ===== FOOTER SOURCES ===== -->
+  <div class="footer-sources">
+    <h4>📎 All Sources Consulted / 參考來源</h4>
+    <a href="https://finance.yahoo.com/markets/stocks/most-active/" target="_blank">Yahoo Finance Most Active</a>
+    <a href="https://finance.yahoo.com/quote/SPCX/" target="_blank">Yahoo Finance SPCX</a>
+    <a href="https://finance.yahoo.com/markets/stocks/articles/intel-rallies-bofa-double-upgrades-105400178.html" target="_blank">Yahoo Finance — Intel BofA double upgrade</a>
+    <a href="https://finance.yahoo.com/markets/stocks/articles/oracle-plunges-10-earnings-salesforce-132445152.html" target="_blank">Yahoo Finance — Oracle plunge</a>
+    <a href="https://www.cnbc.com/2026/06/10/oracle-orcl-q4-earnings-report-2026.html" target="_blank">CNBC — Oracle Q4 earnings</a>
+    <a href="https://www.benzinga.com/markets/tech/26/06/53145150/intel-bofa-double-upgrade-best-year-since-1975" target="_blank">Benzinga — Intel double upgrade</a>
+    <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261960721-spacex-ipo-is-live-at-135-bull-base-and-bear-cases-for-the-first-90-days-tradingkey" target="_blank">TradingKey — SpaceX IPO first 90 days</a>
+    <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261904604-spacex-ipo-spcx-date-set-for-june-12-175-trillion-valuation-tradingkey" target="_blank">TradingKey — SPCX IPO details</a>
+    <a href="https://www.fool.com/investing/2026/05/19/the-spacex-ipo-could-come-as-early-as-june-12-thin/" target="_blank">Motley Fool — SpaceX IPO guide</a>
+    <a href="https://www.techtimes.com/articles/318155/20260610/adobe-q2-earnings-june-11-stock-down-30market-test-whether-ai-eats-feeds-creative-software.htm" target="_blank">TechTimes — Adobe AI test</a>
+    <a href="https://news.alphastreet.com/adobe-q2-2026-earnings-preview-june-11-street-expects-5-81-eps/" target="_blank">Alphastreet — Adobe Q2 preview</a>
+    <a href="https://www.marketbeat.com/earnings/reports/2026-6-11-adobe-inc-stock/" target="_blank">MarketBeat — Adobe Q2 report</a>
+    <a href="https://www.tipranks.com/news/lam-amat-kla-why-chip-gear-stocks-are-up-despite-the-pressure-on-ai-trade-june-10-2026" target="_blank">TipRanks — Chip gear stocks</a>
+    <a href="https://www.heygotrade.com/en/news/spacex-ipo-june-12-tesla-rocket-lab-ast-spacemobile-outlook/" target="_blank">HeyGoTrade — SpaceX halo stocks</a>
+    <a href="https://www.foreignpolicyjournal.com/2026/06/10/spacex-ipo-reshapes-space-sector-valuations-rocket-lab-nasdaq-rklb-and-ast-spacemobile-nasdaq-asts-in-focus/" target="_blank">FPJ — Space sector valuations</a>
+    <a href="https://www.timothysykes.com/news/galaxy-payroll-group-limited-glxg-news-2026_06_11/" target="_blank">TimothySykes — GLXG pump analysis</a>
+    <a href="https://stockstotrade.com/news/galaxy-payroll-group-limited-glxg-news-2026_06_11/" target="_blank">StocksToTrade — GLXG breakout</a>
+    <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-10-2026" target="_blank">TheStreet — June 10 market recap</a>
+    <a href="https://www.gurufocus.com/news/8911512/intel-intc-sees-5-surge-following-upgrade-from-bofa" target="_blank">GuruFocus — INTC upgrade</a>
+    <a href="https://www.investing.com/news/stock-market-news/oracle-shares-slide-as-hefty-ai-spending-debt-plans-spook-investors-4737927" target="_blank">Reuters/Investing.com — Oracle debt plan</a>
+    <a href="https://altindex.com/wallstreetbets" target="_blank">AltIndex — WSB tracker</a>
+    <a href="https://stocktwits.com/rankings/trending" target="_blank">StockTwits Trending</a>
+    <a href="https://www.barchart.com/options/unusual-activity" target="_blank">Barchart Unusual Options Activity</a>
+    <a href="https://news.futunn.com/en/post/74211583/unusual-options-activity-tsla-mstr-and-others-attract-market-bets" target="_blank">Futunn — Unusual options (TSLA/MSTR)</a>
+  </div>
+
+</div>
+</body>
+</html>
