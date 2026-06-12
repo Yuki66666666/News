@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日美股新聞日報 / Daily US Stocks News — 2026-06-13 (US Session: Jun 12)</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3350;
+      --accent: #4f8ef7;
+      --accent2: #34d399;
+      --danger: #f87171;
+      --warn: #fbbf24;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --up: #34d399;
+      --down: #f87171;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      padding: 0 0 60px 0;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 32px 20px;
+    }
+    header h1 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+    }
+    header .meta {
+      margin-top: 6px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    header .badge {
+      display: inline-block;
+      background: #2d3a5e;
+      color: var(--accent);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
+
+    /* Index table */
+    .index-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      background: var(--surface);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+    .index-table th {
+      background: var(--surface2);
+      color: var(--muted);
+      font-weight: 600;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .index-table td {
+      padding: 10px 14px;
+      border-top: 1px solid var(--border);
+    }
+    .index-table tr:hover td { background: var(--surface2); }
+    .up { color: var(--up); font-weight: 600; }
+    .down { color: var(--down); font-weight: 600; }
+    .flat { color: var(--muted); }
+
+    /* Section */
+    .section {
+      margin-bottom: 36px;
+    }
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      border-left: 3px solid var(--accent);
+      padding-left: 12px;
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    /* Card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+      transition: border-color 0.15s;
+    }
+    .card:hover { border-color: #3e4a7a; }
+    .card-title {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .card-title .en {
+      color: var(--muted);
+      font-weight: 400;
+      font-size: 0.88rem;
+      display: block;
+      margin-top: 2px;
+    }
+    .source-line {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .source-line a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .source-line a:hover { text-decoration: underline; }
+
+    .label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-right: 4px;
+      letter-spacing: 0.04em;
+      vertical-align: baseline;
+    }
+    .label-fact { background: #1e3a5f; color: #60a5fa; }
+    .label-ctx  { background: #1e3d2f; color: #6ee7b7; }
+    .label-impl { background: #3d2a1e; color: #fbbf24; }
+
+    p.fact, p.ctx, p.impl {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    p.fact span, p.ctx span, p.impl span {
+      color: var(--text);
+    }
+
+    /* Heatmap pills */
+    .sector-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .sector-pill {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      text-align: center;
+    }
+    .sector-pill .name { font-size: 0.75rem; color: var(--muted); margin-bottom: 4px; }
+    .sector-pill .val  { font-size: 1rem; font-weight: 700; }
+
+    /* Analyst table */
+    .analyst-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+    .analyst-table th {
+      color: var(--muted);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+    .analyst-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #1e2235;
+      color: var(--text);
+    }
+    .analyst-table tr:last-child td { border-bottom: none; }
+    .upgrade { color: var(--up); }
+    .downgrade { color: var(--down); }
+    .maintain { color: var(--muted); }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 22px 32px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+    footer ul { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; }
+    footer ul li a { color: var(--muted); text-decoration: none; }
+    footer ul li a:hover { color: var(--accent); }
+    .disclaimer {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 24px;
+    }
+
+    /* Note box */
+    .note-box {
+      background: #1e2e1a;
+      border: 1px solid #2e4a28;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.82rem;
+      color: #a3d98f;
+      margin-bottom: 20px;
+    }
+    .warn-box {
+      background: #2e2310;
+      border: 1px solid #4a3c18;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.82rem;
+      color: var(--warn);
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>今日美股新聞日報 / Daily US Stocks News</h1>
+  <div class="meta">
+    <span class="badge">US EQUITY</span>
+    <span class="badge">2026-06-13 (Taipei)</span>
+    <span class="badge">US Trading Session: Jun 12, 2026 (Friday)</span>
+    &nbsp;資料截止：盤中快照 / Intraday snapshot · 數據來源：Yahoo Finance、Investing.com、Federal Reserve
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Data note -->
+  <div class="warn-box">
+    <strong>注意 / Note：</strong>
+    本報告以台北時間 2026-06-13 上午（美東時間 2026-06-12 盤中）資料為基礎，此時美股尚未收盤（距收盤約 2.5 小時）。指數數字為盤中水位，非 official closing price。正式收盤後數字可能有所變動。<br>
+    <em>This report is based on intraday data captured on US Jun 12, 2026 (approximately 2.5 hours before close). All index figures are intraday, not official closing prints.</em>
+  </div>
+
+  <!-- 1. 市場概況 -->
+  <div class="section">
+    <div class="section-title">1. 市場概況 / Market Overview</div>
+
+    <table class="index-table">
+      <thead>
+        <tr>
+          <th>指數 / Index</th>
+          <th>盤中水位 / Intraday</th>
+          <th>漲跌 / Chg</th>
+          <th>% 幅</th>
+          <th>備注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>S&amp;P 500</strong></td>
+          <td>7,417 – 7,510</td>
+          <td class="up">+36 pts</td>
+          <td class="up">+0.49%</td>
+          <td>盤中高點 7,510；前一日大跌 -2.64%</td>
+        </tr>
+        <tr>
+          <td><strong>Nasdaq Comp.</strong></td>
+          <td>25,838 – 26,590</td>
+          <td class="up">+245 pts</td>
+          <td class="up">+0.93%</td>
+          <td>前一日 -4.18% 後反彈；Nasdaq 100 +1.53%</td>
+        </tr>
+        <tr>
+          <td><strong>Dow Jones</strong></td>
+          <td>50,379 – 51,124</td>
+          <td class="flat">-192 ~ +275</td>
+          <td class="flat">-0.39% ~ +0.54%</td>
+          <td>盤中震盪；前一日 -1.35%</td>
+        </tr>
+        <tr>
+          <td><strong>Russell 2000</strong></td>
+          <td>2,948</td>
+          <td class="up">+26.75</td>
+          <td class="up">+0.92%</td>
+          <td>小型股相對強勢</td>
+        </tr>
+        <tr>
+          <td><strong>VIX</strong></td>
+          <td>17.03 – 19.08</td>
+          <td class="down">前日 +39.68%</td>
+          <td class="down">今日回落 -1.86%</td>
+          <td>前日因 SpaceX IPO 當日衝擊大漲；今日部分回落</td>
+        </tr>
+        <tr>
+          <td><strong>US 10Y 殖利率</strong></td>
+          <td>4.479%</td>
+          <td class="up">+0.016</td>
+          <td class="up">+0.36%</td>
+          <td>Investing.com 另顯示 4.506%；輕微上行</td>
+        </tr>
+        <tr>
+          <td><strong>DXY 美元指數</strong></td>
+          <td>99.14 – 99.76</td>
+          <td class="down">-0.10</td>
+          <td class="down">-0.10%</td>
+          <td>美元持續走弱格局</td>
+        </tr>
+        <tr>
+          <td><strong>WTI 原油</strong></td>
+          <td>$84.68 – $93.89</td>
+          <td class="down">-3.03 (CFD 差異)</td>
+          <td class="down">-3.45%</td>
+          <td>Brent Crude CFD 顯示截然不同走勢；伊朗/中東局勢是主要變數</td>
+        </tr>
+        <tr>
+          <td><strong>黃金 Gold</strong></td>
+          <td>$4,239 – $4,365</td>
+          <td class="up">+125</td>
+          <td class="up">+3.06%</td>
+          <td>前日亦強；避險需求旺盛</td>
+        </tr>
+        <tr>
+          <td><strong>白銀 Silver</strong></td>
+          <td>$67.92</td>
+          <td class="up">+3.91</td>
+          <td class="up">+6.12%</td>
+          <td>大幅跑贏黃金；工業需求 + 避險雙驅動</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box">
+      <strong>盤中板塊摘要 / Sector Snapshot（來源：Yahoo Finance / Investing.com）</strong><br>
+      半導體（SOX proxy）：MU +19%、AMD +6.6%、ON Semi +10%、SNDK +9%、INTC 盤中 +6%（前日收 -11%）→ 記憶體/半導體族群是今日最強板塊。<br>
+      防禦股下跌：TSCO -5.8%、AZO -10.5%、ORLY -4.1%、KR -3.9% → 零售/消費防禦輪出。<br>
+      航太/太空股分化：SpaceX 相關 ETF SPCL +56%（2X 槓桿）、SPCX +21%；FLY -16%、YSS -17%、ASTS -13% → 非 SpaceX 太空股遭拋售。
+    </div>
+  </div>
+
+  <!-- 2. 頭條 -->
+  <div class="section">
+    <div class="section-title">2. 頭條 / Top Stories</div>
+
+    <div class="card">
+      <div class="card-title">
+        SpaceX 歷史性 IPO：史上最大科技 IPO 之一，開盤價 $150，定價 $135
+        <span class="en">SpaceX (SPCX) Makes Historic Nasdaq Debut — Opens at $150, Priced at $135</span>
+      </div>
+      <div class="source-line">
+        來源：Yahoo Finance Live Blog · 2026-06-12 ·
+        <a href="https://finance.yahoo.com/markets/live/spacex-ipo-live-updates-elon-musks-spacex-set-to-make-record-debut-as-dow-sp-500-nasdaq-rise-230015961.html" target="_blank">Live Coverage</a>
+      </div>
+      <p class="fact">
+        <span class="label label-fact">核心事實</span>
+        <span>
+          SpaceX（代號 SPCX）以每股 $135 定價在 Nasdaq 掛牌，盤中開盤即達 $150（較定價 +11%），代碼 SPCX 盤中最高達約 $165，收盤附近 $135 對應市值初估超過 $780B。
+          Defiance 2x 槓桿 ETF（SPCL）當日暴漲 +56.56%。相關衍生 ETF BYAH +116%、CUPR +78%。
+          前一交易日（收盤數據）NVDA -6.2%、INTC -11%、Nasdaq -4.18%，顯示 IPO 當天大盤同步重挫，資金輪動明顯。
+          SpaceX 財務：TTM 營收 $19.3B、淨損 -$9.36B、現金 $23.68B。
+        </span>
+      </p>
+      <p class="ctx">
+        <span class="label label-ctx">背景脈絡</span>
+        <span>
+          SpaceX 由 Elon Musk 於 2002 年創立，長期以私募形式運作，估值曾在二級市場達 $350B+。此次 IPO 定價 $135/股，估值約 $780B，被市場稱為「史上最大科技 IPO 之一」，超越 Alibaba（2014）和 Arm（2023）。
+          Morgan Stanley 預測 SpaceX 2040 年收入可達 $3.4 兆；Goldman Sachs 預估其 AI 相關業務 2030 年可貢獻 $322B 收入。
+          關鍵隱患：S&amp;P 500 快速納入並無保證——指數委員會不提供「快速通道」，IPO 公司須符合連續盈利等要求，SpaceX 目前仍在虧損中。
+        </span>
+      </p>
+      <p class="impl">
+        <span class="label label-impl">影響觀察</span>
+        <span>
+          IPO 當日大盤大跌（Nasdaq -4.18%）顯示資金從科技/半導體大幅輪出入 SPCX，造成短期局部流動性衝擊。
+          太空/航太類股分化劇烈：Rocket Lab、Planet Labs、AST SpaceMobile 均跌 13-26%，顯示「SpaceX 上市 = 競爭加劇」邏輯已被 priced in。
+          Starlink 業務將是市場最關注的長期成長引擎，衛星寬頻滲透率與 AI 邊緣計算的整合是核心 narrative。
+        </span>
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        記憶體超級周期再起？Micron 財報觸發半導體族群強勁反彈
+        <span class="en">Memory Super-Cycle Reignites: Micron Earnings Catalyst Sparks Semis Rally</span>
+      </div>
+      <div class="source-line">
+        來源：Investing.com / Yahoo Finance · 2026-06-12 ·
+        <a href="https://www.investing.com/indices/" target="_blank">Investing.com</a>
+      </div>
+      <p class="fact">
+        <span class="label label-fact">核心事實</span>
+        <span>
+          Micron（MU）盤中大漲 +19.36%，收盤附近 $896，成交量 52.8M（3M 均量顯著放大）。
+          同步帶動：ON Semiconductor +10.26%、Western Digital（WDC）+9.18%、SanDisk（SNDK）+9.12%、Teradyne +7.54%、AMD +6.55%、Intel +6.32%。
+          Nasdaq 100 當日反彈 +1.53%，半導體主導。
+        </span>
+      </p>
+      <p class="ctx">
+        <span class="label label-ctx">背景脈絡</span>
+        <span>
+          MU 本週公布 Q3 FY2026 財報（截至 5 月底季度），具體 EPS/Rev 數字未能取得，但市場反應顯示大幅超預期。
+          AI 訓練對 HBM3e（High Bandwidth Memory）需求持續爆炸性成長，Micron 是除三星、SK Hynix 外唯一 HBM 主要供應商，且在美國客戶（NVIDIA、AMD）配額上具備地緣優勢。
+          過去一年 NAND/DRAM 市況從供過於求轉向緊俏，今年 DRAM ASP 漲幅已達 40%+（分析師估計）。
+        </span>
+      </p>
+      <p class="impl">
+        <span class="label label-impl">影響觀察</span>
+        <span>
+          MU 帶動整條記憶體供應鏈，包括設備（Teradyne、Amphenol）、基板材料、測試設備等均連袂上漲。
+          NVDA 盤中小幅走跌（-0.86%），顯示市場局部資金從「AI 晶片龍頭」轉向「AI 記憶體受益者」的再平衡。
+          需持續觀察 SK Hynix、Samsung 的 HBM4 量產時程，以及 DRAM ASP 是否持續維持高位。
+        </span>
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        Kevin Warsh 正式就任聯準會主席；新 Fed 首要課題：通膨與降息路徑
+        <span class="en">Kevin Warsh Sworn In as Fed Chair; Markets Eye New Monetary Policy Tone</span>
+      </div>
+      <div class="source-line">
+        來源：Federal Reserve · 2026-05-22 ·
+        <a href="https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm" target="_blank">聯準會官方公告</a>
+      </div>
+      <p class="fact">
+        <span class="label label-fact">核心事實</span>
+        <span>
+          Kevin Warsh 於 2026-05-22 宣誓就任聯準會主席及 FOMC 主席。最新 FOMC 會議記錄（4/28-29）於 5/20 公布。副主席 Bowman（監管職）於 6/4 出席國會聽證，聚焦銀行監管。
+          鉅亨網報導顯示前次 FOMC 按兵不動，且出現「罕見四人異議」，異議票數創 1992 年來新高，被市場解讀為政策路徑高度不確定的訊號。
+        </span>
+      </p>
+      <p class="ctx">
+        <span class="label label-ctx">背景脈絡</span>
+        <span>
+          Warsh 取代 Powell 出任 Fed 主席，市場對其政策風格頗為關注：Warsh 曾在 2010 年代主張更鷹派的貨幣政策，但此次接任時美國通膨尚未完全受控（CPI 仍高於 2% 目標）。
+          FOMC 內部異議增加，顯示委員對降息時機分歧明顯，Fed 的「數據驅動」路徑不確定性上升。
+          就業市場方面：6/5 公布的 5 月非農就業 172K（前值 115K）、失業率持平 4.3%，超預期的就業強勁給降息帶來更多壓力。
+        </span>
+      </p>
+      <p class="impl">
+        <span class="label label-impl">影響觀察</span>
+        <span>
+          Warsh 主政風格若偏鷹，將壓制科技/成長股估值（高折現率）。10Y 殖利率 4.48-4.51% 代表市場尚未 price in 大幅降息。
+          CME FedWatch 降息預期需持續追蹤。夏季 FOMC（7 月）前若無通膨明顯降溫，降息概率偏低。
+          此為中長期影響股市估值的核心變數，須搭配每月 CPI/PCE 數據滾動觀察。
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <!-- 3. 財報 -->
+  <div class="section">
+    <div class="section-title">3. 財報 / Earnings of the Day</div>
+
+    <div class="card">
+      <div class="card-title">
+        Micron Technology (MU) — Q3 FY2026 財報大幅超預期
+        <span class="en">Micron Technology Q3 FY2026 Blowout — Stock +19%+</span>
+      </div>
+      <div class="source-line">
+        來源：Yahoo Finance / Investing.com · 2026-06-12 ·
+        <a href="https://finance.yahoo.com/quote/MU" target="_blank">MU Quote</a>
+      </div>
+      <p class="fact">
+        <span class="label label-fact">核心事實</span>
+        <span>
+          MU 盤中 +19.36%（至 $896 附近），成交量 52.8M，為當日美股最大漲幅之一。
+          具體 EPS 與 Revenue 數字因資料來源限制未能完整取得（SEC 8-K 尚待查驗），但股價反應幅度顯示業績顯著優於市場共識，並可能伴隨強勁財測（guidance）。
+          警示：此處無法確認具體 EPS/Rev 數字，僅根據市場反應推論財報優於預期。
+        </span>
+      </p>
+      <p class="ctx">
+        <span class="label label-ctx">背景脈絡</span>
+        <span>
+          Micron 為全球三大 DRAM 廠之一，近 12 個月受 AI HBM 需求爆發帶動，ASP 上漲、毛利率回升。
+          前次 Q2 財報已優於預期，此次 Q3 若延續超預期趨勢，有望重新定錨全年 EPS 預期。
+        </span>
+      </p>
+      <p class="impl">
+        <span class="label label-impl">影響觀察</span>
+        <span>
+          若 MU 全年 EPS guidance 上調，分析師目標價可能從 $700-800 帶往 $900-1000+。WDC、SNDK、ON Semi 等相關股票亦受惠。
+          整體記憶體/半導體 ETF（SMH、SOXX）將受到提振。
+        </span>
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        前期重要財報參考：Amazon Q1 AWS +28%、Alphabet 淨利 +81%
+        <span class="en">Prior Earnings Reference: Amazon AWS +28%, Alphabet Net Income +81%</span>
+      </div>
+      <div class="source-line">
+        來源：鉅亨網 · 約 2026 年 4-5 月財報季 ·
+        <a href="https://news.cnyes.com/news/cat/wd_stock" target="_blank">鉅亨網</a>
+      </div>
+      <p class="fact">
+        <span class="label label-fact">核心事實</span>
+        <span>
+          Alphabet Q1：營收高於預期，淨利年增 +81%，雲端業務（Google Cloud）年增 +63%。
+          Amazon Q1：AWS 雲端業務年增 +28%，整體營收與獲利雙超預期，盤後漲近 +5%。
+          Meta Q1：上修 AI 資本支出，用戶成長遜預期，盤後重挫 -6%+。
+        </span>
+      </p>
+      <p class="ctx">
+        <span class="label label-ctx">背景脈絡</span>
+        <span>
+          大型科技公司 Q1 財報整體呈「AI 基礎設施強，廣告/消費端分化」格局。
+          Alphabet 和 Amazon 顯示 AI 雲端業務加速，支撐整體估值。Meta 的資本支出上修（AI 基礎設施）雖長線利多，但短期稀釋 FCF，引發市場疑慮。
+        </span>
+      </p>
+      <p class="impl">
+        <span class="label label-impl">影響觀察</span>
+        <span>
+          AI 基礎設施投入（AWS、Google Cloud、Azure）持續加速，對算力（NVDA、AMD、MU）及電力/資料中心相關股（Amphenol、Vistra 等）形成長期正向催化劑。
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <!-- 4. 個股大事 -->
+  <div class="section">
+    <div class="section-title">4. 個股大事 / Single-Stock Movers</div>
+
+    <div class="card">
+      <div class="card-title">
+        Intel (INTC) — 劇烈波動：前日 -11%，今日盤中 +6%
+        <span class="en">Intel (INTC): Violent Swings — Day Prior -11%, Today +6%</span>
+      </div>
+      <div class="source-line">
+        來源：Yahoo Finance / Investing.com · 2026-06-12 ·
+        <a href="https://finance.yahoo.com/quote/INTC" target="_blank">INTC Quote</a>
+      </div>
+      <p class="fact">
+        <span class="label label-fact">核心事實</span>
+        <span>
+          INTC 前一交易日（Jun 11？）收盤 -11.28%（至 $99.17）；今日（Jun 12）盤中 Yahoo 顯示 $124.35（+6.32%），成交量為市場最活躍之一（77.9M）。
+          Investing.com 顯示 INTC 盤中 $122.45（+2.18%），數據時間點略有差異。
+          過去 52 周，INTC 仍受龐大重組壓力，股價波動劇烈。
+        </span>
+      </p>
+      <p class="ctx">
+        <span class="label label-ctx">背景脈絡</span>
+        <span>
+          Intel 正處於「Pat Gelsinger 接班後重組」的關鍵期，Foundry 業務分拆討論持續，代工訂單爭取（18A 製程）進展是市場焦點。
+          SpaceX IPO 當日 Intel 大跌，可能是整體資金抽出科技大型股的連帶效應，或有具體負面消息（未能確認具體新聞催化劑）。
+          今日反彈搭配 MU 強勁財報帶動半導體族群整體上行。
+        </span>
+      </p>
+      <p class="impl">
+        <span class="label label-impl">影響觀察</span>
+        <span>
+          INTC 短期走勢與半導體大盤高度聯動。若 Foundry 分拆確定或獲大客戶訂單，有望解除長期壓制。
+          成交量放大代表機構資金積極介入，須觀察是否能站穩 $120+ 支撐。
+        </span>
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        太空股分化：FLY、YSS、ASTS 崩跌 13-17%；SPCX/SPCL 暴漲
+        <span class="en">Space Sector Bifurcation: Non-SpaceX Names Crater While SPCX/SPCL Surge</span>
+      </div>
+      <div class="source-line">
+        來源：Yahoo Finance 盤中數據 · 2026-06-12 ·
+        <a href="https://finance.yahoo.com/markets/stocks/losers/" target="_blank">Top Losers</a>
+      </div>
+      <p class="fact">
+        <span class="label label-fact">核心事實</span>
+        <span>
+          重挫股：Firefly Aerospace (FLY) -16.03%、York Space Systems (YSS) -16.58%、EchoStar (SATS) -15.60%、Voyager Technologies (VOYG) -12.93%、AST SpaceMobile (ASTS) -13.11%、Redwire (RDW) -13.91%。
+          Planet Labs (PL) 另一交易日 -25.98%（前後交易日數據）。
+          ETF：SPCL（Defiance 2X SpaceX ETF）+56.56%。
+        </span>
+      </p>
+      <p class="ctx">
+        <span class="label label-ctx">背景脈絡</span>
+        <span>
+          SpaceX 上市使原本「私募估值替代品」的空間類股頓失邏輯：投資人可直接購買 SPCX，無需透過替代品（如 ASTS、Planet Labs）。
+          Blue Origin 近期亦傳出火箭爆炸事故，進一步使太空產業風險評估複雜化。
+          EchoStar（SATS）跌幅可能另有公司層面因素（衛星業務競爭加劇）。
+        </span>
+      </p>
+      <p class="impl">
+        <span class="label label-impl">影響觀察</span>
+        <span>
+          短期內太空次產業板塊仍以 SpaceX 為唯一定價錨點，其餘玩家需要在「差異化服務」（LEO 特定頻段、政府合約等）上建立說服市場的護城河。
+          Starlink 持續擴張對 EchoStar、SATS 等既有衛星寬頻業者構成長期存在威脅。
+        </span>
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        NVIDIA (NVDA) — 盤中小跌，成交量依然最大；AMD 反彈 +6.5%
+        <span class="en">NVIDIA (NVDA) — Slight Intraday Dip Despite Massive Volume; AMD Rebounds +6.5%</span>
+      </div>
+      <div class="source-line">
+        來源：Investing.com / Yahoo Finance · 2026-06-12 ·
+        <a href="https://www.investing.com/" target="_blank">Investing.com</a>
+      </div>
+      <p class="fact">
+        <span class="label label-fact">核心事實</span>
+        <span>
+          NVDA 盤中 $204-213，日變化約 -0.86% 至 +0.01%（資料源時間差），成交量 113M（今日市場最大量）。前一日收盤 NVDA -6.2%。
+          AMD 盤中 $498，+6.55%，成交量 23.5M。
+          AAPL 盤中 $309.58（+0.25%），TSLA $432.36（+1.49%），GOOGL $386.56（+0.94%）。
+          MSFT $414.42（-0.99%）。AMZN $262.63（-1.39%）。META $609.17（-0.18%）。
+        </span>
+      </p>
+      <p class="ctx">
+        <span class="label label-ctx">背景脈絡</span>
+        <span>
+          NVDA 前日大跌 -6.2%（SpaceX IPO 資金輪動 + 大盤風險off），今日基本持平代表市場在消化前日跌幅。
+          AMD 的強勁反彈緊隨 MU 財報，AI GPU 競爭格局（Mi300X、MI350）仍是核心主題。
+          Mega cap 整體偏弱（META、MSFT、AMZN 均小跌），顯示資金今日集中在半導體/記憶體而非廣泛科技。
+        </span>
+      </p>
+      <p class="impl">
+        <span class="label label-impl">影響觀察</span>
+        <span>
+          NVDA 成交量持續居首，顯示機構仍在積極交易（多空雙向），非單邊清倉。
+          AMD 是否能在 AI GPU 市場持續搶份額，是下半年最重要的競爭觀察點。
+        </span>
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        AutoZone (AZO) 崩跌 -10.5%；防禦/零售股全面走弱
+        <span class="en">AutoZone (AZO) -10.5%; Consumer Defensive and Retail Names Broadly Weak</span>
+      </div>
+      <div class="source-line">
+        來源：Investing.com · 2026-06-12 ·
+        <a href="https://www.investing.com/equities/autozone-inc" target="_blank">AZO</a>
+      </div>
+      <p class="fact">
+        <span class="label label-fact">核心事實</span>
+        <span>
+          AZO -10.46%（$3,050）；Tractor Supply (TSCO) -5.79%（$29.79）；Intuit (INTU) -4.89%；Molina Healthcare (MOH) -4.82%；O'Reilly (ORLY) -4.11%；Kroger (KR) -3.90%。
+        </span>
+      </p>
+      <p class="ctx">
+        <span class="label label-ctx">背景脈絡</span>
+        <span>
+          AZO 最可能的原因是財報不如預期（具體數字待確認）或向下修正 guidance。ORLY、TSCO 同步大跌，顯示市場正在重新評估消費性支出復甦的節奏。
+          Kroger（KR）下跌則與超市通膨競爭壓力及 Albertsons 合併談判餘波有關。
+          防禦性消費板塊走弱，資金流入半導體/成長股，典型的 risk-on 輪動邏輯。
+        </span>
+      </p>
+      <p class="impl">
+        <span class="label label-impl">影響觀察</span>
+        <span>
+          若 AZO 財報真正遜色，需要觀察是否為消費降溫的先行指標（汽車零件需求通常較穩定）。
+          消費防禦板塊短期承壓，ETF XLP、VDC 可能受拖累。
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <!-- 5. 併購與 IPO -->
+  <div class="section">
+    <div class="section-title">5. 併購與 IPO / M&amp;A and IPO</div>
+
+    <div class="card">
+      <div class="card-title">
+        Marvell Technology 和 Flex 將加入 S&amp;P 500 季度調整
+        <span class="en">Marvell Technology &amp; Flex to Join S&amp;P 500 in Quarterly Rebalance</span>
+      </div>
+      <div class="source-line">
+        來源：Investor's Business Daily via Yahoo Finance · 近期 ·
+        <a href="https://finance.yahoo.com/m/c48b3bd5-0402-3819-ab52-5f58f4c11eeb/marvell-technology-flex-to.html" target="_blank">IB Daily</a>
+      </div>
+      <p class="fact">
+        <span class="label label-fact">核心事實</span>
+        <span>
+          Marvell Technology 和 Flex 在即將到來的 S&amp;P 500 季度再平衡中加入指數，觸發被動型 ETF/基金的強制買入流量。
+          SpaceX 被明確排除於此次快速納入之外，須符合連續盈利等要求後才可能考慮。
+        </span>
+      </p>
+      <p class="impl">
+        <span class="label label-impl">影響觀察</span>
+        <span>
+          MRVL 加入 S&amp;P 500 在再平衡截止前將有大量指數型基金買入，提供短期技術性支撐。
+          SpaceX 不立即納入 S&amp;P 500，意味著指數型基金（VOO、SPY）暫時無法直接受惠，限制了散戶被動參與的管道。
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <!-- 6. 券商評等 -->
+  <div class="section">
+    <div class="section-title">6. 券商評等 / Analyst Calls</div>
+
+    <div class="card">
+      <table class="analyst-table">
+        <thead>
+          <tr>
+            <th>股票</th>
+            <th>券商</th>
+            <th>動作</th>
+            <th>內容</th>
+            <th>來源</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>SpaceX (SPCX)</strong></td>
+            <td>Morgan Stanley</td>
+            <td class="upgrade">研究覆蓋</td>
+            <td>預估 2040 年收入達 $3.4 兆</td>
+            <td><a href="https://finance.yahoo.com/markets/stocks/articles/market-chatter-morgan-stanley-projects-190534600.html" target="_blank">Yahoo Finance</a></td>
+          </tr>
+          <tr>
+            <td><strong>SpaceX (SPCX)</strong></td>
+            <td>Goldman Sachs</td>
+            <td class="upgrade">研究覆蓋</td>
+            <td>AI 收入 2030 年達 $322B</td>
+            <td><a href="https://finance.yahoo.com/markets/stocks/articles/market-chatter-goldman-sachs-sees-162332144.html" target="_blank">Yahoo Finance</a></td>
+          </tr>
+          <tr>
+            <td><strong>SpaceX (SPCX)</strong></td>
+            <td>Simply Wall St. / Yardeni</td>
+            <td class="maintain">謹慎</td>
+            <td>上市前估值面臨 $780B 現實考驗；IPO 可行性仍有不確定性</td>
+            <td>Yahoo Finance</td>
+          </tr>
+          <tr>
+            <td><strong>MU Micron</strong></td>
+            <td>（多家）</td>
+            <td class="upgrade">財報後可能上調</td>
+            <td>財報大幅超預期後，預期多家券商上調目標價至 $900-1000+</td>
+            <td>市場推論，待正式報告確認</td>
+          </tr>
+          <tr>
+            <td><strong>Top US Stocks to Watch</strong></td>
+            <td>Benzinga</td>
+            <td class="maintain">Watch List</td>
+            <td>AMAT、Cisco、Nebius、Circle 為本週關注重點；S&P 500 接近 7,500 關鍵阻力位</td>
+            <td><a href="https://www.benzinga.com/markets/market-summary/26/05/52437847/top-us-stocks-to-watch-this-week-amat-cisco-nebius-and-circle" target="_blank">Benzinga</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 7. Fed 與利率 -->
+  <div class="section">
+    <div class="section-title">7. Fed 與利率 / Fed &amp; Rates</div>
+
+    <div class="card">
+      <div class="card-title">
+        Warsh 新政首月觀察：FOMC 異議創 1992 年新高，降息路徑高度不確定
+        <span class="en">Warsh's First Month at Fed: Record FOMC Dissent, Rate Path Cloudy</span>
+      </div>
+      <div class="source-line">
+        來源：Federal Reserve / 鉅亨網 · 2026-05-22 ·
+        <a href="https://www.federalreserve.gov/newsevents.htm" target="_blank">Fed.gov</a>
+      </div>
+      <p class="fact">
+        <span class="label label-fact">核心事實</span>
+        <span>
+          Kevin Warsh 於 2026-05-22 宣誓就任 Fed 主席，FOMC 一致選其為委員會主席。
+          4/28-29 FOMC 按兵不動，但出現「四人異議票」，創 1992 年來最多異議紀錄（按鉅亨網報導）；Powell 降為一般理事（Governor）。
+          5/29 副主席 Bowman 發表貨幣政策演講。6/4 Bowman 在國會就監管問題作證。
+          聯邦基金利率目標區間（具體數字未能取得，但維持不動）。
+          10Y 殖利率盤中 4.479-4.506%，30Y 4.971%，曲線仍呈正向但幅度有限（10-2 利差 +31bps）。
+          6/5 非農 +172K（超出市場預期 ~150K），失業率持平 4.3%，削減降息緊迫性。
+        </span>
+      </p>
+      <p class="ctx">
+        <span class="label label-ctx">背景脈絡</span>
+        <span>
+          Warsh 過去以「鷹中帶獨立」著稱，2010-2011 年曾早於 QE 宣告退出，被視為通膨警示者。
+          就業市場強勁（172K）+通膨尚未達 2% 目標 → Fed 有充分理由維持現有利率。
+          FOMC 四人異議（具體方向不明，可能部分委員偏鷹/偏鴿均有）顯示委員內部路徑分歧，給市場帶來額外不確定性。
+        </span>
+      </p>
+      <p class="impl">
+        <span class="label label-impl">影響觀察</span>
+        <span>
+          若 Warsh 傾向維持高利率（甚至釋出鷹派信號），成長股/科技股的估值壓力將持續。
+          10Y 維持 4.5% 附近 → 高估值股票 (P/E 40x+) 所需回報率提升，在 CPI 未明顯降溫前難以看到多空的根本改變。
+          下一個重要觀察點：7 月 FOMC、8 月 Jackson Hole 年會（Warsh 首次主持）。
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <!-- 8. 資金流向 -->
+  <div class="section">
+    <div class="section-title">8. 資金流向 / Flows &amp; Positioning</div>
+
+    <div class="card">
+      <div class="card-title">
+        SpaceX IPO 日：大盤資金大規模輪轉，ETF 槓桿品急漲急跌
+        <span class="en">SpaceX IPO Day Triggers Massive Rotation; Leveraged ETF Spikes and Divergences</span>
+      </div>
+      <div class="source-line">
+        來源：Yahoo Finance 盤中數據整合 · 2026-06-12
+      </div>
+      <p class="fact">
+        <span class="label label-fact">核心事實</span>
+        <span>
+          SpaceX IPO 前後（Jun 11-12）：<br>
+          • SPCL（2X SpaceX ETF）+56.56%<br>
+          • SPY（S&P 500 ETF）$737.82（+0.03%盤中）；前日大幅下跌<br>
+          • QQQ $712（+0.11% 盤中）<br>
+          • IWM（Russell 2000 ETF）$284.10（-0.02%）<br>
+          • ARKK -0.26%（成長/創新型持續承壓）<br>
+          黃金 GLD 強勢（金價 $4,239-4,365）；VIX 前日飆升 +39%，今日部分回落。
+          BTC 今日 $62-63K（+2%），ETH $1,627（+4.1%）→ crypto 與大盤相關性今日偏正。
+        </span>
+      </p>
+      <p class="ctx">
+        <span class="label label-ctx">背景脈絡</span>
+        <span>
+          SpaceX IPO 是近年最大的資本市場事件之一，投資人可能在 IPO 前後減持其他科技持倉以籌措資金購買 SPCX，造成 Jun 11（前日）大盤異常下跌。
+          黃金持續強勢（$4,200+）反映中東局勢（US-Iran 緊張）引發的避險需求，與股市同向走高代表市場風險情緒複雜。
+          白銀 +6% 反映工業需求預期（AI 數據中心用電、EV）疊加避險邏輯。
+        </span>
+      </p>
+      <p class="impl">
+        <span class="label label-impl">影響觀察</span>
+        <span>
+          SPCX 上市初期的交投熱度與 options 活動將是觀察籌碼鬆緊的重要指標。
+          若大盤本週能穩守 S&P 7,400-7,500，SpaceX IPO 引發的一次性資金抽出衝擊將逐步消化。
+          VIX 從 ~21 回落至 17，顯示市場恐慌情緒快速退潮，有助於科技股短期企穩。
+          黃金破 $4,200 創歷史新高，中東地緣政治仍是尾端風險需持續追蹤。
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <!-- 9. 觀點 -->
+  <div class="section">
+    <div class="section-title">9. 觀點 / Reads &amp; Perspectives</div>
+
+    <div class="card">
+      <div class="card-title">
+        「為什麼 SpaceX IPO 對你的影響，即使你永遠不會買這支股票」
+        <span class="en">"Why the SpaceX IPO Matters Even If You Never Buy the Stock" — IBD</span>
+      </div>
+      <div class="source-line">
+        Investor's Business Daily · 2026-06-10 ·
+        <a href="https://finance.yahoo.com/m/b48926dc-1c05-30cd-96cd-fd3cacb41a4a/why-the-spacex-ipo-matters.html" target="_blank">IBD via Yahoo Finance</a>
+      </div>
+      <p class="ctx">
+        <span class="label label-ctx">核心觀點</span>
+        <span>
+          IBD 分析認為，SpaceX 上市改變了整個「太空經濟」的資本配置邏輯。過去投資人透過間接代理（ASTS、Planet Labs、Rocket Lab）參與太空成長，現在有了直接標的。
+          論點延伸：「一旦最優標的浮出水面，替代品折讓立即顯現」——這與 2004 年 Google 上市後散戶放棄各類搜尋引擎概念股的情況類似。
+          同時也是兆元級企業進入公開市場的里程碑；下一個可能的巨型 IPO（Stripe、ByteDance 美股上市？）或更受矚目。
+        </span>
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">
+        「S&P 500 接近 7,500 關鍵阻力位 — 本週面臨首次真正考驗」
+        <span class="en">S&amp;P 500 Near 7,500 Resistance — Market Rally Faces First Real Test</span>
+      </div>
+      <div class="source-line">
+        Benzinga / IBD · 2026-06 ·
+        <a href="https://www.benzinga.com/markets/market-summary/26/05/52437847/top-us-stocks-to-watch-this-week-amat-cisco-nebius-and-circle" target="_blank">Benzinga</a>
+      </div>
+      <p class="ctx">
+        <span class="label label-ctx">核心觀點</span>
+        <span>
+          S&P 500 自年初低點反彈，目前盤中在 7,400-7,510 區間，接近 IBD 標記的 7,500 心理/技術阻力。
+          本週催化劑：SpaceX IPO、Micron 財報、就業數據（超預期 +172K）。
+          本週關注：Apple 可能有重要發布（WWDC?）、Oracle 財報、Apple 財報預期（具體時間待確認）。
+          市場上行的主要障礙：10Y 利率 4.5%+ 區間、Warsh 政策不確定性、中東油價波動。
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <strong>免責聲明 / Disclaimer：</strong>
+    本報告為資訊彙整，非投資建議。所有數字為盤中快照（截至 2026-06-12 美東時間約 13:30），非正式官方收盤數據。市場資料可能因數據源差異而有所不同。投資決策前請進行獨立研究並諮詢合格投資顧問。<br>
+    <em>This report is for informational purposes only, not investment advice. All figures are intraday snapshots and may differ from official closing prices. Always conduct your own due diligence.</em>
+  </div>
+
+</div>
+
+<footer>
+  <strong>數據來源 / Sources</strong>
+  <ul>
+    <li><a href="https://finance.yahoo.com/markets/" target="_blank">Yahoo Finance Markets</a></li>
+    <li><a href="https://www.investing.com/indices/" target="_blank">Investing.com Indices</a></li>
+    <li><a href="https://www.federalreserve.gov/newsevents.htm" target="_blank">Federal Reserve News</a></li>
+    <li><a href="https://news.cnyes.com/news/cat/wd_stock" target="_blank">鉅亨網美股</a></li>
+    <li><a href="https://www.benzinga.com/markets" target="_blank">Benzinga Markets</a></li>
+    <li><a href="https://finance.yahoo.com/markets/live/spacex-ipo-live-updates-elon-musks-spacex-set-to-make-record-debut-as-dow-sp-500-nasdaq-rise-230015961.html" target="_blank">Yahoo Finance SpaceX IPO Live</a></li>
+    <li><a href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank">CME FedWatch</a></li>
+  </ul>
+  <p style="margin-top:12px;">生成時間 / Generated: 2026-06-13 (Asia/Taipei) · by Claude (Sonnet 4.6 1M)</p>
+</footer>
+
+</body>
+</html>

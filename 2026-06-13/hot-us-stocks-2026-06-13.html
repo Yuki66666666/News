@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日美股熱門焦點股 — Hot US Stocks · June 12, 2026 (US Session)</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3250;
+      --accent: #4f8ef7;
+      --accent2: #f7c948;
+      --red: #f75c5c;
+      --green: #4cde98;
+      --text: #e8eaf6;
+      --muted: #8892b0;
+      --tag-bg: #1e2540;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', 'PingFang TC', Arial, sans-serif; line-height: 1.7; padding: 0 0 60px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header { background: linear-gradient(135deg, #12162e 0%, #1a2040 100%); border-bottom: 1px solid var(--border); padding: 36px 40px 28px; }
+    header h1 { font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    header .sub { color: var(--muted); font-size: 0.95rem; }
+    header .session-tag { display: inline-block; background: var(--accent); color: #fff; font-size: 0.78rem; font-weight: 700; border-radius: 4px; padding: 2px 10px; margin-top: 10px; letter-spacing: 0.04em; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* Market backdrop */
+    .backdrop { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin: 30px 0 20px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+    .backdrop .item { text-align: center; min-width: 80px; }
+    .backdrop .item .val { font-size: 1.15rem; font-weight: 700; }
+    .backdrop .item .lbl { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+    .up { color: var(--green); }
+    .dn { color: var(--red); }
+    .neu { color: var(--accent2); }
+
+    /* Summary table */
+    section.summary { margin: 30px 0; }
+    section.summary h2 { font-size: 1.2rem; color: var(--accent2); margin-bottom: 14px; border-left: 4px solid var(--accent2); padding-left: 12px; }
+    .tbl-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th { background: var(--surface2); color: var(--muted); font-weight: 600; text-align: left; padding: 10px 12px; white-space: nowrap; }
+    td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    tr:hover td { background: var(--surface2); }
+    .ticker { font-weight: 700; font-size: 1rem; }
+    .buzz { letter-spacing: 1px; }
+    .tag { display: inline-block; background: var(--tag-bg); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem; padding: 1px 7px; margin: 1px 2px; white-space: nowrap; }
+    .tag.hot { border-color: var(--red); color: var(--red); }
+    .tag.ipo { border-color: var(--accent2); color: var(--accent2); }
+    .tag.upgrade { border-color: var(--green); color: var(--green); }
+    .tag.earnings { border-color: #c084fc; color: #c084fc; }
+    .tag.idx { border-color: var(--accent); color: var(--accent); }
+    .tag.options { border-color: #fb923c; color: #fb923c; }
+
+    /* Deep dives */
+    .dives { margin-top: 40px; }
+    .dive { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 26px 28px; margin-bottom: 26px; }
+    .dive h3 { font-size: 1.3rem; color: #fff; margin-bottom: 4px; }
+    .dive .tape { font-size: 0.88rem; color: var(--muted); margin-bottom: 16px; background: var(--surface2); border-radius: 6px; padding: 8px 14px; display: inline-block; }
+    .dive h4 { font-size: 0.9rem; color: var(--accent2); margin: 16px 0 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .dive p { color: var(--text); font-size: 0.93rem; margin-bottom: 8px; }
+    .dive .sources-mini { font-size: 0.78rem; color: var(--muted); margin-top: 14px; border-top: 1px solid var(--border); padding-top: 10px; }
+    .dive .sources-mini a { color: var(--muted); }
+    .dive .sources-mini a:hover { color: var(--accent); }
+    .note { color: var(--muted); font-size: 0.82rem; font-style: italic; }
+    blockquote { border-left: 3px solid var(--border); padding: 4px 14px; color: var(--muted); font-style: italic; margin: 6px 0; font-size: 0.88rem; }
+
+    /* Watchlist */
+    .watchlist { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 22px 26px; margin: 30px 0; }
+    .watchlist h2 { font-size: 1.1rem; color: var(--accent); margin-bottom: 14px; }
+    .watchlist ul { list-style: none; }
+    .watchlist li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    .watchlist li:last-child { border-bottom: none; }
+
+    /* Halts */
+    .halts { background: #1f1520; border: 1px solid #3d1f3d; border-radius: 10px; padding: 20px 24px; margin: 20px 0; }
+    .halts h2 { font-size: 1.1rem; color: #c084fc; margin-bottom: 10px; }
+    .halts p { font-size: 0.9rem; }
+
+    /* Footer sources */
+    .all-sources { margin-top: 50px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 22px 26px; }
+    .all-sources h2 { font-size: 1rem; color: var(--muted); margin-bottom: 12px; }
+    .all-sources ul { columns: 2; column-gap: 30px; list-style: none; }
+    .all-sources li { font-size: 0.8rem; margin-bottom: 4px; break-inside: avoid; }
+    .all-sources a { color: var(--muted); }
+    .all-sources a:hover { color: var(--accent); }
+
+    .disclaimer { color: var(--muted); font-size: 0.78rem; margin-top: 30px; padding: 0 4px; }
+
+    @media (max-width: 700px) {
+      header { padding: 24px 16px 18px; }
+      .container { padding: 0 12px; }
+      .backdrop { gap: 14px; }
+      .all-sources ul { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>🔥 今日美股熱門焦點股 — Hot US Stocks of the Day</h1>
+    <div class="sub">交易日 Trading Session: <strong>June 12, 2026 (Friday)</strong> · 美東時間 ET · 報告生成 Report Generated: June 13, 2026 (Asia/Taipei)</div>
+    <span class="session-tag">NYSE / Nasdaq — Regular Session Close</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Market Backdrop -->
+  <div class="backdrop">
+    <div class="item"><div class="val up">+0.4%</div><div class="lbl">Dow Jones</div></div>
+    <div class="item"><div class="val neu">~flat</div><div class="lbl">S&P 500</div></div>
+    <div class="item"><div class="val dn">−0.5%</div><div class="lbl">Nasdaq 100</div></div>
+    <div class="item"><div class="val neu">19.3</div><div class="lbl">VIX</div></div>
+    <div class="item"><div class="val dn">~$85</div><div class="lbl">WTI Oil</div></div>
+    <div class="item"><div class="val">Mixed</div><div class="lbl">Sectors</div></div>
+  </div>
+  <p class="note" style="margin-bottom:20px">大盤背景：SPX/NDX 走勢分化，防禦股（Dow）小漲、科技股因 SpaceX IPO 資金排擠及 Mag-7 下跌而承壓。美伊談判進度及 SpaceX 首日上市主導市場情緒。Oil 跌至 $85，對通膨預期有利。VIX 19.3，維持中等波動。</p>
+
+  <!-- Summary Table -->
+  <section class="summary">
+    <h2>📊 Today's Hot Names — Summary Table / 今日熱門榜</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Ticker</th>
+            <th>Company</th>
+            <th>Close / 收盤</th>
+            <th>% Change</th>
+            <th>Vol Est.</th>
+            <th>Options</th>
+            <th>Buzz 熱度</th>
+            <th>Catalyst</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="ticker" style="color:var(--accent2)">SPCX</span></td>
+            <td>SpaceX <span class="tag ipo">IPO首日</span></td>
+            <td>~$168.70</td>
+            <td class="up">+25.0% vs IPO</td>
+<td>史上最大 IPO</td>
+            <td>Perp OI $263M+; 4:3 C/P</td>
+            <td class="buzz">★★★★★</td>
+            <td><span class="tag ipo">史上最大IPO</span> $75B 上市</td>
+          </tr>
+          <tr>
+            <td><span class="ticker" style="color:var(--red)">ADBE</span></td>
+            <td>Adobe <span class="tag earnings">財報</span></td>
+            <td>~$200.80</td>
+            <td class="dn">−6.25%</td>
+            <td>爆量</td>
+            <td>9:1 Puts vs Calls; IV飆升</td>
+            <td class="buzz">★★★★☆</td>
+            <td><span class="tag earnings">Q2財報</span> <span class="tag hot">CFO離職</span></td>
+          </tr>
+          <tr>
+            <td><span class="ticker" style="color:var(--green)">AMD</span></td>
+            <td>Advanced Micro Devices</td>
+            <td>~$491.62</td>
+            <td class="up">+3.85%</td>
+            <td>15M+ sh</td>
+            <td>Calls dominant; AI targets ↑</td>
+            <td class="buzz">★★★★☆</td>
+            <td><span class="tag upgrade">多家升評</span> AI 伺服器需求</td>
+          </tr>
+          <tr>
+            <td><span class="ticker" style="color:var(--green)">SNDK</span></td>
+            <td>SandDisk <span class="tag hot">AI記憶體</span></td>
+            <td>~$1,969</td>
+            <td class="up">+5%+ intraday</td>
+            <td>高於均量</td>
+            <td>Morgan Stanley PT ↑↑</td>
+            <td class="buzz">★★★★☆</td>
+            <td>NAND 供應吃緊 + AI 需求</td>
+          </tr>
+          <tr>
+            <td><span class="ticker" style="color:var(--red)">RKLB</span></td>
+            <td>Rocket Lab <span class="tag idx">NDX100加入</span></td>
+            <td>~$107.00</td>
+            <td class="dn">−6.2% RTH</td>
+            <td>爆量</td>
+            <td>Mixed; pre-mkt +8% → sell-off</td>
+            <td class="buzz">★★★☆☆</td>
+            <td><span class="tag idx">納入Nasdaq-100</span> 6/22生效</td>
+          </tr>
+          <tr>
+            <td><span class="ticker" style="color:var(--green)">GD</span></td>
+            <td>General Dynamics</td>
+            <td>待確認</td>
+            <td class="up">小漲</td>
+            <td>普通</td>
+            <td>Calls 9:1 vs puts (block)</td>
+            <td class="buzz">★★★☆☆</td>
+            <td><span class="tag upgrade">Jefferies升至Buy</span> 潛艦需求</td>
+          </tr>
+          <tr>
+            <td><span class="ticker" style="color:var(--green)">QCOM</span></td>
+            <td>Qualcomm</td>
+            <td>~$195–204</td>
+            <td class="up">+5%±</td>
+            <td>普通偏高</td>
+            <td>Wells Fargo PT $230↑</td>
+            <td class="buzz">★★★☆☆</td>
+            <td>AI手機+數據中心升評</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Deep Dives -->
+  <div class="dives">
+
+    <!-- SPCX -->
+    <div class="dive">
+      <h3>$SPCX — Space Exploration Technologies (SpaceX)</h3>
+      <div class="tape">IPO Price: $135 · Open: $150 · High: $176.52 · Close: ~$168.70 (+25% vs IPO) · Range: $150–$176.52 · Nasdaq首日上市</div>
+
+      <h4>為什麼今天熱 / Why it's hot today</h4>
+      <p>SpaceX 於 2026 年 6 月 12 日正式以代碼 SPCX 掛牌 Nasdaq，以每股 $135 發行 5.56 億股，募資 $750 億美元（約台幣 2.4 兆），創全球史上最大 IPO 紀錄，超越沙烏地阿美 2019 年的 $294 億。掛牌估值約 $1.77 兆，盤中一度逼近 $2.21 兆，逼近 Amazon 的 $2.54 兆市值。首日以 $150 開盤（$135 IPO 價上方 11%），盤中高點觸及 $176.52，最終收在約 $168.70，較 IPO 價上漲 ~25%。</p>
+      <p>SpaceX's debut on Nasdaq under SPCX on June 12 was the single largest IPO in history at $75 billion, valuing the company at $1.77 trillion at pricing and reaching $2.21 trillion at intraday highs. The IPO was oversubscribed more than 400×. Retail brokerages — particularly Robinhood — saw record-breaking traffic and intermittent latency issues on open, underscoring explosive demand. The broader market backdrop was positive (US-Iran deal optimism), but the SpaceX listing was the event of the week.</p>
+
+      <h4>Options &amp; Flow / 期權與資金流</h4>
+      <p>由於股票首日上市，傳統選擇權市場尚未有大量流動性，但 Hyperliquid 上的 SPCX-USDC 永續合約已出現超過 $2.33 億 24 小時成交量，未平倉部位逾 $2.63 億，顯示市場高度投機需求。傳統選擇權市場整體當天 Calls 對 Puts 比約為 4:3（略偏多）。機構因配售稀缺，散戶主要在次級市場搶購。</p>
+      <p>Traditional equity options market showed modest 4:3 calls-to-puts ratio on June 12 broadly; SPCX-specific options liquidity was limited on day one. Crypto perp OI above $263M signals speculative overflow demand from retail investors unable to access brokerage allocation.</p>
+
+      <h4>Retail Buzz / 社群熱度</h4>
+      <p>WSB、Reddit r/stocks、X（Twitter）整天被 $SPCX 洗版，主題包含「如何搶到配售」、「Robinhood 當機」、「馬斯克成全球首位美元兆萬富翁」。Robinhood 公告「今天流量破紀錄」，部分用戶回報延遲與間歇性問題。StockTwits 當天 $SPCX 是 #1 最活躍股票代碼。</p>
+      <blockquote>"Elon just hit $1 trillion net worth — game over for every other billionaire"</blockquote>
+
+      <h4>炒作脈絡 / Narrative context</h4>
+      <p>SpaceX 是 Starlink（衛星通訊）、Falcon/Starship（火箭）、Dragon（載人太空）三大業務的上市主體。公司雖有百億虧損，但市場視 Starlink 的訂閱收入成長為核心估值驅動力，並比照 Tesla 給予高度情緒溢價。SpaceX 的上市改寫了 IPO 市場紀錄，也分流了部分 Mag-7（微軟、蘋果、Amazon 等）的資金，造成當日科技股普遍偏弱。</p>
+
+      <h4>後續觀察 / What to watch next</h4>
+      <p>（分析，非事實）短期關注：IPO 後 lockup 期間的籌碼結構；Starlink 用戶數與 ARPU 季度更新；SPCX 是否會被納入 SPX/NDX 指數（需至少一季財報）。首日收盤 $168.70 vs. IPO $135，若後續無基本面催化，有回落至 $135–$150 支撐區的可能。Elon Musk 的 Tesla 持股管理動態也值得關注（是否出售 TSLA 套現）。</p>
+      <div class="sources-mini">
+        Sources: <a href="https://www.cnbc.com/2026/06/12/spacex-ipo-spcx-live-updates.html" target="_blank">CNBC Live Updates</a> ·
+        <a href="https://fortune.com/2026/06/11/spacex-ipo-largest-history-wall-street-analysts-split-valuation-debate/" target="_blank">Fortune</a> ·
+        <a href="https://www.npr.org/2026/06/11/nx-s1-5853199/spacex-ipo-price-elon-musk" target="_blank">NPR</a> ·
+        <a href="https://www.investing.com/equities/spacex" target="_blank">Investing.com</a> ·
+        <a href="https://www.heygotrade.com/en/blog/spacex-ipo-spcx-explained-retail-investors-june-11/" target="_blank">HeyGoTrade</a>
+      </div>
+    </div>
+
+    <!-- ADBE -->
+    <div class="dive">
+      <h3>$ADBE — Adobe Inc. / Adobe</h3>
+      <div class="tape">Close: ~$200.80 · −6.25% (RTH) · 盤前一度跌至 $203 (−7%) · 7年來新低 · 52W High: 待確認 · 52W Low: ~$197</div>
+
+      <h4>為什麼今天熱 / Why it's hot today</h4>
+      <p>Adobe 於 6 月 11 日盤後公布 FY2026 Q2 財報：EPS $5.96（優於預期 $5.94），營收 $66.2 億（優於預期 $65.8 億），FY26 全年收入指引上調至 $265-266 億，EPS 指引 $23.30–$23.50。乍看強勁，但市場反應極為負面。核心打壓因素：CFO Dan Durn 宣布離職、三家分析師下調評級、以及公司加速向 freemium 模式（Acrobat、Firefly）轉型，市場擔憂此舉將壓縮短期獲利能力。股價盤前跌逾 7%，正式交易日收盤跌 6.25%，收於 $200.80，創近 7 年新低。</p>
+      <p>Adobe's Q2 beat was offset by three major negatives: CFO Dan Durn's announced departure (three analysts downgraded on this alone), a strategic pivot toward freemium AI products (Acrobat Reader, Firefly), and concern that the shift sacrifices near-term margins for user growth. The stock hit a 7-year low near $197 intraday. The market's reaction reflects deep skepticism about whether Adobe can monetize AI amid rising competition from Canva, Google, and generative AI tools disrupting Creative Cloud.</p>
+
+      <h4>Options &amp; Flow / 期權與資金流</h4>
+      <p>財報後選擇權流量極度偏空：Puts 對 Calls 約 9:1，June 18 的 $30 Put（Costar Group 搜索結果中提到）暗示市場在尋找更多保護。ADBE 的 IV 顯著飆升，隱含波動率溢價（earnings premium）事後被散戶和機構雙向利用。具體 OI 數據待確認。</p>
+
+      <h4>Retail Buzz / 社群熱度</h4>
+      <p>Reddit r/stocks 熱議「Adobe 財報看起來不錯但股票崩了」，主要敘事分兩派：(1) CFO 離職是真正的危機信號；(2) 這是長線低接機會（以 Firefly AI 潛力為論據）。WSB 相對較少討論，但有少數空單獲利帖子。AltIndex 顯示 ADBE 提及量過去 24 小時暴增 2,825%。</p>
+      <blockquote>"Beat earnings, guided up, stock at 7-year lows — this is why you don't fight the tape"</blockquote>
+
+      <h4>炒作脈絡 / Narrative context</h4>
+      <p>Adobe 的 Creative Cloud 訂閱模式受到 AI 生成工具（Midjourney、Sora、Canva AI）的長期結構性挑戰。市場擔憂 freemium 轉型是「防守性讓步」而非進攻性成長策略。此次下跌延續了 ADBE 從 2021 年高點 $700 以上跌落的長期修正。CFO 離職加速了這種悲觀情緒。</p>
+
+      <h4>後續觀察 / What to watch next</h4>
+      <p>（分析）關鍵支撐位：$197（盤中低點，近 7 年低點）。若下週跌破，$175–$180 可能是下一個支撐。新 CFO 人選公布可能成為短期催化劑。Firefly 的商業化速度（訂閱轉換率）是 2026 後半年的核心觀察指標。下個財報日（約 Q3 FY26，預計 9 月）前市場可能維持觀望。</p>
+      <div class="sources-mini">
+        Sources: <a href="https://www.gurufocus.com/news/8913810/adobes-adbe-stock-drops-amid-cfo-departure-and-ai-strategy-shift" target="_blank">GuruFocus – CFO Departure</a> ·
+        <a href="https://www.tikr.com/blog/adobe-stock-2026-outlook-q2-earnings-on-june-11-and-a-25-billion-buyback-in-place" target="_blank">TIKR – Earnings Outlook</a> ·
+        <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261964328-stock-ai-adobe-adbe-creative-cloud-firefly-acrobat-saas-tradingkey" target="_blank">TradingKey</a>
+      </div>
+    </div>
+
+    <!-- AMD -->
+    <div class="dive">
+      <h3>$AMD — Advanced Micro Devices</h3>
+      <div class="tape">Close: ~$491.62 · +3.85% · Range: $452.40–$491.98 · Vol: ~15M shares (6/11 base); 上漲動能延續</div>
+
+      <h4>為什麼今天熱 / Why it's hot today</h4>
+      <p>AMD 繼 6 月 11 日強勁上漲後，6 月 12 日在多重利多驅動下再度領漲半導體族群：（1）TD Cowen、Barclays、Bank of America、CFRA、Mizuho 等多家大行相繼上調 AMD 目標價至 $600–$665，強調 AMD 是 NVIDIA 以外最重要的 AI 算力供應商；（2）AMD 宣布對英國 AI 基礎設施投資高達 £20 億（約 $27 億），消息盤前推升股價逾 4%；（3）整體晶片族群受到 SpaceX 帶動的 AI 樂觀情緒提振，AMD、Qualcomm、SandDisk 同步上漲。</p>
+      <p>AMD rallied 3.85% on a cluster of Wall Street upgrades, with multiple major firms lifting price targets to the $600–$665 range on the thesis that AMD is the most credible non-Nvidia AI compute supplier. A $2.7B UK AI infrastructure commitment added a geopolitical dimension. The stock's day range of $452–$492 confirms this was not just a beta-with-the-market move — it clearly outperformed the mixed Nasdaq backdrop.</p>
+
+      <h4>Options &amp; Flow / 期權與資金流</h4>
+      <p>Call 佔比明顯優於 Put，機構分析師升評同步帶動選擇權布局向上移動。具體 OI 和 IV 數據待從 Barchart 確認。AMD 目前短期 SI（空頭比例）估計屬正常水位，不屬於軋空情境，上漲主要由基本面驅動。</p>
+
+      <h4>Retail Buzz / 社群熱度</h4>
+      <p>Reddit r/stocks 和 WSB 均有大量討論，主要圍繞「AMD 最終可以和 NVIDIA 並駕齊驅嗎？」以及 MI300X/MI350 加速器的客戶名單（Meta、Microsoft）。AltIndex 顯示 AMD 在 WSB 過去 24 小時提及量靠前。</p>
+      <blockquote>"AMD at $491 with $600 targets — the AI trade has two horses now"</blockquote>
+
+      <h4>炒作脈絡 / Narrative context</h4>
+      <p>AMD 的 AI 故事是「NVIDIA 替代品」：數據中心客戶為供應商多元化而採購，ROCm 軟體生態不斷改善，ROI 接近。英國投資聲明也有助於強化政府關係（潛在政府採購合約）。本次漲勢是 2025 年 $200 低點以來長期修復趨勢的一部分。</p>
+
+      <h4>後續觀察 / What to watch next</h4>
+      <p>（分析）關鍵觀察：$500 整數關卡是否能突破；NVIDIA 財報（2026 年 8 月前後）對 AI 晶片需求敘事的影響；AMD 自身下一次財報（Q2 FY26，預計 7 月底）。同業 Qualcomm 及 SandDisk 當天也強勢，顯示族群輪動正在進行。</p>
+      <div class="sources-mini">
+        Sources: <a href="https://finance.yahoo.com/markets/stocks/articles/amd-qualcomm-shares-soaring-know-000137960.html" target="_blank">Yahoo Finance – AMD & QCOM Soaring</a> ·
+        <a href="https://stockstotrade.com/news/advanced-micro-devices-inc-amd-news-2026_06_12/" target="_blank">StocksToTrade – AMD AI Targets</a>
+      </div>
+    </div>
+
+    <!-- SNDK -->
+    <div class="dive">
+      <h3>$SNDK — SandDisk Corporation / 閃迪</h3>
+      <div class="tape">Close: ~$1,969.63 · Range: $1,854–$1,997 · YTD: +692.8% (2025 spinoff起算) · AI記憶體焦點</div>
+
+      <h4>為什麼今天熱 / Why it's hot today</h4>
+      <p>SandDisk（原 Western Digital 旗下，2025 年分拆上市）是當前市場上最純粹的 AI 儲存題材股。6 月 12 日，Morgan Stanley 大幅上調目標價，指出 DRAM 和 NAND 市場陷入「供應受限的上行週期」，而 AI 需求持續推高。Bank of America 亦表示「SandDisk 的漲幅仍有空間」（even after a 660% rally）。股價盤中在 $1,854–$1,997 區間波動，最終收盤約 $1,969，較盤中低點高出 ~6.2%。自 2025 年分拆以來累漲約 692%。</p>
+      <p>SandDisk is the market's cleanest AI-storage pure play: NAND flash is in a supply-constrained upcycle while data center operators race to deploy high-bandwidth storage for LLM inference and training. The June 12 session saw SNDK move in sympathy with the broader chip rally (AMD, QCOM up), while Morgan Stanley's PT raise added specific catalyst fuel. The stock's 52-week range and current level reflect extraordinary repricing since the 2025 Western Digital spinoff.</p>
+
+      <h4>Options &amp; Flow / 期權與資金流</h4>
+      <p>Morgan Stanley 升評催化選擇權 Call 買盤，具體 OI 和 IV 待從 Barchart 確認。SNDK 因股價高（近 $2,000），選擇權流動性相對 AMD/NVDA 較低，機構更傾向直接買股而非選擇權。短期空頭比例偏低（高股價 + 強動能讓做空成本高昂）。</p>
+
+      <h4>Retail Buzz / 社群熱度</h4>
+      <p>散戶社群對 SNDK 的關注度高於平均，原因是其極端的 YTD 漲幅吸引追高動能交易者。WSB 和 r/stocks 上有「SNDK 是不是下一個 NVDA？」的討論。StockTwits 上 $SNDK 情緒偏多。中文社群（巨亨網、MoneyDJ）也有報導。</p>
+      <blockquote>"Memory stocks have their own AI narrative now — SNDK is riding it perfectly"</blockquote>
+
+      <h4>炒作脈絡 / Narrative context</h4>
+      <p>SandDisk 2025 年從 Western Digital 分拆後，市場給予其比母公司更高的 AI 溢價。NAND 供應週期（三星/SK Hynix/Kioxia 減產 + AI 需求爆量）是核心驅動力。公司簽署多份多年期客戶協議，並準備推出高頻寬快閃記憶體產品。唯一風險：NAND 漲價週期若提前見頂，修正幅度可能劇烈。</p>
+
+      <h4>後續觀察 / What to watch next</h4>
+      <p>（分析）關鍵支撐位：$1,854（6/12 盤中低點）。$2,000 整數關卡為近期阻力。下次財報為觀察重點；NAND 月度定價趨勢（DRAMeXchange）是另一個領先指標。注意 NAND 競爭對手（SK Hynix、Micron）的展望是否同步強勁。</p>
+      <div class="sources-mini">
+        Sources: <a href="https://finance.yahoo.com/markets/stocks/articles/sandisk-stock-more-room-run-184839362.html" target="_blank">Yahoo Finance – BofA Analysis</a> ·
+        <a href="https://www.tikr.com/blog/sandisk-nasdaq-sndk-stock-pops-as-ai-chip-demand-drives-massive-q2-earnings-beat" target="_blank">TIKR – AI Demand</a> ·
+        <a href="https://www.indexbox.io/blog/sandisk-stock-soars-2200-on-ai-storage-demand/" target="_blank">IndexBox</a>
+      </div>
+    </div>
+
+    <!-- RKLB -->
+    <div class="dive">
+      <h3>$RKLB — Rocket Lab Corporation / 火箭實驗室</h3>
+      <div class="tape">Close: ~$107.00 · 盤前高點: ~$122.98 (+15% pre-mkt) → RTH收盤 −6.2% vs 前日 · Range: $103.27–$122.98 · 高波動「賣消息」走勢</div>
+
+      <h4>為什麼今天熱 / Why it's hot today</h4>
+      <p>Rocket Lab 宣布將於 2026 年 6 月 22 日（市場開盤前）正式加入 Nasdaq-100 指數，消息在 6 月 11 日盤後釋出。股票盤前一度大漲超過 8%，高點觸及 $122.98，但正式交易日卻上演典型的「買消息、賣事實」（buy the rumor, sell the news）走勢，日內從高點急跌逾 13%，最終收盤約 $107，比盤前高點低了近 $16。Nasdaq-100 的指數加入效應（被動型 ETF 被迫買入）雖在邏輯上利多，但獲利了結的賣壓超過了新資金流入。</p>
+      <p>Rocket Lab's Nasdaq-100 inclusion (effective June 22) was the catalyst, but the "sell the news" dynamics dominated. Pre-market saw over 8% gains as momentum players front-ran the passive fund buying that will occur before June 22 open. RTH saw aggressive profit-taking — likely from investors who had held RKLB in anticipation of the announcement. This is a textbook index inclusion playbook, and RKLB's intraday range of $103–$123 showed extreme volatility with above-average volume.</p>
+
+      <h4>Options &amp; Flow / 期權與資金流</h4>
+      <p>盤前拉升帶動大量短期 Call（6 月到期）被套在高點；正式交易後 Put 買盤增加。指數加入的被動型資金（QQQ、Invesco QQQ Trust 等）將在 6 月 22 日前買入，理論上在 6 月 12 日至 22 日之間提供支撐。具體 OI 待確認。</p>
+
+      <h4>Retail Buzz / 社群熱度</h4>
+      <p>AltIndex 顯示 RKLB 在過去 24 小時 WSB 提及量靠前。X（Twitter）上 $RKLB 標籤因 SpaceX IPO 和太空主題概念輪動而被帶動討論。主要情緒：一部分是「恭喜 Nasdaq-100」，另一部分是「為什麼買了盤前然後跌了？」。</p>
+      <blockquote>"RKLB joins Nasdaq-100 but sellers showed up at the party — classic index inclusion trade"</blockquote>
+
+      <h4>炒作脈絡 / Narrative context</h4>
+      <p>RKLB 受惠於 SpaceX 上市帶動的太空主題熱情，但兩者業務有本質差異（RKLB 聚焦小型衛星發射、Neutron 大型火箭開發中）。Nasdaq-100 加入將帶來穩定的被動型買盤，但短期存在指數生效前（6/22）的「聰明錢建倉、散戶追高被套」風險。</p>
+
+      <h4>後續觀察 / What to watch next</h4>
+      <p>（分析）6 月 22 日指數生效後的走勢為關鍵：若被動型資金買入不足以抵銷持續賣壓，股票可能繼續下滑。下一次 Neutron 發射時程公告和財報（預計 Q2 FY26，約 8 月）是基本面觀察點。支撐區：$100 心理關卡。</p>
+      <div class="sources-mini">
+        Sources: <a href="https://www.gurufocus.com/news/8913848/rocket-lab-rklb-joins-nasdaq100-index" target="_blank">GuruFocus – NDX Inclusion</a> ·
+        <a href="https://stockstory.org/us/stocks/nasdaq/rklb/news/why-up-down/why-rocket-lab-rklb-stock-is-trading-lower-today-3" target="_blank">StockStory – Why Lower</a>
+      </div>
+    </div>
+
+    <!-- GD -->
+    <div class="dive">
+      <h3>$GD — General Dynamics Corporation / 通用動力</h3>
+      <div class="tape">Close: 待確認（估小漲 ~+1–2%） · 選擇權異常：9:1 Calls vs Puts · Jefferies升評至Buy · 目標價 $400</div>
+
+      <h4>為什麼今天熱 / Why it's hot today</h4>
+      <p>Jefferies 於 6 月 11 日盤後將通用動力從 Hold 升評至 Buy，並將目標價從 $380 上調至 $400，核心論述是美國海軍潛艦採購計畫（2027–2031 年間 $1,250 億潛艦預算）的巨大需求，以及 Marine Systems 業務 Q1 FY2026 銷售同比成長 21%（遠超公司全年 3–6% 指引）。6 月 12 日盤中，Barchart 偵測到選擇權流量出現 9:1 Calls 對比 Puts 的異常，有大量 block 成交，顯示機構資金對升評高度認可。</p>
+      <p>General Dynamics moved on Jefferies' upgrade to Buy with a $400 target, citing the US Navy's massive submarine procurement pipeline — $125 billion in submarine spending through 2031 — and GD's Marine Systems unit growing 21% YoY in Q1 vs. only 3–6% guidance. The unusual 9:1 calls-to-puts options ratio with large block trades confirms institutional conviction in this defense name on a day when the broader tape was mixed.</p>
+
+      <h4>Options &amp; Flow / 期權與資金流</h4>
+      <p>Options 流量顯示 ~9:1 Calls vs Puts 的異常比例，約 8,240 份 Call 合約的大型 block 成交，呈現機構性看多布局。IV 小幅上升但未至財報水平。GD 屬於防禦型股票，選擇權活動通常平靜，此次異常更顯突出。</p>
+
+      <h4>Retail Buzz / 社群熱度</h4>
+      <p>散戶社群對 GD 的討論相對專業，多在 r/investing 和 r/SecurityAnalysis 討論國防預算和地緣政治（俄烏、台海）如何驅動業績。WSB 較少，但有少數「潛艦主題超額報酬」的帖子。</p>
+
+      <h4>炒作脈絡 / Narrative context</h4>
+      <p>地緣政治緊張（俄烏延戰、中美台海緊張）是北約/盟國擴大國防預算的結構性驅動。GD 的 Columbia 級核潛艦和 Virginia 級攻擊潛艦是美國海軍最重要的採購項目，交付瓶頸正在改善（造船廠產能提升）。Gulfstream 商務機業務（GD 的另一主要收入來源）也受惠於企業出行復甦。</p>
+
+      <h4>後續觀察 / What to watch next</h4>
+      <p>（分析）關鍵觀察：FY2026 Q2 財報（預計 7 月中旬）是否重申 Marine Systems 強勁成長；國會對國防預算的最終批准進度；以及 GD 是否提高全年指引。$380–$400 為合理估值區間（Jefferies 目標），突破 $400 需要更多基本面支撐。</p>
+      <div class="sources-mini">
+        Sources: <a href="https://www.investing.com/news/stock-market-news/general-dynamics-upgraded-to-buy-as-submarine-boom-fuels-growth-outlook-4737509" target="_blank">Investing.com – GD Upgrade</a> ·
+        <a href="https://www.benzinga.com/insights/options/26/06/53150390/7-consumer-discretionary-stocks-whale-activity-in-todays-session" target="_blank">Benzinga – Options Whales</a>
+      </div>
+    </div>
+
+    <!-- QCOM -->
+    <div class="dive">
+      <h3>$QCOM — QUALCOMM Inc. / 高通</h3>
+      <div class="tape">Range: $189.49–$204.00 · 漲幅估 ~+5% · Wells Fargo PT $160→$230 · JPMorgan PT $265 · Investor Day 6/24</div>
+
+      <h4>為什麼今天熱 / Why it's hot today</h4>
+      <p>高通 6 月 12 日在多重分析師升評下走強：Wells Fargo 將目標價從 $160 大幅拉至 $230（+43.75%），JPMorgan 則目標 $265 並將 QCOM 列入「正向催化劑觀察名單」（Positive Catalyst Watch），前瞻 6 月 24 日的 Investor Day。市場預期高通將在 Investor Day 揭示更積極的數據中心 AI 晶片業務計畫（On-Device AI + 數據中心 NPU）。與 AMD 同步上漲，半導體族群在 SpaceX IPO 帶動的 AI 樂觀情緒中整體受惠。</p>
+      <p>Qualcomm outperformed on June 12 with a day range of $189–$204, driven by multiple price target hikes (Wells Fargo +44%, JPMorgan at $265). JPMorgan's "Positive Catalyst Watch" status ahead of the June 24 Investor Day suggests institutional positioning for a potential guidance raise or new product announcement. The stock trades at reasonable valuations (21.4× trailing P/E) versus mega-cap AI names, offering a "catch-up" narrative.</p>
+
+      <h4>Options &amp; Flow / 期權與資金流</h4>
+      <p>Investor Day 預期帶動 Call 買盤，具體到期日集中在 6 月 25–30 日。IV 前向升高（Investor Day vol event 溢價）。具體 OI 和 IV 數據待確認。</p>
+
+      <h4>Retail Buzz / 社群熱度</h4>
+      <p>QCOM 在 Reddit 和 X 上的討論以「數據中心 AI / On-Device AI」為主要題材，以及「高通是否會超越手機業務限制？」。StockTwits $QCOM 情緒偏多。</p>
+
+      <h4>後續觀察 / What to watch next</h4>
+      <p>（分析）最重要催化劑：6 月 24 日 Investor Day 的數據中心業務公告。若指引優於預期，$204 可能成為支撐而非阻力。若 Investor Day 令市場失望，$190 以下有支撐。Goldman Sachs 對手機業務的「中立」警告是主要下行風險。</p>
+      <div class="sources-mini">
+        Sources: <a href="https://www.gurufocus.com/news/8914160/qcom-maintained-by-wells-fargo-price-target-raised-to-230" target="_blank">GuruFocus – WF Upgrade</a> ·
+        <a href="https://finance.yahoo.com/markets/stocks/articles/amd-qualcomm-shares-soaring-know-000137960.html" target="_blank">Yahoo Finance – QCOM Soaring</a>
+      </div>
+    </div>
+
+  </div><!-- /dives -->
+
+  <!-- Watchlist -->
+  <div class="watchlist">
+    <h2>👀 Watch List / 次熱觀察 (3–5 stocks that didn't quite make the top)</h2>
+    <ul>
+      <li><strong>$BMY — Bristol-Myers Squibb</strong>：選擇權偵測到異常多頭布局（9:1 Calls vs Puts，8,240 合約大型 block），但 6/12 股價動態未見重大移動。生物科技催化劑 pipeline 豐富，市場以選擇權提前布局，值得持續追蹤。</li>
+      <li><strong>$BYAH — Park Ha Biological Technology</strong>：盤前暴漲 +129%（26.2M 股爆量），無明確新聞催化，疑似短線炒作或訊息不對稱，高風險標的，請勿追高。</li>
+      <li><strong>$SMCI — Super Micro Computer</strong>：6 月 11 日大漲 +9.22% 後，6 月 12 日回落至 $30.21（−5%）。$39 億 AI 伺服器積壓訂單與 $70 億增資計畫的消化期，仍是 AI Server 族群焦點，籌碼面較混亂。</li>
+      <li><strong>$AAL — American Airlines</strong>：當日最活躍股票之一（按成交量），股價處於 $14–$15 區間，YTD 下跌 12.8%，燃油成本壓力和可持續燃料 Google 協議共存，呈現分歧。</li>
+      <li><strong>$MBX — MBX Biosciences</strong>：因慢性副甲狀腺機能低下症治療一年期數據公布，股價暴跌 −27.5%，為生技類型典型「數據日殺」。</li>
+    </ul>
+  </div>
+
+  <!-- Halts & Weirdness -->
+  <div class="halts">
+    <h2>⚠️ Halts &amp; Weirdness / 異常事件</h2>
+    <p><strong>Robinhood 系統延遲：</strong>SpaceX (SPCX) 首日上市造成 Robinhood 流量創紀錄，部分用戶回報延遲與間歇性問題。這不是交易所層面的停牌，而是零售平台的技術壓力事件。官方 LULD 停牌記錄待確認（Nasdaq Trader.com）。</p>
+    <p><strong>BYAH 暴漲 +129%：</strong>無明確新聞催化的小市值股暴漲，符合可能被操控的特徵。如有 SEC 調查動態將另行補充。</p>
+    <p><strong>PPCB − 16%：</strong>在 $500 萬回購公告下反常下跌，異常量能，原因不明，標記為需進一步確認的可疑案例。</p>
+  </div>
+
+  <!-- All Sources -->
+  <div class="all-sources">
+    <h2>📎 All Sources Consulted / 所有參考來源</h2>
+    <ul>
+      <li><a href="https://www.cnbc.com/2026/06/12/spacex-ipo-spcx-live-updates.html" target="_blank">CNBC – SpaceX IPO Live Updates</a></li>
+      <li><a href="https://fortune.com/2026/06/11/spacex-ipo-largest-history-wall-street-analysts-split-valuation-debate/" target="_blank">Fortune – SpaceX IPO Record</a></li>
+      <li><a href="https://www.npr.org/2026/06/11/nx-s1-5853199/spacex-ipo-price-elon-musk" target="_blank">NPR – SpaceX IPO $75B</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/spacex-just-got-superchip-ahead-123000304.html" target="_blank">Yahoo Finance – SpaceX Superchip / Hot Stocks</a></li>
+      <li><a href="https://www.gurufocus.com/news/8913810/adobes-adbe-stock-drops-amid-cfo-departure-and-ai-strategy-shift" target="_blank">GuruFocus – Adobe CFO Departure</a></li>
+      <li><a href="https://www.tikr.com/blog/adobe-stock-2026-outlook-q2-earnings-on-june-11-and-a-25-billion-buyback-in-place" target="_blank">TIKR – Adobe Q2 2026 Earnings</a></li>
+      <li><a href="https://www.gurufocus.com/news/8912659/adbe-boosts-fy26-revenue-forecast-to-265b266b" target="_blank">GuruFocus – ADBE Revenue Forecast</a></li>
+      <li><a href="https://stockstotrade.com/news/advanced-micro-devices-inc-amd-news-2026_06_12/" target="_blank">StocksToTrade – AMD Price Targets</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/amd-qualcomm-shares-soaring-know-000137960.html" target="_blank">Yahoo Finance – AMD & QCOM Soaring</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/sandisk-stock-more-room-run-184839362.html" target="_blank">Yahoo Finance – SandDisk BofA Analysis</a></li>
+      <li><a href="https://www.tikr.com/blog/sandisk-nasdaq-sndk-stock-pops-as-ai-chip-demand-drives-massive-q2-earnings-beat" target="_blank">TIKR – SandDisk AI Demand</a></li>
+      <li><a href="https://www.indexbox.io/blog/sandisk-stock-soars-2200-on-ai-storage-demand/" target="_blank">IndexBox – SandDisk 2200% Analysis</a></li>
+      <li><a href="https://www.gurufocus.com/news/8913848/rocket-lab-rklb-joins-nasdaq100-index" target="_blank">GuruFocus – RKLB Nasdaq-100</a></li>
+      <li><a href="https://stockstory.org/us/stocks/nasdaq/rklb/news/why-up-down/why-rocket-lab-rklb-stock-is-trading-lower-today-3" target="_blank">StockStory – RKLB Lower Today</a></li>
+      <li><a href="https://www.investing.com/news/stock-market-news/general-dynamics-upgraded-to-buy-as-submarine-boom-fuels-growth-outlook-4737509" target="_blank">Investing.com – GD Submarine Upgrade</a></li>
+      <li><a href="https://www.benzinga.com/insights/options/26/06/53150390/7-consumer-discretionary-stocks-whale-activity-in-todays-session" target="_blank">Benzinga – Consumer Discretionary Whale Activity</a></li>
+      <li><a href="https://www.gurufocus.com/news/8914160/qcom-maintained-by-wells-fargo-price-target-raised-to-230" target="_blank">GuruFocus – QCOM Wells Fargo PT $230</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-06-11/asian-stocks-to-gain-as-trump-signals-us-iran-deal-markets-wrap" target="_blank">Bloomberg – US-Iran Deal Markets Wrap</a></li>
+      <li><a href="https://www.cnbc.com/2026/06/10/trump-iran-deal-oil-markets-stocks.html" target="_blank">CNBC – Trump Iran Deal Markets</a></li>
+      <li><a href="https://altindex.com/wallstreetbets" target="_blank">AltIndex – WSB Trending</a></li>
+      <li><a href="https://apewisdom.io/" target="_blank">ApeWisdom – Reddit Ticker Mentions</a></li>
+      <li><a href="https://www.barchart.com/options/unusual-activity" target="_blank">Barchart – Unusual Options Activity</a></li>
+      <li><a href="https://marketchameleon.com/Reports/UnusualOptionVolumeReport" target="_blank">Market Chameleon – Unusual Options</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/most-active/" target="_blank">Yahoo Finance – Most Active</a></li>
+      <li><a href="https://stockanalysis.com/stocks/smci/" target="_blank">StockAnalysis – SMCI Overview</a></li>
+    </ul>
+  </div>
+
+  <div class="disclaimer">
+    ⚠️ 本報告僅供資訊參考，不構成任何投資建議。分析與事實已盡量區分標明，「待確認」數據請自行至原始來源核實。This report is for informational purposes only and does not constitute investment advice. All analysis is labeled as such and distinguished from verified facts.
+  </div>
+
+</div><!-- /container -->
+</body>
+</html>

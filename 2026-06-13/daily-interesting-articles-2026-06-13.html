@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日有趣文章日報 · 2026-06-13</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #232636;
+      --border: #2e3347;
+      --accent: #7c6af7;
+      --accent2: #54d4c0;
+      --accent3: #f7a04a;
+      --text: #e2e5f0;
+      --text-muted: #8890aa;
+      --text-dim: #6069820;
+      --tag-ai: #3b4bdb;
+      --tag-sci: #1a6b55;
+      --tag-culture: #7a2e7a;
+      --tag-biz: #6b3a1a;
+      --tag-phil: #2e5c6b;
+      --tag-psych: #5c3a6b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', 'PingFang TC', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 0 1rem 3rem;
+    }
+    header {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    header .date-line {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    header h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    header h1 span { color: var(--accent); }
+    header p.subtitle {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .track-header {
+      max-width: 860px;
+      margin: 2.2rem auto 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .track-header h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent2);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .track-header .track-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .section-label {
+      max-width: 860px;
+      margin: 1.6rem auto 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent3);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      max-width: 860px;
+      margin: 0 auto 1.1rem;
+      padding: 1.4rem 1.6rem;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card.editor-pick {
+      border-left: 4px solid var(--accent);
+      background: linear-gradient(135deg, #1a1d27 0%, #1e1b33 100%);
+    }
+    .card-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+      line-height: 1.4;
+    }
+    .card-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .card-title a:hover { color: var(--accent); }
+    .card-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 0.15rem 0.5rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+    .badge.read-time { color: var(--accent2); border-color: #1a3d37; background: #0e2420; }
+    .badge.domain-tag { color: #a0a9d0; }
+    .label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.75rem;
+      margin-bottom: 0.2rem;
+    }
+    .card p { font-size: 0.9rem; color: var(--text); margin-bottom: 0.5rem; }
+    .card .why { color: #c5cce8; font-style: italic; }
+    .card .key { background: var(--surface2); border-radius: 6px; padding: 0.5rem 0.75rem; font-size: 0.86rem; }
+    .card .questions { color: var(--text-muted); font-size: 0.85rem; }
+    .hn-points {
+      background: #2d2010;
+      border: 1px solid #5c3a12;
+      border-radius: 5px;
+      padding: 0.1rem 0.45rem;
+      font-size: 0.72rem;
+      color: var(--accent3);
+    }
+    footer {
+      max-width: 860px;
+      margin: 2.5rem auto 0;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    footer ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem 1.4rem; margin-top: 0.4rem; }
+    footer ul li a { color: var(--accent); text-decoration: none; }
+    footer ul li a:hover { text-decoration: underline; }
+    .divider { border: none; border-top: 1px solid var(--border); max-width: 860px; margin: 0.5rem auto 1.2rem; }
+    .tl-tag {
+      display: inline-block;
+      border-radius: 4px;
+      padding: 0.12rem 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-right: 0.4rem;
+    }
+    .tag-ai { background: #1e2870; color: #8fa4ff; }
+    .tag-startup { background: #2e1a10; color: #f7a04a; }
+    .tag-macro { background: #102e28; color: #54d4c0; }
+    .tag-product { background: #2e102e; color: #d084d0; }
+    .editor-crown {
+      font-size: 0.72rem;
+      background: linear-gradient(90deg, #7c6af7, #f7a04a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="date-line">2026-06-13 · Asia/Taipei</div>
+  <h1>今日有趣文章日報 · <span>Daily Interesting Articles</span></h1>
+  <p class="subtitle">精選深度長文 + 思想領袖觀點 · 雙語策展 · 今日值得多花 15 分鐘的東西</p>
+</header>
+
+<!-- ════════════════════════════════════════ -->
+<!-- TRACK A — LONGFORM ESSAYS               -->
+<!-- ════════════════════════════════════════ -->
+
+<div class="track-header">
+  <h2>Track A — 長文精選 / Longform Essays</h2>
+  <span class="track-desc">5–8 pieces worth reading deeply</span>
+</div>
+
+<!-- 1. EDITOR'S PICK -->
+<div class="section-label">1 · 編輯精選 / Editor's Pick of the Day</div>
+
+<div class="card editor-pick">
+  <div class="editor-crown">★ Editor's Pick</div>
+  <div class="card-title">
+    <a href="https://aeon.co/essays/why-we-need-to-think-again-about-ecosystem-failure" target="_blank">
+      生態系能「故障」嗎？ / Can Ecosystems Malfunction?
+    </a>
+  </div>
+  <div class="card-meta">
+    <span>Aeon · John Drake（喬治亞大學生態學教授）</span>
+    <span class="badge read-time">27 min read</span>
+    <span class="badge">2026-05-25</span>
+    <span class="badge">哲學 × 生態學</span>
+  </div>
+
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p class="why">
+    這篇文章做了一件媒體罕見的事：用嚴謹的哲學分析拆解了環保論述中最核心、卻幾乎從未被質疑的概念——「生態系功能（ecosystem function）」。作者不反對環保，而是說：如果我們對「生態系在哪裡壞掉了」的定義是哲學上錯誤的，我們的修復方案就是建在沙上的。在一個到處高喊生態崩潰的時代，這種「慢下來想清楚」的姿態本身就非常珍貴。
+  </p>
+
+  <div class="label">摘要 / Summary</div>
+  <p>
+    作者是生態學家兼科學哲學碩士，他指出：我們說「雨林正在崩潰」或「珊瑚礁失去功能」，其實悄悄把「功能（function）」這個詞從生物學（由天擇賦予目的）偷渡進了生態學——但生態系既非有機體，也非人造系統，根本沒有被「設計」來做任何事。所以「生態系故障」這個說法，嚴格來說是無意義的：它故障，是對誰的目的而言的故障？文章追溯了這套語言從 Aldo Leopold 到千禧年生態系評估（Millennium Ecosystem Assessment）的演變，並援引 Robert Cummins 的因果角色理論與 Millikan 的選擇效果理論，論證說：生態系之所以「有功能」，完全是因為我們人類把目的投射上去，而非自然本身的性質。他的結論並不虛無：我們仍應保護生態，但要誠實承認這是「我們的選擇與義務」，而非「自然天命如此」。
+  </p>
+
+  <div class="label">核心觀點 / Key takeaway</div>
+  <p class="key">
+    「生態系不能獨自故障——它只是在變化、重組、甚至崩解。要說它故障，必須先指明：對誰的目的而言是故障？」環保論述若不承認這個人類中心主義的前提，便是在用科學語言遮蔽道德選擇，從而讓公眾辯論變得更不透明，而非更清晰。
+  </p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p class="questions">
+    如果承認「生態系功能」是人類投射的概念，是否會削弱政策上的保護力道——還是反而讓保護論述更誠實、更有說服力？生態系服務框架（ecosystem services）的貨幣化，究竟是讓自然更容易被保護，還是讓它更容易被「合理地犧牲」？
+  </p>
+</div>
+
+<!-- 2. TECH & AI -->
+<div class="section-label">2 · 科技與 AI / Tech &amp; AI</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://sockpuppet.org/blog/2026/05/12/emacsification/" target="_blank">
+      軟體的 Emacs 化 / The Emacsification of Software
+    </a>
+  </div>
+  <div class="card-meta">
+    <span>Quarrelsome (Thomas Ptacek) · 漏洞研究員</span>
+    <span class="badge read-time">12 min read</span>
+    <span class="badge">2026-05-12</span>
+    <span class="hn-points">HN 276 pts</span>
+  </div>
+
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p class="why">
+    這不是又一篇「AI 要取代程式設計師」的焦慮文。作者是資安圈的資深漏洞研究員，他從一個異常具體的問題（「為什麼沒有一個好用的 macOS Markdown 閱讀器？」）出發，花 30 分鐘自己和 AI 代理做了一個，然後推論出一個有趣的文化命題：AI agent 讓個人軟體文化（Emacs 精神）得以從小眾工具擴散到整個軟體世界。論述清晰、有趣、有第一手實作作為基礎。
+  </p>
+
+  <div class="label">摘要 / Summary</div>
+  <p>
+    作者發現 App Store 上沒有好用的 macOS Markdown 閱讀器，於是用 Claude 花 30 分鐘「生長」出一個，效果超過 App Store 所有選項。這個過程讓他想到 Emacs 文化：Emacs 社群幾十年來一直在做極度個人化的工具（elisp 套件），分享的不是程式碼而是想法與截圖。AI agent 現在讓這種「為自己的特定問題打造軟體」的行為，從需要大量技術門檻變成了任何人都能做到的事。Native UI（原生介面，而非 Electron 那種「秘密網頁假裝的應用」）也因此重新變得可行、甚至有趣。他稱這種現象為軟體的「Emacsification」——不是說 Emacs 要稱霸，而是說「高度個人化、超具體的軟體」這種文化精神正在擴散。
+  </p>
+
+  <div class="label">核心觀點 / Key takeaway</div>
+  <p class="key">
+    「你比你以為的更需要一個好的 Markdown 閱讀器。」更深層的觀點是：AI coding 的最大價值不是取代工程師，而是讓「個人化軟體」這件事的邊際成本降到接近零——我們即將進入一個每個人都有自己量身打造工具的時代。
+  </p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p class="questions">
+    如果個人軟體爆炸式增長，軟體生態的碎片化會不會反而帶來新的問題（安全漏洞、維護死亡、互操作性崩潰）？「分享 prompts 而非程式碼」真的能取代開源社群的知識傳遞嗎？
+  </p>
+</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://laurent.le-brun.eu/blog/a-history-of-ides-at-google" target="_blank">
+      Google IDE 發展史 / A History of IDEs at Google
+    </a>
+  </div>
+  <div class="card-meta">
+    <span>Laurent Le Brun · 前 Google 工程師（2011–2024）</span>
+    <span class="badge read-time">14 min read</span>
+    <span class="badge">2026-05-09</span>
+    <span class="hn-points">HN 351 pts</span>
+  </div>
+
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p class="why">
+    這是少見的有內部視角的公司工程文化回顧。作者在 Google 工作 12 年，親歷了從「每個工程師用自己喜歡的 IDE」到「80% 工程師用同一個基於 VSCode 的工具」的完整演變。故事不只是工具，更是關於「規模與標準化的張力」、「為什麼 Jeff Dean 曾說統一 IDE 是妄想、後來卻幾乎實現了」。
+  </p>
+
+  <div class="label">摘要 / Summary</div>
+  <p>
+    2011 年 Google 曾問 Jeff Dean：能不能給所有工程師一個統一的 IDE？他回答：試圖讓一群開發者統一編輯器，是製造不快樂的配方。但到了 2023 年，80% 的 Google 主 codebase 開發都發生在 Cider V——一個以 VSCode 為前端、連接 Google 龐大後端索引系統的雲端 IDE。文章詳述了 Cider（雲端 IDE）從 2013 年對技術寫作者的小工具、到加入 LSP 後吸引開發者、再到 2020 年決定用 VSCode 做前端、最終在 2023 年成為主流的整個旅程。作者的核心洞察：統一工具不是通過強制達成，而是通過「最好的工具整合」自然匯聚；標準工具創造的槓桿效果（更多 AI 功能、100+ 內部擴展、更多工具整合）遠大於個人化的收益。
+  </p>
+
+  <div class="label">核心觀點 / Key takeaway</div>
+  <p class="key">
+    「Standard tooling creates leverage.」——標準化不是扼殺個性，而是把有限的工程資源集中在最有影響力的地方；當大多數人用同一個工具，每次改進的乘數效應就最大化了。
+  </p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p class="questions">
+    Cider V 對 Google 有效，但其背後需要龐大的後端基礎設施。這個故事對大多數公司的 takeaway 是什麼？在 AI coding agent 讓個人化工具成本降低的時代，「標準化工具的槓桿」這個論點還成立嗎？
+  </p>
+</div>
+
+<!-- 3. SCIENCE & RESEARCH -->
+<div class="section-label">3 · 科學與研究 / Science &amp; Research</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://www.quantamagazine.org/the-dirt-that-refused-to-die-20260601/" target="_blank">
+      拒絕死亡的泥土：無生命的土壤呼吸了六年 / The Dirt That Refused to Die
+    </a>
+  </div>
+  <div class="card-meta">
+    <span>Quanta Magazine · Siddhant Pusdekar</span>
+    <span class="badge read-time">10 min read</span>
+    <span class="badge">2026-06-01</span>
+    <span class="hn-points">HN 268 pts</span>
+    <span class="badge">生命起源</span>
+  </div>
+
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p class="why">
+    這篇文章讓一個已進行 15 年的研究終於以引人入勝的方式呈現：一個法國科學家試圖殺死土壤、失敗了、然後花了六年試圖理解原因。結論挑戰了我們對「生命 vs 非生命」的基本直覺：某些被認為只有生命才能做到的生化反應，或許在地質化學中就能自發發生。
+  </p>
+
+  <div class="label">摘要 / Summary</div>
+  <p>
+    法國農業研究所的 Sébastien Fontaine 用伽馬射線把土壤徹底消毒，想建立「無生命土壤的碳排放基線」。但殺菌後的土壤不停地釋放 CO₂——持續了六年。一系列控制實驗排除了污染的可能性：加入酵母酶後排放量立即飆升（表示原本就有類似反應在進行）；電化學實驗顯示土壤中有類似 Krebs 循環的電子流動。研究者在無菌土壤中找到了 Krebs 循環的四種中間代謝物。這指向一個重要命題：以前認為只有在活細胞中才會發生的代謝反應，或許可以由礦物（鐵、鋁氧化物）作為催化劑在地質環境中自發進行——並且可能在生命出現之前就存在了。
+  </p>
+
+  <div class="label">核心觀點 / Key takeaway</div>
+  <p class="key">
+    「The chemistry of life is not exclusive to life — it's the chemistry of geology.」如果代謝反應能在無生命的土壤中自發進行，這支持了「代謝先於基因」的生命起源理論，意味著生命的出現比我們想像的更像是一個「坡度」而非「跳躍」。
+  </p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p class="questions">
+    如果代謝化學是地質的自然特徵，宇宙其他地方的岩石或土壤中，是否也可能在沒有 DNA 的情況下進行類似的化學循環？「活的」和「非活的」這條線，究竟應該畫在哪裡？
+  </p>
+</div>
+
+<!-- 4. PSYCHOLOGY & BEHAVIOR -->
+<div class="section-label">4 · 心理與行為 / Psychology &amp; Behavior</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://dynomight.net/lifespan/" target="_blank">
+      壽命遺傳率「其實是 50%」？——當研究用一個更方便的定義 / Heritability of Human Lifespan Is ~50% When Heritability Is Redefined
+    </a>
+  </div>
+  <div class="card-meta">
+    <span>Dynomight · Anonymous</span>
+    <span class="badge read-time">12 min read</span>
+    <span class="badge">2026-02</span>
+    <span class="hn-points">HN 92 pts</span>
+    <span class="badge">科學傳播批評</span>
+  </div>
+
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p class="why">
+    這篇文章以絕妙的幽默感做了一件認真的事：解釋為什麼一篇在 Science 發表、被媒體廣泛報導的研究（「壽命遺傳率比我們以為的高得多，原來是 50%！」）其實只是在用一個重新定義過的概念做了一個「平行宇宙」的計算。它是難得兼顧科學精確、批判清醒、又不失可讀性的統計批評。
+  </p>
+
+  <div class="label">摘要 / Summary</div>
+  <p>
+    根據雙胞胎研究，人類壽命的遺傳率一般估計在 23–35%。一篇 Science 論文聲稱「當外源性死亡率（意外、謀殺等非老化死亡）調整後，遺傳率是 50%」。作者的批評分三層：第一，這個 50% 是「假設沒有人因意外死亡的平行宇宙」的計算，而非我們這個世界的數據。第二，即便接受這個框架，若把外源性死亡率調整到現代水準（約 0.001/年），論文圖表上顯示的遺傳率其實是 35–45%，而非論文標題宣稱的 50%。第三，Science 的編輯讓論文標題誤導讀者，而讀原始論文需要在沒有充分解釋的符號和術語之間反覆猜測。整篇文章的核心教訓：遺傳率不是一個柏拉圖式的「真實數字」，它永遠都是對特定世界、特定社會條件的比率——沒有脈絡的遺傳率數字毫無意義。
+  </p>
+
+  <div class="label">核心觀點 / Key takeaway</div>
+  <p class="key">
+    「Heritability is just a ratio, and you should stop trying to make it be a non-ratio thing.」任何「遺傳率是 X%」的說法，都必須附帶：在什麼環境下、對誰測量的——沒有這個脈絡，數字可以被調成任何你想要的樣子。
+  </p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p class="questions">
+    高影響力期刊（Nature, Science）的寫作慣例（幾乎沒有數學、沒有完整方法描述）究竟服務了誰？在 AI 能快速解析論文的時代，「科普化」的科學傳播會不會製造更多而非更少的誤解？
+  </p>
+</div>
+
+<!-- 5. CULTURE & SOCIETY -->
+<div class="section-label">5 · 文化與社會 / Culture &amp; Society</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://www.dailyprincetonian.com/article/2026/05/princeton-news-adpol-proctoring-in-person-examinations-passed-faculty-133-years-precedent" target="_blank">
+      普林斯頓廢除 133 年無監考傳統：AI 逼垮了榮譽制度？ / Princeton Mandates Proctoring, Ending 133-Year Honor System Precedent
+    </a>
+  </div>
+  <div class="card-meta">
+    <span>The Daily Princetonian · Devon Williams</span>
+    <span class="badge read-time">8 min read</span>
+    <span class="badge">2026-05-11</span>
+    <span class="hn-points">HN 317 pts</span>
+    <span class="badge">教育 × AI × 信任</span>
+  </div>
+
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p class="why">
+    這不只是一條校園新聞。普林斯頓 1893 年建立了全美最具歷史的學生榮譽制度（考試無監考、學生互相監督），它代表著一種對「信任文化」的深刻承諾。現在 AI 讓作弊變得無形可見——不是因為學生更不誠實，而是因為「作弊」變得太難被其他人觀察到了。這個決定所揭示的，是 AI 對社會信任架構的深層衝擊：當行為無法被觀察，制度就必須重構。
+  </p>
+
+  <div class="label">摘要 / Summary</div>
+  <p>
+    普林斯頓教師投票（幾乎全票通過），從 2026 年 7 月起所有考試必須有監考人員在場，結束自 1893 年學生請願廢除監考以來 133 年的傳統。觸發因素是 AI：與傳統作弊不同，使用 AI 工具作弊「從外觀上幾乎看不出來」，導致學生間的互相舉報制度失效。2025 年畢業生調查顯示，29.9% 承認曾作弊，44.6% 知道有人作弊卻未舉報，只有 0.4% 實際舉報。教師的描述令人印象深刻：「I think it's a shame, but it's necessary.」新政策保留了學生榮譽委員會，但監考教師成為「目擊證人」而非執法者。
+  </p>
+
+  <div class="label">核心觀點 / Key takeaway</div>
+  <p class="key">
+    榮譽制度的崩潰不是因為學生的道德水準下降，而是因為 AI 改變了「作弊行為的可觀察性」——一個制度若依賴同儕互相監督，而監督本身因技術而變得不可能，那麼制度就必須重新設計，無論我們多麼珍視原有的信任文化。
+  </p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p class="questions">
+    如果 AI 讓許多形式的「不誠實行為」都變得無從觀察，社會中其他依賴可觀察性的信任制度（如工作場所誠信、研究倫理、法律取證）將面臨什麼壓力？監考能解決問題還是只是製造了一個新的貓鼠遊戲？
+  </p>
+</div>
+
+<!-- 6. HISTORY & PHILOSOPHY -->
+<div class="section-label">6 · 歷史與哲學 / History &amp; Philosophy</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://aeon.co/essays/what-is-nick-lands-philosophy-of-accelerationism-really" target="_blank">
+      加速主義的真面目：Nick Land 到底在說什麼？ / The No-Human Future: Nick Land's Accelerationism
+    </a>
+  </div>
+  <div class="card-meta">
+    <span>Aeon · Vincent Lê</span>
+    <span class="badge read-time">20 min read</span>
+    <span class="badge">2026-06 (最新)</span>
+    <span class="badge">哲學 × 科技政治</span>
+  </div>
+
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p class="why">
+    加速主義（accelerationism）這個詞現在既被恐怖份子援引，也被部分科技人引用，但兩者的理解幾乎都是扭曲的。Aeon 這篇從哲學源頭出發，認真分析 Nick Land 的原始文本，讓讀者理解：加速主義本質上是一個關於「人類是否有資格主宰自己的未來」的黑暗問題，而不只是「推倒現有秩序」的政治策略。在 AI 加速的今天，理解這個哲學框架比以往更重要。
+  </p>
+
+  <div class="label">摘要 / Summary</div>
+  <p>
+    Nick Land 的加速主義不是說「讓資本主義矛盾加速、引發革命」（那是左翼加速主義的讀法），也不是簡單的「科技樂觀主義」。Land 真正的論點更極端：他認為人類的意識、道德、和「有意義的未來」都是幻覺，資本主義-技術系統的邏輯本質上是反人類的，而「加速」意味著讓這個非人類的邏輯徹底取代人類。恐怖份子把它讀成「推翻現有秩序的工具」，矽谷人把它讀成「科技進步就是善」——兩者都是誤讀。Land 真正說的更接近虛無主義：人類不應該試圖「控制」技術，因為技術本來就不是為了人類存在的。文章也分析了這個哲學的危險吸引力——在一個既感到被現有秩序欺騙、又對科技改變世界抱有期望的人群中，「反人類宏大敘事」非常容易被截取並重新包裝。
+  </p>
+
+  <div class="label">核心觀點 / Key takeaway</div>
+  <p class="key">
+    Land 的加速主義不是政治策略，而是一個關於「技術邏輯將超越人類存在本身」的哲學論斷。它危險的地方在於：它可以被任何想要「以宏大必然性為自身行動辯護」的人截取使用。
+  </p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p class="questions">
+    在 AI 加速的語境下，「讓技術自主演化、人類不應干預」這個想法變得更容易被接受了嗎？我們如何區分「對技術進步的樂觀」和「對人類消失的漠然」？
+  </p>
+</div>
+
+<!-- 7. CURIOSITIES -->
+<div class="section-label">7 · 奇文與偏門 / Curiosities</div>
+
+<div class="card">
+  <div class="card-title">
+    <a href="https://ardoedo.it/kempelen/" target="_blank">
+      我在父親舊書裡找到的棋謎——通往 18 世紀「下棋土耳其人」機器的兔子洞 / Chess Puzzle From My Dad's Old Book
+    </a>
+  </div>
+  <div class="card-meta">
+    <span>ardoedo.it · Anonymous</span>
+    <span class="badge read-time">6 min read</span>
+    <span class="badge">HN 146 pts</span>
+    <span class="badge">歷史 × 棋謎 × 互動</span>
+  </div>
+
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p class="why">
+    一個人翻到父親的舊棋書，發現一個棋謎，順著線索挖到了 1770 年代 Wolfgang von Kempelen 的「機械土耳其人（Mechanical Turk）」——歷史上最著名的詐騙自動機，號稱能下棋的機器人，其實裡面藏著真人。這個小故事有交互式棋盤、有神秘感、有歷史，是當天 HN 上最有純粹閱讀快感的一條。
+  </p>
+
+  <div class="label">摘要 / Summary</div>
+  <p>
+    文章從作者父親書中的一個棋謎出發，追蹤到 18 世紀奧地利發明家 Kempelen 的「機械土耳其人」——一個聲稱能自動下棋的機器，實際上是讓棋手藏在機器內部操作。這台機器曾讓拿破崙、葉卡捷琳娜大帝、班傑明·富蘭克林都信以為真。文章提供了互動式棋盤讓讀者解謎，並附上這段歷史的精簡回顧。機械土耳其人後來成為「Amazon Mechanical Turk」這個眾包平台名稱的來源——「看似自動，實為人工」的隱喻令人莞爾。
+  </p>
+
+  <div class="label">核心觀點 / Key takeaway</div>
+  <p class="key">
+    「自動化的幻覺」有著悠久的歷史，從 1770 年的機械土耳其人到今天的「AI 助手背後的人工標注」，人類似乎永遠都想相信機器能做人類做的事。
+  </p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p class="questions">
+    我們對今天的 AI 系統，有沒有和 18 世紀觀眾對機械土耳其人一樣的「主動選擇相信」的心理？
+  </p>
+</div>
+
+<hr class="divider" />
+
+<!-- ════════════════════════════════════════ -->
+<!-- TRACK B — THOUGHT LEADERS              -->
+<!-- ════════════════════════════════════════ -->
+
+<div class="track-header">
+  <h2>Track B — 思想領袖觀點 / Thought Leaders</h2>
+  <span class="track-desc">Fresh posts from practitioners — their own words, not news coverage</span>
+</div>
+
+<div class="section-label">8 · 思想領袖今日觀點 / Thought Leader Picks</div>
+
+<div class="card">
+  <div class="card-title">
+    <span class="tl-tag tag-product">[產品]</span>
+    <a href="https://seths.blog/2026/06/stop-ruining-it/" target="_blank">
+      Seth Godin — 停止毀掉它 / Stop Ruining It
+    </a>
+  </div>
+  <div class="card-meta">
+    <span>Seth's Blog</span>
+    <span class="badge read-time">2 min read</span>
+    <span class="badge">2026-06-02</span>
+    <span class="hn-points">HN 271 pts</span>
+  </div>
+
+  <div class="label">為什麼值得讀 / Why it stands out</div>
+  <p class="why">
+    Seth Godin 最好的文章不長——通常是一個框架重新定義了一個你以為已經理解的問題。這篇的洞見在於把「質量」的問題從「如何加東西上去」翻轉成「如何停止破壞本來就存在的東西」。對產品、品牌、管理都適用。
+  </p>
+
+  <div class="label">核心觀點 / Core insight</div>
+  <p class="key">
+    Paul McGowan（頂級音響製造商）的洞見：擴大器的音樂性不是你加上去的功能，而是你「停止破壞它」之後剩下的東西。Godin 把這個原則延伸：客戶喜悅不是你加上去的，是你不要搞砸它就會自然存在的；好奇心不是教育系統灌輸的，是它不壓制就會留存的；員工的工作滿足感，是老闆不去摧毀就會存在的；品牌信任是行銷人不去破壞就會留下的。
+    <br/><br/>
+    這個「負空間」框架有個強大的應用：與其思考「我怎麼改進這個產品/品牌/文化」，先問「我現在在做什麼事情是在主動破壞原本好的東西？」
+  </p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p class="questions">
+    在 AI 驅動的功能爆炸時代，「停止加東西」這個框架是否變得更重要——當每個產品團隊都有能力「加功能」，如何不把產品搞砸反而是更難的挑戰？
+  </p>
+</div>
+
+<div class="card">
+  <div class="card-title">
+    <span class="tl-tag tag-ai">[AI]</span>
+    <a href="https://www.dailyprincetonian.com/article/2026/05/princeton-news-adpol-proctoring-in-person-examinations-passed-faculty-133-years-precedent" target="_blank">
+      HN 社群討論串 — 普林斯頓監考決定反映的 AI 時代「可觀察性危機」
+    </a>
+  </div>
+  <div class="card-meta">
+    <span>Hacker News 討論 · 2026-05 (resurfaced)</span>
+    <span class="badge">317 pts · 454 則討論</span>
+  </div>
+
+  <div class="label">核心觀點 / Core insight</div>
+  <p class="key">
+    HN 上這則討論的價值不只在文章本身，而在工程師社群的反應。許多人指出：這不只是教育問題，AI 讓「行為是否符合規範」這件事在很多場景下都變得不可觀察——程式碼 review、投資研究、法律文書、新聞報導……所有依賴「我能看出你是否作弊」的系統都面臨同樣的壓力。另有人指出更根本的問題：如果 AI 讓某件事「很容易做到」，而這件事之前被禁止的理由是「對社會有負面影響」，那麼禁止是否還有意義？還是說，我們需要重新定義什麼算是「負面影響」？
+  </p>
+
+  <div class="label">引發的問題 / Questions it opens</div>
+  <p class="questions">
+    哪些人類社會制度的根基是「行為的可觀察性」？AI 讓可觀察性崩潰之後，這些制度應該如何重設計？
+  </p>
+</div>
+
+<div class="card">
+  <div class="card-title">
+    <span class="tl-tag tag-startup">[創業]</span>
+    <a href="https://sockpuppet.org/blog/2026/05/12/emacsification/" target="_blank">
+      Thomas Ptacek — AI Agent 時代的個人軟體文化：Emacs 精神正在擴散
+    </a>
+  </div>
+  <div class="card-meta">
+    <span>Quarrelsome Blog · 2026-05-12</span>
+    <span class="badge read-time">12 min</span>
+    <span class="hn-points">HN 276 pts</span>
+  </div>
+
+  <div class="label">核心觀點 / Core insight</div>
+  <p class="key">
+    Ptacek 的洞察也有 Track B 的價值：他是資深安全研究員（Matasano/NCC Group 創辦人），從自己的親身實作出發，提出了 2026 年軟體開發的一個結構性轉變：「我們從使用預包裝軟體的消費者，變回了打造自己工具的工匠。」這和 Naval Ravikant 說的「specific knowledge」有呼應——AI 讓那些有問題意識但沒有大量工程時間的人，也能把「只有自己才需要的工具」做出來。他的核心預測：在接下來 5 年，「個人軟體」這個品類將爆炸式增長，而它的傳播媒介不是 GitHub repo，而是想法與截圖。
+  </p>
+</div>
+
+<hr class="divider" />
+
+<footer>
+  <p>資料來源 / Sources</p>
+  <ul>
+    <li><a href="https://news.ycombinator.com/news" target="_blank">Hacker News Top</a></li>
+    <li><a href="https://news.ycombinator.com/best" target="_blank">HN Best (48h)</a></li>
+    <li><a href="https://aeon.co/essays" target="_blank">Aeon Essays</a></li>
+    <li><a href="https://www.quantamagazine.org/" target="_blank">Quanta Magazine</a></li>
+    <li><a href="https://dynomight.net/" target="_blank">Dynomight</a></li>
+    <li><a href="https://sockpuppet.org/" target="_blank">Quarrelsome (Ptacek)</a></li>
+    <li><a href="https://seths.blog/" target="_blank">Seth's Blog</a></li>
+    <li><a href="https://www.dailyprincetonian.com/" target="_blank">The Daily Princetonian</a></li>
+    <li><a href="https://marginalrevolution.com/" target="_blank">Marginal Revolution</a></li>
+  </ul>
+  <p style="margin-top:0.8rem; color: #555e7a;">
+    Paywalled / failed: WSJ review (partial), Bloomberg Businessweek (paywall), The Atlantic (partial), The Browser (paywall) · Ethan Mollick (Substack homepage JS-only, no recent post detected) · Sam Altman / Paul Graham (no new posts in 7-day window)
+  </p>
+  <p style="margin-top:0.5rem; color:#3d4560;">Generated 2026-06-13 · daily-interesting-articles skill</p>
+</footer>
+
+</body>
+</html>

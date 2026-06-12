@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>半導體新聞日報 · 2026-06-13</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    background: #f8f9fa;
+    color: #1a1a2e;
+    line-height: 1.7;
+    padding: 0 0 60px;
+  }
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 60%, #1a1a2e 100%);
+    color: #fff;
+    padding: 32px 28px 24px;
+  }
+  .header-meta {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7ecfff;
+    margin-bottom: 8px;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: #a8c8f0;
+    margin-top: 6px;
+  }
+  /* TOC pills */
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 16px 28px;
+    background: #eef2f7;
+    border-bottom: 1px solid #dde3ec;
+  }
+  .toc a {
+    font-size: 12px;
+    color: #0f3460;
+    text-decoration: none;
+    background: #d8e5f5;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-weight: 600;
+    transition: background 0.15s;
+  }
+  .toc a:hover { background: #b8d0ef; }
+  /* Main content */
+  .content { padding: 0 20px; max-width: 860px; margin: 0 auto; }
+  /* Section header */
+  .section {
+    margin-top: 32px;
+  }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #fff;
+    background: #0f3460;
+    border-radius: 8px 8px 0 0;
+    padding: 10px 16px;
+  }
+  .section-title .icon { font-size: 16px; }
+  /* News card */
+  .card {
+    background: #fff;
+    border: 1px solid #dde3ec;
+    border-top: none;
+    padding: 20px 20px 16px;
+    margin-bottom: 0;
+  }
+  .card:last-child {
+    border-radius: 0 0 8px 8px;
+  }
+  .card + .card {
+    border-top: 1px solid #eef2f7;
+  }
+  .card-headline {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f3460;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .card-headline-en {
+    font-size: 13px;
+    color: #546e8a;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .source-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: #546e8a;
+    background: #f0f4f8;
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-bottom: 12px;
+  }
+  .source-badge a { color: #0f3460; text-decoration: none; font-weight: 600; }
+  .source-badge a:hover { text-decoration: underline; }
+  .label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    padding: 1px 6px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .label-facts { background: #e3f2fd; color: #0d47a1; }
+  .label-context { background: #e8f5e9; color: #1b5e20; }
+  .label-implications { background: #fff3e0; color: #e65100; }
+  .card p {
+    font-size: 13.5px;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.7;
+  }
+  .card p:last-child { margin-bottom: 0; }
+  /* Highlight number */
+  .num { font-weight: 700; color: #0f3460; }
+  /* Divider */
+  .section-divider { height: 1px; background: #dde3ec; margin: 0 20px; }
+  /* Footer */
+  .footer {
+    margin-top: 40px;
+    padding: 20px 28px;
+    background: #16213e;
+    color: #a8c8f0;
+    font-size: 12px;
+  }
+  .footer h3 { font-size: 13px; color: #7ecfff; margin-bottom: 10px; }
+  .footer ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .footer ul li a { color: #a8c8f0; text-decoration: none; }
+  .footer ul li a:hover { color: #fff; text-decoration: underline; }
+  .footer-note { margin-top: 16px; font-size: 11px; color: #546e8a; }
+  /* Top-story highlight band */
+  .top-story-band {
+    background: linear-gradient(90deg, #e8f4fd 0%, #f0f7ff 100%);
+    border-left: 4px solid #1976d2;
+  }
+  /* Responsive */
+  @media (max-width: 600px) {
+    .header h1 { font-size: 18px; }
+    .content { padding: 0 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-meta">Daily Semiconductor Brief · 半導體新聞日報</div>
+  <h1>半導體產業新聞日報</h1>
+  <div class="header-sub">2026 年 06 月 13 日（星期六）· Asia/Taipei · 資料截至 2026-06-12</div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <a href="#top-stories">頭條</a>
+  <a href="#foundry">晶圓代工與封測</a>
+  <a href="#ic-design">IC 設計</a>
+  <a href="#memory">記憶體</a>
+  <a href="#equipment">設備與材料</a>
+  <a href="#ai-chip">AI 晶片</a>
+  <a href="#geopolitics">地緣政治與政策</a>
+  <a href="#deep-reads">深度觀點</a>
+</div>
+
+<div class="content">
+
+<!-- ===================== 1. TOP STORIES ===================== -->
+<div class="section" id="top-stories">
+  <div class="section-title"><span class="icon">⚡</span> 頭條 / Top Stories</div>
+
+  <!-- Card 1: Samsung + Google TPU -->
+  <div class="card top-story-band">
+    <div class="card-headline">三星洽談承接 Google 第十代 TPU 2nm I/O Die 訂單；最快 2028 量產</div>
+    <div class="card-headline-en">Samsung in Talks for Google "Icefish" 10th-Gen TPU 2nm I/O Die; Mass Production Eyed for 2028</div>
+    <div class="source-badge">TrendForce · <a href="https://www.trendforce.com/news/2026/06/12/news-samsung-reportedly-in-talks-for-google-2nm-tpu-io-die-order-2028-mass-production-eyed/" target="_blank">2026-06-12</a> ｜ Business Korea / The Information / Reuters</div>
+    <p><span class="label label-facts">核心事實</span>據 The Information，Google 與三星晶圓代工討論由三星以 <span class="num">2nm</span> 製程生產第十代 TPU（代號「Icefish」）的 I/O die，主 compute die 則由台積電以 <span class="num">1.4nm</span> 節點生產。TPU 與聯發科共同開發，量產目標最早為 <span class="num">2028</span> 年。三星泰勒廠（Taylor fab，德州）被列為潛在生產基地。</p>
+    <p><span class="label label-context">背景脈絡</span>Google 尋求多元化晶圓供應商以減少對台積電的依賴，台積電先進產能瓶頸已被業界視為潛在瓶頸。路透報導同時指出 Google 亦在與英特爾洽談 2028 年製造逾 <span class="num">300 萬顆</span> TPU 的可能性。三星已有為 Tesla AI6 晶片（<span class="num">$165 億美元</span>合約）及 Groq LPU 代工的案例，此 Google 訂單若成交將是三星晶圓代工重大象徵性勝利。</p>
+    <p><span class="label label-implications">影響觀察</span>（分析）三星晶圓代工若拿下此案，可整合其記憶體（HBM）、晶圓代工（I/O die）、先進封裝（整合主晶片與 HBM）三條業務，形成 turnkey 競爭優勢，對台積電 CoWoS 市占構成挑戰。I/O die 採 2nm 亦是三星 2nm 商用化的重要試煉。</p>
+  </div>
+
+  <!-- Card 2: TeraFab -->
+  <div class="card top-story-band">
+    <div class="card-headline">馬斯克現身 ASML 技術大會，TeraFab 德州晶片廠計劃總投資上看 <span class="num">$1,190 億美元</span></div>
+    <div class="card-headline-en">Musk Addresses ASML Conference on TeraFab; $55B Initial / Up to $119B Total Investment; Hanmi to Invest KRW 50B in SpaceX</div>
+    <div class="source-badge">TrendForce · <a href="https://www.trendforce.com/news/2026/06/12/news-tesla-elon-musk-discusses-terafab-at-asml-conference-project-expected-to-spur-euv-tool-orders/" target="_blank">2026-06-12</a> ｜ CNBC / Reuters / Tom's Hardware</div>
+    <p><span class="label label-facts">核心事實</span>Elon Musk 以遠端方式出席 ASML 年度技術大會 CEO Christophe Fouquet 對話，討論 Tesla/SpaceX TeraFab 德州晶片廠計劃。初期投資 <span class="num">$550 億美元</span>，完全建成後總投資上看 <span class="num">$1,190 億美元</span>。韓米半導體（Hanmi Semiconductor）宣布以 <span class="num">500 億韓元</span>（約 $3,600 萬美元）投資 SpaceX，欲藉此供應 TeraFab 關鍵設備。</p>
+    <p><span class="label label-context">背景脈絡</span>ASML 確認馬斯克的 EUV 工具需求，April 彭博報導馬斯克團隊已向 Applied Materials、TEL、Lam Research 詢價。英特爾已被指定為 TeraFab 第一個 14A 製程客戶。</p>
+    <p><span class="label label-implications">影響觀察</span>（事實）ASML CEO 表示 TeraFab 等計劃未來數年將持續對設備供應鏈施加產能壓力，設備股短期受益明確。（分析）TeraFab 規模若如預期，美國本土晶片生產占比將大幅提升，地緣政治意義不亞於 CHIPS Act 直接補貼。</p>
+  </div>
+
+  <!-- Card 3: WF6 -->
+  <div class="card top-story-band">
+    <div class="card-headline">半導體關鍵氣體六氟化鎢（WF₆）中國市場價格月增 <span class="num">204%</span>；日本兩大廠商料今年 7 月永久停產</div>
+    <div class="card-headline-en">WF₆ Price Surges 204% MoM in China; Japanese Suppliers Kanto Denka & Central Glass May Exit Permanently in July</div>
+    <div class="source-badge">TrendForce · <a href="https://www.trendforce.com/news/2026/06/12/news-key-semiconductor-gas-wf%e2%82%86-prices-reportedly-surge-over-200-in-china-as-supply-tightens-ahead-of-japan-output-cuts/" target="_blank">2026-06-12</a> ｜ chinastarmarket.cn / The Elec / ChemNet</div>
+    <p><span class="label label-facts">核心事實</span>據中國海關總署數據，WF₆ 四月均價為每公斤 <span class="num">$149.79</span>，年增 <span class="num">28%</span>、月增 <span class="num">204%</span>。中國 5N 級 WF₆ 現報 RMB <span class="num">1,670–1,810/kg</span>（年增 233%）；6N 級攀至 RMB <span class="num">220–300 萬元/噸</span>（較四月初漲逾 190%）。全球年產量約 <span class="num">8,000–9,000 噸</span>，關東電化（Kanto Denka）與中央硝子（Central Glass）合計佔 <span class="num">2,000–2,200 噸</span>。</p>
+    <p><span class="label label-context">背景脈絡</span>WF₆ 是 DRAM、NAND、邏輯晶片鎢膜沉積的關鍵前驅氣體，3D NAND 每 200 層需重複約 200 次沉積步驟，需求高度集中。日本鎢材出口因中國管制受阻，兩家日本廠商庫存據報僅撐到 5–6 月。韓國 SK Specialty、Foosung 也宣布 2026 年漲價 70–90%。中國 CSSC Sci-Tech 已進入台積電、三星、SMIC 供應鏈，國內產能約 4,500 噸/年，佔全球近 50%。</p>
+    <p><span class="label label-implications">影響觀察</span>（事實+分析）新產能認證週期需 18–24 個月，2027 年前全球市場料持續緊張。NAND Flash 廠成本壓力上升；若日本廠商如期停產，中國供應商地位大幅上升，地緣政治敏感度同步提高。</p>
+  </div>
+</div>
+
+<!-- ===================== 2. FOUNDRY & PACKAGING ===================== -->
+<div class="section" id="foundry">
+  <div class="section-title"><span class="icon">🏭</span> 晶圓代工與封測 / Foundry & Advanced Packaging</div>
+
+  <!-- ASE SPIL -->
+  <div class="card">
+    <div class="card-headline">ASE 旗下矽品（SPIL）年內第五度購廠，斥資 NT$28 億買下台灣光罩竹南廠</div>
+    <div class="card-headline-en">ASE's SPIL Acquires NT$2.8B Plant — 5th Factory Buy This Year; 2026 YTD Acquisitions Top NT$22.7B</div>
+    <div class="source-badge">TrendForce · <a href="https://www.trendforce.com/news/2026/06/11/news-ases-spil-acquires-nt2-8b-plant-amid-spillover-demand-from-tsmc-advanced-packaging-capacity-crunch/" target="_blank">2026-06-11</a> ｜ Investor.com / Mirror Daily / CNA</div>
+    <p><span class="label label-facts">核心事實</span>矽品以 <span class="num">NT$28 億</span>收購台灣光罩竹南廠，為 2026 年第五次購廠，今年累計購廠支出已逾 <span class="num">NT$227 億</span>。新廠緊鄰台積電竹南封測廠，有望承接台積電外包測試設備。ASE 五月合併營收 <span class="num">NT$630.3 億</span>，月增 1.3%、年增 28.6%，同期歷史新高。</p>
+    <p><span class="label label-context">背景脈絡</span>TSMC CoWoS 先進封裝產能持續滿載，TSMC 主動要求 ASE、矽品、京元電等 OSAT 夥伴吸收外包測試設備及製造訂單。矽品是 NVIDIA、AMD 及多家 CSP ASIC 封測關鍵夥伴，CoWoS 服務能力稀缺。</p>
+    <p><span class="label label-implications">影響觀察</span>（事實）OSAT 產能持續緊張，矽品並購速度顯示終端 AI 需求仍遠超現有能力。（分析）對京元電等同業構成潛在正面漣漪效應，TSMC 外包策略讓 OSAT 成為 AI 供應鏈核心受益者。</p>
+  </div>
+
+  <!-- Micron New York -->
+  <div class="card">
+    <div class="card-headline">Micron 紐約超級晶圓廠指定貝泰（Bechtel）為主承包商，首廠預計 2030 年底投產</div>
+    <div class="card-headline-en">Micron Selects Bechtel as EPC Partner for $50B New York Clay Mega-Fab; First Fab Targets Late 2030</div>
+    <div class="source-badge">TrendForce · <a href="https://www.trendforce.com/news/2026/06/12/news-micron-taps-bechtel-intel-ohio-fab-builder-to-speed-up-new-york-mega-fab-construction/" target="_blank">2026-06-12</a> ｜ syracuse.com / Micron IR / CNBC</div>
+    <p><span class="label label-facts">核心事實</span>Micron 宣布由 Bechtel（亦負責 Intel 俄亥俄廠）擔任紐約克萊（Clay）廠的工程、採購、施工（EPC）主承包商，首廠目標 <span class="num">2030 年底</span>投產，第二廠預計 <span class="num">2033 年</span>。兩廠合計投資 <span class="num">~$500 億美元</span>，另有最高 <span class="num">$250 億美元</span>政府補貼。項目估計帶動每年 <span class="num">$167 億</span>經濟產出，創造逾 <span class="num">5 萬個</span>工作機會。愛達荷州 Boise 廠預計 <span class="num">2027 年中</span>先行量產。</p>
+    <p><span class="label label-context">背景脈絡</span>CHIPS Act 框架下美國最大私人半導體投資之一。Bechtel 的 EPC 整合模式可縮短建廠時程，對 Micron 至關重要，因 AI 驅動的記憶體需求週期可能比建廠時間更快演化。</p>
+    <p><span class="label label-implications">影響觀察</span>（分析）Micron 補貼支撐的成本結構一旦量產，將在商品 DRAM 市場對三星、SK Hynix 的 ASP 形成壓力。HBM 高性能記憶體市場格局短期不變，商品 DRAM 價格長線承壓。</p>
+  </div>
+</div>
+
+<!-- ===================== 3. IC DESIGN ===================== -->
+<div class="section" id="ic-design">
+  <div class="section-title"><span class="icon">💾</span> IC 設計 / Fabless & IDM</div>
+
+  <!-- NVIDIA Vera China -->
+  <div class="card">
+    <div class="card-headline">NVIDIA 向中國客戶開放 Vera CPU 訂購，最快 8 月供貨；H200 出貨受阻下的迂迴策略</div>
+    <div class="card-headline-en">NVIDIA Pitches Vera CPU to Chinese Clients for August Delivery as H200 Exports Stall; TSMC 3nm, SK hynix Memory</div>
+    <div class="source-badge">TrendForce · <a href="https://www.trendforce.com/news/2026/06/12/news-nvidia-reportedly-opens-vera-cpu-sales-to-china-as-early-as-august-as-h200-shipments-stall/" target="_blank">2026-06-12</a> ｜ Reuters / Tom's Hardware / Nikkei</div>
+    <p><span class="label label-facts">核心事實</span>路透社報導，NVIDIA 已告知中國客戶 Vera CPU 最快 <span class="num">8 月</span>可交貨，現接受訂單。某大型雲端業者計劃訂購超過 <span class="num">300 台</span>伺服器，每台配備 <span class="num">2 顆 Vera</span>。NVIDIA CEO 黃仁勳在五月財報電話會議指出今年 CPU 業務能見度達 <span class="num">~$200 億</span>；分析師預測 FY2027 出貨約 <span class="num">400 萬顆</span> Vera。Vera CPU 由台積電 <span class="num">3nm</span> 製程生產，SK hynix 供應記憶體。</p>
+    <p><span class="label label-context">背景脈絡</span>H200 出口至中國因管制受阻，NVIDIA 轉以 Vera CPU（不在管制清單）進入中國 AI 伺服器市場。Intel 伺服器 CPU 中國出貨等待期已達 <span class="num">6 個月</span>，AMD 亦確認全球 CPU 市場持續吃緊（8–12 週交期）。AI 推論工作負載轉移帶動 CPU 需求超預期。</p>
+    <p><span class="label label-implications">影響觀察</span>（事實）Alibaba、ByteDance 已確認與 NVIDIA 合作部署 Vera。（分析）Vera 進中國市場直接與 Intel Xeon、AMD EPYC 競爭，短期有利於 TSMC 3nm 稼動率及 SK hynix LPDDR5X 出貨；長期若 BIS 更新管制名單，風險依然存在。</p>
+  </div>
+</div>
+
+<!-- ===================== 4. MEMORY ===================== -->
+<div class="section" id="memory">
+  <div class="section-title"><span class="icon">🧠</span> 記憶體 / Memory — DRAM、HBM、NAND</div>
+
+  <!-- SK hynix roadmap -->
+  <div class="card">
+    <div class="card-headline">SK Hynix 目標 2034 年晶圓產能達現在 3 倍，年底量產 375 層 NAND；龍仁廠區建設大幅提前</div>
+    <div class="card-headline-en">SK hynix Targets 3x Wafer Output by 2034; 375L NAND Mass Production by Year-End; Yongin Expansion Pulled 10 Years Earlier</div>
+    <div class="source-badge">TrendForce · <a href="https://www.trendforce.com/news/2026/06/11/news-sk-hynix-advances-dram-and-nand-roadmap-targets-3x-wafer-output-by-2034-375-layer-nand-at-year-end/" target="_blank">2026-06-11</a> ｜ Nikkei / The Elec / Hankyung</div>
+    <p><span class="label label-facts">核心事實</span>SK Hynix 崔泰源會長表示，公司目標至 <span class="num">2034 年</span>將晶圓產能提升至現在的 <span class="num">3 倍</span>。DRAM 月產能計劃從現在的 <span class="num">~55 萬片</span>提升至 2030 年的 <span class="num">~100 萬片</span>，龍仁半導體叢集首廠預計 <span class="num">2027 年初</span>啟動，比原定時間表提前約 <span class="num">10 年</span>。375 層 NAND（原稱 400 層級）已完成驗證，計劃 <span class="num">2026 年底</span>量產，並採用鉬（Molybdenum）取代部分鎢字元線，後續路線圖延伸至 480 層、604 層。</p>
+    <p><span class="label label-context">背景脈絡</span>SK Hynix 上週剛宣布未來五年產能倍增計劃，此次進一步升級至 2034 年三倍目標，凸顯 AI 驅動的 HBM 需求強勁程度超出市場預期。Kioxia（SK Hynix 投資標的）股價高峰時市值曾超越豐田，SK Hynix 持股估值一度達 <span class="num">KRW 60 兆</span>。</p>
+    <p><span class="label label-implications">影響觀察</span>（分析）龍仁廠區大規模擴產意味三星在 HBM 競爭中壓力持續，三星亟需改善 HBM 良率以鞏固市佔。NAND 段以鉬取代鎢的材料轉換，對特殊氣體（MoF₆）及沉積設備廠商是新商機。</p>
+  </div>
+
+  <!-- 400L NAND race -->
+  <div class="card">
+    <div class="card-headline">400 層 NAND 技術決戰：三星 V10 採 W2W 鍵合 + 低溫蝕刻，Kioxia BiCS10 以 CBA 架構領跑</div>
+    <div class="card-headline-en">Race to 400-Layer NAND: Samsung V10 Targets W2W Bonding + Cryogenic Etch; Kioxia BiCS10 CBA Ships Samples Summer 2026</div>
+    <div class="source-badge">TrendForce · <a href="https://www.trendforce.com/news/2026/06/12/news-the-race-to-400-layer-nand-roadmaps-and-key-technologies-driving-samsung-sk-hynix-and-kioxia/" target="_blank">2026-06-12</a> ｜ ET News / The Elec / ZDNet / Tom's Hardware / Nikkei</div>
+    <p><span class="label label-facts">核心事實</span>
+      <strong>Samsung：</strong>286 層第九代 NAND 仍為現行最先進產品，直接跳至 V10（~400 層），導入晶圓對晶圓（W2W）鍵合 + 低溫蝕刻（Cryogenic Etching）+ 雷射切割，原計劃 <span class="num">2026H1</span> 完成產線設備採購，但截至五月訂單尚未大量發出。<br>
+      <strong>SK hynix：</strong>375 層（下修自 400 層），字元線部分改用鉬，預計 <span class="num">2026 年底</span>量產，後續 480L、604L。<br>
+      <strong>Kioxia BiCS10：</strong>332 層，採 CBA（CMOS Directly Bonded to Array），密度較前代提升 <span class="num">59%</span>，讀取速度快 <span class="num">33%</span>，讀取延遲減少 <span class="num">4 微秒</span>，讀取功耗從 ~100 mJ/GB 降至 ~75 mJ/GB，樣品出貨目標 <span class="num">2026 年夏</span>。</p>
+    <p><span class="label label-context">背景脈絡</span>NAND 競賽已不再是單純「誰堆最多層」，W2W 鍵合、CBA 架構、鉬字元線等材料與製程創新成為下一波差異化關鍵，也帶動對低溫蝕刻設備、特殊金屬前驅物的新需求。</p>
+    <p><span class="label label-implications">影響觀察</span>（分析）三星量產時程若延遲，SK Hynix 和 Kioxia 有機會在 NAND 先進節點搶先佔位；WF₆ 價格暴漲對 3D NAND 製造成本直接衝擊，更早轉用鉬的廠商相對有利。</p>
+  </div>
+
+  <!-- Korea export data -->
+  <div class="card">
+    <div class="card-headline">南韓五月晶片出口金額大增，DRAM 年增 <span class="num">+370%</span>、NAND +207%，出貨量卻下滑（量少價高的 HBM 結構轉型）</div>
+    <div class="card-headline-en">South Korea May Chip Export Revenue Surges: DRAM +370% YoY, NAND +207% YoY — Volume Falls as HBM Mix Rises</div>
+    <div class="source-badge">TrendForce · <a href="https://www.trendforce.com/news/2026/06/11/news-south-korea-chip-export-volume-falls-yet-revenue-surges-may-dram-370-nand-207/" target="_blank">2026-06-11</a></div>
+    <p><span class="label label-facts">核心事實</span>南韓五月半導體出口金額 DRAM 年增 <span class="num">370%</span>、NAND 年增 <span class="num">207%</span>，但出口量下滑，顯示產品結構向高 ASP 的 HBM 及先進 DRAM 傾斜。Samsung 一季報稱 HBM ASP 同比大漲 <span class="num">146%</span>；SK Hynix DRAM ASP 同期增幅達中 <span class="num">60%</span> 區間。</p>
+    <p><span class="label label-context">背景脈絡</span>記憶體超級周期明確。HBM 供需仍緊，Lenovo 已宣告 7 月起因記憶體成本上漲全線調漲售價，終端通膨效應開始向 PC 市場傳導。</p>
+    <p><span class="label label-implications">影響觀察</span>（分析）量少價高的出口結構對台韓供應鏈廠商毛利率有利，但同時意味 AI 以外的消費性需求仍未完全回溫。</p>
+  </div>
+</div>
+
+<!-- ===================== 5. EQUIPMENT & MATERIALS ===================== -->
+<div class="section" id="equipment">
+  <div class="section-title"><span class="icon">⚙️</span> 設備與材料 / Equipment & Materials</div>
+
+  <!-- Applied Materials Singapore -->
+  <div class="card">
+    <div class="card-headline">應用材料（Applied Materials）在新加坡開設 $5 億美元製造園區，目標全球產能翻倍</div>
+    <div class="card-headline-en">Applied Materials Opens $500M Singapore Campus; Aims to Double Global Capacity; Advanced Packaging Revenue +50% in 2026</div>
+    <div class="source-badge">TrendForce · <a href="https://www.trendforce.com/news/2026/06/11/news-applied-materials-opens-500m-singapore-site-aims-to-double-global-capacity-on-ai-demand/" target="_blank">2026-06-11</a> ｜ Nikkei / Applied Materials IR / Commercial Times</div>
+    <p><span class="label label-facts">核心事實</span>Applied Materials 開設新加坡第三座製造基地（新增後新加坡佔全球產能約 <span class="num">50%</span>），新廠含大型無塵室、R&D 設施，計劃在新加坡新增 <span class="num">1,000 人</span>（現有 4,000 人）。CEO Gary Dickerson 表示半導體設備業務今年增長逾 <span class="num">30%</span>，預計 2026 先進封裝設備收入增長 <span class="num">50%</span>，且增長預期延伸至 2027 年及以後。超過 <span class="num">80%</span> 的設備需求成長來自先進邏輯、記憶體及先進封裝。AI 資料中心相關基礎建設支出未來 <span class="num">4–5 年</span>估達 <span class="num">$7 兆美元</span>。</p>
+    <p><span class="label label-context">背景脈絡</span>Applied Materials 主要客戶包括台積電、Intel、Samsung、SK Hynix、Micron，已開始享受客戶提供的<span class="num">八季滾動</span>需求預測，供應鏈能見度大幅提升。GAA、背面電源供應、HBM、3D DRAM、先進封裝被列為未來製程需求的主要驅動力。</p>
+    <p><span class="label label-implications">影響觀察</span>（分析）Applied Materials 新加坡擴產策略兼具供應鏈韌性（去風險）與就近服務台積電 / 格芯新加坡廠的地理優勢。先進封裝設備收入高速成長，印證 CoWoS / HBM 封裝需求持續超預期。</p>
+  </div>
+</div>
+
+<!-- ===================== 6. AI CHIP ===================== -->
+<div class="section" id="ai-chip">
+  <div class="section-title"><span class="icon">🤖</span> AI 晶片 / AI Accelerators & Roadmaps</div>
+
+  <!-- NVIDIA RTX Spark -->
+  <div class="card">
+    <div class="card-headline">NVIDIA RTX Spark 搭載 6,144 CUDA 核心，AI PC 晶片能效平衡挑戰受矚目</div>
+    <div class="card-headline-en">NVIDIA RTX Spark: 6,144 CUDA Cores for AI PCs — Performance vs. Battery Life vs. Cost Triangle Under Scrutiny</div>
+    <div class="source-badge">TrendForce · <a href="https://www.trendforce.com/news/2026/06/11/news-nvidia-rtx-spark-packs-6144-cuda-cores-can-it-balance-performance-battery-life-and-cost/" target="_blank">2026-06-11</a></div>
+    <p><span class="label label-facts">核心事實</span>NVIDIA RTX Spark 配備 <span class="num">6,144 個 CUDA 核心</span>，定位 AI PC 平台。SK Hynix 確認將供應 RTX Spark 平台的記憶體解決方案，同時也為 Vera Rubin AI 超算、Vera CPU、Jetson Thor 機器人平台供應記憶體。</p>
+    <p><span class="label label-context">背景脈絡</span>NVIDIA 在 AI PC 市場的佈局使其直接與 Intel Core Ultra 及 AMD Ryzen AI 競爭。記憶體整合度要求高，SK Hynix 的 LPDDR5X 及 HBM 技術積累形成差異化。</p>
+    <p><span class="label label-implications">影響觀察</span>（分析）NVIDIA 若在 AI PC 站穩腳跟，台積電 3nm 佔 NVIDIA 營收比重將進一步上升（Vera Rubin 已推 TSMC 至超過 20% 的客戶佔比）。</p>
+  </div>
+</div>
+
+<!-- ===================== 7. GEOPOLITICS ===================== -->
+<div class="section" id="geopolitics">
+  <div class="section-title"><span class="icon">🌍</span> 地緣政治與政策 / Geopolitics & Policy</div>
+
+  <!-- Rare earths / supply chain -->
+  <div class="card">
+    <div class="card-headline">突破中國稀土壟斷加速推進：無稀土磁鐵與多元化供應鏈布局齊頭並進</div>
+    <div class="card-headline-en">Breaking China's Rare Earth Grip Accelerates: Rare Earth-Free Magnets + Supply Chain Diversification in Motion</div>
+    <div class="source-badge">TrendForce · <a href="https://www.trendforce.com/news/2026/06/12/news-from-rare-earth-free-magnets-to-new-supply-chains-the-push-to-break-chinas-grip-accelerates/" target="_blank">2026-06-12</a></div>
+    <p><span class="label label-facts">核心事實</span>多家公司（包括 Niron Magnetics）正加速開發無稀土磁鐵技術，以應對中國稀土出口管制帶來的供應風險。稀土出口管制已波及半導體用磁性材料，影響電動車馬達、半導體製造設備（如離子注入機、蝕刻設備）及國防供應鏈。</p>
+    <p><span class="label label-context">背景脈絡</span>中國自 2026 年初加強鎢（W）、鎵（Ga）、鍺（Ge）等關鍵材料出口管制，WF₆ 價格暴漲即為連帶效應。美國、歐盟、日本積極推動關鍵礦物供應鏈在中國以外的建立。</p>
+    <p><span class="label label-implications">影響觀察</span>（分析）稀土供應鏈去中國化時間軸以年為單位，短期仍是中國的地緣政治槓桿。半導體廠商需同步備貨及推動材料替代，材料替代週期（18–24 月）與當前漲價壓力形成時間差風險。</p>
+  </div>
+
+  <!-- TeraFab geopolitical angle -->
+  <div class="card">
+    <div class="card-headline">CHIPS Act 生態持續擴張：TeraFab、Micron 紐約廠、Applied Materials 新加坡共同構成新一輪晶片地理重組</div>
+    <div class="card-headline-en">US/Allied Chip Geography Reshaping: TeraFab, Micron NY, Applied Materials Singapore Signal Structural Supply Chain Shift</div>
+    <div class="source-badge">綜合分析 · 2026-06-13</div>
+    <p><span class="label label-context">背景脈絡</span>本週三大事件——Musk TeraFab 獲 ASML 背書、Micron 選定 Bechtel 加速紐約廠建設、Applied Materials 新加坡擴產——構成一幅清晰的地理政治圖：美國本土製造（TeraFab / Micron NY）加速，設備/材料供應鏈在新加坡等友好地區備份（Applied Materials 新加坡佔全球 50% 產能），韓國 SK Hynix 擴增內需自給。</p>
+    <p><span class="label label-implications">影響觀察</span>（分析）台灣作為全球晶圓代工核心地位短期不變（台積電 1.4nm 仍是最先進節點），但美韓主導的記憶體本土化 + 美國本土邏輯廠崛起，長期將改變供應鏈脆弱性結構。出口管制升級（H200 / WF₆）加速此進程。</p>
+  </div>
+</div>
+
+<!-- ===================== 8. DEEP READS ===================== -->
+<div class="section" id="deep-reads">
+  <div class="section-title"><span class="icon">📚</span> 深度觀點 / Deep Reads</div>
+
+  <div class="card">
+    <div class="card-headline">COMPUTEX 2026：記憶體技術全覽（TrendForce Insights）</div>
+    <div class="card-headline-en">COMPUTEX 2026: Memory in Focus — TrendForce Insights Deep Dive</div>
+    <div class="source-badge"><a href="https://insights.trendforce.com/p/computex-2026-memory-in-focus" target="_blank">TrendForce Insights · 2026-06</a></div>
+    <p>TrendForce 在 COMPUTEX 2026 發布記憶體技術全覽報告，涵蓋 HBM 演進（HBM3E → HBM4）、DRAM 技術節點競賽、NAND Flash 400 層路線圖及 AI 時代記憶體需求驅動力。對追蹤半導體周期的投資者而言，提供了較當日新聞更深層的結構性分析視角。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-headline">Inside Micron's $1 Trillion Market Cap Leap: Global Fab Expansion Overview（TrendForce）</div>
+    <div class="card-headline-en">Micron's Path to $1T Market Cap — Fab Strategy, HBM4E Roadmap, and TSMC Partnership</div>
+    <div class="source-badge"><a href="https://www.trendforce.com/news/2026/05/27/news-inside-microns-1-trillion-market-cap-leap-a-global-fab-expansion-overview-across-the-u-s-and-asia/" target="_blank">TrendForce · 2026-05-27</a></div>
+    <p>Micron 全球廠房擴張全覽：美國（愛達荷 Boise + 紐約 Clay）、日本廣島廠、印度組裝廠的完整版圖，以及 HBM4E 2027 年與台積電合作量產計劃。搭配本日 Bechtel 承包商選定新聞閱讀，脈絡完整。</p>
+  </div>
+</div>
+
+</div><!-- /content -->
+
+<!-- FOOTER / SOURCES -->
+<div class="footer">
+  <h3>資料來源 / Sources</h3>
+  <ul>
+    <li><a href="https://www.trendforce.com/news/" target="_blank">TrendForce News</a></li>
+    <li><a href="https://asia.nikkei.com/Business/Tech/Semiconductors" target="_blank">Nikkei Asia — Semiconductors</a></li>
+    <li><a href="https://www.reuters.com/technology/" target="_blank">Reuters Technology</a></li>
+    <li><a href="https://www.theinformation.com/topics/chips" target="_blank">The Information — Chips</a></li>
+    <li><a href="https://www.thelec.net/" target="_blank">The Elec (Korea)</a></li>
+    <li><a href="https://www.tomshardware.com/news" target="_blank">Tom's Hardware</a></li>
+    <li><a href="https://ir.appliedmaterials.com/" target="_blank">Applied Materials IR</a></li>
+    <li><a href="https://investors.micron.com/" target="_blank">Micron IR</a></li>
+    <li><a href="https://www.cnbc.com/" target="_blank">CNBC</a></li>
+    <li><a href="https://www.businesskorea.co.kr/" target="_blank">Business Korea</a></li>
+  </ul>
+  <div class="footer-note">
+    本日報由 Claude AI 自動整理，引用來源均標注原始連結。分析性觀點（標有「分析」）代表合理推斷，非原始報導事實。<br>
+    Generated: 2026-06-13 · Data through 2026-06-12 · Paywalled / failed sources: SemiAnalysis (paywall), Bloomberg Semiconductors (paywall), WSJ Tech (paywall), DigiTimes (partial paywall)
+  </div>
+</div>
+
+</body>
+</html>

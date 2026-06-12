@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日新創新聞日報 / Daily Startup News — 2026-06-13</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #222535;
+      --border: #2e3150;
+      --accent: #6c8cff;
+      --accent2: #a78bfa;
+      --green: #34d399;
+      --yellow: #fbbf24;
+      --red: #f87171;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --tag-bg: #1e2540;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      padding: 0 0 60px;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 24px 24px;
+      text-align: center;
+    }
+    header .label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+    }
+    header .sub {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 6px;
+    }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+    .section {
+      margin-top: 36px;
+    }
+    .section-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .card h3 .en {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent2);
+      margin-top: 2px;
+    }
+    .meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .meta a { color: var(--accent); text-decoration: none; }
+    .meta a:hover { text-decoration: underline; }
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--accent2);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-right: 4px;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .tag.green { color: var(--green); }
+    .tag.yellow { color: var(--yellow); }
+    .tag.red { color: var(--red); }
+    .block { margin-bottom: 10px; }
+    .block .label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 3px;
+    }
+    .block p { font-size: 14px; color: var(--text); }
+    .highlight-box {
+      background: var(--surface2);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+    }
+    .highlight-box p { font-size: 14px; }
+    .top-story {
+      background: linear-gradient(135deg, #1e2540 0%, #1a1d27 100%);
+      border: 1px solid var(--accent);
+    }
+    .number-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      width: 22px;
+      height: 22px;
+      line-height: 22px;
+      text-align: center;
+      border-radius: 50%;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .amount {
+      color: var(--green);
+      font-weight: 700;
+    }
+    .valuation {
+      color: var(--yellow);
+      font-weight: 700;
+    }
+    .sources {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .sources h2 { font-size: 13px; color: var(--muted); margin-bottom: 10px; letter-spacing: 1px; text-transform: uppercase; }
+    .sources ul { list-style: none; }
+    .sources li { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+    .sources a { color: var(--accent); text-decoration: none; }
+    .sources a:hover { text-decoration: underline; }
+    .ph-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .ph-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .ph-rank {
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .ph-name { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .ph-desc { font-size: 12px; color: var(--muted); }
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 20px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="label">Daily Startup News</div>
+  <h1>今日新創新聞日報</h1>
+  <div class="sub">2026-06-13 · Asia/Taipei · Sources: TechCrunch, Crunchbase News, Product Hunt</div>
+</header>
+
+<div class="container">
+
+  <!-- ===== TOP STORIES ===== -->
+  <div class="section">
+    <div class="section-title">1. 頭條 / Top Stories</div>
+
+    <div class="card top-story">
+      <span class="number-badge">1</span>
+      <h3>
+        Bezos 的 Prometheus 完成 120 億美元募資,估值 410 億
+        <span class="en">Jeff Bezos's Prometheus raises $12B at $41B valuation to build "artificial general engineer"</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-11 ·
+        <a href="https://techcrunch.com/2026/06/11/jeff-bezoss-prometheus-raises-12b-to-build-an-artificial-general-engineer-for-the-physical-world/" target="_blank">原文</a>
+      </div>
+      <span class="tag green">Late Stage</span>
+      <span class="tag">Physical AI</span>
+      <span class="tag yellow">史上最大輪</span>
+
+      <div class="block">
+        <div class="label">核心事實 / Facts</div>
+        <p>Prometheus 完成 <span class="amount">$120 億</span> 融資,估值達 <span class="valuation">$410 億</span>。這是繼去年底 $62 億首輪之後的第二輪。投資方包括 Bezos 本人、JPMorgan Chase、Goldman Sachs、BlackRock 等主要金融機構。公司目前員工 150 人,辦公室設於舊金山、倫敦、蘇黎世。</p>
+      </div>
+      <div class="block">
+        <div class="label">背景脈絡 / Context</div>
+        <p>Prometheus 由 Jeff Bezos 與前 Verily (Google 生命科學) 共同創辦人 Vik Bajaj 聯合創立。目標是打造「人工通用工程師」(Artificial General Engineer),能自動化設計和製造複雜實體系統,涵蓋噴射引擎到藥物分子設計。Bezos 明確表示大部分資金將用於巨量算力建設。公司目前對於已建立什麼保持低調。</p>
+      </div>
+      <div class="block">
+        <div class="label">影響觀察 / Implications (分析)</div>
+        <p>此輪融資規模讓 Prometheus 躋身史上估值最高的 AI 新創之列。Bezos 的 Physical AI 理論 — 實體世界比純軟體更具護城河 — 正吸引 Goldman、BlackRock 等大型機構入場,表示資金流向正從純語言模型轉向能操控實體世界的系統。需留意:公司產品尚未公開,估值完全建立在願景與創辦人身份之上。</p>
+      </div>
+    </div>
+
+    <div class="card top-story">
+      <span class="number-badge">2</span>
+      <h3>
+        SpaceX 定價 135 美元上市,史上最大 IPO 誕生
+        <span class="en">SpaceX prices shares at $135 — the largest IPO in history at $75B raised</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-11 ·
+        <a href="https://techcrunch.com/2026/06/11/spacex-officially-prices-shares-at-135-in-the-largest-ipo-ever/" target="_blank">原文</a>
+      </div>
+      <span class="tag yellow">IPO</span>
+      <span class="tag">Space</span>
+      <span class="tag green">史上最大</span>
+
+      <div class="block">
+        <div class="label">核心事實 / Facts</div>
+        <p>SpaceX 官方確認每股定價 <span class="amount">$135</span>,發行 5.556 億股,募資 <span class="amount">$750 億</span>,遠超 2019 年沙烏地阿美 $249 億的紀錄。代碼 SPCX,在 Nasdaq 掛牌。若承銷商行使超額配售 8,330 萬股選擇權,可再募 $110 億。Hyperliquid 合成市場目前將股價定在 $167,暗示首日可能有約 20% 漲幅。</p>
+      </div>
+      <div class="block">
+        <div class="label">背景脈絡 / Context</div>
+        <p>Musk 持有約 8.5 億 A 類股與另外 56 億 B 類股 (10 票/股)。內部人士 Antonio Gracias (Valor Management) 持有 5.034 億股,照定價計算持股市值近 680 億美元。IPO 也讓約 400 家支持 SpaceX 的 VC 實現退出。SPV 投資人需等 lock-up 解除後才能確認持股細節。此次定價採罕見做法:提前測試 $135 目標,吸引超過 4 倍超額認購。</p>
+      </div>
+      <div class="block">
+        <div class="label">影響觀察 / Implications (分析)</div>
+        <p>SpaceX IPO 打開科技公司上市窗口。Quantum Space 等防務科技新創立刻跟進宣布 SPAC,顯示市場情緒正在解凍。對創業者的訊號:公眾市場投資人在高利率下依舊願意為技術壁壘型公司支付高溢價。需留意 Musk 其他事業 (Tesla、X) 帶來的聲譽風險及複雜的雙重股權結構。</p>
+      </div>
+    </div>
+
+    <div class="card top-story">
+      <span class="number-badge">3</span>
+      <h3>
+        歐洲最大機器人 Series A:巴塞隆納 Theker 完成 8,500 萬美元融資
+        <span class="en">Theker raises $85M Series A — Europe's largest ever robotics Series A — for modular factory robots</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-11 ·
+        <a href="https://techcrunch.com/2026/06/11/theker-just-raised-85m-to-build-the-factory-robot-that-doesnt-specialize-in-anything/" target="_blank">原文</a>
+      </div>
+      <span class="tag green">Series A</span>
+      <span class="tag">Robotics</span>
+      <span class="tag">Europe</span>
+
+      <div class="block">
+        <div class="label">核心事實 / Facts</div>
+        <p>西班牙巴塞隆納機器人新創 Theker 完成 <span class="amount">$8,500 萬</span> A 輪,由美國 VC 機構 CRV 領投,Samsung、Aglaé Ventures (LVMH Bernard Arnault 旗下投資工具) 等跟投。Inditex (Zara 母公司) 為早期策略股東。公司稱這是「歐洲史上最大機器人 Series A」。</p>
+      </div>
+      <div class="block">
+        <div class="label">背景脈絡 / Context</div>
+        <p>Theker 由 Carla Gómez Cano 與 Jiaqiang Ye Zhu 共同創辦,機器人設計核心亮點:模組化可重組,手部、手臂可依任務更換,適用包裝、倉儲、製造等多場景。有別於固定形態的人形機器人 (如 Boston Dynamics)。此輪約為原定目標 ($3,000~$4,000 萬) 的兩倍。Samsung 尚未成為客戶但雙方正深入洽談。</p>
+      </div>
+      <div class="block">
+        <div class="label">影響觀察 / Implications (分析)</div>
+        <p>Theker 的成功象徵歐洲機器人生態圈成熟:吸引美國 Tier-1 VC (CRV) 直接領投,顯示地理位置不再是阻礙全球融資的壁壘。「通用型」vs「專用型」機器人的路線之爭加劇:Theker 賭的是工廠現實的複雜性;人形機器人 (Figure、1X、Apptronik 等) 則賭的是人形界面的普適性。兩者誰能先規模化量產會是 2027 年的關鍵分水嶺。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FUNDING ROUNDS ===== -->
+  <div class="section">
+    <div class="section-title">2. 募資 / Funding Rounds</div>
+
+    <div class="card">
+      <h3>
+        Prometheus — Physical AI 工程師平台
+        <span class="en">Prometheus · Physical AI · Late Stage</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-11 ·
+        <a href="https://techcrunch.com/2026/06/11/jeff-bezoss-prometheus-raises-12b-to-build-an-artificial-general-engineer-for-the-physical-world/" target="_blank">原文</a>
+      </div>
+      <span class="tag green">$120 億 · 估值 $410 億</span>
+      <span class="tag">Physical AI</span>
+      <p style="font-size:14px">領投:Bezos 本人、JPMorgan Chase、Goldman Sachs、BlackRock。上一輪:$62 億。員工 150 人。產品尚未公開。</p>
+    </div>
+
+    <div class="card">
+      <h3>
+        Theker — 模組化工廠機器人
+        <span class="en">Theker · Modular Industrial Robotics · Series A</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-11 ·
+        <a href="https://techcrunch.com/2026/06/11/theker-just-raised-85m-to-build-the-factory-robot-that-doesnt-specialize-in-anything/" target="_blank">原文</a>
+      </div>
+      <span class="tag green">$8,500 萬</span>
+      <span class="tag">Robotics</span>
+      <span class="tag">Barcelona</span>
+      <p style="font-size:14px">領投:CRV。跟投:Samsung、Aglaé Ventures (LVMH)、Inditex (Zara 母公司)。目前數十人團隊,預計年底擴張至 120 人。歐洲史上最大機器人 Series A。</p>
+    </div>
+
+    <div class="card">
+      <h3>
+        Equal AI — 印度 AI 來電過濾助理
+        <span class="en">Equal AI · AI Call Screening · Series B · India</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-11 ·
+        <a href="https://techcrunch.com/2026/06/11/equal-ai-raises-30m-to-screen-calls-so-indians-dont-have-to/" target="_blank">原文</a>
+      </div>
+      <span class="tag green">$3,000 萬 Series B</span>
+      <span class="tag">India</span>
+      <span class="tag">AI Assistant</span>
+      <p style="font-size:14px">領投:Prosus Ventures、Tomales Bay Capital。跟投:Think Investments、Valiant Fund。個人投資者包括 PhonePe 創辦人 Sameer Nigam、Meta India VP Sandhya Devanathan。累計融資 $4,200 萬。MAU 超 100 萬人,DAU 30 萬人。估值採罕見三分批次結構,Equal AI 拒絕揭露具體數字。2022 年創立,創辦人 Keshav Reddy 來自印度 GVK 集團家族。</p>
+    </div>
+  </div>
+
+  <!-- ===== PRODUCT LAUNCHES ===== -->
+  <div class="section">
+    <div class="section-title">3. 產品大事 / Notable Product Launches</div>
+
+    <div class="card">
+      <h3>
+        Bluesky 推出群組聊天,戰略轉向社群功能
+        <span class="en">Bluesky launches group chats (up to 50 members) — strategic pivot to community features</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-11 ·
+        <a href="https://techcrunch.com/2026/06/11/bluesky-launches-group-chats-as-company-shifts-focus-to-community-features/" target="_blank">原文</a>
+      </div>
+      <span class="tag">Product Launch</span>
+      <span class="tag">Social</span>
+
+      <div class="block">
+        <div class="label">核心事實 / Facts</div>
+        <p>Bluesky v1.124 版本上線,支援最多 50 人的群組聊天。群組創建者可管理成員並生成邀請連結。目前不支援媒體分享,因需額外安全審核機制。同步推出個人化 QR code 名片分享。</p>
+      </div>
+      <div class="block">
+        <div class="label">背景脈絡 / Context</div>
+        <p>Bluesky 目前有 4,480 萬註冊用戶,遠落後於 X 的 6 億 MAU。X 在 4 月推出獨立應用 XChat,同月也關閉了 Communities 功能(因低使用率與垃圾訊息)。Bluesky 的產品主管 Alex Benzer 公開表示公司將加速建構社群功能,計畫推出可設定公開/邀請制/私密的 Communities。</p>
+      </div>
+      <div class="block">
+        <div class="label">影響觀察 / Implications (分析)</div>
+        <p>策略轉向「小圈子社群」意味 Bluesky 暫時放棄與 X 在公開廣播型內容正面競爭,改走 Reddit/Facebook Groups 路線。在 Meta 因 AI 審核失誤封號爭議之際,Bluesky 開放協議定位有差異化空間。但 50 人上限與無媒體分享是功能短板,使用體驗暫時不及競品。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>
+        Waymo 推出忠誠計畫:10% 回饋與免費取消
+        <span class="en">Waymo launches loyalty program with 10% cash back and free cancellations</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-11 ·
+        <a href="https://techcrunch.com/2026/06/11/waymo-launches-a-loyalty-program-with-10-cash-back-and-free-cancellations/" target="_blank">原文</a>
+      </div>
+      <span class="tag">Robotaxi</span>
+      <span class="tag">Product</span>
+      <p style="font-size:14px">Waymo 推出名為「Waymo Premier」的忠誠計畫,提供 10% 現金回饋及免費取消行程。這是無人車公司罕見的消費型產品動作,表示商業化布局開始走向用戶留存和差異化競爭。</p>
+    </div>
+
+    <div class="card">
+      <h3>
+        Coinbase 推出 MCP:讓 AI Agent 可直接交易與付費
+        <span class="en">Coinbase debuts MCP tool for AI agent trading and premium research payments</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-11 ·
+        <a href="https://techcrunch.com/2026/06/11/coinbase-debuts-mcp-for-agent-trading/" target="_blank">原文</a>
+      </div>
+      <span class="tag">Crypto</span>
+      <span class="tag">AI Agents</span>
+      <p style="font-size:14px">Coinbase 推出 Model Context Protocol (MCP) 工具,讓 AI agents 能夠自主交易加密資產並支付高級研究報告費用。這是 agentic 金融基礎設施建設的早期指標。</p>
+    </div>
+  </div>
+
+  <!-- ===== IPO PIPELINE ===== -->
+  <div class="section">
+    <div class="section-title">4. 上市進程 / IPO Pipeline</div>
+
+    <div class="card">
+      <h3>
+        SpaceX 正式以每股 $135 定價,募資 $750 億
+        <span class="en">SpaceX IPO priced at $135/share (SPCX on Nasdaq) — largest IPO in history</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-11 ·
+        <a href="https://techcrunch.com/2026/06/11/spacex-officially-prices-shares-at-135-in-the-largest-ipo-ever/" target="_blank">原文</a>
+      </div>
+      <span class="tag yellow">IPO · $750 億</span>
+      <span class="tag">Nasdaq · SPCX</span>
+      <p style="font-size:14px">詳見頭條 #2。Hyperliquid 合成市場目前定價 $167,市場預期首日漲幅約 20%。超額認購達 4 倍。承銷商可再行使選擇權加售 8,330 萬股 (+$110 億)。</p>
+    </div>
+
+    <div class="card">
+      <h3>
+        Quantum Space 宣布 12 億美元 SPAC 上市計畫
+        <span class="en">Quantum Space announces $1.2B SPAC merger for military maneuverable spacecraft</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-11 ·
+        <a href="https://techcrunch.com/2026/06/11/quantum-spaces-military-spac-is-trying-to-catch-spacexs-ipo-wave/" target="_blank">原文</a>
+      </div>
+      <span class="tag yellow">SPAC · $12 億</span>
+      <span class="tag">Defense Tech</span>
+
+      <div class="block">
+        <div class="label">核心事實 / Facts</div>
+        <p>Quantum Space 宣布透過 SPAC 合併案上市,目標估值 <span class="valuation">$12 億</span>,並引入 $3 億 PIPE 私募。CEO 為前 NASA 局長、美國眾議員 Jim Bridenstine。公司由長期太空投資人 Kam Ghaffarian 創立,後者也是 Intuitive Machines 背後的主要推手。</p>
+      </div>
+      <div class="block">
+        <div class="label">背景脈絡 / Context</div>
+        <p>Quantum Space 的「Ranger」太空船設計為高機動性,可長時間停留高軌道監視敵方衛星,進入 Andromeda ($62 億) 合約競爭。競爭者包括 True Anomaly ($10 億 VC 融資)、Lockheed Martin、Northrop Grumman 等。首枚原型機預計 2027 年升空,Tulsa 工廠預計 2028 年底量產。</p>
+      </div>
+      <div class="block">
+        <div class="label">影響觀察 / Implications (分析)</div>
+        <p>在 SpaceX IPO 製造的市場氣氛下,防務太空新創正爭搶上市視窗。SPAC 作為工具捲土重來值得注意,但 2021 年 SPAC 浪潮教訓猶在:投資人對過早期公司的公開融資應審慎。Andromeda 任務訂單要等 2030 年才啟動,資金需求與收入時間差很大。</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>
+        OpenAI 與 Anthropic 相繼機密申請 IPO
+        <span class="en">OpenAI files confidentially for IPO, following Anthropic's earlier confidential filing</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-08 ·
+        <a href="https://techcrunch.com/2026/06/08/following-anthropic-openai-files-confidentially-for-ipo/" target="_blank">原文</a>
+      </div>
+      <span class="tag yellow">Confidential S-1</span>
+      <span class="tag">AI Labs</span>
+      <p style="font-size:14px">OpenAI 跟隨 Anthropic 提交保密 IPO 申請。兩大 AI 實驗室相繼走向公開市場,是 2026 下半年最受關注的潛在上市事件。具體定價時間未定。</p>
+    </div>
+
+    <div class="card">
+      <h3>
+        AI 無人機 Swarmer 首日暴漲 520%,帶動防務科技 IPO 熱潮
+        <span class="en">Swarmer (AI drone) surges 520% on debut, putting 12 defense tech IPO candidates in spotlight</span>
+      </h3>
+      <div class="meta">
+        Crunchbase News · 2026-03-18 ·
+        <a href="https://news.crunchbase.com/public/potential-defense-tech-ipo-candidates-swmr/" target="_blank">原文</a>
+      </div>
+      <span class="tag green">IPO +520%</span>
+      <span class="tag">Defense Tech</span>
+      <p style="font-size:14px">Austin-based Swarmer 以每股 $5 上市,首日市值從 $6,000 萬飆至 $3.82 億。防務科技 VC 投資 2025 年創下 $84 億歷史新高,較 2024 年翻倍。Anduril ($25 億 Series G)、Helsing ($6.93 億)、Saronic ($6 億) 等都是潛在 IPO 候選。</p>
+    </div>
+  </div>
+
+  <!-- ===== PEOPLE MOVES ===== -->
+  <div class="section">
+    <div class="section-title">5. 人事 / People Moves</div>
+
+    <div class="card">
+      <h3>
+        Reid Hoffman 離開微軟董事會,全力投入新創 Manas
+        <span class="en">Reid Hoffman leaves Microsoft's board to go "founder mode" with startup Manas</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-05 ·
+        <a href="https://techcrunch.com/2026/06/05/reid-hoffman-is-leaving-microsofts-board-to-go-founder-mode-with-startup-manus/" target="_blank">原文</a>
+      </div>
+      <span class="tag yellow">Founder Mode</span>
+      <span class="tag">People</span>
+      <p style="font-size:14px">LinkedIn 創辦人、Greylock 投資人 Reid Hoffman 宣布辭去微軟董事席位,將重心轉移至其創辦的 AI 新創 Manas。消息意味 Hoffman 個人重心從投資轉向親自操刀創業,也是「Founder Mode」思潮在頂級投資人中的最新體現。</p>
+    </div>
+
+    <div class="card">
+      <h3>
+        Anthropic CEO Dario Amodei:目前只有一位直接下屬
+        <span class="en">Anthropic CEO Dario Amodei has just one direct report — a notable organizational signal</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-10 ·
+        <a href="https://techcrunch.com/2026/06/10/anthropics-dario-amodei-has-just-one-direct-report/" target="_blank">原文</a>
+      </div>
+      <span class="tag">Org Structure</span>
+      <span class="tag">People</span>
+      <p style="font-size:14px">Anthropic CEO Dario Amodei 揭露目前只有一位直接下屬,顯示公司在快速增長中採取極度扁平化管理。同時公司宣布與印度 TCS 合作,擴大企業 AI 部署規模。</p>
+    </div>
+  </div>
+
+  <!-- ===== REGIONAL ===== -->
+  <div class="section">
+    <div class="section-title">6. 區域 / Regional Spotlight</div>
+
+    <div class="card">
+      <h3>
+        印度:Equal AI 完成 $3,000 萬 B 輪,打造本地化 AI 來電助理
+        <span class="en">India: Equal AI raises $30M Series B for AI call screening with 1M+ MAU</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-11 ·
+        <a href="https://techcrunch.com/2026/06/11/equal-ai-raises-30m-to-screen-calls-so-indians-dont-have-to/" target="_blank">原文</a>
+      </div>
+      <span class="tag">India</span>
+      <span class="tag green">$3,000 萬</span>
+      <p style="font-size:14px">見募資區段。Equal AI 的印度市場特色:支援 10+ 語言及 code-mixing (多語混雜)。競品有 Truecaller、Google Assistant、Apple 來電過濾,以及美國 a16z 投資的 Cloaked。Equal AI 選擇自建 App 而非依附 WhatsApp 等平台,迴避平台封鎖風險。</p>
+    </div>
+
+    <div class="card">
+      <h3>
+        歐洲:西班牙機器人新創 Theker 完成史上最大 A 輪
+        <span class="en">Europe: Barcelona-based Theker secures Europe's largest ever robotics Series A ($85M)</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-11 ·
+        <a href="https://techcrunch.com/2026/06/11/theker-just-raised-85m-to-build-the-factory-robot-that-doesnt-specialize-in-anything/" target="_blank">原文</a>
+      </div>
+      <span class="tag">Europe · Spain</span>
+      <span class="tag green">$8,500 萬</span>
+      <p style="font-size:14px">見頭條 #3。Theker 的成功強化巴塞隆納作為歐洲機器人重鎮的地位。創辦人強調歐洲總部對於獲取 US 頂級 VC 資金已非障礙。</p>
+    </div>
+
+    <div class="card">
+      <h3>
+        韓國:Coupang 遭罰 $4 億+ 資料外洩罰款
+        <span class="en">South Korea: Coupang fined $400M+ for data breach affecting millions of users</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-11 ·
+        <a href="https://techcrunch.com/2026/06/11/south-korea-hits-coupang-with-400m-fine-for-data-breach-that-affected-millions/" target="_blank">原文</a>
+      </div>
+      <span class="tag red">Regulatory</span>
+      <span class="tag">Korea</span>
+      <p style="font-size:14px">南韓電商 Coupang 遭主管機關開罰超過 $4 億美元,為該國史上最大資料外洩罰款之一。對亞洲消費科技公司的警示:主管機關正大幅提升個資違規的實際財務懲罰。</p>
+    </div>
+  </div>
+
+  <!-- ===== PRODUCT HUNT ===== -->
+  <div class="section">
+    <div class="section-title">7. 新公司發表 / Product Hunt Today (2026-06-13)</div>
+    <div class="ph-grid">
+      <div class="ph-card">
+        <div class="ph-rank">#1 今日</div>
+        <div class="ph-name">Firma.dev</div>
+        <div class="ph-desc">E-signatures API — 平均每份文件約 3 美分</div>
+      </div>
+      <div class="ph-card">
+        <div class="ph-rank">#2 今日</div>
+        <div class="ph-name">Qursor</div>
+        <div class="ph-desc">點選任意 UI 元素即可發送精確上下文給 AI</div>
+      </div>
+      <div class="ph-card">
+        <div class="ph-rank">#3 今日</div>
+        <div class="ph-name">Pond</div>
+        <div class="ph-desc">新創募資、GTM 與 bounties 平台</div>
+      </div>
+      <div class="ph-card">
+        <div class="ph-rank">#4 今日</div>
+        <div class="ph-name">KOSH Money</div>
+        <div class="ph-desc">自由工作者與創作者的美元帳戶與信用卡</div>
+      </div>
+      <div class="ph-card">
+        <div class="ph-rank">#5 今日</div>
+        <div class="ph-name">HyperSleep</div>
+        <div class="ph-desc">睡夠才能解鎖社群媒體的 App</div>
+      </div>
+      <div class="ph-card">
+        <div class="ph-rank">#昨日 #1</div>
+        <div class="ph-name">Wispr Flow</div>
+        <div class="ph-desc">全裝置語音輸入,比打字快 4 倍 (2,479 票)</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:12px">來源: <a href="https://www.producthunt.com/" target="_blank" style="color:var(--accent)">Product Hunt</a> · 2026-06-13</p>
+  </div>
+
+  <!-- ===== READS ===== -->
+  <div class="section">
+    <div class="section-title">8. 觀點 / Reads Worth Bookmarking</div>
+
+    <div class="card">
+      <h3>
+        Mercor CEO 點名 Sequoia 「雙重定價」估值手法
+        <span class="en">Mercor's Brendan Foody calls out Sequoia over "dual-pricing" valuation tricks</span>
+      </h3>
+      <div class="meta">
+        TechCrunch · 2026-06-08 ·
+        <a href="https://techcrunch.com/2026/06/08/mercors-brendan-foody-calls-out-sequoia-over-dual-pricing-valuation-tricks/" target="_blank">原文</a>
+      </div>
+      <span class="tag">Founder Perspective</span>
+      <p style="font-size:14px">Mercor CEO Brendan Foody 公開指控 Sequoia 在同一輪融資中採用雙重定價機制,以不同估值出售股份,藉此讓新創對外宣稱較高估值。這個指控觸及新創圈的敏感話題:投資方資訊優勢 vs 創辦人透明度。值得所有正在融資的創辦人深思。</p>
+    </div>
+
+    <div class="card">
+      <h3>
+        Physical AI 浪潮:為何「能操控實體世界」的 AI 估值更高?
+        <span class="en">Physical AI thesis: Why "touching the physical world" commands far higher valuations than pure software</span>
+      </h3>
+      <div class="meta">
+        TechCrunch (分析) · 2026-05-17 ·
+        <a href="https://techcrunch.com/2026/05/17/for-eclipse-the-2-5b-cerebras-win-is-just-the-start-of-realizing-its-physical-world-thesis/" target="_blank">相關背景</a>
+      </div>
+      <span class="tag">Analysis</span>
+      <p style="font-size:14px">Prometheus $410 億估值、Theker $85M Series A、各機器人新創的巨額融資,背後共同邏輯是:實體世界具備軟體無法複製的護城河。理解這個投資敘事,有助於新創重新評估自身業務中「接觸實體世界」的部分。</p>
+    </div>
+  </div>
+
+  <!-- ===== SOURCES ===== -->
+  <div class="sources">
+    <h2>數據來源 / Sources</h2>
+    <ul>
+      <li><a href="https://techcrunch.com/" target="_blank">TechCrunch</a> — Primary startup & VC coverage</li>
+      <li><a href="https://news.crunchbase.com/" target="_blank">Crunchbase News</a> — Funding data & IPO pipeline analysis</li>
+      <li><a href="https://www.producthunt.com/" target="_blank">Product Hunt</a> — Today's top launches (2026-06-13)</li>
+      <li><a href="https://techcrunch.com/2026/06/11/jeff-bezoss-prometheus-raises-12b-to-build-an-artificial-general-engineer-for-the-physical-world/" target="_blank">Prometheus $12B raise</a> · TechCrunch 2026-06-11</li>
+      <li><a href="https://techcrunch.com/2026/06/11/spacex-officially-prices-shares-at-135-in-the-largest-ipo-ever/" target="_blank">SpaceX IPO $135</a> · TechCrunch 2026-06-11</li>
+      <li><a href="https://techcrunch.com/2026/06/11/theker-just-raised-85m-to-build-the-factory-robot-that-doesnt-specialize-in-anything/" target="_blank">Theker $85M Series A</a> · TechCrunch 2026-06-11</li>
+      <li><a href="https://techcrunch.com/2026/06/11/equal-ai-raises-30m-to-screen-calls-so-indians-dont-have-to/" target="_blank">Equal AI $30M Series B</a> · TechCrunch 2026-06-11</li>
+      <li><a href="https://techcrunch.com/2026/06/11/bluesky-launches-group-chats-as-company-shifts-focus-to-community-features/" target="_blank">Bluesky Group Chats</a> · TechCrunch 2026-06-11</li>
+      <li><a href="https://techcrunch.com/2026/06/11/quantum-spaces-military-spac-is-trying-to-catch-spacexs-ipo-wave/" target="_blank">Quantum Space SPAC</a> · TechCrunch 2026-06-11</li>
+      <li><a href="https://news.crunchbase.com/public/potential-defense-tech-ipo-candidates-swmr/" target="_blank">Defense Tech IPO Pipeline</a> · Crunchbase News 2026-03-18</li>
+      <li>The Information, Bloomberg, Financial Times — paywalled; referenced via TechCrunch summaries</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  今日新創新聞日報 · Daily Startup News · 2026-06-13 · Generated by Claude
+</footer>
+
+</body>
+</html>
