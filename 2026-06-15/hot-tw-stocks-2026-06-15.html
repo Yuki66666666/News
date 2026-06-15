@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日台股熱門焦點股 Hot TW Stocks — 2026/06/15</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: #f5f6fa;
+    color: #1a1a2e;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    padding: 24px 28px 20px;
+    border-bottom: 3px solid #e94560;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+  .header .subtitle { font-size: 12px; color: #a8b2d8; margin-top: 4px; }
+  .header .date-badge {
+    display: inline-block;
+    background: #e94560;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+  }
+  .market-backdrop {
+    background: #fff;
+    border-left: 4px solid #0f3460;
+    margin: 16px 16px 0;
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .market-backdrop h2 { font-size: 13px; font-weight: 700; color: #0f3460; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .market-stats { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px; }
+  .stat-item { text-align: center; min-width: 90px; }
+  .stat-item .label { font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 0.4px; }
+  .stat-item .value { font-size: 18px; font-weight: 700; color: #e94560; }
+  .stat-item .sub { font-size: 11px; color: #e94560; }
+  .stat-item.neutral .value { color: #1a1a2e; }
+  .stat-item.neutral .sub { color: #666; }
+
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f3460;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 16px 16px 6px;
+    border-bottom: 2px solid #e94560;
+    margin: 0 16px;
+  }
+  .section-title span { color: #e94560; }
+
+  /* Summary Table */
+  .summary-table-wrap { margin: 12px 16px 0; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  thead { background: #0f3460; color: #fff; }
+  thead th { padding: 10px 8px; font-size: 11px; font-weight: 600; text-align: center; letter-spacing: 0.3px; }
+  tbody tr { border-bottom: 1px solid #f0f0f0; }
+  tbody tr:hover { background: #f8f9ff; }
+  tbody td { padding: 9px 8px; font-size: 12px; text-align: center; }
+  .ticker { font-weight: 700; color: #0f3460; }
+  .company { font-weight: 600; }
+  .up { color: #e94560; font-weight: 700; }
+  .down { color: #00b894; font-weight: 700; }
+  .stars { color: #f39c12; letter-spacing: 1px; }
+  .catalyst-tag {
+    display: inline-block;
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffc107;
+    border-radius: 4px;
+    font-size: 10px;
+    padding: 1px 6px;
+    font-weight: 600;
+  }
+  .catalyst-tag.red { background: #ffe0e6; color: #c0392b; border-color: #e94560; }
+  .catalyst-tag.blue { background: #e3f2fd; color: #0d47a1; border-color: #1565c0; }
+  .catalyst-tag.green { background: #e8f5e9; color: #1b5e20; border-color: #388e3c; }
+  .catalyst-tag.purple { background: #f3e5f5; color: #4a148c; border-color: #7b1fa2; }
+
+  /* Ticker Deep Dive Cards */
+  .cards-wrap { margin: 12px 16px 0; display: flex; flex-direction: column; gap: 12px; }
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    overflow: hidden;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: linear-gradient(90deg, #0f3460 0%, #1a237e 100%);
+    color: #fff;
+  }
+  .card-rank { font-size: 22px; font-weight: 900; color: #e94560; min-width: 28px; }
+  .card-ticker { font-size: 20px; font-weight: 700; }
+  .card-name { font-size: 13px; color: #a8b2d8; }
+  .card-hotness { margin-left: auto; font-size: 18px; }
+  .card-body { padding: 14px 18px; }
+  .tape {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .tape-item { background: #f5f6fa; border-radius: 6px; padding: 6px 12px; }
+  .tape-item .t-label { font-size: 10px; color: #888; text-transform: uppercase; }
+  .tape-item .t-val { font-size: 15px; font-weight: 700; }
+  .tape-item .t-val.up { color: #e94560; }
+  .tape-item .t-val.down { color: #00b894; }
+  .section-block { margin-bottom: 12px; }
+  .block-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #0f3460;
+    border-left: 3px solid #e94560;
+    padding-left: 8px;
+    margin-bottom: 6px;
+  }
+  .block-text { font-size: 12px; color: #333; line-height: 1.7; }
+  .block-text .zh { margin-bottom: 6px; }
+  .block-text .en { color: #555; font-style: italic; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .pill {
+    display: inline-block;
+    background: #e3f2fd;
+    color: #0d47a1;
+    border-radius: 20px;
+    font-size: 11px;
+    padding: 2px 10px;
+    font-weight: 600;
+  }
+  .pill.warn { background: #fff3e0; color: #e65100; }
+  .pill.ok { background: #e8f5e9; color: #1b5e20; }
+  .pill.neutral { background: #f3e5f5; color: #4a148c; }
+  .sources { font-size: 10px; color: #888; margin-top: 8px; padding-top: 8px; border-top: 1px solid #f0f0f0; }
+  .sources a { color: #0f3460; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+
+  /* Watch List & Caution */
+  .secondary-cards { margin: 12px 16px 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+  .secondary-card { background: #fff; border-radius: 8px; padding: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 4px solid #3498db; }
+  .secondary-card.caution { border-left-color: #e74c3c; }
+  .secondary-card h3 { font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+  .secondary-card p { font-size: 11px; color: #555; line-height: 1.6; }
+
+  /* Footer */
+  .footer {
+    margin: 20px 16px;
+    padding: 14px 18px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .footer h3 { font-size: 11px; font-weight: 700; color: #0f3460; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .footer-links a { font-size: 10px; color: #0f3460; text-decoration: none; background: #f5f6fa; padding: 3px 8px; border-radius: 4px; }
+  .footer-links a:hover { background: #e3f2fd; }
+  .disclaimer { font-size: 10px; color: #999; margin-top: 12px; line-height: 1.6; }
+
+  .divider { height: 1px; background: #e0e0e0; margin: 16px 16px 0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="date-badge">2026/06/15 (週一) TWSE 盤後</div>
+  <h1>今日台股熱門焦點股 · Hot Taiwan Stocks of the Day</h1>
+  <div class="subtitle">Catalyst-driven picks — 量 · 價 · 籌碼 · 題材 · 社群聲量 综合分析 | Not investment advice</div>
+</div>
+
+<!-- ─── SECTION 0: Market Backdrop ─── -->
+<div class="market-backdrop">
+  <h2>大盤背景 / Market Backdrop</h2>
+  <p style="font-size:12px;color:#333;margin-bottom:10px;">
+    <strong>主 catalyst：美伊停戰協議 (US-Iran ceasefire, signed 6/19) 引爆亞股全面大漲。</strong>
+    川普宣布美伊達成終戰協議，荷莫茲海峽重啟，油價急跌，亞股歡騰。台股 15 日早盤一度飆漲逾 1,300 點，觸及盤中高 <strong>45,438.71 點</strong>，最終大盤強勢收復 45,000 點大關，單日漲幅逾 2.7%。
+    The US–Iran ceasefire deal sparked a broad risk-on rally across Asian markets. TAIEX surged intraday to 45,438 points, reclaiming the 45,000 level decisively. Risk-off trades in energy reversed sharply; defensive and high-beta tech both rallied hard.
+  </p>
+  <div class="market-stats">
+    <div class="stat-item">
+      <div class="label">加權指數</div>
+      <div class="value">45,396</div>
+      <div class="sub">+2.78% ▲</div>
+    </div>
+    <div class="stat-item">
+      <div class="label">盤中最高</div>
+      <div class="value">45,438</div>
+      <div class="sub">+1,300pt 峰值</div>
+    </div>
+    <div class="stat-item neutral">
+      <div class="label">主 Catalyst</div>
+      <div class="value" style="font-size:13px;">美伊停戰</div>
+      <div class="sub">US-Iran ceasefire</div>
+    </div>
+    <div class="stat-item neutral">
+      <div class="label">油價走勢</div>
+      <div class="value" style="font-size:13px;color:#00b894;">急跌</div>
+      <div class="sub">Brent 下行</div>
+    </div>
+    <div class="stat-item neutral">
+      <div class="label">外資態度</div>
+      <div class="value" style="font-size:13px;">積極回補</div>
+      <div class="sub">記憶體 / PCB 買超</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: Summary Table ─── -->
+<div class="divider"></div>
+<div class="section-title">熱門焦點 Top 7 / Today's Hottest Names · <span>Summary</span></div>
+<div class="summary-table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>股號</th>
+        <th>公司</th>
+        <th>收盤/參考</th>
+        <th>漲跌幅</th>
+        <th>成交量(張)</th>
+        <th>籌碼亮點</th>
+        <th>熱度</th>
+        <th>主要 Catalyst</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td class="ticker">2344</td>
+        <td class="company">華邦電</td>
+        <td class="up">189</td>
+        <td class="up">+10.0% ▲</td>
+        <td>待確認</td>
+        <td>外資買超 5萬張↑；委買掛4.5萬張</td>
+        <td class="stars">★★★★★</td>
+        <td><span class="catalyst-tag red">記憶體漲停</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td class="ticker">2327</td>
+        <td class="company">國巨</td>
+        <td class="up">940</td>
+        <td class="up">+10.0% ▲</td>
+        <td>待確認</td>
+        <td>法人積極卡位</td>
+        <td class="stars">★★★★★</td>
+        <td><span class="catalyst-tag blue">AI被動元件漲停</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td class="ticker">6274</td>
+        <td class="company">台燿</td>
+        <td class="up">1,570</td>
+        <td class="up">+9.8% ▲</td>
+        <td>待確認</td>
+        <td>外資目標價上調至2,122元</td>
+        <td class="stars">★★★★★</td>
+        <td><span class="catalyst-tag green">PCB/CCL漲停</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td class="ticker">1303</td>
+        <td class="company">南亞</td>
+        <td class="up">117</td>
+        <td class="up">+10.0% ▲</td>
+        <td>82,000+</td>
+        <td>轉投資南亞科+南電帶動</td>
+        <td class="stars">★★★★★</td>
+        <td><span class="catalyst-tag red">玻纖布+持股漲停</span></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td class="ticker">2408</td>
+        <td class="company">南亞科</td>
+        <td class="up">~400</td>
+        <td class="up">+5%+ ▲</td>
+        <td>成交值三大</td>
+        <td>法人三大買超逾8,000張</td>
+        <td class="stars">★★★★☆</td>
+        <td><span class="catalyst-tag red">DRAM漲價受惠</span></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td class="ticker">2610</td>
+        <td class="company">華航</td>
+        <td class="up">20.40</td>
+        <td class="up">+4.88% ▲</td>
+        <td>待確認</td>
+        <td>跳空站上年線</td>
+        <td class="stars">★★★★☆</td>
+        <td><span class="catalyst-tag purple">油價急跌+供應鏈潮</span></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td class="ticker">2345</td>
+        <td class="company">智邦</td>
+        <td class="up">~+4%</td>
+        <td class="up">+4%+ ▲</td>
+        <td>待確認</td>
+        <td>麥格理目標價升至3,500元</td>
+        <td class="stars">★★★★☆</td>
+        <td><span class="catalyst-tag blue">ASIC/光交換器</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─── SECTION 2: Deep Dives ─── -->
+<div class="divider"></div>
+<div class="section-title">個股深度分析 / Per-Ticker Deep Dive</div>
+
+<div class="cards-wrap">
+
+  <!-- Card 1: 華邦電 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-rank">1</div>
+      <div>
+        <div class="card-ticker">2344 · 華邦電 Winbond Electronics</div>
+        <div class="card-name">記憶體族群今日人氣王 · 成交值一度超越台積電</div>
+      </div>
+      <div class="card-hotness">★★★★★</div>
+    </div>
+    <div class="card-body">
+      <div class="tape">
+        <div class="tape-item">
+          <div class="t-label">收盤</div>
+          <div class="t-val up">189 元 漲停</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">漲跌幅</div>
+          <div class="t-val up">+10.00%</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">委買漲停掛</div>
+          <div class="t-val up">逾 4.5 萬張</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">外資近期</div>
+          <div class="t-val up">買超 5 萬張↑</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">為什麼今天熱 / Why It's Hot Today</div>
+        <div class="block-text">
+          <div class="zh">美伊停戰協議帶動全球風險偏好回升，資金在大盤急彈超千點的背景下積極尋找基本面強勁的題材股。華邦電作為利基型 DRAM 龍頭，今日強勢鎖死 <strong>189 元漲停</strong>，成交值盤中曾超越台積電躍居全市場第一；漲停委買掛單一度高達逾 4.5 萬張，市場擠破頭要進。核心基本面 catalyst：DRAM 與 NAND 報價持續上揚，DDR4 與 LPDDR4 供需缺口在 AI 邊緣運算需求爆發下持續擴大，法人預估結構性供不應求可望延續至 2028 年。</div>
+          <div class="en">The US–Iran ceasefire ignited broad risk appetite. Winbond locked at the 10% limit (189 TWD) with 45k+ buy-limit orders queued — briefly claiming the top spot in market turnover, surpassing TSMC. The fundamental driver is structural DRAM/NAND undersupply for edge AI, DDR4, and LPDDR4, projected to persist through 2028.</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">籌碼觀察 / Flow Watch</div>
+        <div class="block-text">
+          <div class="zh">上周三大法人合計買超約 <strong>4.8 萬張</strong>，其中外資大舉買超逾 <strong>5 萬張</strong>（自營商小幅賣超抵銷）。籌碼集中度持續提升，融資使用率亦不高，法人布局特徵明顯。</div>
+          <div class="en">Last week: total institutional net buy ~48k lots; foreign investors net bought 50k+ lots. Clean institutional ownership profile, low retail leverage. Flow is structurally bullish.</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">炒作脈絡 / Narrative Context</div>
+        <div class="block-text">
+          <div class="zh">華邦電在中科與高雄各設 12 吋晶圓廠，持續推進 40nm / 55nm 先進 DRAM 製程，在利基記憶體與特殊製程市場具備競爭優勢。高雄新廠產能逐步開出，搭配記憶體漲價循環，市場上調全年獲利展望。大摩稍早已將目標價升至 222 元。本次上漲同時帶動南亞科（2408）、力積電（6770）、旺宏（2337）、品安（8088）等整個記憶體族群全線揚升。</div>
+          <div class="en">Winbond's two 12-inch fabs (Taichung + Kaohsiung) underpin its niche DRAM position. Morgan Stanley TP 222 TWD. The rally dragged the entire memory cluster (Nanya Tech, PSMC, Macronix) sharply higher.</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">後續觀察 / What to Watch Next</div>
+        <div class="block-text">
+          <div class="zh">觀察點：① 漲停委買掛單能否持續；② 外資隔日是否延續買超或出現調節；③ DRAM 現貨報價走勢（美光下周法說為關鍵）；④ 力積電（6770）<strong>16 日處置期滿出關</strong>，隔日沖籌碼可能增加波動；⑤ 旺宏（2337）<strong>17 日解除處置</strong>，提前反應行情。</div>
+          <div class="en">Watch: (1) Can limit-orders sustain at open tomorrow? (2) Foreign follow-through vs profit-taking. (3) DRAM spot pricing — Micron earnings call is the key near-term catalyst. (4) PSMC (6770) leaves restriction period June 16 — day-trade selling risk. (5) Macronix off restriction June 17.</div>
+        </div>
+        <div class="pill-row">
+          <span class="pill ok">基本面驅動</span>
+          <span class="pill warn">處置股解禁注意</span>
+          <span class="pill neutral">外資主導</span>
+        </div>
+      </div>
+
+      <div class="sources">來源: <a href="https://udn.com/news/story/7251/9567208" target="_blank">聯合新聞網 2026/06/15</a> | <a href="https://tw.stock.yahoo.com/rank/change-up" target="_blank">Yahoo 漲幅排行</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2: 國巨 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-rank">2</div>
+      <div>
+        <div class="card-ticker">2327 · 國巨 Yageo</div>
+        <div class="card-name">漲停鎖 940 元 · 逼近千元大關 · 15檔被動元件概念股同步亮燈</div>
+      </div>
+      <div class="card-hotness">★★★★★</div>
+    </div>
+    <div class="card-body">
+      <div class="tape">
+        <div class="tape-item">
+          <div class="t-label">收盤</div>
+          <div class="t-val up">940 元 漲停</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">漲跌幅</div>
+          <div class="t-val up">+10.00%</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">分割後新高</div>
+          <div class="t-val up">創新高</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">距千元</div>
+          <div class="t-val up">剩 60 元</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">為什麼今天熱 / Why It's Hot Today</div>
+        <div class="block-text">
+          <div class="zh">國巨強勢鎖死漲停 <strong>940 元</strong>，創分割後歷史新高，距千元大關僅剩 60 元。同時帶動超過 <strong>15 檔</strong>被動元件概念股同步亮燈（華容 5328、日電貿 3090、大毅 2478、信昌電 6173、禾伸堂 3026、凱美 2375 等），是今日盤面最強族群之一。雙重 catalyst：① 美伊停戰帶動市場情緒全面轉多；② AI 伺服器對 MLCC 需求爆炸性成長——村田估計 AI 伺服器 MLCC 用量較傳統伺服器高 <strong>10 倍（2萬~3萬顆 vs 2,200顆）</strong>，且預估 2030 年較 2025 年再成長 3.3 倍。</div>
+          <div class="en">Yageo (the passive component giant) locked at 940 TWD limit-up, its highest post-split price. Catalyst dual: ceasefire risk-on + structural AI server MLCC demand surge (Murata estimates AI servers use 10x more MLCC than traditional servers; 2030 demand 3.3x vs 2025). 15+ passive component names hit limit-up simultaneously.</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">炒作脈絡 / Narrative Context</div>
+        <div class="block-text">
+          <div class="zh">除 MLCC 外，鉭質電容（AI 伺服器電源系統核心）同步受到市場高度關注。華新科（2492）布局從 MLCC、電阻到鉭質電容的完整被動元件集團，信昌電具備從上游介電陶瓷粉末到下游 MLCC 垂直整合能力。Panasonic SP-CAP 宣布 7 月起漲價，已提前備貨的通路商日電貿、堡達直接受惠庫存增值效益。</div>
+          <div class="en">Tantalum capacitors (AI server power) also in focus. Huaxin Tech (2492) built a full stack from MLCC/resistors to tantalum. Panasonic SP-CAP price hike from July benefits distributors like Nichiden Trading and Bao-Da who pre-stocked inventory.</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">後續觀察 / What to Watch Next</div>
+        <div class="block-text">
+          <div class="zh">觀察點：① 千元大關能否突破（心理關卡 + 技術壓力）；② 外資是否持續加碼（注意高檔調節風險，前幾週曾出現漲停翻黑）；③ 漲價訊號能否轉化為 Q2 實際出貨數字（7 月底法說前關鍵觀察期）；④ 跟漲的小型被動元件股隔日沖注意。</div>
+          <div class="en">Watch: (1) Can 1,000 TWD psychological barrier be breached? (2) Foreign follow-through (prior weeks showed limit-up reversals). (3) Pricing signals converting to actual Q2 revenue — key before late-July earnings. (4) Smaller followers at risk of day-trade selling pressure.</div>
+        </div>
+        <div class="pill-row">
+          <span class="pill ok">AI需求結構性</span>
+          <span class="pill warn">高檔調節風險</span>
+          <span class="pill neutral">跟漲小股注意</span>
+        </div>
+      </div>
+
+      <div class="sources">來源: <a href="https://udn.com/news/story/7255/9566919" target="_blank">聯合新聞網 2026/06/15</a> | <a href="https://tw.stock.yahoo.com/rank/change-up" target="_blank">Yahoo 漲幅排行</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3: 台燿 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-rank">3</div>
+      <div>
+        <div class="card-ticker">6274 · 台燿 Taiwan Taiyo Yushi (PCB CCL)</div>
+        <div class="card-name">PCB 三雄最強股 · 漲停鎖 1,570 元 · 外資目標價 2,122 元</div>
+      </div>
+      <div class="card-hotness">★★★★★</div>
+    </div>
+    <div class="card-body">
+      <div class="tape">
+        <div class="tape-item">
+          <div class="t-label">收盤</div>
+          <div class="t-val up">1,570 元 漲停</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">漲跌幅</div>
+          <div class="t-val up">+140 元 / +9.8%</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">外資目標價</div>
+          <div class="t-val up">2,122 元</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">中午仍鎖停</div>
+          <div class="t-val up">12:30 確認鎖死</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">為什麼今天熱 / Why It's Hot Today</div>
+        <div class="block-text">
+          <div class="zh">PCB 族群火熱，台燿（6274）在台光電（2383）、金像電（2368）三雄中表現最強，強勢鎖漲停，到中午 12:30 仍維持 <strong>1,570 元停板</strong>。外資看好三大利多：① ABF 載板需求超級循環啟動；② HVLP4 高階銅箔供給缺口達 48%；③ AI 伺服器板對高速高頻材料需求倍增。外資已將台燿目標價上調至 <strong>2,122 元</strong>，較現價仍有 35% 以上空間。同族群欣興（3037）、南電（8046）、景碩（3189）同步強勁，載板三雄均受外資持續升評。</div>
+          <div class="en">PCB CCL (copper-clad laminate) play: Taiyo Yushi locked limit-up at 1,570 TWD through noon. Foreign broker raised TP to 2,122 TWD — over 35% upside. Three tailwinds: (1) ABF substrate super-cycle launching; (2) HVLP4 high-end copper foil supply gap at 48%; (3) AI server PCB material demand explosion. Peers Unimicron (3037), Nanya PCB (8046), Tripod (3189) all surged.</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">炒作脈絡 / Narrative Context</div>
+        <div class="block-text">
+          <div class="zh">2026 年 PCB 全球產值預計攀升至 <strong>1,052 億美元</strong>（+13.9% YoY）。ABF 載板缺口預計在 2027 年擴大至 21~27%，HVLP4 供需缺口最快達 48%。欣興外資目標價已升至 1,225 元，南電升至 1,275 元，臻鼎（4958）升至 570 元——外資「三個買進」全面點火。</div>
+          <div class="en">Global PCB market set to reach $105B in 2026 (+14% YoY). ABF gap widens to 21–27% by 2027. Morgan Stanley upgraded Unimicron TP to 1,225 and Nanya PCB to 1,275 — all-in on the substrate super-cycle.</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">後續觀察 / What to Watch Next</div>
+        <div class="block-text">
+          <div class="zh">觀察點：① 外資是否繼續加碼建倉（目標價和現價差距大，動能強）；② ABF 載板漲價實際落地時間點；③ 同族群台光電、金像電補漲空間；④ 欣興近期因大股東賣股出現波動——注意主要股東籌碼動向。</div>
+          <div class="en">Watch: (1) Foreign buy momentum vs. profit-taking on sharp moves. (2) Timing of actual ABF price increases flowing to P&L. (3) Peers Tripod/Gold Circuit catch-up potential. (4) Unimicron suffered a sharp drop on insider selling — watch major shareholder dynamics.</div>
+        </div>
+        <div class="pill-row">
+          <span class="pill ok">超級循環題材</span>
+          <span class="pill ok">外資持續升評</span>
+          <span class="pill warn">需注意大股東動向</span>
+        </div>
+      </div>
+
+      <div class="sources">來源: <a href="https://udn.com/news/story/7251/9567203" target="_blank">聯合新聞網 PCB大爆發 2026/06/15</a> | <a href="https://tw.stock.yahoo.com/news/%E8%BC%89%E6%9D%BF%E7%87%9F%E6%94%B63%E5%B9%B4%E7%BF%BB3%E5%80%8D" target="_blank">Yahoo Finance 大摩報告</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4: 南亞 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-rank">4</div>
+      <div>
+        <div class="card-ticker">1303 · 南亞 Nanya Plastics</div>
+        <div class="card-name">玻纖布漲停 · 轉投資南亞科+南電雙利帶動 · 成交量逾 82,000 張</div>
+      </div>
+      <div class="card-hotness">★★★★★</div>
+    </div>
+    <div class="card-body">
+      <div class="tape">
+        <div class="tape-item">
+          <div class="t-label">收盤</div>
+          <div class="t-val up">117 元 漲停</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">成交量</div>
+          <div class="t-val up">82,000+ 張</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">台化 1326</div>
+          <div class="t-val up">漲逾半根停板</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">台塑 1301</div>
+          <div class="t-val up">漲逾 4%</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">為什麼今天熱 / Why It's Hot Today</div>
+        <div class="block-text">
+          <div class="zh">南亞（1303）今日以 <strong>117 元亮燈漲停</strong>，成交量高達逾 82,000 張，是今日大量飆股之一。雙重邏輯驅動：① <strong>本業</strong>——電子材料（玻纖布）需求強勁，AI 伺服器板用高階玻纖布供貨趨緊，南亞是全台最大玻纖布廠，直接受惠於 PCB 族群漲價循環；② <strong>轉投資</strong>——持有南亞科（2408）、南電（8046）股票，子公司今日均大漲，帶動南亞持股市值大幅增值。台化（1326）、台塑（1301）同樣受益持有南亞科股票，連帶走強。</div>
+          <div class="en">Nanya Plastics hit limit-up at 117 TWD on 82k+ lots — a dual play: (1) Its core fiberglass cloth business is the primary feedstock for AI server PCB — supply tightening drives prices up. (2) Mark-to-market gains on equity stakes in Nanya Technology (2408) and Nanya PCB (8046), both surging. Sibling companies Formosa Chemicals and Formosa Plastics also rallied.</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">炒作脈絡 / Narrative Context</div>
+        <div class="block-text">
+          <div class="zh">南亞在台灣 PCB 供應鏈的位置獨特——同時身處上游玻纖布（本業）與中游 ABF 載板（透過南電投資）的雙重受惠層。市場今日也在 PTT 討論「台塑四寶」聯動效應，認為南亞本次的漲停挑戰歷史新高，技術面具突破意義。</div>
+          <div class="en">Nanya sits at a unique dual-layer in the supply chain: upstream (fiberglass cloth supplier) and midstream (via Nanya PCB equity). PTT Stock board discussed the "Formosa Four" linkage play; limit-up challenges historic highs technically.</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">後續觀察 / What to Watch Next</div>
+        <div class="block-text">
+          <div class="zh">觀察點：① 玻纖布報價是否正式上漲並落入季報；② 南亞科、南電能否繼續維持強勢（連動效應）；③ 成交 82,000 張偏高，注意隔日是否出現法人獲利了結；④ 台塑化族群動能能否持續至台塑 6 月法說（預計 7 月初）。</div>
+          <div class="en">Watch: (1) Fiberglass cloth price hike landing in quarterly results. (2) Nanya Tech/PCB sustainability. (3) 82k-lot volume is very high — watch for institutional profit-taking tomorrow. (4) Can the "Formosa Four" momentum hold into Formosa Plastics July investor day?</div>
+        </div>
+        <div class="pill-row">
+          <span class="pill ok">雙重受惠邏輯</span>
+          <span class="pill warn">高量注意隔日沖</span>
+          <span class="pill neutral">歷史新高技術關卡</span>
+        </div>
+      </div>
+
+      <div class="sources">來源: <a href="https://udn.com/news/story/7251/9567213" target="_blank">聯合新聞網 南亞漲停 2026/06/15</a> | <a href="https://udn.com/news/story/7251/9567039" target="_blank">聯合 玻纖布最強</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5: 南亞科 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-rank">5</div>
+      <div>
+        <div class="card-ticker">2408 · 南亞科 Nanya Technology</div>
+        <div class="card-name">成交值挑戰台積電榜首 · 法人買超逾 8,000 張</div>
+      </div>
+      <div class="card-hotness">★★★★☆</div>
+    </div>
+    <div class="card-body">
+      <div class="tape">
+        <div class="tape-item">
+          <div class="t-label">股價參考</div>
+          <div class="t-val up">~400 元關卡</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">漲跌幅</div>
+          <div class="t-val up">+5%+ 勁揚</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">法人買超</div>
+          <div class="t-val up">逾 8,000 張</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">成交值排名</div>
+          <div class="t-val up">全市場前三</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">為什麼今天熱 / Why It's Hot Today</div>
+        <div class="block-text">
+          <div class="zh">南亞科與華邦電在今日盤中輪番超越台積電成交值，爭奪全市場第一，展現記憶體族群強勁的資金吸磁效應。直逼 <strong>400 元整數關卡</strong>，三大法人買超逾 8,000 張，外資上調目標價至 805 元（大摩）。DRAM 報價持續上揚是核心 catalyst，AI 邊緣運算需求爆發帶動 DDR4 去化加速。</div>
+          <div class="en">Nanya Tech and Winbond alternately surpassed TSMC for top turnover ranking intraday. Morgan Stanley TP 805 TWD. Three-institution net buy 8k+ lots. Core driver: DRAM spot price keeps rising on AI edge compute DDR4 demand pull.</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">後續觀察 / What to Watch Next</div>
+        <div class="block-text">
+          <div class="zh">400 元整數關卡為心理壓力，能否突破需觀察明日開盤委買力道。外資連續買超是關鍵多頭訊號；若 DRAM 現貨報價持續上揚，法說前的預估調升效應有望帶動估值修復。注意轉投資南電同步強勁，南亞科+南電形成雙重反映。</div>
+          <div class="en">Key test: 400 TWD psychological resistance. Foreign buy continuity is the bull signal. DRAM spot price trajectory into Micron earnings. Nanya PCB (sister company) also surging creates dual-exposure play.</div>
+        </div>
+        <div class="pill-row">
+          <span class="pill ok">外資強力買超</span>
+          <span class="pill neutral">400元整數關卡</span>
+          <span class="pill ok">DRAM漲價受惠</span>
+        </div>
+      </div>
+
+      <div class="sources">來源: <a href="https://udn.com/news/story/7251/9567208" target="_blank">聯合新聞網 成交值王 2026/06/15</a></div>
+    </div>
+  </div>
+
+  <!-- Card 6: 華航 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-rank">6</div>
+      <div>
+        <div class="card-ticker">2610 · 華航 China Airlines</div>
+        <div class="card-name">油價急跌+提前出貨潮 · 跳空站上年線 · 航空四雄同步大漲</div>
+      </div>
+      <div class="card-hotness">★★★★☆</div>
+    </div>
+    <div class="card-body">
+      <div class="tape">
+        <div class="tape-item">
+          <div class="t-label">收盤</div>
+          <div class="t-val up">20.40 元</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">漲跌幅</div>
+          <div class="t-val up">+0.95 / +4.88%</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">技術面</div>
+          <div class="t-val up">跳空站上年線</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">Catalyst</div>
+          <div class="t-val up">油價急跌</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">為什麼今天熱 / Why It's Hot Today</div>
+        <div class="block-text">
+          <div class="zh">美伊停戰宣布，荷莫茲海峽 6 月 19 日起重啟免費通行，國際油價急跌。燃料成本占航空公司營運成本最高達 30%+，油價下跌直接等同獲利改善。疊加美國 10% 臨時關稅 7 月 24 日到期前，全球供應鏈出現提前出貨潮，航空貨運量預期大幅增加。華航（2610）盤中漲逾 4% 並跳空站上年線，為技術面轉多的重要訊號。長榮航（2618）、星宇（2646）、虎航（6757）等航空四雄同步大漲。</div>
+          <div class="en">US–Iran ceasefire unlocks Hormuz Strait June 19 — Brent plunges. Fuel = 30%+ of airline operating costs; lower oil = direct EPS tailwind. Pre-tariff (US 10% expiry July 24) front-loading also boosts cargo tonnage. CAL broke above annual MA — bullish technical signal. EVA Air, StarLux, Tigerair Taiwan all surged alongside.</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">後續觀察 / What to Watch Next</div>
+        <div class="block-text">
+          <div class="zh">觀察點：① 油價能否持續低檔（伊朗核協議 60 天談判結果）；② 6 月 19 日荷莫茲海峽重啟是否順利落地；③ 關稅 7 月 24 日到期後貨運量是否如預期；④ 外資是否跟進買超航空股（近期外資偏好科技股，航空需要散戶+法人雙重認同）。</div>
+          <div class="en">Watch: (1) Oil price sustainability — 60-day Iran nuclear talks outcome. (2) Smooth Hormuz reopening June 19. (3) Cargo volume front-loading actually materializing before July 24 tariff deadline. (4) Foreign investor buy-in for airlines (they've been heavily in tech — airlines need broader endorsement).</div>
+        </div>
+        <div class="pill-row">
+          <span class="pill ok">油價利多</span>
+          <span class="pill ok">技術突破年線</span>
+          <span class="pill warn">貨運效果待驗證</span>
+        </div>
+      </div>
+
+      <div class="sources">來源: <a href="https://udn.com/news/story/7255/9567168" target="_blank">聯合新聞網 航空大漲 2026/06/15</a></div>
+    </div>
+  </div>
+
+  <!-- Card 7: 智邦 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-rank">7</div>
+      <div>
+        <div class="card-ticker">2345 · 智邦 Accton Technology</div>
+        <div class="card-name">外資升價股大反撲 · 麥格理目標價升至 3,500 元 · ASIC+光交換器雙引擎</div>
+      </div>
+      <div class="card-hotness">★★★★☆</div>
+    </div>
+    <div class="card-body">
+      <div class="tape">
+        <div class="tape-item">
+          <div class="t-label">漲跌幅</div>
+          <div class="t-val up">+4%+ 大漲</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">外資目標價</div>
+          <div class="t-val up">3,500 元</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">2027E EPS上調</div>
+          <div class="t-val up">+6%</div>
+        </div>
+        <div class="tape-item">
+          <div class="t-label">2028E EPS上調</div>
+          <div class="t-val up">+10%</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">為什麼今天熱 / Why It's Hot Today</div>
+        <div class="block-text">
+          <div class="zh">智邦（2345）被分類為「外資升價股」，今日盤中大漲超過 4%。麥格理證券發表最新報告，基於 ASIC 營收預估調高、Neocloud 與光交換器（Optical Switch）營收貢獻，將智邦 2027、2028 年 EPS 預估分別上調 6% 與 10%，並把目標價從 3,300 元上調至 <strong>3,500 元</strong>。交換器市場 CAGR 達 <strong>57%</strong>，代理型 AI（Agentic AI）帶動需求持續快速成長。</div>
+          <div class="en">Accton categorized as "foreign-upgraded price target" stock — surged 4%+. Macquarie raised 2027/28E EPS 6%/10% on higher ASIC revenue estimates + Neocloud and optical switch contributions. TP raised from 3,300 to 3,500 TWD. Switch market CAGR is 57% driven by agentic AI demand.</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="block-title">後續觀察 / What to Watch Next</div>
+        <div class="block-text">
+          <div class="zh">觀察重點：① Neocloud 客戶擴散程度（目前以頭部 Hyperscaler 為主）；② 光交換器量產時程能否落在 2026H2；③ 智邦與仁寶（2324）今日同為「外資升價股」雙箭頭，未來兩週法人布局動向值得追蹤；④ AI 代理人（Agentic AI）推動的交換器需求持續性。</div>
+          <div class="en">Watch: (1) Neocloud customer broadening beyond top Hyperscalers. (2) Optical switch mass production timeline — H2 2026? (3) Foreign sustained accumulation alongside Compal. (4) Agentic AI switch demand durability — this is a newer bull thesis, watch for Q2 order confirmation.</div>
+        </div>
+        <div class="pill-row">
+          <span class="pill ok">外資持續升評</span>
+          <span class="pill ok">AI代理人新需求</span>
+          <span class="pill neutral">光交換器量產時程</span>
+        </div>
+      </div>
+
+      <div class="sources">來源: <a href="https://udn.com/news/story/7251/9567201" target="_blank">聯合新聞網 外資升價股 2026/06/15</a></div>
+    </div>
+  </div>
+
+</div><!-- end cards-wrap -->
+
+<!-- ─── SECTION 3: Watch List ─── -->
+<div class="divider"></div>
+<div class="section-title">次熱觀察 / Watch List <span>— 值得追蹤但未進主榜</span></div>
+<div class="secondary-cards">
+  <div class="secondary-card">
+    <h3>2324 · 仁寶 Compal Electronics</h3>
+    <p>外資升價股之一，高盛上調目標價至 39.5 元，預估 2026~2028 年營收各升 9~13%。5 月營收高於預期 9%，美國新廠 Q2 末投產。今日盤中漲逾 4%。<br>
+    <em>Compal flagged by Goldman as AI server + US plant ramp story; TP 39.5 TWD.</em></p>
+  </div>
+  <div class="secondary-card">
+    <h3>6770 · 力積電 PSMC</h3>
+    <p>今日漲停，明日（6/16）處置期滿出關。宣布 8.86 億美元募資案投入 3D AI Foundry 布局，記憶體漲價效益 6 月起開始顯現。注意解除處置後的隔日沖籌碼湧入風險。<br>
+    <em>PSMC hits limit-up ahead of June 16 restriction exit. 280B TWD fundraise for 3D AI Foundry. Heavy day-trade flow risk on exit day.</em></p>
+  </div>
+  <div class="secondary-card">
+    <h3>2337 · 旺宏 Macronix</h3>
+    <p>今日漲逾 7%，<strong>17 日解除處置</strong>，市場提前反應行情。收復月線及 10 日線，技術面轉多。NOR Flash 受惠 AI 邊緣裝置需求回升。<br>
+    <em>Macronix +7%, exits restriction June 17 — market pricing in the unlock. Broke back above MA crossover. NOR Flash AI edge demand story.</em></p>
+  </div>
+  <div class="secondary-card">
+    <h3>2618 / 2646 · 長榮航 / 星宇航空</h3>
+    <p>華航已漲逾 4%，長榮航與星宇同步強勢。美伊停戰 + 油價下跌 + 7 月 24 日前提前出貨潮三重利多，航空股本週可能持續有表現，但已是連續第二天衝量需注意。<br>
+    <em>EVA/StarLux rising with CAL on oil crash + pre-tariff cargo surge. Second day of volume — watch for momentum fade.</em></p>
+  </div>
+</div>
+
+<!-- ─── SECTION 4: Caution List ─── -->
+<div class="divider"></div>
+<div class="section-title">異常注意 / Caution List <span>— 今日需特別小心的個股</span></div>
+<div class="secondary-cards">
+  <div class="secondary-card caution">
+    <h3>⚠ 力積電（6770）— 處置股解禁注意</h3>
+    <p>今日漲停，但<strong>明日（6/16）為處置期滿出關日</strong>，市場預期隔日沖籌碼大量湧入，開盤波動風險極高。過去「解禁日」常見大幅震盪甚至反轉。建議追高前充分考量流動性風險。<br>
+    <em>WARNING: June 16 is PSMC's restriction exit day. Day-trade money flood risk. Historical pattern shows sharp swings on exit day.</em></p>
+  </div>
+  <div class="secondary-card caution">
+    <h3>⚠ 小型被動元件跟漲股 — 隔日沖風險</h3>
+    <p>今日超過 15 檔被動元件小型股同步亮燈漲停，部分個股基本面較弱，純屬族群帶動。小股票的漲停套單在明日可能集中出清，追入風險高。<br>
+    <em>15+ small passive component names hit limit-up. Many are pure coattail rides with weak fundamentals. Likely heavy sell pressure on open tomorrow as limit-up queues clear.</em></p>
+  </div>
+  <div class="secondary-card caution">
+    <h3>⚠ 欣興（3037）— 大股東賣股歷史</h3>
+    <p>今日隨 PCB 族群大漲，但近期曾因<strong>大股東大量賣股</strong>（6,000 張以上）觸發單日急跌 9%，法人分析師當時建議「可獲利了結」。上漲動能強，但大股東籌碼動向為重要風險因子。<br>
+    <em>Unimicron surged with PCB peers but recently crashed 9% on major insider selling. Core risk: monitoring major shareholder disposition schedule.</em></p>
+  </div>
+</div>
+
+<!-- ─── Footer / Sources ─── -->
+<div class="divider"></div>
+<div class="footer">
+  <h3>數據來源 / Sources Consulted</h3>
+  <div class="footer-links">
+    <a href="https://udn.com/news/story/7251/9567208" target="_blank">聯合新聞 — 記憶體成交值王</a>
+    <a href="https://udn.com/news/story/7255/9566919" target="_blank">聯合新聞 — 國巨漲停被動元件</a>
+    <a href="https://udn.com/news/story/7251/9567203" target="_blank">聯合新聞 — PCB台燿漲停</a>
+    <a href="https://udn.com/news/story/7251/9567213" target="_blank">聯合新聞 — 南亞漲停</a>
+    <a href="https://udn.com/news/story/7255/9567168" target="_blank">聯合新聞 — 航空大漲</a>
+    <a href="https://udn.com/news/story/7251/9567201" target="_blank">聯合新聞 — 外資升價股</a>
+    <a href="https://udn.com/news/story/7251/9567039" target="_blank">聯合新聞 — 玻纖布南亞</a>
+    <a href="https://tw.stock.yahoo.com/rank/change-up" target="_blank">Yahoo 漲幅排行</a>
+    <a href="https://www.twse.com.tw/" target="_blank">TWSE 台灣證交所</a>
+    <a href="https://www.ptt.cc/bbs/Stock/index.html" target="_blank">PTT Stock 板</a>
+    <a href="https://news.cnyes.com/news/cat/tw_stock" target="_blank">鉅亨網 台股</a>
+    <a href="https://www.sinotrade.com.tw/richclub/hotstock/" target="_blank">豐雲學堂 盤後</a>
+    <a href="https://tw.stock.yahoo.com/news/%E8%BC%89%E6%9D%BF%E7%87%9F%E6%94%B63%E5%B9%B4%E7%BF%BB3%E5%80%8D" target="_blank">Yahoo — 大摩ABF報告</a>
+    <a href="https://money.udn.com/money/story/5607/9511223" target="_blank">經濟日報 — 欣興南電目標價</a>
+    <a href="https://wantrich.chinatimes.com/news/20260612900003-420101" target="_blank">旺得富 — PCB 5月營收創高</a>
+  </div>
+  <div class="disclaimer">
+    <strong>免責聲明 / Disclaimer：</strong>本文件僅供資訊參考，不構成任何投資建議或勸誘買賣。所有數字與分析均來自公開媒體報導，部分盤中數據待收盤後確認。投資有風險，入市前請自行評估。This document is for informational purposes only and does not constitute investment advice. Numbers from intraday media reports may differ from final official settlement data. Invest at your own risk.
+  </div>
+</div>
+
+</body>
+</html>

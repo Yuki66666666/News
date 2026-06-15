@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hot US Stocks — 今日美股熱門焦點股 | 2026-06-13</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3348;
+    --accent: #4f8ef7;
+    --accent2: #a78bfa;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #eab308;
+    --orange: #f97316;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --tag-bg: #1e2a45;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 15px; line-height: 1.65; }
+  .header { background: linear-gradient(135deg, #0f1117 0%, #1a1d27 60%, #12172b 100%); border-bottom: 1px solid var(--border); padding: 28px 32px 22px; }
+  .header h1 { font-size: 1.9rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+  .header .subtitle { color: var(--muted); font-size: 0.92rem; margin-top: 4px; }
+  .session-note { display: inline-block; background: var(--tag-bg); color: var(--accent); border: 1px solid #2d4a8a; border-radius: 6px; padding: 3px 12px; font-size: 0.82rem; margin-top: 10px; }
+  .market-bar { display: flex; gap: 24px; flex-wrap: wrap; background: var(--surface); padding: 12px 32px; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
+  .market-bar .item { display: flex; gap: 8px; align-items: center; }
+  .market-bar .label { color: var(--muted); }
+  .up { color: var(--green); font-weight: 700; }
+  .down { color: var(--red); font-weight: 700; }
+  .neutral { color: var(--yellow); font-weight: 700; }
+  .container { max-width: 1140px; margin: 0 auto; padding: 28px 24px; }
+  h2 { font-size: 1.18rem; font-weight: 700; color: #fff; border-left: 3px solid var(--accent); padding-left: 12px; margin: 36px 0 16px; }
+  h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin: 28px 0 10px; }
+  /* Summary Table */
+  .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+  thead th { background: var(--surface2); color: var(--muted); padding: 10px 14px; text-align: left; font-weight: 600; white-space: nowrap; }
+  tbody tr { border-top: 1px solid var(--border); }
+  tbody tr:hover { background: var(--surface); }
+  tbody td { padding: 10px 14px; vertical-align: top; }
+  .ticker-badge { display: inline-block; background: var(--tag-bg); color: var(--accent); border-radius: 5px; padding: 2px 8px; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.5px; }
+  .star { color: var(--yellow); }
+  /* Cards */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 22px 26px; margin-bottom: 24px; }
+  .card-header { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+  .card-ticker { font-size: 1.5rem; font-weight: 900; color: var(--accent); }
+  .card-company { font-size: 1.05rem; font-weight: 600; color: #fff; }
+  .card-pct { font-size: 1.3rem; font-weight: 800; }
+  .tape-box { background: var(--surface2); border-radius: 8px; padding: 10px 16px; font-size: 0.84rem; color: var(--muted); margin-bottom: 14px; }
+  .tape-box strong { color: var(--text); }
+  .section-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent2); margin-bottom: 6px; margin-top: 14px; }
+  p { color: var(--text); margin-bottom: 8px; }
+  .zh { color: #c7d2fe; }
+  .en { color: var(--muted); }
+  .tag { display: inline-block; background: #1e2a45; color: #93c5fd; border-radius: 4px; padding: 1px 8px; font-size: 0.78rem; margin-right: 5px; }
+  .tag-red { background: #3b1d1d; color: #fca5a5; }
+  .tag-green { background: #143322; color: #86efac; }
+  .tag-purple { background: #2a1a4a; color: #c4b5fd; }
+  .watchlist { background: var(--surface2); border-radius: 10px; padding: 18px 22px; margin-bottom: 12px; border-left: 3px solid var(--accent2); }
+  .watchlist h4 { color: var(--accent2); font-size: 0.95rem; margin-bottom: 6px; }
+  .halt-box { background: #2a1a00; border: 1px solid #7c4a00; border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; }
+  .halt-box .h-ticker { color: var(--orange); font-weight: 800; }
+  .source-list { font-size: 0.8rem; color: var(--muted); }
+  .source-list a { color: #60a5fa; text-decoration: none; }
+  .source-list a:hover { text-decoration: underline; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+  .disclaimer { font-size: 0.78rem; color: var(--muted); background: var(--surface2); border-radius: 8px; padding: 12px 16px; margin-top: 32px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🔥 Hot US Stocks — 今日美股熱門焦點股</h1>
+  <div class="subtitle">深度炒作脈絡 · 中英並陳 · 成交量 · 期權 · 社群 · Catalyst</div>
+  <span class="session-note">交易日：Friday, June 13, 2026（US RTH）· 產製時間：2026-06-15 Asia/Taipei</span>
+</div>
+
+<div class="market-bar">
+  <div class="item"><span class="label">S&amp;P 500</span> <span class="up">+0.50% ▲</span></div>
+  <div class="item"><span class="label">Nasdaq</span> <span class="up">+0.30% ▲</span></div>
+  <div class="item"><span class="label">DJIA</span> <span class="up">+354 pts (+0.70%) ▲</span></div>
+  <div class="item"><span class="label">VIX</span> <span class="neutral">~17.7</span></div>
+  <div class="item"><span class="label">主題</span> <span style="color:#a78bfa">SpaceX IPO · US-Iran 和談 · ADBE 管理層異動</span></div>
+</div>
+
+<div class="container">
+
+  <!-- SUMMARY TABLE -->
+  <h2>📊 Hot 7 Today — 今日熱門一覽</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>公司</th>
+          <th>Close / 收盤</th>
+          <th>% 漲跌</th>
+          <th>Options / 期權</th>
+          <th>Buzz 熱度</th>
+          <th>Catalyst</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="ticker-badge">SPCX</span></td>
+          <td>SpaceX</td>
+          <td>$161.11</td>
+          <td class="up">+19.0%</td>
+          <td>期貨 OI $263M+；大量零售認購</td>
+          <td><span class="star">★★★★★</span></td>
+          <td>史上最大 IPO，$75B 募資，MSCI 加入</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-badge">SPCE</span></td>
+          <td>Virgin Galactic</td>
+          <td>~$3.91</td>
+          <td class="down">-31.8%</td>
+          <td>高 Put 比例；空頭未平</td>
+          <td><span class="star">★★★★</span></td>
+          <td>SpaceX 對位競爭 + 現金燒耗爆發</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-badge">ADBE</span></td>
+          <td>Adobe</td>
+          <td>~$218</td>
+          <td class="down">-7.0%</td>
+          <td>IV 升高；Put 流量增</td>
+          <td><span class="star">★★★★</span></td>
+          <td>CFO Dan Durn 閃辭跳槽 Marvell；CEO 尚無繼任</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-badge">RKLB</span></td>
+          <td>Rocket Lab</td>
+          <td>~$103–118</td>
+          <td class="down">-7% to -12.5%</td>
+          <td>AH 反彈；Nasdaq-100 效應</td>
+          <td><span class="star">★★★★</span></td>
+          <td>SpaceX 搶走光環；Nasdaq-100 加入 6/22</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-badge">ASTS</span></td>
+          <td>AST SpaceMobile</td>
+          <td>待確認</td>
+          <td class="down">-15.5%</td>
+          <td>待確認</td>
+          <td><span class="star">★★★</span></td>
+          <td>太空板塊 SPCX 上市帶動輪動賣壓</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-badge">RDW</span></td>
+          <td>Redwire</td>
+          <td>待確認</td>
+          <td class="down">-11.5%</td>
+          <td>待確認</td>
+          <td><span class="star">★★★</span></td>
+          <td>SpaceX 上市帶動太空股重新定價；YTD +220%</td>
+        </tr>
+        <tr>
+          <td><span class="ticker-badge">LUNR</span></td>
+          <td>Intuitive Machines</td>
+          <td>待確認</td>
+          <td class="down">-12.1%</td>
+          <td>待確認</td>
+          <td><span class="star">★★★</span></td>
+          <td>NASA 合約 + 太空板塊估值重置壓力</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider">
+
+  <!-- DEEP DIVES -->
+  <h2>🔭 Deep Dives — 個股深度拆解</h2>
+
+  <!-- SPCX -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-ticker">$SPCX</div>
+      <div class="card-company">Space Exploration Technologies Corp — SpaceX / 太空探索技術公司</div>
+      <div class="card-pct up">+19.0% 🚀</div>
+    </div>
+    <div class="tape-box">
+      <strong>Tape (RTH):</strong> IPO 定價 $135 → 開盤 $150 → 盤中高 $176.52 → 收盤 $161.11 · 市值 $2.1T · 交易所：Nasdaq (SPCX)
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+    <p class="zh">
+      SpaceX 在 6 月 12 日（美東時間）以 $135 完成史上最大 IPO，募資 $750 億，首日收漲 19%。
+      這是美股史上最大規模 IPO，遠超 Aramco 等前例，市值站上 $2.1 兆，躋身美國第六大上市公司。
+      6 月 13 日 MSCI 提前納入生效，估計全球被動基金須買入 $15–20 兆美元（以 SPCX 4% 流通股計，供給極度緊縮），
+      散戶在 Robinhood、WallStreetBets 瘋狂搶進，Cashtag 提及量爆炸。
+    </p>
+    <p class="en">
+      SpaceX priced its historic $75B IPO at $135 on June 12, opened at $150, hit $176.52 intraday before closing at $161.11 — a 19% pop.
+      The debut is the largest IPO ever, eclipsing Saudi Aramco. On June 13, MSCI early-inclusion kicked in,
+      with an estimated $15–20B in passive-fund inflows forced into just 4% of outstanding shares (tight float → structural buy pressure).
+      Elon Musk celebrated by having SpaceX launch a Florida rocket ~1 hour before market open.
+    </p>
+
+    <div class="section-label">Options &amp; Flow / 期權籌碼</div>
+    <p>
+      SpaceX 連結永續期貨（crypto derivatives market）在首日前 24 小時成交量超過 $2.33 億，OI 爬升至 $2.63 億以上。
+      MSCI 被動買盤疊加零售 FOMO，選擇權 call side 全面偏多；short interest 幾乎可忽略（IPO 當日大多無可借空）。
+    </p>
+
+    <div class="section-label">Retail Buzz / 社群聲量</div>
+    <p>
+      WallStreetBets、X Cashtag $SPCX 均創當日提及量頂峰。Reddit 頭條普遍是 "當年買 AMZN 的感覺" 或 "Elon 又贏了"。
+      Robinhood watchlist 衝至前三。Keith Gill (Roaring Kitty) 雖無直接 SPCX 持倉透露，但相關討論火爆。
+    </p>
+
+    <div class="section-label">炒作脈絡 / Narrative Context</div>
+    <p>
+      SpaceX 是 Starlink（全球最大衛星網路）、Falcon 9、Starship 的母公司，FY2025 估計收入 $130 億。
+      相比之下，RKLB、ASTS、LUNR、SPCE 等全部加起來的收入不到 $10 億，市場在「太空經濟元年」重新定錨估值。
+      MSCI 納入帶來的被動流入是最有力的技術性催化劑，接下來是 Nasdaq-100 是否也會納入。
+    </p>
+
+    <div class="section-label">後續觀察 / What to Watch Next</div>
+    <p>
+      ① Lock-up 日程（大多數 IPO 180 日後）；② Q2 2026 財報首次公開；③ Starlink 獨立訂閱用戶數；
+      ④ xAI capex 對母公司現金流影響；⑤ Nasdaq-100 是否在 9 月季度調整納入（市值已在前十）；
+      ⑥ MSCI 被動資金吸納完成後的 "supply cliff" 賣壓。
+    </p>
+
+    <div class="section-label">Sources</div>
+    <div class="source-list">
+      <a href="https://www.cnbc.com/2026/06/13/spacex-ipo-sticks-the-landing-heres-what-investors-are-saying-about-its-epic-first-trading-day.html" target="_blank">CNBC — SpaceX IPO sticks the landing</a> ·
+      <a href="https://www.npr.org/2026/06/12/nx-s1-5855004/stock-ai-spacex-ipo-elon-musk" target="_blank">NPR — SpaceX IPO makes history</a> ·
+      <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261965138-spacex-stock-closes-up-19-percent-on-debut-what-happens-next-for-investors-tradingkey" target="_blank">TradingKey — What happens next</a> ·
+      <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-12-2026" target="_blank">TheStreet — Market Today June 12</a>
+    </div>
+  </div>
+
+  <!-- SPCE -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-ticker">$SPCE</div>
+      <div class="card-company">Virgin Galactic Holdings / 維珍銀河</div>
+      <div class="card-pct down">-31.8% 💥</div>
+    </div>
+    <div class="tape-box">
+      <strong>Tape (RTH):</strong> 收盤 ~$3.91 · 盤中最大跌幅至 37% · 週內先漲 36.4% 再崩 · Meme 股代表
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+    <p class="zh">
+      SpaceX 上市正式揭示「太空商業化」已有真正的贏家，市場同時對 SPCE 的基本面做了慘烈的重新定價。
+      SPCE 在 SpaceX IPO 前靠 WSB meme 炒到過高位階，一日內崩跌 31.8%，成為空間板塊輪動最大受害者。
+      基本面毫無支撐：FY2025 收入 $22.7 萬，淨虧損 $6,500 萬，現金僅剩約 $2.51 億，以每季 $9,000 萬燒速，只剩不到 2.5 個季度的彈藥。
+    </p>
+    <p class="en">
+      Virgin Galactic was the meme proxy for "space exposure" — that narrative imploded when actual orbital/revenue-generating SpaceX debuted.
+      SPCE had swung +36.4% in the days before SPCX listing on WSB hype, then crashed -31.76% on IPO day (June 12), creating the biggest single-session loss in the space sector.
+      With under $250M cash, ~$90M/quarter burn, and $227K TTM revenue, fundamentals offered no floor.
+    </p>
+
+    <div class="section-label">Options &amp; Flow / 期權籌碼</div>
+    <p>
+      Pre-IPO 階段 WSB 散戶大量持有 SPCE call；IPO 當日 call OI 快速縮水，put 流量激增。
+      SPCE 另有 $30.5M 9.80% 票據已換股（6.7M 新股），進一步稀釋股本。
+      Short interest 長期偏高，但 meme 波動使 SI% vs float 難以精確追蹤（待確認）。
+    </p>
+
+    <div class="section-label">Retail Buzz / 社群聲量</div>
+    <p>
+      WSB 上出現大量 "帶套了" 貼文；X 的 $SPCE cashtag 充滿「好奇死亡貓」討論。
+      部分散戶認為此次 SpaceX 上市對 SPCE 是 "buy the news, sell the IPO" 的結構性轉折點。
+    </p>
+
+    <div class="section-label">炒作脈絡 / Narrative Context</div>
+    <p>
+      SPCE 是典型 「敘事先行、基本面滯後」的 meme 太空股。
+      Delta-class 次軌道飛行預計 Q3 2026 滑翔測試、Q4 首次商業飛行，若時程 slip，將面臨二度崩殺。
+      對照 RKLB（有真實軌道火箭）、LUNR（有 NASA 合約）、ASTS（有衛星在軌），SPCE 的技術成熟度明顯落後。
+    </p>
+
+    <div class="section-label">後續觀察 / What to Watch Next</div>
+    <p>
+      ① Q3 Delta-class glide test 時程（若 delay → 二次崩跌）；
+      ② 現金跑道：~2.5 季 → 2026 Q4 恐需融資稀釋；
+      ③ WSB 是否重新組織反彈（gamma squeeze 機率較低，因 short interest 結構已變）；
+      ④ $3 心理支撐能否守住（若破 $3 → 被動基金觸發下市風險掃描）。
+    </p>
+
+    <div class="section-label">Sources</div>
+    <div class="source-list">
+      <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261965692-virgin-galactic-stock-forecast-why-spce-crashed-32-percent-after-the-spacex-ipo-tradingkey" target="_blank">TradingKey — Why SPCE crashed 32%</a> ·
+      <a href="https://stockstotrade.com/news/virgin-galactic-holdings-inc-spce-news-2026_06_08/" target="_blank">StocksToTrade — SPCE cash burn</a> ·
+      <a href="https://invezz.com/news/2026/06/01/spce-stock-price-forecast-why-virgin-galactic-is-soaring-and-why-it-may-crash/" target="_blank">Invezz — SPCE forecast</a>
+    </div>
+  </div>
+
+  <!-- ADBE -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-ticker">$ADBE</div>
+      <div class="card-company">Adobe Inc. / 奧多比</div>
+      <div class="card-pct down">-7.0% 📉</div>
+    </div>
+    <div class="tape-box">
+      <strong>Tape (AH/RTH Friday):</strong> 收盤 ~$218.09（52 週低點附近）· AH 跌幅先 -7%，後在 -6.25% 附近穩定 · IPO 定價時同期
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+    <p class="zh">
+      Adobe Q2 FY2026 財報（6 月 12 日 AH 公佈）EPS $5.96（beat $0.15）、營收 $66.2 億（beat $1.7 億），
+      全年指引上調至 $265–266 億，理論上應漲。但 CFO Dan Durn 突然宣布辭職，將於 6 月 15 日加入 Marvell Technology；
+      疊加執行長 Shantanu Narayen（任職 18 年）已於 3 月宣布將卸任、繼任人選仍懸空，兩個 C-suite 同時出現真空，
+      市場解讀為「隱性失信號」，股價跌至 52 週低位。
+    </p>
+    <p class="en">
+      Adobe beat on Q2 EPS ($5.96 vs $5.81 est.) and revenue ($6.62B vs $6.45B est.) and raised FY26 guidance to $26.5–26.6B.
+      Despite the clean beat, ADBE fell ~7% as CFO Dan Durn announced departure to Marvell effective June 15 — just 4 days after the earnings call.
+      Combined with CEO Narayen's March retirement announcement (no successor named), the market is pricing a leadership vacuum at a sensitive juncture when AI monetization strategy is still unproven.
+      Additionally, management is prioritizing freemium user growth over near-term pricing, delaying Creative Cloud price hikes.
+    </p>
+
+    <div class="section-label">Options &amp; Flow / 期權籌碼</div>
+    <p>
+      AH 公佈後 IV 急升，Put/Call ratio 偏向 put 側。BMY 本週也有 unusual call activity（9:1 call over put），但 ADBE 今日流量以防守型 put 為主。
+      股價觸 52 週新低 $218.09，技術上可能觸發更多 stop-loss 與 put 遠期保護型建倉。
+    </p>
+
+    <div class="section-label">Retail Buzz / 社群聲量</div>
+    <p>
+      X / Seeking Alpha 討論集中在「beat and raise 為何跌？」；
+      部分長期多頭認為 "市場反應過度，管理層過渡是短期噪音"；
+      空方則強調 Firefly Copilot（微軟）、Canva Pro 的競爭壓力加劇，AI 貨幣化仍不明朗。
+    </p>
+
+    <div class="section-label">炒作脈絡 / Narrative Context</div>
+    <p>
+      ADBE 過去兩年一直被市場要求「證明 AI 提升 ARPU」，Firefly 月活躍用戶雖強，但公司選擇暫緩漲價，
+      投資人開始懷疑 AI 紅利是否已在定價中，而管理層離職令人憂心 AI 產品路線圖的連續性。
+      CFO 跳槽 Marvell（一個正在吃 NVIDIA AI 訓練 + 推論業務蛋糕的公司），象徵意義不佳。
+    </p>
+
+    <div class="section-label">後續觀察 / What to Watch Next</div>
+    <p>
+      ① 新 CFO 任命公告（越快越好）；② CEO 繼任人選；
+      ③ Creative Cloud Q3 漲價是否重新提上議程；④ Firefly API 企業授權收入揭露；
+      ⑤ $200 支撐（若破，可能引發被動型 rebalancing 賣壓）。
+    </p>
+
+    <div class="section-label">Sources</div>
+    <div class="source-list">
+      <a href="https://qz.com/adobe-earnings-cfo-departure-stock-falls-061226" target="_blank">Quartz — Adobe Q2 2026 CFO exit</a> ·
+      <a href="https://finance.yahoo.com/markets/stocks/articles/adobe-stock-drops-hours-cfo-211838480.html" target="_blank">Yahoo Finance — ADBE drops AH</a> ·
+      <a href="https://www.benzinga.com/analyst-stock-ratings/price-target/26/06/53172504/leadership-exits-decelerating-core-growth-cloud-adobes-earnings-beat" target="_blank">Benzinga — Leadership exits cloud earnings</a> ·
+      <a href="https://www.tikr.com/blog/adobe-stock-fell-6-after-a-beat-and-raise-quarter-the-market-got-it-wrong" target="_blank">TIKR — Market got it wrong?</a>
+    </div>
+  </div>
+
+  <!-- RKLB -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-ticker">$RKLB</div>
+      <div class="card-company">Rocket Lab USA Inc. / 火箭實驗室</div>
+      <div class="card-pct down">-7% to -12.5% (intraday) / AH 回彈 +4.5%</div>
+    </div>
+    <div class="tape-box">
+      <strong>Tape (RTH):</strong> 開盤 $118.02 · 盤中低 $99.61 · 收盤區間 $103–118 · AH 見 +4.5%（Nasdaq-100 加入消息）
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+    <p class="zh">
+      RKLB 同時面臨兩個極端力量：① SpaceX 上市帶走太空股光環，散戶從 RKLB 出走轉進 SPCX，
+      盤中跌幅高達 12.49%；② 盤後 Nasdaq-100 季度調整（6/22 生效前公告）確認納入 RKLB，
+      AH 反彈 +4.5%，因 Nasdaq-100 被動基金必須強制買入。
+      RKLB Q1 2026 創紀錄營收 $2.003 億（YoY +63.5%），合約積壓 $22 億（YoY +108%），業績基本面繼續改善。
+    </p>
+    <p class="en">
+      Rocket Lab caught in a tug-of-war: SpaceX IPO drained retail liquidity from the entire small-cap space sector (RKLB down ~12% intraday),
+      then after-hours Nasdaq-100 inclusion announcement (effective June 22) caused a +4.5% snapback as passive funds are forced buyers.
+      Q1 2026 revenue was a record $200.3M (+63.5% YoY), backlog surged to $2.2B (+108% YoY), 70+ contracted launches in manifest.
+      At ~$69B market cap on sub-$1B TTM revenue, valuation remains the chief bear thesis.
+    </p>
+
+    <div class="section-label">Options &amp; Flow / 期權籌碼</div>
+    <p>
+      Nasdaq-100 納入公告觸發 AH 的 call 買盤（預期被動資金 "June 22 強制流入"）。
+      日內 long-put 流量顯著（對沖 SpaceX 催化的輪動）。
+      Short interest 在 meme 高峰期後已回落，但 days-to-cover 仍高（待確認）。
+    </p>
+
+    <div class="section-label">Retail Buzz / 社群聲量</div>
+    <p>
+      Nasdaq-100 消息一出，X 上 $RKLB 討論迅速轉正，
+      頭部帖子："Nasdaq-100 buy pressure coming June 22 — this dip is a gift."
+      WSB 則出現 $RKLB vs $SPCX 辯論；空方認為 RKLB 的 Neutron 火箭延誤風險被低估。
+    </p>
+
+    <div class="section-label">炒作脈絡 / Narrative Context</div>
+    <p>
+      Neutron 是 RKLB 最重要的中型運載火箭（與 Falcon 9 競爭），首飛預計 2026 年底；
+      首飛成功或延誤將對股價造成劇烈影響。目前 Electron 小型火箭業務穩健，但 Neutron 才是本十年最大 catalyst。
+      SpaceX 的上市雖短期爭奪注意力，但長期「太空基礎設施」敘事對 RKLB 有溢出效應。
+    </p>
+
+    <div class="section-label">後續觀察 / What to Watch Next</div>
+    <p>
+      ① 6 月 22 日 Nasdaq-100 納入當日被動資金流量；
+      ② Neutron 首飛時程更新（下一個 investor day）；
+      ③ $100 整數支撐是否守住（技術關鍵）；
+      ④ Q2 2026 財報（看 Neutron 開發進度與現金消耗）。
+    </p>
+
+    <div class="section-label">Sources</div>
+    <div class="source-list">
+      <a href="https://www.thestreet.com/investing/stocks/why-rocket-lab-stock-tumbled-on-nasdaq-100-news" target="_blank">TheStreet — Why RKLB tumbled on Nasdaq-100 news</a> ·
+      <a href="https://www.stocktitan.net/news/RKLB/rocket-lab-to-join-the-nasdaq-100-uy0savvwrb17.html" target="_blank">StockTitan — RKLB Nasdaq-100 inclusion</a> ·
+      <a href="https://www.tradingkey.com/news/market-movers/261964718-market-movers-rklb-20260612" target="_blank">TradingKey — RKLB down 12.49% June 12</a>
+    </div>
+  </div>
+
+  <!-- ASTS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-ticker">$ASTS</div>
+      <div class="card-company">AST SpaceMobile Inc. / AST 太空行動</div>
+      <div class="card-pct down">-15.5% ⬇</div>
+    </div>
+    <div class="tape-box">
+      <strong>Tape:</strong> 收盤價待確認 · 盤前 6/11 高 $97.56 → 6/12 估跌至 $82 附近 · YTD 仍強
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+    <p class="zh">
+      ASTS 是 WallStreetBets 2026 指數前十持倉，SpaceX 上市導致投資人將資金從小型太空股轉進 SPCX。
+      ASTS 正在建設全球低軌衛星直連手機寬頻網路，2025 年底前目標 45 顆衛星在軌，2026 預估收入 $1.5–2 億。
+      但與 SpaceX $130 億收入相比，ASTS 仍處早期商業化，在 SpaceX 上市日的賣壓下跌幅最重之一。
+    </p>
+    <p class="en">
+      AST SpaceMobile dropped ~15.5% on SpaceX listing day — one of the steepest declines in the small-cap space basket.
+      The company is building the first space-based cellular broadband network to connect smartphones directly via satellites.
+      Despite record Q1 2026 progress and AT&amp;T/Verizon partnerships, the $75B SpaceX IPO sucked capital away from unproven alternatives.
+      ASTS had gained +11.73% just the day before (June 11), making the reversal even more violent.
+    </p>
+
+    <div class="section-label">後續觀察 / What to Watch Next</div>
+    <p>
+      ① 45 顆衛星在軌時程（Q3/Q4 2026）；② AT&amp;T / Verizon 訂戶商業化收入；
+      ③ 是否有機構逢低加碼訊號；④ SpaceX Starlink 的直連手機進展是否影響 ASTS 市場定位。
+    </p>
+
+    <div class="section-label">Sources</div>
+    <div class="source-list">
+      <a href="https://www.trefis.com/stock/asts/articles/602874/the-long-wait-for-ast-spacemobile-stock-to-rebound/2026-06-13" target="_blank">Trefis — ASTS rebound analysis</a> ·
+      <a href="https://ca.investing.com/news/stock-market-news/afterhours-stock-movers-adbe-mrvl-rh-rklb-rdw-spce-asts-432SI-4687313" target="_blank">Investing.com — After-hours movers ASTS</a>
+    </div>
+  </div>
+
+  <!-- RDW -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-ticker">$RDW</div>
+      <div class="card-company">Redwire Corporation / 紅線公司</div>
+      <div class="card-pct down">-11.5% ⬇</div>
+    </div>
+    <div class="tape-box">
+      <strong>Tape:</strong> 收盤待確認 · 市值約 $4.54B · YTD +220%（在 SpaceX IPO 前週已被 Jefferies 降評）
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+    <p class="zh">
+      Redwire 是 2026 年最大漲幅的小型太空基礎設施股之一，全年 YTD 最高曾漲 220%，
+      幾乎全靠 "SpaceX 上市前的太空題材熱潮" 多重估值擴張，而非盈利增長驅動。
+      SpaceX 上市當日 RDW 跌 11.53%，市值蒸發 $5.92 億，反映市場在「太空 sector 有真正巨頭上市後」的重新定價。
+      Jefferies 在 6/1 已搶先降評（Buy → Hold），稱估值已過熱。
+    </p>
+    <p class="en">
+      Redwire is not a SpaceX supplier but had ridden the SpaceX pre-IPO narrative to a 220% YTD gain.
+      Once SPCX debuted and investors could buy the real thing, the hype premium collapsed: RDW fell -11.53% removing ~$592M of market cap.
+      Jefferies had already downgraded on June 1 (Buy → Hold) citing valuation overextension with multiple expansion rather than earnings growth.
+      This is a classic "hype proxy de-rating on the event" pattern.
+    </p>
+
+    <div class="section-label">後續觀察 / What to Watch Next</div>
+    <p>
+      ① 多重縮水是否回到合理範圍（P/S vs RKLB 對比）；
+      ② 政府合約（NASA、DoD）公告是否提供基本面支撐；
+      ③ 若 SPCX 持續強勢，RDW 輪動賣壓可能持續。
+    </p>
+
+    <div class="section-label">Sources</div>
+    <div class="source-list">
+      <a href="https://www.stocktitan.net/news/RDW/liftoff-the-day-the-orbital-economy-became-a-public-azobmw8mw4nl.html" target="_blank">StockTitan — Redwire in focus on SpaceX IPO day</a> ·
+      <a href="https://marketwise.com/investing/redwire-stock-rdw-spacex-ipo/" target="_blank">MarketWise — RDW SpaceX IPO play?</a>
+    </div>
+  </div>
+
+  <!-- LUNR -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-ticker">$LUNR</div>
+      <div class="card-company">Intuitive Machines Inc. / 直覺機器</div>
+      <div class="card-pct down">-12.1% ⬇</div>
+    </div>
+    <div class="tape-box">
+      <strong>Tape:</strong> 收盤待確認 · 前日 $30 附近 · YTD +88% 截至 6/12
+    </div>
+
+    <div class="section-label">為什麼今天熱 / Why it's hot today</div>
+    <p class="zh">
+      LUNR 在太空板塊中是「有真實收入」的正面代表（Q1 2026 創紀錄收入 $1.867 億，積壓 $11 億），
+      兩次月球任務成功，第三次計畫 2026 年底。但 SpaceX 上市日仍跌 12.11%，
+      因散戶將其視為 "小規模的 SpaceX 替代品" 並轉倉，儘管業務性質完全不同（LUNR 做月球任務 / 美國太空軍，SPCX 做 Starlink + 火箭）。
+    </p>
+    <p class="en">
+      Intuitive Machines is arguably the most fundamentally credible small-cap space name (Q1 record revenue $186.7M, $1.1B backlog, NASA contracts).
+      Despite this, LUNR fell -12.11% on SpaceX IPO day as it got lumped into the "space rotation" trade.
+      Canaccord recently raised PT to $2,250 (stock-split adjusted) citing brightening 2026 space landscape.
+      The sell-off may be more technical (sector ETF rebalancing, retail margin calls) than fundamental.
+    </p>
+
+    <div class="section-label">後續觀察 / What to Watch Next</div>
+    <p>
+      ① 第三次月球任務（Q4 2026）；② 美國太空軍合約更新；
+      ③ SpaceX 上市後太空基礎設施 ETF（UFO 等）的重新配置；
+      ④ LUNR 是否出現機構逢低買盤（近期 Canaccord 目標價大幅上調）。
+    </p>
+
+    <div class="section-label">Sources</div>
+    <div class="source-list">
+      <a href="https://www.fxleaders.com/news/2026/06/12/intuitive-machines-lunr-stock-surges-88-in-2026-nasa-deals-186m-sales-fuel-rally/" target="_blank">FX Leaders — LUNR surges 88% in 2026</a> ·
+      <a href="https://ts2.tech/en/intuitive-machines-stock-rebounds-as-spacex-ipo-buzz-tests-lunrs-valuation/" target="_blank">TS2 — LUNR SpaceX IPO valuation test</a>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- WATCH LIST -->
+  <h2>👀 Watch List — 次熱觀察股</h2>
+
+  <div class="watchlist">
+    <h4>$MRVL — Marvell Technology</h4>
+    <p>
+      Adobe CFO Dan Durn 宣布辭職並加入 Marvell，市場解讀為 Marvell 在 AI 晶片（NVLink Fusion + NVIDIA $20 億投資）佈局的人才磁吸。
+      MRVL YTD +90%+，為本週 AI 供應鏈最強代表之一，但 Durn 到任後是否改變 AI capex 速度是未來觀察點。
+      Marvell was also mentioned as an after-hours mover on June 12 — direction pending confirmation.
+    </p>
+  </div>
+
+  <div class="watchlist">
+    <h4>$PANW — Palo Alto Networks</h4>
+    <p>
+      Q3 FY2026 財報（6/2 AH）EPS $0.85 beat $0.04，營收 $30.02 億（+31% YoY），並給出強 Q4 指引。
+      AH 曾衝 +12%，隔日出現獲利回吐壓力。本週 PANW 是「AI 資安」主題代表，但估值已貴。
+    </p>
+  </div>
+
+  <div class="watchlist">
+    <h4>$BMY — Bristol-Myers Squibb</h4>
+    <p>
+      6/11 附近出現 unusual call activity：9:1 call over put，8,240 張 July 17th $57.50 call block（新建多頭倉）。
+      買在 ask 以上，有機構定向押注 catalyst（可能為臨床試驗數據揭露）。
+      本次未納入主列是因 price action 待確認是否達到 >5% 移動門檻。
+    </p>
+  </div>
+
+  <div class="watchlist">
+    <h4>$GEV / $PWR — GE Vernova / Quanta Services</h4>
+    <p>
+      兩者在 6/12 分別上漲 3.12% / 3.51%，為 AI 電力基礎設施主題的代表（電網、發電）。
+      Quanta 是超大規模數據中心電力建設受益股；GE Vernova 供應風力 + 核電設備。
+      SpaceX 上市日，市場對「能源 infra」的興趣並未消退，值得持續追蹤。
+    </p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- HALTS & WEIRDNESS -->
+  <h2>⚠️ Halts &amp; Weirdness — 異常事件</h2>
+
+  <div class="halt-box">
+    <p><span class="h-ticker">$SPCX 極度緊縮浮動</span>（Tight Float Warning）：SpaceX IPO 僅釋出約 4% 流通股（~555M 股 / $75B 中，多數為次要出售），
+    MSCI 被動流入疊加散戶 FOMO，形成流動性真空。若主要股東（Elon Musk、Founders Fund、Google 等）啟動 lockup 解禁前套現，
+    流動性可能驟然惡化。此屬 IPO 特殊結構風險，需標明提示。</p>
+  </div>
+
+  <div class="halt-box">
+    <p><span class="h-ticker">$SPCE 近破 $3.91</span>（流動性警示）：Virgin Galactic 股價接近 $3，一旦跌破，
+    部分機構型 ETF 可能因最低股價限制強制清倉，放大跌幅。目前無 LULD 停牌記錄，但屬於高波動注意標的。</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- MARKET BACKDROP -->
+  <h2>🌐 Market Backdrop — 大盤背景</h2>
+
+  <div class="card">
+    <p>
+      <strong>Friday, June 13, 2026（US RTH）</strong>：S&amp;P 500 收 7,431 附近（+0.50%），Nasdaq +0.3%，DJIA +354 pts (+0.70%)。
+      VIX 約 17.7，從週初 ~19.4 持續下降，市場情緒穩定。
+    </p>
+    <p>
+      主要催化劑：① SpaceX $75B IPO 帶動市場正面情緒，散戶活躍度大幅提升；
+      ② 美伊和談傳出草案（美國承諾取消油制裁，伊朗在 30 天內重開霍爾木茲海峽），油價下跌，Goldman Sachs（+2.57%）、JPMorgan（+2.25%）、Verizon（+2.49%）帶漲 DJIA。
+    </p>
+    <p>
+      板塊表現：太空板塊內部分化劇烈（SPCX +19%，SPCE -32%，RKLB -7–12%）；
+      科技分歧（ADBE -7%，MRVL 正面；NVDA 維持高位）；
+      輸家：Nike（-2.24%）、Apple（-1.52%）、Merck（-1.42%）。
+    </p>
+    <p>
+      半導體：本週前半（6/5）曾因財報 miss + 勞動力數據重挫，MU -13.3%、INTC -11.3%、AMD -10.9%，但週後半隨情緒回穩部分回補。
+      Goldman Sachs 本週報告指 "Nvidia is firing on all cylinders"，但也警示 AI 股估值偏貴。
+    </p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SOURCES -->
+  <h2>📎 所有參考來源 / All Sources Consulted</h2>
+  <div class="source-list" style="line-height:2;">
+    <a href="https://www.cnbc.com/2026/06/13/spacex-ipo-sticks-the-landing-heres-what-investors-are-saying-about-its-epic-first-trading-day.html" target="_blank">CNBC — SpaceX IPO sticks the landing (June 13, 2026)</a><br>
+    <a href="https://www.npr.org/2026/06/12/nx-s1-5855004/stock-ai-spacex-ipo-elon-musk" target="_blank">NPR — SpaceX IPO makes history, stock gains 19%</a><br>
+    <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261965138-spacex-stock-closes-up-19-percent-on-debut-what-happens-next-for-investors-tradingkey" target="_blank">TradingKey — SpaceX Day One analysis</a><br>
+    <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-12-2026" target="_blank">TheStreet — Stock Market Today June 12, 2026</a><br>
+    <a href="https://247wallst.com/investing/2026/06/12/stock-market-live-june-12-2026-sp-500-spy-green-on-end-of-war-hopes/" target="_blank">247 Wall St — Market Live June 12 (US-Iran peace hopes)</a><br>
+    <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261965692-virgin-galactic-stock-forecast-why-spce-crashed-32-percent-after-the-spacex-ipo-tradingkey" target="_blank">TradingKey — SPCE crashed 32% after SpaceX IPO</a><br>
+    <a href="https://invezz.com/news/2026/06/01/spce-stock-price-forecast-why-virgin-galactic-is-soaring-and-why-it-may-crash/" target="_blank">Invezz — SPCE forecast (June 1, 2026)</a><br>
+    <a href="https://stockstotrade.com/news/virgin-galactic-holdings-inc-spce-news-2026_06_08/" target="_blank">StocksToTrade — SPCE cash burn</a><br>
+    <a href="https://qz.com/adobe-earnings-cfo-departure-stock-falls-061226" target="_blank">Quartz — Adobe Q2 FY2026 CFO exit</a><br>
+    <a href="https://finance.yahoo.com/markets/stocks/articles/adobe-stock-drops-hours-cfo-211838480.html" target="_blank">Yahoo Finance — ADBE drops AH on CFO departure</a><br>
+    <a href="https://www.benzinga.com/analyst-stock-ratings/price-target/26/06/53172504/leadership-exits-decelerating-core-growth-cloud-adobes-earnings-beat" target="_blank">Benzinga — Adobe leadership exits</a><br>
+    <a href="https://www.tikr.com/blog/adobe-stock-fell-6-after-a-beat-and-raise-quarter-the-market-got-it-wrong" target="_blank">TIKR — ADBE fell 6% on beat-and-raise</a><br>
+    <a href="https://www.thestreet.com/investing/stocks/why-rocket-lab-stock-tumbled-on-nasdaq-100-news" target="_blank">TheStreet — Why RKLB tumbled on Nasdaq-100 news</a><br>
+    <a href="https://www.stocktitan.net/news/RKLB/rocket-lab-to-join-the-nasdaq-100-uy0savvwrb17.html" target="_blank">StockTitan — RKLB Nasdaq-100 inclusion (June 22)</a><br>
+    <a href="https://www.tradingkey.com/news/market-movers/261964718-market-movers-rklb-20260612" target="_blank">TradingKey — RKLB down 12.49% June 12</a><br>
+    <a href="https://ts2.tech/en/rocket-lab-gains-nasdaq-100-inclusion-shares-jump-price-action-risk-and-catalyst-details/" target="_blank">TS2 — RKLB Nasdaq-100 inclusion details</a><br>
+    <a href="https://www.fxleaders.com/news/2026/06/12/intuitive-machines-lunr-stock-surges-88-in-2026-nasa-deals-186m-sales-fuel-rally/" target="_blank">FX Leaders — LUNR +88% YTD, NASA deals</a><br>
+    <a href="https://ts2.tech/en/intuitive-machines-stock-rebounds-as-spacex-ipo-buzz-tests-lunrs-valuation/" target="_blank">TS2 — LUNR SpaceX IPO valuation test</a><br>
+    <a href="https://www.stocktitan.net/news/RDW/liftoff-the-day-the-orbital-economy-became-a-public-azobmw8mw4nl.html" target="_blank">StockTitan — Redwire / LUNR on SpaceX IPO day</a><br>
+    <a href="https://marketwise.com/investing/redwire-stock-rdw-spacex-ipo/" target="_blank">MarketWise — RDW SpaceX IPO play?</a><br>
+    <a href="https://ca.investing.com/news/stock-market-news/afterhours-stock-movers-adbe-mrvl-rh-rklb-rdw-spce-asts-432SI-4687313" target="_blank">Investing.com — After-hours movers: ADBE, MRVL, RKLB, RDW, SPCE, ASTS</a><br>
+    <a href="https://seekingalpha.com/news/4602854-biggest-stock-movers-friday-adbe" target="_blank">Seeking Alpha — Biggest movers Friday: Space stocks, ADBE</a><br>
+    <a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-june-11-2026" target="_blank">TheStreet — Market Today June 11 (Nasdaq / Iran deal)</a><br>
+    <a href="https://www.quiverquant.com/news/PALO+ALTO+NETWORKS+%28%24PANW%29+Releases+Q3+2026+Earnings%2C+Stock+Rises" target="_blank">Quiver Quant — PANW Q3 2026 Earnings</a><br>
+    <a href="https://www.stockoptionschannel.com/article/202606/unusual-options-volume-in-eqt-oracle-and-goldman-sachs-draws-attention-to-2026-GS06102026note.htm/" target="_blank">Stock Options Channel — Unusual options: Oracle, GS, EQT</a><br>
+    <a href="https://altindex.com/wallstreetbets" target="_blank">AltIndex — WallStreetBets most mentioned stocks</a><br>
+    <a href="https://apewisdom.io/" target="_blank">ApeWisdom — WSB ticker mentions</a><br>
+    <a href="https://finance.yahoo.com/markets/stocks/losers/" target="_blank">Yahoo Finance — Top Stock Losers</a><br>
+    <a href="https://finviz.com/" target="_blank">Finviz — Market screener</a>
+  </div>
+
+  <div class="disclaimer">
+    ⚠️ 本報告僅供資訊參考，不構成任何投資建議或買賣推介。所有價格與數據以公開資料為準，部分欄位標示「待確認」代表資料於截稿時無法精確核實。過去表現不代表未來結果。
+    This report is for informational purposes only and does not constitute investment advice. All prices are based on publicly available data; fields marked "待確認" could not be verified at time of writing. Past performance does not guarantee future results.
+  </div>
+
+</div>
+</body>
+</html>

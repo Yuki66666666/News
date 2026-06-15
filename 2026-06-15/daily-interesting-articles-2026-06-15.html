@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日有趣文章日報 — 2026-06-15</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: #f8f8f6;
+    color: #1a1a1a;
+    line-height: 1.7;
+    padding: 0 0 60px 0;
+  }
+  header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    color: #fff;
+    padding: 36px 32px 28px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  }
+  header h1 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 4px;
+  }
+  header .subtitle {
+    font-size: 0.82rem;
+    opacity: 0.72;
+    letter-spacing: 0.3px;
+  }
+  .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 0.75rem;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+  }
+  .track-header {
+    max-width: 860px;
+    margin: 40px auto 0;
+    padding: 0 20px;
+  }
+  .track-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  .track-title {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #1a1a2e;
+    margin-bottom: 4px;
+  }
+  .track-title.b { border-color: #c44d29; color: #c44d29; }
+  .section-heading {
+    max-width: 860px;
+    margin: 32px auto 0;
+    padding: 0 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #555;
+  }
+  .card {
+    max-width: 860px;
+    margin: 14px auto 0;
+    padding: 0 20px;
+  }
+  .card-inner {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 28px;
+    border: 1px solid #e8e8e4;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    position: relative;
+  }
+  .card-inner.editor-pick {
+    border-left: 4px solid #f5a623;
+    background: #fffdf6;
+  }
+  .card-inner.thought-leader {
+    border-left: 4px solid #c44d29;
+    background: #fff9f7;
+  }
+  .domain-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background: #c44d29;
+    color: #fff;
+  }
+  .domain-tag.ai { background: #1a1a2e; }
+  .domain-tag.startup { background: #2d6a4f; }
+  .domain-tag.vc { background: #6b3fa0; }
+  .domain-tag.macro { background: #0077b6; }
+  .domain-tag.product { background: #c44d29; }
+  .read-badge {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: #f0f0ec;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 0.7rem;
+    color: #666;
+    font-weight: 600;
+  }
+  .article-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .article-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .article-title a:hover { text-decoration: underline; }
+  .meta {
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 14px;
+  }
+  .meta strong { color: #555; }
+  .label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #1a1a2e;
+    margin-bottom: 3px;
+    margin-top: 12px;
+  }
+  .label.orange { color: #c44d29; }
+  .body-text {
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.75;
+  }
+  .key-line {
+    font-size: 0.88rem;
+    color: #1a1a2e;
+    border-left: 3px solid #f5a623;
+    padding-left: 12px;
+    margin-top: 10px;
+    font-style: italic;
+  }
+  .question-line {
+    font-size: 0.88rem;
+    color: #555;
+    margin-top: 10px;
+  }
+  footer {
+    max-width: 860px;
+    margin: 48px auto 0;
+    padding: 0 20px;
+    font-size: 0.75rem;
+    color: #aaa;
+    text-align: center;
+  }
+  .divider {
+    max-width: 860px;
+    margin: 36px auto 0;
+    padding: 0 20px;
+    border: none;
+    border-top: 1px solid #e0e0db;
+  }
+  .star { color: #f5a623; margin-right: 4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>今日有趣文章日報 &nbsp;/&nbsp; Daily Interesting Articles</h1>
+  <div class="subtitle">精選長文 &amp; 思想領袖觀點 · Curated Longform &amp; Thought Leaders</div>
+  <div class="date-badge">2026-06-15 &nbsp;·&nbsp; Asia/Taipei</div>
+</header>
+
+<!-- TRACK A -->
+<div class="track-header">
+  <div class="track-label">Track A</div>
+  <div class="track-title">長文精選 / Longform Essays</div>
+</div>
+
+<!-- 1. EDITOR'S PICK -->
+<div class="section-heading">★ &nbsp;編輯精選 / Editor's Pick of the Day</div>
+
+<div class="card">
+  <div class="card-inner editor-pick">
+    <div class="read-badge">27 min</div>
+    <div class="article-title">
+      <a href="https://aeon.co/essays/why-we-need-to-think-again-about-ecosystem-failure" target="_blank">
+        生態系統能「失靈」嗎？ / Can Ecosystems Malfunction?
+      </a>
+    </div>
+    <div class="meta">
+      <strong>Aeon</strong> · John Drake (U. of Georgia) · 2026-05-25 · 5,400 words
+    </div>
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <div class="body-text">
+      這是一篇哲學與生態學罕見交匯的長文。在「自然界正在崩潰」的敘事鋪天蓋地的今天，作者逆向追問：「崩潰」這個詞到底在說什麼？生態系統有功能可以「失靈」嗎？論點嚴密、邏輯清晰，而且最終指向更大的倫理責任問題。<br><br>
+      In an era saturated with "nature is breaking down" rhetoric, a rare piece that turns the lens on the concept itself: can forests or reefs truly "malfunction," or are we projecting human purposes onto systems that have none?
+    </div>
+    <div class="label">摘要 / Summary</div>
+    <div class="body-text">
+      Drake 梳理兩種功能理論——「因果角色理論」（Cummins）與「選擇效應理論」（Millikan/Neander）——並指出前者無法界定失靈標準，後者需要演化選擇史，而生態系統恰恰不是被演化「設計」的整體。生態系統的「功能」語言是 20 世紀中葉保育科學為了政策說服力而刻意引入的，代價是讓科學語言混入了人類中心主義的規範判斷。<br><br>
+      Drake traces how "ecosystem function" entered ecology not from first principles but from policy rhetoric — the 1993 volume <em>Biodiversity and Ecosystem Function</em> borrowed the metaphors of cars and airplanes to make biodiversity loss viscerally legible to policymakers. But the language smuggles in teleology: the car exists <em>for</em> transport; the Amazon does not exist <em>for</em> storing carbon. Ecosystems can only "malfunction" relative to human-defined goals — an honest acknowledgment that actually strengthens the case for conservation, since it forces us to own our values rather than hiding them behind pseudo-scientific neutrality.
+    </div>
+    <div class="key-line">"Ecosystems cannot malfunction on their own. They may change, reorganise or even collapse. But these should be understood as natural processes, not failures."</div>
+    <div class="label">引發的問題 / Questions it opens</div>
+    <div class="question-line">
+      如果「生態失靈」本質上是人類價值的投射，那麼 ESG 報告中的「生態系統服務」指標究竟在衡量什麼？這場哲學釐清，會讓自然資本會計更誠實，還是更麻煩？
+    </div>
+  </div>
+</div>
+
+<!-- 2. TECH & AI -->
+<div class="section-heading">2 &nbsp;·&nbsp; 科技與 AI / Tech &amp; AI</div>
+
+<div class="card">
+  <div class="card-inner">
+    <div class="read-badge">12 min</div>
+    <div class="article-title">
+      <a href="https://sockpuppet.org/blog/2026/05/12/emacsification/" target="_blank">
+        軟體的 Emacs 化 / The Emacsification of Software
+      </a>
+    </div>
+    <div class="meta">
+      <strong>Quarrelsome (Thomas Ptacek)</strong> · 資安研究員、前 Matasano · 2026-05-12 · HN 276 pts
+    </div>
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <div class="body-text">
+      不只是「AI 寫程式很厲害」又一篇，而是提出一個有說服力的文化框架：AI Agent 正在把個人軟體的製作方式，從「安裝別人的產品」轉向「自己 fork 世界」——就像 Emacs 文化幾十年來的樣子，但現在適用於所有人。HN 276 分，討論熱烈。<br><br>
+      Rather than another "AI writes code better" piece, this is a genuine cultural thesis: agentic coding is doing to all software what Emacs did to text editors — making everything personally configurable, with prompts replacing source code as the shareable artifact.
+    </div>
+    <div class="label">摘要 / Summary</div>
+    <div class="body-text">
+      作者花 30 分鐘互動時間（其餘由 Claude 自行執行），做出了一個比 App Store 上任何 Markdown 瀏覽器都好用的 macOS 原生 app。他的核心論點是：原生 UI 開發曾經是稀缺人才的專利，現在 AI agent 解鎖了它。重要的不是原始碼，而是「想法」和「提示詞」——就像 Emacs 社群裡流傳的不是套件而是 .emacs 設定哲學。個人軟體即將迎來文藝復興，而且這次會漂亮很多。<br><br>
+      Ptacek built a better macOS Markdown viewer than anything on the App Store in ~30 minutes of active interaction. His argument: native UI development was gated behind rare talent; AI agents have democratized it. What circulates in this new world isn't source code (which an agent wrote anyway) but the prompts and the <em>idea</em> — just as Emacs culture circulates .emacs philosophy, not package binaries.
+    </div>
+    <div class="key-line">"Building native UI is now fun; a lot more fun than building web interfaces ever was."</div>
+    <div class="label">引發的問題 / Questions it opens</div>
+    <div class="question-line">
+      如果每個有品味的工程師都能在一小時內做出自己的工具，「產品」的概念會如何改變？這對 SaaS 工具鏈是機會還是威脅？
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-inner">
+    <div class="read-badge">15 min</div>
+    <div class="article-title">
+      <a href="https://laurent.le-brun.eu/blog/a-history-of-ides-at-google" target="_blank">
+        Google 內部 IDE 的進化史 / A History of IDEs at Google
+      </a>
+    </div>
+    <div class="meta">
+      <strong>Laurent Le Brun</strong> · 前 Google 開發工具 Tech Lead (2011–2024) · 2026-05-09 · HN 351 pts
+    </div>
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <div class="body-text">
+      少見的「從內部人視角看大公司技術決策」長文。作者在 Google 工作 12 年，親歷從 IDE 百花齊放 → 瀏覽器版 Cider → Cider V（VSCode frontend）的全過程。不是公司 blog 的 PR 稿，是真實的掙扎與教訓。HN 351 分。<br><br>
+      A rare insider account of how one of the world's largest engineering organizations navigated a 15-year IDE consolidation — from editor chaos to 80% adoption of a single tool — and why standardization created leverage that only became visible at scale.
+    </div>
+    <div class="label">摘要 / Summary</div>
+    <div class="body-text">
+      2011 年 Jeff Dean 說「強迫所有工程師用同一個編輯器是找死」，但 2023 年 Google 有 80% 的程式碼在 Cider V 中寫成。中間的轉折是：2013 年出現了瀏覽器版 Cider（解決 monorepo 規模問題），2020 年 Cider V 採用 VSCode frontend（繼承生態系統、解放擴充外掛）。統一 IDE 帶來的意外紅利：每次改進影響全公司，100 個內部擴充外掛同步開花，AI 功能也能在一個平台上深度整合。<br><br>
+      The key insight: Jeff Dean was right that mandating an editor causes unhappiness — but the team never mandated anything. Cider won because it had the <em>best integrations</em> with Google-specific infrastructure. The lesson: standard tooling creates leverage, and leverage compounds. By 2023, AI features (ML comment resolution, Smart Paste) were only possible because most engineers were already on the same platform.
+    </div>
+    <div class="key-line">"In the end, standard tooling creates leverage."</div>
+    <div class="label">引發的問題 / Questions it opens</div>
+    <div class="question-line">
+      現在 AI coding agent 快速迭代，下一輪 IDE 戰爭（Cursor vs VS Code vs Cider V）的決定因素是什麼？Google 的經驗對其他公司有多少參考價值？
+    </div>
+  </div>
+</div>
+
+<!-- 3. CULTURE & SOCIETY -->
+<div class="section-heading">3 &nbsp;·&nbsp; 文化與社會 / Culture &amp; Society</div>
+
+<div class="card">
+  <div class="card-inner">
+    <div class="read-badge">10 min</div>
+    <div class="article-title">
+      <a href="https://mullvad.net/en/blog/age-verification-for-social-media-the-beginning-of-the-end-for-a-free-internet" target="_blank">
+        社群媒體年齡驗證：自由網路的終結序幕？ / Age Verification for Social Media — The Beginning of the End for a Free Internet?
+      </a>
+    </div>
+    <div class="meta">
+      <strong>Mullvad VPN</strong> · 2026-06-01 · HN 516 pts
+    </div>
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <div class="body-text">
+      不是 VPN 公司護航自身利益的文章，而是一份有具體法條索引的全球政策追蹤報告，把「保護兒童上網安全」的政策浪潮，系統性地拆解為身份驗證基礎設施的擴張——以及從社群媒體延伸至 VPN、作業系統的滑坡路徑。HN 516 分，415 條評論。<br><br>
+      Not a self-serving VPN promo — a well-sourced global policy tracker documenting how "child safety" has become the wedge for identity verification infrastructure that, once built, expands from social media to VPNs to operating systems.
+    </div>
+    <div class="label">摘要 / Summary</div>
+    <div class="body-text">
+      澳洲、巴西、印尼、法國等 20+ 國家已通過或正審議社群媒體年齡驗證法。文章指出，「年齡驗證」在現實技術條件下幾乎等於「身份驗證」——每一篇貼文都附帶 ID 標記。英國已立法授權政府透過次級立法限制 VPN；法國官員明說「VPN 是下一個議題」；巴西和加州已將 OS 層面的身份驗證納入法規。EU 的 ZKP 方案理論上較隱私友善，但 ZKP 只是可選功能且可隨時撤銷。滑坡終點：禁止人民擁有自行掌控的設備。<br><br>
+      The article maps a consistent pattern: age restrictions pass, children bypass them with VPNs, politicians respond by targeting VPNs, VPN workarounds push policy toward OS-level controls, open-source systems become the final loophole, at which point the logical endpoint is state-controlled devices. The EU's Zero-Knowledge Proof app is the one serious privacy-preserving alternative, but it currently falls back to full identity verification when ZKP isn't available — and that fallback is baked in by design.
+    </div>
+    <div class="key-line">「年齡驗證在目前技術條件下，正確的說法是身份驗證。」Age verification, as currently implemented, is identity verification.</div>
+    <div class="label">引發的問題 / Questions it opens</div>
+    <div class="question-line">
+      台灣正在討論類似的兒童上網保護立法，這份全球地圖提供了哪些應該避開的制度設計陷阱？
+    </div>
+  </div>
+</div>
+
+<!-- 4. SCIENCE & RESEARCH -->
+<div class="section-heading">4 &nbsp;·&nbsp; 科學與研究 / Science &amp; Research</div>
+
+<div class="card">
+  <div class="card-inner">
+    <div class="read-badge">14 min</div>
+    <div class="article-title">
+      <a href="https://www.quantamagazine.org/the-dirt-that-refused-to-die-20260601/" target="_blank">
+        拒絕死去的泥土 / The Dirt That Refused to Die
+      </a>
+    </div>
+    <div class="meta">
+      <strong>Quanta Magazine</strong> · Siddhant Pusdekar · 2026-06-01 · HN 268 pts
+    </div>
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <div class="body-text">
+      一個為期六年、幾乎沒人相信的實驗，最終指向生命起源的核心問題。Quanta 寫科學從不灌水，這篇把一個「土壤怎麼還在呼吸」的怪問題，拉升到「代謝先於生命」的演化哲學高度，引人入勝。<br><br>
+      A six-year experiment in sterilized soil that kept exhaling CO₂ — and the slow, stubborn scientific detective work that turned a lab anomaly into a potential window on how life began.
+    </div>
+    <div class="label">摘要 / Summary</div>
+    <div class="body-text">
+      法國國家農業研究院的 Sébastien Fontaine 想測量無生命土壤的碳排放基線。他用伽馬射線把土壤徹底滅菌，然後等 CO₂ 數值降為零。但它就是不降——六年後依然持續排放。他的燃料電池實驗顯示，滅菌土壤中存在類似克雷伯斯循環（Krebs cycle）的電子流動。2025 年預印本在六個月大的無菌土壤中找到克雷伯斯循環的四種中間產物。結論指向：生命代謝的部分化學反應可能在無生命環境下自發發生，甚至早於生命本身存在。<br><br>
+      After 15 years and gamma-ray sterilization cycles intense enough to leave cells DNA-free, Fontaine's soil kept metabolizing. His team found Krebs-cycle intermediates forming in sterile soil, and built a fuel cell to measure electron flow. The debate now is whether residual enzymes from dead cells are responsible (they degrade exponentially; six years seems too long) or whether soil minerals genuinely catalyze these reactions — supporting the "metabolism-first" theory of life's origin.
+    </div>
+    <div class="key-line">"It's the chemistry of geology." — Joseph Moran, University of Ottawa</div>
+    <div class="label">引發的問題 / Questions it opens</div>
+    <div class="question-line">
+      如果代謝化學反應可在無生命的地質環境中自發進行，這對尋找地外生命的策略有什麼影響？土星衛星土衛二或木衛二上的「有機化學跡象」是否需要重新解讀？
+    </div>
+  </div>
+</div>
+
+<!-- 5. PSYCHOLOGY & BEHAVIOR -->
+<div class="section-heading">5 &nbsp;·&nbsp; 心理與行為 / Psychology &amp; Behavior</div>
+
+<div class="card">
+  <div class="card-inner">
+    <div class="read-badge">11 min</div>
+    <div class="article-title">
+      <a href="https://dynomight.net/lifespan/" target="_blank">
+        壽命遺傳率重新定義後約 50%——也就是說，重新定義了壽命 / Heritability of Human Lifespan is ~50% When Heritability is Redefined
+      </a>
+    </div>
+    <div class="meta">
+      <strong>Dynomight</strong> · dynomight · 2026-02-05 · HN 92 pts (本週重新浮現)
+    </div>
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <div class="body-text">
+      這篇文章用一個關於壽命遺傳率的 Science 論文作為解剖對象，教的卻是如何閱讀任何一篇科學論文：注意它的假設、它選擇的「世界」、它標題暗示的比實際論點大得多的主張。寫得極好，諷刺不失公允。<br><br>
+      Uses a high-profile Science paper on lifespan heritability as a dissection table to teach statistical reading: the difference between "heritability in our world" and "heritability in a hypothetical world with no accidents, murder, or drug overdoses" is not a finding — it's a definitional choice.
+    </div>
+    <div class="label">摘要 / Summary</div>
+    <div class="body-text">
+      傳統雙胞胎研究估計人類壽命遺傳率為 23-35%。這篇 Science 論文建立模擬器，在「沒有非老化死因」的假想世界中重跑計算，得出約 46-57%——但這不是說壽命「其實比我們以為的更遺傳」，而是說「在一個沒有車禍、謀殺、藥物過量的世界裡，遺傳率比較高」。作者指出，論文所謂「現代條件下」的遺傳率，從其自己的圖表讀出來其實更接近 35-45%，而非標題宣稱的 50%。核心教訓：遺傳率是一個比值，不是什麼柏拉圖本質，它永遠隨社會環境而改變。<br><br>
+      The paper's actual finding: in a simulator where extrinsic mortality (accidents, violence) is zeroed out, heritability rises. That's tautologically true of <em>any</em> trait. What's genuinely useful: this gives a tool to estimate how heritability of lifespan has changed as modern medicine reduced non-aging deaths. What's misleading: calling the result "50%" when the authors' own figures show ~35–45% at modern extrinsic mortality levels.
+    </div>
+    <div class="key-line">「遺傳率是一個比值。你不應該試著讓它變成一個非比值，因為非比值的東西不可能是比值。」</div>
+    <div class="label">引發的問題 / Questions it opens</div>
+    <div class="question-line">
+      長壽科技公司用「壽命遺傳率高」來推銷個人化健康產品——這個論文的詮釋框架，對那些行銷主張有什麼影響？
+    </div>
+  </div>
+</div>
+
+<!-- 6. CULTURE & HISTORY -->
+<div class="section-heading">6 &nbsp;·&nbsp; 歷史與哲學 / History &amp; Philosophy</div>
+
+<div class="card">
+  <div class="card-inner">
+    <div class="read-badge">8 min</div>
+    <div class="article-title">
+      <a href="https://www.dailyprincetonian.com/article/2026/05/princeton-news-adpol-proctoring-in-person-examinations-passed-faculty-133-years-precedent" target="_blank">
+        普林斯頓終結 133 年的榮譽制度，全面引入監考 / Princeton Mandates Proctoring, Ending 133 Years of Honor System Precedent
+      </a>
+    </div>
+    <div class="meta">
+      <strong>The Daily Princetonian</strong> · Devon Williams · 2026-05-11 · HN 317 pts · 454 則評論
+    </div>
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <div class="body-text">
+      這不只是一則校園新聞，而是 AI 如何從根本上改變「信任」這個制度性概念的早期案例紀錄。普林斯頓從 1893 年起禁止監考，是學術信任的象徵；133 年後 AI 一來，以一票反對通過廢除。HN 454 條評論是最多的之一。<br><br>
+      Not campus news — a primary-source document of how AI is dismantling institutional trust frameworks built over a century. Princeton's proctoring ban was a founding gesture of academic faith in students; its reversal, by one opposing vote, tells you something about what AI has done to the social contract in education.
+    </div>
+    <div class="label">摘要 / Summary</div>
+    <div class="body-text">
+      普林斯頓 1893 年的榮譽制度起源於學生請願要求撤除監考——以學生自我負責取代外部監控。133 年後，AI 作弊工具讓「用小設備作弊的外觀與不作弊完全相同」，同學間相互舉報的意願也降至接近零（只有 0.4% 的大四生曾舉報過他人）。新政策從 7 月 1 日起，教師須在考場中作為「見證人」，但仍不干預——榮譽制度的框架名義上保留，現實上卻已根本改變。<br><br>
+      Princeton's Honor Code, born when students petitioned <em>against</em> proctoring, has been inverted. The faculty report cites two causes: AI tools make cheating invisible to peers ("a small personal device"), and fear of peer retaliation has collapsed student reporting (0.4% of seniors ever reported a violation; 44.6% knew of violations they chose not to report). The new proctors are "witnesses," not enforcers — a careful legal distinction that preserves the student-run Honor Committee while conceding the underlying social contract has already broken down.
+    </div>
+    <div class="key-line">"I think it's a shame, but it's necessary." — Jill Dolan, former Dean of the College</div>
+    <div class="label">引發的問題 / Questions it opens</div>
+    <div class="question-line">
+      如果最頂尖的榮譽制度大學都放棄了信任模型，台灣及其他亞洲大學的考試制度在 AI 時代會走向什麼方向？有沒有比監考更根本的解方？
+    </div>
+  </div>
+</div>
+
+<!-- 7. CURIOSITIES -->
+<div class="section-heading">7 &nbsp;·&nbsp; 奇文與偏門 / Curiosities</div>
+
+<div class="card">
+  <div class="card-inner">
+    <div class="read-badge">3 min</div>
+    <div class="article-title">
+      <a href="https://seths.blog/2026/06/stop-ruining-it/" target="_blank">
+        停止破壞它 / Stop Ruining It
+      </a>
+    </div>
+    <div class="meta">
+      <strong>Seth Godin's Blog</strong> · Seth Godin · 2026-06-02 · HN 271 pts
+    </div>
+    <div class="label">為什麼值得讀 / Why it stands out</div>
+    <div class="body-text">
+      三分鐘，五句話，一個重新框架一切的思維模型。Seth Godin 少見地寫出了真正值得一讀的東西。HN 271 分不是偶然。<br><br>
+      A three-minute piece that reframes how we think about quality, curiosity, customer delight, and trust — not as things you add, but as what's left when you stop destroying them.
+    </div>
+    <div class="label">摘要 / Summary</div>
+    <div class="body-text">
+      音響工程師 Paul McGowan 說，音樂性不是你加進擴大機的東西，是你停止破壞它之後剩下的。Godin 把這個框架延伸：顧客的喜悅不是你增加的功能，是你不破壞它時自然存在的。好奇心不是完整教育的產物，是教育系統不破壞它時剩下的。信任不是廣告建立的，是行銷人員不破壞它時留下的。<br><br>
+      One engineering insight applied to five domains: customer delight, curiosity, workplace satisfaction, trust, and everything else people try to engineer into existence. The inversion — "stop destroying it" rather than "add more" — is a useful cognitive corrective for anyone who has sat in a product meeting where the solution to every problem was "add a feature."
+    </div>
+    <div class="key-line">「音樂性不是你加進擴大機的功能，是你停止破壞它之後剩下的。」</div>
+    <div class="label">引發的問題 / Questions it opens</div>
+    <div class="question-line">
+      如果大多數好東西的正確策略是「不要搞砸」，那為什麼幾乎所有組織的預設行動都是「加更多」？
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- TRACK B -->
+<div class="track-header">
+  <div class="track-label">Track B</div>
+  <div class="track-title b">思想領袖觀點 / Thought Leaders</div>
+</div>
+
+<div class="section-heading">今日思想領袖 / Thought Leader Picks</div>
+
+<!-- TL 1: Ethan Mollick -->
+<div class="card">
+  <div class="card-inner thought-leader">
+    <span class="domain-tag ai">AI</span>
+    <div class="article-title">
+      Ethan Mollick — Stanford CS336「從零開始訓練語言模型」課程公開，以及 AI Agent 的課堂規則
+    </div>
+    <div class="meta">
+      <strong>HN / Stanford</strong> · 課程公開日 2026-06 ·
+      <a href="https://cs336.stanford.edu/" target="_blank">cs336.stanford.edu</a> &amp;
+      <a href="https://github.com/stanford-cs336/assignment1-basics/blob/main/CLAUDE.md" target="_blank">CLAUDE.md on GitHub</a>
+    </div>
+    <div class="label orange">為什麼值得讀 / Why it stands out</div>
+    <div class="body-text">
+      Ethan Mollick 長期是「AI 在教育與工作中的真實使用」最有說服力的觀察者。Stanford CS336 課程本身（547 分）是一個罕見的「讓學生從零訓練 LLM」的正式課程，公開後引發大量討論。更有趣的是課程的 CLAUDE.md 檔案（491 分）——列出了學生使用 AI agent 完成作業的明確規則，本身就是一份關於「如何在教育場景負責任地使用 AI」的政策文件。<br><br>
+      CS336 is one of the first university courses requiring students to train a language model from scratch. Its CLAUDE.md file — guidelines for AI agent use in assignments — has become a widely-shared template for how educational institutions can set explicit AI usage policies rather than blanket bans.
+    </div>
+    <div class="label orange">核心觀點 / Core Insight</div>
+    <div class="body-text">
+      相比普林斯頓的「禁止」路線，Stanford 選擇了「明確規範 AI 使用邊界」的路線：CLAUDE.md 定義了哪些任務可以 agent 輔助、哪些必須自己完成、以及如何記錄 AI 使用過程。這是教育機構面對 AI 的兩種截然不同策略的最佳對比案例。一個是制度性退縮（監考），一個是主動整合並設邊界。
+    </div>
+    <div class="label orange">引發的問題 / Questions it opens</div>
+    <div class="question-line">
+      CLAUDE.md 這種「明確規則清單」的方式，比起普林斯頓的「回歸監考」，哪個對培養下一代工程師更有益？長期而言，學生需要學的是「如何與 AI 協作」還是「如何在沒有 AI 的情況下也能工作」？
+    </div>
+  </div>
+</div>
+
+<!-- TL 2: Economist on AI IPOs -->
+<div class="card">
+  <div class="card-inner thought-leader">
+    <span class="domain-tag vc">創投</span>
+    <div class="article-title">
+      The Economist — 股市能消化 Anthropic、SpaceX、OpenAI 嗎？
+    </div>
+    <div class="meta">
+      <strong>The Economist</strong> · 2026-06-01 · HN 689 pts · 1,212 則評論 ·
+      <a href="https://www.economist.com/finance-and-economics/2026/06/01/can-the-stockmarket-swallow-anthropic-spacex-and-openai" target="_blank">連結</a>
+    </div>
+    <div class="label orange">為什麼值得讀 / Why it stands out</div>
+    <div class="body-text">
+      HN 上 1,212 條評論，是近期最多討論的文章之一。Anthropic 已秘密提交 S-1 草稿（527 分另一條 HN），這篇 Economist 文章從資本市場結構面分析：這三家合計估值可能超過 5,000 億美元的公司同時準備上市，市場有沒有能力「消化」？<br><br>
+      With Anthropic's confidential S-1 filing confirmed, The Economist asks the structural question: can public markets absorb a wave of AI unicorns whose combined valuation rivals entire national stock exchanges?
+    </div>
+    <div class="label orange">核心觀點 / Core Insight</div>
+    <div class="body-text">
+      文章論點包括：(1) 這三家公司的商業模式尚未完全被理解，公開市場投資者的定價能力存疑；(2) AI 基礎設施的資本支出規模讓傳統 DCF 估值模型失效；(3) 散戶投資者在 2021 年已被加密幣和 SPAC 燒過一次，這次是否更審慎？Anthropic 上市特別值得關注，因為其 PBC 架構（公益公司）與傳統股東回報邏輯存在張力。
+    </div>
+    <div class="label orange">引發的問題 / Questions it opens</div>
+    <div class="question-line">
+      Anthropic 的「長期利益信託」結構與公開市場的短期季報壓力如何共存？上市後的 Anthropic 還能保持現在的研究速度和文化嗎？
+    </div>
+  </div>
+</div>
+
+<!-- TL 3: Seth Godin minimal -->
+<div class="card">
+  <div class="card-inner thought-leader">
+    <span class="domain-tag product">產品</span>
+    <div class="article-title">
+      Aeon / John Drake — 如果生態系統沒有內在功能，環保運動的語言框架需要重建嗎？（延伸思考）
+    </div>
+    <div class="meta">
+      <strong>延伸自今日編輯精選</strong> · Aeon · 2026-05-25 ·
+      <a href="https://aeon.co/essays/why-we-need-to-think-again-about-ecosystem-failure" target="_blank">原文連結</a>
+    </div>
+    <div class="label orange">為什麼值得讀 / Why it stands out</div>
+    <div class="body-text">
+      Drake 的文章在今日的論點層面值得單獨放在 Track B：作為一位生態學者，他選擇拆解自己領域的核心語言，而非捍衛它。這是科學社群少見的誠實——不是向外批評，而是向內質問。Peter Calow（Functional Ecology 期刊創辦人）承認，採用「functional」這個詞純粹是因為「討論討論累了，就這樣定了」。<br><br>
+      Drake's article is itself a form of intellectual courage — an ecologist dismantling the rhetorical scaffolding his own field has relied on for conservation advocacy, because intellectual honesty matters more than winning the policy argument.
+    </div>
+    <div class="label orange">核心觀點 / Core Insight</div>
+    <div class="body-text">
+      科學界長期用「功能性語言」讓生態保護對政策制定者更有說服力，但代價是悄悄地把人類中心主義的價值判斷，偽裝成科學中立的事實陳述。Drake 的提案：直接承認「我們保護生態，是因為我們選擇保護它，而不是因為自然界有某種本質義務被保護」——這實際上是更強的道德論點，因為它要求人類負起真正的道德責任，而非躲在「自然法則」後面。
+    </div>
+    <div class="label orange">引發的問題 / Questions it opens</div>
+    <div class="question-line">
+      ESG 投資框架中的「自然資本」計算，是否也有同樣的邏輯陷阱——把人類選擇包裝為客觀指標？量化自然資本能讓保育更有效，還是更容易被操弄？
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<footer>
+  <p>來源 / Sources: Hacker News (news + best) · Aeon Essays · Quanta Magazine · The Daily Princetonian · sockpuppet.org · Mullvad VPN Blog · dynomight.net · Seth's Blog · laurent.le-brun.eu · The Economist · Stanford CS336</p>
+  <p style="margin-top:8px;">付費牆 / Paywalled: The Economist (部分), The Atlantic, Bloomberg, NYT — 未選入。The Browser: 標題可見、內文付費，未納入。</p>
+  <p style="margin-top:8px; color:#bbb;">生成時間 / Generated: 2026-06-15 · Daily Interesting Articles Skill</p>
+</footer>
+
+</body>
+</html>

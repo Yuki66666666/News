@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>今日新創新聞日報 · Daily Startup News — 2026-06-15</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --accent: #6c7bff;
+      --accent2: #ff7b6c;
+      --text: #e2e8f0;
+      --muted: #8b95b0;
+      --border: #2d3155;
+      --tag-bg: #1e2340;
+      --seed: #22c55e;
+      --seriesA: #3b82f6;
+      --seriesB: #8b5cf6;
+      --late: #f59e0b;
+      --ipo: #ec4899;
+      --acq: #06b6d4;
+      --launch: #10b981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* HEADER */
+    .header {
+      background: linear-gradient(135deg, #1a1d40 0%, #0f1117 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 24px 24px;
+      text-align: center;
+    }
+    .header-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .header .date {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .toc h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 12px; }
+    .toc ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+    .toc li a {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text);
+    }
+    .toc li a:hover { background: var(--accent); color: #fff; text-decoration: none; }
+
+    /* SECTION */
+    .section { margin-top: 44px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+    }
+    .section-icon { font-size: 22px; }
+    .section-title { font-size: 20px; font-weight: 700; }
+    .section-title span { font-size: 13px; font-weight: 400; color: var(--muted); margin-left: 8px; }
+
+    /* CARD */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+    .card-title .zh { color: var(--text); }
+    .card-title .en { color: var(--muted); font-weight: 500; font-size: 14px; display: block; margin-top: 3px; }
+
+    .badge {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .badge-seed    { background: rgba(34,197,94,0.15);  color: var(--seed); }
+    .badge-seriesA { background: rgba(59,130,246,0.15); color: var(--seriesA); }
+    .badge-seriesB { background: rgba(139,92,246,0.15); color: var(--seriesB); }
+    .badge-late    { background: rgba(245,158,11,0.15); color: var(--late); }
+    .badge-ipo     { background: rgba(236,72,153,0.15); color: var(--ipo); }
+    .badge-acq     { background: rgba(6,182,212,0.15);  color: var(--acq); }
+    .badge-launch  { background: rgba(16,185,129,0.15); color: var(--launch); }
+    .badge-pivot   { background: rgba(249,115,22,0.15); color: #f97316; }
+    .badge-people  { background: rgba(168,85,247,0.15); color: #a855f7; }
+    .badge-layoffs { background: rgba(239,68,68,0.15);  color: #ef4444; }
+
+    .meta-row {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .meta-row a { color: var(--muted); }
+    .meta-row a:hover { color: var(--accent); }
+
+    .fact-box {
+      background: var(--surface2);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      margin: 10px 0;
+      font-size: 13.5px;
+    }
+    .fact-box strong { color: var(--accent); }
+
+    .context-box {
+      background: var(--surface2);
+      border-left: 3px solid #555;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      margin: 10px 0;
+      font-size: 13px;
+      color: #b0bcd4;
+    }
+    .implication {
+      font-size: 13px;
+      color: #c4cde8;
+      padding: 8px 0 0;
+      border-top: 1px solid var(--border);
+      margin-top: 10px;
+    }
+    .implication strong { color: #f0c060; }
+
+    /* HEADLINE CARDS */
+    .headline-card {
+      background: linear-gradient(135deg, var(--surface) 0%, #1c2040 100%);
+      border: 1px solid var(--accent);
+      border-radius: 14px;
+      padding: 22px 24px;
+      margin-bottom: 18px;
+    }
+    .headline-card .tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .headline-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    /* GRID for PH launches */
+    .ph-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .ph-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .ph-card .rank { font-size: 11px; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
+    .ph-card .name { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .ph-card .desc { font-size: 13px; color: var(--muted); }
+    .ph-card .votes { font-size: 12px; color: #f0c060; margin-top: 6px; }
+
+    /* READS */
+    .read-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 12px;
+      display: flex;
+      gap: 14px;
+    }
+    .read-card .read-icon { font-size: 28px; flex-shrink: 0; }
+    .read-card .read-title { font-size: 15px; font-weight: 600; margin-bottom: 5px; }
+    .read-card .read-desc { font-size: 13px; color: var(--muted); }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 60px;
+      border-top: 1px solid var(--border);
+      padding: 24px 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .footer h3 { font-size: 13px; margin-bottom: 10px; color: var(--text); }
+    .source-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .source-list a {
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 12px;
+    }
+    .source-list a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+
+    .notice {
+      background: rgba(108,123,255,0.08);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 16px 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-label">Daily Startup News · 今日新創新聞日報</div>
+  <h1>新創大事週報</h1>
+  <div class="date">2026年6月15日（Asia/Taipei）· Compiled from TechCrunch, Crunchbase News, Product Hunt, StockAnalysis</div>
+</div>
+
+<div class="container">
+
+  <!-- TOC -->
+  <nav class="toc">
+    <h2>目錄 Contents</h2>
+    <ul>
+      <li><a href="#top-stories">頭條</a></li>
+      <li><a href="#funding">募資</a></li>
+      <li><a href="#launches">新公司發表</a></li>
+      <li><a href="#product">產品大事</a></li>
+      <li><a href="#acquisitions">收購整併</a></li>
+      <li><a href="#people">人事動態</a></li>
+      <li><a href="#ipo">上市進程</a></li>
+      <li><a href="#regional">區域焦點</a></li>
+      <li><a href="#reads">觀點精選</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== TOP STORIES ===== -->
+  <section class="section" id="top-stories">
+    <div class="section-header">
+      <span class="section-icon">🔥</span>
+      <h2 class="section-title">頭條 / Top Stories <span>本週定調新創圈的三大事件</span></h2>
+    </div>
+
+    <div class="headline-card">
+      <div class="tag">Physical AI · 巨額募資</div>
+      <h3>貝佐斯旗下 Prometheus 完成 $120 億募資，估值 $410 億<br>
+        <small style="font-size:14px;color:#8b95b0;">Jeff Bezos's Prometheus raises $12B at $41B valuation to build an "artificial general engineer"</small>
+      </h3>
+      <p>Prometheus 由 Jeff Bezos 與前 Verily 共同創辦人 Vik Bajaj 創立，本輪由 JPMorgan Chase、Goldman Sachs、BlackRock 領投。這是公司繼去年末完成 $62 億首輪後的第二次募資，累計募資已達 $182 億。目標是打造能自動化複雜物理系統設計（從噴射引擎到藥物分子）的「人工通用工程師」。公司目前 150 人，分布於舊金山、倫敦、蘇黎世，仍未公開任何產品細節。</p>
+      <div class="fact-box">
+        <strong>數字</strong>：$12B 本輪 · 累計 $18.2B · post-money $41B · 150 名員工 · 辦公室：SF / London / Zurich
+      </div>
+      <div class="implication"><strong>觀察</strong>：Physical AI 正快速成為繼 LLM 之後最燒錢的賽道。Bezos 同時仍是 Amazon 最大個人股東，而 Amazon 正大規模裁員、推進自動化。他押注「AI 不會導致失業、反而創造勞動力稀缺」的論點，與多數同行截然相反，值得追蹤。</div>
+      <div class="meta-row" style="margin-top:12px;"><a href="https://techcrunch.com/2026/06/11/jeff-bezoss-prometheus-raises-12b-to-build-an-artificial-general-engineer-for-the-physical-world/" target="_blank">TechCrunch · 2026-06-11</a></div>
+    </div>
+
+    <div class="headline-card">
+      <div class="tag">IPO · 史上最大</div>
+      <h3>SpaceX 在 Nasdaq 上市，收盤漲 19%，馬斯克成為全球首位兆億富翁<br>
+        <small style="font-size:14px;color:#8b95b0;">SpaceX IPO closes up 19% on first day, Elon Musk becomes world's first trillionaire</small>
+      </h3>
+      <p>SpaceX（代碼 SPCX）於 2026-06-12 正式在 Nasdaq 掛牌，首日收盤漲幅 19%，創科技 IPO 史上最大首日成交量之一。Robinhood 報告「破紀錄」流量。上市前 IPO 超額認購約 2 倍。SpaceX CFO Bret Johnsen、COO Gwynne Shotwell 在紐約 Nasdaq 廣場敲鐘。Shotwell 同場暗示仍在研究 Tesla 合併可能性。</p>
+      <div class="fact-box">
+        <strong>數字</strong>：IPO 定價 $135 · 首日收 ~$161 · 馬斯克個人身價突破 $1 兆 · 全球首位兆億富翁
+      </div>
+      <div class="implication"><strong>觀察</strong>：SpaceX 上市打開了「MANGOS 時代」（Meta/Microsoft、Anthropic、Nvidia、Google、OpenAI、SpaceX）的序幕。Anthropic 與 OpenAI 的 IPO 計畫均已啟動，預計 2026 下半年至 2027 陸續登場。這批 AI 旗艦公司的估值是否能支撐公開市場考驗，是下半年最重要的投資主題。</div>
+      <div class="meta-row" style="margin-top:12px;"><a href="https://techcrunch.com/2026/06/12/spacex-ipo-closes-up-19-and-delivers-the-worlds-first-trillionaire/" target="_blank">TechCrunch · 2026-06-12</a></div>
+    </div>
+
+    <div class="headline-card">
+      <div class="tag">AI Coding · Stealth Launch</div>
+      <h3>Mistral 傳聞募資 €30 億、估值 €200 億；OpenAI 秘密提交 IPO 文件<br>
+        <small style="font-size:14px;color:#8b95b0;">Mistral rumored to raise €3B at €20B; OpenAI files for IPO confidentially following Anthropic</small>
+      </h3>
+      <p>歐洲 AI 旗艦 Mistral 傳出正尋求以 €200 億估值募集 €30 億，若成立將是歐洲 AI 新創迄今最大單輪。同一週，OpenAI 秘密向 SEC 提交 IPO 申請文件（confidential S-1），跟進 Anthropic 的腳步。「MANGOS」格局逐漸成形，公開市場窗口正在開啟。</p>
+      <div class="fact-box">
+        <strong>數字</strong>：Mistral 傳聞估值 €20B（~$22B）· 募集目標 €3B · OpenAI 秘密 IPO 申請日期：2026-06-08
+      </div>
+      <div class="implication"><strong>觀察</strong>：三家頂級 AI 實驗室（Anthropic、OpenAI、Mistral）幾乎同步進入資本市場。投資人對 AI 模型公司估值的共識尚未形成，這三宗事件將作為「定錨」，對整個 AI 生態系的次級市場和後期 VC 估值產生連鎖影響。</div>
+      <div class="meta-row" style="margin-top:12px;">
+        <a href="https://techcrunch.com/2026/06/12/mistral-is-rumored-to-be-raising-e3b-at-e20-valuation/" target="_blank">TechCrunch (Mistral) · 2026-06-12</a> ·
+        <a href="https://techcrunch.com/2026/06/08/following-anthropic-openai-files-confidentially-for-ipo/" target="_blank">TechCrunch (OpenAI IPO) · 2026-06-08</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FUNDING ===== -->
+  <section class="section" id="funding">
+    <div class="section-header">
+      <span class="section-icon">💰</span>
+      <h2 class="section-title">募資 / Funding Rounds <span>依輪次排列</span></h2>
+    </div>
+
+    <!-- Prometheus -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">Prometheus — Physical AI「人工通用工程師」</span>
+          <span class="en">Prometheus · Physical AI · Late Stage</span>
+        </div>
+        <span class="badge badge-late">Late Stage $12B</span>
+      </div>
+      <div class="meta-row"><a href="https://techcrunch.com/2026/06/11/jeff-bezoss-prometheus-raises-12b-to-build-an-artificial-general-engineer-for-the-physical-world/" target="_blank">TechCrunch · 2026-06-11</a></div>
+      <div class="fact-box"><strong>核心事實</strong>：$12B 本輪 · post-money $41B · 投資方：JPMorgan、Goldman Sachs、BlackRock、Bezos 本人 · 累計 $18.2B · 150 名員工</div>
+      <div class="context-box">公司仍在秘密開發，無公開產品。前輪（$6.2B）於 2025 年末完成。競品：Covariant、Physical Intelligence (Pi)。Bezos 稱本輪大部分資金將用於算力。</div>
+      <div class="implication"><strong>影響</strong>：Physical AI 賽道正在確立「燒錢換算力護城河」的遊戲規則，與純 LLM 公司形成差異化。軍工、製藥、航太是主要目標市場。</div>
+    </div>
+
+    <!-- Theker -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">Theker — 工廠通用型 AI 機器人（歐洲）</span>
+          <span class="en">Theker · Adaptive Factory Robotics · Series A · Barcelona</span>
+        </div>
+        <span class="badge badge-seriesA">Series A $85M</span>
+      </div>
+      <div class="meta-row"><a href="https://techcrunch.com/2026/06/11/theker-just-raised-85m-to-build-the-factory-robot-that-doesnt-specialize-in-anything/" target="_blank">TechCrunch · 2026-06-11</a></div>
+      <div class="fact-box"><strong>核心事實</strong>：$85M Series A · 領投：美國 VC CRV · 共同投資：Samsung、Aglaé Ventures（LVMH 主席 Arnault 的投資工具）· 創辦人：Carla Gómez Cano & Jiaqiang Ye Zhu · 總部：巴賽隆納 · 早期策略投資方：Inditex（Zara 母公司）</div>
+      <div class="context-box">Theker 的機器人可重新配置手臂與本體，支援分揀包裹、服裝打包、瓶罐處理等多元任務。去年完成西班牙史上最大 Seed 輪。目前已收到 15,000 份職位申請，計畫年底前擴張至 120 人。</div>
+      <div class="implication"><strong>影響</strong>：此為「歐洲史上最大機器人 Series A」。Samsung 同時洽談成為客戶，若成立，Theker 將同時擁有供應商 + 客戶 + 投資方的三重關係，是罕見的戰略佈局。對台灣製造業供應鏈（精密零件、感測器）有潛在需求拉動效應。</div>
+    </div>
+
+    <!-- Supabase -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">Supabase — 開源後端平台估值 8 個月翻倍達 $100 億</span>
+          <span class="en">Supabase doubles valuation to $10B in 8 months</span>
+        </div>
+        <span class="badge badge-late">Late Stage $10B Val</span>
+      </div>
+      <div class="meta-row"><a href="https://techcrunch.com/2026/06/05/supabase-doubles-valuation-to-10b-in-8-months/" target="_blank">TechCrunch · 2026-06-05</a></div>
+      <div class="fact-box"><strong>核心事實</strong>：估值從 8 個月前的 $5B 翻倍至 $10B · 輪次與金額未揭露 · 開源 Firebase 替代品，提供 Postgres DB + Auth + Storage + Edge Functions</div>
+      <div class="context-box">Supabase 是開發者工具中最受 vibe coding / AI agent 浪潮受益的基礎設施之一，與 Lovable、Bolt.new 等 AI 建站工具深度整合。</div>
+      <div class="implication"><strong>影響</strong>：開源基礎設施在 AI 時代的估值膨脹速度不輸模型公司。開發者工具 + AI agent 生態是 2026 年最值得持續觀察的投資主題之一。</div>
+    </div>
+
+    <!-- Equal AI -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">Equal AI — 印度 AI 電話篩選應用</span>
+          <span class="en">Equal AI raises $30M to screen calls for Indian users</span>
+        </div>
+        <span class="badge badge-seriesA">Series A $30M</span>
+      </div>
+      <div class="meta-row"><a href="https://techcrunch.com/2026/06/11/equal-ai-raises-30m-to-screen-calls-so-indians-dont-have-to/" target="_blank">TechCrunch · 2026-06-11</a></div>
+      <div class="fact-box"><strong>核心事實</strong>：$30M Series A · 針對印度用戶提供 AI 電話篩選與來電過濾服務 · 投資方未揭露</div>
+      <div class="context-box">印度電話詐騙、垃圾來電問題極為嚴重。Equal AI 在本地化語言支援與詐騙識別上具備優勢。</div>
+      <div class="implication"><strong>影響</strong>：印度消費型 AI 應用正快速崛起。Anthropic 剛因監管問題暫停對印度市場新模型的訪問，創造了本地 AI 公司的差異化機會。</div>
+    </div>
+
+    <!-- Niteshift -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">Niteshift — 對抗大模型廠商鎖定的 AI 程式碼雲端基礎設施</span>
+          <span class="en">Niteshift (ex-Datadog engineers) raises $7M seed, led by Greylock</span>
+        </div>
+        <span class="badge badge-seed">Seed $7M</span>
+      </div>
+      <div class="meta-row"><a href="https://techcrunch.com/2026/06/10/datadog-veterans-launch-ai-coding-startup-niteshift-on-a-bet-against-big-ai-lock-in/" target="_blank">TechCrunch · 2026-06-10</a></div>
+      <div class="fact-box"><strong>核心事實</strong>：$7M Seed · 領投：Greylock Jerry Chen · 天使：Reid Hoffman、Datadog 創辦人 Olivier Pomel & Alexis Lê-Quôc、Braintrust Ankur Goyal、Reflection AI Misha Laskin · 創辦人：Sajid Mehmood & Conor Branagan（前 Datadog 早期工程師）</div>
+      <div class="context-box">不賣 token、賣基礎設施；按分鐘計費，像雲端服務商。可跨 Claude Code、Codex、GPT 等模型路由，減少對單一廠商依賴。競品：Cursor、Cognition（$1B/$26B）、OpenRouter（$113M/$1.3B）。</div>
+      <div class="implication"><strong>影響</strong>：「反 AI 廠商鎖定」敘事正在成形。若 Anthropic/OpenAI 持續向垂直應用市場擴張（法律、醫療、金融），基礎設施層的獨立供應商將迎來結構性機會。</div>
+    </div>
+
+  </section>
+
+  <!-- ===== LAUNCHES ===== -->
+  <section class="section" id="launches">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <h2 class="section-title">新公司發表 / Launches &amp; Stealth-Out</h2>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">Niteshift — 從秘密開發到公開發表</span>
+          <span class="en">Niteshift launches publicly: AI coding cloud routing across frontier models</span>
+        </div>
+        <span class="badge badge-launch">Launch</span>
+      </div>
+      <p style="font-size:13.5px;">前 Datadog 工程師創立的 AI 程式碼基礎設施公司 Niteshift 同步完成 Seed 募資與公開發表。目標企業客戶，以基礎設施即服務的形式出售，而非銷售「AI 勞動力替代」。</p>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">Zest — 以真實用餐紀錄驅動的餐廳發現 App</span>
+          <span class="en">Zest launches restaurant discovery app powered by where people actually eat</span>
+        </div>
+        <span class="badge badge-launch">Launch</span>
+      </div>
+      <div class="meta-row"><a href="https://techcrunch.com/2026/06/10/zest-launches-a-restaurant-discovery-app-powered-by-where-people-actually-eat/" target="_blank">TechCrunch · 2026-06-10</a></div>
+      <p style="font-size:13.5px;">Zest 以用戶實際用餐打卡資料驅動推薦，而非評論網站的評分機制。瞄準「信任朋友推薦更勝陌生人評論」的行為趨勢，與 Product Hunt 今日上榜的 NomNak（「找你信任的人推薦的餐廳」）主打同一市場。</p>
+    </div>
+
+    <!-- Product Hunt Today -->
+    <h3 style="font-size:15px;font-weight:700;margin:20px 0 12px;color:var(--accent);">Product Hunt 今日前五名（2026-06-15）</h3>
+    <div class="ph-grid">
+      <div class="ph-card">
+        <div class="rank">#1 Today</div>
+        <div class="name">Slashy</div>
+        <div class="desc">The AI assistant that does email for you</div>
+        <div class="votes">162 upvotes</div>
+      </div>
+      <div class="ph-card">
+        <div class="rank">#2 Today</div>
+        <div class="name">Taste Lab</div>
+        <div class="desc">Extract any website's design DNA</div>
+        <div class="votes">135 upvotes</div>
+      </div>
+      <div class="ph-card">
+        <div class="rank">#3 Today</div>
+        <div class="name">Athenic 2.0</div>
+        <div class="desc">Analyze on autopilot — business intelligence</div>
+        <div class="votes">107 upvotes</div>
+      </div>
+      <div class="ph-card">
+        <div class="rank">#4 Today</div>
+        <div class="name">Folio</div>
+        <div class="desc">Claude for PowerPoint on steroids</div>
+        <div class="votes">106 upvotes</div>
+      </div>
+      <div class="ph-card">
+        <div class="rank">#5 Today</div>
+        <div class="name">Cloudback for Linear</div>
+        <div class="desc">Automated backup &amp; restore for Linear workspaces</div>
+        <div class="votes">105 upvotes</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:10px;">來源：<a href="https://www.producthunt.com/" target="_blank">Product Hunt</a> · 本日前五依上架票數排列。Lightfield（AI-native CRM）以 821 票高居全站最熱。</p>
+  </section>
+
+  <!-- ===== PRODUCT ===== -->
+  <section class="section" id="product">
+    <div class="section-header">
+      <span class="section-icon">🛠</span>
+      <h2 class="section-title">產品大事 / Notable Product Launches</h2>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">Bluesky 推出群組聊天功能，轉向社群功能深耕</span>
+          <span class="en">Bluesky launches group chats, shifts focus to community features</span>
+        </div>
+        <span class="badge badge-launch">Product</span>
+      </div>
+      <div class="meta-row"><a href="https://techcrunch.com/2026/06/11/bluesky-launches-group-chats-as-company-shifts-focus-to-community-features/" target="_blank">TechCrunch · 2026-06-11</a></div>
+      <div class="fact-box"><strong>核心事實</strong>：Bluesky 群組聊天正式上線 · 公司戰略明確轉向社群深度功能，而非僅作為 Twitter/X 替代品</div>
+      <div class="context-box">Bluesky 用戶數在 2025 年 X 多次政策爭議後爆炸性成長。群組聊天讓平台從「時間軸公共廣場」進化為更具黏著度的社群工具，直接挑戰 Discord 的利基市場。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">Decart 發布 Oasis 3 — 可模擬數小時逼真行駛場景的世界模型</span>
+          <span class="en">Decart's Oasis 3 world model simulates hours of photorealistic driving</span>
+        </div>
+        <span class="badge badge-launch">Product</span>
+      </div>
+      <div class="meta-row"><a href="https://techcrunch.com/2026/06/10/decarts-new-world-model-can-simulate-hours-of-photorealistic-driving-with-some-caveats/" target="_blank">TechCrunch · 2026-06-10</a></div>
+      <div class="fact-box"><strong>核心事實</strong>：Oasis 3 可生成逼真行駛影像達數小時 · 適用自動駕駛訓練資料合成 · 仍有特定場景失真的警告</div>
+      <div class="context-box">世界模型（World Model）是 AI 領域新興賽道，可大幅降低自動駕駛資料採集成本。Decart 的發布代表這類技術開始接近實用部署臨界點。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">Coinbase 推出 MCP 工具，讓 AI Agent 直接交易與訂閱高級研究</span>
+          <span class="en">Coinbase debuts MCP for agent trading and premium research access</span>
+        </div>
+        <span class="badge badge-launch">Product</span>
+      </div>
+      <div class="meta-row"><a href="https://techcrunch.com/2026/06/11/coinbase-debuts-mcp-for-agent-trading/" target="_blank">TechCrunch · 2026-06-11</a></div>
+      <div class="fact-box"><strong>核心事實</strong>：Coinbase 發布 MCP（Model Context Protocol）整合，讓 AI Agent 可自主執行加密交易與訂閱研究報告 · 支援 Claude、GPT 等主流模型</div>
+    </div>
+
+  </section>
+
+  <!-- ===== ACQUISITIONS ===== -->
+  <section class="section" id="acquisitions">
+    <div class="section-header">
+      <span class="section-icon">🤝</span>
+      <h2 class="section-title">收購與整併 / Acquisitions &amp; Consolidation</h2>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">華納音樂收購 AI 音樂歸因新創 Sureel AI</span>
+          <span class="en">Warner Music acquires AI attribution startup Sureel AI (deal terms undisclosed)</span>
+        </div>
+        <span class="badge badge-acq">Acquisition</span>
+      </div>
+      <div class="meta-row"><a href="https://techcrunch.com/2026/06/10/warner-music-acquires-ai-attribution-startup-sureel-ai/" target="_blank">TechCrunch · 2026-06-10</a></div>
+      <div class="fact-box"><strong>核心事實</strong>：收購方：Warner Music Group（WMG）· 標的：Sureel AI（2022 年成立）· 金額：未揭露 · Sureel 核心技術：為歌曲創建「AI DNA」，追蹤 AI 模型如何使用音樂片段 · 平台繼續作為獨立服務運營</div>
+      <div class="context-box">WMG 過去曾起訴 AI 音樂生成商 Suno（後和解並簽授權協議），也與 Udio 達成和解。此次收購代表大型音樂公司正從「對抗 AI」轉向「建立 AI 控制工具」的策略轉型。索尼音樂與環球音樂目前仍在對 Suno 追訴。</div>
+      <div class="implication"><strong>影響</strong>：AI 歸因（attribution）技術正成為版權保護的核心工具。音樂產業對 AI 的態度從訴訟走向收購，是媒體業與 AI 關係演變的重要里程碑。創作者版權保護領域存在更多收購機會。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">Meta 傳出撤回 $20 億 Manus 收購案，因北京施壓</span>
+          <span class="en">Meta reportedly moves to unwind $2B Manus deal after Beijing's demand</span>
+        </div>
+        <span class="badge badge-acq">Deal Unwound</span>
+      </div>
+      <div class="meta-row"><a href="https://techcrunch.com/2026/06/13/meta-reportedly-moves-to-unwind-2b-manus-deal-after-beijings-demand/" target="_blank">TechCrunch · 2026-06-13</a></div>
+      <div class="fact-box"><strong>核心事實</strong>：Meta 傳出正準備取消對中國 AI Agent 平台 Manus 的 $20 億收購 · 起因是北京方面要求限制相關資料出境</div>
+      <div class="context-box">Manus 是 2026 年初爆紅的中國 AI Agent 平台，引發全球矚目。此次收購撤回若屬實，顯示地緣政治風險已成為中美 AI 公司跨境交易的關鍵障礙。</div>
+      <div class="implication"><strong>影響</strong>：中美 AI 新創的跨境整合正面臨越來越多的政治阻力，無論是買方（美國監管審查）還是賣方（北京資料主權要求）。台灣 AI 新創在此背景下或許能成為「中性橋接」的選擇。</div>
+    </div>
+
+  </section>
+
+  <!-- ===== PEOPLE ===== -->
+  <section class="section" id="people">
+    <div class="section-header">
+      <span class="section-icon">👤</span>
+      <h2 class="section-title">人事動態 / People Moves</h2>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">Reid Hoffman 離開微軟董事會，以「創辦人模式」全力投入新創 Manas</span>
+          <span class="en">Reid Hoffman leaves Microsoft's board to go "founder mode" with startup Manus</span>
+        </div>
+        <span class="badge badge-people">People</span>
+      </div>
+      <div class="meta-row"><a href="https://techcrunch.com/2026/06/05/reid-hoffman-is-leaving-microsofts-board-to-go-founder-mode-with-startup-manus/" target="_blank">TechCrunch · 2026-06-05</a></div>
+      <div class="fact-box"><strong>核心事實</strong>：Reid Hoffman（LinkedIn 共同創辦人、Greylock 合夥人）宣布離開 Microsoft 董事會 · 原因：專注於自己正在主導的 AI 新創 Manas</div>
+      <div class="context-box">Hoffman 是 OpenAI 早期投資人，在 AI 投資圈擁有高度象徵意義。離開微軟董事會，代表他認為直接建公司比在大科技董事會服務更具影響力。</div>
+      <div class="implication"><strong>影響</strong>：Serial entrepreneur「重返建設者模式」的趨勢在 2026 年越來越明顯，呼應 Paul Graham「創辦人模式」論文的核心主張。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">Mercor 創辦人公開點名 Sequoia「雙重定價」估值手法</span>
+          <span class="en">Mercor's Brendan Foody calls out Sequoia for "dual-pricing" valuation tricks</span>
+        </div>
+        <span class="badge badge-people">Controversy</span>
+      </div>
+      <div class="meta-row"><a href="https://techcrunch.com/2026/06/08/mercors-brendan-foody-calls-out-sequoia-over-dual-pricing-valuation-tricks/" target="_blank">TechCrunch · 2026-06-08</a></div>
+      <div class="fact-box"><strong>核心事實</strong>：Mercor 共同創辦人 Brendan Foody 公開指控 Sequoia 使用「雙重定價」手法，在不同條件下對同一公司設定差異化估值，以獲取更多股份</div>
+      <div class="context-box">VC 在「夢幻估值」與「實際條款」之間的落差是業界長期爭議。此次公開點名是 2026 年「創辦人 vs. VC 透明度」討論的代表性事件。</div>
+    </div>
+
+  </section>
+
+  <!-- ===== IPO ===== -->
+  <section class="section" id="ipo">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <h2 class="section-title">上市進程 / IPO Pipeline</h2>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">SpaceX（SPCX）正式在 Nasdaq 掛牌 — 史上最大科技 IPO</span>
+          <span class="en">SpaceX (SPCX) lists on Nasdaq Jun 12 — largest tech IPO in history</span>
+        </div>
+        <span class="badge badge-ipo">Listed</span>
+      </div>
+      <div class="fact-box"><strong>數字</strong>：定價 $135 · 首日收 ~$161 (+19%) · 市值突破 $1T · Robinhood 首日交易量破紀錄</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">Swarmer（SWMR）— AI 無人機公司首日飆漲 1,115%，成 2026 年 IPO 最亮眼案例</span>
+          <span class="en">Swarmer (SWMR) — AI drone startup soars 1,115% on IPO debut (Mar 17)</span>
+        </div>
+        <span class="badge badge-ipo">Listed +1,115%</span>
+      </div>
+      <div class="fact-box"><strong>數字</strong>：IPO 定價 $5 · 現價 ~$60.75 · 現報酬率 +1,115%</div>
+      <div class="context-box">防禦科技 IPO 浪潮中最具指標性的案例。Crunchbase News 報告指出，Swarmer 的爆發可能為另外 12 家防禦科技新創開啟 IPO 窗口。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">即將 / 待上市：Quantinuum（量子電腦）、Zepto（印度即時配送）、Liftoff Mobile</span>
+          <span class="en">Upcoming: Quantinuum (QNT) listed Jun 4 at $60, currently -6%; Zepto filed F-1; Liftoff Mobile listed Jun 4</span>
+        </div>
+        <span class="badge badge-ipo">Pipeline</span>
+      </div>
+      <div class="fact-box">
+        <strong>Quantinuum（QNT）</strong>：Jun 4 掛牌，定價 $60，現報酬 -6.23%。量子電腦公司，是 Honeywell 旋轉出的子公司。<br>
+        <strong>Zepto（印度）</strong>：提交 F-1，快速成長但虧損持續擴大，估值疑問尚未解答（TechCrunch 2026-06-08）。<br>
+        <strong>Liftoff Mobile（LFTO）</strong>：Jun 4 掛牌，定價 $23，現 +16.87%。行動廣告平台。
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== REGIONAL ===== -->
+  <section class="section" id="regional">
+    <div class="section-header">
+      <span class="section-icon">🌏</span>
+      <h2 class="section-title">區域焦點 / Regional Spotlight</h2>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">印度 — Rapido 以 $30 億估值完成 $2.4 億募資；Opendoor 撤出印度辦公室引發 AI 外包討論</span>
+          <span class="en">India: Rapido raises $240M at $3B; Opendoor India exit sparks AI-outsourcing debate</span>
+        </div>
+        <span class="badge badge-seriesA">India</span>
+      </div>
+      <div class="meta-row">
+        <a href="https://techcrunch.com/2026/05/15/indian-uber-rival-rapido-raises-240m-at-3b-valuation/" target="_blank">TechCrunch (Rapido) · 2026-05-15</a> ·
+        <a href="https://techcrunch.com/2026/06/10/opendoors-india-exit-is-fueling-a-bigger-conversation-about-ai-and-outsourcing/" target="_blank">TechCrunch (Opendoor) · 2026-06-10</a>
+      </div>
+      <div class="fact-box"><strong>Rapido</strong>：印度 Uber 競爭者，$240M 募資、估值 $3B。<br><strong>Opendoor</strong>：關閉印度工程辦公室，理由包含 AI 取代部分工程工作，引發印度科技產業是否正被 AI 去中介化的大討論。</div>
+      <div class="implication"><strong>影響</strong>：印度同時出現「消費型新創高速融資」與「外資科技公司因 AI 裁減印度工程崗位」兩個矛盾趨勢。Anthropic 同週暫停對印度新模型訪問，使局面更加複雜。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">歐洲 — Theker（西班牙）稱霸歐洲機器人 Series A；Mistral（法國）傳聞 €200 億估值</span>
+          <span class="en">Europe: Theker (Spain) tops robotics Series A; Mistral (France) rumored €20B round</span>
+        </div>
+        <span class="badge badge-seriesA">Europe</span>
+      </div>
+      <div class="context-box">歐洲新創資本市場在 AI 帶動下回暖。Crunchbase 數據顯示 Q1 2026 歐洲融資達 €176 億，年增近 30%。AI 佔主導，但 deal 數量明顯下滑——資金集中化趨勢與美國同步。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">中國 — Meta 傳撤 Manus 收購；中國 Q1 2026 融資達歷史三年新高</span>
+          <span class="en">China: Meta unwinds Manus deal; China Q1 2026 startup funding hits highest in 3+ years</span>
+        </div>
+        <span class="badge badge-seriesA">China</span>
+      </div>
+      <div class="context-box">Crunchbase 數據：亞洲 Q1 2026 整體融資 $274 億，中國貢獻最大份額，為 3 年多來新高，機器人與 AI 領先。同時，Meta-Manus 交易受阻顯示中美科技脫鉤壓力仍持續。</div>
+    </div>
+
+  </section>
+
+  <!-- ===== READS ===== -->
+  <section class="section" id="reads">
+    <div class="section-header">
+      <span class="section-icon">📖</span>
+      <h2 class="section-title">觀點 / Reads Worth Bookmarking</h2>
+    </div>
+
+    <div class="read-card">
+      <div class="read-icon">📜</div>
+      <div>
+        <div class="read-title"><a href="https://techcrunch.com/2026/06/09/its-not-faang-anymore-its-mangos/" target="_blank">不再是 FAANG，現在是 MANGOS — It's not FAANG anymore. It's MANGOS.</a></div>
+        <div class="read-desc">TechCrunch · Julie Bort · 2026-06-09 ｜ Meta/Microsoft、Anthropic、Nvidia、Google、OpenAI、SpaceX 六家公司正在重定義科技巨頭的定義。其中 Anthropic 與 OpenAI 尚未上市，但已躋身市場對話的核心。值得收藏作為 2026 年科技格局的「定義時刻」文件。</div>
+      </div>
+    </div>
+
+    <div class="read-card">
+      <div class="read-icon">🤖</div>
+      <div>
+        <div class="read-title"><a href="https://techcrunch.com/2026/06/12/andrew-yang-thinks-the-next-big-startup-opportunity-is-lowering-the-cost-of-living/" target="_blank">Andrew Yang：下一個創業大機會是「降低生活成本」</a></div>
+        <div class="read-desc">TechCrunch · Rebecca Bellan · 2026-06-12 ｜ Yang 正在自己動手建公司（Noble Mobile），主張 AI 時代最被忽視的應用是讓一般人生活更便宜，而非再度服務富裕階層。反主流視角，對「AI for good」創業者有啟發性。</div>
+      </div>
+    </div>
+
+    <div class="read-card">
+      <div class="read-icon">🛡</div>
+      <div>
+        <div class="read-title"><a href="https://news.crunchbase.com/public/potential-defense-tech-ipo-candidates-swmr/" target="_blank">Swarmer 首日飆漲 1,115% 後，12 家防禦科技新創 IPO 候選名單 — Crunchbase</a></div>
+        <div class="read-desc">Crunchbase News · Marlize van Romburgh ｜ 防禦科技的上市窗口正在打開。這份清單提供了一個框架，了解誰是下一波「國防 + AI」股票的潛在來源。</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== LAYOFFS ===== -->
+  <section class="section" id="layoffs">
+    <div class="section-header">
+      <span class="section-icon">⚠️</span>
+      <h2 class="section-title">裁員與停業 / Layoffs &amp; Shutdowns</h2>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <span class="zh">Opendoor 關閉印度工程辦公室 — AI 取代是原因之一</span>
+          <span class="en">Opendoor shuts India engineering office, cites AI replacing some roles</span>
+        </div>
+        <span class="badge badge-layoffs">Layoff / Pivot</span>
+      </div>
+      <div class="meta-row"><a href="https://techcrunch.com/2026/06/10/opendoors-india-exit-is-fueling-a-bigger-conversation-about-ai-and-outsourcing/" target="_blank">TechCrunch · 2026-06-10</a></div>
+      <p style="font-size:13.5px;">Opendoor 為美國線上房地產平台，裁減印度工程人力，說明 AI 工具已能承擔原本交給外包團隊的部分工作。此事引發更廣的產業討論：AI 是否正系統性地侵蝕傳統軟體外包業務模式。受影響員工數未揭露。</p>
+    </div>
+    <div class="notice">
+      截至 2026-06-15，Crunchbase Tech Layoffs Tracker 記錄 2025 年美國科技業共逾 127,000 人被裁，裁員潮延續至 2026 年。
+      <a href="https://news.crunchbase.com/startups/tech-layoffs/" target="_blank">查看即時追蹤</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <h3>數據來源 / Sources</h3>
+    <div class="source-list">
+      <a href="https://techcrunch.com/" target="_blank">TechCrunch</a>
+      <a href="https://news.crunchbase.com/" target="_blank">Crunchbase News</a>
+      <a href="https://www.producthunt.com/" target="_blank">Product Hunt</a>
+      <a href="https://stockanalysis.com/ipos/" target="_blank">StockAnalysis IPO</a>
+      <a href="https://news.crunchbase.com/sections/startups/" target="_blank">CB Startups</a>
+      <a href="https://news.crunchbase.com/public/pwc-bellin-qa-2026-ipo-timing-secondary-boom/" target="_blank">CB IPO Outlook</a>
+    </div>
+    <p style="margin-top:16px;">
+      <strong>付費牆 / Paywalled Sources</strong>：The Information（部分）、Bloomberg Tech（部分）、PitchBook — 本期未能完整取用，相關數字以 TechCrunch / Crunchbase 公開資料為主。
+    </p>
+    <p style="margin-top:10px;color:#6b7394;">
+      本報告由 Claude AI 代理人自動整理，資訊截止日期 2026-06-15（Asia/Taipei）。所有分析標明「分析」vs「事實」，如有更新請以原始來源為準。
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

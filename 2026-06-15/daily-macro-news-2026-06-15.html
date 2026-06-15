@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>總經新聞日報 · 2026-06-15</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    background: #f5f6fa;
+    color: #1a1a2e;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    color: #fff;
+    padding: 24px 32px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  }
+  header h1 { font-size: 1.35rem; font-weight: 700; letter-spacing: 0.02em; }
+  header .meta { font-size: 0.8rem; color: #90caf9; margin-top: 4px; }
+  .pill {
+    display: inline-block;
+    background: #e8f4fd;
+    color: #0f3460;
+    border: 1px solid #90caf9;
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 12px 32px;
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 80px;
+    z-index: 90;
+  }
+  nav a {
+    text-decoration: none;
+    color: #0f3460;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 16px;
+    background: #eef3fb;
+    transition: background 0.15s;
+  }
+  nav a:hover { background: #cfe2f3; }
+  main { max-width: 900px; margin: 24px auto; padding: 0 20px 40px; }
+  .section {
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    overflow: hidden;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    background: linear-gradient(90deg, #0f3460 0%, #1a5276 100%);
+    color: #fff;
+  }
+  .section-header .flag { font-size: 1.4rem; }
+  .section-header h2 { font-size: 1rem; font-weight: 700; }
+  .section-header .en { font-size: 0.8rem; font-weight: 400; opacity: 0.85; margin-left: 4px; }
+  .item {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .item:last-child { border-bottom: none; }
+  .item h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f3460;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .item h3 .en-title {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2471a3;
+    margin-top: 2px;
+  }
+  .source-line {
+    font-size: 0.72rem;
+    color: #888;
+    margin-bottom: 10px;
+  }
+  .source-line a { color: #2471a3; text-decoration: none; }
+  .source-line a:hover { text-decoration: underline; }
+  .label {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .label-facts { background: #fef9e7; color: #b7950b; border: 1px solid #f9e79f; }
+  .label-context { background: #eafaf1; color: #1e8449; border: 1px solid #a9dfbf; }
+  .label-imp { background: #fdf2f8; color: #884ea0; border: 1px solid #d7bde2; }
+  .block {
+    margin-bottom: 8px;
+    font-size: 0.86rem;
+    color: #2c3e50;
+  }
+  .block strong { font-weight: 700; }
+  .num {
+    font-family: "Courier New", monospace;
+    font-weight: 700;
+    color: #c0392b;
+    background: #fef9e7;
+    padding: 0 3px;
+    border-radius: 3px;
+  }
+  .num-up { color: #1e8449; }
+  .num-down { color: #c0392b; }
+  .tbl {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+    font-size: 0.82rem;
+  }
+  .tbl th {
+    background: #eef3fb;
+    padding: 5px 10px;
+    text-align: left;
+    font-weight: 700;
+    color: #0f3460;
+    border: 1px solid #dce8f5;
+  }
+  .tbl td {
+    padding: 5px 10px;
+    border: 1px solid #e8e8e8;
+  }
+  .tbl tr:nth-child(even) td { background: #f9fbff; }
+  footer {
+    max-width: 900px;
+    margin: 0 auto 32px;
+    padding: 0 20px;
+    font-size: 0.75rem;
+    color: #888;
+  }
+  footer h4 { font-size: 0.8rem; color: #555; margin-bottom: 6px; }
+  footer ul { padding-left: 16px; }
+  footer li { margin-bottom: 2px; }
+  footer a { color: #2471a3; }
+  .no-data { color: #aaa; font-style: italic; padding: 12px 20px; font-size: 0.85rem; }
+  .market-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: #1a1a2e;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 0.78rem;
+  }
+  .mkt-item { display: flex; gap: 5px; align-items: center; }
+  .mkt-item .mkt-key { color: #90caf9; font-weight: 600; }
+  .mkt-item .up { color: #5dade2; font-weight: 700; }
+  .mkt-item .down { color: #f1948a; font-weight: 700; }
+  @media (max-width: 600px) {
+    header { padding: 16px; }
+    nav { padding: 8px 12px; top: 72px; }
+    main { padding: 0 10px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🌐 總經新聞日報 <span class="pill">Macro Daily</span></h1>
+  <div class="meta">2026年6月15日（週一）· Asia/Taipei · 資料彙整截至 06-15 上午</div>
+</header>
+
+<nav>
+  <a href="#global">🌐 全球</a>
+  <a href="#us">🇺🇸 美國</a>
+  <a href="#tw">🇹🇼 台灣</a>
+  <a href="#jp">🇯🇵 日本</a>
+  <a href="#kr">🇰🇷 韓國</a>
+  <a href="#eu">🇪🇺 歐洲</a>
+  <a href="#sea">🌏 東南亞</a>
+  <a href="#sources">來源</a>
+</nav>
+
+<!-- ===================== GLOBAL ===================== -->
+<main>
+<section class="section" id="global">
+  <div class="section-header">
+    <span class="flag">🌐</span>
+    <h2>全球 / Global <span class="en">Multilateral &amp; Commodity</span></h2>
+  </div>
+
+  <div class="item">
+    <h3>美伊達成和平協議，荷姆茲海峽即將重新開放
+      <span class="en-title">US–Iran Peace Deal Concluded; Hormuz Strait to Reopen — Macro Implications</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: Korea Herald · 2026-06-15 ·
+      <a href="https://www.koreaherald.com/article/10771426" target="_blank">koreaherald.com</a>
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實</span>
+      美國與伊朗週末達成終戰協議，特朗普表示「合約簽署後荷姆茲海峽立即重開」，凍結伊朗資產（規模約 <span class="num">250億美元</span>）亦將釋放。南韓 KOSPI 週一開盤急漲逾 400 點，韓元大幅升值，市場對中東風險溢價迅速重定價。<br>
+      The US and Iran concluded a peace agreement; Trump stated Hormuz Strait will reopen upon signing. Approximately <span class="num">$25 billion</span> in frozen Iranian assets to be unfrozen.
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡</span>
+      荷姆茲海峽是全球石油貿易最重要的航道，日均通過量約 2,100 萬桶，占全球海運石油的 20% 以上。自衝突爆發以來，布倫特原油因地緣溢價大幅走高，保險費率、航運費皆急升。解除封鎖等同於釋放大量原油供給，對能源價格具有重大下壓力。
+      The Hormuz Strait carries ~21 mb/d; reopening removes a major geopolitical premium that has inflated energy prices globally.
+    </div>
+    <div class="block">
+      <span class="label label-imp">影響觀察</span>
+      能源價格短期將面臨顯著下行壓力，有助於壓低全球通脹（尤其汽油/航空燃油），為主要央行提供更大的降息空間。亞洲航運股、石油進口國（台、日、韓、印）受益，中東主權財富基金則需調整資產配置。
+      Oil-importing nations (Taiwan, Japan, Korea, India) stand to benefit most. A lower energy price path could accelerate Fed and ECB pivot discussions.
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>布倫特原油急跌：供給預期逆轉打壓油價
+      <span class="en-title">Brent Crude Drops Sharply as Hormuz Supply Expectations Reverse</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: OilPrice.com / Korea Herald · 2026-06-15 ·
+      <a href="https://oilprice.com/" target="_blank">oilprice.com</a>
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實</span>
+      美伊和談消息傳出後，布倫特原油價格在亞市大幅回落，與和平談判前高點相比跌幅可觀。市場重新估算伊朗原油恢復出口後的供給增量。實際落地數字待簽約後確認。
+      Brent crude fell sharply in Asian trading on the Iran deal news, reversing the war-risk premium built up since the conflict began.
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡</span>
+      伊朗在制裁前日產能約 380–400 萬桶，若恢復出口，全球石油市場可能面臨供給過剩，OPEC+ 將需重新協調減產策略。
+    </div>
+    <div class="block">
+      <span class="label label-imp">影響觀察</span>
+      油價下行對抗通脹具正面效果，但對產油國（GCC、俄羅斯）財政形成壓力。台幣、日圓、韓元等亞洲貨幣因貿易條件改善，可望獲得支撐。
+    </div>
+  </div>
+</section>
+
+<!-- ===================== US ===================== -->
+<section class="section" id="us">
+  <div class="section-header">
+    <span class="flag">🇺🇸</span>
+    <h2>美國 / United States <span class="en">Fed · BLS · Treasury</span></h2>
+  </div>
+
+  <div class="item">
+    <h3>美國 5 月 CPI 年增 +0.5%（月增），年增率待確認——通脹壓力趨緩
+      <span class="en-title">US CPI May 2026: +0.5% MoM; Annual Rate Remains Elevated But Decelerating</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: BLS · 2026-06-10 ·
+      <a href="https://www.bls.gov/news.release/cpi.nr0.htm" target="_blank">bls.gov/cpi</a>
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實</span>
+      <table class="tbl">
+        <tr>
+          <th>指標</th><th>5月 2026 (最新)</th><th>4月 2026</th><th>3月 2026</th>
+        </tr>
+        <tr>
+          <td>CPI（月增）</td>
+          <td><span class="num">+0.5%</span></td>
+          <td>未公布（機構停機期）</td>
+          <td>+0.9%</td>
+        </tr>
+        <tr>
+          <td>核心 CPI（月增）</td>
+          <td>─</td>
+          <td>─</td>
+          <td>+0.2%</td>
+        </tr>
+        <tr>
+          <td>全年 CPI（年增）</td>
+          <td>待確認</td>
+          <td>─</td>
+          <td>+3.3%</td>
+        </tr>
+        <tr>
+          <td>汽油（月增）</td>
+          <td>上行（gasoline &amp; shelter up）</td>
+          <td>─</td>
+          <td>+21.2%</td>
+        </tr>
+      </table>
+      BLS 於 6 月 10 日發布：「CPI for all items rises 0.5% in May; gasoline and shelter up.」能源及居住成本再度是月增主要推手。荷姆茲海峽開放後，能源成分有望在 6 月數據出現明顯改善。
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡</span>
+      美國 CPI 自 2025 年底在關稅衝擊下重新加速，3 月出現 +0.9% 的跳升（能源佔主因）。5 月數據降至 +0.5%，顯示通脹壓力雖有所緩和，但距 Fed 目標仍有距離。Fed 在 4 月 28-29 日 FOMC 會議後按兵不動，下次會議壓力將取決於 6 月及後續 PCE 走勢。
+    </div>
+    <div class="block">
+      <span class="label label-imp">影響觀察</span>
+      5 月 CPI 回落 + 荷姆茲重開提供能源降溫預期，有助市場重新定價 Fed 降息時間點。目前聯邦基金利率區間仍偏高，若後續數據持續轉軟，2026 年 Q3/Q4 降息預期有望升溫。美元走弱、美債殖利率下行是主要市場反映。
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>美國 5 月就業：非農增加 17.2 萬，失業率持穩於 4.3%
+      <span class="en-title">US May NFP: +172K Jobs; Unemployment Rate Holds at 4.3%</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: BLS · 2026-06-05 ·
+      <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank">bls.gov/empsit</a>
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實</span>
+      <table class="tbl">
+        <tr><th>指標</th><th>5月 2026</th><th>共識預期</th><th>前值</th></tr>
+        <tr><td>非農就業（NFP）</td><td><span class="num">+172,000</span></td><td>未公布</td><td>─</td></tr>
+        <tr><td>失業率</td><td><span class="num">4.3%</span></td><td>─</td><td>4.3%（unchanged）</td></tr>
+        <tr><td>平均時薪（月增）</td><td><span class="num">+$0.12</span></td><td>─</td><td>─</td></tr>
+      </table>
+      就業市場「軟著陸」跡象明顯：增幅溫和但正面，失業率未惡化。實際時薪月增 -0.1%（經通脹調整後），消費者實質購買力輕微受壓。
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡</span>
+      美國就業市場在高利率環境下展現韌性，但增速相較 2024 年高峰已明顯放緩。Fed 雙重使命（通脹+就業）中，就業面目前壓力尚可，通脹仍是主要考量。
+    </div>
+    <div class="block">
+      <span class="label label-imp">影響觀察</span>
+      溫和就業數據 + CPI 趨緩 = Fed 可維持「暫停但不緊縮」立場。若 6 月 CPI 因油價下行大幅改善，市場對 Q3 降息的定價將快速升溫。
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>聯準會 5 月 FOMC 會議紀要公布，銀行壓力測試結果 6 月 24 日揭曉
+      <span class="en-title">FOMC April Minutes Released; Fed Stress Test Results Due June 24</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: Federal Reserve · 2026-05-20 / 2026-06-09 ·
+      <a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260520a.htm" target="_blank">federalreserve.gov</a>
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實</span>
+      4 月 28-29 日 FOMC 會議紀要已於 5 月 20 日公布，主要基調反映委員對通脹黏性的審慎態度。Fed 同時宣布年度銀行壓力測試結果將於 6 月 24 日下午 4 點東部時間公布，市場關注壓力測試是否觸發大型銀行調整股息與回購計畫。
+    </div>
+    <div class="block">
+      <span class="label label-imp">影響觀察</span>
+      壓力測試結果一旦公布，大型銀行（JPMorgan、Goldman、BofA 等）可能隨即宣布股票回購及股息計畫，對金融板塊具催化作用。
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>美國 5 月 PPI +1.1%：商品價格反彈，服務價格溫和
+      <span class="en-title">US PPI Final Demand May 2026: +1.1%; Goods +2.8%, Services +0.3%</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: BLS · 2026-06-11 ·
+      <a href="https://www.bls.gov/news.release/ppi.nr0.htm" target="_blank">bls.gov/ppi</a>
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實</span>
+      PPI 最終需求 5 月月增 <span class="num">+1.1%</span>（初估），商品分項月增 <span class="num">+2.8%</span>，服務分項月增 <span class="num">+0.3%</span>。商品漲幅主要受能源及貿易關稅轉嫁影響。
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡</span>
+      PPI 是 CPI 的先行指標；商品 PPI 走高通常在 2–3 個月後反映於 CPI。若伊朗協議落地後能源成本下降，PPI 商品分項有機會在未來數月顯著降溫。
+    </div>
+    <div class="block">
+      <span class="label label-imp">影響觀察</span>
+      PPI 服務端僅 +0.3% 顯示企業定價能力有限，對 Fed 而言是通脹「非廣泛蔓延」的積極信號。
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TAIWAN ===================== -->
+<section class="section" id="tw">
+  <div class="section-header">
+    <span class="flag">🇹🇼</span>
+    <h2>台灣 / Taiwan <span class="en">CBC · DGBAS · MOF</span></h2>
+  </div>
+
+  <div class="item">
+    <h3>台灣中央銀行外匯存底 6,050.7 億美元（2026 年 5 月底），連續高位
+      <span class="en-title">Taiwan CBC FX Reserves: USD 605.07B as of End-May 2026</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: 中央銀行 · 2026-06-05 ·
+      <a href="https://www.cbc.gov.tw/tw/cp-302-191348-267a5-1.html" target="_blank">cbc.gov.tw</a>
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實</span>
+      台灣央行 5 月底外匯存底 <span class="num">6,050.7 億美元（USD 605.07B）</span>，為全球前三大外儲之一。5 月 M2 年增率 <span class="num">6.45%</span>（5 月 22 日公布）；新台幣 / 美元銀行間收盤匯率最新報 <span class="num">31.618</span>（6 月 12 日），重貼現率維持 <span class="num">2%</span>（2024 年 3 月迄今未變）。
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡</span>
+      台灣央行上一次調整利率為 2024 年 3 月升息至 2%，之後進入長期觀望。高額外儲提供新台幣匯率緩衝能力，M2 成長穩健反映流動性充裕。美伊和談有助進口成本下降，對台灣貿易帳及外儲持有成本均有利。
+    </div>
+    <div class="block">
+      <span class="label label-imp">影響觀察</span>
+      若全球油價回落，台灣進口帳改善，貿易順差擴大，可能加重新台幣升值壓力。央行是否出手調節匯率，或在第 3 季理監事會調整利率方向，為後續觀察重點。
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>中央銀行 5 月準備貨幣數據及外匯業務公布
+      <span class="en-title">CBC Releases May 2026 Reserve Money and FX Business Data</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: 中央銀行 · 2026-06-11 / 2026-06-12 ·
+      <a href="https://www.cbc.gov.tw/tw/np-302-1.html" target="_blank">cbc.gov.tw/news</a>
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實</span>
+      中央銀行 6 月 11 日公布 115 年 5 月準備貨幣數據；6 月 12 日公布 5 月份許可之外匯業務統計。6 月 9 日，甲類第 6 期（10 年期）中央政府建設公債順利開標。今日（6 月 15 日）公布 115 年金融控股公司資金狀況調查。
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡</span>
+      台灣金融業隔夜拆款利率 6 月 12 日報 <span class="num">0.826%</span>，反映市場流動性充裕；10 年期公債順利標售顯示外資對台灣主權債務仍具信心。
+    </div>
+    <div class="block">
+      <span class="label label-imp">影響觀察</span>
+      金控資金狀況調查有助評估金融體系流動性風險；若後續台幣波動加劇，央行公開市場操作力度可能上升。
+    </div>
+  </div>
+</section>
+
+<!-- ===================== JAPAN ===================== -->
+<section class="section" id="jp">
+  <div class="section-header">
+    <span class="flag">🇯🇵</span>
+    <h2>日本 / Japan <span class="en">BOJ · MOF · METI</span></h2>
+  </div>
+
+  <div class="item">
+    <h3>日本銀行政策利率維持 0.75%；下一次貨幣政策會議為 4 月 27-28 日
+      <span class="en-title">BOJ Holds Rate at 0.75%; Interest Rate Applied to Complementary Deposit Facility at 0.75%</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: 日本銀行 (BOJ) · 2026-03-19 / 最新 ·
+      <a href="https://www.boj.or.jp/en/index.htm" target="_blank">boj.or.jp</a>
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實</span>
+      <table class="tbl">
+        <tr><th>利率項目</th><th>水準</th><th>生效日</th></tr>
+        <tr><td>補充存款便利利率（無擔保隔夜拆款目標）</td><td><span class="num">0.75%</span></td><td>2025-12-22</td></tr>
+        <tr><td>基本貸款利率</td><td><span class="num">1.0%</span></td><td>2025-12-22</td></tr>
+      </table>
+      BOJ 3 月 19 日貨幣政策會議按兵不動。網站所示「下次會議日期：2026 年 4 月 27-28 日」，顯示最新資料截至 4 月底。BOJ 網站 What's New 最新公布為 4 月 21 日財務穩定報告（Financial System Report, April 2026）。
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡</span>
+      日本自 2025 年 12 月最後一次升息至 0.75%，市場持續觀察日本工資增長是否能維持推動通脹達到 2% 目標。BOJ 在 4 月 Outlook 中維持「通脹穩定達目標前，需緩慢正常化」的政策表述。日圓走勢與 BOJ 升息預期高度相關，油價回落若降低輸入性通脹，可能減緩 BOJ 進一步升息的迫切性。
+    </div>
+    <div class="block">
+      <span class="label label-imp">影響觀察</span>
+      油價下行 → 日本輸入性通脹降溫 → BOJ 下一次升息時間點可能延後。日圓在「避險貨幣 + 套利回流」與「BOJ 升息預期降溫」之間博弈。若全球風險偏好因美伊和平而提升，日圓空頭部位可能暫時壓制日圓升值。
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>日本 BOJ 4 月高級貸款審查：信貸標準溫和收緊
+      <span class="en-title">BOJ Senior Loan Officer Opinion Survey (April 2026): Modest Tightening in Credit Standards</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: 日本銀行 · 2026-04-21 ·
+      <a href="https://www.boj.or.jp/en/statistics/dl/loan/loos/release/loos2604.pdf" target="_blank">boj.or.jp/statistics</a>
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實</span>
+      BOJ 4 月公布高級貸款審查（Senior Loan Officer Opinion Survey），顯示日本銀行業整體信貸標準出現溫和收緊跡象，企業貸款需求保持穩定，房貸需求略有改善。
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡</span>
+      在 BOJ 貨幣政策正常化過程中，商業銀行貸款標準的動態是關鍵監控指標，過度緊縮可能壓制企業投資及消費。
+    </div>
+    <div class="block">
+      <span class="label label-imp">影響觀察</span>
+      信貸標準若持續溫和收緊而不急劇惡化，有助 BOJ 維持「漸進升息」基調，避免政策過度收緊。
+    </div>
+  </div>
+</section>
+
+<!-- ===================== KOREA ===================== -->
+<section class="section" id="kr">
+  <div class="section-header">
+    <span class="flag">🇰🇷</span>
+    <h2>韓國 / Korea <span class="en">BOK · KOSPI · Trade</span></h2>
+  </div>
+
+  <div class="item">
+    <h3>美伊和平帶動 KOSPI 急漲，韓元升值；荷姆茲重開提振韓國能源進口前景
+      <span class="en-title">Iran Peace Deal Sparks KOSPI Rally &amp; Won Strength — Korea Among Top Beneficiaries</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: Korea Herald · 2026-06-15 ·
+      <a href="https://www.koreaherald.com/article/10771498" target="_blank">koreaherald.com</a>
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實</span>
+      <table class="tbl">
+        <tr><th>指標</th><th>數值</th></tr>
+        <tr><td>KOSPI 開盤變動</td><td><span class="num up">+429 pt 大幅急漲</span></td></tr>
+        <tr><td>KOSDAQ</td><td><span class="num up">+3.95</span></td></tr>
+        <tr><td>USD/KRW</td><td><span class="num">1,535.6（韓元升值）</span></td></tr>
+        <tr><td>EUR/KRW</td><td><span class="num">1,764.73</span></td></tr>
+        <tr><td>JPY(100)/KRW</td><td><span class="num">950.76</span></td></tr>
+      </table>
+      South Korean stocks opened sharply higher Monday. Samsung Electronics 及 SK Hynix 等主要持股連續兩日吸引外資淨買超約 3 兆韓元。
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡</span>
+      韓國是全球第五大石油進口國，中東地緣風險直接影響能源進口成本和貿易條件。荷姆茲海峽封鎖期間韓元持續承壓，今日走勢是風險溢價消散的直接反映。
+    </div>
+    <div class="block">
+      <span class="label label-imp">影響觀察</span>
+      韓國貿易帳改善預期（能源進口成本下降）有利韓元進一步升值。BOK（韓國銀行）維持降息立場的壓力可能因此略減，但弱需求和低通脹環境仍是主旋律。下一次 BOK 利率決議動向值得觀察。
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>韓國勞工團體要求最低工資調漲 16.3%，至 12,000 韓元
+      <span class="en-title">Korean Labor Groups Demand 16.3% Minimum Wage Hike to KRW 12,000 for 2027</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: Korea Herald · 2026-06-15 ·
+      <a href="https://www.koreaherald.com/article/10771673" target="_blank">koreaherald.com</a>
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實</span>
+      韓國主要勞工團體週一提出 2027 年度最低工資要求：<span class="num">12,000 韓元/時</span>，相較現行 10,320 韓元漲幅達 <span class="num">16.3%</span>。
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡</span>
+      韓國最低工資審議委員會每年 6-7 月進行協商。2026 年通脹壓力雖相對溫和，但勞工實質購買力在能源價格高位期間受損，促使此次要求幅度較大。
+    </div>
+    <div class="block">
+      <span class="label label-imp">影響觀察</span>
+      若大幅漲薪落地，對中小企業成本壓力顯著，可能推升服務業通脹；對 BOK 而言形成「工資—價格螺旋」風險，需在後續政策溝通中明確表態。
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EUROPE ===================== -->
+<section class="section" id="eu">
+  <div class="section-header">
+    <span class="flag">🇪🇺</span>
+    <h2>歐洲 / Europe <span class="en">ECB · BoE · Eurozone</span></h2>
+  </div>
+
+  <div class="item">
+    <h3>ECB 近期政策路徑：利率已進入中性區間，通脹漸近目標
+      <span class="en-title">ECB Rates in Neutral Territory; Recent Press Releases Reflect Gradual Normalization</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: ECB · 2026-06 ·
+      <a href="https://www.ecb.europa.eu/press/html/index.en.html" target="_blank">ecb.europa.eu/press</a>
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實</span>
+      ECB 自 2025 年起多次調降利率，目前主要再融資利率已接近或進入「中性區間」（estimated 2–2.5%）。歐元區通脹整體趨勢向 2% 目標靠攏，服務業通脹仍偏高（約 3-4%）。美伊和平有望進一步壓低能源成本，對歐元區通脹路徑具正面效應。注：ECB 官網在擷取時部分詳細新聞稿需 JavaScript 渲染，完整最新決議請直接查閱官網。
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡</span>
+      歐元區 2026 年上半年成長動能疲弱，德國製造業衰退延續，法國政治不確定性仍存。ECB 在確認通脹持久回落後才有降息空間，中東局勢緩解有助加快這一進程。
+    </div>
+    <div class="block">
+      <span class="label label-imp">影響觀察</span>
+      油價回落 → 歐元區 CPI 更快趨向目標 → ECB 降息路徑獲支撐。歐元因「風險偏好回升 + 能源進口成本改善」可能短期走強。對歐洲主權債市（Bund、OAT、BTP）利多。
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>英國銀行（BoE）近況：通脹黏性 vs. 成長放緩的兩難
+      <span class="en-title">Bank of England: Navigating Sticky Inflation vs. Slowing Growth</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: Bank of England · 2026 ·
+      <a href="https://www.bankofengland.co.uk/news" target="_blank">bankofengland.co.uk</a>
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實</span>
+      BoE 官網新聞頁面在本次擷取中未顯示最新具體新聞稿（頁面採動態渲染）。根據已知資訊，BoE 自 2025 年底以來進入降息週期，政策利率較高峰已有所回落，惟英國服務業通脹及工資成長仍高於歐元區，制約進一步放鬆空間。
+    </div>
+    <div class="block">
+      <span class="label label-imp">影響觀察</span>
+      中東和平若壓低能源價格，對英國 CPI 具下壓效果，有助 BoE 加快降息節奏。英鎊走勢將受益於風險偏好改善。
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SEA ===================== -->
+<section class="section" id="sea">
+  <div class="section-header">
+    <span class="flag">🌏</span>
+    <h2>東南亞 / Southeast Asia <span class="en">ASEAN Central Banks · FX · Trade</span></h2>
+  </div>
+
+  <div class="item">
+    <h3>美伊和平對東南亞：能源進口大國普遍受惠，貿易條件改善
+      <span class="en-title">Iran Peace Deal: Southeast Asian Oil Importers Among Key Beneficiaries</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: Korea Herald / 綜合各央行 · 2026-06-15
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實</span>
+      東南亞多國為石油淨進口國：泰國、菲律賓、越南、印尼均受惠於中東和平帶來的油價回落。泰銖（THB）、菲律賓披索（PHP）、越南盾（VND）在風險偏好改善環境下可望獲得支撐。曼谷郵報（Bangkok Post）網站最新刊出日期為 2025 年 4 月，顯示頁面快取存在延遲，本次無法確認泰國最新央行決議具體數字。
+    </div>
+    <div class="block">
+      <span class="label label-context">背景脈絡</span>
+      2025-2026 年間，多個東南亞央行面臨「美元強勢 + 能源通脹 + 資本外流」三重壓力。若油價回落，輸入性通脹緩解，各國央行將有更大空間在不犧牲匯率的情況下維持寬鬆偏向或執行降息。
+    </div>
+    <div class="block">
+      <span class="label label-imp">影響觀察</span>
+      越南：出口導向製造業景氣（電子、成衣）與美中貿易結構調整密切相關，油價降溫有助控制生產成本。印尼：作為原油出口國，油價回落對財政收入有負面影響，但整體宏觀穩定性仍受益於全球風險偏好改善。泰國：央行（BOT）近期面臨低通脹與需求疲弱的困境，能源降溫提供更多政策空間。馬來西亞：同為原油出口國，財政影響類似印尼，但資本市場面（外資流入）正面。
+    </div>
+  </div>
+
+  <div class="item">
+    <h3>新加坡 MAS：科技金融與監管一向密切，6 月新聞待確認
+      <span class="en-title">MAS Singapore: No New Policy Statement Confirmed for June 2026 in This Fetch</span>
+    </h3>
+    <div class="source-line">
+      來源 / Source: MAS · <a href="https://www.mas.gov.sg/news" target="_blank">mas.gov.sg/news</a>
+    </div>
+    <div class="block">
+      <span class="label label-facts">核心事實</span>
+      本次爬取 MAS 新聞頁面回傳內容為空（頁面採動態 JavaScript 渲染），無法確認 2026 年 6 月具體新聞稿。MAS 上半年例行政策聲明（金融監理、通脹展望）通常在 4 月和 10 月發布。新加坡核心通脹自高點持續回落，MAS 已在 2025 年結束一系列收緊，近期政策偏向中性。
+    </div>
+    <div class="block">
+      <span class="label label-imp">影響觀察</span>
+      油價下行有助新加坡輸入型通脹進一步降溫，若核心通脹持續向 2% 以下靠攏，MAS 在 10 月評估時有條件進一步放鬆匯率管理帶（S$NEER）坡度。
+    </div>
+  </div>
+</section>
+
+<!-- Footer / Sources -->
+<section class="section" id="sources" style="background:#f9fbff;">
+  <div class="section-header" style="background: linear-gradient(90deg,#455a64,#607d8b);">
+    <span class="flag">📚</span>
+    <h2>數據來源 / Sources</h2>
+  </div>
+  <div style="padding:16px 20px;">
+    <p style="font-size:0.82rem;color:#555;margin-bottom:10px;">本報告資料來源及查閱時間（Asia/Taipei 2026-06-15 上午）：</p>
+    <table class="tbl">
+      <tr><th>來源</th><th>用途</th><th>URL</th></tr>
+      <tr><td>BLS.gov</td><td>US CPI/PPI/NFP</td><td><a href="https://www.bls.gov/" target="_blank">bls.gov</a></td></tr>
+      <tr><td>Federal Reserve</td><td>FOMC / 壓力測試</td><td><a href="https://www.federalreserve.gov/newsevents.htm" target="_blank">federalreserve.gov</a></td></tr>
+      <tr><td>中央銀行 CBC</td><td>外儲 / M2 / 匯率 / 利率</td><td><a href="https://www.cbc.gov.tw/" target="_blank">cbc.gov.tw</a></td></tr>
+      <tr><td>Bank of Japan</td><td>BOJ 利率 / FSR</td><td><a href="https://www.boj.or.jp/en/" target="_blank">boj.or.jp</a></td></tr>
+      <tr><td>Korea Herald</td><td>韓股 / 美伊和談 / 最低工資</td><td><a href="https://www.koreaherald.com/" target="_blank">koreaherald.com</a></td></tr>
+      <tr><td>ECB</td><td>歐洲貨幣政策</td><td><a href="https://www.ecb.europa.eu/press/html/index.en.html" target="_blank">ecb.europa.eu</a></td></tr>
+      <tr><td>Bank of England</td><td>英國利率政策</td><td><a href="https://www.bankofengland.co.uk/news" target="_blank">bankofengland.co.uk</a></td></tr>
+      <tr><td>OilPrice.com</td><td>原油價格</td><td><a href="https://oilprice.com/" target="_blank">oilprice.com</a></td></tr>
+      <tr><td>MAS Singapore</td><td>新加坡貨幣政策</td><td><a href="https://www.mas.gov.sg/news" target="_blank">mas.gov.sg</a></td></tr>
+    </table>
+    <p style="font-size:0.75rem;color:#999;margin-top:10px;">
+      ⚠️ 以下來源本次因技術限制（動態渲染/封鎖/快取過舊）無法完整爬取：Reuters Markets（403），Bangkok Post（快取 2025-04），Nikkei Asia Economy（空白回應），MAS（空白回應），Bank of England News（動態渲染），鉅亨網（JS 動態），ECB（大型 HTML 部分渲染）。
+    </p>
+    <p style="font-size:0.75rem;color:#999;margin-top:4px;">
+      ⚠️ 分析性判斷（影響觀察）僅為總經脈絡解讀，<strong>不構成投資建議</strong>。
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer style="text-align:center;padding:20px;font-size:0.75rem;color:#aaa;">
+  總經新聞日報 · Daily Macro Briefing · 2026-06-15 · Powered by Claude / Cowork
+</footer>
+
+</body>
+</html>

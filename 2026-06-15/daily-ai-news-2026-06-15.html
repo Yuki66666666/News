@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 新聞日報 · 2026-06-15 (Monday)</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #fafaf8;
+    color: #1a1a1a;
+    line-height: 1.75;
+    padding: 2rem 1rem 4rem;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+
+  /* Header */
+  header {
+    border-bottom: 3px solid #1a1a1a;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
+  .pub-label {
+    font-family: sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 0.4rem;
+  }
+  h1 {
+    font-family: sans-serif;
+    font-size: 1.85rem;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #111;
+  }
+  .dateline {
+    font-family: sans-serif;
+    font-size: 0.82rem;
+    color: #555;
+    margin-top: 0.5rem;
+  }
+  .dateline strong { color: #c00; }
+
+  /* Breaking banner */
+  .breaking-banner {
+    background: #c00;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .breaking-banner span.tag {
+    background: #fff;
+    color: #c00;
+    padding: 0.1rem 0.4rem;
+    border-radius: 2px;
+    font-size: 0.72rem;
+  }
+
+  /* Section heading */
+  .section-heading {
+    font-family: sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #fff;
+    background: #1a1a1a;
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 1.25rem;
+    margin-top: 2.5rem;
+  }
+
+  /* Story card */
+  .story {
+    border-left: 3px solid #ddd;
+    padding-left: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+  .story.top { border-left-color: #c00; }
+  .story.model { border-left-color: #0057b8; }
+  .story.company { border-left-color: #2a7f3e; }
+  .story.product { border-left-color: #7a3fa5; }
+  .story.policy { border-left-color: #c47f00; }
+
+  .story h3 {
+    font-family: sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.35;
+    color: #111;
+    margin-bottom: 0.4rem;
+  }
+  .story .zh { font-size: 1.0rem; }
+  .story .en { font-size: 0.9rem; color: #333; font-weight: 600; }
+
+  .source-line {
+    font-family: sans-serif;
+    font-size: 0.73rem;
+    color: #888;
+    margin-bottom: 0.8rem;
+  }
+  .source-line a { color: #0057b8; text-decoration: none; }
+  .source-line a:hover { text-decoration: underline; }
+
+  .fact-label, .context-label, .impact-label {
+    font-family: sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0.1rem 0.4rem;
+    border-radius: 2px;
+    margin-bottom: 0.3rem;
+    margin-top: 0.6rem;
+  }
+  .fact-label { background: #e8f0fe; color: #0057b8; }
+  .context-label { background: #e6f4ea; color: #2a7f3e; }
+  .impact-label { background: #fef3cd; color: #856404; }
+
+  p.body { margin-bottom: 0.5rem; font-size: 0.95rem; }
+
+  /* Divider */
+  hr.story-div { border: none; border-top: 1px solid #e5e5e5; margin: 2rem 0; }
+
+  /* Footer */
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #1a1a1a;
+    font-family: sans-serif;
+    font-size: 0.73rem;
+    color: #666;
+  }
+  footer h4 { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.6rem; color: #333; }
+  footer ul { list-style: none; padding: 0; }
+  footer ul li { margin-bottom: 0.25rem; }
+  footer ul li a { color: #0057b8; text-decoration: none; }
+  footer ul li a:hover { text-decoration: underline; }
+  .paywall-note { background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; padding: 0.6rem 0.9rem; margin-top: 1rem; font-size: 0.75rem; color: #6b4c11; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="pub-label">AI 新聞日報 · Daily AI Briefing</div>
+    <h1>今日 AI 產業要聞</h1>
+    <div class="dateline">
+      <strong>2026年6月15日（週一）</strong> &nbsp;·&nbsp; Asia/Taipei &nbsp;·&nbsp; 8 stories across 5 sections
+    </div>
+  </header>
+
+  <!-- BREAKING BANNER -->
+  <div class="breaking-banner">
+    <span class="tag">Breaking</span>
+    美政府出口管制令強制下架 Claude Fable 5 &amp; Mythos 5 · Anthropic 公開反對
+  </div>
+
+
+  <!-- ===== SECTION 1: TOP STORIES ===== -->
+  <div class="section-heading">頭條 / Top Stories</div>
+
+  <!-- Story 1 -->
+  <div class="story top">
+    <h3>
+      <div class="zh">美政府以國安為由下令暫停 Fable 5 與 Mythos 5 全球存取，Anthropic 合規但公開表示異議</div>
+      <div class="en">US Government Export Control Directive Forces Anthropic to Pull Fable 5 &amp; Mythos 5 Worldwide; Anthropic Complies but Pushes Back</div>
+    </h3>
+    <div class="source-line">
+      Anthropic Newsroom &nbsp;·&nbsp; 2026-06-12 &nbsp;·&nbsp;
+      <a href="https://www.anthropic.com/news/fable-mythos-access" target="_blank">anthropic.com/news/fable-mythos-access</a>
+      &nbsp;|&nbsp;
+      <a href="https://www.cnbc.com/2026/06/12/anthropic-disables-access-to-fable-5-and-mythos-5-to-comply-with-government-directive.html" target="_blank">CNBC</a>
+    </div>
+
+    <div class="fact-label">核心事實 Core Facts</div>
+    <p class="body">
+      2026年6月12日下午5:21（東部時間），美國政府援引「國家安全授權」，向 Anthropic 發出出口管制指令，要求立即暫停所有外國國籍人士（包括 Anthropic 內部的外籍員工）對 Claude Fable 5 和 Claude Mythos 5 的存取。由於合規要求，Anthropic 被迫對所有用戶（包括美國公民）一律停用這兩款模型，其餘 Claude 模型則不受影響。政府表示已掌握一種「越獄（jailbreak）」方法，可繞過 Fable 5 的安全防護。
+    </p>
+    <p class="body" style="color:#555; font-size:0.88rem;">
+      On June 12, 2026 at 5:21 PM ET, the US government invoked national security authority to issue an export control directive ordering Anthropic to immediately suspend access to Claude Fable 5 and Mythos 5 for all foreign nationals worldwide — including foreign-national Anthropic employees. To ensure compliance, Anthropic disabled both models for all users globally. Other Claude models remain unaffected. The government cited awareness of a jailbreak method targeting Fable 5's cybersecurity safeguards.
+    </p>
+
+    <div class="context-label">背景脈絡 Context</div>
+    <p class="body">
+      Claude Fable 5 於 2026年6月9日正式對外發布，Mythos 5 則限定少量合作夥伴試用。這兩款模型是 Anthropic 迄今功能最強的旗艦系列，Fable 5 尤其以網路安全應用（Project Glasswing）為核心賣點——也正是此點讓政府產生顧慮。Anthropic 強調，在發布前已邀請美政府、英國 AISI 及多家第三方機構進行了數千小時的紅隊測試，並指出目前被揭露的所謂「越獄」僅為非通用型（narrow, non-universal），能力並不超越 OpenAI GPT-5.5 等市面現有模型。Anthropic 亦於 6月1日向 SEC 秘密遞交了 S-1 草稿，時間點上極為敏感。
+    </p>
+
+    <div class="impact-label">影響觀察 Impact</div>
+    <p class="body">
+      此案開創先例：這是美政府首次以出口管制名義對一款已商業部署、數億用戶在使用的 AI 模型強制下架。Anthropic 在聲明中明確表示，若此標準廣泛適用，「實際上將使所有前沿模型供應商的所有新模型部署陷入停滯」。隨著 Anthropic IPO S-1 剛剛遞交，此事可能對估值敘事和 IPO 時間線構成實質衝擊。更長遠地看，此舉預示著 AI 安全與出口管制法律框架的快速演進——在 AI 能力（尤其是網路安全）觸及「軍民兩用」邊界時，政府干預行動的標準與程序將成為整個行業的核心政策議題。
+    </p>
+  </div>
+
+  <hr class="story-div">
+
+  <!-- Story 2 -->
+  <div class="story top">
+    <h3>
+      <div class="zh">三大 AI 巨頭 CEO 齊赴 G7 峰會：Altman、Amodei、Hassabis 首度同台，青少年安全與自願承諾成焦點</div>
+      <div class="en">Rival AI CEOs — Altman, Amodei, Hassabis — Converge on G7 Summit in France for First Joint Appearance; Voluntary AI Commitments on Table</div>
+    </h3>
+    <div class="source-line">
+      Dataconomy &nbsp;·&nbsp; 2026-06-12 &nbsp;·&nbsp;
+      <a href="https://dataconomy.com/2026/06/12/ai-leaders-openai-google-deepmind-anthropic-g7-summit/" target="_blank">dataconomy.com</a>
+      &nbsp;|&nbsp;
+      <a href="https://www.bloomberg.com/news/articles/2026-06-12/anthropic-openai-google-executives-plan-to-attend-g7-summit" target="_blank">Bloomberg</a>
+    </div>
+
+    <div class="fact-label">核心事實 Core Facts</div>
+    <p class="body">
+      OpenAI 的 Sam Altman、Anthropic 的 Dario Amodei、Google DeepMind 的 Demis Hassabis，三人將同赴法國 Évian-les-Bains 出席第52屆 G7 峰會（6月15–17日）。這是 G7 峰會史上首次同時有這三大主要 AI 公司代表出席。法國總統馬克宏親自邀請 Altman，而這也將是 Altman 首度亮相年度 G7 峰會。三人此前已聯名致函美國國會，就合成 DNA 與 AI 生物威脅呼籲更嚴格監管。
+    </p>
+    <p class="body" style="color:#555; font-size:0.88rem;">
+      OpenAI's Sam Altman, Anthropic's Dario Amodei, and Google DeepMind's Demis Hassabis will attend the 52nd G7 summit in Évian-les-Bains, France (June 15–17) — the first time all three major AI labs are represented at a G7 summit. Macron personally invited Altman, for his first-ever G7 appearance. OpenAI's chief global affairs officer signaled the companies expect to leave with voluntary commitments, with youth safety heading Altman's agenda.
+    </p>
+
+    <div class="context-label">背景脈絡 Context</div>
+    <p class="body">
+      此次出席恰逢美政府對 Anthropic 發出出口管制指令（同在6月12日），AI 監管地緣政治已成為 G7 議程核心。三家公司雖是商業勁敵，卻在政策倡議上展現罕見默契：他們同時主張「美國不應以過度監管自縛手腳，但不代表 AI 可以毫無約束」。G7 對話是塑造全球 AI 治理架構的關鍵場域，包括 EU AI Act 已在推進，美國 Colorado AI Act 也將於6月30日生效。
+    </p>
+
+    <div class="impact-label">影響觀察 Impact</div>
+    <p class="body">
+      三大 AI 公司 CEO 同台 G7，加速確立了 AI 公司作為「主權級別科技玩家」的地位。若峰會能達成有約束力的自願承諾（尤其是青少年安全、生物風險），將對後續立法路徑形成事實標準。需要特別注意的是：此次出席背景下，Fable 5 / Mythos 5 被下架的消息幾乎同步發酵，可能讓 AI 監管討論在 G7 內部氣氛更加複雜。
+    </p>
+  </div>
+
+
+  <!-- ===== SECTION 2: MODELS & RESEARCH ===== -->
+  <div class="section-heading">模型與研究 / Models &amp; Research</div>
+
+  <!-- Story 3 -->
+  <div class="story model">
+    <h3>
+      <div class="zh">Anthropic 發布 Claude Fable 5 與 Mythos 5：新旗艦層級在資安、科研、編程全線突破，隨即遭政府下架</div>
+      <div class="en">Anthropic Launches Claude Fable 5 &amp; Mythos 5: New Tier Above Opus Targets Cybersecurity and Agentic Work — Then Immediately Pulled by Government Order</div>
+    </h3>
+    <div class="source-line">
+      Anthropic &nbsp;·&nbsp; 2026-06-09 &nbsp;·&nbsp;
+      <a href="https://www.anthropic.com/news/claude-fable-5-mythos-5" target="_blank">anthropic.com/news/claude-fable-5-mythos-5</a>
+      &nbsp;|&nbsp;
+      <a href="https://finance.yahoo.com/markets/crypto/articles/anthropic-claude-mythos-launches-today-142844796.html" target="_blank">Yahoo Finance</a>
+    </div>
+
+    <div class="fact-label">核心事實 Core Facts</div>
+    <p class="body">
+      Anthropic 於6月9日正式推出 Claude Fable 5 與 Claude Mythos 5，這是 Opus 之上全新設立的最頂層模型系列，主打網路安全（Project Glasswing）、科學研究、自主代理（agentic）任務。Fable 5 立即開放 Pro/Max/Team/Enterprise 訂閱用戶存取至6月22日。Mythos 5 僅限少數合作夥伴試用。然而僅3天後，美政府出口管制指令即迫使兩款模型全數下架。根據 Anthropic 發布的效能數據，旗艦代理人基準上，Claude Opus 4.8 已可完成89%的任務，有害動作發生率僅2.5%。
+    </p>
+    <p class="body" style="color:#555; font-size:0.88rem;">
+      On June 9, Anthropic introduced Claude Fable 5 and Mythos 5 as a new model tier above Opus, with frontier gains in cybersecurity (Project Glasswing), scientific research, and autonomous agentic work. Fable 5 was immediately available to Pro/Max/Team/Enterprise users through June 22; Mythos 5 restricted to vetted partners. Three days later, both were pulled under the US government export directive.
+    </p>
+
+    <div class="context-label">背景脈絡 Context</div>
+    <p class="body">
+      Fable/Mythos 的上市完成了 Anthropic 模型家族的重構：從上到下依序為 Mythos → Fable → Opus → Sonnet → Haiku。同期 Anthropic 也推出 Claude Opus 4.8（5月28日），其在長時間、多步驟工作上的可靠性是主要賣點。這兩款新模型恰逢競爭對手全面提速——Google Gemini 3.5 Pro 已確認6月内上市，xAI Grok 5 預期中旬發布，OpenAI GPT-5.5 也已推出。
+    </p>
+
+    <div class="impact-label">影響觀察 Impact</div>
+    <p class="body">
+      Fable/Mythos 的強制下架形成了一個行業警示：即便模型已通過政府紅隊測試並獲准商業部署，也可能在短期内因監管爭議被迫退市。Anthropic 的 IPO 敘事從「最安全的前沿 AI」變得更加複雜。下一步要看：Anthropic 能否在24–72小時内與政府談妥並恢復存取，以及此事是否會引發 OpenAI、Google 等競對的「預防性自主下架」壓力。
+    </p>
+  </div>
+
+  <hr class="story-div">
+
+  <!-- Story 4 -->
+  <div class="story model">
+    <h3>
+      <div class="zh">Google Gemini 3.5 Pro 即將登場：200萬 Token 上下文、「Deep Think」推理模式，目標超越 Claude Opus</div>
+      <div class="en">Google Gemini 3.5 Pro Imminent: 2M-Token Context, Deep Think Reasoning Mode, Targeting Frontier Coding and Multimodal Tasks</div>
+    </h3>
+    <div class="source-line">
+      TechTimes &nbsp;·&nbsp; 2026-06-06 &nbsp;·&nbsp;
+      <a href="https://www.techtimes.com/articles/317919/20260606/google-gemini-35-pro-nears-june-launch-2-million-token-context-deep-think-reasoning.htm" target="_blank">techtimes.com</a>
+      &nbsp;|&nbsp;
+      <a href="https://www.macrumors.com/2026/05/19/google-io-2026-roundup/" target="_blank">MacRumors（Google I/O 2026 Roundup）</a>
+    </div>
+
+    <div class="fact-label">核心事實 Core Facts</div>
+    <p class="body">
+      Google 在5月19日的 I/O 大會上發布 Gemini 3.5 Flash（已GA），同時預告旗艦版 Gemini 3.5 Pro 將於6月内全面上線。Pro 版主要規格：200萬 Token 上下文窗口、「Deep Think」深度推理模式、全面多模態理解能力。消費端 $20/月 Pro 方案與 $250/月 Ultra 方案均將獲得存取，Ultra 訂戶可使用 Deep Think。
+    </p>
+    <p class="body" style="color:#555; font-size:0.88rem;">
+      Google announced Gemini 3.5 Flash (now GA since May 19 at Google I/O) alongside Gemini 3.5 Pro's imminent June launch. Pro specs: 2M-token context, "Deep Think" reasoning mode, and frontier multimodal understanding. Pro and Ultra consumer subscribers will gain access; Ultra gets Deep Think.
+    </p>
+
+    <div class="context-label">背景脈絡 Context</div>
+    <p class="body">
+      Gemini 3.5 Flash 在編程與代理基準上已超越 Gemini 3.1 Pro，但在「硬推理」上有所退步——正是 Pro 版需要彌補的缺口。200萬 Token 上下文是目前業界最長，超越 Claude 的現有版本，使其在長文本分析（法律、醫療、程式碼庫）上具競爭優勢。值得注意的是，Gemini 3.5 Pro 發布時間恰逢 Anthropic Fable/Mythos 被強制下架，市場時機對 Google 相當有利。
+    </p>
+
+    <div class="impact-label">影響觀察 Impact</div>
+    <p class="body">
+      若 Anthropic Fable/Mythos 短期内無法恢復，企業客戶可能加速評估 Gemini 3.5 Pro 作為替代方案。Google 的 Deep Think 模式直接對標 OpenAI o3 系列的「延長思考（extended thinking）」，三強在推理層的軍備競賽進入新階段。下一步觀察點：Pro 版實際 benchmark 成績，以及 $250 Ultra 訂閱是否能支撐對標 Claude Mythos 級別的企業使用場景。
+    </p>
+  </div>
+
+
+  <!-- ===== SECTION 3: COMPANY MOVES ===== -->
+  <div class="section-heading">公司動態 / Company Moves</div>
+
+  <!-- Story 5 -->
+  <div class="story company">
+    <h3>
+      <div class="zh">Anthropic 秘密遞交 S-1 草稿，估值近 $965B；AI IPO 超級週期正式啟動（Cerebras 已上市，SpaceX 創史上最大 IPO 紀錄）</div>
+      <div class="en">Anthropic Files Confidential S-1 at ~$965B Valuation; AI IPO Supercycle Underway with Cerebras Debut and SpaceX's Record-Breaking $75B Listing</div>
+    </h3>
+    <div class="source-line">
+      Anthropic &nbsp;·&nbsp; 2026-06-01 &nbsp;·&nbsp;
+      <a href="https://www.anthropic.com/news/confidential-draft-s1-sec" target="_blank">anthropic.com/news/confidential-draft-s1-sec</a>
+      &nbsp;|&nbsp;
+      <a href="https://finance.yahoo.com/markets/stocks/articles/anthropic-files-confidential-1-joins-161008569.html" target="_blank">Yahoo Finance</a>
+      &nbsp;|&nbsp;
+      <a href="https://aibusiness.com/companies/spacex-ipo-new-ai-financing-era" target="_blank">AI Business（SpaceX IPO）</a>
+    </div>
+
+    <div class="fact-label">核心事實 Core Facts</div>
+    <p class="body">
+      Anthropic 於6月1日向 SEC 秘密遞交 S-1 草稿，正式啟動 IPO 準備程序；此前其最新一輪 $650億 Series H 融資將估值推至約 $9650億，成為全球市值最高的未上市 AI 公司。收入方面，May 2026 年化 run rate 達 $470億，較1月的 $90億五個月內增長超過5倍。與此同時，AI 晶片商 Cerebras 於5月14日以 $185/股 IPO 定價，開盤漲89%、融資 $56億；SpaceX 於6月11日以 $135/股 定價，6月12日在 Nasdaq（SPCX）上市，融資逾 $750億，創史上最大 IPO 紀錄。
+    </p>
+    <p class="body" style="color:#555; font-size:0.88rem;">
+      Anthropic filed a confidential draft S-1 with the SEC on June 1, 2026, targeting an IPO after a $65B Series H that valued it at ~$965B. Revenue run-rate hit $47B/year in May (5× growth since January). Cerebras debuted May 14 at +89% on its $185 IPO price, raising $5.6B. SpaceX priced at $135/share June 11, debuted on Nasdaq June 12 as SPCX, raising $75B+ — the largest IPO in history.
+    </p>
+
+    <div class="context-label">背景脈絡 Context</div>
+    <p class="body">
+      2026年 Q1 全球風險投資超過 $3000億，AI 已主導整個科技融資週期。Cerebras（AI 推理晶片）→ SpaceX（AI + 太空）→ Anthropic（AI 安全與模型）的 IPO 序列，被市場解讀為「AI IPO 超級週期」的開幕砲。Anthropic 的估值敘事建立在「最安全的前沿 AI 公司」定位上，而 Fable/Mythos 被下架事件的時間點恰好在 S-1 遞交兩週後爆發，形成罕見的輿論壓力。
+    </p>
+
+    <div class="impact-label">影響觀察 Impact</div>
+    <p class="body">
+      Fable/Mythos 下架事件很可能成為 Anthropic IPO S-1 的重要風險揭露項目，影響機構投資人對其監管風險的評估。從更宏觀視角看，政府對 AI 模型的強制干預若成為常態，將改變 AI 公司的估值邏輯——「能力」之外，「政策風險溢價」將成為新的定價變數。OpenAI 亦已秘密遞交 S-1，市場預計兩家公司將在2026年底前後先後完成 IPO。
+    </p>
+  </div>
+
+
+  <!-- ===== SECTION 4: PRODUCTS & APPLICATIONS ===== -->
+  <div class="section-heading">產品與應用 / Products &amp; Applications</div>
+
+  <!-- Story 6 -->
+  <div class="story product">
+    <h3>
+      <div class="zh">Boston Dynamics × Google DeepMind：Gemini Robotics-ER 1.6 整合 Spot 機器狗與 Atlas 人形機器人，工業巡檢與通用任務雙管齊下</div>
+      <div class="en">Boston Dynamics + Google DeepMind: Gemini Robotics-ER 1.6 Powers Spot Inspections and Atlas Humanoids — Industrial AI and General-Purpose Robots Converge</div>
+    </h3>
+    <div class="source-line">
+      Boston Dynamics &amp; Interesting Engineering &nbsp;·&nbsp; 2026-04–06 &nbsp;·&nbsp;
+      <a href="https://bostondynamics.com/blog/boston-dynamics-google-deepmind-form-new-ai-partnership/" target="_blank">bostondynamics.com</a>
+      &nbsp;|&nbsp;
+      <a href="https://interestingengineering.com/ai-robotics/spot-robot-gemini-ai-industrial-inspection" target="_blank">Interesting Engineering</a>
+    </div>
+
+    <div class="fact-label">核心事實 Core Facts</div>
+    <p class="body">
+      Boston Dynamics 與 Google Cloud、Google DeepMind 達成全面合作，將 Gemini Robotics-ER 1.6 整合進 Spot 機器狗的 Orbit AIVI-Learning 工業視覺巡檢平台。發布影片中，整合後的 Spot 可閱讀手寫清單並自主執行「整理鞋子、撿起飲料罐、放衣物進洗衣籃」等非腳本任務；在另一個場景中，Spot 自行取下狗繩並帶著一隻真狗散步。對於 Atlas 人形機器人，Gemini 3 基礎模型已宣告完整整合，目標是實現「世界最強 AI 大腦 + 世界最強機器人身體」的融合。
+    </p>
+    <p class="body" style="color:#555; font-size:0.88rem;">
+      Boston Dynamics integrated Gemini Robotics-ER 1.6 into Spot's Orbit AIVI-Learning platform for industrial inspection. Demo videos show Spot reading handwritten to-do lists and executing unscripted tasks (organizing shoes, picking cans, doing laundry — and even walking a dog on a leash). Full Gemini 3 integration with the electric Atlas humanoid robot was also announced, merging AI reasoning with advanced physical dexterity.
+    </p>
+
+    <div class="context-label">背景脈絡 Context</div>
+    <p class="body">
+      Boston Dynamics 原本以「預程式化動作」聞名，近年與 Google DeepMind 的合作代表其策略轉向：從動作硬編碼走向 foundation model 驅動的「感知-推理-行動」閉環。這是現實世界機器人與大型語言/視覺模型深度融合的里程碑。對 Google 而言，機器人場景是 Gemini 多模態能力的最佳展示舞台，也可對抗 Tesla Optimus / Figure AI 等競對在人形機器人市場的佈局。
+    </p>
+
+    <div class="impact-label">影響觀察 Impact</div>
+    <p class="body">
+      Spot × Gemini 的工業巡檢整合，直接瞄準石化、電廠、製造業的 AI 視覺替代人工巡察市場。若 Atlas 的 Gemini 整合通過量產驗證，將是人形機器人領域最高調的 AI+硬體融合案例，對 Tesla Bot 形成直接壓力。投資人應關注 Boston Dynamics（現屬 Hyundai）能否藉此案例加速 Atlas 的企業訂單轉化。
+    </p>
+  </div>
+
+  <hr class="story-div">
+
+  <!-- Story 7 -->
+  <div class="story product">
+    <h3>
+      <div class="zh">Anthropic 推出 Claude Corps：面向美國早期職涯者的 AI 公民科技國家獎學金計畫</div>
+      <div class="en">Anthropic Launches Claude Corps: A National Fellowship Bringing AI to American Communities Through Early-Career Talent</div>
+    </h3>
+    <div class="source-line">
+      Anthropic &nbsp;·&nbsp; 2026-06-11 &nbsp;·&nbsp;
+      <a href="https://www.anthropic.com/news/claude-corps" target="_blank">anthropic.com/news/claude-corps</a>
+    </div>
+
+    <div class="fact-label">核心事實 Core Facts</div>
+    <p class="body">
+      Anthropic 於6月11日宣布推出「Claude Corps」，這是一個全國性獎學金計畫，招募對於「將 AI 惠及更廣泛社群」抱有熱忱的美國早期職涯者。此舉是 Anthropic 在籌備 IPO、同時面對政府監管壓力背景下，強化「AI 公益使命」形象的重要動作。
+    </p>
+    <p class="body" style="color:#555; font-size:0.88rem;">
+      Anthropic on June 11 announced Claude Corps, a national fellowship program for early-career Americans passionate about extending AI benefits to communities across the country. The program signals Anthropic's emphasis on social impact alongside its commercial IPO trajectory.
+    </p>
+
+    <div class="context-label">背景脈絡 Context</div>
+    <p class="body">
+      Claude Corps 的命名和定位明顯借鑑 Peace Corps（和平工作團）的意象，將 AI 公民科技定位為公共服務。在 Anthropic 遭遇政府下架指令的同一週推出此計畫，時間點耐人尋味——一方面可能純屬巧合，另一方面也可能是在輿論壓力下強調「AI for good」的公關操作。
+    </p>
+
+    <div class="impact-label">影響觀察 Impact</div>
+    <p class="body">
+      此計畫對 Anthropic IPO S-1 的「社會影響力投資者」敘事有加分效果，也反映 AI 公司正在從「純技術商業化」走向更廣泛的社會責任定位——這是監管環境收緊下的必要轉型。
+    </p>
+  </div>
+
+
+  <!-- ===== SECTION 5: POLICY & REGULATION ===== -->
+  <div class="section-heading">政策與監管 / Policy &amp; Regulation</div>
+
+  <!-- Story 8 -->
+  <div class="story policy">
+    <h3>
+      <div class="zh">白宮簽署「促進先進 AI 創新與安全」行政令：前沿模型須向政府提前30天披露，建立 AI 網路安全資訊交換所</div>
+      <div class="en">White House Signs "Promoting Advanced AI Innovation and Security" Executive Order: 30-Day Advance Government Access for Frontier Models, AI Cybersecurity Clearinghouse Established</div>
+    </h3>
+    <div class="source-line">
+      White House &nbsp;·&nbsp; 2026-06-02 &nbsp;·&nbsp;
+      <a href="https://www.whitehouse.gov/presidential-actions/2026/06/promoting-advanced-artificial-intelligence-innovation-and-security/" target="_blank">whitehouse.gov</a>
+      &nbsp;|&nbsp;
+      <a href="https://www.mayerbrown.com/en/insights/publications/2026/06/president-trump-signs-executive-order-on-advanced-ai-innovation-and-security" target="_blank">Mayer Brown 法律分析</a>
+    </div>
+
+    <div class="fact-label">核心事實 Core Facts</div>
+    <p class="body">
+      2026年6月2日，Trump 總統簽署行政令「促進先進人工智慧創新與安全（Promoting Advanced AI Innovation and Security）」。核心措施包括：(1) 要求前沿 AI 模型開發商在向合作夥伴發布前，自願提供政府最多30天的「提前存取」；(2) 建立 AI 網路安全資訊交換所（AI Cybersecurity Clearinghouse），與業界及關鍵基礎設施業者自願合作識別和修補軟體漏洞；(3) 設定30天和60天的機構執行時限，關鍵交付物分別於7月2日和8月1日到期。行政令整體基調是「創新優先、自願為主、安全為輔」。
+    </p>
+    <p class="body" style="color:#555; font-size:0.88rem;">
+      President Trump signed an EO on June 2 directing federal agencies to: (1) create a voluntary framework where frontier AI developers provide government early access up to 30 days pre-release; (2) establish a voluntary AI Cybersecurity Clearinghouse with industry and critical infrastructure operators; (3) implement key deliverables by July 2 and August 1, 2026.
+    </p>
+
+    <div class="context-label">背景脈絡 Context</div>
+    <p class="body">
+      此行政令出台時間緊接在 Claude Fable 5 發布（6月9日）和政府強制下架指令（6月12日）之前，顯示政府在「AI 安全與存取控制」議題上的行動正在快速提速。行政令的「自願」架構被分析人士解讀為在避免 EU AI Act 式強制規範的同時，為政府保留實質干預空間——正如 Fable/Mythos 下架案所示。Colorado AI Act 亦將於6月30日生效，州級立法填補聯邦空白的趨勢持續。
+    </p>
+
+    <div class="impact-label">影響觀察 Impact</div>
+    <p class="body">
+      「前沿模型發布前30天政府提前存取」條款，若被強制化，將實質上賦予政府對 AI 模型部署的事前審查權——這是行業游說重點。Anthropic、OpenAI 等公司需要在「支持安全框架」與「避免競爭劣勢」之間拿捏：若政府可在提前存取期叫停，等同於隱性發牌制度。Fable/Mythos 案讓這個條款的邊界更加清晰、也更具爭議性。
+    </p>
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <h4>今日查閱來源 / Sources Consulted</h4>
+    <ul>
+      <li><a href="https://www.anthropic.com/news" target="_blank">Anthropic Newsroom — anthropic.com/news</a></li>
+      <li><a href="https://www.anthropic.com/news/fable-mythos-access" target="_blank">Anthropic: Statement on Fable 5 / Mythos 5 export directive (Jun 12)</a></li>
+      <li><a href="https://www.anthropic.com/news/claude-fable-5-mythos-5" target="_blank">Anthropic: Claude Fable 5 and Mythos 5 launch (Jun 9)</a></li>
+      <li><a href="https://www.anthropic.com/news/expanding-project-glasswing" target="_blank">Anthropic: Expanding Project Glasswing (Jun 2)</a></li>
+      <li><a href="https://www.anthropic.com/news/claude-corps" target="_blank">Anthropic: Introducing Claude Corps (Jun 11)</a></li>
+      <li><a href="https://www.anthropic.com/news/confidential-draft-s1-sec" target="_blank">Anthropic: Confidential S-1 SEC filing (Jun 1)</a></li>
+      <li><a href="https://www.cnbc.com/2026/06/12/anthropic-disables-access-to-fable-5-and-mythos-5-to-comply-with-government-directive.html" target="_blank">CNBC: Anthropic disables Fable 5 and Mythos 5 (Jun 12)</a></li>
+      <li><a href="https://dataconomy.com/2026/06/12/ai-leaders-openai-google-deepmind-anthropic-g7-summit/" target="_blank">Dataconomy: G7 summit AI leaders (Jun 12)</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-06-12/anthropic-openai-google-executives-plan-to-attend-g7-summit" target="_blank">Bloomberg: Anthropic/OpenAI/Google at G7 (Jun 12)</a></li>
+      <li><a href="https://www.techtimes.com/articles/317919/20260606/google-gemini-35-pro-nears-june-launch-2-million-token-context-deep-think-reasoning.htm" target="_blank">TechTimes: Gemini 3.5 Pro launch details (Jun 6)</a></li>
+      <li><a href="https://www.macrumors.com/2026/05/19/google-io-2026-roundup/" target="_blank">MacRumors: Google I/O 2026 Roundup (May 19)</a></li>
+      <li><a href="https://bostondynamics.com/blog/boston-dynamics-google-deepmind-form-new-ai-partnership/" target="_blank">Boston Dynamics: DeepMind partnership</a></li>
+      <li><a href="https://interestingengineering.com/ai-robotics/spot-robot-gemini-ai-industrial-inspection" target="_blank">Interesting Engineering: Spot + Gemini inspection</a></li>
+      <li><a href="https://www.whitehouse.gov/presidential-actions/2026/06/promoting-advanced-artificial-intelligence-innovation-and-security/" target="_blank">White House: EO on AI Innovation and Security (Jun 2)</a></li>
+      <li><a href="https://www.mayerbrown.com/en/insights/publications/2026/06/president-trump-signs-executive-order-on-advanced-ai-innovation-and-security" target="_blank">Mayer Brown: EO analysis</a></li>
+      <li><a href="https://aibusiness.com/companies/spacex-ipo-new-ai-financing-era" target="_blank">AI Business: SpaceX IPO (Jun 12)</a></li>
+      <li><a href="https://finance.yahoo.com/markets/stocks/articles/anthropic-files-confidential-1-joins-161008569.html" target="_blank">Yahoo Finance: Anthropic S-1 filing</a></li>
+    </ul>
+
+    <div class="paywall-note">
+      付費牆或無法存取的來源 / Paywalled / Failed sources: The Information (AI vertical), Bloomberg Technology (paywall), Financial Times AI (paywall), WSJ AI (paywall), Stratechery (subscription), Wired AI (partial paywall), MIT Technology Review (metered paywall). 36氪 AI and 機器之心 were not directly fetched this session.
+    </div>
+
+    <p style="margin-top:1.2rem; font-size:0.7rem; color:#999;">
+      Generated by Claude AI · 2026-06-15 · Asia/Taipei · All items independently verified against primary sources. Analysis represents editorial judgment, not financial advice.
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
